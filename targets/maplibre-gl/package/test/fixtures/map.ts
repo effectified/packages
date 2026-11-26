@@ -10,9 +10,11 @@ import { MapLibreMap, type MapOptions, setWorkerUrl } from "maplibre-gl";
 import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?url";
 import { MapMount } from "../../src/index.ts";
 
+// #region example: A map whose camera is the Model
 // MapLibre looks for its worker next to its own module, and Vite moves that module into its dependency cache: an app
 // built with a bundler names the worker's URL, as this one does.
 setWorkerUrl(workerUrl);
+// #endregion
 
 declare global {
 	interface Window {
@@ -29,6 +31,7 @@ MapLibreMap.prototype.resize = function (this: MapLibreMap, ...args: Parameters<
 	return resize.apply(this, args);
 };
 
+// #region example: A map whose camera is the Model
 const style: NonNullable<MapOptions["style"]> = {
 	version: 8,
 	sources: {
@@ -104,3 +107,4 @@ const Atlas = Html.component({
 });
 
 Layer.launch(BrowserHost.mount(Atlas, {}, document.getElementById("root")!)).pipe(Effect.runFork);
+// #endregion

@@ -1,0 +1,1690 @@
+{
+  "schema": 1,
+  "name": "@effectified/webawesome",
+  "slug": "webawesome",
+  "kind": "ui",
+  "tagline": "78 elements, form controls and a dialog",
+  "description": "@awesome.me/webawesome for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
+  "upstream": {
+    "package": "@awesome.me/webawesome",
+    "version": "3.15.0",
+    "npm": "https://www.npmjs.com/package/@awesome.me/webawesome"
+  },
+  "version": "3.15.0+2",
+  "engine": "0.2.0",
+  "page": "https://effectified.dev/webawesome",
+  "source": "https://github.com/effectified/packages/tree/main/targets/awesome.me__webawesome",
+  "install": {
+    "latest": "https://effectified.dev/webawesome.tgz",
+    "release": "https://github.com/effectified/packages/releases/download/webawesome-v3.15.0+2/effectified-webawesome-3.15.0+2.tgz",
+    "tag": "webawesome-v3.15.0+2",
+    "effectUi": "https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57"
+  },
+  "demo": {
+    "url": "https://github.com/effectified/packages/releases/download/webawesome-v3.15.0+2/effectified-webawesome-3.15.0+2-demo.tgz",
+    "pages": [
+      "elements",
+      "form"
+    ]
+  },
+  "tests": 2,
+  "examples": [
+    {
+      "title": "A form and a dialog",
+      "source": "test/fixtures/form.ts",
+      "code": "import \"@awesome.me/webawesome/dist/styles/webawesome.css\";\nimport { Mount, UiSchema } from \"@effect/ui\";\nimport { BrowserHost, Html } from \"@effect/ui/html\";\nimport { Effect, Layer, Schema } from \"effect\";\nimport { Button, Dialog, Input, InputChanges, Switch, SwitchChanges } from \"@effectified/webawesome\";\n\nconst Message = UiSchema.TaggedEnum({\n\tChangedName: { name: Schema.String },\n\tToggledAgreed: { agreed: Schema.Boolean },\n\tClickedOpen: {},\n\tHidDialog: {},\n});\n\nconst Form = Html.component({\n\tname: \"Form\",\n\tmodel: Schema.Struct({ name: Schema.String, agreed: Schema.Boolean, open: Schema.Boolean, closings: Schema.Number }),\n\tmessage: Message,\n}).make({\n\tinit: () => ({ name: \"\", agreed: false, open: false, closings: 0 }),\n\tupdate: {\n\t\tChangedName: ($, { name }) => $.evolve({ name: () => name }),\n\t\tToggledAgreed: ($, { agreed }) => $.evolve({ agreed: () => agreed }),\n\t\tClickedOpen: ($) => $.evolve({ open: () => true }),\n\t\tHidDialog: ($) => $.evolve({ open: () => false, closings: (closings) => closings + 1 }),\n\t},\n\tview: (h, model) =>\n\t\th.div.children(\n\t\t\tInput(h)\n\t\t\t\t.id(\"name\")\n\t\t\t\t.label(\"Name\")\n\t\t\t\t.value(model.name)\n\t\t\t\t.onMount(InputChanges({}).pipe(Mount.map(({ value }) => Message.ChangedName({ name: String(value ?? \"\") })))),\n\t\t\tSwitch(h)\n\t\t\t\t.id(\"agreed\")\n\t\t\t\t.checked(model.agreed)\n\t\t\t\t.onMount(SwitchChanges({}).pipe(Mount.map(({ checked }) => Message.ToggledAgreed({ agreed: checked })))),\n\t\t\tButton(h).id(\"open\").variant(\"brand\").on(\"click\", () => Message.ClickedOpen()).children(\"Open\"),\n\t\t\tDialog(h).id(\"dialog\").label(\"Hello\").open(model.open).on(\"wa-after-hide\", () => Message.HidDialog()).children(`Hello, ${model.name}`),\n\t\t\th.output.id(\"state\").children(JSON.stringify(model)),\n\t\t),\n});\n\nLayer.launch(BrowserHost.mount(Form, {}, document.getElementById(\"root\")!)).pipe(Effect.runFork);\n",
+      "demo": "form"
+    }
+  ],
+  "api": {
+    "exports": [],
+    "services": [],
+    "errors": [
+      {
+        "tag": "WebawesomeError",
+        "codes": [
+          "EMBED",
+          "END_TAG",
+          "END_TAG_OPEN",
+          "EQUALS",
+          "EQUALS_SIGN",
+          "EXCLAMATION_MARK",
+          "ENCODING"
+        ]
+      }
+    ],
+    "handles": [],
+    "elements": [
+      {
+        "tag": "wa-accordion",
+        "name": "Accordion",
+        "description": "Accordions are a vertically stacked set of interactive headings that each contain a title, representing a section of content.",
+        "properties": [
+          "appearance",
+          "didSSR",
+          "headingLevel",
+          "iconPlacement",
+          "mode"
+        ],
+        "events": [
+          "wa-after-collapse",
+          "wa-after-expand",
+          "wa-collapse",
+          "wa-expand"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-accordion-item",
+        "name": "AccordionItem",
+        "description": "Accordion items are used inside `<wa-accordion>` to create expandable sections with accessible headers.",
+        "properties": [
+          "didSSR",
+          "disabled",
+          "expanded",
+          "label"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-animated-image",
+        "name": "AnimatedImage",
+        "description": "Animated images display GIFs and WEBPs with controls to play and pause them on demand.",
+        "properties": [
+          "alt",
+          "didSSR",
+          "play",
+          "src"
+        ],
+        "events": [
+          "wa-error",
+          "wa-load"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-animation",
+        "name": "Animation",
+        "description": "Animate elements declaratively with nearly 100 baked-in presets, or roll your own with custom keyframes.",
+        "properties": [
+          "currentTime",
+          "delay",
+          "didSSR",
+          "direction",
+          "duration",
+          "easing",
+          "endDelay",
+          "fill",
+          "iterationStart",
+          "iterations",
+          "keyframes",
+          "name",
+          "play",
+          "playbackRate"
+        ],
+        "events": [
+          "wa-cancel",
+          "wa-finish",
+          "wa-start"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-avatar",
+        "name": "Avatar",
+        "description": "Avatars represent a person or object with an image, initials, or icon.",
+        "properties": [
+          "didSSR",
+          "image",
+          "initials",
+          "label",
+          "loading",
+          "shape"
+        ],
+        "events": [
+          "wa-error"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-badge",
+        "name": "Badge",
+        "description": "Badges draw attention to adjacent content by displaying a status, count, or label.",
+        "properties": [
+          "appearance",
+          "attention",
+          "didSSR",
+          "pill",
+          "variant"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-breadcrumb",
+        "name": "Breadcrumb",
+        "description": "Breadcrumbs display a trail of links that show users where they are in a site's hierarchy.",
+        "properties": [
+          "didSSR",
+          "label"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-breadcrumb-item",
+        "name": "BreadcrumbItem",
+        "description": "Breadcrumb items represent individual links inside a breadcrumb, typically one per level of the site hierarchy.",
+        "properties": [
+          "didSSR",
+          "href",
+          "rel",
+          "target"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-button",
+        "name": "Button",
+        "description": "Buttons represent actions the user can take, such as submitting a form, opening a dialog, or navigating to another page.",
+        "properties": [
+          "appearance",
+          "customError",
+          "didSSR",
+          "disabled",
+          "download",
+          "formAction",
+          "formEnctype",
+          "formMethod",
+          "formNoValidate",
+          "formTarget",
+          "href",
+          "loading",
+          "name",
+          "pill",
+          "rel",
+          "size",
+          "target",
+          "type",
+          "value",
+          "variant",
+          "withCaret",
+          "withEnd",
+          "withStart"
+        ],
+        "events": [
+          "wa-invalid"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-button-group",
+        "name": "ButtonGroup",
+        "description": "Button groups combine related buttons into a single visual unit.",
+        "properties": [
+          "didSSR",
+          "label",
+          "orientation"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-callout",
+        "name": "Callout",
+        "description": "Callouts display important messages inline with surrounding content.",
+        "properties": [
+          "appearance",
+          "didSSR",
+          "size",
+          "variant"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-card",
+        "name": "Card",
+        "description": "Cards group related content and actions inside a bordered container.",
+        "properties": [
+          "appearance",
+          "didSSR",
+          "orientation",
+          "withFooter",
+          "withFooterActions",
+          "withHeader",
+          "withHeaderActions",
+          "withMedia"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-carousel",
+        "name": "Carousel",
+        "description": "Carousels display a series of content slides along a horizontal or vertical axis, one or more at a time.",
+        "properties": [
+          "autoplay",
+          "autoplayInterval",
+          "currentSlide",
+          "didSSR",
+          "loop",
+          "mouseDragging",
+          "navigation",
+          "orientation",
+          "pagination",
+          "slides",
+          "slidesPerMove",
+          "slidesPerPage"
+        ],
+        "events": [
+          "wa-slide-change"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-carousel-item",
+        "name": "CarouselItem",
+        "description": "Carousel items represent individual slides within a carousel.",
+        "properties": [
+          "didSSR"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-checkbox",
+        "name": "Checkbox",
+        "description": "Checkboxes let users toggle an option on or off, or select multiple items from a list.",
+        "properties": [
+          "checked",
+          "customError",
+          "defaultChecked",
+          "didSSR",
+          "disabled",
+          "hint",
+          "indeterminate",
+          "name",
+          "required",
+          "size",
+          "value"
+        ],
+        "events": [
+          "wa-invalid"
+        ],
+        "changes": [
+          "value",
+          "checked",
+          "indeterminate"
+        ]
+      },
+      {
+        "tag": "wa-checkbox-group",
+        "name": "CheckboxGroup",
+        "description": "Checkbox groups wrap a set of related checkboxes or switches so they share a label, hint, and grouping semantics.",
+        "properties": [
+          "didSSR",
+          "hint",
+          "label",
+          "orientation",
+          "required",
+          "size",
+          "withHint",
+          "withLabel"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-code-highlighter",
+        "name": "CodeHighlighter",
+        "description": "Code highlighters display syntax-highlighted code with a copy button.",
+        "properties": [
+          "code",
+          "didSSR",
+          "label",
+          "language",
+          "withoutCopy",
+          "withoutDedent",
+          "wrap"
+        ],
+        "events": [
+          "wa-error",
+          "wa-load"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-color-picker",
+        "name": "ColorPicker",
+        "description": "Color pickers let users choose a color from a visual palette or by entering a value.",
+        "properties": [
+          "assumeInteractionOn",
+          "customError",
+          "defaultValue",
+          "didSSR",
+          "dir",
+          "disabled",
+          "emitInvalid",
+          "format",
+          "hasInteracted",
+          "hint",
+          "initialReflectedProperties",
+          "label",
+          "lang",
+          "name",
+          "opacity",
+          "open",
+          "placement",
+          "required",
+          "size",
+          "states",
+          "swatches",
+          "uppercase",
+          "validators",
+          "value",
+          "valueHasChanged",
+          "withHint",
+          "withLabel",
+          "withoutFormatToggle"
+        ],
+        "events": [
+          "wa-after-hide",
+          "wa-after-show",
+          "wa-hide",
+          "wa-invalid",
+          "wa-show"
+        ],
+        "changes": [
+          "value",
+          "open"
+        ]
+      },
+      {
+        "tag": "wa-comparison",
+        "name": "Comparison",
+        "description": "Comparisons show the visual differences between two pieces of similar content using a draggable divider.",
+        "properties": [
+          "didSSR",
+          "position"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-copy-button",
+        "name": "CopyButton",
+        "description": "Copy buttons copy text to the clipboard when the user activates them.",
+        "properties": [
+          "copyLabel",
+          "didSSR",
+          "disabled",
+          "errorLabel",
+          "feedbackDuration",
+          "from",
+          "successLabel",
+          "tooltip",
+          "tooltipPlacement",
+          "value"
+        ],
+        "events": [
+          "wa-copy",
+          "wa-error"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-counter",
+        "name": "Counter",
+        "description": "Counters count down to a date or up from one, ticking through years, months, days, and smaller units.",
+        "properties": [
+          "date",
+          "delimiter",
+          "didSSR",
+          "direction",
+          "duration",
+          "format",
+          "label",
+          "largestUnit",
+          "paused",
+          "smallestUnit",
+          "withoutLabels"
+        ],
+        "events": [
+          "wa-finish"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-details",
+        "name": "Details",
+        "description": "Details display a brief summary and expand to reveal additional content.",
+        "properties": [
+          "appearance",
+          "didSSR",
+          "disabled",
+          "iconPlacement",
+          "name",
+          "open",
+          "summary"
+        ],
+        "events": [
+          "wa-after-hide",
+          "wa-after-show",
+          "wa-hide",
+          "wa-show"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-dialog",
+        "name": "Dialog",
+        "description": "Dialogs appear above the page and require the user's immediate attention.",
+        "properties": [
+          "didSSR",
+          "label",
+          "lightDismiss",
+          "open",
+          "withFooter",
+          "withLabel",
+          "withoutHeader"
+        ],
+        "events": [
+          "wa-after-hide",
+          "wa-after-show",
+          "wa-hide",
+          "wa-show"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-divider",
+        "name": "Divider",
+        "description": "Dividers visually separate or group adjacent elements with a horizontal or vertical line.",
+        "properties": [
+          "didSSR",
+          "labelPlacement",
+          "orientation",
+          "withLabel"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-drawer",
+        "name": "Drawer",
+        "description": "Drawers slide in from the edge of a container to expose additional options and information without navigating away.",
+        "properties": [
+          "didSSR",
+          "label",
+          "lightDismiss",
+          "open",
+          "placement",
+          "withFooter",
+          "withLabel",
+          "withoutHeader"
+        ],
+        "events": [
+          "wa-after-hide",
+          "wa-after-show",
+          "wa-hide",
+          "wa-show"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-dropdown",
+        "name": "Dropdown",
+        "description": "Dropdowns display a list of options triggered by a button or other element.",
+        "properties": [
+          "didSSR",
+          "distance",
+          "open",
+          "placement",
+          "size",
+          "skidding"
+        ],
+        "events": [
+          "wa-after-hide",
+          "wa-after-show",
+          "wa-hide",
+          "wa-select",
+          "wa-show"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-dropdown-item",
+        "name": "DropdownItem",
+        "description": "Dropdown items represent selectable entries within a dropdown menu, including standard actions, checkable items, and submenu triggers.",
+        "properties": [
+          "checked",
+          "didSSR",
+          "disabled",
+          "download",
+          "href",
+          "rel",
+          "submenuOpen",
+          "target",
+          "type",
+          "value",
+          "variant"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-format-bytes",
+        "name": "FormatBytes",
+        "description": "Formats a number of bytes as a human-readable string with the appropriate unit, such as kB, MB, or GB.",
+        "properties": [
+          "didSSR",
+          "display",
+          "unit",
+          "value"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-format-date",
+        "name": "FormatDate",
+        "description": "Formats a date or time for display using the specified locale and options.",
+        "properties": [
+          "date",
+          "day",
+          "didSSR",
+          "era",
+          "hour",
+          "hourFormat",
+          "minute",
+          "month",
+          "second",
+          "timeZone",
+          "timeZoneName",
+          "weekday",
+          "year"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-format-number",
+        "name": "FormatNumber",
+        "description": "Formats a number for display using the specified locale and options, including currency, percent, and unit styles.",
+        "properties": [
+          "currency",
+          "currencyDisplay",
+          "didSSR",
+          "maximumFractionDigits",
+          "maximumSignificantDigits",
+          "minimumFractionDigits",
+          "minimumIntegerDigits",
+          "minimumSignificantDigits",
+          "type",
+          "value",
+          "withoutGrouping"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-icon",
+        "name": "Icon",
+        "description": "Icons are scalable vector symbols that represent actions, content, or status throughout your application.",
+        "properties": [
+          "animation",
+          "autoWidth",
+          "canvas",
+          "didSSR",
+          "family",
+          "flip",
+          "label",
+          "library",
+          "name",
+          "rotate",
+          "src",
+          "swapOpacity",
+          "variant"
+        ],
+        "events": [
+          "wa-error",
+          "wa-load"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-include",
+        "name": "Include",
+        "description": "Fetches an external HTML file and embeds its contents inline on the page.",
+        "properties": [
+          "allowScripts",
+          "didSSR",
+          "mode",
+          "src"
+        ],
+        "events": [
+          "wa-include-error",
+          "wa-load"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-input",
+        "name": "Input",
+        "description": "Inputs collect single-line data from the user, such as text, numbers, email addresses, and passwords.",
+        "properties": [
+          "appearance",
+          "autocomplete",
+          "customError",
+          "defaultValue",
+          "didSSR",
+          "disabled",
+          "enterkeyhint",
+          "hint",
+          "inputmode",
+          "label",
+          "max",
+          "maxlength",
+          "min",
+          "minlength",
+          "name",
+          "passwordToggle",
+          "passwordVisible",
+          "pattern",
+          "pill",
+          "placeholder",
+          "readonly",
+          "required",
+          "size",
+          "step",
+          "type",
+          "value",
+          "withClear",
+          "withHint",
+          "withLabel",
+          "withoutSpinButtons"
+        ],
+        "events": [
+          "wa-clear",
+          "wa-invalid"
+        ],
+        "changes": [
+          "value"
+        ]
+      },
+      {
+        "tag": "wa-intersection-observer",
+        "name": "IntersectionObserver",
+        "description": "Tracks immediate child elements and fires events as they move in and out of view.",
+        "properties": [
+          "didSSR",
+          "disabled",
+          "intersectClass",
+          "once",
+          "root",
+          "rootMargin",
+          "threshold"
+        ],
+        "events": [
+          "wa-intersect"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-known-date",
+        "name": "KnownDate",
+        "description": "Known dates let users enter dates they already know, like birthdays and expirations, in separate day, month, and year fields.",
+        "properties": [
+          "appearance",
+          "autocomplete",
+          "customError",
+          "defaultValue",
+          "didSSR",
+          "disabled",
+          "hint",
+          "label",
+          "locale",
+          "max",
+          "min",
+          "name",
+          "parts",
+          "pill",
+          "readonly",
+          "required",
+          "size",
+          "value",
+          "withHint",
+          "withLabel"
+        ],
+        "events": [
+          "wa-invalid"
+        ],
+        "changes": [
+          "value"
+        ]
+      },
+      {
+        "tag": "wa-lightbox",
+        "name": "Lightbox",
+        "description": "Lightboxes show images and videos in a full-screen viewer that opens from their thumbnails.",
+        "properties": [
+          "didSSR",
+          "index",
+          "label",
+          "loop",
+          "open",
+          "withThumbnails",
+          "withoutCounter",
+          "withoutNavigation",
+          "withoutZoom"
+        ],
+        "events": [
+          "wa-after-hide",
+          "wa-after-show",
+          "wa-hide",
+          "wa-item-change",
+          "wa-show"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-lightbox-item",
+        "name": "LightboxItem",
+        "description": "Lightbox items represent the individual images and videos shown in a lightbox.",
+        "properties": [
+          "alt",
+          "caption",
+          "didSSR",
+          "height",
+          "sizes",
+          "src",
+          "srcset",
+          "thumbnail",
+          "type",
+          "width"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-markdown",
+        "name": "Markdown",
+        "description": "Markdown elements render markdown content as HTML directly in the browser, with no server-side build step.",
+        "properties": [
+          "didSSR",
+          "tabSize"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-mutation-observer",
+        "name": "MutationObserver",
+        "description": "Mutation observers watch for changes to an element's DOM tree and emit an event when they occur.",
+        "properties": [
+          "attr",
+          "attrOldValue",
+          "charData",
+          "charDataOldValue",
+          "childList",
+          "didSSR",
+          "disabled"
+        ],
+        "events": [
+          "wa-mutation"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-number-input",
+        "name": "NumberInput",
+        "description": "Number inputs let users enter and edit numeric values, with optional stepper buttons for incrementing and decrementing.",
+        "properties": [
+          "appearance",
+          "autocomplete",
+          "customError",
+          "defaultValue",
+          "didSSR",
+          "disabled",
+          "enterkeyhint",
+          "hint",
+          "inputmode",
+          "label",
+          "max",
+          "min",
+          "name",
+          "pill",
+          "placeholder",
+          "readonly",
+          "required",
+          "size",
+          "step",
+          "value",
+          "withHint",
+          "withLabel",
+          "withoutSteppers"
+        ],
+        "events": [
+          "wa-invalid"
+        ],
+        "changes": [
+          "value"
+        ]
+      },
+      {
+        "tag": "wa-number-ticker",
+        "name": "NumberTicker",
+        "description": "Number tickers count up or down to a value when they scroll into view and format it with the Intl.NumberFormat API.",
+        "properties": [
+          "currency",
+          "currencyDisplay",
+          "delay",
+          "didSSR",
+          "duration",
+          "eager",
+          "easing",
+          "maximumFractionDigits",
+          "maximumSignificantDigits",
+          "minimumFractionDigits",
+          "minimumIntegerDigits",
+          "minimumSignificantDigits",
+          "startValue",
+          "type",
+          "value",
+          "withoutGrouping"
+        ],
+        "events": [
+          "wa-finish"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-option",
+        "name": "Option",
+        "description": "Options represent the individual choices inside a select or similar form control.",
+        "properties": [
+          "defaultSelected",
+          "didSSR",
+          "disabled",
+          "label",
+          "value"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-otp-input",
+        "name": "OtpInput",
+        "description": "OTP inputs collect one-time passcodes, PINs, and other fixed-length codes, one character per segment.",
+        "properties": [
+          "appearance",
+          "autocomplete",
+          "autosubmit",
+          "case",
+          "customError",
+          "defaultValue",
+          "didSSR",
+          "disabled",
+          "format",
+          "hint",
+          "label",
+          "length",
+          "mask",
+          "name",
+          "readonly",
+          "required",
+          "size",
+          "type",
+          "value",
+          "withMask"
+        ],
+        "events": [
+          "wa-clear",
+          "wa-complete",
+          "wa-invalid"
+        ],
+        "changes": [
+          "value"
+        ]
+      },
+      {
+        "tag": "wa-page",
+        "name": "Page",
+        "description": "Pages scaffold an entire application layout with header, navigation, sidebar, main content, aside, and footer regions.",
+        "properties": [
+          "didSSR",
+          "disableNavigationToggle",
+          "disableSticky",
+          "mobileBreakpoint",
+          "navOpen",
+          "navigationPlacement",
+          "view"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-pagination",
+        "name": "Pagination",
+        "description": "Pagination splits long lists of content into pages, letting users navigate between them.",
+        "properties": [
+          "appearance",
+          "boundaryCount",
+          "didSSR",
+          "disabled",
+          "format",
+          "hideSinglePage",
+          "hrefTemplate",
+          "label",
+          "page",
+          "pageSize",
+          "siblingCount",
+          "total",
+          "withEdges",
+          "withSummary",
+          "withoutNav"
+        ],
+        "events": [
+          "wa-before-page-change",
+          "wa-page-change"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-popover",
+        "name": "Popover",
+        "description": "Popovers display contextual content and interactive elements in a floating panel anchored to a trigger.",
+        "properties": [
+          "didSSR",
+          "distance",
+          "for",
+          "open",
+          "placement",
+          "skidding",
+          "withoutArrow"
+        ],
+        "events": [
+          "wa-after-hide",
+          "wa-after-show",
+          "wa-hide",
+          "wa-show"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-popup",
+        "name": "Popup",
+        "description": "Popups declaratively anchor one element to another and keep them positioned together as the page scrolls or resizes.",
+        "properties": [
+          "active",
+          "arrow",
+          "arrowPadding",
+          "arrowPlacement",
+          "autoSize",
+          "autoSizePadding",
+          "boundary",
+          "didSSR",
+          "distance",
+          "flip",
+          "flipFallbackPlacements",
+          "flipFallbackStrategy",
+          "flipPadding",
+          "hoverBridge",
+          "placement",
+          "shift",
+          "shiftPadding",
+          "skidding",
+          "sync"
+        ],
+        "events": [
+          "wa-reposition"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-progress-bar",
+        "name": "ProgressBar",
+        "description": "Progress bars show how far along an ongoing operation is as a horizontal fill.",
+        "properties": [
+          "didSSR",
+          "indeterminate",
+          "label",
+          "value"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-progress-ring",
+        "name": "ProgressRing",
+        "description": "Progress rings show how far along a determinate operation is using a circular indicator.",
+        "properties": [
+          "didSSR",
+          "label",
+          "value"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-qr-code",
+        "name": "QrCode",
+        "description": "QR codes encode a URL or other short text into a scannable image, rendered client-side using the Canvas API.",
+        "properties": [
+          "background",
+          "didSSR",
+          "errorCorrection",
+          "fill",
+          "image",
+          "imageBackground",
+          "imageCoverage",
+          "imagePadding",
+          "label",
+          "radius",
+          "size",
+          "value"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-radio",
+        "name": "Radio",
+        "description": "Radios represent a single option within a mutually exclusive set.",
+        "properties": [
+          "appearance",
+          "customError",
+          "didSSR",
+          "disabled",
+          "name",
+          "size",
+          "value"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-radio-group",
+        "name": "RadioGroup",
+        "description": "Radio groups wrap a set of radios so they function as a single form control with one shared value.",
+        "properties": [
+          "customError",
+          "defaultValue",
+          "didSSR",
+          "disabled",
+          "hint",
+          "label",
+          "name",
+          "orientation",
+          "required",
+          "size",
+          "value",
+          "withHint",
+          "withLabel"
+        ],
+        "events": [
+          "wa-invalid"
+        ],
+        "changes": [
+          "value"
+        ]
+      },
+      {
+        "tag": "wa-random-content",
+        "name": "RandomContent",
+        "description": "Selects one or more child elements at random and displays them, hiding the rest.",
+        "properties": [
+          "animation",
+          "autoplay",
+          "autoplayInterval",
+          "didSSR",
+          "items",
+          "mode"
+        ],
+        "events": [
+          "wa-content-change"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-rating",
+        "name": "Rating",
+        "description": "Ratings display a numeric score as a row of selectable symbols, typically stars.",
+        "properties": [
+          "customError",
+          "defaultValue",
+          "didSSR",
+          "disabled",
+          "label",
+          "max",
+          "name",
+          "precision",
+          "readonly",
+          "required",
+          "size",
+          "value"
+        ],
+        "events": [
+          "wa-hover",
+          "wa-invalid"
+        ],
+        "changes": [
+          "value"
+        ]
+      },
+      {
+        "tag": "wa-relative-time",
+        "name": "RelativeTime",
+        "description": "Relative times display a date as a localized phrase relative to now, such as \"3 hours ago\" or \"in 2 days\".",
+        "properties": [
+          "date",
+          "didSSR",
+          "format",
+          "numeric",
+          "sync"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-resize-observer",
+        "name": "ResizeObserver",
+        "description": "Resize observers watch their slotted elements for size changes and emit an event when they occur.",
+        "properties": [
+          "didSSR",
+          "disabled"
+        ],
+        "events": [
+          "wa-resize"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-scroller",
+        "name": "Scroller",
+        "description": "Scrollers wrap overflowing content in an accessible container with visual cues that help users recognize and navigate scrollable regions.",
+        "properties": [
+          "didSSR",
+          "orientation",
+          "withoutScrollbar",
+          "withoutShadow"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-select",
+        "name": "Select",
+        "description": "Selects let users choose one or more values from a dropdown list of predefined options.",
+        "properties": [
+          "appearance",
+          "customError",
+          "didSSR",
+          "disabled",
+          "hint",
+          "label",
+          "maxOptionsVisible",
+          "multiple",
+          "name",
+          "open",
+          "pill",
+          "placeholder",
+          "placement",
+          "required",
+          "size",
+          "value",
+          "withClear",
+          "withHint",
+          "withLabel"
+        ],
+        "events": [
+          "wa-after-hide",
+          "wa-after-show",
+          "wa-clear",
+          "wa-hide",
+          "wa-invalid",
+          "wa-show"
+        ],
+        "changes": [
+          "value",
+          "open"
+        ]
+      },
+      {
+        "tag": "wa-skeleton",
+        "name": "Skeleton",
+        "description": "Skeletons show placeholder shapes where content will appear once it finishes loading, reducing perceived wait time and preventing layout shift.",
+        "properties": [
+          "didSSR",
+          "effect"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-slider",
+        "name": "Slider",
+        "description": "Sliders let users choose a numeric value within a defined range by dragging a thumb along a track.",
+        "properties": [
+          "customError",
+          "defaultValue",
+          "didSSR",
+          "disabled",
+          "hint",
+          "indicatorOffset",
+          "label",
+          "max",
+          "maxValue",
+          "min",
+          "minValue",
+          "name",
+          "orientation",
+          "range",
+          "readonly",
+          "size",
+          "step",
+          "tooltipDistance",
+          "tooltipPlacement",
+          "value",
+          "withHint",
+          "withLabel",
+          "withMarkers",
+          "withTooltip"
+        ],
+        "events": [
+          "wa-invalid"
+        ],
+        "changes": [
+          "value"
+        ]
+      },
+      {
+        "tag": "wa-spinner",
+        "name": "Spinner",
+        "description": "Spinners indicate that an operation is in progress when the duration is unknown.",
+        "properties": [
+          "didSSR"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-split-panel",
+        "name": "SplitPanel",
+        "description": "Split panels display two adjacent panels separated by a draggable divider, letting users resize each side to suit their workflow.",
+        "properties": [
+          "didSSR",
+          "disabled",
+          "orientation",
+          "position",
+          "positionInPixels",
+          "primary",
+          "snap",
+          "snapThreshold"
+        ],
+        "events": [
+          "wa-reposition"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-step",
+        "name": "Step",
+        "description": "Steps represent a single stage inside a `<wa-stepper>`, showing its position, label, and status.",
+        "properties": [
+          "active",
+          "attention",
+          "completed",
+          "didSSR",
+          "disabled",
+          "loading",
+          "name",
+          "variant",
+          "withDescription"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-stepper",
+        "name": "Stepper",
+        "description": "Steppers visually guide users through a process step by step, breaking content into clear, logical stages.",
+        "properties": [
+          "active",
+          "clickable",
+          "didSSR",
+          "label",
+          "linear",
+          "orientation"
+        ],
+        "events": [
+          "detail",
+          "wa-before-step-change",
+          "wa-step-change"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-switch",
+        "name": "Switch",
+        "description": "Switches toggle a single setting on or off and apply the change immediately, without requiring a form submission.",
+        "properties": [
+          "checked",
+          "customError",
+          "defaultChecked",
+          "didSSR",
+          "disabled",
+          "hint",
+          "name",
+          "required",
+          "size",
+          "value",
+          "withHint"
+        ],
+        "events": [
+          "wa-invalid"
+        ],
+        "changes": [
+          "value",
+          "checked"
+        ]
+      },
+      {
+        "tag": "wa-tab",
+        "name": "Tab",
+        "description": "Tabs label and activate an individual panel inside a tab group.",
+        "properties": [
+          "didSSR",
+          "disabled",
+          "panel"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-tab-group",
+        "name": "TabGroup",
+        "description": "Tab groups organize related content into a single container that displays one panel at a time, with tabs for switching between them.",
+        "properties": [
+          "activation",
+          "active",
+          "didSSR",
+          "placement",
+          "withoutScrollControls"
+        ],
+        "events": [
+          "wa-tab-hide",
+          "wa-tab-show"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-tab-panel",
+        "name": "TabPanel",
+        "description": "Tab panels hold the content shown for a single tab inside a tab group.",
+        "properties": [
+          "active",
+          "didSSR",
+          "name"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-tag",
+        "name": "Tag",
+        "description": "Tags label, categorize, or represent selections with a compact visual marker.",
+        "properties": [
+          "appearance",
+          "didSSR",
+          "pill",
+          "size",
+          "variant",
+          "withRemove"
+        ],
+        "events": [
+          "wa-remove"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-tag-input",
+        "name": "TagInput",
+        "description": "Tag inputs collect a list of short values, such as keywords, email addresses, or labels, as removable tags.",
+        "properties": [
+          "allowDuplicates",
+          "appearance",
+          "autocomplete",
+          "customError",
+          "defaultValue",
+          "delimiter",
+          "didSSR",
+          "disabled",
+          "enterkeyhint",
+          "hint",
+          "inputValue",
+          "inputmode",
+          "label",
+          "maxTags",
+          "minTags",
+          "name",
+          "pill",
+          "placeholder",
+          "readonly",
+          "required",
+          "size",
+          "value",
+          "withClear",
+          "withHint",
+          "withLabel"
+        ],
+        "events": [
+          "wa-clear",
+          "wa-create",
+          "wa-invalid"
+        ],
+        "changes": [
+          "value"
+        ]
+      },
+      {
+        "tag": "wa-textarea",
+        "name": "Textarea",
+        "description": "Textareas collect multi-line text input from the user, with optional resizing and character counting.",
+        "properties": [
+          "appearance",
+          "autocomplete",
+          "customError",
+          "defaultValue",
+          "didSSR",
+          "disabled",
+          "enterkeyhint",
+          "hint",
+          "inputmode",
+          "label",
+          "maxlength",
+          "minlength",
+          "name",
+          "placeholder",
+          "readonly",
+          "required",
+          "resize",
+          "rows",
+          "size",
+          "value",
+          "withCount",
+          "withHint",
+          "withLabel"
+        ],
+        "events": [
+          "wa-invalid"
+        ],
+        "changes": [
+          "value"
+        ]
+      },
+      {
+        "tag": "wa-time-input",
+        "name": "TimeInput",
+        "description": "Time pickers let users enter a time through a segmented field or select one visually from a popup column picker.",
+        "properties": [
+          "appearance",
+          "assumeInteractionOn",
+          "autocomplete",
+          "customError",
+          "defaultValue",
+          "didSSR",
+          "disabled",
+          "distance",
+          "hint",
+          "hourFormat",
+          "label",
+          "max",
+          "min",
+          "name",
+          "open",
+          "pill",
+          "placement",
+          "readonly",
+          "required",
+          "size",
+          "step",
+          "value",
+          "withClear",
+          "withHint",
+          "withLabel",
+          "withNow"
+        ],
+        "events": [
+          "wa-after-hide",
+          "wa-after-show",
+          "wa-clear",
+          "wa-hide",
+          "wa-invalid",
+          "wa-show"
+        ],
+        "changes": [
+          "value",
+          "open"
+        ]
+      },
+      {
+        "tag": "wa-toast",
+        "name": "Toast",
+        "description": "Toasts display brief, non-blocking notifications that appear temporarily above the page content.",
+        "properties": [
+          "didSSR",
+          "placement"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "wa-toast-item",
+        "name": "ToastItem",
+        "description": "Toast items are individual notifications displayed within a toast container.",
+        "properties": [
+          "didSSR",
+          "duration",
+          "size",
+          "variant",
+          "withIcon"
+        ],
+        "events": [
+          "wa-after-hide",
+          "wa-after-show",
+          "wa-hide",
+          "wa-show"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-tooltip",
+        "name": "Tooltip",
+        "description": "Tooltips display brief contextual information when the user hovers, focuses, or taps a target element.",
+        "properties": [
+          "didSSR",
+          "disabled",
+          "distance",
+          "for",
+          "hideDelay",
+          "open",
+          "placement",
+          "showDelay",
+          "skidding",
+          "trigger",
+          "withoutArrow"
+        ],
+        "events": [
+          "wa-after-hide",
+          "wa-after-show",
+          "wa-hide",
+          "wa-show"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-tree",
+        "name": "Tree",
+        "description": "Trees allow you to display a hierarchical list of selectable tree items.",
+        "properties": [
+          "didSSR",
+          "selection"
+        ],
+        "events": [
+          "wa-selection-change"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-tree-item",
+        "name": "TreeItem",
+        "description": "Tree items represent a single hierarchical node inside a tree, and can contain nested items that expand and collapse.",
+        "properties": [
+          "didSSR",
+          "disabled",
+          "expanded",
+          "lazy",
+          "selected"
+        ],
+        "events": [
+          "wa-after-collapse",
+          "wa-after-expand",
+          "wa-collapse",
+          "wa-expand",
+          "wa-lazy-change",
+          "wa-lazy-load"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "wa-zoomable-frame",
+        "name": "ZoomableFrame",
+        "description": "Zoomable frames embed iframe content with built-in controls for zooming, panning, and managing interaction.",
+        "properties": [
+          "allow",
+          "allowfullscreen",
+          "didSSR",
+          "label",
+          "loading",
+          "name",
+          "referrerpolicy",
+          "sandbox",
+          "src",
+          "srcdoc",
+          "withThemeSync",
+          "withoutControls",
+          "withoutInteraction",
+          "zoom",
+          "zoomLevels"
+        ],
+        "events": [],
+        "changes": []
+      }
+    ],
+    "mounts": []
+  }
+}

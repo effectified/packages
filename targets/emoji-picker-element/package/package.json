@@ -1,6 +1,6 @@
 {
   "name": "@effectified/emoji-picker-element",
-  "version": "1.29.1",
+  "version": "1.29.1+2",
   "description": "emoji-picker-element for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
   "type": "module",
   "license": "MIT",
@@ -16,7 +16,8 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "SKILL.md"
   ],
   "sideEffects": [
     "./dist/elements/*.js",
@@ -25,7 +26,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "check": "tsc -p tsconfig.json",
-    "test": "vitest --run --passWithNoTests --testTimeout=60000"
+    "test": "vitest --run --passWithNoTests --testTimeout=60000",
+    "demo": "node test/support/demo.ts"
   },
   "dependencies": {
     "emoji-picker-element": "1.29.1"

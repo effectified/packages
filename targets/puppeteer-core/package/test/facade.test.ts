@@ -15,6 +15,8 @@ describe.skipIf(!existsSync(executablePath))("@effectified/puppeteer-core", { ti
 		Effect.gen(function* () {
 			const upstream = yield* Effect.scoped(
 				Effect.gen(function* () {
+					// #region example: Drive a page in a scoped browser
+					// The browser and its pages close when the scope does.
 					const browser = yield* launch(options);
 					const page = yield* browser.newPage();
 					yield* page.setContent("<title>effectified</title><h1>Hello</h1><input id=name>");
@@ -23,6 +25,7 @@ describe.skipIf(!existsSync(executablePath))("@effectified/puppeteer-core", { ti
 					yield* page.keyboard.type("Ada");
 					// `$eval` keeps its type parameters: the selector types the element, the function's result the value.
 					const name: string = yield* page.$eval("input#name", (input) => input.value);
+					// #endregion
 					expect(name).toBe("Ada");
 					expect(yield* page.title()).toBe("effectified");
 					const heading: string | null = yield* page.$eval("h1", (element) => element.textContent);
@@ -39,6 +42,13 @@ describe.skipIf(!existsSync(executablePath))("@effectified/puppeteer-core", { ti
 			Effect.gen(function* () {
 				const browser = yield* launch(options);
 				const page = yield* browser.newPage();
+				// #region example: A timeout is a TimeoutError
+				const found = yield* page.waitForSelector("#never", { timeout: 100 }).pipe(
+					Effect.as(true),
+					Effect.catchTag("TimeoutError", () => Effect.succeed(false)),
+				);
+				// #endregion
+				expect(found).toBe(false);
 				const error = yield* Effect.flip(page.waitForSelector("#never", { timeout: 100 }));
 				expect(error).toBeInstanceOf(TimeoutError);
 				expect(error._tag).toBe("TimeoutError");

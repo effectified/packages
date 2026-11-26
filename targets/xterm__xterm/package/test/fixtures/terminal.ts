@@ -21,6 +21,7 @@ Terminal.prototype.open = function (this: Terminal, parent: HTMLElement) {
 	open.call(this, parent);
 };
 
+// #region example: A terminal fed from the Model, keystrokes as messages
 const Message = UiSchema.TaggedEnum({
 	Typed: { data: Schema.String },
 	Resized: { cols: Schema.Number, rows: Schema.Number },
@@ -69,3 +70,4 @@ const Echo = Html.component({
 });
 
 Layer.launch(BrowserHost.mount(Echo, {}, document.getElementById("root")!)).pipe(Effect.runFork);
+// #endregion

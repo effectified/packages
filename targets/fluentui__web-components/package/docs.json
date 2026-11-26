@@ -1,0 +1,660 @@
+{
+  "schema": 1,
+  "name": "@effectified/fluentui-web-components",
+  "slug": "fluentui-web-components",
+  "kind": "ui",
+  "tagline": "elements defined through its exports map, a form and a dialog",
+  "description": "@fluentui/web-components for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
+  "upstream": {
+    "package": "@fluentui/web-components",
+    "version": "3.2.5",
+    "npm": "https://www.npmjs.com/package/@fluentui/web-components"
+  },
+  "version": "3.2.5+2",
+  "engine": "0.2.0",
+  "page": "https://effectified.dev/fluentui-web-components",
+  "source": "https://github.com/effectified/packages/tree/main/targets/fluentui__web-components",
+  "install": {
+    "latest": "https://effectified.dev/fluentui-web-components.tgz",
+    "release": "https://github.com/effectified/packages/releases/download/fluentui-web-components-v3.2.5+2/effectified-fluentui-web-components-3.2.5+2.tgz",
+    "tag": "fluentui-web-components-v3.2.5+2",
+    "effectUi": "https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57"
+  },
+  "demo": {
+    "url": "https://github.com/effectified/packages/releases/download/fluentui-web-components-v3.2.5+2/effectified-fluentui-web-components-3.2.5+2-demo.tgz",
+    "pages": [
+      "elements",
+      "form"
+    ]
+  },
+  "tests": 2,
+  "examples": [
+    {
+      "title": "A form and a dialog",
+      "source": "test/fixtures/form.ts",
+      "code": "import { webLightTheme } from \"@fluentui/tokens\";\nimport { setTheme } from \"@fluentui/web-components\";\nimport { Mount, UiSchema } from \"@effect/ui\";\nimport { BrowserHost, Html } from \"@effect/ui/html\";\nimport { Effect, Layer, Schema } from \"effect\";\nimport { Button, Checkbox, CheckboxChanges, Dialog, DialogBody, DialogOpen, Switch, SwitchChanges, TextInput, TextInputChanges } from \"@effectified/fluentui-web-components\";\n\n// Fluent's elements read their colours and sizes from its design tokens: an app sets a theme once.\nsetTheme(webLightTheme);\n\nconst Message = UiSchema.TaggedEnum({\n\tChangedName: { name: Schema.String },\n\tToggledNotify: { notify: Schema.Boolean },\n\tCheckedAgreed: { agreed: Schema.Boolean },\n\tClickedOpen: {},\n\tClickedClose: {},\n\tToggledDialog: { open: Schema.Boolean },\n});\n\nconst Form = Html.component({\n\tname: \"Form\",\n\tmodel: Schema.Struct({\n\t\tname: Schema.String,\n\t\tnotify: Schema.Boolean,\n\t\tagreed: Schema.Boolean,\n\t\topen: Schema.Boolean,\n\t\tclosings: Schema.Number,\n\t}),\n\tmessage: Message,\n}).make({\n\tinit: () => ({ name: \"\", notify: false, agreed: false, open: false, closings: 0 }),\n\tupdate: {\n\t\tChangedName: ($, { name }) => $.evolve({ name: () => name }),\n\t\tToggledNotify: ($, { notify }) => $.evolve({ notify: () => notify }),\n\t\tCheckedAgreed: ($, { agreed }) => $.evolve({ agreed: () => agreed }),\n\t\tClickedOpen: ($) => $.evolve({ open: () => true }),\n\t\tClickedClose: ($) => $.evolve({ open: () => false }),\n\t\tToggledDialog: ($, { open }) => (open ? $.evolve({ open: () => true }) : $.evolve({ open: () => false, closings: (closings) => closings + 1 })),\n\t},\n\tview: (h, model) =>\n\t\th.div.children(\n\t\t\tTextInput(h)\n\t\t\t\t.id(\"name\")\n\t\t\t\t.value(model.name)\n\t\t\t\t.onMount(TextInputChanges({}).pipe(Mount.map(({ value }) => Message.ChangedName({ name: String(value ?? \"\") }))))\n\t\t\t\t.children(\"Name\"),\n\t\t\tSwitch(h)\n\t\t\t\t.id(\"notify\")\n\t\t\t\t.checked(model.notify)\n\t\t\t\t.onMount(SwitchChanges({}).pipe(Mount.map(({ checked }) => Message.ToggledNotify({ notify: checked === true })))),\n\t\t\tCheckbox(h)\n\t\t\t\t.id(\"agreed\")\n\t\t\t\t.checked(model.agreed)\n\t\t\t\t.onMount(CheckboxChanges({}).pipe(Mount.map(({ checked }) => Message.CheckedAgreed({ agreed: checked === true })))),\n\t\t\tButton(h).id(\"open\").on(\"click\", Message.ClickedOpen()).children(\"Open\"),\n\t\t\tDialog(h)\n\t\t\t\t.id(\"dialog\")\n\t\t\t\t.onMount(DialogOpen({ open: model.open }).pipe(Mount.map(({ open }) => Message.ToggledDialog({ open }))))\n\t\t\t\t.children(\n\t\t\t\t\tDialogBody(h).children(\n\t\t\t\t\t\th.p.children(`Hello, ${model.name}`),\n\t\t\t\t\t\tButton(h).id(\"close\").attr(\"slot\", \"action\").on(\"click\", Message.ClickedClose()).children(\"Close\"),\n\t\t\t\t\t),\n\t\t\t\t),\n\t\t\th.output.id(\"state\").children(JSON.stringify(model)),\n\t\t),\n});\n\nLayer.launch(BrowserHost.mount(Form, {}, document.getElementById(\"root\")!)).pipe(Effect.runFork);\n",
+      "demo": "form"
+    }
+  ],
+  "api": {
+    "exports": [],
+    "services": [],
+    "errors": [
+      {
+        "tag": "WebComponentsError",
+        "codes": []
+      }
+    ],
+    "handles": [],
+    "elements": [
+      {
+        "tag": "fluent-accordion",
+        "name": "Accordion",
+        "description": "An Accordion Custom HTML Element Implements https://www.w3.org/TR/wai-aria-practices-1.1/#accordion | ARIA Accordion.",
+        "properties": [
+          "expandmode"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-accordion-item",
+        "name": "AccordionItem",
+        "description": "An Accordion Item Custom HTML Element.",
+        "properties": [
+          "disabled",
+          "expanded",
+          "headinglevel"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-anchor-button",
+        "name": "AnchorButton",
+        "description": "An Anchor Custom HTML Element.",
+        "properties": [
+          "download",
+          "href",
+          "hreflang",
+          "ping",
+          "referrerpolicy",
+          "rel",
+          "role",
+          "target",
+          "type"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-avatar",
+        "name": "Avatar",
+        "description": "An Avatar Custom HTML Element.",
+        "properties": [
+          "color",
+          "colorId",
+          "initials",
+          "name",
+          "role",
+          "size"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-badge",
+        "name": "Badge",
+        "description": "The base class used for constructing a fluent-badge custom element",
+        "properties": [],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-button",
+        "name": "Button",
+        "description": "A Button Custom HTML Element.",
+        "properties": [
+          "disabled",
+          "disabledFocusable",
+          "formAction",
+          "formAttribute",
+          "formEnctype",
+          "formMethod",
+          "formNoValidate",
+          "formTarget",
+          "name",
+          "role",
+          "type",
+          "value"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-checkbox",
+        "name": "Checkbox",
+        "description": "A Checkbox Custom HTML Element.",
+        "properties": [
+          "checked",
+          "disabled",
+          "disabledAttribute",
+          "formAttribute",
+          "indeterminate",
+          "initialChecked",
+          "initialValue",
+          "name",
+          "required",
+          "role",
+          "value"
+        ],
+        "events": [],
+        "changes": [
+          "value",
+          "checked",
+          "indeterminate"
+        ]
+      },
+      {
+        "tag": "fluent-compound-button",
+        "name": "CompoundButton",
+        "description": "The base class used for constructing a fluent-compound-button custom element",
+        "properties": [
+          "disabled",
+          "disabledFocusable",
+          "formAction",
+          "formAttribute",
+          "formEnctype",
+          "formMethod",
+          "formNoValidate",
+          "formTarget",
+          "name",
+          "role",
+          "type",
+          "value"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-counter-badge",
+        "name": "CounterBadge",
+        "description": "A CounterBadge Custom HTML Element.",
+        "properties": [
+          "appearance",
+          "color",
+          "count",
+          "dot",
+          "overflowCount",
+          "shape",
+          "showZero",
+          "size"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-dialog",
+        "name": "Dialog",
+        "description": "A Dialog Custom HTML Element.",
+        "properties": [
+          "ariaDescribedby",
+          "ariaLabel",
+          "ariaLabelledby",
+          "type"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-dialog-body",
+        "name": "DialogBody",
+        "description": "Dialog Body component that extends the FASTElement class.",
+        "properties": [],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-divider",
+        "name": "Divider",
+        "description": "A Divider Custom HTML Element.",
+        "properties": [
+          "orientation",
+          "role"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-drawer",
+        "name": "Drawer",
+        "description": "A component that provides a drawer for displaying content in a side panel.",
+        "properties": [
+          "ariaDescribedby",
+          "ariaLabelledby",
+          "role",
+          "type"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-drawer-body",
+        "name": "DrawerBody",
+        "description": "A component that provides a drawer body for displaying content in a side panel.",
+        "properties": [],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-dropdown",
+        "name": "Dropdown",
+        "description": "The Fluent Dropdown Element.",
+        "properties": [
+          "ariaLabelledBy",
+          "disabled",
+          "id",
+          "initialValue",
+          "multiple",
+          "name",
+          "open",
+          "placeholder",
+          "required",
+          "role",
+          "type",
+          "value"
+        ],
+        "events": [],
+        "changes": [
+          "value",
+          "open"
+        ]
+      },
+      {
+        "tag": "fluent-field",
+        "name": "Field",
+        "description": "A Field Custom HTML Element.",
+        "properties": [
+          "role"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-image",
+        "name": "Image",
+        "description": "The base class used for constucting a fluent image custom element",
+        "properties": [],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-label",
+        "name": "Label",
+        "description": "The base class used for constructing a fluent-label custom element",
+        "properties": [
+          "required"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-link",
+        "name": "Link",
+        "description": "An Anchor Custom HTML Element.",
+        "properties": [
+          "download",
+          "href",
+          "hreflang",
+          "ping",
+          "referrerpolicy",
+          "rel",
+          "role",
+          "target",
+          "type"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-listbox",
+        "name": "Listbox",
+        "description": "A Listbox Custom HTML Element.",
+        "properties": [
+          "multiple",
+          "role"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-menu",
+        "name": "Menu",
+        "description": "The Menu component functions as a customizable menu element.",
+        "properties": [
+          "closeOnScroll",
+          "openOnContext",
+          "openOnHover",
+          "persistOnItemClick"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-menu-button",
+        "name": "MenuButton",
+        "description": "The base class used for constructing a fluent-menu-button custom element",
+        "properties": [
+          "disabled",
+          "disabledFocusable",
+          "formAction",
+          "formAttribute",
+          "formEnctype",
+          "formMethod",
+          "formNoValidate",
+          "formTarget",
+          "name",
+          "role",
+          "type",
+          "value"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-menu-item",
+        "name": "MenuItem",
+        "description": "A Switch Custom HTML Element.",
+        "properties": [
+          "checked",
+          "disabled",
+          "hidden",
+          "role"
+        ],
+        "events": [],
+        "changes": [
+          "checked"
+        ]
+      },
+      {
+        "tag": "fluent-menu-list",
+        "name": "MenuList",
+        "description": "A MenuList Custom HTML Element.",
+        "properties": [
+          "role"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-message-bar",
+        "name": "MessageBar",
+        "description": "A Message Bar Custom HTML Element.",
+        "properties": [
+          "role"
+        ],
+        "events": [
+          "dismiss"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "fluent-progress-bar",
+        "name": "ProgressBar",
+        "description": "A Progress HTML Element.",
+        "properties": [
+          "max",
+          "min",
+          "role",
+          "value"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-radio",
+        "name": "Radio",
+        "description": "A Radio Custom HTML Element.",
+        "properties": [
+          "checked",
+          "disabled",
+          "disabledAttribute",
+          "formAttribute",
+          "initialChecked",
+          "initialValue",
+          "name",
+          "required",
+          "role",
+          "value"
+        ],
+        "events": [
+          "disabled"
+        ],
+        "changes": [
+          "value",
+          "checked"
+        ]
+      },
+      {
+        "tag": "fluent-radio-group",
+        "name": "RadioGroup",
+        "description": "A Radio Group Custom HTML Element.",
+        "properties": [
+          "ariaOrientation",
+          "disabled",
+          "initialValue",
+          "name",
+          "orientation",
+          "required",
+          "role",
+          "value"
+        ],
+        "events": [],
+        "changes": [
+          "value"
+        ]
+      },
+      {
+        "tag": "fluent-rating-display",
+        "name": "RatingDisplay",
+        "description": "A Rating Display Custom HTML Element.",
+        "properties": [
+          "count",
+          "iconViewBox",
+          "max",
+          "role",
+          "value"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-slider",
+        "name": "Slider",
+        "description": "The base class used for constructing a fluent-slider custom element",
+        "properties": [
+          "ariaOrientation",
+          "disabled",
+          "initialValue",
+          "max",
+          "min",
+          "mode",
+          "orientation",
+          "role",
+          "step",
+          "value",
+          "valueAsNumber"
+        ],
+        "events": [],
+        "changes": [
+          "value",
+          "valueAsNumber"
+        ]
+      },
+      {
+        "tag": "fluent-spinner",
+        "name": "Spinner",
+        "description": "A Spinner Custom HTML Element.",
+        "properties": [
+          "role"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-switch",
+        "name": "Switch",
+        "description": "A Switch Custom HTML Element.",
+        "properties": [
+          "checked",
+          "disabled",
+          "disabledAttribute",
+          "formAttribute",
+          "initialChecked",
+          "initialValue",
+          "name",
+          "required",
+          "role",
+          "value"
+        ],
+        "events": [],
+        "changes": [
+          "value",
+          "checked"
+        ]
+      },
+      {
+        "tag": "fluent-tab",
+        "name": "Tab",
+        "description": "Tab extends the FASTTab and is a child of the TabList",
+        "properties": [
+          "disabled",
+          "role"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-tablist",
+        "name": "Tablist",
+        "description": "A Tablist component.",
+        "properties": [
+          "activeid",
+          "ariaOrientation",
+          "disabled",
+          "orientation",
+          "role"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-text",
+        "name": "Text",
+        "description": "The base class used for constructing a fluent-text custom element",
+        "properties": [],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-text-input",
+        "name": "TextInput",
+        "description": "A Text Input Custom HTML Element.",
+        "properties": [
+          "autocomplete",
+          "currentValue",
+          "dirname",
+          "disabled",
+          "formAttribute",
+          "initialValue",
+          "list",
+          "maxlength",
+          "minlength",
+          "multiple",
+          "name",
+          "pattern",
+          "placeholder",
+          "readOnly",
+          "required",
+          "size",
+          "spellcheck",
+          "type",
+          "value"
+        ],
+        "events": [],
+        "changes": [
+          "value"
+        ]
+      },
+      {
+        "tag": "fluent-toggle-button",
+        "name": "ToggleButton",
+        "description": "The base class used for constructing a `<fluent-toggle-button>` custom element.",
+        "properties": [
+          "disabled",
+          "disabledFocusable",
+          "formAction",
+          "formAttribute",
+          "formEnctype",
+          "formMethod",
+          "formNoValidate",
+          "formTarget",
+          "mixed",
+          "name",
+          "pressed",
+          "role",
+          "type",
+          "value"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-tooltip",
+        "name": "Tooltip",
+        "description": "A Tooltip Custom HTML Element.",
+        "properties": [
+          "anchor",
+          "delay",
+          "id",
+          "positioning",
+          "role"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-tree",
+        "name": "Tree",
+        "description": "The Fluent Tree Element.",
+        "properties": [
+          "appearance",
+          "role",
+          "size"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "fluent-tree-item",
+        "name": "TreeItem",
+        "description": "The Fluent Tree Item Element.",
+        "properties": [
+          "appearance",
+          "empty",
+          "expanded",
+          "role",
+          "selected",
+          "size"
+        ],
+        "events": [],
+        "changes": [
+          "selected"
+        ]
+      }
+    ],
+    "mounts": [
+      "DialogOpen"
+    ]
+  }
+}

@@ -15,6 +15,7 @@ declare global {
 }
 window.EditorView = EditorView;
 
+// #region example: An editor whose document is the Model
 // Module constants: the mount reconfigures the editor only when the view gives it another value.
 const editable = EditorView.lineWrapping;
 const locked = [EditorView.lineWrapping, EditorState.readOnly.of(true)];
@@ -59,3 +60,4 @@ const Notes = Html.component({
 });
 
 Layer.launch(BrowserHost.mount(Notes, {}, document.getElementById("root")!)).pipe(Effect.runFork);
+// #endregion

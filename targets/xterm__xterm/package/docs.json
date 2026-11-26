@@ -1,0 +1,209 @@
+{
+  "schema": 1,
+  "name": "@effectified/xterm",
+  "slug": "xterm",
+  "kind": "ui",
+  "tagline": "a terminal fed from the Model, keystrokes as messages",
+  "description": "@xterm/xterm for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
+  "upstream": {
+    "package": "@xterm/xterm",
+    "version": "6.0.0",
+    "npm": "https://www.npmjs.com/package/@xterm/xterm"
+  },
+  "version": "6.0.0+2",
+  "engine": "0.2.0",
+  "page": "https://effectified.dev/xterm",
+  "source": "https://github.com/effectified/packages/tree/main/targets/xterm__xterm",
+  "install": {
+    "latest": "https://effectified.dev/xterm.tgz",
+    "release": "https://github.com/effectified/packages/releases/download/xterm-v6.0.0+2/effectified-xterm-6.0.0+2.tgz",
+    "tag": "xterm-v6.0.0+2",
+    "effectUi": "https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57"
+  },
+  "demo": {
+    "url": "https://github.com/effectified/packages/releases/download/xterm-v6.0.0+2/effectified-xterm-6.0.0+2-demo.tgz",
+    "pages": [
+      "terminal"
+    ]
+  },
+  "tests": 1,
+  "examples": [
+    {
+      "title": "A terminal fed from the Model, keystrokes as messages",
+      "source": "test/fixtures/terminal.ts",
+      "code": "import { Mount, UiSchema } from \"@effect/ui\";\nimport { BrowserHost, Html } from \"@effect/ui/html\";\nimport { Effect, Layer, Schema } from \"effect\";\nimport { TerminalMount } from \"@effectified/xterm\";\n\nconst Message = UiSchema.TaggedEnum({\n\tTyped: { data: Schema.String },\n\tResized: { cols: Schema.Number, rows: Schema.Number },\n\tClickedBigger: {},\n\tClickedClear: {},\n\tClickedHide: {},\n});\n\n/** The echo of typed data: printable characters as they are, Enter as a new line, other control characters dropped. */\nconst echo = (data: string): string =>\n\t[...data].map((char) => (char === \"\\r\" ? \"\\r\\n\" : char >= \" \" && char !== \"\\x7f\" ? char : \"\")).join(\"\");\n\nconst Echo = Html.component({\n\tname: \"Echo\",\n\tmodel: Schema.Struct({\n\t\toutput: Schema.Array(Schema.String),\n\t\treceived: Schema.String,\n\t\tfontSize: Schema.Number,\n\t\tsize: Schema.Struct({ cols: Schema.Number, rows: Schema.Number }),\n\t\tshown: Schema.Boolean,\n\t}),\n\tmessage: Message,\n}).make({\n\tinit: () => ({ output: [\"$ \"], received: \"\", fontSize: 14, size: { cols: 0, rows: 0 }, shown: true }),\n\tupdate: {\n\t\tTyped: ($, { data }) => $.evolve({ output: (output) => [...output, echo(data)], received: (received) => received + data }),\n\t\tResized: ($, { cols, rows }) => $.evolve({ size: () => ({ cols, rows }) }),\n\t\tClickedBigger: ($) => $.evolve({ fontSize: (fontSize) => fontSize + 6 }),\n\t\tClickedClear: ($) => $.evolve({ output: () => [] }),\n\t\tClickedHide: ($) => $.evolve({ shown: () => false }),\n\t},\n\tview: (h, model) =>\n\t\th.div.children(\n\t\t\th.button.id(\"bigger\").on(\"click\", Message.ClickedBigger()).children(\"Bigger\"),\n\t\t\th.button.id(\"clear\").on(\"click\", Message.ClickedClear()).children(\"Clear\"),\n\t\t\th.button.id(\"hide\").on(\"click\", Message.ClickedHide()).children(\"Hide\"),\n\t\t\th.output.id(\"state\").children(JSON.stringify(model)),\n\t\t\tmodel.shown\n\t\t\t\t? h.div.id(\"terminal\").style({ width: \"640px\", height: \"240px\" }).onMount(\n\t\t\t\t\t\tTerminalMount({ options: { fontSize: model.fontSize }, output: model.output }).pipe(\n\t\t\t\t\t\t\tMount.map((event) => (event._tag === \"Data\" ? Message.Typed({ data: event.data }) : Message.Resized({ cols: event.cols, rows: event.rows }))),\n\t\t\t\t\t\t),\n\t\t\t\t\t)\n\t\t\t\t: h.p.id(\"hidden\").children(\"hidden\"),\n\t\t),\n});\n\nLayer.launch(BrowserHost.mount(Echo, {}, document.getElementById(\"root\")!)).pipe(Effect.runFork);\n",
+      "demo": "terminal"
+    }
+  ],
+  "api": {
+    "exports": [],
+    "services": [
+      {
+        "name": "XtermTerminal",
+        "handle": "Terminal",
+        "acquire": "Terminal"
+      }
+    ],
+    "errors": [
+      {
+        "tag": "XtermError",
+        "codes": [
+          "EPIPE",
+          "ERROR"
+        ]
+      }
+    ],
+    "handles": [
+      {
+        "name": "Terminal",
+        "release": "dispose",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attachCustomKeyEventHandler",
+          "attachCustomWheelEventHandler",
+          "blur",
+          "clear",
+          "clearSelection",
+          "clearTextureAtlas",
+          "deregisterCharacterJoiner",
+          "dispose",
+          "focus",
+          "getSelection",
+          "getSelectionPosition",
+          "hasSelection",
+          "input",
+          "loadAddon",
+          "onBell",
+          "onBinary",
+          "onCursorMove",
+          "onData",
+          "onKey",
+          "onLineFeed",
+          "onRender",
+          "onResize",
+          "onScroll",
+          "onSelectionChange",
+          "onTitleChange",
+          "onWriteParsed",
+          "open",
+          "paste",
+          "refresh",
+          "registerCharacterJoiner",
+          "registerDecoration",
+          "registerLinkProvider",
+          "registerMarker",
+          "reset",
+          "resize",
+          "scrollLines",
+          "scrollPages",
+          "scrollToBottom",
+          "scrollToLine",
+          "scrollToTop",
+          "select",
+          "selectAll",
+          "selectLines",
+          "write",
+          "writeln"
+        ],
+        "events": []
+      },
+      {
+        "name": "IDisposable",
+        "release": "dispose",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "dispose"
+        ],
+        "events": []
+      },
+      {
+        "name": "IMarker",
+        "release": "dispose",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "dispose",
+          "onDispose"
+        ],
+        "events": []
+      },
+      {
+        "name": "IBufferNamespace",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "onBufferChange"
+        ],
+        "events": []
+      },
+      {
+        "name": "IParser",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "registerCsiHandler",
+          "registerDcsHandler",
+          "registerEscHandler",
+          "registerOscHandler"
+        ],
+        "events": []
+      },
+      {
+        "name": "IUnicodeHandling",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "register"
+        ],
+        "events": []
+      },
+      {
+        "name": "IBuffer",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "getLine",
+          "getNullCell"
+        ],
+        "events": []
+      },
+      {
+        "name": "IBufferCell",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "getBgColor",
+          "getBgColorMode",
+          "getChars",
+          "getCode",
+          "getFgColor",
+          "getFgColorMode",
+          "getWidth",
+          "isAttributeDefault",
+          "isBgDefault",
+          "isBgPalette",
+          "isBgRGB",
+          "isBlink",
+          "isBold",
+          "isDim",
+          "isFgDefault",
+          "isFgPalette",
+          "isFgRGB",
+          "isInverse",
+          "isInvisible",
+          "isItalic",
+          "isOverline",
+          "isStrikethrough",
+          "isUnderline"
+        ],
+        "events": []
+      }
+    ],
+    "elements": [],
+    "mounts": [
+      "Terminal"
+    ]
+  }
+}

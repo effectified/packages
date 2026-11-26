@@ -9,6 +9,7 @@
 	},
 	"name": "@effectified/motion",
 	"prefix": "Motion",
+	"tagline": "animations that continue from where they are, in-view as messages",
 	"exports": [
 		"animate",
 		"inView"
@@ -42,6 +43,7 @@
 			"InView"
 		]
 	},
+	"revision": 2,
 	"decisions": [
 		{
 			"id": "exports",
@@ -83,6 +85,13 @@
 			"question": "Which mounts does the frontend facade offer?",
 			"answer": "Animate, InView",
 			"why": "Animate: one animation on an element, from motion's animate(element, keyframes, options); other keyframes or options animate again from the element's current values (Motion interrupts, no snap), a completed animation is a `finished` message, release stops it. InView: motion's inView with its `amount`, entering and leaving the viewport as `inView` messages, its observer removed with the element (Mount.makeStream: inView is a subscription with nothing to update in place)",
+			"by": "agent"
+		},
+		{
+			"id": "revision",
+			"question": "Which revision of this upstream version is the facade?",
+			"answer": "2",
+			"why": "engine 0.2.0: the package ships its agent skill (SKILL.md) and a README with examples taken from its passing tests and the install URL of its newest release",
 			"by": "agent"
 		}
 	]

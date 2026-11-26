@@ -49,6 +49,10 @@ The reference tests are `targets/*/package/test/facade.test.ts`: nodemailer (JSO
 
 If the library behaves differently from the facade's type (a method typed `Effect` returns synchronously, a value typed as a facade is a plain object), do not work around it in the test and do not edit `package/src`. Record it in the recipe (`methods` override or `exclude`, with a decision saying what you saw), rerun `reconcile`, and report it. If no override can fix it, it is an engine gap (`effectify-engine` (in effectified/engine)).
 
+## Examples
+
+Mark what a reader should see in the tests (and, for a frontend facade, its fixtures) with `// #region example: <title>` ... `// #endregion`: each region becomes an example in the facade's README, its `SKILL.md` and its page on effectified.dev, with the imports it uses (the facade by its name). Regions of one title join in order (a declaration above a test, then the test's body); openers on consecutive lines share one region. Keep assertions outside regions, and make each example read as a program someone would write.
+
 ## Done
 
 `pnpm effectify reconcile <name>` (which type checks the tests too) and `pnpm effectify test <name>` pass with the services up, and your report lists each test skipped without a service.

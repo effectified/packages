@@ -49,7 +49,7 @@ The plan has units: review the recipe, test each handle (large handles in parts)
 - **recipe**: follow `effectify-recipe`. Every decision `by: "engine"` becomes `by: "agent"` (kept or changed, with the reason).
 - **test-<Handle>**: follow `effectify-tests`. Real library, real local services, never mocks of the library, never paid APIs.
 - **derived**: follow `effectify-recipe` (Overrides).
-- **docs**: `targets/<name>/USAGE.md`. Install from the GitHub release, one example per service and per main handle, the error tags and what produces each. Every example is a passing test's code.
+- **docs**: the README, `SKILL.md` and the facade's page are generated, so the work is choosing what they show. Mark what a reader should see in the tests (and, for a frontend facade, its fixtures) with `// #region example: <title>` ... `// #endregion`: each region becomes an example in the facade's README, its `SKILL.md` and its page on effectified.dev, with the imports it uses (the facade by its name). Regions of one title join in order (a declaration above a test, then the test's body); openers on consecutive lines share one region. Keep assertions outside regions, and make each example read as a program someone would write. Aim for one example per service and per main handle, and one handled failure. Then write the recipe's `tagline`: one line on what the facade shows of its library (`a builder that is also a Node stream`).
 
 ## 4. Done means
 
@@ -62,7 +62,7 @@ git diff --exit-code -- targets/<name>   # after reconcile and commit: what is c
 
 Once merged to `main`, CI releases it: `release.yml` publishes every facade whose version is not released yet as the GitHub release `<name>-v<version>` of effectified/packages (its version is upstream's).
 
-Then commit `targets/<name>/` (surface, scan, recipe, package without node_modules, DRIFT.md if any, USAGE.md) and say what remains: decisions you were unsure of, methods excluded and why, tests skipped for lack of a service.
+Then commit `targets/<name>/` (surface, scan, recipe, package without node_modules, DRIFT.md if any) and say what remains: decisions you were unsure of, methods excluded and why, tests skipped for lack of a service.
 
 ## Rules
 

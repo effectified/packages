@@ -19,6 +19,7 @@ import {
 	TextButton,
 } from "../../src/index.ts";
 
+// #region example: A form and a dialog
 const Message = UiSchema.TaggedEnum({
 	ChangedName: { name: Schema.String },
 	ToggledNotify: { notify: Schema.Boolean },
@@ -90,3 +91,4 @@ const Form = Html.component({
 });
 
 Layer.launch(BrowserHost.mount(Form, {}, document.getElementById("root")!)).pipe(Effect.runFork);
+// #endregion

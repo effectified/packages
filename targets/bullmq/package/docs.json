@@ -1,0 +1,362 @@
+{
+  "schema": 1,
+  "name": "@effectified/bullmq",
+  "slug": "bullmq",
+  "kind": "runtime",
+  "tagline": "generic constructors, typed event payloads as Streams",
+  "description": "bullmq in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged",
+  "upstream": {
+    "package": "bullmq",
+    "version": "6.7.10",
+    "npm": "https://www.npmjs.com/package/bullmq"
+  },
+  "version": "6.7.10+3",
+  "engine": "0.2.0",
+  "page": "https://effectified.dev/bullmq",
+  "source": "https://github.com/effectified/packages/tree/main/targets/bullmq",
+  "install": {
+    "latest": "https://effectified.dev/bullmq.tgz",
+    "release": "https://github.com/effectified/packages/releases/download/bullmq-v6.7.10+3/effectified-bullmq-6.7.10+3.tgz",
+    "tag": "bullmq-v6.7.10+3"
+  },
+  "tests": 2,
+  "examples": [
+    {
+      "title": "A queue, a worker, and its events as a Stream",
+      "source": "test/facade.test.ts",
+      "code": "import { Effect, Stream } from \"effect\";\nimport { events, makeQueue, makeWorker } from \"@effectified/bullmq\";\n\n// Queue and worker close with the scope.\nconst queue = yield* makeQueue(name, { connection: yield* redis });\nconst worker = yield* makeWorker(name, async (job) => (job.data as { n: number }).n * 2, { connection: yield* redis });\nconst completed = events.Worker.completed(worker).pipe(Stream.take(1), Stream.runCollect);\nconst [job, emitted] = yield* Effect.all([queue.add(\"double\", { n: 21 }), completed], { concurrency: 2 });\n// Typed by bullmq's own WorkerListener: `completed` is called with the Job and its result.\nconst [finished, result] = emitted[0] ?? [];\n"
+    }
+  ],
+  "api": {
+    "exports": [
+      "QueueEvents",
+      "FlowProducer",
+      "Queue",
+      "Worker"
+    ],
+    "services": [
+      {
+        "name": "BullmqQueueEvents",
+        "handle": "QueueEvents",
+        "acquire": "QueueEvents"
+      },
+      {
+        "name": "BullmqFlowProducer",
+        "handle": "FlowProducer",
+        "acquire": "FlowProducer"
+      },
+      {
+        "name": "BullmqQueue",
+        "handle": "Queue",
+        "acquire": "Queue"
+      },
+      {
+        "name": "BullmqWorker",
+        "handle": "Worker",
+        "acquire": "Worker"
+      }
+    ],
+    "errors": [
+      {
+        "tag": "ConnectionClosedError",
+        "instanceOf": "ConnectionClosedError",
+        "codes": []
+      },
+      {
+        "tag": "DelayedError",
+        "instanceOf": "DelayedError",
+        "codes": []
+      },
+      {
+        "tag": "RateLimitError",
+        "instanceOf": "RateLimitError",
+        "codes": []
+      },
+      {
+        "tag": "RelayError",
+        "instanceOf": "RelayError",
+        "codes": []
+      },
+      {
+        "tag": "SchemaMigrationRequiredError",
+        "instanceOf": "SchemaMigrationRequiredError",
+        "codes": []
+      },
+      {
+        "tag": "SchemaVersionMismatchError",
+        "instanceOf": "SchemaVersionMismatchError",
+        "codes": []
+      },
+      {
+        "tag": "UnrecoverableError",
+        "instanceOf": "UnrecoverableError",
+        "codes": []
+      },
+      {
+        "tag": "UnsupportedPostgresVersionError",
+        "instanceOf": "UnsupportedPostgresVersionError",
+        "codes": []
+      },
+      {
+        "tag": "WaitingChildrenError",
+        "instanceOf": "WaitingChildrenError",
+        "codes": []
+      },
+      {
+        "tag": "WaitingError",
+        "instanceOf": "WaitingError",
+        "codes": []
+      },
+      {
+        "tag": "BullmqError",
+        "codes": [
+          "EVALSHA",
+          "ECONNREFUSED",
+          "EVAL",
+          "EXEC",
+          "EXISTS"
+        ]
+      }
+    ],
+    "handles": [
+      {
+        "name": "QueueEvents",
+        "release": "close",
+        "effects": [
+          "close",
+          "disconnect",
+          "run",
+          "trace",
+          "waitUntilReady"
+        ],
+        "streams": [],
+        "sync": [
+          "emit",
+          "getBackend",
+          "off",
+          "on",
+          "once",
+          "toKey"
+        ],
+        "events": []
+      },
+      {
+        "name": "FlowProducer",
+        "release": "close",
+        "effects": [
+          "add",
+          "addBulk",
+          "close",
+          "disconnect",
+          "getFlow",
+          "waitUntilReady"
+        ],
+        "streams": [],
+        "sync": [
+          "emit",
+          "getBackend",
+          "off",
+          "on",
+          "once",
+          "toKey"
+        ],
+        "events": [
+          "error",
+          "ioredis:close"
+        ]
+      },
+      {
+        "name": "Queue",
+        "release": "close",
+        "effects": [
+          "add",
+          "addBulk",
+          "addJobLog",
+          "clean",
+          "close",
+          "count",
+          "disconnect",
+          "drain",
+          "exportPrometheusMetrics",
+          "getActive",
+          "getActiveCount",
+          "getCompleted",
+          "getCompletedCount",
+          "getCountsPerPriority",
+          "getDebounceJobId",
+          "getDeduplicationJobId",
+          "getDelayed",
+          "getDelayedCount",
+          "getDependencies",
+          "getFailed",
+          "getFailedCount",
+          "getGlobalConcurrency",
+          "getGlobalRateLimit",
+          "getJob",
+          "getJobCountByTypes",
+          "getJobCounts",
+          "getJobLogs",
+          "getJobScheduler",
+          "getJobSchedulers",
+          "getJobSchedulersCount",
+          "getJobState",
+          "getJobs",
+          "getMeta",
+          "getMetrics",
+          "getPrioritized",
+          "getPrioritizedCount",
+          "getQueueEvents",
+          "getRanges",
+          "getRateLimitTtl",
+          "getVersion",
+          "getWaiting",
+          "getWaitingChildren",
+          "getWaitingChildrenCount",
+          "getWaitingCount",
+          "getWorkers",
+          "getWorkersCount",
+          "isMaxed",
+          "isPaused",
+          "obliterate",
+          "pause",
+          "promoteJobs",
+          "rateLimit",
+          "recordJobCountsMetric",
+          "remove",
+          "removeDebounceKey",
+          "removeDeduplicationKey",
+          "removeDeprecatedPriorityKey",
+          "removeGlobalConcurrency",
+          "removeGlobalRateLimit",
+          "removeJobScheduler",
+          "removeOrphanedJobs",
+          "removeRateLimitKey",
+          "resume",
+          "retryJobs",
+          "setGlobalConcurrency",
+          "setGlobalRateLimit",
+          "trace",
+          "trimEvents",
+          "updateJobProgress",
+          "upsertJobScheduler",
+          "waitUntilReady"
+        ],
+        "streams": [],
+        "sync": [
+          "emit",
+          "getBackend",
+          "off",
+          "on",
+          "once",
+          "toKey"
+        ],
+        "events": [
+          "cleaned",
+          "error",
+          "ioredis:close",
+          "paused",
+          "progress",
+          "removed",
+          "resumed",
+          "waiting"
+        ]
+      },
+      {
+        "name": "Worker",
+        "release": "close",
+        "effects": [
+          "close",
+          "delay",
+          "disconnect",
+          "extendJobLocks",
+          "getNextJob",
+          "pause",
+          "processJob",
+          "rateLimit",
+          "resume",
+          "run",
+          "startStalledCheckTimer",
+          "trace",
+          "waitUntilReady"
+        ],
+        "streams": [],
+        "sync": [
+          "cancelAllJobs",
+          "cancelJob",
+          "emit",
+          "getBackend",
+          "isPaused",
+          "isRunning",
+          "off",
+          "on",
+          "once",
+          "toKey"
+        ],
+        "events": [
+          "active",
+          "closed",
+          "closing",
+          "completed",
+          "drained",
+          "error",
+          "failed",
+          "ioredis:close",
+          "lockRenewalFailed",
+          "locksRenewed",
+          "paused",
+          "progress",
+          "ready",
+          "resumed",
+          "stalled"
+        ]
+      },
+      {
+        "name": "Job",
+        "effects": [
+          "addJob",
+          "changeDelay",
+          "changePriority",
+          "clearLogs",
+          "extendLock",
+          "getChildrenValues",
+          "getDependencies",
+          "getDependenciesCount",
+          "getFailedChildrenValues",
+          "getIgnoredChildrenFailures",
+          "getState",
+          "isActive",
+          "isCompleted",
+          "isDelayed",
+          "isFailed",
+          "isWaiting",
+          "isWaitingChildren",
+          "log",
+          "moveToCompleted",
+          "moveToDelayed",
+          "moveToFailed",
+          "moveToWait",
+          "moveToWaitingChildren",
+          "promote",
+          "remove",
+          "removeChildDependency",
+          "removeDeduplicationKey",
+          "removeUnprocessedChildren",
+          "retry",
+          "updateData",
+          "updateProgress",
+          "waitUntilFinished"
+        ],
+        "streams": [],
+        "sync": [
+          "asJSON",
+          "asJSONSandbox",
+          "toFlowEntry",
+          "toJSON"
+        ],
+        "events": []
+      }
+    ],
+    "elements": [],
+    "mounts": []
+  }
+}

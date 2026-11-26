@@ -13,6 +13,7 @@ declare global {
 }
 window.Chart = Chart;
 
+// #region example: A chart drawn from the Model, clicks as messages
 const Message = UiSchema.TaggedEnum({
 	ClickedAdd: {},
 	ClickedBar: { index: Schema.Number },
@@ -52,3 +53,4 @@ const Bars = Html.component({
 });
 
 Layer.launch(BrowserHost.mount(Bars, {}, document.getElementById("root")!)).pipe(Effect.runFork);
+// #endregion

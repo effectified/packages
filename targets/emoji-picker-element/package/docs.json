@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "name": "@effectified/emoji-picker-element",
+  "slug": "emoji-picker-element",
+  "kind": "ui",
+  "tagline": "a web component bound from its manifest",
+  "description": "emoji-picker-element for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
+  "upstream": {
+    "package": "emoji-picker-element",
+    "version": "1.29.1",
+    "npm": "https://www.npmjs.com/package/emoji-picker-element"
+  },
+  "version": "1.29.1+2",
+  "engine": "0.2.0",
+  "page": "https://effectified.dev/emoji-picker-element",
+  "source": "https://github.com/effectified/packages/tree/main/targets/emoji-picker-element",
+  "install": {
+    "latest": "https://effectified.dev/emoji-picker-element.tgz",
+    "release": "https://github.com/effectified/packages/releases/download/emoji-picker-element-v1.29.1+2/effectified-emoji-picker-element-1.29.1+2.tgz",
+    "tag": "emoji-picker-element-v1.29.1+2",
+    "effectUi": "https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57"
+  },
+  "demo": {
+    "url": "https://github.com/effectified/packages/releases/download/emoji-picker-element-v1.29.1+2/effectified-emoji-picker-element-1.29.1+2-demo.tgz",
+    "pages": [
+      "elements"
+    ]
+  },
+  "tests": 1,
+  "examples": [],
+  "api": {
+    "exports": [],
+    "services": [],
+    "errors": [
+      {
+        "tag": "EmojiPickerElementError",
+        "codes": []
+      }
+    ],
+    "handles": [
+      {
+        "name": "default",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "addEventListener",
+          "removeEventListener"
+        ],
+        "events": []
+      }
+    ],
+    "elements": [
+      {
+        "tag": "emoji-picker",
+        "name": "EmojiPicker",
+        "description": "Lightweight emoji picker distributed as a web component",
+        "properties": [
+          "customEmoji",
+          "dataSource",
+          "i18n",
+          "locale",
+          "skinToneEmoji"
+        ],
+        "events": [
+          "emoji-click",
+          "emoji-click-sync",
+          "skin-tone-change"
+        ],
+        "changes": []
+      }
+    ],
+    "mounts": []
+  }
+}

@@ -9,6 +9,7 @@
 	},
 	"name": "@effectified/fluentui-web-components",
 	"prefix": "FluentuiWebComponents",
+	"tagline": "elements defined through its exports map, a form and a dialog",
 	"exports": [],
 	"handles": {},
 	"errors": [
@@ -90,7 +91,10 @@
 			"DialogOpen"
 		]
 	},
-	"testDependencies": {},
+	"testDependencies": {
+		"@fluentui/tokens": "1.0.0-alpha.25"
+	},
+	"revision": 2,
 	"decisions": [
 		{
 			"id": "exports",
@@ -272,6 +276,20 @@
 			"question": "Does the binding offer the property fluent-field.input?",
 			"answer": "exclude",
 			"why": "a reference to the slotted input element, kept by upstream on slotchange; a view renders the input as a child instead",
+			"by": "agent"
+		},
+		{
+			"id": "revision",
+			"question": "Which revision of this upstream version is the facade?",
+			"answer": "2",
+			"why": "engine 0.2.0: the package ships its agent skill (SKILL.md) and a README with examples taken from its passing tests and the install URL of its newest release",
+			"by": "agent"
+		},
+		{
+			"id": "testDependencies",
+			"question": "What do the facade's tests import besides the toolchain?",
+			"answer": "@fluentui/tokens",
+			"why": "the form fixture, also the facade's live demo, sets Fluent's light theme as an app does; without its tokens the elements draw nothing",
 			"by": "agent"
 		}
 	]

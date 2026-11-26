@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "name": "@effectified/motion",
+  "slug": "motion",
+  "kind": "ui",
+  "tagline": "animations that continue from where they are, in-view as messages",
+  "description": "motion for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
+  "upstream": {
+    "package": "motion",
+    "version": "14.14.0",
+    "npm": "https://www.npmjs.com/package/motion"
+  },
+  "version": "14.14.0+2",
+  "engine": "0.2.0",
+  "page": "https://effectified.dev/motion",
+  "source": "https://github.com/effectified/packages/tree/main/targets/motion",
+  "install": {
+    "latest": "https://effectified.dev/motion.tgz",
+    "release": "https://github.com/effectified/packages/releases/download/motion-v14.14.0+2/effectified-motion-14.14.0+2.tgz",
+    "tag": "motion-v14.14.0+2",
+    "effectUi": "https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57"
+  },
+  "demo": {
+    "url": "https://github.com/effectified/packages/releases/download/motion-v14.14.0+2/effectified-motion-14.14.0+2-demo.tgz",
+    "pages": [
+      "animate"
+    ]
+  },
+  "tests": 4,
+  "examples": [
+    {
+      "title": "Animate from the Model, and know when a section is in view",
+      "source": "test/fixtures/animate.ts",
+      "code": "import { Mount, UiSchema } from \"@effect/ui\";\nimport { BrowserHost, Html } from \"@effect/ui/html\";\nimport { Effect, Layer, Schema } from \"effect\";\nimport { AnimateMount, InViewMount } from \"@effectified/motion\";\n\n// One function for every render: options compare by value, and a new closure per render would be other options.\nconst counted = () => {\n\twindow.plays += 1;\n};\n\nconst Target = Schema.Struct({ x: Schema.Number, opacity: Schema.Number, duration: Schema.Number });\n\nconst Message = UiSchema.TaggedEnum({\n\tClickedFar: {},\n\tClickedBack: {},\n\tClickedHide: {},\n\tClickedDrop: {},\n\tFinished: {},\n\tChangedView: { inView: Schema.Boolean },\n});\n\nconst Scene = Html.component({\n\tname: \"Scene\",\n\tmodel: Schema.Struct({ target: Target, arrivals: Schema.Array(Schema.Number), shown: Schema.Boolean, views: Schema.Array(Schema.Boolean), watched: Schema.Boolean }),\n\tmessage: Message,\n}).make({\n\tinit: () => ({ target: { x: 100, opacity: 0.5, duration: 0.2 }, arrivals: [], shown: true, views: [], watched: true }),\n\tupdate: {\n\t\tClickedFar: ($) => $.evolve({ target: () => ({ x: 300, opacity: 1, duration: 1.5 }) }),\n\t\tClickedBack: ($) => $.evolve({ target: () => ({ x: 0, opacity: 0.5, duration: 0.4 }) }),\n\t\tClickedHide: ($) => $.evolve({ shown: () => false }),\n\t\tClickedDrop: ($) => $.evolve({ watched: () => false }),\n\t\tFinished: ($) => $.evolve({ arrivals: (arrivals) => [...arrivals, $.model.target.x] }),\n\t\tChangedView: ($, { inView }) => $.evolve({ views: (views) => [...views, inView] }),\n\t},\n\tview: (h, model) =>\n\t\th.div.children(\n\t\t\th.button.id(\"far\").on(\"click\", Message.ClickedFar()).children(\"Far\"),\n\t\t\th.button.id(\"back\").on(\"click\", Message.ClickedBack()).children(\"Back\"),\n\t\t\th.button.id(\"hide\").on(\"click\", Message.ClickedHide()).children(\"Hide\"),\n\t\t\th.button.id(\"drop\").on(\"click\", Message.ClickedDrop()).children(\"Drop\"),\n\t\t\th.output.id(\"state\").children(JSON.stringify(model)),\n\t\t\tmodel.shown\n\t\t\t\t? h.div\n\t\t\t\t\t\t.id(\"box\")\n\t\t\t\t\t\t.style({ width: \"50px\", height: \"50px\", background: \"steelblue\" })\n\t\t\t\t\t\t.onMount(\n\t\t\t\t\t\t\tAnimateMount({\n\t\t\t\t\t\t\t\tkeyframes: { x: model.target.x, opacity: model.target.opacity },\n\t\t\t\t\t\t\t\toptions: { duration: model.target.duration, ease: \"linear\", onPlay: counted },\n\t\t\t\t\t\t\t}).pipe(Mount.map(() => Message.Finished())),\n\t\t\t\t\t\t)\n\t\t\t\t: h.p.id(\"hidden\").children(\"hidden\"),\n\t\t\th.div.style({ height: \"2000px\" }),\n\t\t\tmodel.watched\n\t\t\t\t? h.section\n\t\t\t\t\t\t.id(\"section\")\n\t\t\t\t\t\t.style({ height: \"300px\", background: \"khaki\" })\n\t\t\t\t\t\t.onMount(InViewMount({ amount: 0.5 }).pipe(Mount.map(({ inView }) => Message.ChangedView({ inView }))))\n\t\t\t\t: h.p.id(\"dropped\").children(\"dropped\"),\n\t\t\th.div.style({ height: \"2000px\" }),\n\t\t),\n});\n\nLayer.launch(BrowserHost.mount(Scene, {}, document.getElementById(\"root\")!)).pipe(Effect.runFork);\n",
+      "demo": "animate"
+    }
+  ],
+  "api": {
+    "exports": [],
+    "services": [
+      {
+        "name": "MotionTimeline",
+        "handle": "Timeline",
+        "acquire": "animate"
+      }
+    ],
+    "errors": [
+      {
+        "tag": "MotionError",
+        "codes": []
+      }
+    ],
+    "handles": [
+      {
+        "name": "Timeline",
+        "release": "stop",
+        "effects": [
+          "then"
+        ],
+        "streams": [],
+        "sync": [
+          "add",
+          "addPause",
+          "attachTimeline",
+          "call",
+          "cancel",
+          "clear",
+          "complete",
+          "getLabelTime",
+          "move",
+          "pause",
+          "play",
+          "playTo",
+          "remove",
+          "reverse",
+          "seek",
+          "stop"
+        ],
+        "events": []
+      }
+    ],
+    "elements": [],
+    "mounts": [
+      "Animate",
+      "InView"
+    ]
+  }
+}

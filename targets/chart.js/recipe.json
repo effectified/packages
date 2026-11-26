@@ -9,6 +9,7 @@
 	},
 	"name": "@effectified/chart.js",
 	"prefix": "ChartJs",
+	"tagline": "a chart updated in place, clicks as messages",
 	"exports": [
 		"Animator",
 		"Element",
@@ -118,6 +119,7 @@
 			"Chart"
 		]
 	},
+	"revision": 2,
 	"decisions": [
 		{
 			"id": "exports",
@@ -369,6 +371,13 @@
 			"question": "Which mounts does the frontend facade offer?",
 			"answer": "Chart",
 			"why": "a chart lives on one canvas: created from its configuration, updated in place, its clicks as messages, destroyed with the canvas",
+			"by": "agent"
+		},
+		{
+			"id": "revision",
+			"question": "Which revision of this upstream version is the facade?",
+			"answer": "2",
+			"why": "engine 0.2.0: the package ships its agent skill (SKILL.md) and a README with examples taken from its passing tests and the install URL of its newest release",
 			"by": "agent"
 		}
 	]

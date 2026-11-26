@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "name": "@effectified/nodemailer",
+  "slug": "nodemailer",
+  "kind": "runtime",
+  "tagline": "a scoped transport, error codes, callbacks as Effects",
+  "description": "nodemailer in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged",
+  "upstream": {
+    "package": "nodemailer",
+    "version": "10.6.1",
+    "npm": "https://www.npmjs.com/package/nodemailer"
+  },
+  "version": "10.6.1+4",
+  "engine": "0.2.0",
+  "page": "https://effectified.dev/nodemailer",
+  "source": "https://github.com/effectified/packages/tree/main/targets/nodemailer",
+  "install": {
+    "latest": "https://effectified.dev/nodemailer.tgz",
+    "release": "https://github.com/effectified/packages/releases/download/nodemailer-v10.6.1+4/effectified-nodemailer-10.6.1+4.tgz",
+    "tag": "nodemailer-v10.6.1+4"
+  },
+  "tests": 3,
+  "examples": [
+    {
+      "title": "Send a message",
+      "source": "test/facade.test.ts",
+      "code": "import { Effect } from \"effect\";\nimport { createTransport } from \"@effectified/nodemailer\";\n\nconst message = { from: \"a@example.com\", to: \"b@example.com\", subject: \"Hello\", text: \"From Effect\" };\n\n// The transport closes with the scope.\nconst mail = yield* createTransport({ jsonTransport: true });\nconst info = yield* mail.sendMail(message);\n"
+    },
+    {
+      "title": "The transport as a service",
+      "source": "test/facade.test.ts",
+      "code": "import { Effect } from \"effect\";\nimport { createTransport, NodemailerMail } from \"@effectified/nodemailer\";\n\nconst message = { from: \"a@example.com\", to: \"b@example.com\", subject: \"Hello\", text: \"From Effect\" };\n\nconst send = Effect.gen(function* () {\n\tconst mail = yield* NodemailerMail;\n\treturn yield* mail.sendMail(message);\n});\n// One transport for the program, closed when the layer is.\nconst MailLive = NodemailerMail.layer(createTransport({ jsonTransport: true }));\nconst program = send.pipe(Effect.provide(MailLive));\n"
+    },
+    {
+      "title": "A failure is a tagged error with upstream's code",
+      "source": "test/facade.test.ts",
+      "code": "import { Effect } from \"effect\";\nimport { createTransport } from \"@effectified/nodemailer\";\n\n// Port 1 on the loopback refuses connections at once.\nconst mail = yield* createTransport({ host: \"127.0.0.1\", port: 1, connectionTimeout: 1000 });\nconst error = yield* Effect.flip(mail.verify());\n// error: NodemailerError { operation: \"Mail.verify\", code: \"ECONNECTION\", ... }\n"
+    }
+  ],
+  "api": {
+    "exports": [
+      "createTransport",
+      "createTestAccount"
+    ],
+    "services": [
+      {
+        "name": "NodemailerMail",
+        "handle": "Mail",
+        "acquire": "createTransport"
+      }
+    ],
+    "errors": [
+      {
+        "tag": "NodemailerError",
+        "codes": [
+          "ECONNECTION",
+          "EAUTH",
+          "EENVELOPE",
+          "EPROTOCOL",
+          "ETLS",
+          "EMESSAGE",
+          "EREQUIRETLS",
+          "ESOCKET",
+          "ETIMEDOUT",
+          "EDNS",
+          "EHLO",
+          "ESTREAM",
+          "EABORT",
+          "EAI_AGAIN",
+          "ECONFIG",
+          "EFETCH",
+          "EFILEACCESS",
+          "EMAXLIMIT",
+          "EMAXRECIPIENTS",
+          "ENOAUTH"
+        ]
+      }
+    ],
+    "handles": [
+      {
+        "name": "Mail",
+        "release": "close",
+        "effects": [
+          "sendMail",
+          "verify"
+        ],
+        "streams": [],
+        "sync": [
+          "close",
+          "get",
+          "getVersionString",
+          "isIdle",
+          "set",
+          "setupProxy",
+          "use"
+        ],
+        "events": []
+      },
+      {
+        "name": "Transport",
+        "effects": [
+          "send"
+        ],
+        "streams": [],
+        "sync": [],
+        "events": []
+      },
+      {
+        "name": "Logger",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "debug",
+          "error",
+          "fatal",
+          "info",
+          "trace",
+          "warn"
+        ],
+        "events": []
+      }
+    ],
+    "elements": [],
+    "mounts": []
+  }
+}

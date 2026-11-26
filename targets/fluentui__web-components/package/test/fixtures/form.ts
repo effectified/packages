@@ -2,6 +2,8 @@
 // their changes mounts, a button opens a dialog through the DialogOpen mount, and the dialog's `toggle` (sent once it
 // has opened or closed) sets the Model's `open`. Fluent's elements are not in HTMLElementTagNameMap, so the changes
 // mounts report `unknown` state, read here as the string or boolean Fluent documents.
+import { webLightTheme } from "@fluentui/tokens";
+import { setTheme } from "@fluentui/web-components";
 import { Mount, UiSchema } from "@effect/ui";
 import { BrowserHost, Html } from "@effect/ui/html";
 import { Effect, Layer, Schema } from "effect";
@@ -17,6 +19,10 @@ import {
 	TextInput,
 	TextInputChanges,
 } from "../../src/index.ts";
+
+// #region example: A form and a dialog
+// Fluent's elements read their colours and sizes from its design tokens: an app sets a theme once.
+setTheme(webLightTheme);
 
 const Message = UiSchema.TaggedEnum({
 	ChangedName: { name: Schema.String },
@@ -77,3 +83,4 @@ const Form = Html.component({
 });
 
 Layer.launch(BrowserHost.mount(Form, {}, document.getElementById("root")!)).pipe(Effect.runFork);
+// #endregion

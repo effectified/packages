@@ -9,6 +9,7 @@
 	},
 	"name": "@effectified/nodemailer",
 	"prefix": "Nodemailer",
+	"tagline": "a scoped transport, error codes, callbacks as Effects",
 	"exports": [
 		"createTransport",
 		"createTestAccount"
@@ -133,10 +134,10 @@
 		{
 			"id": "revision",
 			"question": "Which revision of this upstream version is the facade?",
-			"answer": "3",
-			"why": "the engine of 2026-11-26 types more of it: generic methods through a call, event payloads, callbacks that report results, and the packages its declarations name",
+			"answer": "4",
+			"why": "engine 0.2.0: the package ships its agent skill (SKILL.md) and a README with examples taken from its passing tests and the install URL of its newest release",
 			"by": "agent"
 		}
 	],
-	"revision": 3
+	"revision": 4
 }

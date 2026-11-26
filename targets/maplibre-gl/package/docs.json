@@ -1,0 +1,1954 @@
+{
+  "schema": 1,
+  "name": "@effectified/maplibre-gl",
+  "slug": "maplibre-gl",
+  "kind": "ui",
+  "tagline": "a WebGL map whose camera is the Model",
+  "description": "maplibre-gl for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
+  "upstream": {
+    "package": "maplibre-gl",
+    "version": "6.19.0",
+    "npm": "https://www.npmjs.com/package/maplibre-gl"
+  },
+  "version": "6.19.0+2",
+  "engine": "0.2.0",
+  "page": "https://effectified.dev/maplibre-gl",
+  "source": "https://github.com/effectified/packages/tree/main/targets/maplibre-gl",
+  "install": {
+    "latest": "https://effectified.dev/maplibre-gl.tgz",
+    "release": "https://github.com/effectified/packages/releases/download/maplibre-gl-v6.19.0+2/effectified-maplibre-gl-6.19.0+2.tgz",
+    "tag": "maplibre-gl-v6.19.0+2",
+    "effectUi": "https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57"
+  },
+  "demo": {
+    "url": "https://github.com/effectified/packages/releases/download/maplibre-gl-v6.19.0+2/effectified-maplibre-gl-6.19.0+2-demo.tgz",
+    "pages": [
+      "map"
+    ]
+  },
+  "tests": 1,
+  "examples": [
+    {
+      "title": "A map whose camera is the Model",
+      "source": "test/fixtures/map.ts",
+      "code": "import \"maplibre-gl/dist/maplibre-gl.css\";\nimport { Mount, UiSchema } from \"@effect/ui\";\nimport { BrowserHost, Html } from \"@effect/ui/html\";\nimport { Effect, Layer, Schema } from \"effect\";\nimport { type MapOptions, setWorkerUrl } from \"maplibre-gl\";\nimport workerUrl from \"maplibre-gl/dist/maplibre-gl-worker.mjs?url\";\nimport { MapMount } from \"@effectified/maplibre-gl\";\n\n// MapLibre looks for its worker next to its own module, and Vite moves that module into its dependency cache: an app\n// built with a bundler names the worker's URL, as this one does.\nsetWorkerUrl(workerUrl);\n\nconst style: NonNullable<MapOptions[\"style\"]> = {\n\tversion: 8,\n\tsources: {\n\t\tarea: {\n\t\t\ttype: \"geojson\",\n\t\t\tdata: {\n\t\t\t\ttype: \"Feature\",\n\t\t\t\tproperties: {},\n\t\t\t\tgeometry: {\n\t\t\t\t\ttype: \"Polygon\",\n\t\t\t\t\tcoordinates: [\n\t\t\t\t\t\t[\n\t\t\t\t\t\t\t[-10, -10],\n\t\t\t\t\t\t\t[10, -10],\n\t\t\t\t\t\t\t[10, 10],\n\t\t\t\t\t\t\t[-10, 10],\n\t\t\t\t\t\t\t[-10, -10],\n\t\t\t\t\t\t],\n\t\t\t\t\t],\n\t\t\t\t},\n\t\t\t},\n\t\t},\n\t},\n\tlayers: [\n\t\t{ id: \"background\", type: \"background\", paint: { \"background-color\": \"#dfe8f0\" } },\n\t\t{ id: \"area\", type: \"fill\", source: \"area\", paint: { \"fill-color\": \"#3a7bd5\" } },\n\t],\n};\n\nconst LngLat = Schema.Tuple([Schema.Number, Schema.Number]);\n\nconst Message = UiSchema.TaggedEnum({\n\tMovedMap: { center: LngLat, zoom: Schema.Number },\n\tClickedMap: { lngLat: LngLat },\n\tClickedJump: {},\n\tClickedHide: {},\n});\n\nconst Atlas = Html.component({\n\tname: \"Atlas\",\n\tmodel: Schema.Struct({ center: LngLat, zoom: Schema.Number, clicked: Schema.NullOr(LngLat), shown: Schema.Boolean }),\n\tmessage: Message,\n}).make({\n\tinit: () => ({ center: [0, 0] as const, zoom: 2, clicked: null, shown: true }),\n\tupdate: {\n\t\tMovedMap: ($, { center, zoom }) => $.evolve({ center: () => center, zoom: () => zoom }),\n\t\tClickedMap: ($, { lngLat }) => $.evolve({ clicked: () => lngLat }),\n\t\tClickedJump: ($) => $.evolve({ center: () => [10, 20] as const, zoom: () => 4 }),\n\t\tClickedHide: ($) => $.evolve({ shown: () => false }),\n\t},\n\tview: (h, model) =>\n\t\t// The map comes first: the printed Model above it would grow with each camera and move it under the pointer.\n\t\th.div.children(\n\t\t\tmodel.shown\n\t\t\t\t? h.div\n\t\t\t\t\t\t.id(\"map\")\n\t\t\t\t\t\t.style({ width: \"400px\", height: \"300px\" })\n\t\t\t\t\t\t.onMount(\n\t\t\t\t\t\t\t// LngLatLike takes a mutable tuple, the Model holds a readonly one.\n\t\t\t\t\t\t\tMapMount({ style, center: [model.center[0], model.center[1]], zoom: model.zoom }).pipe(\n\t\t\t\t\t\t\t\tMount.map((event) =>\n\t\t\t\t\t\t\t\t\tevent.event === \"moveend\"\n\t\t\t\t\t\t\t\t\t\t? Message.MovedMap({ center: event.center, zoom: event.zoom })\n\t\t\t\t\t\t\t\t\t\t: Message.ClickedMap({ lngLat: event.lngLat }),\n\t\t\t\t\t\t\t\t),\n\t\t\t\t\t\t\t),\n\t\t\t\t\t\t)\n\t\t\t\t: h.p.id(\"hidden\").children(\"hidden\"),\n\t\t\th.button.id(\"jump\").on(\"click\", Message.ClickedJump()).children(\"Jump\"),\n\t\t\th.button.id(\"hide\").on(\"click\", Message.ClickedHide()).children(\"Hide\"),\n\t\t\th.output.id(\"state\").children(JSON.stringify(model)),\n\t\t),\n});\n\nLayer.launch(BrowserHost.mount(Atlas, {}, document.getElementById(\"root\")!)).pipe(Effect.runFork);\n",
+      "demo": "map"
+    }
+  ],
+  "api": {
+    "exports": [],
+    "services": [
+      {
+        "name": "MaplibreGlMap$1",
+        "handle": "Map$1",
+        "acquire": "Map"
+      }
+    ],
+    "errors": [
+      {
+        "tag": "AJAXError",
+        "instanceOf": "AJAXError",
+        "codes": []
+      },
+      {
+        "tag": "GPUInitializationError",
+        "instanceOf": "GPUInitializationError",
+        "codes": []
+      },
+      {
+        "tag": "MaplibreGlError",
+        "codes": []
+      }
+    ],
+    "handles": [
+      {
+        "name": "Map$1",
+        "release": "remove",
+        "effects": [
+          "loadImage",
+          "once"
+        ],
+        "streams": [],
+        "sync": [
+          "addControl",
+          "addImage",
+          "addLayer",
+          "addSource",
+          "addSprite",
+          "areTilesLoaded",
+          "calculateAnchoredCameraOptions",
+          "calculateCameraOptionsFromCameraLngLatAltRotation",
+          "calculateCameraOptionsFromTo",
+          "cameraForBounds",
+          "coveringTiles",
+          "easeTo",
+          "fire",
+          "fitBounds",
+          "fitScreenCoordinates",
+          "flyTo",
+          "getAnisotropicFilterPitch",
+          "getBearing",
+          "getBounds",
+          "getCameraTargetElevation",
+          "getCanvas",
+          "getCanvasContainer",
+          "getCenter",
+          "getCenterClampedToGround",
+          "getCenterElevation",
+          "getContainer",
+          "getFeatureState",
+          "getFilter",
+          "getFontFaces",
+          "getGlobalState",
+          "getGlyphs",
+          "getImage",
+          "getLayer",
+          "getLayersOrder",
+          "getLayoutProperty",
+          "getLight",
+          "getMaxBounds",
+          "getMaxPitch",
+          "getMaxZoom",
+          "getMinPitch",
+          "getMinZoom",
+          "getPadding",
+          "getPaintProperty",
+          "getPitch",
+          "getPixelRatio",
+          "getProjection",
+          "getRenderWorldCopies",
+          "getRoll",
+          "getSky",
+          "getSource",
+          "getSprite",
+          "getStyle",
+          "getStyleUrl",
+          "getTerrain",
+          "getTransformRequest",
+          "getVerticalFieldOfView",
+          "getZoom",
+          "getZoomSnap",
+          "hasControl",
+          "hasImage",
+          "isMoving",
+          "isRotating",
+          "isSourceLoaded",
+          "isStyleLoaded",
+          "isZooming",
+          "jumpTo",
+          "listImages",
+          "listens",
+          "loaded",
+          "migrateProjection",
+          "moveLayer",
+          "off",
+          "on",
+          "panBy",
+          "panTo",
+          "project",
+          "queryRenderedFeatures",
+          "querySourceFeatures",
+          "queryTerrainElevation",
+          "redraw",
+          "refreshTiles",
+          "remove",
+          "removeControl",
+          "removeFeatureState",
+          "removeImage",
+          "removeLayer",
+          "removeSource",
+          "removeSprite",
+          "resetNorth",
+          "resetNorthPitch",
+          "resize",
+          "rotateTo",
+          "setAnisotropicFilterPitch",
+          "setBearing",
+          "setCenter",
+          "setCenterClampedToGround",
+          "setCenterElevation",
+          "setEventedParent",
+          "setFeatureState",
+          "setFilter",
+          "setFontFaces",
+          "setGlobalStateProperty",
+          "setGlyphs",
+          "setLayerZoomRange",
+          "setLayoutProperty",
+          "setLight",
+          "setMaxBounds",
+          "setMaxPitch",
+          "setMaxZoom",
+          "setMinPitch",
+          "setMinZoom",
+          "setMissingStyleImageResolver",
+          "setPadding",
+          "setPaintProperty",
+          "setPitch",
+          "setPixelRatio",
+          "setProjection",
+          "setRenderWorldCopies",
+          "setRoll",
+          "setSky",
+          "setSourceTileLodParams",
+          "setSprite",
+          "setStyle",
+          "setTerrain",
+          "setTransformCameraUpdate",
+          "setTransformConstrain",
+          "setTransformRequest",
+          "setVerticalFieldOfView",
+          "setZoom",
+          "setZoomSnap",
+          "snapToNorth",
+          "stop",
+          "triggerRepaint",
+          "unproject",
+          "updateImage",
+          "zoomIn",
+          "zoomOut",
+          "zoomTo"
+        ],
+        "events": [
+          "boxzoomcancel",
+          "boxzoomend",
+          "boxzoomstart",
+          "click",
+          "contextmenu",
+          "cooperativegestureprevented",
+          "data",
+          "dataabort",
+          "dataloading",
+          "dblclick",
+          "drag",
+          "dragend",
+          "dragstart",
+          "error",
+          "idle",
+          "load",
+          "mousedown",
+          "mouseenter",
+          "mouseleave",
+          "mousemove",
+          "mouseout",
+          "mouseover",
+          "mouseup",
+          "move",
+          "moveend",
+          "movestart",
+          "pitch",
+          "pitchend",
+          "pitchstart",
+          "projectiontransition",
+          "remove",
+          "render",
+          "resize",
+          "roll",
+          "rollend",
+          "rollstart",
+          "rotate",
+          "rotateend",
+          "rotatestart",
+          "sourcedata",
+          "sourcedataabort",
+          "sourcedataloading",
+          "style.load",
+          "styledata",
+          "styledataloading",
+          "styleimagemissing",
+          "terrain",
+          "touchcancel",
+          "touchend",
+          "touchmove",
+          "touchstart",
+          "webglcontextlost",
+          "webglcontextrestored",
+          "wheel",
+          "zoom",
+          "zoomend",
+          "zoomstart"
+        ]
+      },
+      {
+        "name": "LngLat",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "distanceTo",
+          "toArray",
+          "toString",
+          "wrap"
+        ],
+        "events": []
+      },
+      {
+        "name": "LngLatBounds",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "adjustAntiMeridian",
+          "contains",
+          "extend",
+          "getCenter",
+          "getEast",
+          "getNorth",
+          "getNorthEast",
+          "getNorthWest",
+          "getSouth",
+          "getSouthEast",
+          "getSouthWest",
+          "getWest",
+          "intersects",
+          "isEmpty",
+          "setNorthEast",
+          "setSouthWest",
+          "toArray",
+          "toString"
+        ],
+        "events": []
+      },
+      {
+        "name": "Point",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "add",
+          "angle",
+          "angleTo",
+          "angleWith",
+          "angleWithSep",
+          "clone",
+          "dist",
+          "distSqr",
+          "div",
+          "divByPoint",
+          "equals",
+          "mag",
+          "matMult",
+          "mult",
+          "multByPoint",
+          "perp",
+          "rotate",
+          "rotateAround",
+          "round",
+          "sub",
+          "unit"
+        ],
+        "events": []
+      },
+      {
+        "name": "Subscription",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "unsubscribe"
+        ],
+        "events": []
+      },
+      {
+        "name": "Terrain",
+        "release": "destroy",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "destroy",
+          "getCoverageIndex",
+          "getDEMElevation",
+          "getDrawnElevationForLngLat",
+          "getElevation",
+          "getElevationAndDEMStateForLngLat",
+          "getElevationForLngLat",
+          "getElevationForLngLatZoom",
+          "getFramebuffer",
+          "getHeightMapFramebuffer",
+          "getMinMaxElevation",
+          "getMinTileElevationForLngLatZoom",
+          "getSkirtLength",
+          "getTerrainData",
+          "getTerrainMesh",
+          "resetElevationCache"
+        ],
+        "events": []
+      },
+      {
+        "name": "Style",
+        "release": "destroy",
+        "effects": [
+          "getDashes",
+          "getGlyphs",
+          "getImages",
+          "loadURL",
+          "once"
+        ],
+        "streams": [],
+        "sync": [
+          "addImage",
+          "addLayer",
+          "addSource",
+          "addSprite",
+          "destroy",
+          "fire",
+          "getFeatureState",
+          "getFilter",
+          "getFontFaces",
+          "getGlobalState",
+          "getGlyphsUrl",
+          "getImage",
+          "getLayer",
+          "getLayersOrder",
+          "getLayoutProperty",
+          "getLight",
+          "getPaintProperty",
+          "getProjection",
+          "getSky",
+          "getSource",
+          "getSprite",
+          "getTransition",
+          "hasLayer",
+          "hasTransitions",
+          "listImages",
+          "listens",
+          "loadEmpty",
+          "loadJSON",
+          "loaded",
+          "moveLayer",
+          "off",
+          "on",
+          "queryRenderedFeatures",
+          "querySourceFeatures",
+          "removeFeatureState",
+          "removeImage",
+          "removeLayer",
+          "removeSource",
+          "removeSprite",
+          "resize",
+          "serialize",
+          "setEventedParent",
+          "setFeatureState",
+          "setFilter",
+          "setFontFaces",
+          "setGeoJSONSourceData",
+          "setGlobalState",
+          "setGlobalStateProperty",
+          "setGlyphs",
+          "setLayerZoomRange",
+          "setLayoutProperty",
+          "setLight",
+          "setMissingImageResolver",
+          "setPaintProperty",
+          "setProjection",
+          "setSky",
+          "setSprite",
+          "setState",
+          "triggerSymbolPlacement",
+          "update",
+          "updateImage"
+        ],
+        "events": [
+          "boxzoomcancel",
+          "boxzoomend",
+          "boxzoomstart",
+          "click",
+          "contextmenu",
+          "cooperativegestureprevented",
+          "data",
+          "dataabort",
+          "dataloading",
+          "dblclick",
+          "drag",
+          "dragend",
+          "dragstart",
+          "error",
+          "idle",
+          "load",
+          "mousedown",
+          "mousemove",
+          "mouseout",
+          "mouseover",
+          "mouseup",
+          "move",
+          "moveend",
+          "movestart",
+          "pitch",
+          "pitchend",
+          "pitchstart",
+          "projectiontransition",
+          "remove",
+          "render",
+          "resize",
+          "roll",
+          "rollend",
+          "rollstart",
+          "rotate",
+          "rotateend",
+          "rotatestart",
+          "sourcedata",
+          "sourcedataabort",
+          "sourcedataloading",
+          "style.load",
+          "styledata",
+          "styledataloading",
+          "styleimagemissing",
+          "terrain",
+          "touchcancel",
+          "touchend",
+          "touchmove",
+          "touchstart",
+          "webglcontextlost",
+          "webglcontextrestored",
+          "wheel",
+          "zoom",
+          "zoomend",
+          "zoomstart"
+        ]
+      },
+      {
+        "name": "Painter",
+        "release": "destroy",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "acquireRTT",
+          "bindRTT",
+          "clearRTTPool",
+          "destroy",
+          "destroyRTTResources",
+          "getTileTexture",
+          "initDebugOverlayCanvas",
+          "markTerrainDepthDirty",
+          "maybeDrawDepth",
+          "overLimit",
+          "releaseRTT",
+          "render",
+          "renderLayer",
+          "resize",
+          "saveTileTexture",
+          "setBaseState",
+          "setup"
+        ],
+        "events": []
+      },
+      {
+        "name": "ScrollZoomHandler",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "disable",
+          "enable",
+          "isActive",
+          "isEnabled",
+          "isZooming",
+          "onTimeout",
+          "renderFrame",
+          "reset",
+          "setWheelZoomRate",
+          "setZoomRate",
+          "wheel"
+        ],
+        "events": []
+      },
+      {
+        "name": "BoxZoomHandler",
+        "effects": [
+          "once"
+        ],
+        "streams": [],
+        "sync": [
+          "disable",
+          "enable",
+          "fire",
+          "isActive",
+          "isEnabled",
+          "keydown",
+          "listens",
+          "mousedown",
+          "mousemoveWindow",
+          "mouseupWindow",
+          "off",
+          "on",
+          "reset",
+          "setEventedParent"
+        ],
+        "events": [
+          "boxzoomcancel",
+          "boxzoomend",
+          "boxzoomstart",
+          "click",
+          "contextmenu",
+          "cooperativegestureprevented",
+          "data",
+          "dataabort",
+          "dataloading",
+          "dblclick",
+          "drag",
+          "dragend",
+          "dragstart",
+          "error",
+          "idle",
+          "load",
+          "mousedown",
+          "mousemove",
+          "mouseout",
+          "mouseover",
+          "mouseup",
+          "move",
+          "moveend",
+          "movestart",
+          "pitch",
+          "pitchend",
+          "pitchstart",
+          "projectiontransition",
+          "remove",
+          "render",
+          "resize",
+          "roll",
+          "rollend",
+          "rollstart",
+          "rotate",
+          "rotateend",
+          "rotatestart",
+          "sourcedata",
+          "sourcedataabort",
+          "sourcedataloading",
+          "style.load",
+          "styledata",
+          "styledataloading",
+          "styleimagemissing",
+          "terrain",
+          "touchcancel",
+          "touchend",
+          "touchmove",
+          "touchstart",
+          "webglcontextlost",
+          "webglcontextrestored",
+          "wheel",
+          "zoom",
+          "zoomend",
+          "zoomstart"
+        ]
+      },
+      {
+        "name": "DragRotateHandler",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "disable",
+          "enable",
+          "isActive",
+          "isEnabled"
+        ],
+        "events": []
+      },
+      {
+        "name": "DragPanHandler",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "disable",
+          "enable",
+          "isActive",
+          "isEnabled"
+        ],
+        "events": []
+      },
+      {
+        "name": "KeyboardHandler",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "disable",
+          "disableRotation",
+          "enable",
+          "enableRotation",
+          "isActive",
+          "isEnabled",
+          "keydown",
+          "reset"
+        ],
+        "events": []
+      },
+      {
+        "name": "DoubleClickZoomHandler",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "disable",
+          "enable",
+          "isActive",
+          "isEnabled"
+        ],
+        "events": []
+      },
+      {
+        "name": "TwoFingersTouchZoomRotateHandler",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "disable",
+          "disableRotation",
+          "enable",
+          "enableRotation",
+          "isActive",
+          "isEnabled",
+          "setZoomRate",
+          "setZoomThreshold"
+        ],
+        "events": []
+      },
+      {
+        "name": "TwoFingersTouchPitchHandler",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "disable",
+          "enable",
+          "gestureBeginsVertically",
+          "isActive",
+          "isEnabled",
+          "reset",
+          "touchcancel",
+          "touchend",
+          "touchmove",
+          "touchstart"
+        ],
+        "events": []
+      },
+      {
+        "name": "CooperativeGesturesHandler",
+        "effects": [
+          "once"
+        ],
+        "streams": [],
+        "sync": [
+          "disable",
+          "enable",
+          "fire",
+          "isActive",
+          "isBypassed",
+          "isEnabled",
+          "listens",
+          "notifyGestureBlocked",
+          "off",
+          "on",
+          "reset",
+          "setEventedParent"
+        ],
+        "events": [
+          "boxzoomcancel",
+          "boxzoomend",
+          "boxzoomstart",
+          "click",
+          "contextmenu",
+          "cooperativegestureprevented",
+          "data",
+          "dataabort",
+          "dataloading",
+          "dblclick",
+          "drag",
+          "dragend",
+          "dragstart",
+          "error",
+          "idle",
+          "load",
+          "mousedown",
+          "mousemove",
+          "mouseout",
+          "mouseover",
+          "mouseup",
+          "move",
+          "moveend",
+          "movestart",
+          "pitch",
+          "pitchend",
+          "pitchstart",
+          "projectiontransition",
+          "remove",
+          "render",
+          "resize",
+          "roll",
+          "rollend",
+          "rollstart",
+          "rotate",
+          "rotateend",
+          "rotatestart",
+          "sourcedata",
+          "sourcedataabort",
+          "sourcedataloading",
+          "style.load",
+          "styledata",
+          "styledataloading",
+          "styleimagemissing",
+          "terrain",
+          "touchcancel",
+          "touchend",
+          "touchmove",
+          "touchstart",
+          "webglcontextlost",
+          "webglcontextrestored",
+          "wheel",
+          "zoom",
+          "zoomend",
+          "zoomstart"
+        ]
+      },
+      {
+        "name": "Framebuffer",
+        "release": "destroy",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "destroy"
+        ],
+        "events": []
+      },
+      {
+        "name": "Mesh",
+        "release": "destroy",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "destroy"
+        ],
+        "events": []
+      },
+      {
+        "name": "TerrainTileManager",
+        "effects": [
+          "once"
+        ],
+        "streams": [],
+        "sync": [
+          "anyTilesAfterTime",
+          "destruct",
+          "findTileInCaches",
+          "fire",
+          "getRenderableTiles",
+          "getSource",
+          "getSourceTile",
+          "getTerrainCoords",
+          "getTileByID",
+          "isStillWaitingForDEM",
+          "listens",
+          "off",
+          "on",
+          "releaseAllRTT",
+          "releaseRTT",
+          "setEventedParent",
+          "update"
+        ],
+        "events": []
+      },
+      {
+        "name": "TerrainCoverage",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "getIndex",
+          "getSampler",
+          "reset",
+          "sample"
+        ],
+        "events": []
+      },
+      {
+        "name": "Dispatcher",
+        "effects": [
+          "broadcast",
+          "getActor",
+          "once",
+          "registerMessageHandler",
+          "unregisterMessageHandler",
+          "waitForInitComplete"
+        ],
+        "streams": [],
+        "sync": [
+          "fire",
+          "getReadyActor",
+          "listens",
+          "off",
+          "on",
+          "remove",
+          "setEventedParent"
+        ],
+        "events": [
+          "error"
+        ]
+      },
+      {
+        "name": "ImageManager",
+        "release": "destroy",
+        "effects": [
+          "getImages",
+          "once"
+        ],
+        "streams": [],
+        "sync": [
+          "addImage",
+          "beginFrame",
+          "cloneImages",
+          "destroy",
+          "dispatchRenderCallbacks",
+          "fire",
+          "getImage",
+          "isLoaded",
+          "listImages",
+          "listens",
+          "off",
+          "on",
+          "removeAllSpriteImages",
+          "removeImage",
+          "removeSpriteImages",
+          "setEventedParent",
+          "setLoaded",
+          "setMissingImageResolver",
+          "setSpriteImages",
+          "updateImage"
+        ],
+        "events": [
+          "error",
+          "styleimagemissing"
+        ]
+      },
+      {
+        "name": "PatternAtlas",
+        "release": "destroy",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "bind",
+          "destroy",
+          "getPattern",
+          "getPixelSize",
+          "isPatternMissing"
+        ],
+        "events": []
+      },
+      {
+        "name": "GlyphManager",
+        "release": "destroy",
+        "effects": [
+          "getGlyphs"
+        ],
+        "streams": [],
+        "sync": [
+          "createRasterizer",
+          "destroy",
+          "setFontFaces",
+          "setURL"
+        ],
+        "events": []
+      },
+      {
+        "name": "LineAtlas",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "addDash",
+          "addRegularDash",
+          "addRoundDash",
+          "bind",
+          "getDash",
+          "getDashRanges"
+        ],
+        "events": []
+      },
+      {
+        "name": "Light",
+        "effects": [
+          "once"
+        ],
+        "streams": [],
+        "sync": [
+          "applyGlobalStateChange",
+          "fire",
+          "getEvaluated",
+          "getLight",
+          "hasTransition",
+          "listens",
+          "off",
+          "on",
+          "recalculate",
+          "setEventedParent",
+          "setLight",
+          "updateTransitions"
+        ],
+        "events": []
+      },
+      {
+        "name": "Sky",
+        "effects": [
+          "once"
+        ],
+        "streams": [],
+        "sync": [
+          "applyGlobalStateChange",
+          "fire",
+          "getEvaluated",
+          "getSky",
+          "hasTransition",
+          "listens",
+          "off",
+          "on",
+          "recalculate",
+          "setEventedParent",
+          "setSky",
+          "updateTransitions"
+        ],
+        "events": []
+      },
+      {
+        "name": "ZoomHistory",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "update"
+        ],
+        "events": []
+      },
+      {
+        "name": "CrossTileSymbolIndex",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "addLayer",
+          "pruneUnusedLayers"
+        ],
+        "events": []
+      },
+      {
+        "name": "PauseablePlacement",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "commit",
+          "continuePlacement",
+          "isDone"
+        ],
+        "events": []
+      },
+      {
+        "name": "Placement",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attemptAnchorPlacement",
+          "commit",
+          "getBucketParts",
+          "hasTransitions",
+          "markUsedJustification",
+          "markUsedOrientation",
+          "placeLayerBucketPart",
+          "setStale",
+          "stillRecent",
+          "storeCollisionData",
+          "symbolFadeChange",
+          "updateBucketOpacities",
+          "updateLayerOpacities",
+          "zoomAdjustment"
+        ],
+        "events": []
+      },
+      {
+        "name": "Texture",
+        "release": "destroy",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "bind",
+          "destroy",
+          "generateMipmap",
+          "update"
+        ],
+        "events": []
+      },
+      {
+        "name": "Context",
+        "release": "destroy",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "clear",
+          "createFramebuffer",
+          "createIndexBuffer",
+          "createRenderbuffer",
+          "createVertexArray",
+          "createVertexBuffer",
+          "deleteVertexArray",
+          "destroy",
+          "setColorMode",
+          "setCullFace",
+          "setCustomLayerDefaults",
+          "setDefault",
+          "setDepthMode",
+          "setDirty",
+          "setStencilMode",
+          "unbindVAO"
+        ],
+        "events": []
+      },
+      {
+        "name": "IRenderToTexture",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "getTexture",
+          "prepareForRender",
+          "renderLayer"
+        ],
+        "events": []
+      },
+      {
+        "name": "VertexBuffer",
+        "release": "destroy",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "bind",
+          "destroy",
+          "enableAttributes",
+          "setVertexAttribPointers",
+          "updateData"
+        ],
+        "events": []
+      },
+      {
+        "name": "SegmentVector",
+        "release": "destroy",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "createNewSegment",
+          "destroy",
+          "forceNewSegmentOnNextPrepare",
+          "get",
+          "getOrCreateLatestSegment",
+          "prepareSegment"
+        ],
+        "events": []
+      },
+      {
+        "name": "IndexBuffer",
+        "release": "destroy",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "bind",
+          "destroy",
+          "updateData"
+        ],
+        "events": []
+      },
+      {
+        "name": "ProgramCache",
+        "release": "destroy",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "destroy",
+          "getProgram"
+        ],
+        "events": []
+      },
+      {
+        "name": "ColorAttachment",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault",
+          "setDirty"
+        ],
+        "events": []
+      },
+      {
+        "name": "DepthAttachment",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "Source",
+        "effects": [
+          "loadTile"
+        ],
+        "streams": [],
+        "sync": [
+          "fire",
+          "hasTransition",
+          "loaded",
+          "serialize"
+        ],
+        "events": []
+      },
+      {
+        "name": "Tile",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "acquireRTT",
+          "clearSymbolFadeHold",
+          "clearTextures",
+          "getBucket",
+          "getExpiryTimeout",
+          "getRTT",
+          "hasData",
+          "hasDependency",
+          "holdingForSymbolFade",
+          "isRenderable",
+          "loadVectorData",
+          "patternsLoaded",
+          "prepare",
+          "queryRenderedFeatures",
+          "querySourceFeatures",
+          "releaseRTT",
+          "releaseRTTStack",
+          "resetFadeLogic",
+          "setCrossFadeLogic",
+          "setDependencies",
+          "setExpiryData",
+          "setFeatureState",
+          "setSelfFadeLogic",
+          "setSymbolHoldDuration",
+          "symbolFadeFinished",
+          "unloadVectorData",
+          "upload",
+          "wasRequested"
+        ],
+        "events": []
+      },
+      {
+        "name": "TileManager",
+        "effects": [
+          "once"
+        ],
+        "streams": [],
+        "sync": [
+          "areTilesLoaded",
+          "clearTiles",
+          "fire",
+          "getFeatureState",
+          "getIds",
+          "getLoadedTile",
+          "getRenderableIds",
+          "getSource",
+          "getState",
+          "getTile",
+          "getTileByID",
+          "getVisibleCoordinates",
+          "handleWrapJump",
+          "hasRenderableParent",
+          "hasTransition",
+          "listens",
+          "loaded",
+          "off",
+          "on",
+          "onAdd",
+          "onRemove",
+          "pause",
+          "prepare",
+          "refreshTiles",
+          "releaseSymbolFadeTiles",
+          "reload",
+          "reloadTilesForDependencies",
+          "removeFeatureState",
+          "resetMaxContentElevation",
+          "resume",
+          "serialize",
+          "setDependencies",
+          "setEventedParent",
+          "setFeatureState",
+          "setRasterFadeDuration",
+          "tilesIn",
+          "update",
+          "updateCacheSize"
+        ],
+        "events": [
+          "data",
+          "dataabort",
+          "dataloading",
+          "error"
+        ]
+      },
+      {
+        "name": "Actor",
+        "effects": [
+          "processTask",
+          "sendAsync"
+        ],
+        "streams": [],
+        "sync": [
+          "completeTask",
+          "process",
+          "receive",
+          "registerMessageHandler",
+          "remove",
+          "unregisterMessageHandler"
+        ],
+        "events": []
+      },
+      {
+        "name": "WorkerPool",
+        "release": "release",
+        "effects": [
+          "acquire",
+          "once",
+          "release",
+          "restart",
+          "start"
+        ],
+        "streams": [],
+        "sync": [
+          "fire",
+          "isPreloaded",
+          "isStarted",
+          "listens",
+          "numActive",
+          "off",
+          "on",
+          "setEventedParent"
+        ],
+        "events": [
+          "create",
+          "restart",
+          "terminate"
+        ]
+      },
+      {
+        "name": "RequestManager",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "getTransformRequest",
+          "setTransformRequest",
+          "transformRequest"
+        ],
+        "events": []
+      },
+      {
+        "name": "FontFaceManager",
+        "release": "destroy",
+        "effects": [
+          "getFontFamily"
+        ],
+        "streams": [],
+        "sync": [
+          "destroy",
+          "hasFontFaces",
+          "setFontFaces"
+        ],
+        "events": []
+      },
+      {
+        "name": "PossiblyEvaluated",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get"
+        ],
+        "events": []
+      },
+      {
+        "name": "CrossTileIDs",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "generate"
+        ],
+        "events": []
+      },
+      {
+        "name": "CollisionIndex",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "getPerspectiveRatio",
+          "getViewportMatrix",
+          "insertCollisionBox",
+          "insertCollisionCircles",
+          "isInsideGrid",
+          "isOffscreen",
+          "placeCollisionBox",
+          "placeCollisionCircles",
+          "projectAndGetPerspectiveRatio",
+          "projectPathToScreenSpace",
+          "queryRenderedSymbols"
+        ],
+        "events": []
+      },
+      {
+        "name": "CollisionGroups",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get"
+        ],
+        "events": []
+      },
+      {
+        "name": "ClearColor",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "ClearDepth",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "ClearStencil",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "ColorMask",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "DepthMask",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "StencilMask",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "StencilFunc",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "StencilOp",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "StencilTest",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "DepthRange",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "DepthTest",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "DepthFunc",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "Blend",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "BlendFunc",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "BlendColor",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "BlendEquation",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "CullFace",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "CullFaceSide",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "FrontFace",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "ProgramValue",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "ActiveTextureUnit",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "Viewport",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "BindFramebuffer",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "BindRenderbuffer",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "BindTexture",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "BindVertexBuffer",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "BindElementBuffer",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "BindVertexArray",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "PixelStoreUnpack",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "PixelStoreUnpackPremultiplyAlpha",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "PixelStoreUnpackFlipY",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "get",
+          "getDefault",
+          "set",
+          "setDefault"
+        ],
+        "events": []
+      },
+      {
+        "name": "UniformBuffer",
+        "release": "destroy",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "bind",
+          "destroy",
+          "upload"
+        ],
+        "events": []
+      },
+      {
+        "name": "Program",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "draw"
+        ],
+        "events": []
+      },
+      {
+        "name": "Bucket",
+        "release": "destroy",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "addFeatures",
+          "destroy",
+          "isEmpty",
+          "populate",
+          "update",
+          "upload",
+          "uploadPending"
+        ],
+        "events": []
+      },
+      {
+        "name": "OverscaledTileID",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "calculateScaledKey",
+          "children",
+          "clone",
+          "equals",
+          "getTilePoint",
+          "isChildOf",
+          "isLessThan",
+          "isOverscaled",
+          "normalizeCoordinates",
+          "overscaleFactor",
+          "scaledTo",
+          "toString",
+          "toUnwrapped",
+          "unwrapTo",
+          "wrapped"
+        ],
+        "events": []
+      },
+      {
+        "name": "ImageAtlas",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "addImages",
+          "patchUpdatedImage",
+          "patchUpdatedImages"
+        ],
+        "events": []
+      },
+      {
+        "name": "AlphaImage",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "clone",
+          "resize"
+        ],
+        "events": []
+      },
+      {
+        "name": "CollisionBoxArray",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "clear",
+          "emplace",
+          "emplaceBack",
+          "freeBufferAfterUpload",
+          "get",
+          "reserve",
+          "resize"
+        ],
+        "events": []
+      },
+      {
+        "name": "DEMData",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "backfillBorder",
+          "get",
+          "getPixels",
+          "getUnpackVector",
+          "pack",
+          "sampleBilinear",
+          "unpack"
+        ],
+        "events": []
+      },
+      {
+        "name": "SourceFeatureState",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "coalesceChanges",
+          "getState",
+          "initializeTileState",
+          "removeFeatureState",
+          "updateState"
+        ],
+        "events": []
+      },
+      {
+        "name": "WorldCoordinateHelper",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "hasLngLat",
+          "lngLatFromWorld",
+          "metersPerWorldUnit",
+          "worldFromLngLat",
+          "worldZFromAltitude"
+        ],
+        "events": []
+      },
+      {
+        "name": "ActorTarget",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "addEventListener",
+          "postMessage",
+          "removeEventListener"
+        ],
+        "events": []
+      },
+      {
+        "name": "ThrottledInvoker",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "remove",
+          "trigger"
+        ],
+        "events": []
+      },
+      {
+        "name": "GridIndex",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "hitTest",
+          "hitTestCircle",
+          "insert",
+          "insertCircle",
+          "keysLength",
+          "query"
+        ],
+        "events": []
+      },
+      {
+        "name": "Color",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "toString"
+        ],
+        "events": []
+      }
+    ],
+    "elements": [],
+    "mounts": [
+      "Map"
+    ]
+  }
+}

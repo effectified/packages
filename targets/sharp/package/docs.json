@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "name": "@effectified/sharp",
+  "slug": "sharp",
+  "kind": "runtime",
+  "tagline": "a builder that is also a Node stream",
+  "description": "sharp in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged",
+  "upstream": {
+    "package": "sharp",
+    "version": "0.35.5",
+    "npm": "https://www.npmjs.com/package/sharp"
+  },
+  "version": "0.35.5+3",
+  "engine": "0.2.0",
+  "page": "https://effectified.dev/sharp",
+  "source": "https://github.com/effectified/packages/tree/main/targets/sharp",
+  "install": {
+    "latest": "https://effectified.dev/sharp.tgz",
+    "release": "https://github.com/effectified/packages/releases/download/sharp-v0.35.5+3/effectified-sharp-0.35.5+3.tgz",
+    "tag": "sharp-v0.35.5+3"
+  },
+  "tests": 2,
+  "examples": [
+    {
+      "title": "Resize an image and read its metadata",
+      "source": "test/facade.test.ts",
+      "code": "import { sharp } from \"@effectified/sharp\";\n\nconst red = { create: { width: 4, height: 2, channels: 3, background: \"#ff0000\" } } as const;\n\nconst image = yield* sharp(red);\n// The builder chain stays synchronous; toBuffer runs it, as an Effect.\nconst png = yield* image.resize(2, 1).png().toBuffer();\nconst metadata = yield* (yield* sharp(png)).metadata();\n"
+    }
+  ],
+  "api": {
+    "exports": [
+      "sharp"
+    ],
+    "services": [],
+    "errors": [
+      {
+        "tag": "SharpError",
+        "codes": [
+          "ERR_DLOPEN_DISABLED"
+        ]
+      }
+    ],
+    "handles": [
+      {
+        "name": "Sharp",
+        "effects": [
+          "metadata",
+          "stats",
+          "toBuffer",
+          "toFile",
+          "toUint8Array"
+        ],
+        "streams": [],
+        "sync": [
+          "affine",
+          "autoOrient",
+          "avif",
+          "bandbool",
+          "blur",
+          "boolean",
+          "clahe",
+          "clone",
+          "composite",
+          "convolve",
+          "dilate",
+          "ensureAlpha",
+          "erode",
+          "extend",
+          "extract",
+          "extractChannel",
+          "flatten",
+          "flip",
+          "flop",
+          "gamma",
+          "gif",
+          "grayscale",
+          "greyscale",
+          "heif",
+          "joinChannel",
+          "jp2",
+          "jpeg",
+          "jxl",
+          "keepExif",
+          "keepIccProfile",
+          "keepMetadata",
+          "keepXmp",
+          "linear",
+          "median",
+          "modulate",
+          "negate",
+          "normalise",
+          "normalize",
+          "pipelineColorspace",
+          "pipelineColourspace",
+          "png",
+          "raw",
+          "recomb",
+          "removeAlpha",
+          "resize",
+          "rotate",
+          "sharpen",
+          "threshold",
+          "tiff",
+          "tile",
+          "timeout",
+          "tint",
+          "toColorspace",
+          "toColourspace",
+          "toFormat",
+          "trim",
+          "unflatten",
+          "webp",
+          "withDensity",
+          "withExif",
+          "withExifMerge",
+          "withIccProfile",
+          "withMetadata",
+          "withXmp"
+        ],
+        "events": []
+      }
+    ],
+    "elements": [],
+    "mounts": []
+  }
+}

@@ -9,6 +9,7 @@
 	},
 	"name": "@effectified/puppeteer-core",
 	"prefix": "Puppeteer",
+	"tagline": "16 handles, scoped browser and pages, generics kept through a call",
 	"exports": [
 		"launch"
 	],
@@ -177,7 +178,7 @@
 		"WebMCP.on",
 		"WebMCP.once"
 	],
-	"revision": 3,
+	"revision": 4,
 	"testDependencies": {},
 	"decisions": [
 		{
@@ -540,8 +541,8 @@
 		{
 			"id": "revision",
 			"question": "Which revision of this upstream version is the facade?",
-			"answer": "3",
-			"why": "the engine of 2026-11-26 types more of it: generic methods through a call, event payloads, callbacks that report results, and the packages its declarations name",
+			"answer": "4",
+			"why": "engine 0.2.0: the package ships its agent skill (SKILL.md) and a README with examples taken from its passing tests and the install URL of its newest release",
 			"by": "agent"
 		}
 	],

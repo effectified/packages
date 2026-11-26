@@ -9,6 +9,7 @@
 	},
 	"name": "@effectified/xterm",
 	"prefix": "Xterm",
+	"tagline": "a terminal fed from the Model, keystrokes as messages",
 	"exports": [
 		"Terminal"
 	],
@@ -66,6 +67,7 @@
 			"Terminal"
 		]
 	},
+	"revision": 2,
 	"decisions": [
 		{
 			"id": "exports",
@@ -205,6 +207,13 @@
 			"question": "Which mounts does the frontend facade offer?",
 			"answer": "Terminal",
 			"why": "a terminal lives on one div: opened with its options, options applied in place through terminal.options, the Model's output log written as it grows (reset and written again when it shrinks), typed data and resizes as messages, disposed with the div",
+			"by": "agent"
+		},
+		{
+			"id": "revision",
+			"question": "Which revision of this upstream version is the facade?",
+			"answer": "2",
+			"why": "engine 0.2.0: the package ships its agent skill (SKILL.md) and a README with examples taken from its passing tests and the install URL of its newest release",
 			"by": "agent"
 		}
 	]

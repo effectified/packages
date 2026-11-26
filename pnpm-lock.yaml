@@ -176,8 +176,8 @@ importers:
   .:
     devDependencies:
       '@effectified/engine':
-        specifier: https://github.com/effectified/engine/releases/download/v0.1.0/effectified-engine-0.1.0.tgz
-        version: https://github.com/effectified/engine/releases/download/v0.1.0/effectified-engine-0.1.0.tgz(redis@6.4.0)
+        specifier: https://github.com/effectified/engine/releases/download/v0.2.0/effectified-engine-0.2.0.tgz
+        version: https://github.com/effectified/engine/releases/download/v0.2.0/effectified-engine-0.2.0.tgz(redis@6.4.0)
 
 packages:
 
@@ -256,9 +256,9 @@ packages:
       effect: ^4.1.5
       redis: '>=5.1.0 <7.0.0'
 
-  '@effectified/engine@https://github.com/effectified/engine/releases/download/v0.1.0/effectified-engine-0.1.0.tgz':
-    resolution: {integrity: sha512-K7AI2Q+BtD3KxaPzPT2ak0q2lMYbTb5TkG1zl/zM7zqZt8wDpNCAW7aBYUSJ38oUGOxEhHNw2lWtX2eWeKYF4A==, tarball: https://github.com/effectified/engine/releases/download/v0.1.0/effectified-engine-0.1.0.tgz}
-    version: 0.1.0
+  '@effectified/engine@https://github.com/effectified/engine/releases/download/v0.2.0/effectified-engine-0.2.0.tgz':
+    resolution: {integrity: sha512-0moZmxLdKhU+9wEXSeHGdzCJTeCwASJfiZ322BV1I1mFn2o0JVpJtbz2a8l8se/EfXRSHXJzQp6OIlXnCv5bpw==, tarball: https://github.com/effectified/engine/releases/download/v0.2.0/effectified-engine-0.2.0.tgz}
+    version: 0.2.0
     engines: {node: '>=24.0.0'}
     hasBin: true
 
@@ -515,7 +515,7 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  '@effectified/engine@https://github.com/effectified/engine/releases/download/v0.1.0/effectified-engine-0.1.0.tgz(redis@6.4.0)':
+  '@effectified/engine@https://github.com/effectified/engine/releases/download/v0.2.0/effectified-engine-0.2.0.tgz(redis@6.4.0)':
     dependencies:
       '@ast-grep/napi': 0.51.3
       '@effect/platform-node': 4.1.5(effect@4.1.5)(redis@6.4.0)

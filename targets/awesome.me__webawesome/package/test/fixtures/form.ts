@@ -2,11 +2,14 @@
 // native events, a button opens a dialog through its `open` property, and the dialog's `wa-after-hide` closes it in
 // the Model. Not `wa-hide`: it fires before the dialog closes, and setting `open` to false then is a second request to
 // close (Web Awesome fires `wa-hide` again).
+// Web Awesome draws its elements from its theme's design tokens: an app loads its stylesheet once.
+import "@awesome.me/webawesome/dist/styles/webawesome.css";
 import { Mount, UiSchema } from "@effect/ui";
 import { BrowserHost, Html } from "@effect/ui/html";
 import { Effect, Layer, Schema } from "effect";
 import { Button, Dialog, Input, InputChanges, Switch, SwitchChanges } from "../../src/index.ts";
 
+// #region example: A form and a dialog
 const Message = UiSchema.TaggedEnum({
 	ChangedName: { name: Schema.String },
 	ToggledAgreed: { agreed: Schema.Boolean },
@@ -44,3 +47,4 @@ const Form = Html.component({
 });
 
 Layer.launch(BrowserHost.mount(Form, {}, document.getElementById("root")!)).pipe(Effect.runFork);
+// #endregion

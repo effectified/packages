@@ -71,6 +71,10 @@ Each test opens a fixture: `test/fixtures/<name>.html` plus `<name>.ts`, an Effe
 
 Do not edit generated files, and do not work around a binding in a fixture. If a binding cannot express what the element needs (a property typed wrongly, an event Effect UI cannot carry), record it in the recipe when an override fixes it; otherwise it is an engine gap (`effectify-engine` (in effectified/engine)): report it with the fixture that shows it.
 
+## Examples and the live demo
+
+Every fixture page (`test/fixtures/<name>.html` with its `.ts`) is also the facade's demo: `npm run demo -- <directory>` builds them with Vite, the release attaches the build, and the facade's page on effectified.dev runs it beside the example. Mark the fixture's component and its mount line with `// #region example: <title>` ... `// #endregion` (leave test hooks such as `window.Chart = Chart` outside): that code is shown next to the demo it runs. A fixture is read by people now, so its controls say what they do.
+
 ## Done
 
 `pnpm effectify reconcile <target>` (which type checks fixtures and tests) and `pnpm effectify test <target>` pass with Chrome (`CHROME_BIN`, or the default macOS install).

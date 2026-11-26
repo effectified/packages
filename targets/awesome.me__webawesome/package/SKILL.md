@@ -1,0 +1,167 @@
+---
+name: effectified-webawesome
+description: Use @awesome.me/webawesome in Effect UI apps through @effectified/webawesome. Use when an Effect UI view renders @awesome.me/webawesome: what the facade offers, how its bindings and mounts work, and tested examples.
+---
+
+# @awesome.me/webawesome through @effectified/webawesome
+
+78 elements, form controls and a dialog.
+
+@awesome.me/webawesome for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from @awesome.me/webawesome's own types (this copy: 3.15.0+2, for @awesome.me/webawesome 3.15.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+
+## Install
+
+```sh
+pnpm add https://effectified.dev/webawesome.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
+```
+
+## Rules
+
+- Import from `@effectified/webawesome`. It runs in [Effect UI](https://ui.effect.website) views (`Html.component`), installed from its snapshot build.
+- Elements are bindings: `Accordion(h)` renders `<wa-accordion>`; set its properties as methods (`Accordion(h).appearance(...)`) and turn its custom events into messages with `.on("<event>", (detail) => Message.X(...))`. Importing a binding defines its element.
+- Form controls report their state through their changes mount, not native `input`/`change` (Effect UI types those `never` on custom elements): `Checkbox(h).onMount(CheckboxChanges({}).pipe(Mount.map((state) => Message.X(state))))`, with `value`, `checked`, `indeterminate`.
+- Set the Model from the event that says a change is done (an element that animates closed fires a request event, then a completion event): setting it on the request asks again.
+- Never reach into the element or instance to change what the Model owns: render the Model, and let messages change it.
+
+## Examples
+
+Each is code from a test that passes in CI.
+
+### A form and a dialog
+
+```ts
+import "@awesome.me/webawesome/dist/styles/webawesome.css";
+import { Mount, UiSchema } from "@effect/ui";
+import { BrowserHost, Html } from "@effect/ui/html";
+import { Effect, Layer, Schema } from "effect";
+import { Button, Dialog, Input, InputChanges, Switch, SwitchChanges } from "@effectified/webawesome";
+
+const Message = UiSchema.TaggedEnum({
+	ChangedName: { name: Schema.String },
+	ToggledAgreed: { agreed: Schema.Boolean },
+	ClickedOpen: {},
+	HidDialog: {},
+});
+
+const Form = Html.component({
+	name: "Form",
+	model: Schema.Struct({ name: Schema.String, agreed: Schema.Boolean, open: Schema.Boolean, closings: Schema.Number }),
+	message: Message,
+}).make({
+	init: () => ({ name: "", agreed: false, open: false, closings: 0 }),
+	update: {
+		ChangedName: ($, { name }) => $.evolve({ name: () => name }),
+		ToggledAgreed: ($, { agreed }) => $.evolve({ agreed: () => agreed }),
+		ClickedOpen: ($) => $.evolve({ open: () => true }),
+		HidDialog: ($) => $.evolve({ open: () => false, closings: (closings) => closings + 1 }),
+	},
+	view: (h, model) =>
+		h.div.children(
+			Input(h)
+				.id("name")
+				.label("Name")
+				.value(model.name)
+				.onMount(InputChanges({}).pipe(Mount.map(({ value }) => Message.ChangedName({ name: String(value ?? "") })))),
+			Switch(h)
+				.id("agreed")
+				.checked(model.agreed)
+				.onMount(SwitchChanges({}).pipe(Mount.map(({ checked }) => Message.ToggledAgreed({ agreed: checked })))),
+			Button(h).id("open").variant("brand").on("click", () => Message.ClickedOpen()).children("Open"),
+			Dialog(h).id("dialog").label("Hello").open(model.open).on("wa-after-hide", () => Message.HidDialog()).children(`Hello, ${model.name}`),
+			h.output.id("state").children(JSON.stringify(model)),
+		),
+});
+
+Layer.launch(BrowserHost.mount(Form, {}, document.getElementById("root")!)).pipe(Effect.runFork);
+```
+
+From `test/fixtures/form.ts`.
+
+## API
+
+| Error | From |
+|---|---|
+| `WebawesomeError` | any other failure, codes `EMBED`, `END_TAG`, `END_TAG_OPEN`, `EQUALS`, `EQUALS_SIGN`, `EXCLAMATION_MARK`, `ENCODING` |
+
+| Element | Binding | Properties | Events |
+|---|---|---|---|
+| `<wa-accordion>` | `Accordion` | `appearance`, `didSSR`, `headingLevel`, `iconPlacement`, `mode` | `wa-after-collapse`, `wa-after-expand`, `wa-collapse`, `wa-expand` |
+| `<wa-accordion-item>` | `AccordionItem` | `didSSR`, `disabled`, `expanded`, `label` | – |
+| `<wa-animated-image>` | `AnimatedImage` | `alt`, `didSSR`, `play`, `src` | `wa-error`, `wa-load` |
+| `<wa-animation>` | `Animation` | `currentTime`, `delay`, `didSSR`, `direction`, `duration`, `easing`, `endDelay`, `fill`, `iterationStart`, `iterations`, `keyframes`, `name`, `play`, `playbackRate` | `wa-cancel`, `wa-finish`, `wa-start` |
+| `<wa-avatar>` | `Avatar` | `didSSR`, `image`, `initials`, `label`, `loading`, `shape` | `wa-error` |
+| `<wa-badge>` | `Badge` | `appearance`, `attention`, `didSSR`, `pill`, `variant` | – |
+| `<wa-breadcrumb>` | `Breadcrumb` | `didSSR`, `label` | – |
+| `<wa-breadcrumb-item>` | `BreadcrumbItem` | `didSSR`, `href`, `rel`, `target` | – |
+| `<wa-button>` | `Button` | `appearance`, `customError`, `didSSR`, `disabled`, `download`, `formAction`, `formEnctype`, `formMethod`, `formNoValidate`, `formTarget`, `href`, `loading`, `name`, `pill`, `rel`, `size`, `target`, `type`, `value`, `variant`, `withCaret`, `withEnd`, `withStart` | `wa-invalid` |
+| `<wa-button-group>` | `ButtonGroup` | `didSSR`, `label`, `orientation` | – |
+| `<wa-callout>` | `Callout` | `appearance`, `didSSR`, `size`, `variant` | – |
+| `<wa-card>` | `Card` | `appearance`, `didSSR`, `orientation`, `withFooter`, `withFooterActions`, `withHeader`, `withHeaderActions`, `withMedia` | – |
+| `<wa-carousel>` | `Carousel` | `autoplay`, `autoplayInterval`, `currentSlide`, `didSSR`, `loop`, `mouseDragging`, `navigation`, `orientation`, `pagination`, `slides`, `slidesPerMove`, `slidesPerPage` | `wa-slide-change` |
+| `<wa-carousel-item>` | `CarouselItem` | `didSSR` | – |
+| `<wa-checkbox>` | `Checkbox`, `CheckboxChanges` | `checked`, `customError`, `defaultChecked`, `didSSR`, `disabled`, `hint`, `indeterminate`, `name`, `required`, `size`, `value` | `wa-invalid` |
+| `<wa-checkbox-group>` | `CheckboxGroup` | `didSSR`, `hint`, `label`, `orientation`, `required`, `size`, `withHint`, `withLabel` | – |
+| `<wa-code-highlighter>` | `CodeHighlighter` | `code`, `didSSR`, `label`, `language`, `withoutCopy`, `withoutDedent`, `wrap` | `wa-error`, `wa-load` |
+| `<wa-color-picker>` | `ColorPicker`, `ColorPickerChanges` | `assumeInteractionOn`, `customError`, `defaultValue`, `didSSR`, `dir`, `disabled`, `emitInvalid`, `format`, `hasInteracted`, `hint`, `initialReflectedProperties`, `label`, `lang`, `name`, `opacity`, `open`, `placement`, `required`, `size`, `states`, `swatches`, `uppercase`, `validators`, `value`, `valueHasChanged`, `withHint`, `withLabel`, `withoutFormatToggle` | `wa-after-hide`, `wa-after-show`, `wa-hide`, `wa-invalid`, `wa-show` |
+| `<wa-comparison>` | `Comparison` | `didSSR`, `position` | – |
+| `<wa-copy-button>` | `CopyButton` | `copyLabel`, `didSSR`, `disabled`, `errorLabel`, `feedbackDuration`, `from`, `successLabel`, `tooltip`, `tooltipPlacement`, `value` | `wa-copy`, `wa-error` |
+| `<wa-counter>` | `Counter` | `date`, `delimiter`, `didSSR`, `direction`, `duration`, `format`, `label`, `largestUnit`, `paused`, `smallestUnit`, `withoutLabels` | `wa-finish` |
+| `<wa-details>` | `Details` | `appearance`, `didSSR`, `disabled`, `iconPlacement`, `name`, `open`, `summary` | `wa-after-hide`, `wa-after-show`, `wa-hide`, `wa-show` |
+| `<wa-dialog>` | `Dialog` | `didSSR`, `label`, `lightDismiss`, `open`, `withFooter`, `withLabel`, `withoutHeader` | `wa-after-hide`, `wa-after-show`, `wa-hide`, `wa-show` |
+| `<wa-divider>` | `Divider` | `didSSR`, `labelPlacement`, `orientation`, `withLabel` | – |
+| `<wa-drawer>` | `Drawer` | `didSSR`, `label`, `lightDismiss`, `open`, `placement`, `withFooter`, `withLabel`, `withoutHeader` | `wa-after-hide`, `wa-after-show`, `wa-hide`, `wa-show` |
+| `<wa-dropdown>` | `Dropdown` | `didSSR`, `distance`, `open`, `placement`, `size`, `skidding` | `wa-after-hide`, `wa-after-show`, `wa-hide`, `wa-select`, `wa-show` |
+| `<wa-dropdown-item>` | `DropdownItem` | `checked`, `didSSR`, `disabled`, `download`, `href`, `rel`, `submenuOpen`, `target`, `type`, `value`, `variant` | – |
+| `<wa-format-bytes>` | `FormatBytes` | `didSSR`, `display`, `unit`, `value` | – |
+| `<wa-format-date>` | `FormatDate` | `date`, `day`, `didSSR`, `era`, `hour`, `hourFormat`, `minute`, `month`, `second`, `timeZone`, `timeZoneName`, `weekday`, `year` | – |
+| `<wa-format-number>` | `FormatNumber` | `currency`, `currencyDisplay`, `didSSR`, `maximumFractionDigits`, `maximumSignificantDigits`, `minimumFractionDigits`, `minimumIntegerDigits`, `minimumSignificantDigits`, `type`, `value`, `withoutGrouping` | – |
+| `<wa-icon>` | `Icon` | `animation`, `autoWidth`, `canvas`, `didSSR`, `family`, `flip`, `label`, `library`, `name`, `rotate`, `src`, `swapOpacity`, `variant` | `wa-error`, `wa-load` |
+| `<wa-include>` | `Include` | `allowScripts`, `didSSR`, `mode`, `src` | `wa-include-error`, `wa-load` |
+| `<wa-input>` | `Input`, `InputChanges` | `appearance`, `autocomplete`, `customError`, `defaultValue`, `didSSR`, `disabled`, `enterkeyhint`, `hint`, `inputmode`, `label`, `max`, `maxlength`, `min`, `minlength`, `name`, `passwordToggle`, `passwordVisible`, `pattern`, `pill`, `placeholder`, `readonly`, `required`, `size`, `step`, `type`, `value`, `withClear`, `withHint`, `withLabel`, `withoutSpinButtons` | `wa-clear`, `wa-invalid` |
+| `<wa-intersection-observer>` | `IntersectionObserver` | `didSSR`, `disabled`, `intersectClass`, `once`, `root`, `rootMargin`, `threshold` | `wa-intersect` |
+| `<wa-known-date>` | `KnownDate`, `KnownDateChanges` | `appearance`, `autocomplete`, `customError`, `defaultValue`, `didSSR`, `disabled`, `hint`, `label`, `locale`, `max`, `min`, `name`, `parts`, `pill`, `readonly`, `required`, `size`, `value`, `withHint`, `withLabel` | `wa-invalid` |
+| `<wa-lightbox>` | `Lightbox` | `didSSR`, `index`, `label`, `loop`, `open`, `withThumbnails`, `withoutCounter`, `withoutNavigation`, `withoutZoom` | `wa-after-hide`, `wa-after-show`, `wa-hide`, `wa-item-change`, `wa-show` |
+| `<wa-lightbox-item>` | `LightboxItem` | `alt`, `caption`, `didSSR`, `height`, `sizes`, `src`, `srcset`, `thumbnail`, `type`, `width` | – |
+| `<wa-markdown>` | `Markdown` | `didSSR`, `tabSize` | – |
+| `<wa-mutation-observer>` | `MutationObserver` | `attr`, `attrOldValue`, `charData`, `charDataOldValue`, `childList`, `didSSR`, `disabled` | `wa-mutation` |
+| `<wa-number-input>` | `NumberInput`, `NumberInputChanges` | `appearance`, `autocomplete`, `customError`, `defaultValue`, `didSSR`, `disabled`, `enterkeyhint`, `hint`, `inputmode`, `label`, `max`, `min`, `name`, `pill`, `placeholder`, `readonly`, `required`, `size`, `step`, `value`, `withHint`, `withLabel`, `withoutSteppers` | `wa-invalid` |
+| `<wa-number-ticker>` | `NumberTicker` | `currency`, `currencyDisplay`, `delay`, `didSSR`, `duration`, `eager`, `easing`, `maximumFractionDigits`, `maximumSignificantDigits`, `minimumFractionDigits`, `minimumIntegerDigits`, `minimumSignificantDigits`, `startValue`, `type`, `value`, `withoutGrouping` | `wa-finish` |
+| `<wa-option>` | `Option` | `defaultSelected`, `didSSR`, `disabled`, `label`, `value` | – |
+| `<wa-otp-input>` | `OtpInput`, `OtpInputChanges` | `appearance`, `autocomplete`, `autosubmit`, `case`, `customError`, `defaultValue`, `didSSR`, `disabled`, `format`, `hint`, `label`, `length`, `mask`, `name`, `readonly`, `required`, `size`, `type`, `value`, `withMask` | `wa-clear`, `wa-complete`, `wa-invalid` |
+| `<wa-page>` | `Page` | `didSSR`, `disableNavigationToggle`, `disableSticky`, `mobileBreakpoint`, `navOpen`, `navigationPlacement`, `view` | – |
+| `<wa-pagination>` | `Pagination` | `appearance`, `boundaryCount`, `didSSR`, `disabled`, `format`, `hideSinglePage`, `hrefTemplate`, `label`, `page`, `pageSize`, `siblingCount`, `total`, `withEdges`, `withSummary`, `withoutNav` | `wa-before-page-change`, `wa-page-change` |
+| `<wa-popover>` | `Popover` | `didSSR`, `distance`, `for`, `open`, `placement`, `skidding`, `withoutArrow` | `wa-after-hide`, `wa-after-show`, `wa-hide`, `wa-show` |
+| `<wa-popup>` | `Popup` | `active`, `arrow`, `arrowPadding`, `arrowPlacement`, `autoSize`, `autoSizePadding`, `boundary`, `didSSR`, `distance`, `flip`, `flipFallbackPlacements`, `flipFallbackStrategy`, `flipPadding`, `hoverBridge`, `placement`, `shift`, `shiftPadding`, `skidding`, `sync` | `wa-reposition` |
+| `<wa-progress-bar>` | `ProgressBar` | `didSSR`, `indeterminate`, `label`, `value` | – |
+| `<wa-progress-ring>` | `ProgressRing` | `didSSR`, `label`, `value` | – |
+| `<wa-qr-code>` | `QrCode` | `background`, `didSSR`, `errorCorrection`, `fill`, `image`, `imageBackground`, `imageCoverage`, `imagePadding`, `label`, `radius`, `size`, `value` | – |
+| `<wa-radio>` | `Radio` | `appearance`, `customError`, `didSSR`, `disabled`, `name`, `size`, `value` | – |
+| `<wa-radio-group>` | `RadioGroup`, `RadioGroupChanges` | `customError`, `defaultValue`, `didSSR`, `disabled`, `hint`, `label`, `name`, `orientation`, `required`, `size`, `value`, `withHint`, `withLabel` | `wa-invalid` |
+| `<wa-random-content>` | `RandomContent` | `animation`, `autoplay`, `autoplayInterval`, `didSSR`, `items`, `mode` | `wa-content-change` |
+| `<wa-rating>` | `Rating`, `RatingChanges` | `customError`, `defaultValue`, `didSSR`, `disabled`, `label`, `max`, `name`, `precision`, `readonly`, `required`, `size`, `value` | `wa-hover`, `wa-invalid` |
+| `<wa-relative-time>` | `RelativeTime` | `date`, `didSSR`, `format`, `numeric`, `sync` | – |
+| `<wa-resize-observer>` | `ResizeObserver` | `didSSR`, `disabled` | `wa-resize` |
+| `<wa-scroller>` | `Scroller` | `didSSR`, `orientation`, `withoutScrollbar`, `withoutShadow` | – |
+| `<wa-select>` | `Select`, `SelectChanges` | `appearance`, `customError`, `didSSR`, `disabled`, `hint`, `label`, `maxOptionsVisible`, `multiple`, `name`, `open`, `pill`, `placeholder`, `placement`, `required`, `size`, `value`, `withClear`, `withHint`, `withLabel` | `wa-after-hide`, `wa-after-show`, `wa-clear`, `wa-hide`, `wa-invalid`, `wa-show` |
+| `<wa-skeleton>` | `Skeleton` | `didSSR`, `effect` | – |
+| `<wa-slider>` | `Slider`, `SliderChanges` | `customError`, `defaultValue`, `didSSR`, `disabled`, `hint`, `indicatorOffset`, `label`, `max`, `maxValue`, `min`, `minValue`, `name`, `orientation`, `range`, `readonly`, `size`, `step`, `tooltipDistance`, `tooltipPlacement`, `value`, `withHint`, `withLabel`, `withMarkers`, `withTooltip` | `wa-invalid` |
+| `<wa-spinner>` | `Spinner` | `didSSR` | – |
+| `<wa-split-panel>` | `SplitPanel` | `didSSR`, `disabled`, `orientation`, `position`, `positionInPixels`, `primary`, `snap`, `snapThreshold` | `wa-reposition` |
+| `<wa-step>` | `Step` | `active`, `attention`, `completed`, `didSSR`, `disabled`, `loading`, `name`, `variant`, `withDescription` | – |
+| `<wa-stepper>` | `Stepper` | `active`, `clickable`, `didSSR`, `label`, `linear`, `orientation` | `detail`, `wa-before-step-change`, `wa-step-change` |
+| `<wa-switch>` | `Switch`, `SwitchChanges` | `checked`, `customError`, `defaultChecked`, `didSSR`, `disabled`, `hint`, `name`, `required`, `size`, `value`, `withHint` | `wa-invalid` |
+| `<wa-tab>` | `Tab` | `didSSR`, `disabled`, `panel` | – |
+| `<wa-tab-group>` | `TabGroup` | `activation`, `active`, `didSSR`, `placement`, `withoutScrollControls` | `wa-tab-hide`, `wa-tab-show` |
+| `<wa-tab-panel>` | `TabPanel` | `active`, `didSSR`, `name` | – |
+| `<wa-tag>` | `Tag` | `appearance`, `didSSR`, `pill`, `size`, `variant`, `withRemove` | `wa-remove` |
+| `<wa-tag-input>` | `TagInput`, `TagInputChanges` | `allowDuplicates`, `appearance`, `autocomplete`, `customError`, `defaultValue`, `delimiter`, `didSSR`, `disabled`, `enterkeyhint`, `hint`, `inputValue`, `inputmode`, `label`, `maxTags`, `minTags`, `name`, `pill`, `placeholder`, `readonly`, `required`, `size`, `value`, `withClear`, `withHint`, `withLabel` | `wa-clear`, `wa-create`, `wa-invalid` |
+| `<wa-textarea>` | `Textarea`, `TextareaChanges` | `appearance`, `autocomplete`, `customError`, `defaultValue`, `didSSR`, `disabled`, `enterkeyhint`, `hint`, `inputmode`, `label`, `maxlength`, `minlength`, `name`, `placeholder`, `readonly`, `required`, `resize`, `rows`, `size`, `value`, `withCount`, `withHint`, `withLabel` | `wa-invalid` |
+| `<wa-time-input>` | `TimeInput`, `TimeInputChanges` | `appearance`, `assumeInteractionOn`, `autocomplete`, `customError`, `defaultValue`, `didSSR`, `disabled`, `distance`, `hint`, `hourFormat`, `label`, `max`, `min`, `name`, `open`, `pill`, `placement`, `readonly`, `required`, `size`, `step`, `value`, `withClear`, `withHint`, `withLabel`, `withNow` | `wa-after-hide`, `wa-after-show`, `wa-clear`, `wa-hide`, `wa-invalid`, `wa-show` |
+| `<wa-toast>` | `Toast` | `didSSR`, `placement` | – |
+| `<wa-toast-item>` | `ToastItem` | `didSSR`, `duration`, `size`, `variant`, `withIcon` | `wa-after-hide`, `wa-after-show`, `wa-hide`, `wa-show` |
+| `<wa-tooltip>` | `Tooltip` | `didSSR`, `disabled`, `distance`, `for`, `hideDelay`, `open`, `placement`, `showDelay`, `skidding`, `trigger`, `withoutArrow` | `wa-after-hide`, `wa-after-show`, `wa-hide`, `wa-show` |
+| `<wa-tree>` | `Tree` | `didSSR`, `selection` | `wa-selection-change` |
+| `<wa-tree-item>` | `TreeItem` | `didSSR`, `disabled`, `expanded`, `lazy`, `selected` | `wa-after-collapse`, `wa-after-expand`, `wa-collapse`, `wa-expand`, `wa-lazy-change`, `wa-lazy-load` |
+| `<wa-zoomable-frame>` | `ZoomableFrame` | `allow`, `allowfullscreen`, `didSSR`, `label`, `loading`, `name`, `referrerpolicy`, `sandbox`, `src`, `srcdoc`, `withThemeSync`, `withoutControls`, `withoutInteraction`, `zoom`, `zoomLevels` | – |
+
+More: https://effectified.dev/webawesome

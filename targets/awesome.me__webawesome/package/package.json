@@ -1,6 +1,6 @@
 {
   "name": "@effectified/webawesome",
-  "version": "3.15.0",
+  "version": "3.15.0+2",
   "description": "@awesome.me/webawesome for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
   "type": "module",
   "license": "MIT",
@@ -16,7 +16,8 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "SKILL.md"
   ],
   "sideEffects": [
     "./dist/elements/*.js",
@@ -25,7 +26,8 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "check": "tsc -p tsconfig.json",
-    "test": "vitest --run --passWithNoTests --testTimeout=60000"
+    "test": "vitest --run --passWithNoTests --testTimeout=60000",
+    "demo": "node test/support/demo.ts"
   },
   "dependencies": {
     "@awesome.me/webawesome": "3.15.0"

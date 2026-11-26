@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "name": "@effectified/codemirror-view",
+  "slug": "codemirror-view",
+  "kind": "ui",
+  "tagline": "an editor whose document is the Model, its cursor kept",
+  "description": "@codemirror/view for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
+  "upstream": {
+    "package": "@codemirror/view",
+    "version": "6.44.0",
+    "npm": "https://www.npmjs.com/package/@codemirror/view"
+  },
+  "version": "6.44.0+2",
+  "engine": "0.2.0",
+  "page": "https://effectified.dev/codemirror-view",
+  "source": "https://github.com/effectified/packages/tree/main/targets/codemirror__view",
+  "install": {
+    "latest": "https://effectified.dev/codemirror-view.tgz",
+    "release": "https://github.com/effectified/packages/releases/download/codemirror-view-v6.44.0+2/effectified-codemirror-view-6.44.0+2.tgz",
+    "tag": "codemirror-view-v6.44.0+2",
+    "effectUi": "https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57"
+  },
+  "demo": {
+    "url": "https://github.com/effectified/packages/releases/download/codemirror-view-v6.44.0+2/effectified-codemirror-view-6.44.0+2-demo.tgz",
+    "pages": [
+      "editor"
+    ]
+  },
+  "tests": 1,
+  "examples": [
+    {
+      "title": "An editor whose document is the Model",
+      "source": "test/fixtures/editor.ts",
+      "code": "import { Mount, UiSchema } from \"@effect/ui\";\nimport { BrowserHost, Html } from \"@effect/ui/html\";\nimport { EditorState } from \"@codemirror/state\";\nimport { EditorView } from \"@codemirror/view\";\nimport { Effect, Layer, Schema } from \"effect\";\nimport { EditorMount } from \"@effectified/codemirror-view\";\n\n// Module constants: the mount reconfigures the editor only when the view gives it another value.\nconst editable = EditorView.lineWrapping;\nconst locked = [EditorView.lineWrapping, EditorState.readOnly.of(true)];\n\nconst Message = UiSchema.TaggedEnum({\n\tChangedDoc: { doc: Schema.String },\n\tMovedSelection: { anchor: Schema.Number, head: Schema.Number },\n\tClickedSet: {},\n\tClickedLock: {},\n\tClickedHide: {},\n});\n\nconst Notes = Html.component({\n\tname: \"Notes\",\n\tmodel: Schema.Struct({ doc: Schema.String, anchor: Schema.Number, head: Schema.Number, locked: Schema.Boolean, shown: Schema.Boolean }),\n\tmessage: Message,\n}).make({\n\tinit: () => ({ doc: \"hello\", anchor: 0, head: 0, locked: false, shown: true }),\n\tupdate: {\n\t\tChangedDoc: ($, { doc }) => $.evolve({ doc: () => doc }),\n\t\tMovedSelection: ($, { anchor, head }) => $.evolve({ anchor: () => anchor, head: () => head }),\n\t\tClickedSet: ($) => $.evolve({ doc: () => \"set from the model\" }),\n\t\tClickedLock: ($) => $.evolve({ locked: () => true }),\n\t\tClickedHide: ($) => $.evolve({ shown: () => false }),\n\t},\n\tview: (h, model) =>\n\t\th.div.children(\n\t\t\th.button.id(\"set\").on(\"click\", Message.ClickedSet()).children(\"Set\"),\n\t\t\th.button.id(\"lock\").on(\"click\", Message.ClickedLock()).children(\"Lock\"),\n\t\t\th.button.id(\"hide\").on(\"click\", Message.ClickedHide()).children(\"Hide\"),\n\t\t\th.output.id(\"state\").children(JSON.stringify(model)),\n\t\t\tmodel.shown\n\t\t\t\t? h.div.id(\"editor\").onMount(\n\t\t\t\t\t\tEditorMount({ doc: model.doc, extensions: model.locked ? locked : editable }).pipe(\n\t\t\t\t\t\t\tMount.map((change) =>\n\t\t\t\t\t\t\t\tchange._tag === \"DocChanged\" ? Message.ChangedDoc({ doc: change.doc }) : Message.MovedSelection({ anchor: change.anchor, head: change.head }),\n\t\t\t\t\t\t\t),\n\t\t\t\t\t\t),\n\t\t\t\t\t)\n\t\t\t\t: h.p.id(\"hidden\").children(\"hidden\"),\n\t\t),\n});\n\nLayer.launch(BrowserHost.mount(Notes, {}, document.getElementById(\"root\")!)).pipe(Effect.runFork);\n",
+      "demo": "editor"
+    }
+  ],
+  "api": {
+    "exports": [],
+    "services": [
+      {
+        "name": "ViewEditorView",
+        "handle": "EditorView",
+        "acquire": "EditorView"
+      }
+    ],
+    "errors": [
+      {
+        "tag": "ViewError",
+        "codes": []
+      }
+    ],
+    "handles": [
+      {
+        "name": "EditorView",
+        "release": "destroy",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "bidiSpans",
+          "coordsAtPos",
+          "coordsForChar",
+          "destroy",
+          "dispatch",
+          "domAtPos",
+          "elementAtHeight",
+          "focus",
+          "lineBlockAt",
+          "lineBlockAtHeight",
+          "moveByChar",
+          "moveByGroup",
+          "moveToLineBoundary",
+          "moveVertically",
+          "plugin",
+          "posAndSideAtCoords",
+          "posAtCoords",
+          "posAtDOM",
+          "requestMeasure",
+          "scrollSnapshot",
+          "setRoot",
+          "setState",
+          "setTabFocusMode",
+          "textDirectionAt",
+          "update",
+          "visualLineSide"
+        ],
+        "events": []
+      }
+    ],
+    "elements": [],
+    "mounts": [
+      "Editor"
+    ]
+  }
+}

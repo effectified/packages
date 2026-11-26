@@ -6,6 +6,7 @@ import { BrowserHost, Html } from "@effect/ui/html";
 import { Effect, Layer, Queue, Schema, Stream } from "effect";
 import { ControlBar, Controller, MuteButton, PlayButton, TimeDisplay, TimeRange } from "../../src/index.ts";
 
+// #region example: A player whose media state comes back as messages
 /** The video's state as one of its media events reports it. */
 interface MediaState {
 	readonly event: string;
@@ -88,3 +89,4 @@ const Player = Html.component({
 });
 
 Layer.launch(BrowserHost.mount(Player, {}, document.getElementById("root")!)).pipe(Effect.runFork);
+// #endregion

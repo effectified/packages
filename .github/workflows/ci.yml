@@ -72,3 +72,6 @@ jobs:
       - name: The release build compiles
         working-directory: targets/${{ matrix.target }}/package
         run: node node_modules/typescript/bin/tsc -p tsconfig.build.json
+      - name: The demo builds (frontend facades)
+        working-directory: targets/${{ matrix.target }}/package
+        run: if [ -f test/support/demo.ts ]; then node test/support/demo.ts "$RUNNER_TEMP/demo"; fi

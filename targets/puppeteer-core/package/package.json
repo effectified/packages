@@ -1,6 +1,6 @@
 {
   "name": "@effectified/puppeteer-core",
-  "version": "25.19.0+3",
+  "version": "25.19.0+4",
   "description": "puppeteer-core in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged",
   "type": "module",
   "license": "MIT",
@@ -12,7 +12,8 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "SKILL.md"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
@@ -35,7 +36,7 @@
     "vitest": "5.1.1"
   },
   "effectified": {
-    "engine": "0.1.0",
+    "engine": "0.2.0",
     "upstream": "puppeteer-core@25.19.0",
     "types": "puppeteer-core@25.19.0"
   }

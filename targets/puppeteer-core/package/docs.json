@@ -1,0 +1,686 @@
+{
+  "schema": 1,
+  "name": "@effectified/puppeteer-core",
+  "slug": "puppeteer-core",
+  "kind": "runtime",
+  "tagline": "16 handles, scoped browser and pages, generics kept through a call",
+  "description": "puppeteer-core in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged",
+  "upstream": {
+    "package": "puppeteer-core",
+    "version": "25.19.0",
+    "npm": "https://www.npmjs.com/package/puppeteer-core"
+  },
+  "version": "25.19.0+4",
+  "engine": "0.2.0",
+  "page": "https://effectified.dev/puppeteer-core",
+  "source": "https://github.com/effectified/packages/tree/main/targets/puppeteer-core",
+  "install": {
+    "latest": "https://effectified.dev/puppeteer-core.tgz",
+    "release": "https://github.com/effectified/packages/releases/download/puppeteer-core-v25.19.0+4/effectified-puppeteer-core-25.19.0+4.tgz",
+    "tag": "puppeteer-core-v25.19.0+4"
+  },
+  "tests": 3,
+  "examples": [
+    {
+      "title": "Drive a page in a scoped browser",
+      "source": "test/facade.test.ts",
+      "code": "import { launch } from \"@effectified/puppeteer-core\";\n\n// The browser and its pages close when the scope does.\nconst browser = yield* launch(options);\nconst page = yield* browser.newPage();\nyield* page.setContent(\"<title>effectified</title><h1>Hello</h1><input id=name>\");\n// page.keyboard is a facade too: a handle held in a property.\nyield* page.focus(\"#name\");\nyield* page.keyboard.type(\"Ada\");\n// `$eval` keeps its type parameters: the selector types the element, the function's result the value.\nconst name: string = yield* page.$eval(\"input#name\", (input) => input.value);\n"
+    },
+    {
+      "title": "A timeout is a TimeoutError",
+      "source": "test/facade.test.ts",
+      "code": "import { Effect } from \"effect\";\nimport { TimeoutError } from \"@effectified/puppeteer-core\";\n\nconst found = yield* page.waitForSelector(\"#never\", { timeout: 100 }).pipe(\n\tEffect.as(true),\n\tEffect.catchTag(\"TimeoutError\", () => Effect.succeed(false)),\n);\n"
+    }
+  ],
+  "api": {
+    "exports": [
+      "launch"
+    ],
+    "services": [
+      {
+        "name": "PuppeteerBrowser",
+        "handle": "Browser",
+        "acquire": "launch"
+      }
+    ],
+    "errors": [
+      {
+        "tag": "ConnectionClosedError",
+        "instanceOf": "ConnectionClosedError",
+        "codes": []
+      },
+      {
+        "tag": "ProtocolError",
+        "instanceOf": "ProtocolError",
+        "codes": []
+      },
+      {
+        "tag": "TimeoutError",
+        "instanceOf": "TimeoutError",
+        "codes": []
+      },
+      {
+        "tag": "TouchError",
+        "instanceOf": "TouchError",
+        "codes": []
+      },
+      {
+        "tag": "UnsupportedOperation",
+        "instanceOf": "UnsupportedOperation",
+        "codes": []
+      },
+      {
+        "tag": "PuppeteerError",
+        "codes": [
+          "ESCAPED_CHAR",
+          "EACCES",
+          "EPERM"
+        ]
+      }
+    ],
+    "handles": [
+      {
+        "name": "Browser",
+        "release": "close",
+        "effects": [
+          "addScreen",
+          "close",
+          "cookies",
+          "createBrowserContext",
+          "deleteCookie",
+          "deleteMatchingCookies",
+          "disconnect",
+          "extensions",
+          "getPWAState",
+          "getWindowBounds",
+          "installExtension",
+          "installPWA",
+          "launchPWA",
+          "newPage",
+          "pages",
+          "removeScreen",
+          "restrictNetwork",
+          "screens",
+          "setCookie",
+          "setPermission",
+          "setWindowBounds",
+          "uninstallExtension",
+          "uninstallPWA",
+          "userAgent",
+          "version",
+          "waitForTarget"
+        ],
+        "streams": [],
+        "sync": [
+          "browserContexts",
+          "defaultBrowserContext",
+          "emit",
+          "listenerCount",
+          "off",
+          "on",
+          "once",
+          "process",
+          "removeAllListeners",
+          "target",
+          "targets",
+          "wsEndpoint"
+        ],
+        "events": []
+      },
+      {
+        "name": "BrowserContext",
+        "release": "close",
+        "effects": [
+          "clearPermissionOverrides",
+          "close",
+          "cookies",
+          "deleteCookie",
+          "deleteMatchingCookies",
+          "newPage",
+          "overridePermissions",
+          "pages",
+          "setCookie",
+          "setPermission",
+          "waitForTarget"
+        ],
+        "streams": [],
+        "sync": [
+          "browser",
+          "emit",
+          "listenerCount",
+          "off",
+          "on",
+          "once",
+          "removeAllListeners",
+          "targets"
+        ],
+        "events": []
+      },
+      {
+        "name": "Page",
+        "release": "close",
+        "effects": [
+          "$",
+          "$$",
+          "$$eval",
+          "$eval",
+          "addScriptTag",
+          "addStyleTag",
+          "authenticate",
+          "bringToFront",
+          "captureHeapSnapshot",
+          "click",
+          "close",
+          "content",
+          "cookies",
+          "createCDPSession",
+          "createPDFStream",
+          "deleteCookie",
+          "emulate",
+          "emulateCPUThrottling",
+          "emulateFocusedPage",
+          "emulateIdleState",
+          "emulateLocale",
+          "emulateMediaFeatures",
+          "emulateMediaType",
+          "emulateNetworkConditions",
+          "emulateTimezone",
+          "emulateVisionDeficiency",
+          "evaluate",
+          "evaluateHandle",
+          "evaluateOnNewDocument",
+          "exposeFunction",
+          "focus",
+          "goBack",
+          "goForward",
+          "goto",
+          "hasDevTools",
+          "hover",
+          "metrics",
+          "openDevTools",
+          "pdf",
+          "queryObjects",
+          "record",
+          "reload",
+          "removeExposedFunction",
+          "removeScriptToEvaluateOnNewDocument",
+          "resize",
+          "screencast",
+          "screenshot",
+          "select",
+          "setBypassCSP",
+          "setBypassServiceWorker",
+          "setCacheEnabled",
+          "setContent",
+          "setCookie",
+          "setDragInterception",
+          "setExtraHTTPHeaders",
+          "setGeolocation",
+          "setJavaScriptEnabled",
+          "setOfflineMode",
+          "setRequestInterception",
+          "setUserAgent",
+          "setViewport",
+          "tabInfo",
+          "tap",
+          "title",
+          "triggerExtensionAction",
+          "type",
+          "waitForDevicePrompt",
+          "waitForFileChooser",
+          "waitForFrame",
+          "waitForFunction",
+          "waitForNavigation",
+          "waitForNetworkIdle",
+          "waitForRequest",
+          "waitForResponse",
+          "waitForSelector",
+          "windowId"
+        ],
+        "streams": [],
+        "sync": [
+          "browser",
+          "browserContext",
+          "emit",
+          "extensionRealms",
+          "frames",
+          "getDefaultNavigationTimeout",
+          "getDefaultTimeout",
+          "isClosed",
+          "isDragInterceptionEnabled",
+          "isJavaScriptEnabled",
+          "isServiceWorkerBypassed",
+          "listenerCount",
+          "locator",
+          "mainFrame",
+          "off",
+          "on",
+          "once",
+          "removeAllListeners",
+          "setDefaultNavigationTimeout",
+          "setDefaultTimeout",
+          "target",
+          "url",
+          "viewport",
+          "workers"
+        ],
+        "events": []
+      },
+      {
+        "name": "Target",
+        "release": "close",
+        "effects": [
+          "asPage",
+          "close",
+          "createCDPSession",
+          "page",
+          "worker"
+        ],
+        "streams": [],
+        "sync": [
+          "browser",
+          "browserContext",
+          "opener",
+          "type",
+          "url"
+        ],
+        "events": []
+      },
+      {
+        "name": "FileChooser",
+        "effects": [
+          "accept",
+          "cancel"
+        ],
+        "streams": [],
+        "sync": [
+          "isMultiple"
+        ],
+        "events": []
+      },
+      {
+        "name": "Frame",
+        "effects": [
+          "$",
+          "$$",
+          "$$eval",
+          "$eval",
+          "addScriptTag",
+          "addStyleTag",
+          "click",
+          "content",
+          "evaluate",
+          "evaluateHandle",
+          "focus",
+          "frameElement",
+          "goto",
+          "hover",
+          "select",
+          "setContent",
+          "tap",
+          "title",
+          "type",
+          "waitForFunction",
+          "waitForNavigation",
+          "waitForSelector"
+        ],
+        "streams": [],
+        "sync": [
+          "childFrames",
+          "emit",
+          "extensionRealms",
+          "isDetached",
+          "listenerCount",
+          "locator",
+          "name",
+          "off",
+          "on",
+          "once",
+          "page",
+          "parentFrame",
+          "removeAllListeners",
+          "url"
+        ],
+        "events": []
+      },
+      {
+        "name": "CDPSession",
+        "effects": [
+          "detach",
+          "send"
+        ],
+        "streams": [],
+        "sync": [
+          "connection",
+          "emit",
+          "id",
+          "listenerCount",
+          "off",
+          "on",
+          "once",
+          "removeAllListeners"
+        ],
+        "events": []
+      },
+      {
+        "name": "Locator",
+        "effects": [
+          "click",
+          "fill",
+          "hover",
+          "scroll",
+          "wait",
+          "waitHandle"
+        ],
+        "streams": [],
+        "sync": [
+          "clone",
+          "emit",
+          "filter",
+          "listenerCount",
+          "map",
+          "off",
+          "on",
+          "once",
+          "removeAllListeners",
+          "setEnsureElementIsInTheViewport",
+          "setTimeout",
+          "setVisibility",
+          "setWaitForEnabled",
+          "setWaitForStableBoundingBox"
+        ],
+        "events": []
+      },
+      {
+        "name": "JSHandle",
+        "release": "dispose",
+        "effects": [
+          "dispose",
+          "evaluate",
+          "evaluateHandle",
+          "getProperties",
+          "getProperty",
+          "jsonValue"
+        ],
+        "streams": [],
+        "sync": [
+          "asElement",
+          "move",
+          "remoteObject",
+          "toString"
+        ],
+        "events": []
+      },
+      {
+        "name": "ElementHandle",
+        "release": "dispose",
+        "effects": [
+          "$",
+          "$$",
+          "$$eval",
+          "$eval",
+          "autofill",
+          "backendNodeId",
+          "boundingBox",
+          "boxModel",
+          "click",
+          "clickablePoint",
+          "contentFrame",
+          "dispose",
+          "drag",
+          "dragAndDrop",
+          "dragEnter",
+          "dragOver",
+          "drop",
+          "evaluate",
+          "evaluateHandle",
+          "focus",
+          "getProperties",
+          "getProperty",
+          "hover",
+          "isHidden",
+          "isIntersectingViewport",
+          "isVisible",
+          "jsonValue",
+          "press",
+          "screenshot",
+          "scrollIntoView",
+          "select",
+          "tap",
+          "touchEnd",
+          "touchMove",
+          "touchStart",
+          "type",
+          "uploadFile",
+          "waitForSelector"
+        ],
+        "streams": [],
+        "sync": [
+          "asElement",
+          "asLocator",
+          "move",
+          "remoteObject",
+          "toElement",
+          "toString"
+        ],
+        "events": []
+      },
+      {
+        "name": "HTTPRequest",
+        "effects": [
+          "abort",
+          "asFetchRequest",
+          "content",
+          "continue",
+          "fetchPostData",
+          "finalizeInterceptions",
+          "respond"
+        ],
+        "streams": [],
+        "sync": [
+          "abortErrorReason",
+          "continueRequestOverrides",
+          "enqueueInterceptAction",
+          "failure",
+          "frame",
+          "hasPostData",
+          "headers",
+          "initiator",
+          "interceptResolutionState",
+          "isInterceptResolutionHandled",
+          "isNavigationRequest",
+          "method",
+          "page",
+          "postData",
+          "redirectChain",
+          "resourceType",
+          "response",
+          "responseForRequest",
+          "url",
+          "worker"
+        ],
+        "events": []
+      },
+      {
+        "name": "HTTPResponse",
+        "effects": [
+          "asFetchResponse",
+          "buffer",
+          "content",
+          "json",
+          "stream",
+          "text"
+        ],
+        "streams": [],
+        "sync": [
+          "encodedDataLength",
+          "frame",
+          "fromCache",
+          "fromServiceWorker",
+          "headers",
+          "ok",
+          "remoteAddress",
+          "request",
+          "securityDetails",
+          "status",
+          "statusText",
+          "timing",
+          "url"
+        ],
+        "events": []
+      },
+      {
+        "name": "ScreenRecorder",
+        "release": "stop",
+        "effects": [
+          "stop"
+        ],
+        "streams": [],
+        "sync": [],
+        "events": []
+      },
+      {
+        "name": "ScreenRecording",
+        "release": "stop",
+        "effects": [
+          "pipe",
+          "stop"
+        ],
+        "streams": [],
+        "sync": [],
+        "events": []
+      },
+      {
+        "name": "DeviceRequestPrompt",
+        "effects": [
+          "cancel",
+          "select",
+          "waitForDevice"
+        ],
+        "streams": [],
+        "sync": [],
+        "events": []
+      },
+      {
+        "name": "Keyboard",
+        "effects": [
+          "down",
+          "press",
+          "sendCharacter",
+          "type",
+          "up"
+        ],
+        "streams": [],
+        "sync": [],
+        "events": []
+      },
+      {
+        "name": "Touchscreen",
+        "effects": [
+          "tap",
+          "touchEnd",
+          "touchMove",
+          "touchStart"
+        ],
+        "streams": [],
+        "sync": [],
+        "events": []
+      },
+      {
+        "name": "Coverage",
+        "effects": [
+          "startCSSCoverage",
+          "startJSCoverage",
+          "stopCSSCoverage",
+          "stopJSCoverage"
+        ],
+        "streams": [],
+        "sync": [],
+        "events": []
+      },
+      {
+        "name": "Tracing",
+        "release": "stop",
+        "effects": [
+          "start",
+          "stop"
+        ],
+        "streams": [],
+        "sync": [],
+        "events": []
+      },
+      {
+        "name": "WebMCP",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "emit",
+          "listenerCount",
+          "off",
+          "on",
+          "once",
+          "removeAllListeners",
+          "tools"
+        ],
+        "events": [
+          "toolinvoked",
+          "toolresponded",
+          "toolsadded",
+          "toolsremoved"
+        ]
+      },
+      {
+        "name": "Accessibility",
+        "effects": [
+          "snapshot"
+        ],
+        "streams": [],
+        "sync": [],
+        "events": []
+      },
+      {
+        "name": "Mouse",
+        "effects": [
+          "click",
+          "down",
+          "drag",
+          "dragAndDrop",
+          "dragEnter",
+          "dragOver",
+          "drop",
+          "move",
+          "reset",
+          "up",
+          "wheel"
+        ],
+        "streams": [],
+        "sync": [],
+        "events": []
+      },
+      {
+        "name": "BluetoothEmulation",
+        "effects": [
+          "disableEmulation",
+          "emulateAdapter",
+          "simulatePreconnectedPeripheral"
+        ],
+        "streams": [],
+        "sync": [],
+        "events": []
+      },
+      {
+        "name": "TouchHandle",
+        "release": "end",
+        "effects": [
+          "end",
+          "move"
+        ],
+        "streams": [],
+        "sync": [],
+        "events": []
+      }
+    ],
+    "elements": [],
+    "mounts": []
+  }
+}

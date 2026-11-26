@@ -6,32 +6,35 @@ Popular libraries in [Effect](https://effect.website): every async call an `Effe
 
 | Library | Facade | Kind | Tested against |
 |---|---|---|---|
-| [sharp](https://sharp.pixelplumbing.com) | `@effectified/sharp` | runtime | libvips, images in memory |
-| [nodemailer](https://nodemailer.com) | `@effectified/nodemailer` | runtime | a JSON transport, a refused SMTP port |
-| [motion](https://motion.dev) | `@effectified/motion` | Effect UI | Chrome |
-| [puppeteer-core](https://pptr.dev) | `@effectified/puppeteer-core` | runtime | Chrome |
-| [@codemirror/view](https://codemirror.net) | `@effectified/codemirror-view` | Effect UI | Chrome |
-| [chart.js](https://www.chartjs.org) | `@effectified/chart.js` | Effect UI | Chrome |
-| [simple-git](https://github.com/steveukx/git-js) | `@effectified/simple-git` | runtime | git in a temp repository |
-| [bullmq](https://bullmq.io) | `@effectified/bullmq` | runtime | Redis |
-| [maplibre-gl](https://maplibre.org) | `@effectified/maplibre-gl` | Effect UI | Chrome |
-| [@xterm/xterm](https://xtermjs.org) | `@effectified/xterm` | Effect UI | Chrome |
-| [media-chrome](https://www.media-chrome.org) | `@effectified/media-chrome` | Effect UI | Chrome |
-| [emoji-picker-element](https://github.com/nolanlawson/emoji-picker-element) | `@effectified/emoji-picker-element` | Effect UI | Chrome |
-| [@awesome.me/webawesome](https://webawesome.com) | `@effectified/webawesome` | Effect UI | Chrome |
-| [@material/web](https://material-web.dev) | `@effectified/material-web` | Effect UI | Chrome |
-| [@fluentui/web-components](https://github.com/microsoft/fluentui) | `@effectified/fluentui-web-components` | Effect UI | Chrome |
+| [sharp](https://sharp.pixelplumbing.com) | [`@effectified/sharp`](https://effectified.dev/sharp) | runtime | libvips, images in memory |
+| [nodemailer](https://nodemailer.com) | [`@effectified/nodemailer`](https://effectified.dev/nodemailer) | runtime | a JSON transport, a refused SMTP port |
+| [motion](https://motion.dev) | [`@effectified/motion`](https://effectified.dev/motion) | Effect UI | Chrome |
+| [puppeteer-core](https://pptr.dev) | [`@effectified/puppeteer-core`](https://effectified.dev/puppeteer-core) | runtime | Chrome |
+| [@codemirror/view](https://codemirror.net) | [`@effectified/codemirror-view`](https://effectified.dev/codemirror-view) | Effect UI | Chrome |
+| [chart.js](https://www.chartjs.org) | [`@effectified/chart.js`](https://effectified.dev/chart.js) | Effect UI | Chrome |
+| [simple-git](https://github.com/steveukx/git-js) | [`@effectified/simple-git`](https://effectified.dev/simple-git) | runtime | git in a temp repository |
+| [bullmq](https://bullmq.io) | [`@effectified/bullmq`](https://effectified.dev/bullmq) | runtime | Redis |
+| [maplibre-gl](https://maplibre.org) | [`@effectified/maplibre-gl`](https://effectified.dev/maplibre-gl) | Effect UI | Chrome |
+| [@xterm/xterm](https://xtermjs.org) | [`@effectified/xterm`](https://effectified.dev/xterm) | Effect UI | Chrome |
+| [media-chrome](https://www.media-chrome.org) | [`@effectified/media-chrome`](https://effectified.dev/media-chrome) | Effect UI | Chrome |
+| [emoji-picker-element](https://github.com/nolanlawson/emoji-picker-element) | [`@effectified/emoji-picker-element`](https://effectified.dev/emoji-picker-element) | Effect UI | Chrome |
+| [@awesome.me/webawesome](https://webawesome.com) | [`@effectified/webawesome`](https://effectified.dev/webawesome) | Effect UI | Chrome |
+| [@material/web](https://material-web.dev) | [`@effectified/material-web`](https://effectified.dev/material-web) | Effect UI | Chrome |
+| [@fluentui/web-components](https://github.com/microsoft/fluentui) | [`@effectified/fluentui-web-components`](https://effectified.dev/fluentui-web-components) | Effect UI | Chrome |
 
-Each lives in `targets/<library>/`: `surface.json` (what upstream's types expose), `scan.json` (what its JavaScript throws and emits), `recipe.json` (every decision the types cannot make, with its reason and who made it), and `package/`, the generated facade with its hand-written tests.
+Each facade has a page on effectified.dev with its examples (live demos for the frontend ones), its API and its agent skill, all generated from this repository. Each lives in `targets/<library>/`: `surface.json` (what upstream's types expose), `scan.json` (what its JavaScript throws and emits), `recipe.json` (every decision the types cannot make, with its reason and who made it), and `package/`, the generated facade with its hand-written tests.
 
 ## Install
 
-Facades are released here on GitHub, not on npm, as `<name>-v<version>`; a facade's version is its library's, with `+<revision>` for a later facade of the same version. Each facade's README and release notes give its URL:
+`https://effectified.dev/<name>.tgz` always installs a facade's newest release:
 
 ```sh
-pnpm add https://github.com/effectified/packages/releases/download/sharp-v0.35.5+2/effectified-sharp-0.35.5+2.tgz effect
-npm install --allow-remote=root https://github.com/effectified/packages/releases/download/sharp-v0.35.5+2/effectified-sharp-0.35.5+2.tgz effect
+pnpm add https://effectified.dev/sharp.tgz effect
+npm install --allow-remote=all https://effectified.dev/sharp.tgz effect
+bun add https://effectified.dev/sharp.tgz effect
 ```
+
+Releases are here on GitHub, not on npm, as `<name>-v<version>` (a facade's version is its library's, with `+<revision>` for a later facade of the same version), and are never replaced: to pin one, install its release's tarball. Each package carries `SKILL.md`, the skill an agent follows to use it.
 
 ## Add a library
 

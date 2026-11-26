@@ -14,11 +14,14 @@ declare global {
 	}
 }
 window.plays = 0;
+// #region example: Animate from the Model, and know when a section is in view
 // One function for every render: options compare by value, and a new closure per render would be other options.
 const counted = () => {
 	window.plays += 1;
 };
+// #endregion
 
+// #region example: Animate from the Model, and know when a section is in view
 const Target = Schema.Struct({ x: Schema.Number, opacity: Schema.Number, duration: Schema.Number });
 
 const Message = UiSchema.TaggedEnum({
@@ -74,3 +77,4 @@ const Scene = Html.component({
 });
 
 Layer.launch(BrowserHost.mount(Scene, {}, document.getElementById("root")!)).pipe(Effect.runFork);
+// #endregion

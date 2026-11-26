@@ -9,6 +9,7 @@
 	},
 	"name": "@effectified/media-chrome",
 	"prefix": "MediaChrome",
+	"tagline": "47 player elements, play, mute and seek",
 	"exports": [
 		"MediaAirplayButton",
 		"MediaCaptionsButton",
@@ -234,6 +235,7 @@
 		"mounts": []
 	},
 	"testDependencies": {},
+	"revision": 2,
 	"decisions": [
 		{
 			"id": "exports",
@@ -723,6 +725,13 @@
 			"question": "Which elements are typed `Record<string, unknown>` because upstream's types do not name them?",
 			"answer": "every element",
 			"why": "media-chrome 4.19.5 declares no `HTMLElementTagNameMap` (nor `GlobalEventHandlersEventMap`) entry in its .d.ts files: every property is typed unknown and every event's detail unknown. Upstream should declare them; reported",
+			"by": "agent"
+		},
+		{
+			"id": "revision",
+			"question": "Which revision of this upstream version is the facade?",
+			"answer": "2",
+			"why": "engine 0.2.0: the package ships its agent skill (SKILL.md) and a README with examples taken from its passing tests and the install URL of its newest release",
 			"by": "agent"
 		}
 	]

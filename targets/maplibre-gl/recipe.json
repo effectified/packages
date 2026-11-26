@@ -9,6 +9,7 @@
 	},
 	"name": "@effectified/maplibre-gl",
 	"prefix": "MaplibreGl",
+	"tagline": "a WebGL map whose camera is the Model",
 	"exports": [
 		"Map"
 	],
@@ -596,6 +597,7 @@
 			"Map"
 		]
 	},
+	"revision": 2,
 	"decisions": [
 		{
 			"id": "exports",
@@ -1981,6 +1983,13 @@
 			"question": "Which mounts does the frontend facade offer?",
 			"answer": "Map",
 			"why": "a map lives on one <div>: created from its style, center and zoom (upstream's StyleSpecification | string and LngLatLike), updated in place (setStyle only when the style changed, jumpTo only when the camera changed and is not the map's own camera echoed back by the Model, so a gesture is not interrupted), its moveend camera and clicks as plain [lng, lat] data, removed with map.remove()",
+			"by": "agent"
+		},
+		{
+			"id": "revision",
+			"question": "Which revision of this upstream version is the facade?",
+			"answer": "2",
+			"why": "engine 0.2.0: the package ships its agent skill (SKILL.md) and a README with examples taken from its passing tests and the install URL of its newest release",
 			"by": "agent"
 		}
 	]

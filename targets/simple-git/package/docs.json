@@ -1,0 +1,189 @@
+{
+  "schema": 1,
+  "name": "@effectified/simple-git",
+  "slug": "simple-git",
+  "kind": "runtime",
+  "tagline": "chainable thenables, generics kept",
+  "description": "simple-git in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged",
+  "upstream": {
+    "package": "simple-git",
+    "version": "4.1.0",
+    "npm": "https://www.npmjs.com/package/simple-git"
+  },
+  "version": "4.1.0+4",
+  "engine": "0.2.0",
+  "page": "https://effectified.dev/simple-git",
+  "source": "https://github.com/effectified/packages/tree/main/targets/simple-git",
+  "install": {
+    "latest": "https://effectified.dev/simple-git.tgz",
+    "release": "https://github.com/effectified/packages/releases/download/simple-git-v4.1.0+4/effectified-simple-git-4.1.0+4.tgz",
+    "tag": "simple-git-v4.1.0+4"
+  },
+  "tests": 2,
+  "examples": [
+    {
+      "title": "Commit and read the log",
+      "source": "test/facade.test.ts",
+      "code": "import { simpleGit } from \"@effectified/simple-git\";\n\nconst git = yield* simpleGit(directory);\nyield* git.init();\nyield* git.addConfig(\"user.email\", \"test@example.com\");\nyield* git.addConfig(\"user.name\", \"Test\");\nyield* git.add(\"README.md\");\nconst commit = yield* git.commit(\"first commit\");\n// log keeps its type parameter: log<T = DefaultLogFields>().\nconst log = yield* git.log();\n"
+    },
+    {
+      "title": "Handle a failing command by its tag",
+      "source": "test/facade.test.ts",
+      "code": "import { Effect } from \"effect\";\nimport { GitError } from \"@effectified/simple-git\";\n\nconst result = yield* git.checkout(\"no-such-branch\").pipe(\n\tEffect.as(\"checked out\"),\n\tEffect.catchTag(\"GitError\", (error) => Effect.succeed(`${error.operation} failed`)),\n);\n"
+    }
+  ],
+  "api": {
+    "exports": [
+      "refName",
+      "remoteUrl",
+      "grepQueryBuilder",
+      "simpleGit"
+    ],
+    "services": [],
+    "errors": [
+      {
+        "tag": "GitConstructError",
+        "instanceOf": "GitConstructError",
+        "codes": []
+      },
+      {
+        "tag": "GitPluginError",
+        "instanceOf": "GitPluginError",
+        "codes": []
+      },
+      {
+        "tag": "GitResponseError",
+        "instanceOf": "GitResponseError",
+        "codes": []
+      },
+      {
+        "tag": "TaskConfigurationError",
+        "instanceOf": "TaskConfigurationError",
+        "codes": []
+      },
+      {
+        "tag": "GitError",
+        "instanceOf": "GitError",
+        "codes": []
+      },
+      {
+        "tag": "SimpleGitError",
+        "codes": [
+          "EPIPE",
+          "ERROR"
+        ]
+      }
+    ],
+    "handles": [
+      {
+        "name": "TemplateValue",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "validate"
+        ],
+        "events": []
+      },
+      {
+        "name": "GitGrepQuery",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "and",
+          "param"
+        ],
+        "events": []
+      },
+      {
+        "name": "SimpleGit",
+        "effects": [
+          "add",
+          "addAnnotatedTag",
+          "addConfig",
+          "addRemote",
+          "addTag",
+          "applyPatch",
+          "binaryCatFile",
+          "branch",
+          "branchLocal",
+          "catFile",
+          "checkIgnore",
+          "checkIsRepo",
+          "checkout",
+          "checkoutBranch",
+          "checkoutLatestTag",
+          "checkoutLocalBranch",
+          "clean",
+          "clone",
+          "cmd",
+          "commit",
+          "countObjects",
+          "cwd",
+          "deleteLocalBranch",
+          "deleteLocalBranches",
+          "diff",
+          "diffSummary",
+          "exec",
+          "fetch",
+          "firstCommit",
+          "getConfig",
+          "getRemotes",
+          "grep",
+          "hashObject",
+          "init",
+          "interpretTrailers",
+          "listConfig",
+          "listRemote",
+          "log",
+          "merge",
+          "mergeFromTo",
+          "mirror",
+          "mv",
+          "pull",
+          "push",
+          "pushTags",
+          "raw",
+          "rebase",
+          "remote",
+          "removeRemote",
+          "reset",
+          "revert",
+          "revparse",
+          "rm",
+          "rmKeepLocal",
+          "show",
+          "showBuffer",
+          "stash",
+          "stashList",
+          "status",
+          "subModule",
+          "submoduleAdd",
+          "submoduleInit",
+          "submoduleUpdate",
+          "tag",
+          "tags",
+          "updateServerInfo",
+          "version"
+        ],
+        "streams": [],
+        "sync": [
+          "customBinary",
+          "env",
+          "outputHandler"
+        ],
+        "events": []
+      },
+      {
+        "name": "StatusResult",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "isClean"
+        ],
+        "events": []
+      }
+    ],
+    "elements": [],
+    "mounts": []
+  }
+}

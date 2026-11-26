@@ -1,0 +1,1174 @@
+{
+  "schema": 1,
+  "name": "@effectified/media-chrome",
+  "slug": "media-chrome",
+  "kind": "ui",
+  "tagline": "47 player elements, play, mute and seek",
+  "description": "media-chrome for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
+  "upstream": {
+    "package": "media-chrome",
+    "version": "4.19.5",
+    "npm": "https://www.npmjs.com/package/media-chrome"
+  },
+  "version": "4.19.5+2",
+  "engine": "0.2.0",
+  "page": "https://effectified.dev/media-chrome",
+  "source": "https://github.com/effectified/packages/tree/main/targets/media-chrome",
+  "install": {
+    "latest": "https://effectified.dev/media-chrome.tgz",
+    "release": "https://github.com/effectified/packages/releases/download/media-chrome-v4.19.5+2/effectified-media-chrome-4.19.5+2.tgz",
+    "tag": "media-chrome-v4.19.5+2",
+    "effectUi": "https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57"
+  },
+  "demo": {
+    "url": "https://github.com/effectified/packages/releases/download/media-chrome-v4.19.5+2/effectified-media-chrome-4.19.5+2-demo.tgz",
+    "pages": [
+      "elements",
+      "player"
+    ]
+  },
+  "tests": 2,
+  "examples": [
+    {
+      "title": "A player whose media state comes back as messages",
+      "source": "test/fixtures/player.ts",
+      "code": "import { Mount, UiSchema } from \"@effect/ui\";\nimport { BrowserHost, Html } from \"@effect/ui/html\";\nimport { Effect, Layer, Queue, Schema, Stream } from \"effect\";\nimport { ControlBar, Controller, MuteButton, PlayButton, TimeDisplay, TimeRange } from \"@effectified/media-chrome\";\n\n/** The video's state as one of its media events reports it. */\ninterface MediaState {\n\treadonly event: string;\n\treadonly paused: boolean;\n\treadonly muted: boolean;\n\treadonly time: number;\n}\n\n// Effect UI types no media event on `h.video` (`play`, `pause`, `volumechange`, `seeked` are not in Html.Events),\n// and <media-controller>'s own state events (`mediapaused`, `mediamuted`) are in no manifest the binding is generated\n// from, so the player listens on the video, as an app would.\nconst MEDIA_EVENTS = [\"play\", \"pause\", \"volumechange\", \"seeked\"] as const;\n\nconst MediaEvents = Mount.makeStream(\"MediaEvents\", { args: {} }, (video: HTMLVideoElement) =>\n\tStream.callback<MediaState>((queue) =>\n\t\tEffect.acquireRelease(\n\t\t\tEffect.sync(() => {\n\t\t\t\t// Chrome mutes a video for its `muted` attribute only when the HTML parser creates it; Effect UI creates\n\t\t\t\t// it with createElement, where the attribute sets `defaultMuted` alone, and `h.video` sets no `muted`.\n\t\t\t\tvideo.muted = video.defaultMuted;\n\t\t\t\tconst listener = (event: Event) => {\n\t\t\t\t\tQueue.offerUnsafe(queue, { event: event.type, paused: video.paused, muted: video.muted, time: video.currentTime });\n\t\t\t\t};\n\t\t\t\tfor (const name of MEDIA_EVENTS) video.addEventListener(name, listener);\n\t\t\t\treturn listener;\n\t\t\t}),\n\t\t\t(listener) =>\n\t\t\t\tEffect.sync(() => {\n\t\t\t\t\tfor (const name of MEDIA_EVENTS) video.removeEventListener(name, listener);\n\t\t\t\t}),\n\t\t),\n\t),\n);\n\nconst Message = UiSchema.TaggedEnum({\n\tChangedMedia: { event: Schema.String, paused: Schema.Boolean, muted: Schema.Boolean, time: Schema.Number },\n});\n\nconst Player = Html.component({\n\tname: \"Player\",\n\tmodel: Schema.Struct({ paused: Schema.Boolean, muted: Schema.Boolean, seekedTo: Schema.Number, events: Schema.Array(Schema.String) }),\n\tmessage: Message,\n}).make({\n\tinit: () => ({ paused: true, muted: true, seekedTo: 0, events: [] }),\n\tupdate: {\n\t\tChangedMedia: ($, { event, paused, muted, time }) =>\n\t\t\t$.evolve({\n\t\t\t\tpaused: () => paused,\n\t\t\t\tmuted: () => muted,\n\t\t\t\tseekedTo: (seekedTo) => (event === \"seeked\" ? time : seekedTo),\n\t\t\t\tevents: (events) => [...events, event],\n\t\t\t}),\n\t},\n\tview: (h, model) =>\n\t\th.div.children(\n\t\t\tController(h)\n\t\t\t\t.id(\"controller\")\n\t\t\t\t// The clip is 16x16: sized by it, the controller would leave its control bar outside its own box.\n\t\t\t\t.style({ width: \"480px\", height: \"270px\" })\n\t\t\t\t.children(\n\t\t\t\t\t// A 2-second, 16x16 VP8 and Opus clip of 3.5 KB (ffmpeg's testsrc and a sine), committed next to this file;\n\t\t\t\t\t// looped, so it cannot end, and pause itself, between a test's play and pause.\n\t\t\t\t\th.video\n\t\t\t\t\t\t.id(\"video\")\n\t\t\t\t\t\t.attr(\"slot\", \"media\")\n\t\t\t\t\t\t.attr(\"src\", \"./player.webm\")\n\t\t\t\t\t\t.attr(\"muted\", \"\")\n\t\t\t\t\t\t.attr(\"loop\", \"\")\n\t\t\t\t\t\t.attr(\"preload\", \"auto\")\n\t\t\t\t\t\t.onMount(MediaEvents({}).pipe(Mount.map((media) => Message.ChangedMedia(media)))),\n\t\t\t\t\tControlBar(h).children(\n\t\t\t\t\t\tPlayButton(h).id(\"play\"),\n\t\t\t\t\t\tMuteButton(h).id(\"mute\"),\n\t\t\t\t\t\tTimeRange(h).id(\"range\"),\n\t\t\t\t\t\tTimeDisplay(h).id(\"time\").showDuration(true),\n\t\t\t\t\t),\n\t\t\t\t),\n\t\t\th.output.id(\"state\").children(JSON.stringify(model)),\n\t\t),\n});\n\nLayer.launch(BrowserHost.mount(Player, {}, document.getElementById(\"root\")!)).pipe(Effect.runFork);\n",
+      "demo": "player"
+    }
+  ],
+  "api": {
+    "exports": [],
+    "services": [],
+    "errors": [
+      {
+        "tag": "MediaChromeError",
+        "codes": []
+      }
+    ],
+    "handles": [
+      {
+        "name": "MediaAirplayButton",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disable",
+          "disconnectedCallback",
+          "enable",
+          "handleClick"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaCaptionsButton",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disable",
+          "disconnectedCallback",
+          "enable",
+          "handleClick"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaCastButton",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disable",
+          "disconnectedCallback",
+          "enable",
+          "handleClick"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaChromeButton",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disable",
+          "disconnectedCallback",
+          "enable",
+          "handleClick"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaChromeDialog",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disconnectedCallback",
+          "focus",
+          "handleEvent"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaChromeRange",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disconnectedCallback",
+          "getPointerRatio",
+          "handleEvent",
+          "updateBar",
+          "updatePointerBar",
+          "updateSegments"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaControlBar",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disconnectedCallback"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaController",
+        "effects": [
+          "handleMediaUpdated"
+        ],
+        "streams": [],
+        "sync": [
+          "associateElement",
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disableHotkeys",
+          "disconnectedCallback",
+          "enableHotkeys",
+          "handleEvent",
+          "keyboardShortcutHandler",
+          "mediaSetCallback",
+          "mediaUnsetCallback",
+          "propagateMediaState",
+          "registerMediaStateReceiver",
+          "unassociateElement",
+          "unregisterMediaStateReceiver"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaDurationDisplay",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disconnectedCallback"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaErrorDialog",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disconnectedCallback",
+          "focus",
+          "formatErrorMessage",
+          "handleEvent"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaKeyboardShortcutsDialog",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disconnectedCallback",
+          "focus",
+          "handleEvent"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaFullscreenButton",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disable",
+          "disconnectedCallback",
+          "enable",
+          "handleClick"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaGestureReceiver",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disconnectedCallback",
+          "handleEvent",
+          "handleMouseClick",
+          "handleTap"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaLiveButton",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disable",
+          "disconnectedCallback",
+          "enable",
+          "handleClick"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaLoadingIndicator",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disconnectedCallback"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaMuteButton",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disable",
+          "disconnectedCallback",
+          "enable",
+          "handleClick"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaPipButton",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disable",
+          "disconnectedCallback",
+          "enable",
+          "handleClick"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaPlaybackRateButton",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disable",
+          "disconnectedCallback",
+          "enable",
+          "handleClick"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaLoopButton",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disable",
+          "disconnectedCallback",
+          "enable",
+          "handleClick"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaPlayButton",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disable",
+          "disconnectedCallback",
+          "enable",
+          "handleClick"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaPosterImage",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaPreviewChapterDisplay",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disconnectedCallback"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaPreviewThumbnail",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disconnectedCallback",
+          "update"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaPreviewTimeDisplay",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disconnectedCallback"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaSeekBackwardButton",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disable",
+          "disconnectedCallback",
+          "enable",
+          "handleClick"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaSeekForwardButton",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disable",
+          "disconnectedCallback",
+          "enable",
+          "handleClick"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaTimeDisplay",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disable",
+          "disconnectedCallback",
+          "enable",
+          "toggleTimeDisplay",
+          "update"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaTimeRange",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disconnectedCallback",
+          "getPointerRatio",
+          "handleEvent",
+          "updateBar",
+          "updateBufferedBar",
+          "updateCurrentBox",
+          "updatePointerBar",
+          "updateSegments"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaTooltip",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "updateXOffset"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaVolumeRange",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disconnectedCallback",
+          "getPointerRatio",
+          "handleEvent",
+          "updateBar",
+          "updatePointerBar",
+          "updateSegments"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaContainer",
+        "effects": [
+          "handleMediaUpdated"
+        ],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disconnectedCallback",
+          "handleEvent",
+          "mediaSetCallback",
+          "mediaUnsetCallback"
+        ],
+        "events": []
+      },
+      {
+        "name": "MediaTextDisplay",
+        "effects": [],
+        "streams": [],
+        "sync": [
+          "attributeChangedCallback",
+          "connectedCallback",
+          "disconnectedCallback"
+        ],
+        "events": []
+      }
+    ],
+    "elements": [
+      {
+        "tag": "media-airplay-button",
+        "name": "AirplayButton",
+        "description": "",
+        "properties": [
+          "disabled",
+          "mediaAirplayUnavailable",
+          "mediaController",
+          "mediaIsAirplaying",
+          "noTooltip",
+          "preventClick",
+          "tooltipPlacement"
+        ],
+        "events": [
+          "mediaairplayrequest"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "media-audio-track-menu",
+        "name": "AudioTrackMenu",
+        "description": "",
+        "properties": [
+          "anchor",
+          "mediaAudioTrackEnabled",
+          "mediaAudioTrackList",
+          "value"
+        ],
+        "events": [],
+        "changes": [
+          "value"
+        ]
+      },
+      {
+        "tag": "media-audio-track-menu-button",
+        "name": "AudioTrackMenuButton",
+        "description": "",
+        "properties": [
+          "disabled",
+          "invokeTarget",
+          "mediaAudioTrackEnabled",
+          "mediaController",
+          "noTooltip",
+          "preventClick",
+          "tooltipPlacement"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-captions-button",
+        "name": "CaptionsButton",
+        "description": "",
+        "properties": [
+          "disabled",
+          "mediaController",
+          "mediaSubtitlesList",
+          "mediaSubtitlesShowing",
+          "noTooltip",
+          "preventClick",
+          "tooltipPlacement"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-captions-menu",
+        "name": "CaptionsMenu",
+        "description": "",
+        "properties": [
+          "anchor",
+          "mediaSubtitlesList",
+          "mediaSubtitlesShowing",
+          "value"
+        ],
+        "events": [],
+        "changes": [
+          "value"
+        ]
+      },
+      {
+        "tag": "media-captions-menu-button",
+        "name": "CaptionsMenuButton",
+        "description": "",
+        "properties": [
+          "disabled",
+          "invokeTarget",
+          "mediaController",
+          "mediaSubtitlesList",
+          "mediaSubtitlesShowing",
+          "noTooltip",
+          "preventClick",
+          "tooltipPlacement"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-cast-button",
+        "name": "CastButton",
+        "description": "",
+        "properties": [
+          "disabled",
+          "mediaCastUnavailable",
+          "mediaController",
+          "mediaIsCasting",
+          "noTooltip",
+          "preventClick",
+          "tooltipPlacement"
+        ],
+        "events": [
+          "eventName"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "media-chrome-button",
+        "name": "ChromeButton",
+        "description": "",
+        "properties": [
+          "disabled",
+          "mediaController",
+          "noTooltip",
+          "preventClick",
+          "tooltipPlacement"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-chrome-dialog",
+        "name": "ChromeDialog",
+        "description": "",
+        "properties": [
+          "open"
+        ],
+        "events": [
+          "open"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "media-chrome-menu",
+        "name": "ChromeMenu",
+        "description": "",
+        "properties": [
+          "anchor",
+          "value"
+        ],
+        "events": [],
+        "changes": [
+          "value"
+        ]
+      },
+      {
+        "tag": "media-chrome-menu-button",
+        "name": "ChromeMenuButton",
+        "description": "",
+        "properties": [
+          "disabled",
+          "invokeTarget",
+          "mediaController",
+          "noTooltip",
+          "preventClick",
+          "tooltipPlacement"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-chrome-menu-item",
+        "name": "ChromeMenuItem",
+        "description": "",
+        "properties": [
+          "checked",
+          "invokeTarget",
+          "type",
+          "value"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-chrome-range",
+        "name": "ChromeRange",
+        "description": "",
+        "properties": [],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-context-menu",
+        "name": "ContextMenu",
+        "description": "",
+        "properties": [
+          "anchor",
+          "value"
+        ],
+        "events": [],
+        "changes": [
+          "value"
+        ]
+      },
+      {
+        "tag": "media-context-menu-item",
+        "name": "ContextMenuItem",
+        "description": "",
+        "properties": [
+          "checked",
+          "invokeTarget",
+          "type",
+          "value"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-control-bar",
+        "name": "ControlBar",
+        "description": "",
+        "properties": [],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-controller",
+        "name": "Controller",
+        "description": "Media Controller should not mimic the HTMLMediaElement API.",
+        "properties": [
+          "audio",
+          "autohide",
+          "autohideOverControls",
+          "breakpoints",
+          "defaultDuration",
+          "defaultStreamType",
+          "defaultSubtitles",
+          "gesturesDisabled",
+          "hotkeys",
+          "keyboardControl",
+          "keysUsed",
+          "liveEdgeOffset",
+          "mediaStore",
+          "noAutoSeekToLive",
+          "noAutohide",
+          "noDefaultStore",
+          "noHotkeys",
+          "noMutedPref",
+          "noSubtitlesLangPref",
+          "noVolumePref"
+        ],
+        "events": [
+          "eventName"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "media-duration-display",
+        "name": "DurationDisplay",
+        "description": "",
+        "properties": [
+          "mediaDuration"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-error-dialog",
+        "name": "ErrorDialog",
+        "description": "",
+        "properties": [
+          "mediaError",
+          "mediaErrorCode",
+          "mediaErrorMessage",
+          "open"
+        ],
+        "events": [
+          "open"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "media-fullscreen-button",
+        "name": "FullscreenButton",
+        "description": "",
+        "properties": [
+          "disabled",
+          "mediaController",
+          "mediaFullscreenUnavailable",
+          "mediaIsFullscreen",
+          "noTooltip",
+          "preventClick",
+          "tooltipPlacement"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-gesture-receiver",
+        "name": "GestureReceiver",
+        "description": "",
+        "properties": [
+          "mediaPaused"
+        ],
+        "events": [
+          "eventName"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "media-live-button",
+        "name": "LiveButton",
+        "description": "",
+        "properties": [
+          "disabled",
+          "mediaController",
+          "mediaPaused",
+          "mediaTimeIsLive",
+          "noTooltip",
+          "preventClick",
+          "tooltipPlacement"
+        ],
+        "events": [
+          "MEDIA_PLAY_REQUEST",
+          "MEDIA_SEEK_TO_LIVE_REQUEST"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "media-loading-indicator",
+        "name": "LoadingIndicator",
+        "description": "",
+        "properties": [
+          "loadingDelay",
+          "mediaController",
+          "mediaLoading",
+          "mediaPaused",
+          "noAutohide"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-loop-button",
+        "name": "LoopButton",
+        "description": "",
+        "properties": [
+          "disabled",
+          "mediaController",
+          "mediaLoop",
+          "noTooltip",
+          "preventClick",
+          "tooltipPlacement"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-mute-button",
+        "name": "MuteButton",
+        "description": "",
+        "properties": [
+          "disabled",
+          "mediaController",
+          "mediaVolumeLevel",
+          "noTooltip",
+          "preventClick",
+          "tooltipPlacement"
+        ],
+        "events": [
+          "eventName"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "media-pip-button",
+        "name": "PipButton",
+        "description": "",
+        "properties": [
+          "disabled",
+          "mediaController",
+          "mediaIsPip",
+          "mediaPipUnavailable",
+          "noTooltip",
+          "preventClick",
+          "tooltipPlacement"
+        ],
+        "events": [
+          "eventName"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "media-play-button",
+        "name": "PlayButton",
+        "description": "",
+        "properties": [
+          "disabled",
+          "mediaController",
+          "mediaPaused",
+          "noTooltip",
+          "preventClick",
+          "tooltipPlacement"
+        ],
+        "events": [
+          "eventName"
+        ],
+        "changes": []
+      },
+      {
+        "tag": "media-playback-rate-button",
+        "name": "PlaybackRateButton",
+        "description": "",
+        "properties": [
+          "disabled",
+          "mediaController",
+          "mediaPlaybackRate",
+          "noTooltip",
+          "preventClick",
+          "rates",
+          "tooltipPlacement"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-playback-rate-menu",
+        "name": "PlaybackRateMenu",
+        "description": "",
+        "properties": [
+          "anchor",
+          "mediaPlaybackRate",
+          "rates",
+          "value"
+        ],
+        "events": [],
+        "changes": [
+          "value"
+        ]
+      },
+      {
+        "tag": "media-playback-rate-menu-button",
+        "name": "PlaybackRateMenuButton",
+        "description": "",
+        "properties": [
+          "disabled",
+          "invokeTarget",
+          "mediaController",
+          "mediaPlaybackRate",
+          "noTooltip",
+          "preventClick",
+          "tooltipPlacement"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-poster-image",
+        "name": "PosterImage",
+        "description": "",
+        "properties": [
+          "placeholderSrc",
+          "src"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-preview-chapter-display",
+        "name": "PreviewChapterDisplay",
+        "description": "",
+        "properties": [
+          "mediaPreviewChapter"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-preview-thumbnail",
+        "name": "PreviewThumbnail",
+        "description": "",
+        "properties": [
+          "imgHeight",
+          "imgWidth",
+          "mediaPreviewCoords",
+          "mediaPreviewImage"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-preview-time-display",
+        "name": "PreviewTimeDisplay",
+        "description": "",
+        "properties": [
+          "mediaPreviewTime"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-rendition-menu",
+        "name": "RenditionMenu",
+        "description": "",
+        "properties": [
+          "anchor",
+          "mediaHeight",
+          "mediaRenditionList",
+          "mediaRenditionSelected",
+          "mediaWidth",
+          "value"
+        ],
+        "events": [],
+        "changes": [
+          "value"
+        ]
+      },
+      {
+        "tag": "media-rendition-menu-button",
+        "name": "RenditionMenuButton",
+        "description": "",
+        "properties": [
+          "disabled",
+          "invokeTarget",
+          "mediaController",
+          "mediaHeight",
+          "mediaRenditionSelected",
+          "noTooltip",
+          "preventClick",
+          "tooltipPlacement"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-seek-backward-button",
+        "name": "SeekBackwardButton",
+        "description": "",
+        "properties": [
+          "disabled",
+          "mediaController",
+          "mediaCurrentTime",
+          "noTooltip",
+          "preventClick",
+          "seekOffset",
+          "tooltipPlacement"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-seek-forward-button",
+        "name": "SeekForwardButton",
+        "description": "",
+        "properties": [
+          "disabled",
+          "mediaController",
+          "mediaCurrentTime",
+          "noTooltip",
+          "preventClick",
+          "seekOffset",
+          "tooltipPlacement"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-settings-menu",
+        "name": "SettingsMenu",
+        "description": "",
+        "properties": [
+          "anchor",
+          "value"
+        ],
+        "events": [],
+        "changes": [
+          "value"
+        ]
+      },
+      {
+        "tag": "media-settings-menu-button",
+        "name": "SettingsMenuButton",
+        "description": "",
+        "properties": [
+          "disabled",
+          "invokeTarget",
+          "mediaController",
+          "noTooltip",
+          "preventClick",
+          "tooltipPlacement"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-settings-menu-item",
+        "name": "SettingsMenuItem",
+        "description": "",
+        "properties": [
+          "checked",
+          "invokeTarget",
+          "type",
+          "value"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-text-display",
+        "name": "TextDisplay",
+        "description": "",
+        "properties": [],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-theme",
+        "name": "Theme",
+        "description": "",
+        "properties": [
+          "renderer"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-time-display",
+        "name": "TimeDisplay",
+        "description": "",
+        "properties": [
+          "mediaCurrentTime",
+          "mediaDuration",
+          "mediaSeekable",
+          "noToggle",
+          "remaining",
+          "showDuration"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-time-range",
+        "name": "TimeRange",
+        "description": "",
+        "properties": [
+          "mediaBuffered",
+          "mediaChaptersCues",
+          "mediaCurrentTime",
+          "mediaDuration",
+          "mediaEnded",
+          "mediaLoading",
+          "mediaPaused",
+          "mediaPlaybackRate",
+          "mediaPreviewImage",
+          "mediaPreviewTime",
+          "mediaSeekable"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-tooltip",
+        "name": "Tooltip",
+        "description": "",
+        "properties": [
+          "bounds",
+          "placement",
+          "updateXOffset"
+        ],
+        "events": [],
+        "changes": []
+      },
+      {
+        "tag": "media-volume-range",
+        "name": "VolumeRange",
+        "description": "",
+        "properties": [
+          "mediaMuted",
+          "mediaVolume",
+          "mediaVolumeUnavailable"
+        ],
+        "events": [],
+        "changes": []
+      }
+    ],
+    "mounts": []
+  }
+}
