@@ -3,7 +3,7 @@
 import "@material/web/chips/assist-chip.js";
 import { Html } from "@effect/ui/html";
 import type { Schema } from "effect";
-import { type DetailOf, typed } from "../internal/ui.ts";
+import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-assist-chip"]; // element: md-assist-chip
@@ -22,9 +22,7 @@ type Properties = {
 };
 
 /** The custom events of `<md-assist-chip>`, each its `detail`. */
-type Events = {
-	readonly "update-focus": Schema.declare<DetailOf<"update-focus">>;
-};
+type Events = {};
 
 /** `<md-assist-chip>`: TODO(b/243982145): add docs */
 export const AssistChip: Html.CustomElementBinding<"md-assist-chip", Properties, Events> = Html.customElement({
@@ -40,7 +38,5 @@ export const AssistChip: Html.CustomElementBinding<"md-assist-chip", Properties,
 		softDisabled: typed<Of["softDisabled"]>(), // property: md-assist-chip.softDisabled
 		target: typed<Of["target"]>(), // property: md-assist-chip.target
 	},
-	events: {
-		"update-focus": typed<DetailOf<"update-focus">>(),
-	},
+	events: {},
 });

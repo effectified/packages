@@ -19,8 +19,6 @@ type Properties = {
 /** The custom events of `<md-select-option>`, each its `detail`. */
 type Events = {
 	readonly "close-menu": Schema.declare<DetailOf<"close-menu">>;
-	readonly "request-deselection": Schema.declare<DetailOf<"request-deselection">>;
-	readonly "request-selection": Schema.declare<DetailOf<"request-selection">>;
 };
 
 /** `<md-select-option>`: Select menus display a list of choices on temporary surfaces and display the currently selected menu item above the menu. */
@@ -34,7 +32,5 @@ export const SelectOption: Html.CustomElementBinding<"md-select-option", Propert
 	},
 	events: {
 		"close-menu": typed<DetailOf<"close-menu">>(),
-		"request-deselection": typed<DetailOf<"request-deselection">>(),
-		"request-selection": typed<DetailOf<"request-selection">>(),
 	},
 });

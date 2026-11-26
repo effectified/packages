@@ -19,11 +19,21 @@
 	],
 	"services": [],
 	"methods": {
+		"md-assist-chip@update-focus": "exclude",
 		"md-filled-field": "exclude",
+		"md-filter-chip@update-focus": "exclude",
+		"md-input-chip@update-focus": "exclude",
+		"md-list-item@request-activation": "exclude",
 		"md-navigation-drawer": "exclude",
 		"md-navigation-drawer-modal": "exclude",
 		"md-outlined-field": "exclude",
-		"md-sub-menu@request-activation": "exclude"
+		"md-select-option@request-deselection": "exclude",
+		"md-select-option@request-selection": "exclude",
+		"md-sub-menu@activate-typeahead": "exclude",
+		"md-sub-menu@deactivate-items": "exclude",
+		"md-sub-menu@deactivate-typeahead": "exclude",
+		"md-sub-menu@request-activation": "exclude",
+		"md-suggestion-chip@update-focus": "exclude"
 	},
 	"derived": [],
 	"testDependencies": {},
@@ -170,6 +180,13 @@
 			"question": "Does the binding offer the event md-sub-menu@request-activation?",
 			"answer": "exclude",
 			"why": "md-sub-menu never fires it: it dispatches it on its slotted item (`this.item.dispatchEvent(createRequestActivationEvent())`, menu/internal/submenu/sub-menu.js), where the menu's list navigation handles it; the manifest attributes it to the sub-menu",
+			"by": "agent"
+		},
+		{
+			"id": "ui.coordination-events",
+			"question": "Which events that upstream elements send each other does the facade offer?",
+			"answer": "none: md-assist-chip@update-focus, md-filter-chip@update-focus, md-input-chip@update-focus, md-suggestion-chip@update-focus, md-list-item@request-activation, md-select-option@request-selection, md-select-option@request-deselection, md-sub-menu@activate-typeahead, md-sub-menu@deactivate-items, md-sub-menu@deactivate-typeahead",
+			"why": "they coordinate a chip set, a select or a menu with its own items (focus moves, selection requests, typeahead); the containers report the outcome to an app (md-select change, md-menu closed), and offering the internal messages invites a view to depend on them",
 			"by": "agent"
 		}
 	]

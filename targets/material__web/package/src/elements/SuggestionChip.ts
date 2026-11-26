@@ -3,7 +3,7 @@
 import "@material/web/chips/suggestion-chip.js";
 import { Html } from "@effect/ui/html";
 import type { Schema } from "effect";
-import { type DetailOf, typed } from "../internal/ui.ts";
+import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-suggestion-chip"]; // element: md-suggestion-chip
@@ -22,9 +22,7 @@ type Properties = {
 };
 
 /** The custom events of `<md-suggestion-chip>`, each its `detail`. */
-type Events = {
-	readonly "update-focus": Schema.declare<DetailOf<"update-focus">>;
-};
+type Events = {};
 
 /** `<md-suggestion-chip>`: TODO(b/243982145): add docs */
 export const SuggestionChip: Html.CustomElementBinding<"md-suggestion-chip", Properties, Events> = Html.customElement({
@@ -40,7 +38,5 @@ export const SuggestionChip: Html.CustomElementBinding<"md-suggestion-chip", Pro
 		softDisabled: typed<Of["softDisabled"]>(), // property: md-suggestion-chip.softDisabled
 		target: typed<Of["target"]>(), // property: md-suggestion-chip.target
 	},
-	events: {
-		"update-focus": typed<DetailOf<"update-focus">>(),
-	},
+	events: {},
 });

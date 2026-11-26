@@ -25,7 +25,6 @@ type Properties = {
 /** The custom events of `<md-input-chip>`, each its `detail`. */
 type Events = {
 	readonly remove: Schema.declare<DetailOf<"remove">>;
-	readonly "update-focus": Schema.declare<DetailOf<"update-focus">>;
 };
 
 /** `<md-input-chip>`: TODO(b/243982145): add docs */
@@ -45,6 +44,5 @@ export const InputChip: Html.CustomElementBinding<"md-input-chip", Properties, E
 	},
 	events: {
 		remove: typed<DetailOf<"remove">>(),
-		"update-focus": typed<DetailOf<"update-focus">>(),
 	},
 });

@@ -24,7 +24,6 @@ type Properties = {
 /** The custom events of `<md-filter-chip>`, each its `detail`. */
 type Events = {
 	readonly remove: Schema.declare<DetailOf<"remove">>;
-	readonly "update-focus": Schema.declare<DetailOf<"update-focus">>;
 };
 
 /** `<md-filter-chip>`: TODO(b/243982145): add docs */
@@ -43,6 +42,5 @@ export const FilterChip: Html.CustomElementBinding<"md-filter-chip", Properties,
 	},
 	events: {
 		remove: typed<DetailOf<"remove">>(),
-		"update-focus": typed<DetailOf<"update-focus">>(),
 	},
 });

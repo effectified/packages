@@ -3,7 +3,7 @@
 import "@material/web/list/list-item.js";
 import { Html } from "@effect/ui/html";
 import type { Schema } from "effect";
-import { type DetailOf, typed } from "../internal/ui.ts";
+import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-list-item"]; // element: md-list-item
@@ -18,9 +18,7 @@ type Properties = {
 };
 
 /** The custom events of `<md-list-item>`, each its `detail`. */
-type Events = {
-	readonly "request-activation": Schema.declare<DetailOf<"request-activation">>;
-};
+type Events = {};
 
 /** `<md-list-item>`: Lists are continuous, vertical indexes of text or images. */
 export const ListItem: Html.CustomElementBinding<"md-list-item", Properties, Events> = Html.customElement({
@@ -32,7 +30,5 @@ export const ListItem: Html.CustomElementBinding<"md-list-item", Properties, Eve
 		target: typed<Of["target"]>(), // property: md-list-item.target
 		type: typed<Of["type"]>(), // property: md-list-item.type
 	},
-	events: {
-		"request-activation": typed<DetailOf<"request-activation">>(),
-	},
+	events: {},
 });

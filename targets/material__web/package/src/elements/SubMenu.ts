@@ -3,7 +3,7 @@
 import "@material/web/menu/sub-menu.js";
 import { Html } from "@effect/ui/html";
 import type { Schema } from "effect";
-import { type DetailOf, typed } from "../internal/ui.ts";
+import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-sub-menu"]; // element: md-sub-menu
@@ -18,11 +18,7 @@ type Properties = {
 };
 
 /** The custom events of `<md-sub-menu>`, each its `detail`. */
-type Events = {
-	readonly "activate-typeahead": Schema.declare<DetailOf<"activate-typeahead">>;
-	readonly "deactivate-items": Schema.declare<DetailOf<"deactivate-items">>;
-	readonly "deactivate-typeahead": Schema.declare<DetailOf<"deactivate-typeahead">>;
-};
+type Events = {};
 
 /** `<md-sub-menu>`: Menus display a list of choices on a temporary surface. */
 export const SubMenu: Html.CustomElementBinding<"md-sub-menu", Properties, Events> = Html.customElement({
@@ -34,9 +30,5 @@ export const SubMenu: Html.CustomElementBinding<"md-sub-menu", Properties, Event
 		isSubMenu: typed<Of["isSubMenu"]>(), // property: md-sub-menu.isSubMenu
 		menuCorner: typed<Of["menuCorner"]>(), // property: md-sub-menu.menuCorner
 	},
-	events: {
-		"activate-typeahead": typed<DetailOf<"activate-typeahead">>(),
-		"deactivate-items": typed<DetailOf<"deactivate-items">>(),
-		"deactivate-typeahead": typed<DetailOf<"deactivate-typeahead">>(),
-	},
+	events: {},
 });
