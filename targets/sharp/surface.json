@@ -1,0 +1,1664 @@
+{
+	"package": "sharp",
+	"version": "0.35.5",
+	"types": {
+		"from": "bundled",
+		"package": "sharp",
+		"version": "0.35.5"
+	},
+	"entry": "named",
+	"exports": [
+		{
+			"kind": "value",
+			"name": "format",
+			"type": "FormatEnum"
+		},
+		{
+			"kind": "value",
+			"name": "versions",
+			"type": "{ aom?: string | undefined; archive?: string | undefined; cairo?: string | undefined; cgif?: string | undefined; exif?: string | undefined; expat?: string | undefined; ffi?: string | undefined; fontco"
+		},
+		{
+			"kind": "value",
+			"name": "interpolators",
+			"type": "Interpolators"
+		},
+		{
+			"kind": "value",
+			"name": "queue",
+			"type": "EventEmitter<any>"
+		},
+		{
+			"kind": "function",
+			"name": "cache",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "options",
+							"type": "boolean | CacheOptions | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "CacheResult",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "concurrency",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "concurrency",
+							"type": "number | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "number",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "counters",
+			"signatures": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "SharpCounters",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "simd",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "enable",
+							"type": "boolean | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "boolean",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "block",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "options",
+							"type": "{ operation: string[]; }",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "void",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "unblock",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "options",
+							"type": "{ operation: string[]; }",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "void",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "value",
+			"name": "gravity",
+			"type": "GravityEnum"
+		},
+		{
+			"kind": "value",
+			"name": "strategy",
+			"type": "StrategyEnum"
+		},
+		{
+			"kind": "value",
+			"name": "kernel",
+			"type": "KernelEnum"
+		},
+		{
+			"kind": "value",
+			"name": "fit",
+			"type": "FitEnum"
+		},
+		{
+			"kind": "value",
+			"name": "bool",
+			"type": "BoolEnum"
+		},
+		{
+			"kind": "function",
+			"name": "default",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "options",
+							"type": "SharpOptions | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Sharp",
+					"handle": "Sharp",
+					"traits": [
+						"sync"
+					]
+				},
+				{
+					"parameters": [
+						{
+							"name": "input",
+							"type": "SharpInput[] | SharpInput | undefined",
+							"optional": true,
+							"rest": false
+						},
+						{
+							"name": "options",
+							"type": "SharpOptions | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Sharp",
+					"handle": "Sharp",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		}
+	],
+	"handles": {
+		"Sharp": {
+			"name": "Sharp",
+			"typeRef": "Upstream.Sharp",
+			"methods": {
+				"removeAlpha": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"ensureAlpha": [
+					{
+						"parameters": [
+							{
+								"name": "alpha",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"extractChannel": [
+					{
+						"parameters": [
+							{
+								"name": "channel",
+								"type": "\"alpha\" | \"blue\" | \"green\" | \"red\" | 0 | 1 | 2 | 3",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"joinChannel": [
+					{
+						"parameters": [
+							{
+								"name": "images",
+								"type": "string | ArrayLike<string | Buffer<ArrayBufferLike>> | Buffer<ArrayBufferLike>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "SharpOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"bandbool": [
+					{
+						"parameters": [
+							{
+								"name": "boolOp",
+								"type": "keyof BoolEnum",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"tint": [
+					{
+						"parameters": [
+							{
+								"name": "tint",
+								"type": "ColorLike",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"greyscale": [
+					{
+						"parameters": [
+							{
+								"name": "greyscale",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"grayscale": [
+					{
+						"parameters": [
+							{
+								"name": "grayscale",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"pipelineColourspace": [
+					{
+						"parameters": [
+							{
+								"name": "colourspace",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"pipelineColorspace": [
+					{
+						"parameters": [
+							{
+								"name": "colorspace",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"toColourspace": [
+					{
+						"parameters": [
+							{
+								"name": "colourspace",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"toColorspace": [
+					{
+						"parameters": [
+							{
+								"name": "colorspace",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"composite": [
+					{
+						"parameters": [
+							{
+								"name": "images",
+								"type": "OverlayOptions[]",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"clone": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"metadata": [
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "(err: Error, metadata: Metadata) => void",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Promise<Metadata>",
+						"resolves": "Metadata",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"keepMetadata": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"stats": [
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "(err: Error, stats: Stats) => void",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Promise<Stats>",
+						"resolves": "Stats",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"rotate": [
+					{
+						"parameters": [
+							{
+								"name": "angle",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "RotateOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"autoOrient": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"flip": [
+					{
+						"parameters": [
+							{
+								"name": "flip",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"flop": [
+					{
+						"parameters": [
+							{
+								"name": "flop",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"affine": [
+					{
+						"parameters": [
+							{
+								"name": "matrix",
+								"type": "Matrix2x2 | [number, number, number, number]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "AffineOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"sharpen": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "SharpenOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"median": [
+					{
+						"parameters": [
+							{
+								"name": "size",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"blur": [
+					{
+						"parameters": [
+							{
+								"name": "sigma",
+								"type": "number | boolean | BlurOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"dilate": [
+					{
+						"parameters": [
+							{
+								"name": "width",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"erode": [
+					{
+						"parameters": [
+							{
+								"name": "width",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"flatten": [
+					{
+						"parameters": [
+							{
+								"name": "flatten",
+								"type": "boolean | FlattenOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"unflatten": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"gamma": [
+					{
+						"parameters": [
+							{
+								"name": "gamma",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "gammaOut",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"negate": [
+					{
+						"parameters": [
+							{
+								"name": "negate",
+								"type": "boolean | NegateOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"normalise": [
+					{
+						"parameters": [
+							{
+								"name": "normalise",
+								"type": "NormaliseOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"normalize": [
+					{
+						"parameters": [
+							{
+								"name": "normalize",
+								"type": "NormaliseOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"clahe": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "ClaheOptions",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"convolve": [
+					{
+						"parameters": [
+							{
+								"name": "kernel",
+								"type": "Kernel",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"threshold": [
+					{
+						"parameters": [
+							{
+								"name": "threshold",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "ThresholdOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"boolean": [
+					{
+						"parameters": [
+							{
+								"name": "operand",
+								"type": "string | Buffer<ArrayBufferLike>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "operator",
+								"type": "keyof BoolEnum",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "{ raw: Raw; } | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"linear": [
+					{
+						"parameters": [
+							{
+								"name": "a",
+								"type": "number | number[] | null | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "b",
+								"type": "number | number[] | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"recomb": [
+					{
+						"parameters": [
+							{
+								"name": "inputMatrix",
+								"type": "Matrix3x3 | Matrix4x4",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"modulate": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "{ brightness?: number | undefined; saturation?: number | undefined; hue?: number | undefined; lightness?: number | undefined; } | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"toFile": [
+					{
+						"parameters": [
+							{
+								"name": "fileOut",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "(err: Error, info: OutputInfo) => void",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "fileOut",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Promise<OutputInfo>",
+						"resolves": "OutputInfo",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"toBuffer": [
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "(err: Error, buffer: Buffer<ArrayBuffer>, info: OutputInfo) => void",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "{ resolveWithObject: false; } | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Promise<Buffer<ArrayBuffer>>",
+						"resolves": "Buffer<ArrayBuffer>",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "{ resolveWithObject: true; }",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Promise<{ data: Buffer<ArrayBuffer>; info: OutputInfo; }>",
+						"resolves": "{ data: Buffer<ArrayBuffer>; info: OutputInfo; }",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"toUint8Array": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Promise<{ data: Uint8Array<ArrayBufferLike>; info: OutputInfo; }>",
+						"resolves": "{ data: Uint8Array<ArrayBufferLike>; info: OutputInfo; }",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"withDensity": [
+					{
+						"parameters": [
+							{
+								"name": "density",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"keepExif": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"withExif": [
+					{
+						"parameters": [
+							{
+								"name": "exif",
+								"type": "Exif",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"withExifMerge": [
+					{
+						"parameters": [
+							{
+								"name": "exif",
+								"type": "Exif",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"keepIccProfile": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"withIccProfile": [
+					{
+						"parameters": [
+							{
+								"name": "icc",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "WithIccProfileOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"keepXmp": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"withXmp": [
+					{
+						"parameters": [
+							{
+								"name": "xmp",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"withMetadata": [
+					{
+						"parameters": [
+							{
+								"name": "withMetadata",
+								"type": "WriteableMetadata | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"jpeg": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "JpegOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"jp2": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "Jp2Options | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"jxl": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "JxlOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"png": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "PngOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"webp": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "WebpOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"gif": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "GifOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"avif": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "AvifOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"heif": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "HeifOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"tiff": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TiffOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"raw": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "RawOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"toFormat": [
+					{
+						"parameters": [
+							{
+								"name": "format",
+								"type": "\"avif\" | AvailableFormatInfo | keyof FormatEnum",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "AvifOptions | GifOptions | HeifOptions | Jp2Options | JpegOptions | JxlOptions | OutputOptions | PngOptions | RawOptions | TiffOptions | WebpOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"tile": [
+					{
+						"parameters": [
+							{
+								"name": "tile",
+								"type": "TileOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"timeout": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TimeoutOptions",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"resize": [
+					{
+						"parameters": [
+							{
+								"name": "widthOrOptions",
+								"type": "number | ResizeOptions | null | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "height",
+								"type": "number | null | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "ResizeOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "ResizeOptions",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"extend": [
+					{
+						"parameters": [
+							{
+								"name": "extend",
+								"type": "number | ExtendOptions",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"extract": [
+					{
+						"parameters": [
+							{
+								"name": "region",
+								"type": "Region",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"trim": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TrimOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Sharp",
+						"handle": "Sharp",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {},
+			"events": [],
+			"releases": []
+		}
+	},
+	"typeExports": [
+		"Sharp",
+		"SharpInput",
+		"SharpOptions",
+		"CacheOptions",
+		"TimeoutOptions",
+		"SharpCounters",
+		"Raw",
+		"CreateRaw",
+		"CreateChannels",
+		"Create",
+		"CreateText",
+		"Join",
+		"TiffInputOptions",
+		"SvgInputOptions",
+		"PdfInputOptions",
+		"OpenSlideInputOptions",
+		"Jp2InputOptions",
+		"ExifDir",
+		"Exif",
+		"HeifCompression",
+		"HeifTune",
+		"Unit",
+		"MediaType",
+		"WriteableMetadata",
+		"Metadata",
+		"LevelMetadata",
+		"CommentsMetadata",
+		"GainMapMetadata",
+		"Stats",
+		"ChannelStats",
+		"OutputOptions",
+		"WithIccProfileOptions",
+		"JpegOptions",
+		"Jp2Options",
+		"JxlOptions",
+		"WebpOptions",
+		"AvifOptions",
+		"HeifOptions",
+		"GifOptions",
+		"TiffOptions",
+		"PngOptions",
+		"RotateOptions",
+		"Precision",
+		"BlurOptions",
+		"FlattenOptions",
+		"NegateOptions",
+		"NormaliseOptions",
+		"ResizeOptions",
+		"Region",
+		"Noise",
+		"ExtendWith",
+		"ExtendOptions",
+		"TrimOptions",
+		"RawOptions",
+		"Channels",
+		"Colour",
+		"Color",
+		"Kernel",
+		"ClaheOptions",
+		"ThresholdOptions",
+		"OverlayOptions",
+		"TileOptions",
+		"AnimationOptions",
+		"SharpenOptions",
+		"AffineOptions",
+		"OutputInfo",
+		"AvailableFormatInfo",
+		"FitEnum",
+		"KernelEnum",
+		"PresetEnum",
+		"BoolEnum",
+		"ColourspaceEnum",
+		"DepthEnum",
+		"FailOnOptions",
+		"TextAlign",
+		"TextWrap",
+		"HorizontalAlignment",
+		"VerticalAlignment",
+		"TileContainer",
+		"TileLayout",
+		"Blend",
+		"Gravity",
+		"GravityEnum",
+		"StrategyEnum",
+		"FormatEnum",
+		"CacheResult",
+		"Interpolators",
+		"Matrix2x2",
+		"Matrix3x3",
+		"Matrix4x4",
+		"SharpConstructor",
+		"default"
+	]
+}

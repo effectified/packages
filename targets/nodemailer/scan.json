@@ -1,0 +1,42 @@
+{
+	"files": 78,
+	"errorClasses": [],
+	"codes": [
+		"ECONNECTION",
+		"EAUTH",
+		"EENVELOPE",
+		"EPROTOCOL",
+		"ETLS",
+		"EMESSAGE",
+		"EREQUIRETLS",
+		"ESOCKET",
+		"ETIMEDOUT",
+		"EDNS",
+		"EHLO",
+		"ESTREAM",
+		"EABORT",
+		"EAI_AGAIN",
+		"ECONFIG",
+		"EFETCH",
+		"EFILEACCESS",
+		"EMAXLIMIT",
+		"EMAXRECIPIENTS",
+		"ENOAUTH",
+		"EOAUTH2",
+		"EOTP",
+		"EPROXY",
+		"ERR_ACCESS_DENIED",
+		"ERR_INVALID_URL",
+		"ESENDMAIL",
+		"ESES",
+		"EURLACCESS"
+	],
+	"events": [
+		"error",
+		"token",
+		"headers",
+		"clear",
+		"hash",
+		"idle"
+	]
+}

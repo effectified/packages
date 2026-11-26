@@ -1,0 +1,81 @@
+{
+	"files": 354,
+	"errorClasses": [
+		{
+			"name": "RelayError",
+			"base": "Error",
+			"thrown": 3
+		},
+		{
+			"name": "UnsupportedPostgresVersionError",
+			"base": "Error",
+			"thrown": 2
+		},
+		{
+			"name": "SchemaVersionMismatchError",
+			"base": "Error",
+			"thrown": 4
+		},
+		{
+			"name": "SchemaMigrationRequiredError",
+			"base": "Error",
+			"thrown": 2
+		},
+		{
+			"name": "ConnectionClosedError",
+			"base": "Error",
+			"thrown": 7
+		},
+		{
+			"name": "DelayedError",
+			"base": "Error",
+			"thrown": 0
+		},
+		{
+			"name": "RateLimitError",
+			"base": "Error",
+			"thrown": 0
+		},
+		{
+			"name": "UnrecoverableError",
+			"base": "Error",
+			"thrown": 0
+		},
+		{
+			"name": "WaitingChildrenError",
+			"base": "Error",
+			"thrown": 0
+		},
+		{
+			"name": "WaitingError",
+			"base": "Error",
+			"thrown": 0
+		}
+	],
+	"codes": [
+		"EVALSHA",
+		"ECONNREFUSED",
+		"EVAL",
+		"EXEC",
+		"EXISTS"
+	],
+	"events": [
+		"error",
+		"progress",
+		"removed",
+		"active",
+		"cleaned",
+		"close",
+		"closing",
+		"completed",
+		"exit",
+		"failed",
+		"lag",
+		"lockRenewalFailed",
+		"locksRenewed",
+		"message",
+		"stalled",
+		"swept",
+		"waiting"
+	]
+}

@@ -1,0 +1,396 @@
+{
+	"$schema": "https://effectified.dev/schema/recipe.json",
+	"package": "puppeteer-core",
+	"version": "25.19.0",
+	"types": {
+		"from": "bundled",
+		"package": "puppeteer-core",
+		"version": "25.19.0"
+	},
+	"name": "@effectified/puppeteer-core",
+	"prefix": "Puppeteer",
+	"exports": [
+		"launch"
+	],
+	"handles": {
+		"Browser": {
+			"release": "close",
+			"events": []
+		},
+		"BrowserContext": {
+			"release": "close",
+			"events": []
+		},
+		"Page": {
+			"release": "close",
+			"events": []
+		},
+		"Target": {
+			"release": "close",
+			"events": []
+		},
+		"FileChooser": {
+			"events": []
+		},
+		"Frame": {
+			"events": []
+		},
+		"CDPSession": {
+			"events": []
+		},
+		"Locator": {
+			"events": []
+		},
+		"JSHandle": {
+			"release": "dispose",
+			"events": []
+		},
+		"ElementHandle": {
+			"release": "dispose",
+			"events": []
+		},
+		"HTTPRequest": {
+			"events": []
+		},
+		"HTTPResponse": {
+			"events": []
+		},
+		"ScreenRecorder": {
+			"release": "stop",
+			"events": []
+		},
+		"ScreenRecording": {
+			"release": "stop",
+			"events": []
+		},
+		"DeviceRequestPrompt": {
+			"events": []
+		},
+		"TouchHandle": {
+			"release": "end",
+			"events": []
+		}
+	},
+	"errors": [
+		{
+			"tag": "ConnectionClosedError",
+			"instanceOf": "ConnectionClosedError",
+			"codes": []
+		},
+		{
+			"tag": "ProtocolError",
+			"instanceOf": "ProtocolError",
+			"codes": []
+		},
+		{
+			"tag": "TimeoutError",
+			"instanceOf": "TimeoutError",
+			"codes": []
+		},
+		{
+			"tag": "TouchError",
+			"instanceOf": "TouchError",
+			"codes": []
+		},
+		{
+			"tag": "UnsupportedOperation",
+			"instanceOf": "UnsupportedOperation",
+			"codes": []
+		},
+		{
+			"tag": "PuppeteerError",
+			"codes": [
+				"ESCAPED_CHAR",
+				"EACCES",
+				"EPERM"
+			]
+		}
+	],
+	"services": [
+		{
+			"name": "PuppeteerBrowser",
+			"handle": "Browser",
+			"acquire": "launch"
+		}
+	],
+	"methods": {
+		"ElementHandle.toElement": "sync"
+	},
+	"derived": [
+		"CDPSession.send",
+		"ElementHandle.$",
+		"ElementHandle.$$",
+		"ElementHandle.$$eval",
+		"ElementHandle.$eval",
+		"ElementHandle.evaluate",
+		"ElementHandle.evaluateHandle",
+		"ElementHandle.getProperty",
+		"ElementHandle.waitForSelector",
+		"Frame.$",
+		"Frame.$$",
+		"Frame.$$eval",
+		"Frame.$eval",
+		"Frame.locator",
+		"Frame.waitForSelector",
+		"JSHandle.evaluate",
+		"JSHandle.evaluateHandle",
+		"JSHandle.getProperty",
+		"Locator.off",
+		"Locator.on",
+		"Locator.once",
+		"Page.$",
+		"Page.$$",
+		"Page.$$eval",
+		"Page.$eval",
+		"Page.locator",
+		"Page.waitForSelector"
+	],
+	"testDependencies": {},
+	"decisions": [
+		{
+			"id": "exports",
+			"question": "Which exported functions and classes does the facade offer?",
+			"answer": "launch",
+			"why": "the exports the package README calls",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Browser.release",
+			"question": "Which method releases a Browser, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "close",
+			"why": "its release methods are close, disconnect",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Browser.events",
+			"question": "Which events of Browser does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BrowserContext.release",
+			"question": "Which method releases a BrowserContext, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "close",
+			"why": "its release methods are close",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BrowserContext.events",
+			"question": "Which events of BrowserContext does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Page.release",
+			"question": "Which method releases a Page, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "close",
+			"why": "its release methods are close",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Page.events",
+			"question": "Which events of Page does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Target.release",
+			"question": "Which method releases a Target, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "close",
+			"why": "its release methods are close",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Target.events",
+			"question": "Which events of Target does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.FileChooser.release",
+			"question": "Which method releases a FileChooser, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.FileChooser.events",
+			"question": "Which events of FileChooser does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Frame.release",
+			"question": "Which method releases a Frame, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Frame.events",
+			"question": "Which events of Frame does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.CDPSession.release",
+			"question": "Which method releases a CDPSession, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.CDPSession.events",
+			"question": "Which events of CDPSession does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Locator.release",
+			"question": "Which method releases a Locator, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Locator.events",
+			"question": "Which events of Locator does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.JSHandle.release",
+			"question": "Which method releases a JSHandle, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "dispose",
+			"why": "its release methods are dispose",
+			"by": "engine"
+		},
+		{
+			"id": "handles.JSHandle.events",
+			"question": "Which events of JSHandle does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ElementHandle.release",
+			"question": "Which method releases a ElementHandle, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "dispose",
+			"why": "its release methods are dispose",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ElementHandle.events",
+			"question": "Which events of ElementHandle does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.HTTPRequest.release",
+			"question": "Which method releases a HTTPRequest, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.HTTPRequest.events",
+			"question": "Which events of HTTPRequest does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.HTTPResponse.release",
+			"question": "Which method releases a HTTPResponse, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.HTTPResponse.events",
+			"question": "Which events of HTTPResponse does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ScreenRecorder.release",
+			"question": "Which method releases a ScreenRecorder, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "stop",
+			"why": "its release methods are stop",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ScreenRecorder.events",
+			"question": "Which events of ScreenRecorder does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ScreenRecording.release",
+			"question": "Which method releases a ScreenRecording, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "stop",
+			"why": "its release methods are stop",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ScreenRecording.events",
+			"question": "Which events of ScreenRecording does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DeviceRequestPrompt.release",
+			"question": "Which method releases a DeviceRequestPrompt, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DeviceRequestPrompt.events",
+			"question": "Which events of DeviceRequestPrompt does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.TouchHandle.release",
+			"question": "Which method releases a TouchHandle, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "end",
+			"why": "its release methods are end",
+			"by": "engine"
+		},
+		{
+			"id": "handles.TouchHandle.events",
+			"question": "Which events of TouchHandle does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "errors",
+			"question": "Which upstream failures become which tagged errors?",
+			"answer": "ConnectionClosedError <- instanceof ConnectionClosedError; ProtocolError <- instanceof ProtocolError; TimeoutError <- instanceof TimeoutError; TouchError <- instanceof TouchError; UnsupportedOperation <- instanceof UnsupportedOperation; PuppeteerError",
+			"why": "exported error classes, most specific first, then the catch-all PuppeteerError carrying `code` (the source sets ESCAPED_CHAR, EACCES, EPERM)",
+			"by": "engine"
+		},
+		{
+			"id": "services",
+			"question": "Which handles are provided as services (Context.Service with a layer)?",
+			"answer": "PuppeteerBrowser <- launch",
+			"why": "every offered export that acquires a releasable handle",
+			"by": "engine"
+		}
+	]
+}

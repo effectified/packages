@@ -1,0 +1,100 @@
+{
+	"$schema": "https://effectified.dev/schema/recipe.json",
+	"package": "nodemailer",
+	"version": "10.6.1",
+	"types": {
+		"from": "bundled",
+		"package": "nodemailer",
+		"version": "10.6.1"
+	},
+	"name": "@effectified/nodemailer",
+	"prefix": "Nodemailer",
+	"exports": [
+		"createTransport",
+		"createTestAccount"
+	],
+	"handles": {
+		"Mail": {
+			"release": "close",
+			"events": []
+		}
+	},
+	"errors": [
+		{
+			"tag": "NodemailerError",
+			"codes": [
+				"ECONNECTION",
+				"EAUTH",
+				"EENVELOPE",
+				"EPROTOCOL",
+				"ETLS",
+				"EMESSAGE",
+				"EREQUIRETLS",
+				"ESOCKET",
+				"ETIMEDOUT",
+				"EDNS",
+				"EHLO",
+				"ESTREAM",
+				"EABORT",
+				"EAI_AGAIN",
+				"ECONFIG",
+				"EFETCH",
+				"EFILEACCESS",
+				"EMAXLIMIT",
+				"EMAXRECIPIENTS",
+				"ENOAUTH"
+			]
+		}
+	],
+	"services": [
+		{
+			"name": "NodemailerMail",
+			"handle": "Mail",
+			"acquire": "createTransport"
+		}
+	],
+	"methods": {},
+	"derived": [
+		"Mail.get",
+		"Mail.set",
+		"createTransport"
+	],
+	"testDependencies": {},
+	"decisions": [
+		{
+			"id": "exports",
+			"question": "Which exported functions and classes does the facade offer?",
+			"answer": "createTransport, createTestAccount",
+			"why": "every exported function or class that is async or yields a handle",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Mail.release",
+			"question": "Which method releases a Mail, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "close",
+			"why": "its release methods are close",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Mail.events",
+			"question": "Which events of Mail does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "errors",
+			"question": "Which upstream failures become which tagged errors?",
+			"answer": "NodemailerError",
+			"why": "exported error classes, most specific first, then the catch-all NodemailerError carrying `code` (the source sets ECONNECTION, EAUTH, EENVELOPE, EPROTOCOL, ETLS, EMESSAGE)",
+			"by": "engine"
+		},
+		{
+			"id": "services",
+			"question": "Which handles are provided as services (Context.Service with a layer)?",
+			"answer": "NodemailerMail <- createTransport",
+			"why": "every offered export that acquires a releasable handle",
+			"by": "engine"
+		}
+	]
+}

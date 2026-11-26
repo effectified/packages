@@ -1,0 +1,273 @@
+{
+	"$schema": "https://effectified.dev/schema/recipe.json",
+	"package": "bullmq",
+	"version": "6.7.10",
+	"types": {
+		"from": "bundled",
+		"package": "bullmq",
+		"version": "6.7.10"
+	},
+	"name": "@effectified/bullmq",
+	"prefix": "Bullmq",
+	"exports": [
+		"QueueEvents",
+		"FlowProducer",
+		"Queue",
+		"Worker"
+	],
+	"handles": {
+		"QueueEvents": {
+			"release": "close",
+			"events": []
+		},
+		"FlowProducer": {
+			"release": "close",
+			"events": [
+				"error",
+				"ioredis:close"
+			]
+		},
+		"Queue": {
+			"release": "close",
+			"events": [
+				"cleaned",
+				"error",
+				"ioredis:close",
+				"paused",
+				"progress",
+				"removed",
+				"resumed",
+				"waiting"
+			]
+		},
+		"Worker": {
+			"release": "close",
+			"events": [
+				"active",
+				"closed",
+				"closing",
+				"completed",
+				"drained",
+				"error",
+				"failed",
+				"ioredis:close",
+				"lockRenewalFailed",
+				"locksRenewed",
+				"paused",
+				"progress",
+				"ready",
+				"resumed",
+				"stalled"
+			]
+		},
+		"Job": {
+			"events": []
+		}
+	},
+	"errors": [
+		{
+			"tag": "ConnectionClosedError",
+			"instanceOf": "ConnectionClosedError",
+			"codes": []
+		},
+		{
+			"tag": "DelayedError",
+			"instanceOf": "DelayedError",
+			"codes": []
+		},
+		{
+			"tag": "RateLimitError",
+			"instanceOf": "RateLimitError",
+			"codes": []
+		},
+		{
+			"tag": "RelayError",
+			"instanceOf": "RelayError",
+			"codes": []
+		},
+		{
+			"tag": "SchemaMigrationRequiredError",
+			"instanceOf": "SchemaMigrationRequiredError",
+			"codes": []
+		},
+		{
+			"tag": "SchemaVersionMismatchError",
+			"instanceOf": "SchemaVersionMismatchError",
+			"codes": []
+		},
+		{
+			"tag": "UnrecoverableError",
+			"instanceOf": "UnrecoverableError",
+			"codes": []
+		},
+		{
+			"tag": "UnsupportedPostgresVersionError",
+			"instanceOf": "UnsupportedPostgresVersionError",
+			"codes": []
+		},
+		{
+			"tag": "WaitingChildrenError",
+			"instanceOf": "WaitingChildrenError",
+			"codes": []
+		},
+		{
+			"tag": "WaitingError",
+			"instanceOf": "WaitingError",
+			"codes": []
+		},
+		{
+			"tag": "BullmqError",
+			"codes": [
+				"EVALSHA",
+				"ECONNREFUSED",
+				"EVAL",
+				"EXEC",
+				"EXISTS"
+			]
+		}
+	],
+	"services": [
+		{
+			"name": "BullmqQueueEvents",
+			"handle": "QueueEvents",
+			"acquire": "QueueEvents"
+		},
+		{
+			"name": "BullmqFlowProducer",
+			"handle": "FlowProducer",
+			"acquire": "FlowProducer"
+		},
+		{
+			"name": "BullmqQueue",
+			"handle": "Queue",
+			"acquire": "Queue"
+		},
+		{
+			"name": "BullmqWorker",
+			"handle": "Worker",
+			"acquire": "Worker"
+		}
+	],
+	"methods": {},
+	"derived": [
+		"FlowProducer",
+		"FlowProducer.off",
+		"FlowProducer.on",
+		"FlowProducer.once",
+		"Job.waitUntilFinished",
+		"Queue",
+		"Queue.emit",
+		"Queue.off",
+		"Queue.on",
+		"Queue.once",
+		"Queue.trace",
+		"QueueEvents",
+		"QueueEvents.emit",
+		"QueueEvents.off",
+		"QueueEvents.on",
+		"QueueEvents.once",
+		"QueueEvents.trace",
+		"Worker",
+		"Worker.emit",
+		"Worker.off",
+		"Worker.on",
+		"Worker.once",
+		"Worker.trace"
+	],
+	"testDependencies": {
+		"ioredis": "6.1.0"
+	},
+	"decisions": [
+		{
+			"id": "exports",
+			"question": "Which exported functions and classes does the facade offer?",
+			"answer": "QueueEvents, FlowProducer, Queue, Worker",
+			"why": "the exports the package README calls",
+			"by": "engine"
+		},
+		{
+			"id": "handles.QueueEvents.release",
+			"question": "Which method releases a QueueEvents, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "close",
+			"why": "its release methods are close, disconnect",
+			"by": "engine"
+		},
+		{
+			"id": "handles.QueueEvents.events",
+			"question": "Which events of QueueEvents does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.FlowProducer.release",
+			"question": "Which method releases a FlowProducer, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "close",
+			"why": "its release methods are close, disconnect",
+			"by": "engine"
+		},
+		{
+			"id": "handles.FlowProducer.events",
+			"question": "Which events of FlowProducer does the facade offer as Streams? (\"none\" for none)",
+			"answer": "error, ioredis:close",
+			"why": "the events its `on` names in its types",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Queue.release",
+			"question": "Which method releases a Queue, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "close",
+			"why": "its release methods are disconnect, close",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Queue.events",
+			"question": "Which events of Queue does the facade offer as Streams? (\"none\" for none)",
+			"answer": "cleaned, error, ioredis:close, paused, progress, removed, resumed, waiting",
+			"why": "the events its `on` names in its types",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Worker.release",
+			"question": "Which method releases a Worker, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "close",
+			"why": "its release methods are close, disconnect",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Worker.events",
+			"question": "Which events of Worker does the facade offer as Streams? (\"none\" for none)",
+			"answer": "active, closed, closing, completed, drained, error, failed, ioredis:close, lockRenewalFailed, locksRenewed, paused, progress, ready, resumed, stalled",
+			"why": "the events its `on` names in its types",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Job.release",
+			"question": "Which method releases a Job, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Job.events",
+			"question": "Which events of Job does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "errors",
+			"question": "Which upstream failures become which tagged errors?",
+			"answer": "ConnectionClosedError <- instanceof ConnectionClosedError; DelayedError <- instanceof DelayedError; RateLimitError <- instanceof RateLimitError; RelayError <- instanceof RelayError; SchemaMigrationRequiredError <- instanceof SchemaMigrationRequiredError; SchemaVersionMismatchError <- instanceof SchemaVersionMismatchError; UnrecoverableError <- instanceof UnrecoverableError; UnsupportedPostgresVersionError <- instanceof UnsupportedPostgresVersionError; WaitingChildrenError <- instanceof WaitingChildrenError; WaitingError <- instanceof WaitingError; BullmqError",
+			"why": "exported error classes, most specific first, then the catch-all BullmqError carrying `code` (the source sets EVALSHA, ECONNREFUSED, EVAL, EXEC, EXISTS)",
+			"by": "engine"
+		},
+		{
+			"id": "services",
+			"question": "Which handles are provided as services (Context.Service with a layer)?",
+			"answer": "BullmqQueueEvents <- QueueEvents, BullmqFlowProducer <- FlowProducer, BullmqQueue <- Queue, BullmqWorker <- Worker",
+			"why": "every offered export that acquires a releasable handle",
+			"by": "engine"
+		}
+	]
+}

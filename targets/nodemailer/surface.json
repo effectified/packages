@@ -1,0 +1,954 @@
+{
+	"package": "nodemailer",
+	"version": "10.6.1",
+	"types": {
+		"from": "bundled",
+		"package": "nodemailer",
+		"version": "10.6.1"
+	},
+	"entry": "named",
+	"exports": [
+		{
+			"kind": "function",
+			"name": "createTransport",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "transporter",
+							"type": "SMTPPool | (SMTPPoolOptions & { pool: true; })",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "defaults",
+							"type": "SendMailOptions | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Mail<SMTPSentMessageInfo, SMTPPoolOptions>",
+					"handle": "Mail",
+					"traits": [
+						"sync"
+					]
+				},
+				{
+					"parameters": [
+						{
+							"name": "transporter",
+							"type": "SendmailTransport | (SendmailTransportOptions & { sendmail: string | true; })",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "defaults",
+							"type": "SendMailOptions | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Mail<SendmailSentMessageInfo, SendmailTransportOptions>",
+					"handle": "Mail",
+					"traits": [
+						"sync"
+					]
+				},
+				{
+					"parameters": [
+						{
+							"name": "transporter",
+							"type": "StreamTransport | (StreamTransportOptions & { streamTransport: true; })",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "defaults",
+							"type": "SendMailOptions | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Mail<StreamSentMessageInfo, StreamTransportOptions>",
+					"handle": "Mail",
+					"traits": [
+						"sync"
+					]
+				},
+				{
+					"parameters": [
+						{
+							"name": "transporter",
+							"type": "JSONTransportOptions & { jsonTransport: true; skipEncoding: true; }",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "defaults",
+							"type": "SendMailOptions | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Mail<JSONSentMessageObjectInfo, JSONTransportOptions>",
+					"handle": "Mail",
+					"traits": [
+						"sync"
+					]
+				},
+				{
+					"parameters": [
+						{
+							"name": "transporter",
+							"type": "JSONTransport | (JSONTransportOptions & { jsonTransport: true; })",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "defaults",
+							"type": "SendMailOptions | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Mail<JSONSentMessageInfo<string>, JSONTransportOptions>",
+					"handle": "Mail",
+					"traits": [
+						"sync"
+					]
+				},
+				{
+					"parameters": [
+						{
+							"name": "transporter",
+							"type": "SESTransport | (SESTransportOptions & { SES: object; })",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "defaults",
+							"type": "SendMailOptions | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Mail<SESSentMessageInfo, SESTransportOptions>",
+					"handle": "Mail",
+					"traits": [
+						"sync"
+					]
+				},
+				{
+					"parameters": [
+						{
+							"name": "transporter",
+							"type": "SMTPTransport",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "defaults",
+							"type": "SendMailOptions | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Mail<SMTPSentMessageInfo, SMTPTransportOptions>",
+					"handle": "Mail",
+					"traits": [
+						"sync"
+					]
+				},
+				{
+					"typeParameters": "T = SentMessageInfo, D extends TransportOptions = TransportOptions",
+					"parameters": [
+						{
+							"name": "transporter",
+							"type": "Transport<T, D>",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "defaults",
+							"type": "SendMailOptions | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Mail<T, D>",
+					"handle": "Mail",
+					"traits": [
+						"sync"
+					]
+				},
+				{
+					"parameters": [
+						{
+							"name": "transporter",
+							"type": "string | SMTPTransportOptions | undefined",
+							"optional": true,
+							"rest": false
+						},
+						{
+							"name": "defaults",
+							"type": "SendMailOptions | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Mail<SMTPSentMessageInfo, SMTPTransportOptions>",
+					"handle": "Mail",
+					"traits": [
+						"sync"
+					]
+				},
+				{
+					"parameters": [
+						{
+							"name": "transporter",
+							"type": "string | Transport<any, any> | TransportConfig | undefined",
+							"optional": true,
+							"rest": false
+						},
+						{
+							"name": "defaults",
+							"type": "SendMailOptions | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Mail<any, any>",
+					"handle": "Mail",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "createTestAccount",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "callback",
+							"type": "TestAccountCallback",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": true,
+					"returns": "void",
+					"traits": [
+						"callback"
+					]
+				},
+				{
+					"parameters": [
+						{
+							"name": "apiUrl",
+							"type": "string | false | null | undefined",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "callback",
+							"type": "TestAccountCallback",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": true,
+					"returns": "void",
+					"traits": [
+						"callback"
+					]
+				},
+				{
+					"parameters": [
+						{
+							"name": "apiUrl",
+							"type": "string | false | null | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Promise<TestAccount>",
+					"resolves": "TestAccount",
+					"traits": [
+						"async"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "getTestMessageUrl",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "info",
+							"type": "false | { response?: any; } | null | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "string | false",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		}
+	],
+	"handles": {
+		"Mail": {
+			"name": "Mail",
+			"typeRef": "Upstream.Mail<any, any>",
+			"methods": {
+				"close": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "{ force?: boolean | undefined; } | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isIdle": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"verify": [
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "VerifyCallback",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "void",
+						"traits": [
+							"callback"
+						]
+					},
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Promise<true>",
+						"resolves": "true",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"use": [
+					{
+						"parameters": [
+							{
+								"name": "step",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "plugin",
+								"type": "PluginFunction<SMTPSentMessageInfo>",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Mail<SMTPSentMessageInfo, SMTPPoolOptions>",
+						"handle": "Mail",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"sendMail": [
+					{
+						"parameters": [
+							{
+								"name": "data",
+								"type": "SendMailOptions",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Promise<SMTPSentMessageInfo>",
+						"resolves": "SMTPSentMessageInfo",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "data",
+								"type": "SendMailOptions",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SendMailCallback<SMTPSentMessageInfo>",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "void",
+						"traits": [
+							"callback"
+						]
+					}
+				],
+				"getVersionString": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "string",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"setupProxy": [
+					{
+						"parameters": [
+							{
+								"name": "proxyUrl",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"set": [
+					{
+						"typeParameters": "K extends keyof MailMeta & string",
+						"parameters": [
+							{
+								"name": "key",
+								"type": "K",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "value",
+								"type": "MailMeta[K]",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Map<string, any>",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"get": [
+					{
+						"typeParameters": "K extends keyof MailMeta & string",
+						"parameters": [
+							{
+								"name": "key",
+								"type": "K",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "MailMeta[K] | undefined",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"options": {
+					"type": "SMTPPoolOptions"
+				},
+				"meta": {
+					"type": "Map<string, any>"
+				},
+				"dkim": {
+					"type": "false | DKIM"
+				},
+				"transporter": {
+					"type": "Transport<SMTPSentMessageInfo, SMTPPoolOptions>",
+					"handle": "Transport"
+				},
+				"logger": {
+					"type": "Logger",
+					"handle": "Logger"
+				},
+				"getSocket": {
+					"type": "false | GetSocketHandler | undefined"
+				}
+			},
+			"events": [],
+			"releases": [
+				"close"
+			]
+		},
+		"Transport": {
+			"name": "Transport",
+			"typeRef": "Upstream.Transport<any, any>",
+			"methods": {
+				"send": [
+					{
+						"parameters": [
+							{
+								"name": "mail",
+								"type": "MailMessage<SMTPSentMessageInfo>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "ResultCallback<SMTPSentMessageInfo>",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "void",
+						"traits": [
+							"callback"
+						]
+					}
+				]
+			},
+			"properties": {
+				"supportsAbortSignal": {
+					"type": "boolean | undefined"
+				},
+				"name": {
+					"type": "string"
+				},
+				"version": {
+					"type": "string"
+				},
+				"verify": {
+					"type": "((...args: any[]) => any) | undefined"
+				},
+				"close": {
+					"type": "((...args: any[]) => any) | undefined"
+				},
+				"isIdle": {
+					"type": "((...args: any[]) => any) | undefined"
+				},
+				"on": {
+					"type": "((event: string | symbol, listener: (...args: any[]) => void) => Transport<SMTPSentMessageInfo, SMTPPoolOptions>) | undefined"
+				},
+				"mailer": {
+					"type": "Mail<SMTPSentMessageInfo, SMTPPoolOptions> | undefined"
+				},
+				"getSocket": {
+					"type": "GetSocketHandler | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"Logger": {
+			"name": "Logger",
+			"typeRef": "Upstream.Mail<any, any>[\"logger\"]",
+			"methods": {
+				"trace": [
+					{
+						"parameters": [
+							{
+								"name": "data",
+								"type": "LogEntry | undefined",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "message",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "args",
+								"type": "any[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "message",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "args",
+								"type": "any[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"debug": [
+					{
+						"parameters": [
+							{
+								"name": "data",
+								"type": "LogEntry | undefined",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "message",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "args",
+								"type": "any[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "message",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "args",
+								"type": "any[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"info": [
+					{
+						"parameters": [
+							{
+								"name": "data",
+								"type": "LogEntry | undefined",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "message",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "args",
+								"type": "any[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "message",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "args",
+								"type": "any[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"warn": [
+					{
+						"parameters": [
+							{
+								"name": "data",
+								"type": "LogEntry | undefined",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "message",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "args",
+								"type": "any[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "message",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "args",
+								"type": "any[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"error": [
+					{
+						"parameters": [
+							{
+								"name": "data",
+								"type": "LogEntry | undefined",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "message",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "args",
+								"type": "any[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "message",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "args",
+								"type": "any[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"fatal": [
+					{
+						"parameters": [
+							{
+								"name": "data",
+								"type": "LogEntry | undefined",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "message",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "args",
+								"type": "any[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "message",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "args",
+								"type": "any[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {},
+			"events": [],
+			"releases": []
+		}
+	},
+	"typeExports": [
+		"TestAccountService",
+		"TestAccount",
+		"TestAccountCallback",
+		"TransportConfig",
+		"default",
+		"Mail",
+		"MailDefaults",
+		"SentMessageInfo",
+		"Transport",
+		"TransportOptions",
+		"SendMailOptions",
+		"Transporter",
+		"NodemailerError",
+		"ErrorCode",
+		"MailMessage",
+		"MailMessageData",
+		"PluginFunction",
+		"VerifyCallback",
+		"MailComposerOptions",
+		"Attachment",
+		"AttachmentLike",
+		"IcalAttachment",
+		"ListHeaders",
+		"Otp",
+		"Address",
+		"Headers",
+		"SMTPConnectionOptions",
+		"SMTPConnectionAuth",
+		"SMTPEnvelope",
+		"SMTPEnvelopeDsn",
+		"DKIMOptions",
+		"XOAuth2Options",
+		"XOAuth2Token",
+		"SMTPTransportOptions",
+		"SMTPSentMessageInfo",
+		"SMTPPoolOptions",
+		"SMTPPoolSentMessageInfo",
+		"SendmailTransportOptions",
+		"SendmailSentMessageInfo",
+		"StreamTransportOptions",
+		"StreamSentMessageInfo",
+		"JSONTransportOptions",
+		"JSONSentMessageInfo",
+		"JSONSentMessageObjectInfo",
+		"SESTransportOptions",
+		"SESSentMessageInfo"
+	]
+}

@@ -1,0 +1,4127 @@
+{
+	"package": "simple-git",
+	"version": "4.1.0",
+	"types": {
+		"from": "bundled",
+		"package": "simple-git",
+		"version": "4.1.0"
+	},
+	"entry": "named",
+	"exports": [
+		{
+			"kind": "function",
+			"name": "refName",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "value",
+							"type": "string",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "TemplateValue",
+					"handle": "TemplateValue",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "remoteUrl",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "value",
+							"type": "string",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "__1",
+							"type": "RemoteUrlOptions | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "TemplateValue",
+					"handle": "TemplateValue",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "class",
+			"name": "GitConstructError",
+			"handle": "GitConstructError",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "config",
+							"type": "SimpleGitOptions",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "message",
+							"type": "string",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "GitConstructError",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": true,
+			"base": "GitError"
+		},
+		{
+			"kind": "class",
+			"name": "GitError",
+			"handle": "GitError",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "task",
+							"type": "SimpleGitTask<any> | undefined",
+							"optional": true,
+							"rest": false
+						},
+						{
+							"name": "message",
+							"type": "string | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "GitError",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": true
+		},
+		{
+			"kind": "class",
+			"name": "GitPluginError",
+			"handle": "GitPluginError",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "task",
+							"type": "SimpleGitTask<any> | undefined",
+							"optional": true,
+							"rest": false
+						},
+						{
+							"name": "plugin",
+							"type": "keyof SimpleGitOptions | undefined",
+							"optional": true,
+							"rest": false
+						},
+						{
+							"name": "message",
+							"type": "string | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "GitPluginError",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": true,
+			"base": "GitError"
+		},
+		{
+			"kind": "class",
+			"name": "GitResponseError",
+			"handle": "GitResponseError",
+			"constructors": [
+				{
+					"typeParameters": "T = any",
+					"parameters": [
+						{
+							"name": "git",
+							"type": "T",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "message",
+							"type": "string | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "GitResponseError<T>",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": true,
+			"base": "GitError"
+		},
+		{
+			"kind": "class",
+			"name": "TaskConfigurationError",
+			"handle": "TaskConfigurationError",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "message",
+							"type": "string | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "TaskConfigurationError",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": true,
+			"base": "GitError"
+		},
+		{
+			"kind": "value",
+			"name": "CheckRepoActions",
+			"type": "typeof CheckRepoActions"
+		},
+		{
+			"kind": "value",
+			"name": "CleanOptions",
+			"type": "typeof CleanOptions"
+		},
+		{
+			"kind": "value",
+			"name": "GitConfigScope",
+			"type": "typeof GitConfigScope"
+		},
+		{
+			"kind": "value",
+			"name": "DiffNameStatus",
+			"type": "typeof DiffNameStatus"
+		},
+		{
+			"kind": "function",
+			"name": "grepQueryBuilder",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "params",
+							"type": "string[]",
+							"optional": false,
+							"rest": true
+						}
+					],
+					"trailingCallback": false,
+					"returns": "GitGrepQuery",
+					"handle": "GitGrepQuery",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "value",
+			"name": "ResetMode",
+			"type": "typeof ResetMode"
+		},
+		{
+			"kind": "function",
+			"name": "pathspec",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "paths",
+							"type": "string[]",
+							"optional": false,
+							"rest": true
+						}
+					],
+					"trailingCallback": false,
+					"returns": "string",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "simpleGit",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "baseDir",
+							"type": "string | undefined",
+							"optional": true,
+							"rest": false
+						},
+						{
+							"name": "options",
+							"type": "Partial<SimpleGitOptions> | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "SimpleGit",
+					"handle": "SimpleGit",
+					"traits": [
+						"sync"
+					]
+				},
+				{
+					"parameters": [
+						{
+							"name": "baseDir",
+							"type": "string",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "SimpleGit",
+					"handle": "SimpleGit",
+					"traits": [
+						"sync"
+					]
+				},
+				{
+					"parameters": [
+						{
+							"name": "options",
+							"type": "Partial<SimpleGitOptions>",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "SimpleGit",
+					"handle": "SimpleGit",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		}
+	],
+	"handles": {
+		"TemplateValue": {
+			"name": "TemplateValue",
+			"typeRef": "Awaited<ReturnType<typeof Upstream.refName>>",
+			"methods": {
+				"validate": [
+					{
+						"parameters": [
+							{
+								"name": "value",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "string | undefined",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"value": {
+					"type": "string"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"GitGrepQuery": {
+			"name": "GitGrepQuery",
+			"typeRef": "Upstream.GitGrepQuery",
+			"methods": {
+				"and": [
+					{
+						"parameters": [
+							{
+								"name": "and",
+								"type": "string[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "GitGrepQuery",
+						"handle": "GitGrepQuery",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"param": [
+					{
+						"parameters": [
+							{
+								"name": "param",
+								"type": "string[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "GitGrepQuery",
+						"handle": "GitGrepQuery",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {},
+			"events": [],
+			"releases": []
+		},
+		"SimpleGit": {
+			"name": "SimpleGit",
+			"typeRef": "Upstream.SimpleGit",
+			"methods": {
+				"addAnnotatedTag": [
+					{
+						"parameters": [
+							{
+								"name": "tagName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "tagMessage",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<{ name: string; }> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<{ name: string; }>",
+						"resolves": "{ name: string; }",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"addConfig": [
+					{
+						"parameters": [
+							{
+								"name": "key",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "value",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "append",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "scope",
+								"type": "\"global\" | \"local\" | \"system\" | \"worktree\" | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "key",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "value",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "append",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "key",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "value",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"applyPatch": [
+					{
+						"parameters": [
+							{
+								"name": "patches",
+								"type": "string | string[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions<ApplyOptions>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "patches",
+								"type": "string | string[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"listConfig": [
+					{
+						"parameters": [
+							{
+								"name": "scope",
+								"type": "\"global\" | \"local\" | \"system\" | \"worktree\"",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<ConfigListSummary> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<ConfigListSummary>",
+						"resolves": "ConfigListSummary",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<ConfigListSummary> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<ConfigListSummary>",
+						"resolves": "ConfigListSummary",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"addRemote": [
+					{
+						"parameters": [
+							{
+								"name": "remoteName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "remoteRepo",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "remoteName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "remoteRepo",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"addTag": [
+					{
+						"parameters": [
+							{
+								"name": "name",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<{ name: string; }> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<{ name: string; }>",
+						"resolves": "{ name: string; }",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"binaryCatFile": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "string[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<any> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<any>",
+						"resolves": "any",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"branch": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<BranchSummary> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<BranchSummary>",
+						"resolves": "BranchSummary",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"branchLocal": [
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<BranchSummary> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<BranchSummary>",
+						"resolves": "BranchSummary",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"catFile": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "string[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"checkIgnore": [
+					{
+						"parameters": [
+							{
+								"name": "pathNames",
+								"type": "string[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string[]> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string[]>",
+						"resolves": "string[]",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "path",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string[]> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string[]>",
+						"resolves": "string[]",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"checkIsRepo": [
+					{
+						"parameters": [
+							{
+								"name": "action",
+								"type": "CheckRepoActions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<boolean> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<boolean>",
+						"resolves": "boolean",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<boolean> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<boolean>",
+						"resolves": "boolean",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"checkout": [
+					{
+						"parameters": [
+							{
+								"name": "what",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "what",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"checkoutBranch": [
+					{
+						"parameters": [
+							{
+								"name": "branchName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "startPoint",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<void> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<void>",
+						"resolves": "void",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "branchName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "startPoint",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<void> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<void>",
+						"resolves": "void",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"checkoutLatestTag": [
+					{
+						"parameters": [
+							{
+								"name": "branchName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "startPoint",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<void> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<void>",
+						"resolves": "void",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"checkoutLocalBranch": [
+					{
+						"parameters": [
+							{
+								"name": "branchName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<void> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<void>",
+						"resolves": "void",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "branchName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<void> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<void>",
+						"resolves": "void",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"clean": [
+					{
+						"parameters": [
+							{
+								"name": "args",
+								"type": "CleanOptions[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<CleanSummary> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<CleanSummary>",
+						"resolves": "CleanSummary",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "mode",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<CleanSummary> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<CleanSummary>",
+						"resolves": "CleanSummary",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "mode",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<CleanSummary> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<CleanSummary>",
+						"resolves": "CleanSummary",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Response<CleanSummary>",
+						"resolves": "CleanSummary",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<CleanSummary> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<CleanSummary>",
+						"resolves": "CleanSummary",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"clone": [
+					{
+						"parameters": [
+							{
+								"name": "repoPath",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "localPath",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "repoPath",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"commit": [
+					{
+						"parameters": [
+							{
+								"name": "message",
+								"type": "string | string[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "files",
+								"type": "string | string[] | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "Options | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<CommitResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<CommitResult>",
+						"resolves": "CommitResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "message",
+								"type": "string | string[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<CommitResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<CommitResult>",
+						"resolves": "CommitResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "message",
+								"type": "string | string[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "files",
+								"type": "string | string[] | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<CommitResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<CommitResult>",
+						"resolves": "CommitResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "message",
+								"type": "string | string[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<CommitResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<CommitResult>",
+						"resolves": "CommitResult",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"countObjects": [
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<VersionResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<CountObjectsResult>",
+						"resolves": "CountObjectsResult",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"customBinary": [
+					{
+						"parameters": [
+							{
+								"name": "command",
+								"type": "string | [string] | [string, string]",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "SimpleGit",
+						"handle": "SimpleGit",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"deleteLocalBranch": [
+					{
+						"parameters": [
+							{
+								"name": "branchName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "forceDelete",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<BranchSingleDeleteResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<BranchSingleDeleteResult>",
+						"resolves": "BranchSingleDeleteResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "branchName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<BranchSingleDeleteResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<BranchSingleDeleteResult>",
+						"resolves": "BranchSingleDeleteResult",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"deleteLocalBranches": [
+					{
+						"parameters": [
+							{
+								"name": "branchNames",
+								"type": "string[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "forceDelete",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<BranchMultiDeleteResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<BranchMultiDeleteResult>",
+						"resolves": "BranchMultiDeleteResult",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"diff": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"diffSummary": [
+					{
+						"parameters": [
+							{
+								"name": "command",
+								"type": "string | number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<DiffResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<DiffResult>",
+						"resolves": "DiffResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "command",
+								"type": "string | number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<DiffResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<DiffResult>",
+						"resolves": "DiffResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<DiffResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<DiffResult>",
+						"resolves": "DiffResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<DiffResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<DiffResult>",
+						"resolves": "DiffResult",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"env": [
+					{
+						"parameters": [
+							{
+								"name": "name",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "value",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "SimpleGit",
+						"handle": "SimpleGit",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "env",
+								"type": "object",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "SimpleGit",
+						"handle": "SimpleGit",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"exec": [
+					{
+						"parameters": [
+							{
+								"name": "handle",
+								"type": "() => void",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<void>",
+						"resolves": "void",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"fetch": [
+					{
+						"parameters": [
+							{
+								"name": "remote",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "branch",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<FetchResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<FetchResult>",
+						"resolves": "FetchResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "remote",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "branch",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<FetchResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<FetchResult>",
+						"resolves": "FetchResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "remote",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<FetchResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<FetchResult>",
+						"resolves": "FetchResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<FetchResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<FetchResult>",
+						"resolves": "FetchResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<FetchResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<FetchResult>",
+						"resolves": "FetchResult",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"firstCommit": [
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"getConfig": [
+					{
+						"parameters": [
+							{
+								"name": "key",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "scope",
+								"type": "\"global\" | \"local\" | \"system\" | \"worktree\" | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<ConfigGetResult>",
+						"resolves": "ConfigGetResult",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"getRemotes": [
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<RemoteWithoutRefs[]> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<RemoteWithoutRefs[]>",
+						"resolves": "RemoteWithoutRefs[]",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "verbose",
+								"type": "false | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<RemoteWithoutRefs[]> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<RemoteWithoutRefs[]>",
+						"resolves": "RemoteWithoutRefs[]",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "verbose",
+								"type": "true",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<RemoteWithRefs[]> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<RemoteWithRefs[]>",
+						"resolves": "RemoteWithRefs[]",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"grep": [
+					{
+						"parameters": [
+							{
+								"name": "searchTerm",
+								"type": "string | GitGrepQuery",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<GrepResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<GrepResult>",
+						"resolves": "GrepResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "searchTerm",
+								"type": "string | GitGrepQuery",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<GrepResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<GrepResult>",
+						"resolves": "GrepResult",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"interpretTrailers": [
+					{
+						"parameters": [
+							{
+								"name": "commitMessage",
+								"type": "any",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<Record<string, string>> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<Record<string, string>>",
+						"resolves": "Record<string, string>",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"listRemote": [
+					{
+						"parameters": [
+							{
+								"name": "args",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"log": [
+					{
+						"typeParameters": "T = DefaultLogFields",
+						"parameters": [
+							{
+								"name": "options",
+								"type": "LogOptions<T> | TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<LogResult<T>> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<LogResult<T>>",
+						"resolves": "LogResult<T>",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"mirror": [
+					{
+						"parameters": [
+							{
+								"name": "repoPath",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "localPath",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"mv": [
+					{
+						"parameters": [
+							{
+								"name": "from",
+								"type": "string | string[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "to",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<MoveResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<MoveResult>",
+						"resolves": "MoveResult",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"pull": [
+					{
+						"parameters": [
+							{
+								"name": "remote",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "branch",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<PullResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<PullResult>",
+						"resolves": "PullResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<PullResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<PullResult>",
+						"resolves": "PullResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<PullResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<PullResult>",
+						"resolves": "PullResult",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"pushTags": [
+					{
+						"parameters": [
+							{
+								"name": "remote",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<PushResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<PushResult>",
+						"resolves": "PushResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<PushResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<PushResult>",
+						"resolves": "PushResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<PushResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<PushResult>",
+						"resolves": "PushResult",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"raw": [
+					{
+						"parameters": [
+							{
+								"name": "commands",
+								"type": "string | TaskOptions",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "commands",
+								"type": "string[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "a",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "a",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "b",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "a",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "b",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "c",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "a",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "b",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "c",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "d",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "a",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "b",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "c",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "d",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "e",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "a",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "a",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "b",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "a",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "b",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "c",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "a",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "b",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "c",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "d",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "a",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "b",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "c",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "d",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "e",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"rebase": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"remote": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "string[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<void | string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<void | string>",
+						"resolves": "void | string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"removeRemote": [
+					{
+						"parameters": [
+							{
+								"name": "remoteName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<void> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<void>",
+						"resolves": "void",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"reset": [
+					{
+						"parameters": [
+							{
+								"name": "mode",
+								"type": "ResetMode",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions<ResetOptions> | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "mode",
+								"type": "ResetMode",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions<ResetOptions> | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"revert": [
+					{
+						"parameters": [
+							{
+								"name": "commit",
+								"type": "String",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<void> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<void>",
+						"resolves": "void",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "commit",
+								"type": "String",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<void> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<void>",
+						"resolves": "void",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"revparse": [
+					{
+						"parameters": [
+							{
+								"name": "option",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"rm": [
+					{
+						"parameters": [
+							{
+								"name": "paths",
+								"type": "string | string[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<void> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<void>",
+						"resolves": "void",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"rmKeepLocal": [
+					{
+						"parameters": [
+							{
+								"name": "paths",
+								"type": "string | string[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<void> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<void>",
+						"resolves": "void",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"show": [
+					{
+						"parameters": [
+							{
+								"name": "option",
+								"type": "string | TaskOptions",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"showBuffer": [
+					{
+						"parameters": [
+							{
+								"name": "option",
+								"type": "string | TaskOptions",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Response<Buffer>",
+						"resolves": "Buffer",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"stashList": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<LogResult<DefaultLogFields>> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<LogResult<DefaultLogFields>>",
+						"resolves": "LogResult<DefaultLogFields>",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<LogResult<DefaultLogFields>> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<LogResult<DefaultLogFields>>",
+						"resolves": "LogResult<DefaultLogFields>",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"subModule": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"submoduleAdd": [
+					{
+						"parameters": [
+							{
+								"name": "repo",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "path",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"submoduleInit": [
+					{
+						"parameters": [
+							{
+								"name": "moduleName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "moduleName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"submoduleUpdate": [
+					{
+						"parameters": [
+							{
+								"name": "moduleName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "moduleName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"tag": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"tags": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<TagResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<TagResult>",
+						"resolves": "TagResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<TagResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<TagResult>",
+						"resolves": "TagResult",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"updateServerInfo": [
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"version": [
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<VersionResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<VersionResult>",
+						"resolves": "VersionResult",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"add": [
+					{
+						"parameters": [
+							{
+								"name": "files",
+								"type": "string | string[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"cmd": [
+					{
+						"parameters": [
+							{
+								"name": "strings",
+								"type": "TemplateStringsArray",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "values",
+								"type": "TemplateArgvValue[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"cwd": [
+					{
+						"parameters": [
+							{
+								"name": "directory",
+								"type": "{ path: string; root?: boolean | undefined; }",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"typeParameters": "path extends string",
+						"parameters": [
+							{
+								"name": "directory",
+								"type": "path",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<path> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<path>",
+						"resolves": "path",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"hashObject": [
+					{
+						"parameters": [
+							{
+								"name": "path",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "path",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "write",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"init": [
+					{
+						"parameters": [
+							{
+								"name": "bare",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<InitResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<InitResult>",
+						"resolves": "InitResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "bare",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<InitResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<InitResult>",
+						"resolves": "InitResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<InitResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<InitResult>",
+						"resolves": "InitResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<InitResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<InitResult>",
+						"resolves": "InitResult",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"merge": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<MergeResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<MergeResult>",
+						"resolves": "MergeResult",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"mergeFromTo": [
+					{
+						"typeParameters": "E extends GitError",
+						"parameters": [
+							{
+								"name": "remote",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "branch",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<MergeResult, E> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<MergeResult>",
+						"resolves": "MergeResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"typeParameters": "E extends GitError",
+						"parameters": [
+							{
+								"name": "remote",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "branch",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<MergeResult, E> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<MergeResult>",
+						"resolves": "MergeResult",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"outputHandler": [
+					{
+						"parameters": [
+							{
+								"name": "handler",
+								"type": "void | outputHandler",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "SimpleGit",
+						"handle": "SimpleGit",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"push": [
+					{
+						"parameters": [
+							{
+								"name": "remote",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "branch",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<PushResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<PushResult>",
+						"resolves": "PushResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<PushResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<PushResult>",
+						"resolves": "PushResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<PushResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<PushResult>",
+						"resolves": "PushResult",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"stash": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<string>",
+						"resolves": "string",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"status": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "TaskOptions | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<StatusResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<StatusResult>",
+						"resolves": "StatusResult",
+						"handle": "StatusResult",
+						"traits": [
+							"async"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "callback",
+								"type": "SimpleGitTaskCallback<StatusResult> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Response<StatusResult>",
+						"resolves": "StatusResult",
+						"handle": "StatusResult",
+						"traits": [
+							"async"
+						]
+					}
+				]
+			},
+			"properties": {},
+			"events": [],
+			"releases": []
+		},
+		"StatusResult": {
+			"name": "StatusResult",
+			"typeRef": "Upstream.StatusResult",
+			"methods": {
+				"isClean": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"not_added": {
+					"type": "string[]"
+				},
+				"conflicted": {
+					"type": "string[]"
+				},
+				"created": {
+					"type": "string[]"
+				},
+				"deleted": {
+					"type": "string[]"
+				},
+				"ignored": {
+					"type": "string[] | undefined"
+				},
+				"modified": {
+					"type": "string[]"
+				},
+				"renamed": {
+					"type": "StatusResultRenamed[]"
+				},
+				"staged": {
+					"type": "string[]"
+				},
+				"files": {
+					"type": "FileStatusResult[]"
+				},
+				"ahead": {
+					"type": "number"
+				},
+				"behind": {
+					"type": "number"
+				},
+				"current": {
+					"type": "string | null"
+				},
+				"tracking": {
+					"type": "string | null"
+				},
+				"detached": {
+					"type": "boolean"
+				}
+			},
+			"events": [],
+			"releases": []
+		}
+	},
+	"typeExports": [
+		"BranchSummaryBranch",
+		"BranchSummary",
+		"BranchSingleDeleteSuccess",
+		"BranchSingleDeleteFailure",
+		"BranchSingleDeleteResult",
+		"BranchMultiDeleteResult",
+		"CleanSummary",
+		"CommitResult",
+		"ConfigGetResult",
+		"ConfigListSummary",
+		"ConfigValues",
+		"DiffResultTextFile",
+		"DiffResultBinaryFile",
+		"DiffResultNameStatusFile",
+		"DiffResult",
+		"FetchResult",
+		"GrepResult",
+		"InitResult",
+		"MoveResult",
+		"PullDetailFileChanges",
+		"PullDetailSummary",
+		"PullDetail",
+		"PullResult",
+		"PullFailedResult",
+		"StatusResultRenamed",
+		"FileStatusResult",
+		"StatusResult",
+		"TagResult",
+		"ListLogLine",
+		"LogResult",
+		"MergeConflictDeletion",
+		"MergeConflict",
+		"MergeResultStatus",
+		"MergeDetail",
+		"MergeResult",
+		"PushResultPushedItem",
+		"RemoteMessagesObjectEnumeration",
+		"RemoteMessages",
+		"PushResultRemoteMessages",
+		"RemoteMessageResult",
+		"PushResultBranchUpdate",
+		"PushDetail",
+		"PushResult",
+		"CommitSummary",
+		"MergeSummary",
+		"BranchDeletionSummary",
+		"BranchDeletionBatchSummary",
+		"MoveSummary",
+		"ListLogSummary",
+		"SimpleGitFactory",
+		"Response",
+		"SimpleGitBase",
+		"SimpleGit",
+		"RemoteWithoutRefs",
+		"RemoteWithRefs",
+		"ApplyOptions",
+		"CleanMode",
+		"CloneOptions",
+		"CountObjectsResult",
+		"GitGrepQuery",
+		"DefaultLogFields",
+		"LogOptions",
+		"ResetOptions",
+		"VersionResult",
+		"Options",
+		"outputHandler",
+		"SimpleGitOptions",
+		"SimpleGitProgressEvent",
+		"SimpleGitTaskCallback",
+		"TaskOptions",
+		"refName",
+		"remoteUrl",
+		"GitConstructError",
+		"GitError",
+		"GitPluginError",
+		"GitResponseError",
+		"TaskConfigurationError",
+		"CheckRepoActions",
+		"CleanOptions",
+		"GitConfigScope",
+		"DiffNameStatus",
+		"grepQueryBuilder",
+		"ResetMode",
+		"pathspec",
+		"simpleGit"
+	]
+}

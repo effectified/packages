@@ -1,0 +1,130 @@
+{
+	"$schema": "https://effectified.dev/schema/recipe.json",
+	"package": "simple-git",
+	"version": "4.1.0",
+	"types": {
+		"from": "bundled",
+		"package": "simple-git",
+		"version": "4.1.0"
+	},
+	"name": "@effectified/simple-git",
+	"prefix": "SimpleGit",
+	"exports": [
+		"grepQueryBuilder",
+		"simpleGit"
+	],
+	"handles": {
+		"GitGrepQuery": {
+			"events": []
+		},
+		"SimpleGit": {
+			"events": []
+		},
+		"StatusResult": {
+			"events": []
+		}
+	},
+	"errors": [
+		{
+			"tag": "GitConstructError",
+			"instanceOf": "GitConstructError",
+			"codes": []
+		},
+		{
+			"tag": "GitPluginError",
+			"instanceOf": "GitPluginError",
+			"codes": []
+		},
+		{
+			"tag": "GitResponseError",
+			"instanceOf": "GitResponseError",
+			"codes": []
+		},
+		{
+			"tag": "TaskConfigurationError",
+			"instanceOf": "TaskConfigurationError",
+			"codes": []
+		},
+		{
+			"tag": "GitError",
+			"instanceOf": "GitError",
+			"codes": []
+		},
+		{
+			"tag": "SimpleGitError",
+			"codes": [
+				"EPIPE",
+				"ERROR"
+			]
+		}
+	],
+	"services": [],
+	"methods": {},
+	"derived": [],
+	"testDependencies": {},
+	"decisions": [
+		{
+			"id": "exports",
+			"question": "Which exported functions and classes does the facade offer?",
+			"answer": "grepQueryBuilder, simpleGit",
+			"why": "the exports the package README calls",
+			"by": "engine"
+		},
+		{
+			"id": "handles.GitGrepQuery.release",
+			"question": "Which method releases a GitGrepQuery, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.GitGrepQuery.events",
+			"question": "Which events of GitGrepQuery does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.SimpleGit.release",
+			"question": "Which method releases a SimpleGit, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.SimpleGit.events",
+			"question": "Which events of SimpleGit does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.StatusResult.release",
+			"question": "Which method releases a StatusResult, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.StatusResult.events",
+			"question": "Which events of StatusResult does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "errors",
+			"question": "Which upstream failures become which tagged errors?",
+			"answer": "GitConstructError <- instanceof GitConstructError; GitPluginError <- instanceof GitPluginError; GitResponseError <- instanceof GitResponseError; TaskConfigurationError <- instanceof TaskConfigurationError; GitError <- instanceof GitError; SimpleGitError",
+			"why": "exported error classes, most specific first, then the catch-all SimpleGitError carrying `code` (the source sets EPIPE, ERROR)",
+			"by": "engine"
+		},
+		{
+			"id": "services",
+			"question": "Which handles are provided as services (Context.Service with a layer)?",
+			"answer": "none",
+			"why": "every offered export that acquires a releasable handle",
+			"by": "engine"
+		}
+	]
+}

@@ -1,0 +1,121 @@
+{
+	"files": 191,
+	"errorClasses": [
+		{
+			"name": "PuppeteerError",
+			"base": "Error",
+			"thrown": 0
+		},
+		{
+			"name": "TimeoutError",
+			"base": "PuppeteerError",
+			"thrown": 3
+		},
+		{
+			"name": "TouchError",
+			"base": "PuppeteerError",
+			"thrown": 7
+		},
+		{
+			"name": "ProtocolError",
+			"base": "PuppeteerError",
+			"thrown": 3
+		},
+		{
+			"name": "UnsupportedOperation",
+			"base": "PuppeteerError",
+			"thrown": 76
+		},
+		{
+			"name": "TargetCloseError",
+			"base": "ProtocolError",
+			"thrown": 14
+		},
+		{
+			"name": "ConnectionClosedError",
+			"base": "ProtocolError",
+			"thrown": 0
+		},
+		{
+			"name": "SuppressedErrorPolyfill",
+			"base": "Error",
+			"thrown": 0
+		},
+		{
+			"name": "UnserializableError",
+			"base": "Error",
+			"thrown": 2
+		}
+	],
+	"codes": [
+		"ESCAPED_CHAR",
+		"EACCES",
+		"EPERM"
+	],
+	"events": [
+		"console",
+		"request",
+		"response",
+		"requestfailed",
+		"requestfinished",
+		"requestservedfromcache",
+		"targetcreated",
+		"targetdestroyed",
+		"targetchanged",
+		"bindingcalled",
+		"exception",
+		"targetAvailable",
+		"closed",
+		"framenavigated",
+		"consoleapicalled",
+		"disconnected",
+		"disposed",
+		"error",
+		"framenavigatedsamedocument",
+		"load",
+		"log",
+		"pageerror",
+		"targetGone",
+		"toolinvoked",
+		"toolsremoved",
+		"worker",
+		"close",
+		"dialog",
+		"domcontentloaded",
+		"frameattached",
+		"framedetached",
+		"framenavigatednewdocument",
+		"popup",
+		"workercreated",
+		"workerdestroyed",
+		"browsingcontext",
+		"context",
+		"issue",
+		"metrics",
+		"Target.targetDestroyed",
+		"targetChanged",
+		"targetdiscovered",
+		"targetDiscovered",
+		"toolresponded",
+		"toolsadded",
+		"authenticate",
+		"bidiResponse",
+		"browsingContext.contextCreated",
+		"browsingContext.fragmentNavigated",
+		"browsingContext.navigationStarted",
+		"destroyed",
+		"DOMContentLoaded",
+		"ended",
+		"failed",
+		"filedialogopened",
+		"handled",
+		"historyUpdated",
+		"log.entryAdded",
+		"navigation",
+		"navigationCommitted",
+		"redirect",
+		"success",
+		"updated",
+		"userprompt"
+	]
+}

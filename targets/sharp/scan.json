@@ -1,0 +1,13 @@
+{
+	"files": 27,
+	"errorClasses": [],
+	"codes": [
+		"ERR_DLOPEN_DISABLED"
+	],
+	"events": [
+		"error",
+		"info",
+		"change",
+		"warning"
+	]
+}
