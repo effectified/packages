@@ -269,5 +269,8 @@
 			"why": "every offered export that acquires a releasable handle",
 			"by": "engine"
 		}
+	],
+	"unlifted": [
+		"QueueEvents.emit"
 	]
 }

@@ -72,7 +72,21 @@ type QueueEventsMethods = "close" | "disconnect" | "emit" | "getBackend" | "off"
 type QueueEventsProperties = "backend" | "closing" | "keys" | "name" | "opts" | "qualifiedName";
 
 /** A bullmq `QueueEvents`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface QueueEvents extends Effectify.Effectified<Upstream.QueueEvents<any, any, any>, Failure, Handles, QueueEventsMethods, QueueEventsProperties> {}
+/** Types only: a QueueEvents whose generic methods `liftedQueueEvents` types; neither is read at run time. */
+declare const instanceOfQueueEvents: Upstream.QueueEvents<any, any, any>;
+const liftedQueueEvents = () => ({
+	off: Effectify.lifted<Failure, Handles>()(instanceOfQueueEvents.off), // lifted: QueueEvents.off
+	on: Effectify.lifted<Failure, Handles>()(instanceOfQueueEvents.on), // lifted: QueueEvents.on
+	once: Effectify.lifted<Failure, Handles>()(instanceOfQueueEvents.once), // lifted: QueueEvents.once
+	trace: Effectify.lifted<Failure, Handles>()(instanceOfQueueEvents.trace), // lifted: QueueEvents.trace
+});
+
+export interface QueueEvents extends Omit<Effectify.Effectified<Upstream.QueueEvents<any, any, any>, Failure, Handles, QueueEventsMethods, QueueEventsProperties>, "off" | "on" | "once" | "trace"> {
+	readonly off: ReturnType<typeof liftedQueueEvents>["off"]; // lifted: QueueEvents.off
+	readonly on: ReturnType<typeof liftedQueueEvents>["on"]; // lifted: QueueEvents.on
+	readonly once: ReturnType<typeof liftedQueueEvents>["once"]; // lifted: QueueEvents.once
+	readonly trace: ReturnType<typeof liftedQueueEvents>["trace"]; // lifted: QueueEvents.trace
+}
 
 /** The methods of `FlowProducer` the facade wraps: those bullmq declares itself. */
 type FlowProducerMethods = "add" | "addBulk" | "close" | "disconnect" | "emit" | "getBackend" | "getFlow" | "off" | "on" | "once" | "toKey" | "waitUntilReady";
@@ -80,8 +94,19 @@ type FlowProducerMethods = "add" | "addBulk" | "close" | "disconnect" | "emit" |
 type FlowProducerProperties = "closing" | "keys" | "opts";
 
 /** A bullmq `FlowProducer`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface FlowProducer extends Omit<Effectify.Effectified<Upstream.FlowProducer<any, any>, Failure, Handles, FlowProducerMethods, FlowProducerProperties>, "emit"> {
+/** Types only: a FlowProducer whose generic methods `liftedFlowProducer` types; neither is read at run time. */
+declare const instanceOfFlowProducer: Upstream.FlowProducer<any, any>;
+const liftedFlowProducer = () => ({
+	off: Effectify.lifted<Failure, Handles>()(instanceOfFlowProducer.off), // lifted: FlowProducer.off
+	on: Effectify.lifted<Failure, Handles>()(instanceOfFlowProducer.on), // lifted: FlowProducer.on
+	once: Effectify.lifted<Failure, Handles>()(instanceOfFlowProducer.once), // lifted: FlowProducer.once
+});
+
+export interface FlowProducer extends Omit<Effectify.Effectified<Upstream.FlowProducer<any, any>, Failure, Handles, FlowProducerMethods, FlowProducerProperties>, "emit" | "off" | "on" | "once"> {
 	emit<U extends keyof Upstream.FlowProducerListener>(event: U, ...args: Parameters<Upstream.FlowProducerListener[U]>): Effectify.Lift<boolean, Handles>; // explicit: FlowProducer.emit
+	readonly off: ReturnType<typeof liftedFlowProducer>["off"]; // lifted: FlowProducer.off
+	readonly on: ReturnType<typeof liftedFlowProducer>["on"]; // lifted: FlowProducer.on
+	readonly once: ReturnType<typeof liftedFlowProducer>["once"]; // lifted: FlowProducer.once
 }
 
 /** The methods of `Queue` the facade wraps: those bullmq declares itself. */
@@ -90,7 +115,23 @@ type QueueMethods = "add" | "addBulk" | "addJobLog" | "clean" | "close" | "count
 type QueueProperties = "backend" | "closing" | "defaultJobOptions" | "jobScheduler" | "jobsOpts" | "keys" | "metaValues" | "name" | "opts" | "qualifiedName" | "token";
 
 /** A bullmq `Queue`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface Queue extends Effectify.Effectified<Upstream.Queue<any, any, any, any, any, any, any, any>, Failure, Handles, QueueMethods, QueueProperties> {}
+/** Types only: a Queue whose generic methods `liftedQueue` types; neither is read at run time. */
+declare const instanceOfQueue: Upstream.Queue<any, any, any, any, any, any, any, any>;
+const liftedQueue = () => ({
+	emit: Effectify.lifted<Failure, Handles>()(instanceOfQueue.emit), // lifted: Queue.emit
+	off: Effectify.lifted<Failure, Handles>()(instanceOfQueue.off), // lifted: Queue.off
+	on: Effectify.lifted<Failure, Handles>()(instanceOfQueue.on), // lifted: Queue.on
+	once: Effectify.lifted<Failure, Handles>()(instanceOfQueue.once), // lifted: Queue.once
+	trace: Effectify.lifted<Failure, Handles>()(instanceOfQueue.trace), // lifted: Queue.trace
+});
+
+export interface Queue extends Omit<Effectify.Effectified<Upstream.Queue<any, any, any, any, any, any, any, any>, Failure, Handles, QueueMethods, QueueProperties>, "emit" | "off" | "on" | "once" | "trace"> {
+	readonly emit: ReturnType<typeof liftedQueue>["emit"]; // lifted: Queue.emit
+	readonly off: ReturnType<typeof liftedQueue>["off"]; // lifted: Queue.off
+	readonly on: ReturnType<typeof liftedQueue>["on"]; // lifted: Queue.on
+	readonly once: ReturnType<typeof liftedQueue>["once"]; // lifted: Queue.once
+	readonly trace: ReturnType<typeof liftedQueue>["trace"]; // lifted: Queue.trace
+}
 
 /** The methods of `Worker` the facade wraps: those bullmq declares itself. */
 type WorkerMethods = "cancelAllJobs" | "cancelJob" | "close" | "delay" | "disconnect" | "emit" | "extendJobLocks" | "getBackend" | "getNextJob" | "isPaused" | "isRunning" | "off" | "on" | "once" | "pause" | "processJob" | "rateLimit" | "resume" | "run" | "startStalledCheckTimer" | "toKey" | "trace" | "waitUntilReady";
@@ -98,7 +139,23 @@ type WorkerMethods = "cancelAllJobs" | "cancelJob" | "close" | "delay" | "discon
 type WorkerProperties = "backend" | "closing" | "concurrency" | "id" | "jobScheduler" | "keys" | "maximumBlockTimeout" | "minimumBlockTimeout" | "name" | "opts" | "qualifiedName";
 
 /** A bullmq `Worker`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface Worker extends Effectify.Effectified<Upstream.Worker<any, any, any, any, any, any>, Failure, Handles, WorkerMethods, WorkerProperties> {}
+/** Types only: a Worker whose generic methods `liftedWorker` types; neither is read at run time. */
+declare const instanceOfWorker: Upstream.Worker<any, any, any, any, any, any>;
+const liftedWorker = () => ({
+	emit: Effectify.lifted<Failure, Handles>()(instanceOfWorker.emit), // lifted: Worker.emit
+	off: Effectify.lifted<Failure, Handles>()(instanceOfWorker.off), // lifted: Worker.off
+	on: Effectify.lifted<Failure, Handles>()(instanceOfWorker.on), // lifted: Worker.on
+	once: Effectify.lifted<Failure, Handles>()(instanceOfWorker.once), // lifted: Worker.once
+	trace: Effectify.lifted<Failure, Handles>()(instanceOfWorker.trace), // lifted: Worker.trace
+});
+
+export interface Worker extends Omit<Effectify.Effectified<Upstream.Worker<any, any, any, any, any, any>, Failure, Handles, WorkerMethods, WorkerProperties>, "emit" | "off" | "on" | "once" | "trace"> {
+	readonly emit: ReturnType<typeof liftedWorker>["emit"]; // lifted: Worker.emit
+	readonly off: ReturnType<typeof liftedWorker>["off"]; // lifted: Worker.off
+	readonly on: ReturnType<typeof liftedWorker>["on"]; // lifted: Worker.on
+	readonly once: ReturnType<typeof liftedWorker>["once"]; // lifted: Worker.once
+	readonly trace: ReturnType<typeof liftedWorker>["trace"]; // lifted: Worker.trace
+}
 
 /** The methods of `Job` the facade wraps: those bullmq declares itself. */
 type JobMethods = "addJob" | "asJSON" | "asJSONSandbox" | "changeDelay" | "changePriority" | "clearLogs" | "extendLock" | "getChildrenValues" | "getDependencies" | "getDependenciesCount" | "getFailedChildrenValues" | "getIgnoredChildrenFailures" | "getState" | "isActive" | "isCompleted" | "isDelayed" | "isFailed" | "isWaiting" | "isWaitingChildren" | "log" | "moveToCompleted" | "moveToDelayed" | "moveToFailed" | "moveToWait" | "moveToWaitingChildren" | "promote" | "remove" | "removeChildDependency" | "removeDeduplicationKey" | "removeUnprocessedChildren" | "retry" | "toFlowEntry" | "toJSON" | "updateData" | "updateProgress" | "waitUntilFinished";
@@ -106,9 +163,16 @@ type JobMethods = "addJob" | "asJSON" | "asJSONSandbox" | "changeDelay" | "chang
 type JobProperties = "attemptsMade" | "attemptsStarted" | "data" | "deduplicationId" | "deferredFailure" | "delay" | "failedReason" | "finishedOn" | "id" | "name" | "opts" | "parent" | "parentKey" | "prefix" | "priority" | "processedBy" | "processedOn" | "progress" | "queueName" | "queueQualifiedName" | "repeatJobKey" | "returnvalue" | "stacktrace" | "stalledCounter" | "timestamp" | "token";
 
 /** A bullmq `Job`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface Job extends Omit<Effectify.Effectified<Upstream.Job<any, any, any, any>, Failure, Handles, JobMethods, JobProperties>, "getChildrenValues" | "moveToFailed"> {
+/** Types only: a Job whose generic methods `liftedJob` types; neither is read at run time. */
+declare const instanceOfJob: Upstream.Job<any, any, any, any>;
+const liftedJob = () => ({
+	waitUntilFinished: Effectify.lifted<Failure, Handles>()(instanceOfJob.waitUntilFinished), // lifted: Job.waitUntilFinished
+});
+
+export interface Job extends Omit<Effectify.Effectified<Upstream.Job<any, any, any, any>, Failure, Handles, JobMethods, JobProperties>, "getChildrenValues" | "moveToFailed" | "waitUntilFinished"> {
 	getChildrenValues<CT = any>(): Effectify.Resolved<{ [jobKey: string]: CT; }, Failure, Handles>; // explicit: Job.getChildrenValues
 	moveToFailed<E extends Error>(err: E, token: string, fetchNext?: boolean | undefined): Effectify.Resolved<void | any[], Failure, Handles>; // explicit: Job.moveToFailed
+	readonly waitUntilFinished: ReturnType<typeof liftedJob>["waitUntilFinished"]; // lifted: Job.waitUntilFinished
 }
 
 const kinds = {
@@ -200,37 +264,46 @@ export class BullmqWorker extends Context.Service<BullmqWorker, Worker>()("@effe
 	static readonly layer = <E>(make: Effect.Effect<Worker, E, Scope.Scope>) => Layer.effect(BullmqWorker, make);
 }
 
-/** Events of the wrapped handles as Streams of each emission's arguments, listening for as long as the stream runs. */
+/** A FlowProducer to name its listeners' arguments by, through its own `on<K>`: types only, never read at run time. */
+declare const emitterOfFlowProducer: Upstream.FlowProducer<any, any>;
+
+/** A Queue to name its listeners' arguments by, through its own `on<K>`: types only, never read at run time. */
+declare const emitterOfQueue: Upstream.Queue<any, any, any, any, any, any, any, any>;
+
+/** A Worker to name its listeners' arguments by, through its own `on<K>`: types only, never read at run time. */
+declare const emitterOfWorker: Upstream.Worker<any, any, any, any, any, any>;
+
+/** Events of the wrapped handles as Streams of each emission's arguments, as upstream types them, listening for as long as the stream runs. */
 export const events = {
 	FlowProducer: {
-		error: (handle: FlowProducer) => Effectify.events(handle.upstream, "error"),
-		"ioredis:close": (handle: FlowProducer) => Effectify.events(handle.upstream, "ioredis:close"),
+		error: (handle: FlowProducer) => Effectify.events<Parameters<Parameters<typeof emitterOfFlowProducer.on<"error">>[1]>>(handle.upstream, "error"),
+		"ioredis:close": (handle: FlowProducer) => Effectify.events<Parameters<Parameters<typeof emitterOfFlowProducer.on<"ioredis:close">>[1]>>(handle.upstream, "ioredis:close"),
 	},
 	Queue: {
-		cleaned: (handle: Queue) => Effectify.events(handle.upstream, "cleaned"),
-		error: (handle: Queue) => Effectify.events(handle.upstream, "error"),
-		"ioredis:close": (handle: Queue) => Effectify.events(handle.upstream, "ioredis:close"),
-		paused: (handle: Queue) => Effectify.events(handle.upstream, "paused"),
-		progress: (handle: Queue) => Effectify.events(handle.upstream, "progress"),
-		removed: (handle: Queue) => Effectify.events(handle.upstream, "removed"),
-		resumed: (handle: Queue) => Effectify.events(handle.upstream, "resumed"),
-		waiting: (handle: Queue) => Effectify.events(handle.upstream, "waiting"),
+		cleaned: (handle: Queue) => Effectify.events<Parameters<Parameters<typeof emitterOfQueue.on<"cleaned">>[1]>>(handle.upstream, "cleaned"),
+		error: (handle: Queue) => Effectify.events<Parameters<Parameters<typeof emitterOfQueue.on<"error">>[1]>>(handle.upstream, "error"),
+		"ioredis:close": (handle: Queue) => Effectify.events<Parameters<Parameters<typeof emitterOfQueue.on<"ioredis:close">>[1]>>(handle.upstream, "ioredis:close"),
+		paused: (handle: Queue) => Effectify.events<Parameters<Parameters<typeof emitterOfQueue.on<"paused">>[1]>>(handle.upstream, "paused"),
+		progress: (handle: Queue) => Effectify.events<Parameters<Parameters<typeof emitterOfQueue.on<"progress">>[1]>>(handle.upstream, "progress"),
+		removed: (handle: Queue) => Effectify.events<Parameters<Parameters<typeof emitterOfQueue.on<"removed">>[1]>>(handle.upstream, "removed"),
+		resumed: (handle: Queue) => Effectify.events<Parameters<Parameters<typeof emitterOfQueue.on<"resumed">>[1]>>(handle.upstream, "resumed"),
+		waiting: (handle: Queue) => Effectify.events<Parameters<Parameters<typeof emitterOfQueue.on<"waiting">>[1]>>(handle.upstream, "waiting"),
 	},
 	Worker: {
-		active: (handle: Worker) => Effectify.events(handle.upstream, "active"),
-		closed: (handle: Worker) => Effectify.events(handle.upstream, "closed"),
-		closing: (handle: Worker) => Effectify.events(handle.upstream, "closing"),
-		completed: (handle: Worker) => Effectify.events(handle.upstream, "completed"),
-		drained: (handle: Worker) => Effectify.events(handle.upstream, "drained"),
-		error: (handle: Worker) => Effectify.events(handle.upstream, "error"),
-		failed: (handle: Worker) => Effectify.events(handle.upstream, "failed"),
-		"ioredis:close": (handle: Worker) => Effectify.events(handle.upstream, "ioredis:close"),
-		lockRenewalFailed: (handle: Worker) => Effectify.events(handle.upstream, "lockRenewalFailed"),
-		locksRenewed: (handle: Worker) => Effectify.events(handle.upstream, "locksRenewed"),
-		paused: (handle: Worker) => Effectify.events(handle.upstream, "paused"),
-		progress: (handle: Worker) => Effectify.events(handle.upstream, "progress"),
-		ready: (handle: Worker) => Effectify.events(handle.upstream, "ready"),
-		resumed: (handle: Worker) => Effectify.events(handle.upstream, "resumed"),
-		stalled: (handle: Worker) => Effectify.events(handle.upstream, "stalled"),
+		active: (handle: Worker) => Effectify.events<Parameters<Parameters<typeof emitterOfWorker.on<"active">>[1]>>(handle.upstream, "active"),
+		closed: (handle: Worker) => Effectify.events<Parameters<Parameters<typeof emitterOfWorker.on<"closed">>[1]>>(handle.upstream, "closed"),
+		closing: (handle: Worker) => Effectify.events<Parameters<Parameters<typeof emitterOfWorker.on<"closing">>[1]>>(handle.upstream, "closing"),
+		completed: (handle: Worker) => Effectify.events<Parameters<Parameters<typeof emitterOfWorker.on<"completed">>[1]>>(handle.upstream, "completed"),
+		drained: (handle: Worker) => Effectify.events<Parameters<Parameters<typeof emitterOfWorker.on<"drained">>[1]>>(handle.upstream, "drained"),
+		error: (handle: Worker) => Effectify.events<Parameters<Parameters<typeof emitterOfWorker.on<"error">>[1]>>(handle.upstream, "error"),
+		failed: (handle: Worker) => Effectify.events<Parameters<Parameters<typeof emitterOfWorker.on<"failed">>[1]>>(handle.upstream, "failed"),
+		"ioredis:close": (handle: Worker) => Effectify.events<Parameters<Parameters<typeof emitterOfWorker.on<"ioredis:close">>[1]>>(handle.upstream, "ioredis:close"),
+		lockRenewalFailed: (handle: Worker) => Effectify.events<Parameters<Parameters<typeof emitterOfWorker.on<"lockRenewalFailed">>[1]>>(handle.upstream, "lockRenewalFailed"),
+		locksRenewed: (handle: Worker) => Effectify.events<Parameters<Parameters<typeof emitterOfWorker.on<"locksRenewed">>[1]>>(handle.upstream, "locksRenewed"),
+		paused: (handle: Worker) => Effectify.events<Parameters<Parameters<typeof emitterOfWorker.on<"paused">>[1]>>(handle.upstream, "paused"),
+		progress: (handle: Worker) => Effectify.events<Parameters<Parameters<typeof emitterOfWorker.on<"progress">>[1]>>(handle.upstream, "progress"),
+		ready: (handle: Worker) => Effectify.events<Parameters<Parameters<typeof emitterOfWorker.on<"ready">>[1]>>(handle.upstream, "ready"),
+		resumed: (handle: Worker) => Effectify.events<Parameters<Parameters<typeof emitterOfWorker.on<"resumed">>[1]>>(handle.upstream, "resumed"),
+		stalled: (handle: Worker) => Effectify.events<Parameters<Parameters<typeof emitterOfWorker.on<"stalled">>[1]>>(handle.upstream, "stalled"),
 	},
 };

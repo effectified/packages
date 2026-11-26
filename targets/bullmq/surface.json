@@ -17479,5 +17479,8 @@
 		"PgQueryResult",
 		"PgNotification",
 		"isPgPool"
-	]
+	],
+	"typeDependencies": {
+		"node-abort-controller": "3.1.1"
+	}
 }

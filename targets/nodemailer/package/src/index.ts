@@ -30,7 +30,17 @@ type MailMethods = "close" | "get" | "getVersionString" | "isIdle" | "sendMail" 
 type MailProperties = "dkim" | "getSocket" | "logger" | "meta" | "options" | "transporter";
 
 /** A nodemailer `Mail`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface Mail extends Effectify.Effectified<Upstream.Mail<any, any>, Failure, Handles, MailMethods, MailProperties> {}
+/** Types only: a Mail whose generic methods `liftedMail` types; neither is read at run time. */
+declare const instanceOfMail: Upstream.Mail<any, any>;
+const liftedMail = () => ({
+	get: Effectify.lifted<Failure, Handles>()(instanceOfMail.get), // lifted: Mail.get
+	set: Effectify.lifted<Failure, Handles>()(instanceOfMail.set), // lifted: Mail.set
+});
+
+export interface Mail extends Omit<Effectify.Effectified<Upstream.Mail<any, any>, Failure, Handles, MailMethods, MailProperties>, "get" | "set"> {
+	readonly get: ReturnType<typeof liftedMail>["get"]; // lifted: Mail.get
+	readonly set: ReturnType<typeof liftedMail>["set"]; // lifted: Mail.set
+}
 
 /** The methods of `Transport` the facade wraps: those nodemailer declares itself. */
 type TransportMethods = "send";

@@ -62,20 +62,34 @@ export type Resolved<V, E, H extends HandleEntry> = [HandleOf<V, H>] extends [ne
 		? Effect.Effect<HandleOf<V, H>[1], E, Scope.Scope>
 		: Effect.Effect<HandleOf<V, H>[1], E>;
 
-/** One method signature of a handle in facade form: async becomes `Effect`, async iterable `Stream`, a handle its facade. */
+/** What a method's result becomes in a handle's facade: a promise an `Effect`, an async iterable a `Stream`, a handle its facade. */
+export type MethodResult<R, E, H extends HandleEntry> = IsAny<R> extends true
+	? R
+	: R extends PromiseLike<infer V>
+		? Resolved<V, E, H>
+		: IsHandle<R, H> extends true
+			? Lift<R, H>
+			: R extends AsyncIterable<infer V>
+				? Stream.Stream<V, E>
+				: R;
+
+/** One method signature of a handle in facade form. */
 export type MethodSignature<F, E, H extends HandleEntry> = F extends (...args: infer A) => infer R
 	? IsCallbackStyle<A, R> extends true
 		? never
-		: (...args: A) => IsAny<R> extends true
-				? R
-				: R extends PromiseLike<infer V>
-					? Resolved<V, E, H>
-					: IsHandle<R, H> extends true
-						? Lift<R, H>
-						: R extends AsyncIterable<infer V>
-							? Stream.Stream<V, E>
-							: R
+		: (...args: A) => MethodResult<R, E, H>
 	: never;
+
+/**
+ * Types a generic upstream method as the facade calls it, its type parameters kept: TypeScript carries them through
+ * a generic call (higher-order inference), never through a mapped type, so a method whose signature names types
+ * upstream does not export still has its exact type. Generated code calls it only in a function that never runs, to
+ * read the type with `typeof`; at run time `effectify` wraps the method like any other.
+ */
+export const lifted =
+	<E, H extends HandleEntry>() =>
+	<A extends ReadonlyArray<unknown>, R>(method: (...args: A) => R): ((...args: A) => MethodResult<R, E, H>) =>
+		method as never;
 
 /** One exported function in facade form: like a method, but a synchronous call becomes an `Effect` too (it may throw). */
 export type FunctionSignature<F, E, H extends HandleEntry> = F extends (...args: infer A) => infer R
@@ -334,15 +348,19 @@ function isPromiseLike(value: unknown): value is PromiseLike<unknown> {
 	return typeof value === "object" && value !== null && typeof (value as { then?: unknown }).then === "function";
 }
 
-/** Events of an emitter as a `Stream` of each emission's arguments, listening for as long as the stream runs. */
-export function events(emitter: object, event: string): Stream.Stream<ReadonlyArray<unknown>> {
+/**
+ * Events of an emitter as a `Stream` of each emission's arguments, listening for as long as the stream runs. `A` is
+ * the listener's parameters as upstream types them for `event`, which the generator names through upstream's `on`.
+ */
+export function events<A extends ReadonlyArray<unknown> = ReadonlyArray<unknown>>(emitter: object, event: string): Stream.Stream<A> {
 	// The generator offers events only of handles whose types have `on`; `off` (or `removeListener`) pairs with it.
 	const target = emitter as EventEmitterLike;
-	return Stream.callback<ReadonlyArray<unknown>>((queue) =>
+	return Stream.callback<A>((queue) =>
 		Effect.acquireRelease(
 			Effect.sync(() => {
 				const listener = (...args: ReadonlyArray<unknown>) => {
-					Queue.offerUnsafe(queue, args);
+					// Upstream calls the listener of `event` with `A`: its own `on` says so, and `A` is read from it.
+					Queue.offerUnsafe(queue, args as unknown as A);
 				};
 				target.on(event, listener);
 				return listener;

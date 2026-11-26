@@ -97,7 +97,17 @@ type PageMethods = "$" | "$$" | "$$eval" | "$eval" | "addScriptTag" | "addStyleT
 type PageProperties = "accessibility" | "bluetooth" | "coverage" | "keyboard" | "mouse" | "touchscreen" | "tracing" | "webmcp";
 
 /** A puppeteer-core `Page`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface Page extends Omit<Effectify.Effectified<Upstream.Page, Failure, Handles, PageMethods, PageProperties>, "emit" | "evaluate" | "evaluateHandle" | "evaluateOnNewDocument" | "off" | "on" | "once" | "queryObjects" | "waitForFunction"> {
+/** Types only: a Page whose generic methods `liftedPage` types; neither is read at run time. */
+declare const instanceOfPage: Upstream.Page;
+const liftedPage = () => ({
+	$: Effectify.lifted<Failure, Handles>()(instanceOfPage.$), // lifted: Page.$
+	$$: Effectify.lifted<Failure, Handles>()(instanceOfPage.$$), // lifted: Page.$$
+	$$eval: Effectify.lifted<Failure, Handles>()(instanceOfPage.$$eval), // lifted: Page.$$eval
+	$eval: Effectify.lifted<Failure, Handles>()(instanceOfPage.$eval), // lifted: Page.$eval
+	waitForSelector: Effectify.lifted<Failure, Handles>()(instanceOfPage.waitForSelector), // lifted: Page.waitForSelector
+});
+
+export interface Page extends Omit<Effectify.Effectified<Upstream.Page, Failure, Handles, PageMethods, PageProperties>, "emit" | "evaluate" | "evaluateHandle" | "evaluateOnNewDocument" | "off" | "on" | "once" | "queryObjects" | "waitForFunction" | "$" | "$$" | "$$eval" | "$eval" | "waitForSelector"> {
 	emit<Key extends keyof Upstream.EventsWithWildcard<Upstream.PageEvents>>(type: Key, event: Upstream.EventsWithWildcard<Upstream.PageEvents>[Key]): Effectify.Lift<boolean, Handles>; // explicit: Page.emit
 	evaluate<Params extends unknown[], Func extends Upstream.EvaluateFunc<Params> = Upstream.EvaluateFunc<Params>>(pageFunction: string | Func, ...args: Params): Effectify.Resolved<Awaited<ReturnType<Func>>, Failure, Handles>; // explicit: Page.evaluate
 	evaluateHandle<Params extends unknown[], Func extends Upstream.EvaluateFunc<Params> = Upstream.EvaluateFunc<Params>>(pageFunction: string | Func, ...args: Params): Effectify.Resolved<Upstream.HandleFor<Awaited<ReturnType<Func>>>, Failure, Handles>; // explicit: Page.evaluateHandle
@@ -107,6 +117,11 @@ export interface Page extends Omit<Effectify.Effectified<Upstream.Page, Failure,
 	once<Key extends keyof Upstream.EventsWithWildcard<Upstream.PageEvents>>(type: Key, handler: (event: Upstream.EventsWithWildcard<Upstream.PageEvents>[Key], eventData: Key extends "*" ? unknown : never) => void): Effectify.Lift<Upstream.Page, Handles>; // explicit: Page.once
 	queryObjects<Prototype>(prototypeHandle: Upstream.JSHandle<Prototype>): Effectify.Resolved<Upstream.JSHandle<Prototype[]>, Failure, Handles>; // explicit: Page.queryObjects
 	waitForFunction<Params extends unknown[], Func extends Upstream.EvaluateFunc<Params> = Upstream.EvaluateFunc<Params>>(pageFunction: string | Func, options?: Upstream.FrameWaitForFunctionOptions | undefined, ...args: Params): Effectify.Resolved<Upstream.HandleFor<Awaited<ReturnType<Func>>>, Failure, Handles>; // explicit: Page.waitForFunction
+	readonly $: ReturnType<typeof liftedPage>["$"]; // lifted: Page.$
+	readonly $$: ReturnType<typeof liftedPage>["$$"]; // lifted: Page.$$
+	readonly $$eval: ReturnType<typeof liftedPage>["$$eval"]; // lifted: Page.$$eval
+	readonly $eval: ReturnType<typeof liftedPage>["$eval"]; // lifted: Page.$eval
+	readonly waitForSelector: ReturnType<typeof liftedPage>["waitForSelector"]; // lifted: Page.waitForSelector
 }
 
 /** The methods of `Target` the facade wraps: those puppeteer-core declares itself. */
@@ -131,7 +146,17 @@ type FrameMethods = "$" | "$$" | "$$eval" | "$eval" | "addScriptTag" | "addStyle
 type FrameProperties = "detached";
 
 /** A puppeteer-core `Frame`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface Frame extends Omit<Effectify.Effectified<Upstream.Frame, Failure, Handles, FrameMethods, FrameProperties>, "emit" | "evaluate" | "evaluateHandle" | "off" | "on" | "once" | "waitForFunction"> {
+/** Types only: a Frame whose generic methods `liftedFrame` types; neither is read at run time. */
+declare const instanceOfFrame: Upstream.Frame;
+const liftedFrame = () => ({
+	$: Effectify.lifted<Failure, Handles>()(instanceOfFrame.$), // lifted: Frame.$
+	$$: Effectify.lifted<Failure, Handles>()(instanceOfFrame.$$), // lifted: Frame.$$
+	$$eval: Effectify.lifted<Failure, Handles>()(instanceOfFrame.$$eval), // lifted: Frame.$$eval
+	$eval: Effectify.lifted<Failure, Handles>()(instanceOfFrame.$eval), // lifted: Frame.$eval
+	waitForSelector: Effectify.lifted<Failure, Handles>()(instanceOfFrame.waitForSelector), // lifted: Frame.waitForSelector
+});
+
+export interface Frame extends Omit<Effectify.Effectified<Upstream.Frame, Failure, Handles, FrameMethods, FrameProperties>, "emit" | "evaluate" | "evaluateHandle" | "off" | "on" | "once" | "waitForFunction" | "$" | "$$" | "$$eval" | "$eval" | "waitForSelector"> {
 	emit<Key extends keyof Upstream.EventsWithWildcard<Upstream.FrameEvents>>(type: Key, event: Upstream.EventsWithWildcard<Upstream.FrameEvents>[Key]): Effectify.Lift<boolean, Handles>; // explicit: Frame.emit
 	evaluate<Params extends unknown[], Func extends Upstream.EvaluateFunc<Params> = Upstream.EvaluateFunc<Params>>(pageFunction: string | Func, ...args: Params): Effectify.Resolved<Awaited<ReturnType<Func>>, Failure, Handles>; // explicit: Frame.evaluate
 	evaluateHandle<Params extends unknown[], Func extends Upstream.EvaluateFunc<Params> = Upstream.EvaluateFunc<Params>>(pageFunction: string | Func, ...args: Params): Effectify.Resolved<Upstream.HandleFor<Awaited<ReturnType<Func>>>, Failure, Handles>; // explicit: Frame.evaluateHandle
@@ -139,6 +164,11 @@ export interface Frame extends Omit<Effectify.Effectified<Upstream.Frame, Failur
 	on<Key extends keyof Upstream.EventsWithWildcard<Upstream.FrameEvents>>(type: Key, handler: (event: Upstream.EventsWithWildcard<Upstream.FrameEvents>[Key], eventData: Key extends "*" ? unknown : never) => void): Effectify.Lift<Upstream.Frame, Handles>; // explicit: Frame.on
 	once<Key extends keyof Upstream.EventsWithWildcard<Upstream.FrameEvents>>(type: Key, handler: (event: Upstream.EventsWithWildcard<Upstream.FrameEvents>[Key], eventData: Key extends "*" ? unknown : never) => void): Effectify.Lift<Upstream.Frame, Handles>; // explicit: Frame.once
 	waitForFunction<Params extends unknown[], Func extends Upstream.EvaluateFunc<Params> = Upstream.EvaluateFunc<Params>>(pageFunction: string | Func, options?: Upstream.FrameWaitForFunctionOptions | undefined, ...args: Params): Effectify.Resolved<Upstream.HandleFor<Awaited<ReturnType<Func>>>, Failure, Handles>; // explicit: Frame.waitForFunction
+	readonly $: ReturnType<typeof liftedFrame>["$"]; // lifted: Frame.$
+	readonly $$: ReturnType<typeof liftedFrame>["$$"]; // lifted: Frame.$$
+	readonly $$eval: ReturnType<typeof liftedFrame>["$$eval"]; // lifted: Frame.$$eval
+	readonly $eval: ReturnType<typeof liftedFrame>["$eval"]; // lifted: Frame.$eval
+	readonly waitForSelector: ReturnType<typeof liftedFrame>["waitForSelector"]; // lifted: Frame.waitForSelector
 }
 
 /** The methods of `CDPSession` the facade wraps: those puppeteer-core declares itself. */
@@ -147,11 +177,18 @@ type CDPSessionMethods = "connection" | "detach" | "emit" | "id" | "listenerCoun
 type CDPSessionProperties = "detached";
 
 /** A puppeteer-core `CDPSession`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface CDPSession extends Omit<Effectify.Effectified<Upstream.CDPSession, Failure, Handles, CDPSessionMethods, CDPSessionProperties>, "emit" | "off" | "on" | "once"> {
+/** Types only: a CDPSession whose generic methods `liftedCDPSession` types; neither is read at run time. */
+declare const instanceOfCDPSession: Upstream.CDPSession;
+const liftedCDPSession = () => ({
+	send: Effectify.lifted<Failure, Handles>()(instanceOfCDPSession.send), // lifted: CDPSession.send
+});
+
+export interface CDPSession extends Omit<Effectify.Effectified<Upstream.CDPSession, Failure, Handles, CDPSessionMethods, CDPSessionProperties>, "emit" | "off" | "on" | "once" | "send"> {
 	emit<Key extends keyof Upstream.EventsWithWildcard<Upstream.CDPSessionEvents>>(type: Key, event: Upstream.EventsWithWildcard<Upstream.CDPSessionEvents>[Key]): Effectify.Lift<boolean, Handles>; // explicit: CDPSession.emit
 	off<Key extends keyof Upstream.EventsWithWildcard<Upstream.CDPSessionEvents>>(type: Key): Effectify.Lift<Upstream.CDPSession, Handles>; // explicit: CDPSession.off
 	on<Key extends keyof Upstream.EventsWithWildcard<Upstream.CDPSessionEvents>>(type: Key, handler: (event: Upstream.EventsWithWildcard<Upstream.CDPSessionEvents>[Key], eventData: Key extends "*" ? unknown : never) => void): Effectify.Lift<Upstream.CDPSession, Handles>; // explicit: CDPSession.on
 	once<Key extends keyof Upstream.EventsWithWildcard<Upstream.CDPSessionEvents>>(type: Key, handler: (event: Upstream.EventsWithWildcard<Upstream.CDPSessionEvents>[Key], eventData: Key extends "*" ? unknown : never) => void): Effectify.Lift<Upstream.CDPSession, Handles>; // explicit: CDPSession.once
+	readonly send: ReturnType<typeof liftedCDPSession>["send"]; // lifted: CDPSession.send
 }
 
 /** The methods of `Locator` the facade wraps: those puppeteer-core declares itself. */
@@ -160,7 +197,15 @@ type LocatorMethods = "click" | "clone" | "emit" | "fill" | "filter" | "hover" |
 type LocatorProperties = "timeout";
 
 /** A puppeteer-core `Locator`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface Locator extends Omit<Effectify.Effectified<Upstream.Locator<any>, Failure, Handles, LocatorMethods, LocatorProperties>, "click" | "emit" | "fill" | "hover" | "scroll" | "setEnsureElementIsInTheViewport" | "setVisibility" | "setWaitForEnabled" | "setWaitForStableBoundingBox"> {
+/** Types only: a Locator whose generic methods `liftedLocator` types; neither is read at run time. */
+declare const instanceOfLocator: Upstream.Locator<any>;
+const liftedLocator = () => ({
+	off: Effectify.lifted<Failure, Handles>()(instanceOfLocator.off), // lifted: Locator.off
+	on: Effectify.lifted<Failure, Handles>()(instanceOfLocator.on), // lifted: Locator.on
+	once: Effectify.lifted<Failure, Handles>()(instanceOfLocator.once), // lifted: Locator.once
+});
+
+export interface Locator extends Omit<Effectify.Effectified<Upstream.Locator<any>, Failure, Handles, LocatorMethods, LocatorProperties>, "click" | "emit" | "fill" | "hover" | "scroll" | "setEnsureElementIsInTheViewport" | "setVisibility" | "setWaitForEnabled" | "setWaitForStableBoundingBox" | "off" | "on" | "once"> {
 	click<ElementType extends Element>(options?: Readonly<Upstream.LocatorClickOptions> | undefined): Effectify.Resolved<void, Failure, Handles>; // explicit: Locator.click
 	emit<Key extends keyof Upstream.EventsWithWildcard<Upstream.LocatorEvents>>(type: Key, event: Upstream.EventsWithWildcard<Upstream.LocatorEvents>[Key]): Effectify.Lift<boolean, Handles>; // explicit: Locator.emit
 	fill<ElementType extends Element>(value: string | boolean, options?: Readonly<Upstream.LocatorFillOptions> | undefined): Effectify.Resolved<void, Failure, Handles>; // explicit: Locator.fill
@@ -170,6 +215,9 @@ export interface Locator extends Omit<Effectify.Effectified<Upstream.Locator<any
 	setVisibility<NodeType extends Node>(visibility: Upstream.VisibilityOption): Effectify.Lift<Upstream.Locator<NodeType>, Handles>; // explicit: Locator.setVisibility
 	setWaitForEnabled<NodeType extends Node>(value: boolean): Effectify.Lift<Upstream.Locator<NodeType>, Handles>; // explicit: Locator.setWaitForEnabled
 	setWaitForStableBoundingBox<ElementType extends Element>(value: boolean): Effectify.Lift<Upstream.Locator<ElementType>, Handles>; // explicit: Locator.setWaitForStableBoundingBox
+	readonly off: ReturnType<typeof liftedLocator>["off"]; // lifted: Locator.off
+	readonly on: ReturnType<typeof liftedLocator>["on"]; // lifted: Locator.on
+	readonly once: ReturnType<typeof liftedLocator>["once"]; // lifted: Locator.once
 }
 
 /** The methods of `JSHandle` the facade wraps: those puppeteer-core declares itself. */
@@ -178,7 +226,17 @@ type JSHandleMethods = "asElement" | "dispose" | "evaluate" | "evaluateHandle" |
 type JSHandleProperties = never;
 
 /** A puppeteer-core `JSHandle`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface JSHandle extends Effectify.Effectified<Upstream.JSHandle<any>, Failure, Handles, JSHandleMethods, JSHandleProperties> {}
+/** Types only: a JSHandle whose generic methods `liftedJSHandle` types; neither is read at run time. */
+declare const instanceOfJSHandle: Upstream.JSHandle<any>;
+const liftedJSHandle = () => ({
+	evaluate: Effectify.lifted<Failure, Handles>()(instanceOfJSHandle.evaluate), // lifted: JSHandle.evaluate
+	evaluateHandle: Effectify.lifted<Failure, Handles>()(instanceOfJSHandle.evaluateHandle), // lifted: JSHandle.evaluateHandle
+});
+
+export interface JSHandle extends Omit<Effectify.Effectified<Upstream.JSHandle<any>, Failure, Handles, JSHandleMethods, JSHandleProperties>, "evaluate" | "evaluateHandle"> {
+	readonly evaluate: ReturnType<typeof liftedJSHandle>["evaluate"]; // lifted: JSHandle.evaluate
+	readonly evaluateHandle: ReturnType<typeof liftedJSHandle>["evaluateHandle"]; // lifted: JSHandle.evaluateHandle
+}
 
 /** The methods of `ElementHandle` the facade wraps: those puppeteer-core declares itself. */
 type ElementHandleMethods = "$" | "$$" | "$$eval" | "$eval" | "asElement" | "asLocator" | "autofill" | "backendNodeId" | "boundingBox" | "boxModel" | "click" | "clickablePoint" | "contentFrame" | "dispose" | "drag" | "dragAndDrop" | "dragEnter" | "dragOver" | "drop" | "evaluate" | "evaluateHandle" | "focus" | "getProperties" | "getProperty" | "hover" | "isHidden" | "isIntersectingViewport" | "isVisible" | "jsonValue" | "move" | "press" | "remoteObject" | "screenshot" | "scrollIntoView" | "select" | "tap" | "toElement" | "toString" | "touchEnd" | "touchMove" | "touchStart" | "type" | "uploadFile" | "waitForSelector";
@@ -186,7 +244,27 @@ type ElementHandleMethods = "$" | "$$" | "$$eval" | "$eval" | "asElement" | "asL
 type ElementHandleProperties = "frame";
 
 /** A puppeteer-core `ElementHandle`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface ElementHandle extends Effectify.Effectified<Upstream.ElementHandle<any>, Failure, Handles, ElementHandleMethods, ElementHandleProperties> {}
+/** Types only: a ElementHandle whose generic methods `liftedElementHandle` types; neither is read at run time. */
+declare const instanceOfElementHandle: Upstream.ElementHandle<any>;
+const liftedElementHandle = () => ({
+	$: Effectify.lifted<Failure, Handles>()(instanceOfElementHandle.$), // lifted: ElementHandle.$
+	$$: Effectify.lifted<Failure, Handles>()(instanceOfElementHandle.$$), // lifted: ElementHandle.$$
+	$$eval: Effectify.lifted<Failure, Handles>()(instanceOfElementHandle.$$eval), // lifted: ElementHandle.$$eval
+	$eval: Effectify.lifted<Failure, Handles>()(instanceOfElementHandle.$eval), // lifted: ElementHandle.$eval
+	evaluate: Effectify.lifted<Failure, Handles>()(instanceOfElementHandle.evaluate), // lifted: ElementHandle.evaluate
+	evaluateHandle: Effectify.lifted<Failure, Handles>()(instanceOfElementHandle.evaluateHandle), // lifted: ElementHandle.evaluateHandle
+	waitForSelector: Effectify.lifted<Failure, Handles>()(instanceOfElementHandle.waitForSelector), // lifted: ElementHandle.waitForSelector
+});
+
+export interface ElementHandle extends Omit<Effectify.Effectified<Upstream.ElementHandle<any>, Failure, Handles, ElementHandleMethods, ElementHandleProperties>, "$" | "$$" | "$$eval" | "$eval" | "evaluate" | "evaluateHandle" | "waitForSelector"> {
+	readonly $: ReturnType<typeof liftedElementHandle>["$"]; // lifted: ElementHandle.$
+	readonly $$: ReturnType<typeof liftedElementHandle>["$$"]; // lifted: ElementHandle.$$
+	readonly $$eval: ReturnType<typeof liftedElementHandle>["$$eval"]; // lifted: ElementHandle.$$eval
+	readonly $eval: ReturnType<typeof liftedElementHandle>["$eval"]; // lifted: ElementHandle.$eval
+	readonly evaluate: ReturnType<typeof liftedElementHandle>["evaluate"]; // lifted: ElementHandle.evaluate
+	readonly evaluateHandle: ReturnType<typeof liftedElementHandle>["evaluateHandle"]; // lifted: ElementHandle.evaluateHandle
+	readonly waitForSelector: ReturnType<typeof liftedElementHandle>["waitForSelector"]; // lifted: ElementHandle.waitForSelector
+}
 
 /** The methods of `HTTPRequest` the facade wraps: those puppeteer-core declares itself. */
 type HTTPRequestMethods = "abort" | "abortErrorReason" | "asFetchRequest" | "content" | "continue" | "continueRequestOverrides" | "enqueueInterceptAction" | "failure" | "fetchPostData" | "finalizeInterceptions" | "frame" | "hasPostData" | "headers" | "initiator" | "interceptResolutionState" | "isInterceptResolutionHandled" | "isNavigationRequest" | "method" | "page" | "postData" | "redirectChain" | "resourceType" | "respond" | "response" | "responseForRequest" | "url" | "worker";
@@ -269,9 +347,18 @@ type WebMCPMethods = "emit" | "listenerCount" | "off" | "on" | "once" | "removeA
 type WebMCPProperties = never;
 
 /** A puppeteer-core `WebMCP`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface WebMCP extends Omit<Effectify.Effectified<Upstream.WebMCP, Failure, Handles, WebMCPMethods, WebMCPProperties>, "emit" | "off"> {
+/** Types only: a WebMCP whose generic methods `liftedWebMCP` types; neither is read at run time. */
+declare const instanceOfWebMCP: Upstream.WebMCP;
+const liftedWebMCP = () => ({
+	on: Effectify.lifted<Failure, Handles>()(instanceOfWebMCP.on), // lifted: WebMCP.on
+	once: Effectify.lifted<Failure, Handles>()(instanceOfWebMCP.once), // lifted: WebMCP.once
+});
+
+export interface WebMCP extends Omit<Effectify.Effectified<Upstream.WebMCP, Failure, Handles, WebMCPMethods, WebMCPProperties>, "emit" | "off" | "on" | "once"> {
 	emit<Key extends keyof Upstream.EventsWithWildcard<{ toolsadded: Upstream.WebMCPToolsAddedEvent; toolsremoved: Upstream.WebMCPToolsRemovedEvent; toolinvoked: Upstream.WebMCPToolCall; toolresponded: Upstream.WebMCPToolCallResult; }>>(type: Key, event: Upstream.EventsWithWildcard<{ toolsadded: Upstream.WebMCPToolsAddedEvent; toolsremoved: Upstream.WebMCPToolsRemovedEvent; toolinvoked: Upstream.WebMCPToolCall; toolresponded: Upstream.WebMCPToolCallResult; }>[Key]): Effectify.Lift<boolean, Handles>; // explicit: WebMCP.emit
 	off<Key extends keyof Upstream.EventsWithWildcard<{ toolsadded: Upstream.WebMCPToolsAddedEvent; toolsremoved: Upstream.WebMCPToolsRemovedEvent; toolinvoked: Upstream.WebMCPToolCall; toolresponded: Upstream.WebMCPToolCallResult; }>>(type: Key): Effectify.Lift<Upstream.WebMCP, Handles>; // explicit: WebMCP.off
+	readonly on: ReturnType<typeof liftedWebMCP>["on"]; // lifted: WebMCP.on
+	readonly once: ReturnType<typeof liftedWebMCP>["once"]; // lifted: WebMCP.once
 }
 
 /** The methods of `Accessibility` the facade wraps: those puppeteer-core declares itself. */
@@ -567,12 +654,15 @@ export class PuppeteerBrowser extends Context.Service<PuppeteerBrowser, Browser>
 	static readonly layer = <E>(make: Effect.Effect<Browser, E, Scope.Scope>) => Layer.effect(PuppeteerBrowser, make);
 }
 
-/** Events of the wrapped handles as Streams of each emission's arguments, listening for as long as the stream runs. */
+/** A WebMCP to name its listeners' arguments by, through its own `on<K>`: types only, never read at run time. */
+declare const emitterOfWebMCP: Upstream.WebMCP;
+
+/** Events of the wrapped handles as Streams of each emission's arguments, as upstream types them, listening for as long as the stream runs. */
 export const events = {
 	WebMCP: {
-		toolinvoked: (handle: WebMCP) => Effectify.events(handle.upstream, "toolinvoked"),
-		toolresponded: (handle: WebMCP) => Effectify.events(handle.upstream, "toolresponded"),
-		toolsadded: (handle: WebMCP) => Effectify.events(handle.upstream, "toolsadded"),
-		toolsremoved: (handle: WebMCP) => Effectify.events(handle.upstream, "toolsremoved"),
+		toolinvoked: (handle: WebMCP) => Effectify.events<Parameters<Parameters<typeof emitterOfWebMCP.on<"toolinvoked">>[1]>>(handle.upstream, "toolinvoked"),
+		toolresponded: (handle: WebMCP) => Effectify.events<Parameters<Parameters<typeof emitterOfWebMCP.on<"toolresponded">>[1]>>(handle.upstream, "toolresponded"),
+		toolsadded: (handle: WebMCP) => Effectify.events<Parameters<Parameters<typeof emitterOfWebMCP.on<"toolsadded">>[1]>>(handle.upstream, "toolsadded"),
+		toolsremoved: (handle: WebMCP) => Effectify.events<Parameters<Parameters<typeof emitterOfWebMCP.on<"toolsremoved">>[1]>>(handle.upstream, "toolsremoved"),
 	},
 };

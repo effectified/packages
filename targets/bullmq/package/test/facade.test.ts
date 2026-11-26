@@ -23,8 +23,9 @@ describe.skipIf(url === undefined)("@effectified/bullmq", () => {
 				const worker = yield* makeWorker(name, async (job) => (job.data as { n: number }).n * 2, { connection: yield* redis });
 				const completed = events.Worker.completed(worker).pipe(Stream.take(1), Stream.runCollect);
 				const [job, emitted] = yield* Effect.all([queue.add("double", { n: 21 }), completed], { concurrency: 2 });
+				// Typed by bullmq's own WorkerListener: `completed` is called with the Job and its result.
 				const [finished, result] = emitted[0] ?? [];
-				expect((finished as { id?: string }).id).toBe(job.id);
+				expect(finished?.id).toBe(job.id);
 				expect(result).toBe(42);
 				expect(yield* queue.getCompletedCount()).toBe(1);
 				yield* queue.obliterate({ force: true });

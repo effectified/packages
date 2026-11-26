@@ -21,9 +21,12 @@ describe.skipIf(!existsSync(executablePath))("@effectified/puppeteer-core", { ti
 					// page.keyboard is a facade too: a handle held in a property.
 					yield* page.focus("#name");
 					yield* page.keyboard.type("Ada");
-					expect(yield* page.$eval("#name", (input) => (input as HTMLInputElement).value)).toBe("Ada");
+					// `$eval` keeps its type parameters: the selector types the element, the function's result the value.
+					const name: string = yield* page.$eval("input#name", (input) => input.value);
+					expect(name).toBe("Ada");
 					expect(yield* page.title()).toBe("effectified");
-					expect(yield* page.$eval("h1", (element) => element.textContent)).toBe("Hello");
+					const heading: string | null = yield* page.$eval("h1", (element) => element.textContent);
+					expect(heading).toBe("Hello");
 					return browser.upstream;
 				}),
 			);
