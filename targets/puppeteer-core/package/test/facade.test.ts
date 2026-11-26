@@ -9,7 +9,8 @@ import { launch, PuppeteerBrowser, TimeoutError, type Upstream } from "../src/in
 const executablePath = process.env["CHROME_BIN"] ?? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const options: Upstream.LaunchOptions = { executablePath, headless: true, args: ["--no-sandbox"] };
 
-describe.skipIf(!existsSync(executablePath))("@effectified/puppeteer-core", () => {
+// A cold Chrome start on a CI runner takes seconds; vitest's 5s default is too short for it.
+describe.skipIf(!existsSync(executablePath))("@effectified/puppeteer-core", { timeout: 30_000 }, () => {
 	it.effect("drives a page in a scoped browser, closed with its scope", () =>
 		Effect.gen(function* () {
 			const upstream = yield* Effect.scoped(
