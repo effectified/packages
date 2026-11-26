@@ -35,3 +35,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: pnpm effectify release
+
+  # effectified.dev builds a page for every facade from this repository's main: deploy it now instead of polling.
+  site:
+    needs: release
+    permissions:
+      contents: read
+    uses: effectified/effectified.dev/.github/workflows/site.yml@main
+    secrets:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
