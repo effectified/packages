@@ -16,7 +16,11 @@ describe.skipIf(!existsSync(executablePath))("@effectified/puppeteer-core", () =
 				Effect.gen(function* () {
 					const browser = yield* launch(options);
 					const page = yield* browser.newPage();
-					yield* page.setContent("<title>effectified</title><h1>Hello</h1>");
+					yield* page.setContent("<title>effectified</title><h1>Hello</h1><input id=name>");
+					// page.keyboard is a facade too: a handle held in a property.
+					yield* page.focus("#name");
+					yield* page.keyboard.type("Ada");
+					expect(yield* page.$eval("#name", (input) => (input as HTMLInputElement).value)).toBe("Ada");
 					expect(yield* page.title()).toBe("effectified");
 					expect(yield* page.$eval("h1", (element) => element.textContent)).toBe("Hello");
 					return browser.upstream;

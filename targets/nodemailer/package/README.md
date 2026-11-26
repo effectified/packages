@@ -4,7 +4,7 @@
 
 - Async calls are `Effect`s, async iterables are `Stream`s, and failures are tagged errors:
   `NodemailerError`.
-- Handles it wraps: `Mail` (scoped, released by `close`).
+- Handles it wraps: `Mail` (scoped, released by `close`), `Transport`, `Logger`.
 - Services: `NodemailerMail`, each with a `layer`.
 - `Upstream` re-exports nodemailer itself, and every facade keeps its upstream object as `.upstream`.
 
@@ -15,7 +15,7 @@ Offered: `createTransport`, `createTestAccount`. Types: bundled with the package
 Released on GitHub, not npm:
 
 ```sh
-npm install --allow-remote=root https://github.com/effectified/engine/releases/download/nodemailer-v10.6.1/effectified-nodemailer-10.6.1.tgz effect
-pnpm add https://github.com/effectified/engine/releases/download/nodemailer-v10.6.1/effectified-nodemailer-10.6.1.tgz effect
-bun add https://github.com/effectified/engine/releases/download/nodemailer-v10.6.1/effectified-nodemailer-10.6.1.tgz effect
+npm install --allow-remote=root https://github.com/effectified/engine/releases/download/nodemailer-v10.6.1+2/effectified-nodemailer-10.6.1+2.tgz effect
+pnpm add https://github.com/effectified/engine/releases/download/nodemailer-v10.6.1+2/effectified-nodemailer-10.6.1+2.tgz effect
+bun add https://github.com/effectified/engine/releases/download/nodemailer-v10.6.1+2/effectified-nodemailer-10.6.1+2.tgz effect
 ```

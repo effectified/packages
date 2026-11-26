@@ -40,9 +40,18 @@ const classify: Effectify.Classify<Failure> = (operation, cause) => {
 
 /** Each wrapped upstream handle, its facade, and whether acquiring one opens a scope. */
 type Handles =
+	| readonly [Awaited<ReturnType<typeof Upstream.refName>>, TemplateValue, false]
 	| readonly [Upstream.GitGrepQuery, GitGrepQuery, false]
 	| readonly [Upstream.SimpleGit, SimpleGit, false]
 	| readonly [Upstream.StatusResult, StatusResult, false];
+
+/** The methods of `TemplateValue` the facade wraps: those simple-git declares itself. */
+type TemplateValueMethods = "validate";
+/** The properties of `TemplateValue` the facade reads through. */
+type TemplateValueProperties = "value";
+
+/** A simple-git `TemplateValue`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
+export interface TemplateValue extends Effectify.Effectified<Awaited<ReturnType<typeof Upstream.refName>>, Failure, Handles, TemplateValueMethods, TemplateValueProperties> {}
 
 /** The methods of `GitGrepQuery` the facade wraps: those simple-git declares itself. */
 type GitGrepQueryMethods = "and" | "param";
@@ -75,6 +84,16 @@ type StatusResultProperties = "ahead" | "behind" | "conflicted" | "created" | "c
 export interface StatusResult extends Effectify.Effectified<Upstream.StatusResult, Failure, Handles, StatusResultMethods, StatusResultProperties> {}
 
 const kinds = {
+	TemplateValue: {
+		name: "TemplateValue",
+		spec: {
+			methods: ["validate"] satisfies ReadonlyArray<TemplateValueMethods>,
+			async: {} satisfies Effectify.AsyncSpec<Pick<Awaited<ReturnType<typeof Upstream.refName>>, TemplateValueMethods>>,
+			stream: {} satisfies Effectify.StreamSpec<Pick<Awaited<ReturnType<typeof Upstream.refName>>, TemplateValueMethods>, Handles>,
+			returns: {},
+			properties: { "value": true } satisfies Record<TemplateValueProperties, string | true>,
+		},
+	},
 	GitGrepQuery: {
 		name: "GitGrepQuery",
 		spec: {
@@ -106,6 +125,12 @@ const kinds = {
 		},
 	},
 } satisfies Record<string, Effectify.HandleKind>;
+
+/** `simple-git.refName` in facade form: every call is an Effect of a TemplateValue. */
+export const refName = Effectify.entry<typeof Upstream.refName, Failure, Handles>(Upstream.refName, "refName", kinds.TemplateValue, kinds, classify);
+
+/** `simple-git.remoteUrl` in facade form: every call is an Effect of a TemplateValue. */
+export const remoteUrl = Effectify.entry<typeof Upstream.remoteUrl, Failure, Handles>(Upstream.remoteUrl, "remoteUrl", kinds.TemplateValue, kinds, classify);
 
 /** `simple-git.grepQueryBuilder` in facade form: every call is an Effect of a GitGrepQuery. */
 export const grepQueryBuilder = Effectify.entry<typeof Upstream.grepQueryBuilder, Failure, Handles>(Upstream.grepQueryBuilder, "grepQueryBuilder", kinds.GitGrepQuery, kinds, classify);

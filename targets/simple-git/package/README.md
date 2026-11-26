@@ -4,17 +4,17 @@
 
 - Async calls are `Effect`s, async iterables are `Stream`s, and failures are tagged errors:
   `GitConstructError`, `GitPluginError`, `GitResponseError`, `TaskConfigurationError`, `GitError`, `SimpleGitError`.
-- Handles it wraps: `GitGrepQuery`, `SimpleGit`, `StatusResult`.
+- Handles it wraps: `TemplateValue`, `GitGrepQuery`, `SimpleGit`, `StatusResult`.
 - `Upstream` re-exports simple-git itself, and every facade keeps its upstream object as `.upstream`.
 
-Offered: `grepQueryBuilder`, `simpleGit`. Types: bundled with the package.
+Offered: `refName`, `remoteUrl`, `grepQueryBuilder`, `simpleGit`. Types: bundled with the package.
 
 ## Install
 
 Released on GitHub, not npm:
 
 ```sh
-npm install --allow-remote=root https://github.com/effectified/engine/releases/download/simple-git-v4.1.0/effectified-simple-git-4.1.0.tgz effect
-pnpm add https://github.com/effectified/engine/releases/download/simple-git-v4.1.0/effectified-simple-git-4.1.0.tgz effect
-bun add https://github.com/effectified/engine/releases/download/simple-git-v4.1.0/effectified-simple-git-4.1.0.tgz effect
+npm install --allow-remote=root https://github.com/effectified/engine/releases/download/simple-git-v4.1.0+2/effectified-simple-git-4.1.0+2.tgz effect
+pnpm add https://github.com/effectified/engine/releases/download/simple-git-v4.1.0+2/effectified-simple-git-4.1.0+2.tgz effect
+bun add https://github.com/effectified/engine/releases/download/simple-git-v4.1.0+2/effectified-simple-git-4.1.0+2.tgz effect
 ```

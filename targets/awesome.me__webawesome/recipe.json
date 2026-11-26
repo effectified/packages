@@ -1,0 +1,66 @@
+{
+	"$schema": "https://effectified.dev/schema/recipe.json",
+	"package": "@awesome.me/webawesome",
+	"version": "3.15.0",
+	"types": {
+		"from": "bundled",
+		"package": "@awesome.me/webawesome",
+		"version": "3.15.0"
+	},
+	"name": "@effectified/webawesome",
+	"prefix": "Webawesome",
+	"exports": [
+		"discover",
+		"allDefined"
+	],
+	"handles": {},
+	"errors": [
+		{
+			"tag": "WebawesomeError",
+			"codes": [
+				"EMBED",
+				"END_TAG",
+				"END_TAG_OPEN",
+				"EQUALS",
+				"EQUALS_SIGN",
+				"EXCLAMATION_MARK",
+				"ENCODING"
+			]
+		}
+	],
+	"services": [],
+	"methods": {
+		"wa-drawer.modal": "exclude"
+	},
+	"derived": [
+		"wa-color-picker"
+	],
+	"ui": {
+		"effectUi": "2fd1a57",
+		"mounts": []
+	},
+	"testDependencies": {},
+	"decisions": [
+		{
+			"id": "exports",
+			"question": "Which exported functions and classes does the facade offer?",
+			"answer": "discover, allDefined",
+			"why": "every exported function or class that is async or yields a handle",
+			"by": "engine"
+		},
+		{
+			"id": "errors",
+			"question": "Which upstream failures become which tagged errors?",
+			"answer": "WebawesomeError",
+			"why": "exported error classes, most specific first, then the catch-all WebawesomeError carrying `code` (the source sets EMBED, END_TAG, END_TAG_OPEN, EQUALS, EQUALS_SIGN, EXCLAMATION_MARK)",
+			"by": "engine"
+		},
+		{
+			"id": "services",
+			"question": "Which handles are provided as services (Context.Service with a layer)?",
+			"answer": "none",
+			"why": "every offered export that acquires a releasable handle",
+			"by": "engine"
+		}
+	]
+}

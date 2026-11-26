@@ -1,0 +1,230 @@
+{
+	"package": "emoji-picker-element",
+	"version": "1.29.1",
+	"types": {
+		"from": "bundled",
+		"package": "emoji-picker-element",
+		"version": "1.29.1"
+	},
+	"entry": "named",
+	"exports": [
+		{
+			"kind": "class",
+			"name": "Picker",
+			"handle": "default",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "__0",
+							"type": "PickerConstructorOptions | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Picker",
+					"handle": "default",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "Database",
+			"handle": "default",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "__0",
+							"type": "DatabaseConstructorOptions | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Database",
+					"handle": "default",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		}
+	],
+	"handles": {
+		"default": {
+			"name": "default",
+			"typeRef": "InstanceType<typeof Upstream.Picker>",
+			"methods": {
+				"addEventListener": [
+					{
+						"typeParameters": "K extends keyof EmojiPickerEventMap",
+						"parameters": [
+							{
+								"name": "type",
+								"type": "K",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "listener",
+								"type": "(this: Picker, ev: EmojiPickerEventMap[K]) => any",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "boolean | AddEventListenerOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "type",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "listener",
+								"type": "EventListenerOrEventListenerObject",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "boolean | AddEventListenerOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"removeEventListener": [
+					{
+						"typeParameters": "K extends keyof EmojiPickerEventMap",
+						"parameters": [
+							{
+								"name": "type",
+								"type": "K",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "listener",
+								"type": "(this: Picker, ev: EmojiPickerEventMap[K]) => any",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "boolean | EventListenerOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "type",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "listener",
+								"type": "EventListenerOrEventListenerObject",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "boolean | EventListenerOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"dataSource": {
+					"type": "string"
+				},
+				"locale": {
+					"type": "string"
+				},
+				"i18n": {
+					"type": "I18n"
+				},
+				"skinToneEmoji": {
+					"type": "string"
+				},
+				"customEmoji": {
+					"type": "CustomEmoji[] | undefined"
+				},
+				"customCategorySorting": {
+					"type": "((a: string, b: string) => number) | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		}
+	},
+	"typeExports": [
+		"Picker",
+		"Database"
+	],
+	"elements": [
+		{
+			"tag": "emoji-picker",
+			"name": "EmojiPicker",
+			"definition": "emoji-picker-element/picker.js",
+			"properties": [
+				"customCategorySorting",
+				"customEmoji",
+				"dataSource",
+				"emojiVersion",
+				"i18n",
+				"locale",
+				"skinToneEmoji"
+			],
+			"events": [
+				"emoji-click",
+				"emoji-click-sync",
+				"skin-tone-change"
+			],
+			"description": "Lightweight emoji picker distributed as a web component"
+		}
+	]
+}

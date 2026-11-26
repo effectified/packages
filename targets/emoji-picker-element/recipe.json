@@ -1,0 +1,74 @@
+{
+	"$schema": "https://effectified.dev/schema/recipe.json",
+	"package": "emoji-picker-element",
+	"version": "1.29.1",
+	"types": {
+		"from": "bundled",
+		"package": "emoji-picker-element",
+		"version": "1.29.1"
+	},
+	"name": "@effectified/emoji-picker-element",
+	"prefix": "EmojiPickerElement",
+	"exports": [
+		"Picker",
+		"Database"
+	],
+	"handles": {
+		"default": {
+			"events": []
+		}
+	},
+	"errors": [
+		{
+			"tag": "EmojiPickerElementError",
+			"codes": []
+		}
+	],
+	"services": [],
+	"methods": {
+		"emoji-picker.emojiVersion": "exclude"
+	},
+	"derived": [],
+	"ui": {
+		"effectUi": "2fd1a57",
+		"mounts": []
+	},
+	"testDependencies": {},
+	"decisions": [
+		{
+			"id": "exports",
+			"question": "Which exported functions and classes does the facade offer?",
+			"answer": "Picker, Database",
+			"why": "the exports the package README calls",
+			"by": "engine"
+		},
+		{
+			"id": "handles.default.release",
+			"question": "Which method releases a default, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.default.events",
+			"question": "Which events of default does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "errors",
+			"question": "Which upstream failures become which tagged errors?",
+			"answer": "EmojiPickerElementError",
+			"why": "exported error classes, most specific first, then the catch-all EmojiPickerElementError carrying `code` (the source sets no codes)",
+			"by": "engine"
+		},
+		{
+			"id": "services",
+			"question": "Which handles are provided as services (Context.Service with a layer)?",
+			"answer": "none",
+			"why": "every offered export that acquires a releasable handle",
+			"by": "engine"
+		}
+	]
+}

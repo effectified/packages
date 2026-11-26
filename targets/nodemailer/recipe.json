@@ -17,6 +17,12 @@
 		"Mail": {
 			"release": "close",
 			"events": []
+		},
+		"Transport": {
+			"events": []
+		},
+		"Logger": {
+			"events": []
 		}
 	},
 	"errors": [
@@ -83,6 +89,34 @@
 			"by": "engine"
 		},
 		{
+			"id": "handles.Transport.release",
+			"question": "Which method releases a Transport, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Transport.events",
+			"question": "Which events of Transport does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Logger.release",
+			"question": "Which method releases a Logger, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Logger.events",
+			"question": "Which events of Logger does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
 			"id": "errors",
 			"question": "Which upstream failures become which tagged errors?",
 			"answer": "NodemailerError",
@@ -95,6 +129,14 @@
 			"answer": "NodemailerMail <- createTransport",
 			"why": "every offered export that acquires a releasable handle",
 			"by": "engine"
+		},
+		{
+			"id": "revision",
+			"question": "Why a second revision of this upstream version?",
+			"answer": "2",
+			"why": "the engine now wraps handles held in properties (puppeteer page.keyboard and page.mouse were raw upstream objects whose methods returned promises)",
+			"by": "agent"
 		}
-	]
+	],
+	"revision": 2
 }

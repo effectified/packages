@@ -20,7 +20,9 @@ const classify: Effectify.Classify<Failure> = (operation, cause) => {
 
 /** Each wrapped upstream handle, its facade, and whether acquiring one opens a scope. */
 type Handles =
-	| readonly [Upstream.Mail<any, any>, Mail, true];
+	| readonly [Upstream.Mail<any, any>, Mail, true]
+	| readonly [Upstream.Transport<any, any>, Transport, false]
+	| readonly [Upstream.Mail<any, any>["logger"], Logger, false];
 
 /** The methods of `Mail` the facade wraps: those nodemailer declares itself. */
 type MailMethods = "close" | "get" | "getVersionString" | "isIdle" | "sendMail" | "set" | "setupProxy" | "use" | "verify";
@@ -30,6 +32,22 @@ type MailProperties = "dkim" | "getSocket" | "logger" | "meta" | "options" | "tr
 /** A nodemailer `Mail`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
 export interface Mail extends Effectify.Effectified<Upstream.Mail<any, any>, Failure, Handles, MailMethods, MailProperties> {}
 
+/** The methods of `Transport` the facade wraps: those nodemailer declares itself. */
+type TransportMethods = "send";
+/** The properties of `Transport` the facade reads through. */
+type TransportProperties = "close" | "getSocket" | "isIdle" | "mailer" | "name" | "on" | "supportsAbortSignal" | "verify" | "version";
+
+/** A nodemailer `Transport`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
+export interface Transport extends Effectify.Effectified<Upstream.Transport<any, any>, Failure, Handles, TransportMethods, TransportProperties> {}
+
+/** The methods of `Logger` the facade wraps: those nodemailer declares itself. */
+type LoggerMethods = "debug" | "error" | "fatal" | "info" | "trace" | "warn";
+/** The properties of `Logger` the facade reads through. */
+type LoggerProperties = never;
+
+/** A nodemailer `Logger`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
+export interface Logger extends Effectify.Effectified<Upstream.Mail<any, any>["logger"], Failure, Handles, LoggerMethods, LoggerProperties> {}
+
 const kinds = {
 	Mail: {
 		name: "Mail",
@@ -38,9 +56,29 @@ const kinds = {
 			async: { "sendMail": true, "verify": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Mail<any, any>, MailMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Mail<any, any>, MailMethods>, Handles>,
 			returns: { "use": "Mail" },
-			properties: { "dkim": true, "getSocket": true, "logger": true, "meta": true, "options": true, "transporter": true } satisfies Record<MailProperties, string | true>,
+			properties: { "dkim": true, "getSocket": true, "logger": "Logger", "meta": true, "options": true, "transporter": "Transport" } satisfies Record<MailProperties, string | true>,
 		},
 		release: "close",
+	},
+	Transport: {
+		name: "Transport",
+		spec: {
+			methods: ["send"] satisfies ReadonlyArray<TransportMethods>,
+			async: {} satisfies Effectify.AsyncSpec<Pick<Upstream.Transport<any, any>, TransportMethods>>,
+			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Transport<any, any>, TransportMethods>, Handles>,
+			returns: {},
+			properties: { "close": true, "getSocket": true, "isIdle": true, "mailer": true, "name": true, "on": true, "supportsAbortSignal": true, "verify": true, "version": true } satisfies Record<TransportProperties, string | true>,
+		},
+	},
+	Logger: {
+		name: "Logger",
+		spec: {
+			methods: ["debug", "error", "fatal", "info", "trace", "warn"] satisfies ReadonlyArray<LoggerMethods>,
+			async: {} satisfies Effectify.AsyncSpec<Pick<Upstream.Mail<any, any>["logger"], LoggerMethods>>,
+			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Mail<any, any>["logger"], LoggerMethods>, Handles>,
+			returns: {},
+			properties: {} satisfies Record<LoggerProperties, string | true>,
+		},
 	},
 } satisfies Record<string, Effectify.HandleKind>;
 

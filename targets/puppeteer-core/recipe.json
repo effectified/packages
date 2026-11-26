@@ -66,6 +66,36 @@
 		"DeviceRequestPrompt": {
 			"events": []
 		},
+		"Keyboard": {
+			"events": []
+		},
+		"Touchscreen": {
+			"events": []
+		},
+		"Coverage": {
+			"events": []
+		},
+		"Tracing": {
+			"release": "stop",
+			"events": []
+		},
+		"WebMCP": {
+			"events": [
+				"toolinvoked",
+				"toolresponded",
+				"toolsadded",
+				"toolsremoved"
+			]
+		},
+		"Accessibility": {
+			"events": []
+		},
+		"Mouse": {
+			"events": []
+		},
+		"BluetoothEmulation": {
+			"events": []
+		},
 		"TouchHandle": {
 			"release": "end",
 			"events": []
@@ -143,7 +173,9 @@
 		"Page.$$eval",
 		"Page.$eval",
 		"Page.locator",
-		"Page.waitForSelector"
+		"Page.waitForSelector",
+		"WebMCP.on",
+		"WebMCP.once"
 	],
 	"testDependencies": {},
 	"decisions": [
@@ -365,6 +397,118 @@
 			"by": "engine"
 		},
 		{
+			"id": "handles.Keyboard.release",
+			"question": "Which method releases a Keyboard, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Keyboard.events",
+			"question": "Which events of Keyboard does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Touchscreen.release",
+			"question": "Which method releases a Touchscreen, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Touchscreen.events",
+			"question": "Which events of Touchscreen does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Coverage.release",
+			"question": "Which method releases a Coverage, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Coverage.events",
+			"question": "Which events of Coverage does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Tracing.release",
+			"question": "Which method releases a Tracing, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "stop",
+			"why": "its release methods are stop",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Tracing.events",
+			"question": "Which events of Tracing does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.WebMCP.release",
+			"question": "Which method releases a WebMCP, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.WebMCP.events",
+			"question": "Which events of WebMCP does the facade offer as Streams? (\"none\" for none)",
+			"answer": "toolinvoked, toolresponded, toolsadded, toolsremoved",
+			"why": "the events its `on` names in its types",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Accessibility.release",
+			"question": "Which method releases a Accessibility, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Accessibility.events",
+			"question": "Which events of Accessibility does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Mouse.release",
+			"question": "Which method releases a Mouse, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Mouse.events",
+			"question": "Which events of Mouse does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BluetoothEmulation.release",
+			"question": "Which method releases a BluetoothEmulation, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BluetoothEmulation.events",
+			"question": "Which events of BluetoothEmulation does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
 			"id": "handles.TouchHandle.release",
 			"question": "Which method releases a TouchHandle, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
 			"answer": "end",
@@ -391,6 +535,14 @@
 			"answer": "PuppeteerBrowser <- launch",
 			"why": "every offered export that acquires a releasable handle",
 			"by": "engine"
+		},
+		{
+			"id": "revision",
+			"question": "Why a second revision of this upstream version?",
+			"answer": "2",
+			"why": "the engine now wraps handles held in properties (puppeteer page.keyboard and page.mouse were raw upstream objects whose methods returned promises)",
+			"by": "agent"
 		}
-	]
+	],
+	"revision": 2
 }

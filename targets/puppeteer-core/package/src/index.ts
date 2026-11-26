@@ -55,6 +55,14 @@ type Handles =
 	| readonly [Upstream.ScreenRecorder, ScreenRecorder, true]
 	| readonly [Upstream.ScreenRecording, ScreenRecording, true]
 	| readonly [Upstream.DeviceRequestPrompt, DeviceRequestPrompt, false]
+	| readonly [Upstream.Keyboard, Keyboard, false]
+	| readonly [Upstream.Touchscreen, Touchscreen, false]
+	| readonly [Upstream.Coverage, Coverage, false]
+	| readonly [Upstream.Tracing, Tracing, true]
+	| readonly [Upstream.WebMCP, WebMCP, false]
+	| readonly [Upstream.Accessibility, Accessibility, false]
+	| readonly [Upstream.Mouse, Mouse, false]
+	| readonly [Upstream.BluetoothEmulation, BluetoothEmulation, false]
 	| readonly [Upstream.TouchHandle, TouchHandle, true];
 
 /** The methods of `Browser` the facade wraps: those puppeteer-core declares itself. */
@@ -223,6 +231,73 @@ type DeviceRequestPromptProperties = "devices";
 /** A puppeteer-core `DeviceRequestPrompt`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
 export interface DeviceRequestPrompt extends Effectify.Effectified<Upstream.DeviceRequestPrompt, Failure, Handles, DeviceRequestPromptMethods, DeviceRequestPromptProperties> {}
 
+/** The methods of `Keyboard` the facade wraps: those puppeteer-core declares itself. */
+type KeyboardMethods = "down" | "press" | "sendCharacter" | "type" | "up";
+/** The properties of `Keyboard` the facade reads through. */
+type KeyboardProperties = never;
+
+/** A puppeteer-core `Keyboard`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
+export interface Keyboard extends Effectify.Effectified<Upstream.Keyboard, Failure, Handles, KeyboardMethods, KeyboardProperties> {}
+
+/** The methods of `Touchscreen` the facade wraps: those puppeteer-core declares itself. */
+type TouchscreenMethods = "tap" | "touchEnd" | "touchMove" | "touchStart";
+/** The properties of `Touchscreen` the facade reads through. */
+type TouchscreenProperties = never;
+
+/** A puppeteer-core `Touchscreen`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
+export interface Touchscreen extends Effectify.Effectified<Upstream.Touchscreen, Failure, Handles, TouchscreenMethods, TouchscreenProperties> {}
+
+/** The methods of `Coverage` the facade wraps: those puppeteer-core declares itself. */
+type CoverageMethods = "startCSSCoverage" | "startJSCoverage" | "stopCSSCoverage" | "stopJSCoverage";
+/** The properties of `Coverage` the facade reads through. */
+type CoverageProperties = never;
+
+/** A puppeteer-core `Coverage`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
+export interface Coverage extends Effectify.Effectified<Upstream.Coverage, Failure, Handles, CoverageMethods, CoverageProperties> {}
+
+/** The methods of `Tracing` the facade wraps: those puppeteer-core declares itself. */
+type TracingMethods = "start" | "stop";
+/** The properties of `Tracing` the facade reads through. */
+type TracingProperties = never;
+
+/** A puppeteer-core `Tracing`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
+export interface Tracing extends Effectify.Effectified<Upstream.Tracing, Failure, Handles, TracingMethods, TracingProperties> {}
+
+/** The methods of `WebMCP` the facade wraps: those puppeteer-core declares itself. */
+type WebMCPMethods = "emit" | "listenerCount" | "off" | "on" | "once" | "removeAllListeners" | "tools";
+/** The properties of `WebMCP` the facade reads through. */
+type WebMCPProperties = never;
+
+/** A puppeteer-core `WebMCP`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
+export interface WebMCP extends Omit<Effectify.Effectified<Upstream.WebMCP, Failure, Handles, WebMCPMethods, WebMCPProperties>, "emit" | "off"> {
+	emit<Key extends keyof Upstream.EventsWithWildcard<{ toolsadded: Upstream.WebMCPToolsAddedEvent; toolsremoved: Upstream.WebMCPToolsRemovedEvent; toolinvoked: Upstream.WebMCPToolCall; toolresponded: Upstream.WebMCPToolCallResult; }>>(type: Key, event: Upstream.EventsWithWildcard<{ toolsadded: Upstream.WebMCPToolsAddedEvent; toolsremoved: Upstream.WebMCPToolsRemovedEvent; toolinvoked: Upstream.WebMCPToolCall; toolresponded: Upstream.WebMCPToolCallResult; }>[Key]): Effectify.Lift<boolean, Handles>; // explicit: WebMCP.emit
+	off<Key extends keyof Upstream.EventsWithWildcard<{ toolsadded: Upstream.WebMCPToolsAddedEvent; toolsremoved: Upstream.WebMCPToolsRemovedEvent; toolinvoked: Upstream.WebMCPToolCall; toolresponded: Upstream.WebMCPToolCallResult; }>>(type: Key): Effectify.Lift<Upstream.WebMCP, Handles>; // explicit: WebMCP.off
+}
+
+/** The methods of `Accessibility` the facade wraps: those puppeteer-core declares itself. */
+type AccessibilityMethods = "snapshot";
+/** The properties of `Accessibility` the facade reads through. */
+type AccessibilityProperties = never;
+
+/** A puppeteer-core `Accessibility`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
+export interface Accessibility extends Effectify.Effectified<Upstream.Accessibility, Failure, Handles, AccessibilityMethods, AccessibilityProperties> {}
+
+/** The methods of `Mouse` the facade wraps: those puppeteer-core declares itself. */
+type MouseMethods = "click" | "down" | "drag" | "dragAndDrop" | "dragEnter" | "dragOver" | "drop" | "move" | "reset" | "up" | "wheel";
+/** The properties of `Mouse` the facade reads through. */
+type MouseProperties = never;
+
+/** A puppeteer-core `Mouse`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
+export interface Mouse extends Effectify.Effectified<Upstream.Mouse, Failure, Handles, MouseMethods, MouseProperties> {}
+
+/** The methods of `BluetoothEmulation` the facade wraps: those puppeteer-core declares itself. */
+type BluetoothEmulationMethods = "disableEmulation" | "emulateAdapter" | "simulatePreconnectedPeripheral";
+/** The properties of `BluetoothEmulation` the facade reads through. */
+type BluetoothEmulationProperties = never;
+
+/** A puppeteer-core `BluetoothEmulation`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
+export interface BluetoothEmulation extends Effectify.Effectified<Upstream.BluetoothEmulation, Failure, Handles, BluetoothEmulationMethods, BluetoothEmulationProperties> {}
+
 /** The methods of `TouchHandle` the facade wraps: those puppeteer-core declares itself. */
 type TouchHandleMethods = "end" | "move";
 /** The properties of `TouchHandle` the facade reads through. */
@@ -261,7 +336,7 @@ const kinds = {
 			async: { "$": true, "$$": true, "$$eval": true, "$eval": true, "addScriptTag": true, "addStyleTag": true, "authenticate": true, "bringToFront": true, "captureHeapSnapshot": true, "click": true, "close": true, "content": true, "cookies": true, "createCDPSession": true, "createPDFStream": true, "deleteCookie": true, "emulate": true, "emulateCPUThrottling": true, "emulateFocusedPage": true, "emulateIdleState": true, "emulateLocale": true, "emulateMediaFeatures": true, "emulateMediaType": true, "emulateNetworkConditions": true, "emulateTimezone": true, "emulateVisionDeficiency": true, "evaluate": true, "evaluateHandle": true, "evaluateOnNewDocument": true, "exposeFunction": true, "focus": true, "goBack": true, "goForward": true, "goto": true, "hasDevTools": true, "hover": true, "metrics": true, "openDevTools": true, "pdf": true, "queryObjects": true, "record": true, "reload": true, "removeExposedFunction": true, "removeScriptToEvaluateOnNewDocument": true, "resize": true, "screencast": true, "screenshot": true, "select": true, "setBypassCSP": true, "setBypassServiceWorker": true, "setCacheEnabled": true, "setContent": true, "setCookie": true, "setDragInterception": true, "setExtraHTTPHeaders": true, "setGeolocation": true, "setJavaScriptEnabled": true, "setOfflineMode": true, "setRequestInterception": true, "setUserAgent": true, "setViewport": true, "tabInfo": true, "tap": true, "title": true, "triggerExtensionAction": true, "type": true, "waitForDevicePrompt": true, "waitForFileChooser": true, "waitForFrame": true, "waitForFunction": true, "waitForNavigation": true, "waitForNetworkIdle": true, "waitForRequest": true, "waitForResponse": true, "waitForSelector": true, "windowId": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Page, PageMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Page, PageMethods>, Handles>,
 			returns: { "addScriptTag": "ElementHandle", "addStyleTag": "ElementHandle", "browser": "Browser", "browserContext": "BrowserContext", "createCDPSession": "CDPSession", "locator": "Locator", "mainFrame": "Frame", "off": "Page", "on": "Page", "once": "Page", "openDevTools": "Page", "queryObjects": "JSHandle", "record": "ScreenRecording", "removeAllListeners": "Page", "screencast": "ScreenRecorder", "target": "Target", "waitForDevicePrompt": "DeviceRequestPrompt", "waitForFileChooser": "FileChooser", "waitForFrame": "Frame", "waitForRequest": "HTTPRequest", "waitForResponse": "HTTPResponse" },
-			properties: { "accessibility": true, "bluetooth": true, "coverage": true, "keyboard": true, "mouse": true, "touchscreen": true, "tracing": true, "webmcp": true } satisfies Record<PageProperties, string | true>,
+			properties: { "accessibility": "Accessibility", "bluetooth": "BluetoothEmulation", "coverage": "Coverage", "keyboard": "Keyboard", "mouse": "Mouse", "touchscreen": "Touchscreen", "tracing": "Tracing", "webmcp": "WebMCP" } satisfies Record<PageProperties, string | true>,
 		},
 		release: "close",
 	},
@@ -390,6 +465,87 @@ const kinds = {
 			properties: { "devices": true } satisfies Record<DeviceRequestPromptProperties, string | true>,
 		},
 	},
+	Keyboard: {
+		name: "Keyboard",
+		spec: {
+			methods: ["down", "press", "sendCharacter", "type", "up"] satisfies ReadonlyArray<KeyboardMethods>,
+			async: { "down": true, "press": true, "sendCharacter": true, "type": true, "up": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Keyboard, KeyboardMethods>>,
+			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Keyboard, KeyboardMethods>, Handles>,
+			returns: {},
+			properties: {} satisfies Record<KeyboardProperties, string | true>,
+		},
+	},
+	Touchscreen: {
+		name: "Touchscreen",
+		spec: {
+			methods: ["tap", "touchEnd", "touchMove", "touchStart"] satisfies ReadonlyArray<TouchscreenMethods>,
+			async: { "tap": true, "touchEnd": true, "touchMove": true, "touchStart": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Touchscreen, TouchscreenMethods>>,
+			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Touchscreen, TouchscreenMethods>, Handles>,
+			returns: { "touchStart": "TouchHandle" },
+			properties: {} satisfies Record<TouchscreenProperties, string | true>,
+		},
+	},
+	Coverage: {
+		name: "Coverage",
+		spec: {
+			methods: ["startCSSCoverage", "startJSCoverage", "stopCSSCoverage", "stopJSCoverage"] satisfies ReadonlyArray<CoverageMethods>,
+			async: { "startCSSCoverage": true, "startJSCoverage": true, "stopCSSCoverage": true, "stopJSCoverage": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Coverage, CoverageMethods>>,
+			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Coverage, CoverageMethods>, Handles>,
+			returns: {},
+			properties: {} satisfies Record<CoverageProperties, string | true>,
+		},
+	},
+	Tracing: {
+		name: "Tracing",
+		spec: {
+			methods: ["start", "stop"] satisfies ReadonlyArray<TracingMethods>,
+			async: { "start": true, "stop": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Tracing, TracingMethods>>,
+			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Tracing, TracingMethods>, Handles>,
+			returns: {},
+			properties: {} satisfies Record<TracingProperties, string | true>,
+		},
+		release: "stop",
+	},
+	WebMCP: {
+		name: "WebMCP",
+		spec: {
+			methods: ["emit", "listenerCount", "off", "on", "once", "removeAllListeners", "tools"] satisfies ReadonlyArray<WebMCPMethods>,
+			async: {} satisfies Effectify.AsyncSpec<Pick<Upstream.WebMCP, WebMCPMethods>>,
+			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.WebMCP, WebMCPMethods>, Handles>,
+			returns: { "off": "WebMCP", "on": "WebMCP", "once": "WebMCP", "removeAllListeners": "WebMCP" },
+			properties: {} satisfies Record<WebMCPProperties, string | true>,
+		},
+	},
+	Accessibility: {
+		name: "Accessibility",
+		spec: {
+			methods: ["snapshot"] satisfies ReadonlyArray<AccessibilityMethods>,
+			async: { "snapshot": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Accessibility, AccessibilityMethods>>,
+			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Accessibility, AccessibilityMethods>, Handles>,
+			returns: {},
+			properties: {} satisfies Record<AccessibilityProperties, string | true>,
+		},
+	},
+	Mouse: {
+		name: "Mouse",
+		spec: {
+			methods: ["click", "down", "drag", "dragAndDrop", "dragEnter", "dragOver", "drop", "move", "reset", "up", "wheel"] satisfies ReadonlyArray<MouseMethods>,
+			async: { "click": true, "down": true, "drag": true, "dragAndDrop": true, "dragEnter": true, "dragOver": true, "drop": true, "move": true, "reset": true, "up": true, "wheel": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Mouse, MouseMethods>>,
+			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Mouse, MouseMethods>, Handles>,
+			returns: {},
+			properties: {} satisfies Record<MouseProperties, string | true>,
+		},
+	},
+	BluetoothEmulation: {
+		name: "BluetoothEmulation",
+		spec: {
+			methods: ["disableEmulation", "emulateAdapter", "simulatePreconnectedPeripheral"] satisfies ReadonlyArray<BluetoothEmulationMethods>,
+			async: { "disableEmulation": true, "emulateAdapter": true, "simulatePreconnectedPeripheral": true } satisfies Effectify.AsyncSpec<Pick<Upstream.BluetoothEmulation, BluetoothEmulationMethods>>,
+			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.BluetoothEmulation, BluetoothEmulationMethods>, Handles>,
+			returns: {},
+			properties: {} satisfies Record<BluetoothEmulationProperties, string | true>,
+		},
+	},
 	TouchHandle: {
 		name: "TouchHandle",
 		spec: {
@@ -410,3 +566,13 @@ export const launch = Effectify.entry<typeof Upstream.launch, Failure, Handles>(
 export class PuppeteerBrowser extends Context.Service<PuppeteerBrowser, Browser>()("@effectified/puppeteer-core/PuppeteerBrowser") {
 	static readonly layer = <E>(make: Effect.Effect<Browser, E, Scope.Scope>) => Layer.effect(PuppeteerBrowser, make);
 }
+
+/** Events of the wrapped handles as Streams of each emission's arguments, listening for as long as the stream runs. */
+export const events = {
+	WebMCP: {
+		toolinvoked: (handle: WebMCP) => Effectify.events(handle.upstream, "toolinvoked"),
+		toolresponded: (handle: WebMCP) => Effectify.events(handle.upstream, "toolresponded"),
+		toolsadded: (handle: WebMCP) => Effectify.events(handle.upstream, "toolsadded"),
+		toolsremoved: (handle: WebMCP) => Effectify.events(handle.upstream, "toolsremoved"),
+	},
+};

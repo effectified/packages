@@ -1,0 +1,23 @@
+{
+	"files": 1516,
+	"errorClasses": [],
+	"codes": [
+		"EMBED",
+		"END_TAG",
+		"END_TAG_OPEN",
+		"EQUALS",
+		"EQUALS_SIGN",
+		"EXCLAMATION_MARK",
+		"ENCODING"
+	],
+	"events": [
+		"get",
+		"set",
+		"setasync",
+		"clearasync",
+		"deleteasync",
+		"getasync",
+		"clear",
+		"delete"
+	]
+}

@@ -4,7 +4,7 @@
 
 - Async calls are `Effect`s, async iterables are `Stream`s, and failures are tagged errors:
   `ConnectionClosedError`, `ProtocolError`, `TimeoutError`, `TouchError`, `UnsupportedOperation`, `PuppeteerError`.
-- Handles it wraps: `Browser` (scoped, released by `close`), `BrowserContext` (scoped, released by `close`), `Page` (scoped, released by `close`), `Target` (scoped, released by `close`), `FileChooser`, `Frame`, `CDPSession`, `Locator`, `JSHandle` (scoped, released by `dispose`), `ElementHandle` (scoped, released by `dispose`), `HTTPRequest`, `HTTPResponse`, `ScreenRecorder` (scoped, released by `stop`), `ScreenRecording` (scoped, released by `stop`), `DeviceRequestPrompt`, `TouchHandle` (scoped, released by `end`).
+- Handles it wraps: `Browser` (scoped, released by `close`), `BrowserContext` (scoped, released by `close`), `Page` (scoped, released by `close`), `Target` (scoped, released by `close`), `FileChooser`, `Frame`, `CDPSession`, `Locator`, `JSHandle` (scoped, released by `dispose`), `ElementHandle` (scoped, released by `dispose`), `HTTPRequest`, `HTTPResponse`, `ScreenRecorder` (scoped, released by `stop`), `ScreenRecording` (scoped, released by `stop`), `DeviceRequestPrompt`, `Keyboard`, `Touchscreen`, `Coverage`, `Tracing` (scoped, released by `stop`), `WebMCP`, `Accessibility`, `Mouse`, `BluetoothEmulation`, `TouchHandle` (scoped, released by `end`).
 - Services: `PuppeteerBrowser`, each with a `layer`.
 - `Upstream` re-exports puppeteer-core itself, and every facade keeps its upstream object as `.upstream`.
 
@@ -15,7 +15,7 @@ Offered: `launch`. Types: bundled with the package.
 Released on GitHub, not npm:
 
 ```sh
-npm install --allow-remote=root https://github.com/effectified/engine/releases/download/puppeteer-core-v25.19.0/effectified-puppeteer-core-25.19.0.tgz effect
-pnpm add https://github.com/effectified/engine/releases/download/puppeteer-core-v25.19.0/effectified-puppeteer-core-25.19.0.tgz effect
-bun add https://github.com/effectified/engine/releases/download/puppeteer-core-v25.19.0/effectified-puppeteer-core-25.19.0.tgz effect
+npm install --allow-remote=root https://github.com/effectified/engine/releases/download/puppeteer-core-v25.19.0+2/effectified-puppeteer-core-25.19.0+2.tgz effect
+pnpm add https://github.com/effectified/engine/releases/download/puppeteer-core-v25.19.0+2/effectified-puppeteer-core-25.19.0+2.tgz effect
+bun add https://github.com/effectified/engine/releases/download/puppeteer-core-v25.19.0+2/effectified-puppeteer-core-25.19.0+2.tgz effect
 ```

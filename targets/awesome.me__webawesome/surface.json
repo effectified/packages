@@ -1,0 +1,2573 @@
+{
+	"package": "@awesome.me/webawesome",
+	"version": "3.15.0",
+	"types": {
+		"from": "bundled",
+		"package": "@awesome.me/webawesome",
+		"version": "3.15.0"
+	},
+	"entry": "named",
+	"exports": [
+		{
+			"kind": "function",
+			"name": "getAnimationNames",
+			"signatures": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "string[]",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "getEasingNames",
+			"signatures": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "string[]",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "serialize",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "form",
+							"type": "HTMLFormElement",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Record<string, unknown>",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "registerCodeGrammar",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "name",
+							"type": "string",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "grammar",
+							"type": "Grammar",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "void",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "getIconFolder",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "_name",
+							"type": "string",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "family",
+							"type": "string",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "variant",
+							"type": "string",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "string",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "getDefaultIconFamily",
+			"signatures": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "string",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "getDefaultIconVariant",
+			"signatures": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "string",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "registerIconLibrary",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "name",
+							"type": "string",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "options",
+							"type": "Omit<IconLibrary, \"name\">",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "void",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "setDefaultIconFamily",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "family",
+							"type": "string",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "variant",
+							"type": "string | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "void",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "unregisterIconLibrary",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "name",
+							"type": "string",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "void",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "discover",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "root",
+							"type": "Document | Element | ShadowRoot",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Promise<void>",
+					"resolves": "void",
+					"traits": [
+						"async"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "preventTurboFouce",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "timeout",
+							"type": "number | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "void",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "startLoader",
+			"signatures": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "void",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "stopLoader",
+			"signatures": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "void",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "getBasePath",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "subpath",
+							"type": "string | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "string",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "getIconPath",
+			"signatures": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "string",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "getKitCode",
+			"signatures": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "string",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "setBasePath",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "path",
+							"type": "string",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "void",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "setIconPath",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "path",
+							"type": "string",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "void",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "setKitCode",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "code",
+							"type": "string",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "void",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "allDefined",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "options",
+							"type": "Partial<AllDefinedOptions> | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Promise<void>",
+					"resolves": "void",
+					"traits": [
+						"async"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "registerTranslation",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "translation",
+							"type": "Translation[]",
+							"optional": false,
+							"rest": true
+						}
+					],
+					"trailingCallback": false,
+					"returns": "void",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		}
+	],
+	"handles": {},
+	"typeExports": [
+		"getAnimationNames",
+		"getEasingNames",
+		"WaAccordionItemCollapsedEvent",
+		"WaAccordionItemExpandedEvent",
+		"WaAccordionItemTriggerEvent",
+		"WaAfterCollapseEvent",
+		"WaAfterExpandEvent",
+		"WaAfterHideEvent",
+		"WaAfterShowEvent",
+		"WaBeforePageChangeEvent",
+		"WaBeforeStepChangeEvent",
+		"WaCancelEvent",
+		"WaCellClickEvent",
+		"WaCellContextmenuEvent",
+		"WaClearEvent",
+		"WaCollapseEvent",
+		"WaColumnMoveEvent",
+		"WaColumnPinEvent",
+		"WaColumnResizeEvent",
+		"WaColumnVisibilityChangeEvent",
+		"WaCompleteEvent",
+		"WaCopyEvent",
+		"WaCreateEvent",
+		"WaDataErrorEvent",
+		"WaDataRequestEvent",
+		"WaErrorEvent",
+		"WaExpandEvent",
+		"WaFilterChangeEvent",
+		"WaFinishEvent",
+		"WaFocusDayEvent",
+		"WaHideEvent",
+		"WaHoverEvent",
+		"WaIncludeErrorEvent",
+		"WaIntersectEvent",
+		"WaInvalidEvent",
+		"WaItemChangeEvent",
+		"WaLazyChangeEvent",
+		"WaLazyLoadEvent",
+		"WaLoadEvent",
+		"WaMutationEvent",
+		"WaOptionsErrorEvent",
+		"WaOptionsRequestEvent",
+		"WaPageChangeEvent",
+		"WaContentChangeEvent",
+		"WaRemoveEvent",
+		"WaRepositionEvent",
+		"WaResizeEvent",
+		"WaRowCollapseEvent",
+		"WaRowExpandEvent",
+		"WaRowSelectEvent",
+		"WaSelectEvent",
+		"WaSelectionChangeEvent",
+		"WaShowEvent",
+		"WaSlideChangeEvent",
+		"WaSortChangeEvent",
+		"WaStartEvent",
+		"WaStepChangeEvent",
+		"WaSuggestionsErrorEvent",
+		"WaTabHideEvent",
+		"WaTabShowEvent",
+		"WaVideoChangeEvent",
+		"WaViewChangeEvent",
+		"registerCodeGrammar",
+		"getIconFolder",
+		"getDefaultIconFamily",
+		"getDefaultIconVariant",
+		"registerIconLibrary",
+		"setDefaultIconFamily",
+		"unregisterIconLibrary",
+		"discover",
+		"preventTurboFouce",
+		"startLoader",
+		"stopLoader",
+		"getBasePath",
+		"getIconPath",
+		"getKitCode",
+		"setBasePath",
+		"setIconPath",
+		"setKitCode",
+		"allDefined",
+		"registerTranslation"
+	],
+	"elements": [
+		{
+			"tag": "wa-accordion",
+			"name": "Accordion",
+			"definition": "@awesome.me/webawesome/dist/components/accordion/accordion.js",
+			"properties": [
+				"appearance",
+				"didSSR",
+				"dir",
+				"headingLevel",
+				"iconPlacement",
+				"initialReflectedProperties",
+				"lang",
+				"mode"
+			],
+			"events": [
+				"wa-after-collapse",
+				"wa-after-expand",
+				"wa-collapse",
+				"wa-expand"
+			],
+			"description": "Accordions are a vertically stacked set of interactive headings that each contain a title, representing a section of content."
+		},
+		{
+			"tag": "wa-accordion-item",
+			"name": "AccordionItem",
+			"definition": "@awesome.me/webawesome/dist/components/accordion-item/accordion-item.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"disabled",
+				"expanded",
+				"initialReflectedProperties",
+				"label",
+				"lang"
+			],
+			"events": [],
+			"description": "Accordion items are used inside `<wa-accordion>` to create expandable sections with accessible headers."
+		},
+		{
+			"tag": "wa-animated-image",
+			"name": "AnimatedImage",
+			"definition": "@awesome.me/webawesome/dist/components/animated-image/animated-image.js",
+			"properties": [
+				"alt",
+				"didSSR",
+				"dir",
+				"frozenFrame",
+				"initialReflectedProperties",
+				"isLoaded",
+				"lang",
+				"play",
+				"src"
+			],
+			"events": [
+				"wa-error",
+				"wa-load"
+			],
+			"description": "Animated images display GIFs and WEBPs with controls to play and pause them on demand. Use them when you"
+		},
+		{
+			"tag": "wa-animation",
+			"name": "Animation",
+			"definition": "@awesome.me/webawesome/dist/components/animation/animation.js",
+			"properties": [
+				"currentTime",
+				"delay",
+				"didSSR",
+				"dir",
+				"direction",
+				"duration",
+				"easing",
+				"endDelay",
+				"fill",
+				"initialReflectedProperties",
+				"iterationStart",
+				"iterations",
+				"keyframes",
+				"lang",
+				"name",
+				"play",
+				"playbackRate"
+			],
+			"events": [
+				"wa-cancel",
+				"wa-finish",
+				"wa-start"
+			],
+			"description": "Animate elements declaratively with nearly 100 baked-in presets, or roll your own with custom keyframes."
+		},
+		{
+			"tag": "wa-avatar",
+			"name": "Avatar",
+			"definition": "@awesome.me/webawesome/dist/components/avatar/avatar.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"image",
+				"initialReflectedProperties",
+				"initials",
+				"label",
+				"lang",
+				"loading",
+				"shape"
+			],
+			"events": [
+				"wa-error"
+			],
+			"description": "Avatars represent a person or object with an image, initials, or icon. Use them in lists, comments, and"
+		},
+		{
+			"tag": "wa-badge",
+			"name": "Badge",
+			"definition": "@awesome.me/webawesome/dist/components/badge/badge.js",
+			"properties": [
+				"appearance",
+				"attention",
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"lang",
+				"pill",
+				"variant"
+			],
+			"events": [],
+			"description": "Badges draw attention to adjacent content by displaying a status, count, or label. Use them to highlight"
+		},
+		{
+			"tag": "wa-breadcrumb",
+			"name": "Breadcrumb",
+			"definition": "@awesome.me/webawesome/dist/components/breadcrumb/breadcrumb.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"label",
+				"lang"
+			],
+			"events": [],
+			"description": "Breadcrumbs display a trail of links that show users where they are in a site's hierarchy. They help users"
+		},
+		{
+			"tag": "wa-breadcrumb-item",
+			"name": "BreadcrumbItem",
+			"definition": "@awesome.me/webawesome/dist/components/breadcrumb-item/breadcrumb-item.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"href",
+				"initialReflectedProperties",
+				"lang",
+				"rel",
+				"target"
+			],
+			"events": [],
+			"description": "Breadcrumb items represent individual links inside a breadcrumb, typically one per level of the site"
+		},
+		{
+			"tag": "wa-button",
+			"name": "Button",
+			"definition": "@awesome.me/webawesome/dist/components/button/button.js",
+			"properties": [
+				"appearance",
+				"assumeInteractionOn",
+				"customError",
+				"didSSR",
+				"dir",
+				"disabled",
+				"download",
+				"emitInvalid",
+				"formAction",
+				"formEnctype",
+				"formMethod",
+				"formNoValidate",
+				"formTarget",
+				"hasInteracted",
+				"href",
+				"initialReflectedProperties",
+				"invalid",
+				"isIconButton",
+				"lang",
+				"loading",
+				"name",
+				"pill",
+				"rel",
+				"required",
+				"size",
+				"states",
+				"target",
+				"title",
+				"type",
+				"value",
+				"valueHasChanged",
+				"variant",
+				"withCaret",
+				"withEnd",
+				"withStart"
+			],
+			"events": [
+				"blur",
+				"focus",
+				"wa-invalid"
+			],
+			"description": "Buttons represent actions the user can take, such as submitting a form, opening a dialog, or navigating to"
+		},
+		{
+			"tag": "wa-button-group",
+			"name": "ButtonGroup",
+			"definition": "@awesome.me/webawesome/dist/components/button-group/button-group.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"disableRole",
+				"hasOutlined",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"orientation"
+			],
+			"events": [],
+			"description": "Button groups combine related buttons into a single visual unit. Use them for toolbars, segmented controls,"
+		},
+		{
+			"tag": "wa-callout",
+			"name": "Callout",
+			"definition": "@awesome.me/webawesome/dist/components/callout/callout.js",
+			"properties": [
+				"appearance",
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"lang",
+				"size",
+				"variant"
+			],
+			"events": [],
+			"description": "Callouts display important messages inline with surrounding content. Use them to highlight tips, warnings,"
+		},
+		{
+			"tag": "wa-card",
+			"name": "Card",
+			"definition": "@awesome.me/webawesome/dist/components/card/card.js",
+			"properties": [
+				"appearance",
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"lang",
+				"orientation",
+				"withFooter",
+				"withFooterActions",
+				"withHeader",
+				"withHeaderActions",
+				"withMedia"
+			],
+			"events": [],
+			"description": "Cards group related content and actions inside a bordered container. Use them to present products, articles,"
+		},
+		{
+			"tag": "wa-carousel",
+			"name": "Carousel",
+			"definition": "@awesome.me/webawesome/dist/components/carousel/carousel.js",
+			"properties": [
+				"activeSlide",
+				"autoplay",
+				"autoplayInterval",
+				"awaitingInitialPosition",
+				"currentSlide",
+				"didSSR",
+				"dir",
+				"dragging",
+				"initialReflectedProperties",
+				"lang",
+				"loop",
+				"mouseDragging",
+				"navigation",
+				"orientation",
+				"pagination",
+				"scrolling",
+				"slides",
+				"slidesPerMove",
+				"slidesPerPage"
+			],
+			"events": [
+				"wa-slide-change"
+			],
+			"description": "Carousels display a series of content slides along a horizontal or vertical axis, one or more at a time."
+		},
+		{
+			"tag": "wa-carousel-item",
+			"name": "CarouselItem",
+			"definition": "@awesome.me/webawesome/dist/components/carousel-item/carousel-item.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"lang"
+			],
+			"events": [],
+			"description": "Carousel items represent individual slides within a carousel."
+		},
+		{
+			"tag": "wa-checkbox",
+			"name": "Checkbox",
+			"definition": "@awesome.me/webawesome/dist/components/checkbox/checkbox.js",
+			"properties": [
+				"assumeInteractionOn",
+				"checked",
+				"customError",
+				"defaultChecked",
+				"didSSR",
+				"dir",
+				"disabled",
+				"emitInvalid",
+				"hasInteracted",
+				"hint",
+				"indeterminate",
+				"initialReflectedProperties",
+				"lang",
+				"name",
+				"required",
+				"size",
+				"states",
+				"title",
+				"value",
+				"valueHasChanged"
+			],
+			"events": [
+				"blur",
+				"change",
+				"focus",
+				"input",
+				"wa-invalid"
+			],
+			"description": "Checkboxes let users toggle an option on or off, or select multiple items from a list. They also support an"
+		},
+		{
+			"tag": "wa-checkbox-group",
+			"name": "CheckboxGroup",
+			"definition": "@awesome.me/webawesome/dist/components/checkbox-group/checkbox-group.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"hint",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"orientation",
+				"required",
+				"size",
+				"withHint",
+				"withLabel"
+			],
+			"events": [],
+			"description": "Checkbox groups wrap a set of related checkboxes or switches so they share a label, hint, and grouping"
+		},
+		{
+			"tag": "wa-code-highlighter",
+			"name": "CodeHighlighter",
+			"definition": "@awesome.me/webawesome/dist/components/code-highlighter/code-highlighter.js",
+			"properties": [
+				"code",
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"language",
+				"withoutCopy",
+				"withoutDedent",
+				"wrap"
+			],
+			"events": [
+				"wa-error",
+				"wa-load"
+			],
+			"description": "Code highlighters display syntax-highlighted code with a copy button. Use them for code samples, install"
+		},
+		{
+			"tag": "wa-color-picker",
+			"name": "ColorPicker",
+			"definition": "@awesome.me/webawesome/dist/components/color-picker/color-picker.js",
+			"properties": [
+				"assumeInteractionOn",
+				"customError",
+				"defaultValue",
+				"didSSR",
+				"dir",
+				"disabled",
+				"emitInvalid",
+				"format",
+				"hasInteracted",
+				"hint",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"name",
+				"opacity",
+				"open",
+				"placement",
+				"popup",
+				"required",
+				"size",
+				"states",
+				"swatches",
+				"uppercase",
+				"value",
+				"valueHasChanged",
+				"withHint",
+				"withLabel",
+				"withoutFormatToggle"
+			],
+			"events": [
+				"blur",
+				"change",
+				"focus",
+				"input",
+				"wa-after-hide",
+				"wa-after-show",
+				"wa-hide",
+				"wa-invalid",
+				"wa-show"
+			],
+			"description": "Color pickers let users choose a color from a visual palette or by entering a value. They support HEX, RGB,"
+		},
+		{
+			"tag": "wa-comparison",
+			"name": "Comparison",
+			"definition": "@awesome.me/webawesome/dist/components/comparison/comparison.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"lang",
+				"position"
+			],
+			"events": [
+				"change"
+			],
+			"description": "Comparisons show the visual differences between two pieces of similar content using a draggable divider. Use"
+		},
+		{
+			"tag": "wa-copy-button",
+			"name": "CopyButton",
+			"definition": "@awesome.me/webawesome/dist/components/copy-button/copy-button.js",
+			"properties": [
+				"copyLabel",
+				"didSSR",
+				"dir",
+				"disabled",
+				"errorLabel",
+				"feedbackDuration",
+				"from",
+				"hasCustomTrigger",
+				"initialReflectedProperties",
+				"isCopying",
+				"lang",
+				"shadowTooltip",
+				"status",
+				"successLabel",
+				"tooltip",
+				"tooltipPlacement",
+				"value"
+			],
+			"events": [
+				"wa-copy",
+				"wa-error"
+			],
+			"description": "Copy buttons copy text to the clipboard when the user activates them. They provide built-in success and"
+		},
+		{
+			"tag": "wa-counter",
+			"name": "Counter",
+			"definition": "@awesome.me/webawesome/dist/components/counter/counter.js",
+			"properties": [
+				"date",
+				"delimiter",
+				"didSSR",
+				"dir",
+				"direction",
+				"duration",
+				"format",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"largestUnit",
+				"paused",
+				"smallestUnit",
+				"valueFormatter",
+				"withoutLabels"
+			],
+			"events": [
+				"wa-finish"
+			],
+			"description": "Counters count down to a date or up from one, ticking through years, months, days, and smaller units. Use"
+		},
+		{
+			"tag": "wa-details",
+			"name": "Details",
+			"definition": "@awesome.me/webawesome/dist/components/details/details.js",
+			"properties": [
+				"appearance",
+				"didSSR",
+				"dir",
+				"disabled",
+				"iconPlacement",
+				"initialReflectedProperties",
+				"isAnimating",
+				"lang",
+				"name",
+				"open",
+				"summary"
+			],
+			"events": [
+				"wa-after-hide",
+				"wa-after-show",
+				"wa-hide",
+				"wa-show"
+			],
+			"description": "Details display a brief summary and expand to reveal additional content. Use them to progressively disclose"
+		},
+		{
+			"tag": "wa-dialog",
+			"name": "Dialog",
+			"definition": "@awesome.me/webawesome/dist/components/dialog/dialog.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"lightDismiss",
+				"open",
+				"withFooter",
+				"withLabel",
+				"withoutHeader"
+			],
+			"events": [
+				"wa-after-hide",
+				"wa-after-show",
+				"wa-hide",
+				"wa-show"
+			],
+			"description": "Dialogs appear above the page and require the user's immediate attention. Use them for confirmations, forms,"
+		},
+		{
+			"tag": "wa-divider",
+			"name": "Divider",
+			"definition": "@awesome.me/webawesome/dist/components/divider/divider.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"labelPlacement",
+				"lang",
+				"orientation",
+				"withLabel"
+			],
+			"events": [],
+			"description": "Dividers visually separate or group adjacent elements with a horizontal or vertical line. Use them to"
+		},
+		{
+			"tag": "wa-drawer",
+			"name": "Drawer",
+			"definition": "@awesome.me/webawesome/dist/components/drawer/drawer.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"lightDismiss",
+				"modal",
+				"open",
+				"placement",
+				"withFooter",
+				"withLabel",
+				"withoutHeader"
+			],
+			"events": [
+				"wa-after-hide",
+				"wa-after-show",
+				"wa-hide",
+				"wa-show"
+			],
+			"description": "Drawers slide in from the edge of a container to expose additional options and information without"
+		},
+		{
+			"tag": "wa-dropdown",
+			"name": "Dropdown",
+			"definition": "@awesome.me/webawesome/dist/components/dropdown/dropdown.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"distance",
+				"initialReflectedProperties",
+				"lang",
+				"open",
+				"placement",
+				"size",
+				"skidding"
+			],
+			"events": [
+				"wa-after-hide",
+				"wa-after-show",
+				"wa-hide",
+				"wa-select",
+				"wa-show"
+			],
+			"description": "Dropdowns display a list of options triggered by a button or other element. They support keyboard"
+		},
+		{
+			"tag": "wa-dropdown-item",
+			"name": "DropdownItem",
+			"definition": "@awesome.me/webawesome/dist/components/dropdown-item/dropdown-item.js",
+			"properties": [
+				"checked",
+				"didSSR",
+				"dir",
+				"disabled",
+				"download",
+				"href",
+				"initialReflectedProperties",
+				"lang",
+				"rel",
+				"submenuOpen",
+				"target",
+				"type",
+				"value",
+				"variant"
+			],
+			"events": [
+				"blur",
+				"focus"
+			],
+			"description": "Dropdown items represent selectable entries within a dropdown menu, including standard actions, checkable"
+		},
+		{
+			"tag": "wa-format-bytes",
+			"name": "FormatBytes",
+			"definition": "@awesome.me/webawesome/dist/components/format-bytes/format-bytes.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"display",
+				"initialReflectedProperties",
+				"lang",
+				"unit",
+				"value"
+			],
+			"events": [],
+			"description": "Formats a number of bytes as a human-readable string with the appropriate unit, such as kB, MB, or GB."
+		},
+		{
+			"tag": "wa-format-date",
+			"name": "FormatDate",
+			"definition": "@awesome.me/webawesome/dist/components/format-date/format-date.js",
+			"properties": [
+				"date",
+				"day",
+				"didSSR",
+				"dir",
+				"era",
+				"hour",
+				"hourFormat",
+				"initialReflectedProperties",
+				"lang",
+				"minute",
+				"month",
+				"second",
+				"timeZone",
+				"timeZoneName",
+				"weekday",
+				"year"
+			],
+			"events": [],
+			"description": "Formats a date or time for display using the specified locale and options. Powered by the"
+		},
+		{
+			"tag": "wa-format-number",
+			"name": "FormatNumber",
+			"definition": "@awesome.me/webawesome/dist/components/format-number/format-number.js",
+			"properties": [
+				"currency",
+				"currencyDisplay",
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"lang",
+				"maximumFractionDigits",
+				"maximumSignificantDigits",
+				"minimumFractionDigits",
+				"minimumIntegerDigits",
+				"minimumSignificantDigits",
+				"type",
+				"value",
+				"withoutGrouping"
+			],
+			"events": [],
+			"description": "Formats a number for display using the specified locale and options, including currency, percent, and unit"
+		},
+		{
+			"tag": "wa-icon",
+			"name": "Icon",
+			"definition": "@awesome.me/webawesome/dist/components/icon/icon.js",
+			"properties": [
+				"animation",
+				"autoWidth",
+				"canvas",
+				"didSSR",
+				"dir",
+				"family",
+				"flip",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"library",
+				"name",
+				"rotate",
+				"src",
+				"swapOpacity",
+				"variant"
+			],
+			"events": [
+				"wa-error",
+				"wa-load"
+			],
+			"description": "Icons are scalable vector symbols that represent actions, content, or status throughout your application."
+		},
+		{
+			"tag": "wa-include",
+			"name": "Include",
+			"definition": "@awesome.me/webawesome/dist/components/include/include.js",
+			"properties": [
+				"allowScripts",
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"lang",
+				"mode",
+				"src"
+			],
+			"events": [
+				"wa-include-error",
+				"wa-load"
+			],
+			"description": "Fetches an external HTML file and embeds its contents inline on the page. Useful for reusing shared markup"
+		},
+		{
+			"tag": "wa-input",
+			"name": "Input",
+			"definition": "@awesome.me/webawesome/dist/components/input/input.js",
+			"properties": [
+				"appearance",
+				"assumeInteractionOn",
+				"autocapitalize",
+				"autocomplete",
+				"autocorrect",
+				"autofocus",
+				"customError",
+				"defaultValue",
+				"didSSR",
+				"dir",
+				"disabled",
+				"emitInvalid",
+				"enterkeyhint",
+				"hasInteracted",
+				"hint",
+				"initialReflectedProperties",
+				"inputmode",
+				"label",
+				"lang",
+				"max",
+				"maxlength",
+				"min",
+				"minlength",
+				"name",
+				"passwordToggle",
+				"passwordVisible",
+				"pattern",
+				"pill",
+				"placeholder",
+				"readonly",
+				"required",
+				"size",
+				"spellcheck",
+				"states",
+				"step",
+				"title",
+				"type",
+				"value",
+				"valueHasChanged",
+				"withClear",
+				"withHint",
+				"withLabel",
+				"withoutSpinButtons"
+			],
+			"events": [
+				"blur",
+				"change",
+				"focus",
+				"input",
+				"wa-clear",
+				"wa-invalid"
+			],
+			"description": "Inputs collect single-line data from the user, such as text, numbers, email addresses, and passwords. They"
+		},
+		{
+			"tag": "wa-intersection-observer",
+			"name": "IntersectionObserver",
+			"definition": "@awesome.me/webawesome/dist/components/intersection-observer/intersection-observer.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"disabled",
+				"initialReflectedProperties",
+				"intersectClass",
+				"lang",
+				"once",
+				"root",
+				"rootMargin",
+				"threshold"
+			],
+			"events": [
+				"wa-intersect"
+			],
+			"description": "Tracks immediate child elements and fires events as they move in and out of view. Useful for lazy loading,"
+		},
+		{
+			"tag": "wa-known-date",
+			"name": "KnownDate",
+			"definition": "@awesome.me/webawesome/dist/components/known-date/known-date.js",
+			"properties": [
+				"appearance",
+				"assumeInteractionOn",
+				"autocomplete",
+				"customError",
+				"defaultValue",
+				"didSSR",
+				"dir",
+				"disabled",
+				"emitInvalid",
+				"hasInteracted",
+				"hint",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"locale",
+				"max",
+				"min",
+				"name",
+				"parts",
+				"pill",
+				"readonly",
+				"required",
+				"size",
+				"states",
+				"value",
+				"valueHasChanged",
+				"withHint",
+				"withLabel"
+			],
+			"events": [
+				"blur",
+				"change",
+				"focus",
+				"input",
+				"wa-invalid"
+			],
+			"description": "Known dates let users enter dates they already know, like birthdays and expirations, in separate day, month,"
+		},
+		{
+			"tag": "wa-lightbox",
+			"name": "Lightbox",
+			"definition": "@awesome.me/webawesome/dist/components/lightbox/lightbox.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"index",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"loop",
+				"open",
+				"withThumbnails",
+				"withoutCounter",
+				"withoutNavigation",
+				"withoutZoom"
+			],
+			"events": [
+				"wa-after-hide",
+				"wa-after-show",
+				"wa-hide",
+				"wa-item-change",
+				"wa-show"
+			],
+			"description": "Lightboxes show images and videos in a full-screen viewer that opens from their thumbnails. Use them for"
+		},
+		{
+			"tag": "wa-lightbox-item",
+			"name": "LightboxItem",
+			"definition": "@awesome.me/webawesome/dist/components/lightbox-item/lightbox-item.js",
+			"properties": [
+				"alt",
+				"caption",
+				"didSSR",
+				"dir",
+				"height",
+				"initialReflectedProperties",
+				"lang",
+				"sizes",
+				"src",
+				"srcset",
+				"thumbnail",
+				"type",
+				"width"
+			],
+			"events": [],
+			"description": "Lightbox items represent the individual images and videos shown in a lightbox. Each one wraps the"
+		},
+		{
+			"tag": "wa-markdown",
+			"name": "Markdown",
+			"definition": "@awesome.me/webawesome/dist/components/markdown/markdown.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"lang",
+				"tabSize"
+			],
+			"events": [],
+			"description": "Markdown elements render markdown content as HTML directly in the browser, with no server-side build step."
+		},
+		{
+			"tag": "wa-mutation-observer",
+			"name": "MutationObserver",
+			"definition": "@awesome.me/webawesome/dist/components/mutation-observer/mutation-observer.js",
+			"properties": [
+				"attr",
+				"attrOldValue",
+				"charData",
+				"charDataOldValue",
+				"childList",
+				"didSSR",
+				"dir",
+				"disabled",
+				"initialReflectedProperties",
+				"lang"
+			],
+			"events": [
+				"wa-mutation"
+			],
+			"description": "Mutation observers watch for changes to an element's DOM tree and emit an event when they occur. Provides a"
+		},
+		{
+			"tag": "wa-number-input",
+			"name": "NumberInput",
+			"definition": "@awesome.me/webawesome/dist/components/number-input/number-input.js",
+			"properties": [
+				"appearance",
+				"assumeInteractionOn",
+				"autocomplete",
+				"autofocus",
+				"customError",
+				"defaultValue",
+				"didSSR",
+				"dir",
+				"disabled",
+				"emitInvalid",
+				"enterkeyhint",
+				"hasInteracted",
+				"hint",
+				"initialReflectedProperties",
+				"inputmode",
+				"label",
+				"lang",
+				"max",
+				"min",
+				"name",
+				"pill",
+				"placeholder",
+				"readonly",
+				"required",
+				"size",
+				"states",
+				"step",
+				"title",
+				"value",
+				"valueHasChanged",
+				"withHint",
+				"withLabel",
+				"withoutSteppers"
+			],
+			"events": [
+				"beforeinput",
+				"blur",
+				"change",
+				"focus",
+				"input",
+				"wa-invalid"
+			],
+			"description": "Number inputs let users enter and edit numeric values, with optional stepper buttons for incrementing and"
+		},
+		{
+			"tag": "wa-number-ticker",
+			"name": "NumberTicker",
+			"definition": "@awesome.me/webawesome/dist/components/number-ticker/number-ticker.js",
+			"properties": [
+				"currency",
+				"currencyDisplay",
+				"delay",
+				"didSSR",
+				"dir",
+				"duration",
+				"eager",
+				"easing",
+				"initialReflectedProperties",
+				"lang",
+				"maximumFractionDigits",
+				"maximumSignificantDigits",
+				"minimumFractionDigits",
+				"minimumIntegerDigits",
+				"minimumSignificantDigits",
+				"startValue",
+				"type",
+				"value",
+				"valueFormatter",
+				"withoutGrouping"
+			],
+			"events": [
+				"wa-finish"
+			],
+			"description": "Number tickers count up or down to a value when they scroll into view and format it with the"
+		},
+		{
+			"tag": "wa-option",
+			"name": "Option",
+			"definition": "@awesome.me/webawesome/dist/components/option/option.js",
+			"properties": [
+				"current",
+				"defaultSelected",
+				"didSSR",
+				"dir",
+				"disabled",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"value"
+			],
+			"events": [],
+			"description": "Options represent the individual choices inside a select or similar form control. Each option holds a value"
+		},
+		{
+			"tag": "wa-otp-input",
+			"name": "OtpInput",
+			"definition": "@awesome.me/webawesome/dist/components/otp-input/otp-input.js",
+			"properties": [
+				"appearance",
+				"assumeInteractionOn",
+				"autocomplete",
+				"autofocus",
+				"autosubmit",
+				"case",
+				"customError",
+				"defaultValue",
+				"didSSR",
+				"dir",
+				"disabled",
+				"emitInvalid",
+				"format",
+				"hasInteracted",
+				"hint",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"length",
+				"mask",
+				"name",
+				"readonly",
+				"required",
+				"size",
+				"states",
+				"type",
+				"value",
+				"valueHasChanged",
+				"withMask"
+			],
+			"events": [
+				"blur",
+				"change",
+				"focus",
+				"input",
+				"wa-clear",
+				"wa-complete",
+				"wa-invalid"
+			],
+			"description": "OTP inputs collect one-time passcodes, PINs, and other fixed-length codes, one character per segment."
+		},
+		{
+			"tag": "wa-page",
+			"name": "Page",
+			"definition": "@awesome.me/webawesome/dist/components/page/page.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"disableNavigationToggle",
+				"disableSticky",
+				"initialReflectedProperties",
+				"lang",
+				"mobileBreakpoint",
+				"navOpen",
+				"navigationDrawer",
+				"navigationPlacement",
+				"nonce",
+				"pageResizeObserver",
+				"view"
+			],
+			"events": [],
+			"description": "Pages scaffold an entire application layout with header, navigation, sidebar, main content, aside, and"
+		},
+		{
+			"tag": "wa-pagination",
+			"name": "Pagination",
+			"definition": "@awesome.me/webawesome/dist/components/pagination/pagination.js",
+			"properties": [
+				"appearance",
+				"boundaryCount",
+				"didSSR",
+				"dir",
+				"disabled",
+				"format",
+				"hideSinglePage",
+				"hrefTemplate",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"page",
+				"pageSize",
+				"siblingCount",
+				"total",
+				"withEdges",
+				"withSummary",
+				"withoutNav"
+			],
+			"events": [
+				"wa-before-page-change",
+				"wa-page-change"
+			],
+			"description": "Pagination splits long lists of content into pages, letting users navigate between them."
+		},
+		{
+			"tag": "wa-popover",
+			"name": "Popover",
+			"definition": "@awesome.me/webawesome/dist/components/popover/popover.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"distance",
+				"for",
+				"initialReflectedProperties",
+				"lang",
+				"open",
+				"placement",
+				"popup",
+				"skidding",
+				"withoutArrow"
+			],
+			"events": [
+				"wa-after-hide",
+				"wa-after-show",
+				"wa-hide",
+				"wa-show"
+			],
+			"description": "Popovers display contextual content and interactive elements in a floating panel anchored to a trigger. Use"
+		},
+		{
+			"tag": "wa-popup",
+			"name": "Popup",
+			"definition": "@awesome.me/webawesome/dist/components/popup/popup.js",
+			"properties": [
+				"active",
+				"arrow",
+				"arrowPadding",
+				"arrowPlacement",
+				"autoSize",
+				"autoSizePadding",
+				"boundary",
+				"didSSR",
+				"dir",
+				"distance",
+				"flip",
+				"flipFallbackPlacements",
+				"flipFallbackStrategy",
+				"flipPadding",
+				"hoverBridge",
+				"initialReflectedProperties",
+				"lang",
+				"placement",
+				"shift",
+				"shiftPadding",
+				"skidding",
+				"sync"
+			],
+			"events": [
+				"wa-reposition"
+			],
+			"description": "Popups declaratively anchor one element to another and keep them positioned together as the page scrolls or"
+		},
+		{
+			"tag": "wa-progress-bar",
+			"name": "ProgressBar",
+			"definition": "@awesome.me/webawesome/dist/components/progress-bar/progress-bar.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"indeterminate",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"value"
+			],
+			"events": [],
+			"description": "Progress bars show how far along an ongoing operation is as a horizontal fill. Use them for file uploads,"
+		},
+		{
+			"tag": "wa-progress-ring",
+			"name": "ProgressRing",
+			"definition": "@awesome.me/webawesome/dist/components/progress-ring/progress-ring.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"indicator",
+				"indicatorOffset",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"value"
+			],
+			"events": [],
+			"description": "Progress rings show how far along a determinate operation is using a circular indicator. Use them as a"
+		},
+		{
+			"tag": "wa-qr-code",
+			"name": "QrCode",
+			"definition": "@awesome.me/webawesome/dist/components/qr-code/qr-code.js",
+			"properties": [
+				"background",
+				"didSSR",
+				"dir",
+				"errorCorrection",
+				"fill",
+				"image",
+				"imageBackground",
+				"imageCoverage",
+				"imagePadding",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"radius",
+				"size",
+				"value"
+			],
+			"events": [],
+			"description": "QR codes encode a URL or other short text into a scannable image, rendered client-side using the Canvas API."
+		},
+		{
+			"tag": "wa-radio",
+			"name": "Radio",
+			"definition": "@awesome.me/webawesome/dist/components/radio/radio.js",
+			"properties": [
+				"appearance",
+				"assumeInteractionOn",
+				"checked",
+				"customError",
+				"didSSR",
+				"dir",
+				"disabled",
+				"emitInvalid",
+				"hasInteracted",
+				"initialReflectedProperties",
+				"lang",
+				"name",
+				"required",
+				"size",
+				"states",
+				"value",
+				"valueHasChanged"
+			],
+			"events": [
+				"blur",
+				"focus"
+			],
+			"description": "Radios represent a single option within a mutually exclusive set. Use them inside a radio group when users"
+		},
+		{
+			"tag": "wa-radio-group",
+			"name": "RadioGroup",
+			"definition": "@awesome.me/webawesome/dist/components/radio-group/radio-group.js",
+			"properties": [
+				"assumeInteractionOn",
+				"customError",
+				"defaultValue",
+				"didSSR",
+				"dir",
+				"disabled",
+				"emitInvalid",
+				"hasInteracted",
+				"hint",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"name",
+				"orientation",
+				"required",
+				"size",
+				"states",
+				"value",
+				"valueHasChanged",
+				"withHint",
+				"withLabel"
+			],
+			"events": [
+				"change",
+				"input",
+				"wa-invalid"
+			],
+			"description": "Radio groups wrap a set of radios so they function as a single form control with one shared value. They"
+		},
+		{
+			"tag": "wa-random-content",
+			"name": "RandomContent",
+			"definition": "@awesome.me/webawesome/dist/components/random-content/random-content.js",
+			"properties": [
+				"animation",
+				"autoplay",
+				"autoplayInterval",
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"items",
+				"lang",
+				"mode"
+			],
+			"events": [
+				"wa-content-change"
+			],
+			"description": "Selects one or more child elements at random and displays them, hiding the rest."
+		},
+		{
+			"tag": "wa-rating",
+			"name": "Rating",
+			"definition": "@awesome.me/webawesome/dist/components/rating/rating.js",
+			"properties": [
+				"assumeInteractionOn",
+				"customError",
+				"defaultValue",
+				"didSSR",
+				"dir",
+				"disabled",
+				"emitInvalid",
+				"getSymbol",
+				"hasInteracted",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"max",
+				"name",
+				"precision",
+				"readonly",
+				"required",
+				"role",
+				"size",
+				"states",
+				"value",
+				"valueHasChanged"
+			],
+			"events": [
+				"change",
+				"wa-hover",
+				"wa-invalid"
+			],
+			"description": "Ratings display a numeric score as a row of selectable symbols, typically stars. Use them to capture quick"
+		},
+		{
+			"tag": "wa-relative-time",
+			"name": "RelativeTime",
+			"definition": "@awesome.me/webawesome/dist/components/relative-time/relative-time.js",
+			"properties": [
+				"date",
+				"didSSR",
+				"dir",
+				"format",
+				"initialReflectedProperties",
+				"lang",
+				"numeric",
+				"sync"
+			],
+			"events": [],
+			"description": "Relative times display a date as a localized phrase relative to now, such as \"3 hours ago\" or \"in 2 days\"."
+		},
+		{
+			"tag": "wa-resize-observer",
+			"name": "ResizeObserver",
+			"definition": "@awesome.me/webawesome/dist/components/resize-observer/resize-observer.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"disabled",
+				"initialReflectedProperties",
+				"lang"
+			],
+			"events": [
+				"wa-resize"
+			],
+			"description": "Resize observers watch their slotted elements for size changes and emit an event when they occur. Provides a"
+		},
+		{
+			"tag": "wa-scroller",
+			"name": "Scroller",
+			"definition": "@awesome.me/webawesome/dist/components/scroller/scroller.js",
+			"properties": [
+				"canScroll",
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"lang",
+				"orientation",
+				"withoutScrollbar",
+				"withoutShadow"
+			],
+			"events": [],
+			"description": "Scrollers wrap overflowing content in an accessible container with visual cues that help users recognize and"
+		},
+		{
+			"tag": "wa-select",
+			"name": "Select",
+			"definition": "@awesome.me/webawesome/dist/components/select/select.js",
+			"properties": [
+				"appearance",
+				"assumeInteractionOn",
+				"currentOption",
+				"customError",
+				"defaultValue",
+				"didSSR",
+				"dir",
+				"disabled",
+				"displayLabel",
+				"emitInvalid",
+				"hasInteracted",
+				"hint",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"maxOptionsVisible",
+				"multiple",
+				"name",
+				"open",
+				"pill",
+				"placeholder",
+				"placement",
+				"popup",
+				"required",
+				"selectedOptions",
+				"size",
+				"states",
+				"value",
+				"valueHasChanged",
+				"withClear",
+				"withHint",
+				"withLabel"
+			],
+			"events": [
+				"blur",
+				"change",
+				"focus",
+				"input",
+				"wa-after-hide",
+				"wa-after-show",
+				"wa-clear",
+				"wa-hide",
+				"wa-invalid",
+				"wa-show"
+			],
+			"description": "Selects let users choose one or more values from a dropdown list of predefined options. Use them in forms"
+		},
+		{
+			"tag": "wa-skeleton",
+			"name": "Skeleton",
+			"definition": "@awesome.me/webawesome/dist/components/skeleton/skeleton.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"effect",
+				"initialReflectedProperties",
+				"lang"
+			],
+			"events": [],
+			"description": "Skeletons show placeholder shapes where content will appear once it finishes loading, reducing perceived"
+		},
+		{
+			"tag": "wa-slider",
+			"name": "Slider",
+			"definition": "@awesome.me/webawesome/dist/components/slider/slider.js",
+			"properties": [
+				"assumeInteractionOn",
+				"autofocus",
+				"customError",
+				"defaultValue",
+				"didSSR",
+				"dir",
+				"disabled",
+				"emitInvalid",
+				"hasInteracted",
+				"hint",
+				"indicatorOffset",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"max",
+				"maxValue",
+				"min",
+				"minValue",
+				"name",
+				"orientation",
+				"range",
+				"readonly",
+				"required",
+				"size",
+				"states",
+				"step",
+				"tooltip",
+				"tooltipDistance",
+				"tooltipPlacement",
+				"value",
+				"valueFormatter",
+				"valueHasChanged",
+				"withHint",
+				"withLabel",
+				"withMarkers",
+				"withTooltip"
+			],
+			"events": [
+				"blur",
+				"change",
+				"focus",
+				"input",
+				"wa-invalid"
+			],
+			"description": "Sliders let users choose a numeric value within a defined range by dragging a thumb along a track."
+		},
+		{
+			"tag": "wa-spinner",
+			"name": "Spinner",
+			"definition": "@awesome.me/webawesome/dist/components/spinner/spinner.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"lang"
+			],
+			"events": [],
+			"description": "Spinners indicate that an operation is in progress when the duration is unknown. Use them for loading states"
+		},
+		{
+			"tag": "wa-split-panel",
+			"name": "SplitPanel",
+			"definition": "@awesome.me/webawesome/dist/components/split-panel/split-panel.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"disabled",
+				"initialReflectedProperties",
+				"lang",
+				"orientation",
+				"position",
+				"positionInPixels",
+				"primary",
+				"snap",
+				"snapThreshold"
+			],
+			"events": [
+				"wa-reposition"
+			],
+			"description": "Split panels display two adjacent panels separated by a draggable divider, letting users resize each side to"
+		},
+		{
+			"tag": "wa-step",
+			"name": "Step",
+			"definition": "@awesome.me/webawesome/dist/components/step/step.js",
+			"properties": [
+				"active",
+				"attention",
+				"completed",
+				"didSSR",
+				"dir",
+				"disabled",
+				"initialReflectedProperties",
+				"lang",
+				"loading",
+				"name",
+				"role",
+				"variant",
+				"withDescription"
+			],
+			"events": [],
+			"description": "Steps represent a single stage inside a `<wa-stepper>`, showing its position, label, and status."
+		},
+		{
+			"tag": "wa-stepper",
+			"name": "Stepper",
+			"definition": "@awesome.me/webawesome/dist/components/stepper/stepper.js",
+			"properties": [
+				"active",
+				"clickable",
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"linear",
+				"orientation"
+			],
+			"events": [
+				"detail",
+				"wa-before-step-change",
+				"wa-step-change"
+			],
+			"description": "Steppers visually guide users through a process step by step, breaking content into clear, logical"
+		},
+		{
+			"tag": "wa-switch",
+			"name": "Switch",
+			"definition": "@awesome.me/webawesome/dist/components/switch/switch.js",
+			"properties": [
+				"assumeInteractionOn",
+				"checked",
+				"customError",
+				"defaultChecked",
+				"didSSR",
+				"dir",
+				"disabled",
+				"emitInvalid",
+				"hasInteracted",
+				"hint",
+				"initialReflectedProperties",
+				"lang",
+				"name",
+				"required",
+				"size",
+				"states",
+				"title",
+				"value",
+				"valueHasChanged",
+				"withHint"
+			],
+			"events": [
+				"blur",
+				"change",
+				"focus",
+				"input",
+				"wa-invalid"
+			],
+			"description": "Switches toggle a single setting on or off and apply the change immediately, without requiring a form"
+		},
+		{
+			"tag": "wa-tab",
+			"name": "Tab",
+			"definition": "@awesome.me/webawesome/dist/components/tab/tab.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"disabled",
+				"initialReflectedProperties",
+				"lang",
+				"panel",
+				"role"
+			],
+			"events": [],
+			"description": "Tabs label and activate an individual panel inside a tab group."
+		},
+		{
+			"tag": "wa-tab-group",
+			"name": "TabGroup",
+			"definition": "@awesome.me/webawesome/dist/components/tab-group/tab-group.js",
+			"properties": [
+				"activation",
+				"active",
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"lang",
+				"placement",
+				"withoutScrollControls"
+			],
+			"events": [
+				"wa-tab-hide",
+				"wa-tab-show"
+			],
+			"description": "Tab groups organize related content into a single container that displays one panel at a time, with tabs for"
+		},
+		{
+			"tag": "wa-tab-panel",
+			"name": "TabPanel",
+			"definition": "@awesome.me/webawesome/dist/components/tab-panel/tab-panel.js",
+			"properties": [
+				"active",
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"lang",
+				"name",
+				"role"
+			],
+			"events": [],
+			"description": "Tab panels hold the content shown for a single tab inside a tab group."
+		},
+		{
+			"tag": "wa-tag",
+			"name": "Tag",
+			"definition": "@awesome.me/webawesome/dist/components/tag/tag.js",
+			"properties": [
+				"appearance",
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"lang",
+				"pill",
+				"size",
+				"variant",
+				"withRemove"
+			],
+			"events": [
+				"wa-remove"
+			],
+			"description": "Tags label, categorize, or represent selections with a compact visual marker. Use them for status"
+		},
+		{
+			"tag": "wa-tag-input",
+			"name": "TagInput",
+			"definition": "@awesome.me/webawesome/dist/components/tag-input/tag-input.js",
+			"properties": [
+				"allowDuplicates",
+				"appearance",
+				"assumeInteractionOn",
+				"autocapitalize",
+				"autocomplete",
+				"autocorrect",
+				"customError",
+				"defaultValue",
+				"delimiter",
+				"didSSR",
+				"dir",
+				"disabled",
+				"emitInvalid",
+				"enterkeyhint",
+				"hasInteracted",
+				"hint",
+				"initialReflectedProperties",
+				"inputValue",
+				"inputmode",
+				"label",
+				"lang",
+				"maxTags",
+				"minTags",
+				"name",
+				"pill",
+				"placeholder",
+				"readonly",
+				"required",
+				"size",
+				"spellcheck",
+				"states",
+				"value",
+				"valueHasChanged",
+				"withClear",
+				"withHint",
+				"withLabel"
+			],
+			"events": [
+				"blur",
+				"change",
+				"focus",
+				"input",
+				"wa-clear",
+				"wa-create",
+				"wa-invalid"
+			],
+			"description": "Tag inputs collect a list of short values, such as keywords, email addresses, or labels, as removable tags."
+		},
+		{
+			"tag": "wa-textarea",
+			"name": "Textarea",
+			"definition": "@awesome.me/webawesome/dist/components/textarea/textarea.js",
+			"properties": [
+				"appearance",
+				"assumeInteractionOn",
+				"autocapitalize",
+				"autocomplete",
+				"autocorrect",
+				"autofocus",
+				"customError",
+				"defaultValue",
+				"didSSR",
+				"dir",
+				"disabled",
+				"emitInvalid",
+				"enterkeyhint",
+				"hasInteracted",
+				"hint",
+				"initialReflectedProperties",
+				"inputmode",
+				"label",
+				"lang",
+				"maxlength",
+				"minlength",
+				"name",
+				"placeholder",
+				"readonly",
+				"required",
+				"resize",
+				"rows",
+				"size",
+				"spellcheck",
+				"states",
+				"title",
+				"value",
+				"valueHasChanged",
+				"withCount",
+				"withHint",
+				"withLabel"
+			],
+			"events": [
+				"blur",
+				"change",
+				"focus",
+				"input",
+				"wa-invalid"
+			],
+			"description": "Textareas collect multi-line text input from the user, with optional resizing and character counting."
+		},
+		{
+			"tag": "wa-time-input",
+			"name": "TimeInput",
+			"definition": "@awesome.me/webawesome/dist/components/time-input/time-input.js",
+			"properties": [
+				"appearance",
+				"assumeInteractionOn",
+				"autocomplete",
+				"customError",
+				"defaultValue",
+				"didSSR",
+				"dir",
+				"disabled",
+				"distance",
+				"emitInvalid",
+				"hasInteracted",
+				"hint",
+				"hourFormat",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"max",
+				"min",
+				"name",
+				"open",
+				"pill",
+				"placement",
+				"popup",
+				"readonly",
+				"required",
+				"size",
+				"states",
+				"step",
+				"value",
+				"valueHasChanged",
+				"withClear",
+				"withHint",
+				"withLabel",
+				"withNow"
+			],
+			"events": [
+				"blur",
+				"change",
+				"focus",
+				"input",
+				"wa-after-hide",
+				"wa-after-show",
+				"wa-clear",
+				"wa-hide",
+				"wa-invalid",
+				"wa-show"
+			],
+			"description": "Time pickers let users enter a time through a segmented field or select one visually from a popup column"
+		},
+		{
+			"tag": "wa-toast",
+			"name": "Toast",
+			"definition": "@awesome.me/webawesome/dist/components/toast/toast.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"lang",
+				"placement"
+			],
+			"events": [],
+			"description": "Toasts display brief, non-blocking notifications that appear temporarily above the page content."
+		},
+		{
+			"tag": "wa-toast-item",
+			"name": "ToastItem",
+			"definition": "@awesome.me/webawesome/dist/components/toast-item/toast-item.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"duration",
+				"initialReflectedProperties",
+				"lang",
+				"size",
+				"variant",
+				"withIcon"
+			],
+			"events": [
+				"wa-after-hide",
+				"wa-after-show",
+				"wa-hide",
+				"wa-show"
+			],
+			"description": "Toast items are individual notifications displayed within a toast container."
+		},
+		{
+			"tag": "wa-tooltip",
+			"name": "Tooltip",
+			"definition": "@awesome.me/webawesome/dist/components/tooltip/tooltip.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"disabled",
+				"distance",
+				"for",
+				"hideDelay",
+				"initialReflectedProperties",
+				"lang",
+				"open",
+				"placement",
+				"popup",
+				"showDelay",
+				"skidding",
+				"trigger",
+				"withoutArrow"
+			],
+			"events": [
+				"wa-after-hide",
+				"wa-after-show",
+				"wa-hide",
+				"wa-show"
+			],
+			"description": "Tooltips display brief contextual information when the user hovers, focuses, or taps a target element."
+		},
+		{
+			"tag": "wa-tree",
+			"name": "Tree",
+			"definition": "@awesome.me/webawesome/dist/components/tree/tree.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"lang",
+				"role",
+				"selection",
+				"tabIndex"
+			],
+			"events": [
+				"wa-selection-change"
+			],
+			"description": "Trees allow you to display a hierarchical list of selectable tree items. Items with children can be expanded"
+		},
+		{
+			"tag": "wa-tree-item",
+			"name": "TreeItem",
+			"definition": "@awesome.me/webawesome/dist/components/tree-item/tree-item.js",
+			"properties": [
+				"didSSR",
+				"dir",
+				"disabled",
+				"expanded",
+				"indeterminate",
+				"initialReflectedProperties",
+				"isLeaf",
+				"lang",
+				"lazy",
+				"loading",
+				"role",
+				"selectable",
+				"selected",
+				"tabIndex"
+			],
+			"events": [
+				"wa-after-collapse",
+				"wa-after-expand",
+				"wa-collapse",
+				"wa-expand",
+				"wa-lazy-change",
+				"wa-lazy-load"
+			],
+			"description": "Tree items represent a single hierarchical node inside a tree, and can contain nested items that expand and"
+		},
+		{
+			"tag": "wa-zoomable-frame",
+			"name": "ZoomableFrame",
+			"definition": "@awesome.me/webawesome/dist/components/zoomable-frame/zoomable-frame.js",
+			"properties": [
+				"allow",
+				"allowfullscreen",
+				"didSSR",
+				"dir",
+				"initialReflectedProperties",
+				"label",
+				"lang",
+				"loading",
+				"name",
+				"referrerpolicy",
+				"sandbox",
+				"src",
+				"srcdoc",
+				"withThemeSync",
+				"withoutControls",
+				"withoutInteraction",
+				"zoom",
+				"zoomLevels"
+			],
+			"events": [
+				"error",
+				"load"
+			],
+			"description": "Zoomable frames embed iframe content with built-in controls for zooming, panning, and managing interaction."
+		}
+	]
+}
