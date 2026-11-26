@@ -1,5 +1,7 @@
 // A form of Web Awesome elements in an Effect UI component: an input and a switch feed the model through their
-// native events, a button opens a dialog through its `open` property, and the dialog's `wa-hide` closes it.
+// native events, a button opens a dialog through its `open` property, and the dialog's `wa-after-hide` closes it in
+// the Model. Not `wa-hide`: it fires before the dialog closes, and setting `open` to false then is a second request to
+// close (Web Awesome fires `wa-hide` again).
 import { Mount, UiSchema } from "@effect/ui";
 import { BrowserHost, Html } from "@effect/ui/html";
 import { Effect, Layer, Schema } from "effect";
@@ -36,7 +38,7 @@ const Form = Html.component({
 				.checked(model.agreed)
 				.onMount(SwitchChanges({}).pipe(Mount.map(({ checked }) => Message.ToggledAgreed({ agreed: checked })))),
 			Button(h).id("open").variant("brand").on("click", () => Message.ClickedOpen()).children("Open"),
-			Dialog(h).id("dialog").label("Hello").open(model.open).on("wa-hide", () => Message.HidDialog()).children(`Hello, ${model.name}`),
+			Dialog(h).id("dialog").label("Hello").open(model.open).on("wa-after-hide", () => Message.HidDialog()).children(`Hello, ${model.name}`),
 			h.output.id("state").children(JSON.stringify(model)),
 		),
 });

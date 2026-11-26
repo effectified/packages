@@ -25,7 +25,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "check": "tsc -p tsconfig.json",
-    "test": "vitest --run --passWithNoTests"
+    "test": "vitest --run --passWithNoTests --testTimeout=30000"
   },
   "dependencies": {
     "@awesome.me/webawesome": "3.15.0"
@@ -37,7 +37,7 @@
   "devDependencies": {
     "@effect/ui": "https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57",
     "@effect/vitest": "4.1.5",
-    "@effectified/puppeteer-core": "https://github.com/effectified/engine/releases/download/puppeteer-core-v25.19.0/effectified-puppeteer-core-25.19.0.tgz",
+    "@effectified/puppeteer-core": "https://github.com/effectified/engine/releases/download/puppeteer-core-v25.19.0+2/effectified-puppeteer-core-25.19.0+2.tgz",
     "@types/node": "26.6.7",
     "effect": "4.1.5",
     "typescript": "7.0.2",

@@ -1,5 +1,5 @@
 // Web Awesome driven by Effect UI in Chrome: an input and a switch report their state through their changes mounts,
-// a button opens a dialog through its `open` property, and Escape closes it through its `wa-hide` event.
+// a button opens a dialog through its `open` property, and Escape closes it through its `wa-after-hide` event.
 import { describe, expect, it } from "@effect/vitest";
 import { Effect } from "effect";
 import { chrome, fixture } from "./support/browser.ts";

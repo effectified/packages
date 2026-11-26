@@ -1,0 +1,6777 @@
+{
+	"package": "chart.js",
+	"version": "4.6.2",
+	"types": {
+		"from": "bundled",
+		"package": "chart.js",
+		"version": "4.6.2"
+	},
+	"entry": "named",
+	"exports": [
+		{
+			"kind": "class",
+			"name": "Animator",
+			"handle": "Animator",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "Animator",
+					"handle": "Animator",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "value",
+			"name": "DecimationAlgorithm",
+			"type": "typeof DecimationAlgorithm"
+		},
+		{
+			"kind": "value",
+			"name": "_adapters",
+			"type": "{ _date: { new (options?: AnyObject | undefined): DateAdapter<AnyObject>; override<T extends AnyObject = AnyObject>(members: Partial<Omit<DateAdapter<T>, \"options\">>): void; }; }"
+		},
+		{
+			"kind": "value",
+			"name": "animator",
+			"type": "Animator"
+		},
+		{
+			"kind": "class",
+			"name": "Element",
+			"handle": "default",
+			"constructors": [
+				{
+					"typeParameters": "T = AnyObject, O = AnyObject",
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "Element<T, O>",
+					"handle": "default",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "function",
+			"name": "_detectPlatform",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "canvas",
+							"type": "any",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "typeof BasicPlatform | typeof DomPlatform",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "value",
+			"name": "Colors",
+			"type": "{ id: string; defaults: ColorsPluginOptions; beforeLayout(chart: Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>, _args: any, options: ColorsPlu"
+		},
+		{
+			"kind": "value",
+			"name": "controllers",
+			"type": "typeof import(\"chart.js/dist/controllers/index\")"
+		},
+		{
+			"kind": "value",
+			"name": "elements",
+			"type": "typeof import(\"chart.js/dist/elements/index\")"
+		},
+		{
+			"kind": "value",
+			"name": "plugins",
+			"type": "typeof import(\"chart.js/dist/plugins/index\")"
+		},
+		{
+			"kind": "value",
+			"name": "scales",
+			"type": "typeof import(\"chart.js/dist/scales/index\")"
+		},
+		{
+			"kind": "class",
+			"name": "BarController",
+			"handle": "DatasetController",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "chart",
+							"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "datasetIndex",
+							"type": "number",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "BarController",
+					"handle": "DatasetController",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "BubbleController",
+			"handle": "DatasetController",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "chart",
+							"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "datasetIndex",
+							"type": "number",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "BubbleController",
+					"handle": "DatasetController",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "DoughnutController",
+			"handle": "DoughnutController",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "chart",
+							"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "datasetIndex",
+							"type": "number",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "DoughnutController",
+					"handle": "DoughnutController",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "DatasetController"
+		},
+		{
+			"kind": "class",
+			"name": "LineController",
+			"handle": "DatasetController",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "chart",
+							"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "datasetIndex",
+							"type": "number",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "LineController",
+					"handle": "DatasetController",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "PieController",
+			"handle": "DoughnutController",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "chart",
+							"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "datasetIndex",
+							"type": "number",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "DoughnutController",
+					"handle": "DoughnutController",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "DatasetController"
+		},
+		{
+			"kind": "class",
+			"name": "PolarAreaController",
+			"handle": "PolarAreaController",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "chart",
+							"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "datasetIndex",
+							"type": "number",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "PolarAreaController",
+					"handle": "PolarAreaController",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "DoughnutController"
+		},
+		{
+			"kind": "class",
+			"name": "RadarController",
+			"handle": "DatasetController",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "chart",
+							"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "datasetIndex",
+							"type": "number",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "RadarController",
+					"handle": "DatasetController",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "ScatterController",
+			"handle": "DatasetController",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "chart",
+							"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "datasetIndex",
+							"type": "number",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "LineController",
+					"handle": "DatasetController",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "Animation",
+			"handle": "Animation",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "cfg",
+							"type": "AnyObject",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "target",
+							"type": "AnyObject",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "prop",
+							"type": "string",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "to",
+							"type": "unknown",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Animation",
+					"handle": "Animation",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "Animations",
+			"handle": "Animations",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "chart",
+							"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "animations",
+							"type": "AnyObject",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Animations",
+					"handle": "Animations",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "Chart",
+			"handle": "Chart",
+			"constructors": [
+				{
+					"typeParameters": "TType extends ChartType = keyof ChartTypeRegistry, TData = DistributiveArray<ChartTypeRegistry[TType][\"defaultDataPoint\"]>, TLabel = unknown",
+					"parameters": [
+						{
+							"name": "item",
+							"type": "ChartItem",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "config",
+							"type": "ChartConfiguration<TType, TData, TLabel> | ChartConfigurationCustomTypesPerDataset<TType, TData, TLabel>",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Chart<TType, TData, TLabel>",
+					"handle": "Chart",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "DatasetController",
+			"handle": "DatasetController",
+			"constructors": [
+				{
+					"typeParameters": "TType extends ChartType = keyof ChartTypeRegistry, TElement extends Element = Element<AnyObject, AnyObject>, TDatasetElement extends Element = Element<AnyObject, AnyObject>, TParsedData = ParsedDataType<TType>",
+					"parameters": [
+						{
+							"name": "chart",
+							"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "datasetIndex",
+							"type": "number",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "DatasetController<TType, TElement, TDatasetElement, TParsedData>",
+					"handle": "DatasetController",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "value",
+			"name": "Interaction",
+			"type": "{ modes: InteractionModeMap; evaluateInteractionItems(chart: Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>, axis: InteractionAxis, position: P"
+		},
+		{
+			"kind": "class",
+			"name": "Scale",
+			"handle": "Scale",
+			"constructors": [
+				{
+					"typeParameters": "O extends CoreScaleOptions = CoreScaleOptions",
+					"parameters": [
+						{
+							"name": "cfg",
+							"type": "{ id: string; type: string; ctx: CanvasRenderingContext2D; chart: Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>; }",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Scale<O>",
+					"handle": "Scale",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "default"
+		},
+		{
+			"kind": "value",
+			"name": "Ticks",
+			"type": "{ formatters: { values(value: unknown): string | string[]; numeric(this: Scale<CoreScaleOptions>, tickValue: number, index: number, ticks: { value: number; }[]): string; logarithmic(this: Scale<CoreSc"
+		},
+		{
+			"kind": "value",
+			"name": "defaults",
+			"type": "Defaults"
+		},
+		{
+			"kind": "value",
+			"name": "layouts",
+			"type": "{ addBox(chart: Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>, item: LayoutItem): void; removeBox(chart: Chart<keyof ChartTypeRegistry, (numbe"
+		},
+		{
+			"kind": "value",
+			"name": "registry",
+			"type": "Registry"
+		},
+		{
+			"kind": "class",
+			"name": "ArcElement",
+			"handle": "default",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "cfg",
+							"type": "any",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "ArcElement",
+					"handle": "default",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "default"
+		},
+		{
+			"kind": "class",
+			"name": "BarElement",
+			"handle": "BarElement",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "cfg",
+							"type": "AnyObject",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "BarElement<BarProps, BarOptions>",
+					"handle": "BarElement",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "default"
+		},
+		{
+			"kind": "class",
+			"name": "LineElement",
+			"handle": "LineElement",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "cfg",
+							"type": "AnyObject",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "LineElement<LineProps, LineOptions>",
+					"handle": "LineElement",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "default"
+		},
+		{
+			"kind": "class",
+			"name": "PointElement",
+			"handle": "default",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "cfg",
+							"type": "any",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "PointElement",
+					"handle": "default",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "default"
+		},
+		{
+			"kind": "class",
+			"name": "BasePlatform",
+			"handle": "BasePlatform",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "BasePlatform",
+					"handle": "BasePlatform",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "BasicPlatform",
+			"handle": "BasicPlatform",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "BasicPlatform",
+					"handle": "BasicPlatform",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "BasePlatform"
+		},
+		{
+			"kind": "class",
+			"name": "DomPlatform",
+			"handle": "DomPlatform",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "DomPlatform",
+					"handle": "DomPlatform",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "BasePlatform"
+		},
+		{
+			"kind": "value",
+			"name": "Decimation",
+			"type": "Plugin<keyof ChartTypeRegistry, AnyObject>"
+		},
+		{
+			"kind": "value",
+			"name": "Filler",
+			"type": "Plugin<keyof ChartTypeRegistry, AnyObject>"
+		},
+		{
+			"kind": "value",
+			"name": "Legend",
+			"type": "Plugin<keyof ChartTypeRegistry, AnyObject>"
+		},
+		{
+			"kind": "value",
+			"name": "SubTitle",
+			"type": "Plugin<keyof ChartTypeRegistry, AnyObject>"
+		},
+		{
+			"kind": "value",
+			"name": "Title",
+			"type": "Plugin<keyof ChartTypeRegistry, AnyObject>"
+		},
+		{
+			"kind": "value",
+			"name": "Tooltip",
+			"type": "Tooltip"
+		},
+		{
+			"kind": "class",
+			"name": "CategoryScale",
+			"handle": "Scale",
+			"constructors": [
+				{
+					"typeParameters": "O extends CategoryScaleOptions = CategoryScaleOptions",
+					"parameters": [
+						{
+							"name": "cfg",
+							"type": "AnyObject",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "CategoryScale<O>",
+					"handle": "Scale",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "default"
+		},
+		{
+			"kind": "class",
+			"name": "LinearScale",
+			"handle": "Scale",
+			"constructors": [
+				{
+					"typeParameters": "O extends LinearScaleOptions = LinearScaleOptions",
+					"parameters": [
+						{
+							"name": "cfg",
+							"type": "AnyObject",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "LinearScale<O>",
+					"handle": "Scale",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "default"
+		},
+		{
+			"kind": "class",
+			"name": "LogarithmicScale",
+			"handle": "Scale",
+			"constructors": [
+				{
+					"typeParameters": "O extends LogarithmicScaleOptions = LogarithmicScaleOptions",
+					"parameters": [
+						{
+							"name": "cfg",
+							"type": "AnyObject",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "LogarithmicScale<O>",
+					"handle": "Scale",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "default"
+		},
+		{
+			"kind": "class",
+			"name": "RadialLinearScale",
+			"handle": "RadialLinearScale",
+			"constructors": [
+				{
+					"typeParameters": "O extends RadialLinearScaleOptions = RadialLinearScaleOptions",
+					"parameters": [
+						{
+							"name": "cfg",
+							"type": "AnyObject",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "RadialLinearScale<O>",
+					"handle": "RadialLinearScale",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "Scale"
+		},
+		{
+			"kind": "class",
+			"name": "TimeScale",
+			"handle": "TimeScale",
+			"constructors": [
+				{
+					"typeParameters": "O extends TimeScaleOptions = TimeScaleOptions",
+					"parameters": [
+						{
+							"name": "cfg",
+							"type": "AnyObject",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "TimeScale<O>",
+					"handle": "TimeScale",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "Scale"
+		},
+		{
+			"kind": "class",
+			"name": "TimeSeriesScale",
+			"handle": "TimeScale",
+			"constructors": [
+				{
+					"typeParameters": "O extends TimeScaleOptions = TimeScaleOptions",
+					"parameters": [
+						{
+							"name": "cfg",
+							"type": "AnyObject",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "TimeSeriesScale<O>",
+					"handle": "TimeScale",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "Scale"
+		},
+		{
+			"kind": "value",
+			"name": "UpdateModeEnum",
+			"type": "typeof UpdateModeEnum"
+		},
+		{
+			"kind": "value",
+			"name": "registerables",
+			"type": "readonly ChartComponentLike[]"
+		}
+	],
+	"handles": {
+		"Animator": {
+			"name": "Animator",
+			"typeRef": "Upstream.Animator",
+			"methods": {
+				"listen": [
+					{
+						"parameters": [
+							{
+								"name": "chart",
+								"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "event",
+								"type": "\"complete\" | \"progress\"",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "cb",
+								"type": "(event: AnimationEvent) => void",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "void",
+						"traits": [
+							"callback"
+						]
+					}
+				],
+				"add": [
+					{
+						"parameters": [
+							{
+								"name": "chart",
+								"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "items",
+								"type": "readonly Animation[]",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"has": [
+					{
+						"parameters": [
+							{
+								"name": "chart",
+								"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"start": [
+					{
+						"parameters": [
+							{
+								"name": "chart",
+								"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"running": [
+					{
+						"parameters": [
+							{
+								"name": "chart",
+								"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"stop": [
+					{
+						"parameters": [
+							{
+								"name": "chart",
+								"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"remove": [
+					{
+						"parameters": [
+							{
+								"name": "chart",
+								"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {},
+			"events": [],
+			"releases": [
+				"stop"
+			]
+		},
+		"default": {
+			"name": "default",
+			"typeRef": "InstanceType<typeof Upstream.Element>",
+			"methods": {
+				"tooltipPosition": [
+					{
+						"parameters": [
+							{
+								"name": "useFinalPosition",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Point",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"hasValue": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getProps": [
+					{
+						"typeParameters": "P extends (keyof T)[]",
+						"parameters": [
+							{
+								"name": "props",
+								"type": "P",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "final",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Pick<T, P[number]>",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"typeParameters": "P extends string",
+						"parameters": [
+							{
+								"name": "props",
+								"type": "P[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "final",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Partial<Record<P, unknown>>",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"x": {
+					"type": "number"
+				},
+				"y": {
+					"type": "number"
+				},
+				"active": {
+					"type": "boolean"
+				},
+				"options": {
+					"type": "O"
+				},
+				"$animations": {
+					"type": "Record<keyof T, Animation>"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"DatasetController": {
+			"name": "DatasetController",
+			"typeRef": "Upstream.DatasetController<any, any, any, any>",
+			"methods": {
+				"linkScales": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getAllParsedValues": [
+					{
+						"parameters": [
+							{
+								"name": "scale",
+								"type": "Scale<CoreScaleOptions>",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateElements": [
+					{
+						"parameters": [
+							{
+								"name": "elements",
+								"type": "Element<AnyObject, AnyObject>[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "start",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "count",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "mode",
+								"type": "\"active\" | \"default\" | \"hide\" | \"none\" | \"reset\" | \"resize\" | \"show\"",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"update": [
+					{
+						"parameters": [
+							{
+								"name": "mode",
+								"type": "\"active\" | \"default\" | \"hide\" | \"none\" | \"reset\" | \"resize\" | \"show\"",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateIndex": [
+					{
+						"parameters": [
+							{
+								"name": "datasetIndex",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"draw": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"reset": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getDataset": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "ChartDataset<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[]>",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getMeta": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "ChartMeta<keyof ChartTypeRegistry, Element<AnyObject, AnyObject>, Element<AnyObject, AnyObject>>",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getScaleForId": [
+					{
+						"parameters": [
+							{
+								"name": "scaleID",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Scale<CoreScaleOptions> | undefined",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"configure": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"initialize": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"addElements": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"buildOrUpdateElements": [
+					{
+						"parameters": [
+							{
+								"name": "resetNewElements",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getStyle": [
+					{
+						"parameters": [
+							{
+								"name": "index",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "active",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "AnyObject",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"removeHoverStyle": [
+					{
+						"parameters": [
+							{
+								"name": "element",
+								"type": "Element<AnyObject, AnyObject>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "datasetIndex",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "index",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"setHoverStyle": [
+					{
+						"parameters": [
+							{
+								"name": "element",
+								"type": "Element<AnyObject, AnyObject>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "datasetIndex",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "index",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"parse": [
+					{
+						"parameters": [
+							{
+								"name": "start",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "count",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"chart": {
+					"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+					"handle": "Chart"
+				},
+				"index": {
+					"type": "number"
+				},
+				"enableOptionSharing": {
+					"type": "boolean"
+				},
+				"supportsDecimation": {
+					"type": "boolean"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"DoughnutController": {
+			"name": "DoughnutController",
+			"typeRef": "Upstream.DoughnutController",
+			"methods": {
+				"calculateTotal": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"calculateCircumference": [
+					{
+						"parameters": [
+							{
+								"name": "value",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"linkScales": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getAllParsedValues": [
+					{
+						"parameters": [
+							{
+								"name": "scale",
+								"type": "Scale<CoreScaleOptions>",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateElements": [
+					{
+						"parameters": [
+							{
+								"name": "elements",
+								"type": "Element<AnyObject, AnyObject>[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "start",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "count",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "mode",
+								"type": "\"active\" | \"default\" | \"hide\" | \"none\" | \"reset\" | \"resize\" | \"show\"",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"update": [
+					{
+						"parameters": [
+							{
+								"name": "mode",
+								"type": "\"active\" | \"default\" | \"hide\" | \"none\" | \"reset\" | \"resize\" | \"show\"",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateIndex": [
+					{
+						"parameters": [
+							{
+								"name": "datasetIndex",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"draw": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"reset": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getDataset": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "ChartDataset<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[]>",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getMeta": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "ChartMeta<keyof ChartTypeRegistry, Element<AnyObject, AnyObject>, Element<AnyObject, AnyObject>>",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getScaleForId": [
+					{
+						"parameters": [
+							{
+								"name": "scaleID",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Scale<CoreScaleOptions> | undefined",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"configure": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"initialize": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"addElements": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"buildOrUpdateElements": [
+					{
+						"parameters": [
+							{
+								"name": "resetNewElements",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getStyle": [
+					{
+						"parameters": [
+							{
+								"name": "index",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "active",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "AnyObject",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"removeHoverStyle": [
+					{
+						"parameters": [
+							{
+								"name": "element",
+								"type": "Element<AnyObject, AnyObject>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "datasetIndex",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "index",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"setHoverStyle": [
+					{
+						"parameters": [
+							{
+								"name": "element",
+								"type": "Element<AnyObject, AnyObject>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "datasetIndex",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "index",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"parse": [
+					{
+						"parameters": [
+							{
+								"name": "start",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "count",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"innerRadius": {
+					"type": "number"
+				},
+				"outerRadius": {
+					"type": "number"
+				},
+				"offsetX": {
+					"type": "number"
+				},
+				"offsetY": {
+					"type": "number"
+				},
+				"chart": {
+					"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+					"handle": "Chart"
+				},
+				"index": {
+					"type": "number"
+				},
+				"enableOptionSharing": {
+					"type": "boolean"
+				},
+				"supportsDecimation": {
+					"type": "boolean"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"PolarAreaController": {
+			"name": "PolarAreaController",
+			"typeRef": "Upstream.PolarAreaController",
+			"methods": {
+				"countVisibleElements": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"calculateTotal": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"calculateCircumference": [
+					{
+						"parameters": [
+							{
+								"name": "value",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"linkScales": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getAllParsedValues": [
+					{
+						"parameters": [
+							{
+								"name": "scale",
+								"type": "Scale<CoreScaleOptions>",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateElements": [
+					{
+						"parameters": [
+							{
+								"name": "elements",
+								"type": "Element<AnyObject, AnyObject>[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "start",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "count",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "mode",
+								"type": "\"active\" | \"default\" | \"hide\" | \"none\" | \"reset\" | \"resize\" | \"show\"",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"update": [
+					{
+						"parameters": [
+							{
+								"name": "mode",
+								"type": "\"active\" | \"default\" | \"hide\" | \"none\" | \"reset\" | \"resize\" | \"show\"",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateIndex": [
+					{
+						"parameters": [
+							{
+								"name": "datasetIndex",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"draw": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"reset": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getDataset": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "ChartDataset<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[]>",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getMeta": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "ChartMeta<keyof ChartTypeRegistry, Element<AnyObject, AnyObject>, Element<AnyObject, AnyObject>>",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getScaleForId": [
+					{
+						"parameters": [
+							{
+								"name": "scaleID",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Scale<CoreScaleOptions> | undefined",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"configure": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"initialize": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"addElements": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"buildOrUpdateElements": [
+					{
+						"parameters": [
+							{
+								"name": "resetNewElements",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getStyle": [
+					{
+						"parameters": [
+							{
+								"name": "index",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "active",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "AnyObject",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"removeHoverStyle": [
+					{
+						"parameters": [
+							{
+								"name": "element",
+								"type": "Element<AnyObject, AnyObject>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "datasetIndex",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "index",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"setHoverStyle": [
+					{
+						"parameters": [
+							{
+								"name": "element",
+								"type": "Element<AnyObject, AnyObject>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "datasetIndex",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "index",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"parse": [
+					{
+						"parameters": [
+							{
+								"name": "start",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "count",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"innerRadius": {
+					"type": "number"
+				},
+				"outerRadius": {
+					"type": "number"
+				},
+				"offsetX": {
+					"type": "number"
+				},
+				"offsetY": {
+					"type": "number"
+				},
+				"chart": {
+					"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+					"handle": "Chart"
+				},
+				"index": {
+					"type": "number"
+				},
+				"enableOptionSharing": {
+					"type": "boolean"
+				},
+				"supportsDecimation": {
+					"type": "boolean"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"Animation": {
+			"name": "Animation",
+			"typeRef": "Upstream.Animation",
+			"methods": {
+				"active": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"update": [
+					{
+						"parameters": [
+							{
+								"name": "cfg",
+								"type": "AnyObject",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "to",
+								"type": "unknown",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "date",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"cancel": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"tick": [
+					{
+						"parameters": [
+							{
+								"name": "date",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {},
+			"events": [],
+			"releases": []
+		},
+		"Animations": {
+			"name": "Animations",
+			"typeRef": "Upstream.Animations",
+			"methods": {
+				"configure": [
+					{
+						"parameters": [
+							{
+								"name": "animations",
+								"type": "AnyObject",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"update": [
+					{
+						"parameters": [
+							{
+								"name": "target",
+								"type": "AnyObject",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "values",
+								"type": "AnyObject",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean | undefined",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {},
+			"events": [],
+			"releases": []
+		},
+		"Chart": {
+			"name": "Chart",
+			"typeRef": "Upstream.Chart<any, any, any>",
+			"methods": {
+				"clear": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Chart<TType, TData, TLabel>",
+						"handle": "Chart",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"stop": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Chart<TType, TData, TLabel>",
+						"handle": "Chart",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"resize": [
+					{
+						"parameters": [
+							{
+								"name": "width",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "height",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"ensureScalesHaveIDs": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"buildOrUpdateScales": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"buildOrUpdateControllers": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"reset": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"update": [
+					{
+						"parameters": [
+							{
+								"name": "mode",
+								"type": "\"active\" | \"default\" | \"hide\" | \"none\" | \"reset\" | \"resize\" | \"show\" | ((ctx: { datasetIndex: number; }) => \"active\" | \"default\" | \"hide\" | \"none\" | \"reset\" | \"resize\" | \"show\") | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"render": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"draw": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isPointInArea": [
+					{
+						"parameters": [
+							{
+								"name": "point",
+								"type": "Point",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getElementsAtEventForMode": [
+					{
+						"parameters": [
+							{
+								"name": "e",
+								"type": "Event",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "mode",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "InteractionOptions",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "useFinalPosition",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "InteractionItem[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getSortedVisibleDatasetMetas": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "ChartMeta<keyof ChartTypeRegistry, Element<AnyObject, AnyObject>, Element<AnyObject, AnyObject>>[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getDatasetMeta": [
+					{
+						"parameters": [
+							{
+								"name": "datasetIndex",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "ChartMeta<keyof ChartTypeRegistry, Element<AnyObject, AnyObject>, Element<AnyObject, AnyObject>>",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getVisibleDatasetCount": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isDatasetVisible": [
+					{
+						"parameters": [
+							{
+								"name": "datasetIndex",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"setDatasetVisibility": [
+					{
+						"parameters": [
+							{
+								"name": "datasetIndex",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "visible",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"toggleDataVisibility": [
+					{
+						"parameters": [
+							{
+								"name": "index",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getDataVisibility": [
+					{
+						"parameters": [
+							{
+								"name": "index",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"hide": [
+					{
+						"parameters": [
+							{
+								"name": "datasetIndex",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "dataIndex",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"show": [
+					{
+						"parameters": [
+							{
+								"name": "datasetIndex",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "dataIndex",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getActiveElements": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "ActiveElement[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"setActiveElements": [
+					{
+						"parameters": [
+							{
+								"name": "active",
+								"type": "ActiveDataPoint[]",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"destroy": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"toBase64Image": [
+					{
+						"parameters": [
+							{
+								"name": "type",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "quality",
+								"type": "unknown",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "string",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"bindEvents": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"unbindEvents": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateHoverStyle": [
+					{
+						"parameters": [
+							{
+								"name": "items",
+								"type": "InteractionItem[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "mode",
+								"type": "\"dataset\"",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "enabled",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"notifyPlugins": [
+					{
+						"parameters": [
+							{
+								"name": "hook",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "args",
+								"type": "AnyObject | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void | boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isPluginEnabled": [
+					{
+						"parameters": [
+							{
+								"name": "pluginId",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getContext": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "{ chart: Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>; type: string; }",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"platform": {
+					"type": "BasePlatform",
+					"handle": "BasePlatform"
+				},
+				"id": {
+					"type": "string"
+				},
+				"canvas": {
+					"type": "HTMLCanvasElement"
+				},
+				"ctx": {
+					"type": "CanvasRenderingContext2D"
+				},
+				"config": {
+					"type": "ChartConfiguration<TType, TData, TLabel> | ChartConfigurationCustomTypesPerDataset<TType, TData, TLabel>"
+				},
+				"width": {
+					"type": "number"
+				},
+				"height": {
+					"type": "number"
+				},
+				"aspectRatio": {
+					"type": "number"
+				},
+				"boxes": {
+					"type": "LayoutItem[]"
+				},
+				"currentDevicePixelRatio": {
+					"type": "number"
+				},
+				"chartArea": {
+					"type": "ChartArea"
+				},
+				"scales": {
+					"type": "{ [key: string]: Scale<CoreScaleOptions>; }"
+				},
+				"attached": {
+					"type": "boolean"
+				},
+				"legend": {
+					"type": "LegendElement<TType> | undefined"
+				},
+				"tooltip": {
+					"type": "TooltipModel<TType> | undefined"
+				},
+				"data": {
+					"type": "ChartData<TType, TData, TLabel>"
+				},
+				"options": {
+					"type": "Exclude<DeepPartial<CoreChartOptions<TType> & ElementChartOptions<TType> & PluginChartOptions<TType> & DatasetChartOptions<TType> & ScaleChartOptions<TType> & ChartTypeRegistry[TType][\"chartOptions\"]>, _DeepPartialArray<unknown>>"
+				}
+			},
+			"events": [],
+			"releases": [
+				"stop",
+				"destroy"
+			]
+		},
+		"Scale": {
+			"name": "Scale",
+			"typeRef": "Upstream.Scale<any>",
+			"methods": {
+				"getMatchingVisibleMetas": [
+					{
+						"parameters": [
+							{
+								"name": "type",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "ChartMeta<keyof ChartTypeRegistry, Element<AnyObject, AnyObject>, Element<AnyObject, AnyObject>>[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"drawTitle": [
+					{
+						"parameters": [
+							{
+								"name": "chartArea",
+								"type": "ChartArea",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"drawLabels": [
+					{
+						"parameters": [
+							{
+								"name": "chartArea",
+								"type": "ChartArea",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"drawGrid": [
+					{
+						"parameters": [
+							{
+								"name": "chartArea",
+								"type": "ChartArea",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getDecimalForPixel": [
+					{
+						"parameters": [
+							{
+								"name": "pixel",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getPixelForDecimal": [
+					{
+						"parameters": [
+							{
+								"name": "decimal",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getPixelForTick": [
+					{
+						"parameters": [
+							{
+								"name": "index",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getLabelForValue": [
+					{
+						"parameters": [
+							{
+								"name": "value",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "string",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getLineWidthForValue": [
+					{
+						"parameters": [
+							{
+								"name": "value",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getPixelForValue": [
+					{
+						"parameters": [
+							{
+								"name": "value",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "index",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getValueForPixel": [
+					{
+						"parameters": [
+							{
+								"name": "pixel",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number | undefined",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getBaseValue": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getBasePixel": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"init": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "O",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"parse": [
+					{
+						"parameters": [
+							{
+								"name": "raw",
+								"type": "unknown",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "index",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "unknown",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getUserBounds": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "{ min: number; max: number; minDefined: boolean; maxDefined: boolean; }",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getMinMax": [
+					{
+						"parameters": [
+							{
+								"name": "canStack",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "{ min: number; max: number; }",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getTicks": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Tick[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getLabels": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "string[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getLabelItems": [
+					{
+						"parameters": [
+							{
+								"name": "chartArea",
+								"type": "ChartArea | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "LabelItem[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeUpdate": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"configure": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterUpdate": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeSetDimensions": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"setDimensions": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterSetDimensions": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeDataLimits": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"determineDataLimits": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterDataLimits": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeBuildTicks": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"buildTicks": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Tick[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterBuildTicks": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeTickToLabelConversion": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"generateTickLabels": [
+					{
+						"parameters": [
+							{
+								"name": "ticks",
+								"type": "Tick[]",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterTickToLabelConversion": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeCalculateLabelRotation": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"calculateLabelRotation": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterCalculateLabelRotation": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeFit": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"fit": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterFit": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isFullSize": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"tooltipPosition": [
+					{
+						"parameters": [
+							{
+								"name": "useFinalPosition",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Point",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"hasValue": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getProps": [
+					{
+						"typeParameters": "P extends (never)[]",
+						"parameters": [
+							{
+								"name": "props",
+								"type": "P",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "final",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Pick<unknown, P[number]>",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"typeParameters": "P extends string",
+						"parameters": [
+							{
+								"name": "props",
+								"type": "P[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "final",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Partial<Record<P, unknown>>",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"draw": [
+					{
+						"parameters": [
+							{
+								"name": "chartArea",
+								"type": "ChartArea",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isHorizontal": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"update": [
+					{
+						"parameters": [
+							{
+								"name": "width",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "height",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "margins",
+								"type": "ChartArea | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string"
+				},
+				"ctx": {
+					"type": "CanvasRenderingContext2D"
+				},
+				"chart": {
+					"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+					"handle": "Chart"
+				},
+				"maxWidth": {
+					"type": "number"
+				},
+				"maxHeight": {
+					"type": "number"
+				},
+				"paddingTop": {
+					"type": "number"
+				},
+				"paddingBottom": {
+					"type": "number"
+				},
+				"paddingLeft": {
+					"type": "number"
+				},
+				"paddingRight": {
+					"type": "number"
+				},
+				"axis": {
+					"type": "string"
+				},
+				"labelRotation": {
+					"type": "number"
+				},
+				"min": {
+					"type": "number"
+				},
+				"max": {
+					"type": "number"
+				},
+				"ticks": {
+					"type": "Tick[]"
+				},
+				"x": {
+					"type": "number"
+				},
+				"y": {
+					"type": "number"
+				},
+				"active": {
+					"type": "boolean"
+				},
+				"options": {
+					"type": "O"
+				},
+				"$animations": {
+					"type": "Record<never, Animation>"
+				},
+				"position": {
+					"type": "LayoutPosition"
+				},
+				"weight": {
+					"type": "number"
+				},
+				"fullSize": {
+					"type": "boolean"
+				},
+				"width": {
+					"type": "number"
+				},
+				"height": {
+					"type": "number"
+				},
+				"left": {
+					"type": "number"
+				},
+				"top": {
+					"type": "number"
+				},
+				"right": {
+					"type": "number"
+				},
+				"bottom": {
+					"type": "number"
+				},
+				"beforeLayout": {
+					"type": "(() => void) | undefined"
+				},
+				"getPadding": {
+					"type": "(() => ChartArea) | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"BarElement": {
+			"name": "BarElement",
+			"typeRef": "Upstream.BarElement<any, any>",
+			"methods": {
+				"tooltipPosition": [
+					{
+						"parameters": [
+							{
+								"name": "useFinalPosition",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Point",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"hasValue": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getProps": [
+					{
+						"typeParameters": "P extends (keyof BarProps)[]",
+						"parameters": [
+							{
+								"name": "props",
+								"type": "P",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "final",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Pick<BarProps, P[number]>",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"typeParameters": "P extends string",
+						"parameters": [
+							{
+								"name": "props",
+								"type": "P[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "final",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Partial<Record<P, unknown>>",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"draw": [
+					{
+						"parameters": [
+							{
+								"name": "ctx",
+								"type": "CanvasRenderingContext2D",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "area",
+								"type": "ChartArea | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"inRange": [
+					{
+						"parameters": [
+							{
+								"name": "mouseX",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "mouseY",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "useFinalPosition",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"inXRange": [
+					{
+						"parameters": [
+							{
+								"name": "mouseX",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "useFinalPosition",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"inYRange": [
+					{
+						"parameters": [
+							{
+								"name": "mouseY",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "useFinalPosition",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getCenterPoint": [
+					{
+						"parameters": [
+							{
+								"name": "useFinalPosition",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Point",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"x": {
+					"type": "number"
+				},
+				"y": {
+					"type": "number"
+				},
+				"active": {
+					"type": "boolean"
+				},
+				"options": {
+					"type": "BarOptions"
+				},
+				"$animations": {
+					"type": "Record<keyof BarProps, Animation>"
+				},
+				"getRange": {
+					"type": "((axis: \"x\" | \"y\") => number) | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"LineElement": {
+			"name": "LineElement",
+			"typeRef": "Upstream.LineElement<any, any>",
+			"methods": {
+				"updateControlPoints": [
+					{
+						"parameters": [
+							{
+								"name": "chartArea",
+								"type": "ChartArea",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "indexAxis",
+								"type": "\"x\" | \"y\" | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"first": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "false | Point",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"last": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "false | Point",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"interpolate": [
+					{
+						"parameters": [
+							{
+								"name": "point",
+								"type": "Point",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "property",
+								"type": "\"x\" | \"y\"",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Point[] | Point | undefined",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"pathSegment": [
+					{
+						"parameters": [
+							{
+								"name": "ctx",
+								"type": "CanvasRenderingContext2D",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "segment",
+								"type": "Segment",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "params",
+								"type": "AnyObject",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean | undefined",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"path": [
+					{
+						"parameters": [
+							{
+								"name": "ctx",
+								"type": "CanvasRenderingContext2D",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"tooltipPosition": [
+					{
+						"parameters": [
+							{
+								"name": "useFinalPosition",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Point",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"hasValue": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getProps": [
+					{
+						"typeParameters": "P extends (\"points\")[]",
+						"parameters": [
+							{
+								"name": "props",
+								"type": "P",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "final",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Pick<LineProps, P[number]>",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"typeParameters": "P extends string",
+						"parameters": [
+							{
+								"name": "props",
+								"type": "P[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "final",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Partial<Record<P, unknown>>",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"draw": [
+					{
+						"parameters": [
+							{
+								"name": "ctx",
+								"type": "CanvasRenderingContext2D",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "area",
+								"type": "ChartArea | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"inRange": [
+					{
+						"parameters": [
+							{
+								"name": "mouseX",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "mouseY",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "useFinalPosition",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"inXRange": [
+					{
+						"parameters": [
+							{
+								"name": "mouseX",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "useFinalPosition",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"inYRange": [
+					{
+						"parameters": [
+							{
+								"name": "mouseY",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "useFinalPosition",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getCenterPoint": [
+					{
+						"parameters": [
+							{
+								"name": "useFinalPosition",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Point",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"points": {
+					"type": "Point[]"
+				},
+				"segments": {
+					"type": "Segment[]"
+				},
+				"x": {
+					"type": "number"
+				},
+				"y": {
+					"type": "number"
+				},
+				"active": {
+					"type": "boolean"
+				},
+				"options": {
+					"type": "LineOptions"
+				},
+				"$animations": {
+					"type": "Record<\"points\", Animation>"
+				},
+				"getRange": {
+					"type": "((axis: \"x\" | \"y\") => number) | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"BasePlatform": {
+			"name": "BasePlatform",
+			"typeRef": "Upstream.BasePlatform",
+			"methods": {
+				"acquireContext": [
+					{
+						"parameters": [
+							{
+								"name": "canvas",
+								"type": "HTMLCanvasElement",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "CanvasRenderingContext2DSettings | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "CanvasRenderingContext2D | null",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"releaseContext": [
+					{
+						"parameters": [
+							{
+								"name": "context",
+								"type": "CanvasRenderingContext2D",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"addEventListener": [
+					{
+						"parameters": [
+							{
+								"name": "chart",
+								"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "type",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "listener",
+								"type": "(e: ChartEvent) => void",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "void",
+						"traits": [
+							"callback"
+						]
+					}
+				],
+				"removeEventListener": [
+					{
+						"parameters": [
+							{
+								"name": "chart",
+								"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "type",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "listener",
+								"type": "(e: ChartEvent) => void",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "void",
+						"traits": [
+							"callback"
+						]
+					}
+				],
+				"getDevicePixelRatio": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getMaximumSize": [
+					{
+						"parameters": [
+							{
+								"name": "canvas",
+								"type": "HTMLCanvasElement",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "width",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "height",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "aspectRatio",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "{ width: number; height: number; }",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isAttached": [
+					{
+						"parameters": [
+							{
+								"name": "canvas",
+								"type": "HTMLCanvasElement",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateConfig": [
+					{
+						"parameters": [
+							{
+								"name": "config",
+								"type": "ChartConfiguration<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown> | ChartConfigurationCustomTypesPerDataset<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {},
+			"events": [],
+			"releases": []
+		},
+		"BasicPlatform": {
+			"name": "BasicPlatform",
+			"typeRef": "Upstream.BasicPlatform",
+			"methods": {
+				"acquireContext": [
+					{
+						"parameters": [
+							{
+								"name": "canvas",
+								"type": "HTMLCanvasElement",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "CanvasRenderingContext2DSettings | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "CanvasRenderingContext2D | null",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"releaseContext": [
+					{
+						"parameters": [
+							{
+								"name": "context",
+								"type": "CanvasRenderingContext2D",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"addEventListener": [
+					{
+						"parameters": [
+							{
+								"name": "chart",
+								"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "type",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "listener",
+								"type": "(e: ChartEvent) => void",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "void",
+						"traits": [
+							"callback"
+						]
+					}
+				],
+				"removeEventListener": [
+					{
+						"parameters": [
+							{
+								"name": "chart",
+								"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "type",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "listener",
+								"type": "(e: ChartEvent) => void",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "void",
+						"traits": [
+							"callback"
+						]
+					}
+				],
+				"getDevicePixelRatio": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getMaximumSize": [
+					{
+						"parameters": [
+							{
+								"name": "canvas",
+								"type": "HTMLCanvasElement",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "width",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "height",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "aspectRatio",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "{ width: number; height: number; }",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isAttached": [
+					{
+						"parameters": [
+							{
+								"name": "canvas",
+								"type": "HTMLCanvasElement",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateConfig": [
+					{
+						"parameters": [
+							{
+								"name": "config",
+								"type": "ChartConfiguration<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown> | ChartConfigurationCustomTypesPerDataset<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {},
+			"events": [],
+			"releases": []
+		},
+		"DomPlatform": {
+			"name": "DomPlatform",
+			"typeRef": "Upstream.DomPlatform",
+			"methods": {
+				"acquireContext": [
+					{
+						"parameters": [
+							{
+								"name": "canvas",
+								"type": "HTMLCanvasElement",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "options",
+								"type": "CanvasRenderingContext2DSettings | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "CanvasRenderingContext2D | null",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"releaseContext": [
+					{
+						"parameters": [
+							{
+								"name": "context",
+								"type": "CanvasRenderingContext2D",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"addEventListener": [
+					{
+						"parameters": [
+							{
+								"name": "chart",
+								"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "type",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "listener",
+								"type": "(e: ChartEvent) => void",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "void",
+						"traits": [
+							"callback"
+						]
+					}
+				],
+				"removeEventListener": [
+					{
+						"parameters": [
+							{
+								"name": "chart",
+								"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "type",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "listener",
+								"type": "(e: ChartEvent) => void",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "void",
+						"traits": [
+							"callback"
+						]
+					}
+				],
+				"getDevicePixelRatio": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getMaximumSize": [
+					{
+						"parameters": [
+							{
+								"name": "canvas",
+								"type": "HTMLCanvasElement",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "width",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "height",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "aspectRatio",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "{ width: number; height: number; }",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isAttached": [
+					{
+						"parameters": [
+							{
+								"name": "canvas",
+								"type": "HTMLCanvasElement",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateConfig": [
+					{
+						"parameters": [
+							{
+								"name": "config",
+								"type": "ChartConfiguration<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown> | ChartConfigurationCustomTypesPerDataset<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {},
+			"events": [],
+			"releases": []
+		},
+		"RadialLinearScale": {
+			"name": "RadialLinearScale",
+			"typeRef": "Upstream.RadialLinearScale<any>",
+			"methods": {
+				"setCenterPoint": [
+					{
+						"parameters": [
+							{
+								"name": "leftMovement",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "rightMovement",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "topMovement",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "bottomMovement",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getIndexAngle": [
+					{
+						"parameters": [
+							{
+								"name": "index",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getDistanceFromCenterForValue": [
+					{
+						"parameters": [
+							{
+								"name": "value",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getValueForDistanceFromCenter": [
+					{
+						"parameters": [
+							{
+								"name": "distance",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getPointPosition": [
+					{
+						"parameters": [
+							{
+								"name": "index",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "distanceFromCenter",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "{ x: number; y: number; angle: number; }",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getPointPositionForValue": [
+					{
+						"parameters": [
+							{
+								"name": "index",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "value",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "{ x: number; y: number; angle: number; }",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getPointLabelPosition": [
+					{
+						"parameters": [
+							{
+								"name": "index",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "ChartArea",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getBasePosition": [
+					{
+						"parameters": [
+							{
+								"name": "index",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "{ x: number; y: number; angle: number; }",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"tooltipPosition": [
+					{
+						"parameters": [
+							{
+								"name": "useFinalPosition",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Point",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"hasValue": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getProps": [
+					{
+						"typeParameters": "P extends (never)[]",
+						"parameters": [
+							{
+								"name": "props",
+								"type": "P",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "final",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Pick<unknown, P[number]>",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"typeParameters": "P extends string",
+						"parameters": [
+							{
+								"name": "props",
+								"type": "P[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "final",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Partial<Record<P, unknown>>",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"draw": [
+					{
+						"parameters": [
+							{
+								"name": "chartArea",
+								"type": "ChartArea",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isHorizontal": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"update": [
+					{
+						"parameters": [
+							{
+								"name": "width",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "height",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "margins",
+								"type": "ChartArea | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getMatchingVisibleMetas": [
+					{
+						"parameters": [
+							{
+								"name": "type",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "ChartMeta<keyof ChartTypeRegistry, Element<AnyObject, AnyObject>, Element<AnyObject, AnyObject>>[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"drawTitle": [
+					{
+						"parameters": [
+							{
+								"name": "chartArea",
+								"type": "ChartArea",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"drawLabels": [
+					{
+						"parameters": [
+							{
+								"name": "chartArea",
+								"type": "ChartArea",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"drawGrid": [
+					{
+						"parameters": [
+							{
+								"name": "chartArea",
+								"type": "ChartArea",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getDecimalForPixel": [
+					{
+						"parameters": [
+							{
+								"name": "pixel",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getPixelForDecimal": [
+					{
+						"parameters": [
+							{
+								"name": "decimal",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getPixelForTick": [
+					{
+						"parameters": [
+							{
+								"name": "index",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getLabelForValue": [
+					{
+						"parameters": [
+							{
+								"name": "value",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "string",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getLineWidthForValue": [
+					{
+						"parameters": [
+							{
+								"name": "value",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getPixelForValue": [
+					{
+						"parameters": [
+							{
+								"name": "value",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "index",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getValueForPixel": [
+					{
+						"parameters": [
+							{
+								"name": "pixel",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number | undefined",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getBaseValue": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getBasePixel": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"init": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "O",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"parse": [
+					{
+						"parameters": [
+							{
+								"name": "raw",
+								"type": "unknown",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "index",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "unknown",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getUserBounds": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "{ min: number; max: number; minDefined: boolean; maxDefined: boolean; }",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getMinMax": [
+					{
+						"parameters": [
+							{
+								"name": "canStack",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "{ min: number; max: number; }",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getTicks": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Tick[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getLabels": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "string[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getLabelItems": [
+					{
+						"parameters": [
+							{
+								"name": "chartArea",
+								"type": "ChartArea | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "LabelItem[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeUpdate": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"configure": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterUpdate": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeSetDimensions": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"setDimensions": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterSetDimensions": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeDataLimits": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"determineDataLimits": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterDataLimits": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeBuildTicks": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"buildTicks": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Tick[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterBuildTicks": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeTickToLabelConversion": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"generateTickLabels": [
+					{
+						"parameters": [
+							{
+								"name": "ticks",
+								"type": "Tick[]",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterTickToLabelConversion": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeCalculateLabelRotation": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"calculateLabelRotation": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterCalculateLabelRotation": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeFit": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"fit": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterFit": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isFullSize": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"xCenter": {
+					"type": "number"
+				},
+				"yCenter": {
+					"type": "number"
+				},
+				"drawingArea": {
+					"type": "number"
+				},
+				"x": {
+					"type": "number"
+				},
+				"y": {
+					"type": "number"
+				},
+				"active": {
+					"type": "boolean"
+				},
+				"options": {
+					"type": "O"
+				},
+				"$animations": {
+					"type": "Record<never, Animation>"
+				},
+				"position": {
+					"type": "LayoutPosition"
+				},
+				"weight": {
+					"type": "number"
+				},
+				"fullSize": {
+					"type": "boolean"
+				},
+				"width": {
+					"type": "number"
+				},
+				"height": {
+					"type": "number"
+				},
+				"left": {
+					"type": "number"
+				},
+				"top": {
+					"type": "number"
+				},
+				"right": {
+					"type": "number"
+				},
+				"bottom": {
+					"type": "number"
+				},
+				"beforeLayout": {
+					"type": "(() => void) | undefined"
+				},
+				"getPadding": {
+					"type": "(() => ChartArea) | undefined"
+				},
+				"id": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string"
+				},
+				"ctx": {
+					"type": "CanvasRenderingContext2D"
+				},
+				"chart": {
+					"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+					"handle": "Chart"
+				},
+				"maxWidth": {
+					"type": "number"
+				},
+				"maxHeight": {
+					"type": "number"
+				},
+				"paddingTop": {
+					"type": "number"
+				},
+				"paddingBottom": {
+					"type": "number"
+				},
+				"paddingLeft": {
+					"type": "number"
+				},
+				"paddingRight": {
+					"type": "number"
+				},
+				"axis": {
+					"type": "string"
+				},
+				"labelRotation": {
+					"type": "number"
+				},
+				"min": {
+					"type": "number"
+				},
+				"max": {
+					"type": "number"
+				},
+				"ticks": {
+					"type": "Tick[]"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"TimeScale": {
+			"name": "TimeScale",
+			"typeRef": "Upstream.TimeScale<any>",
+			"methods": {
+				"format": [
+					{
+						"parameters": [
+							{
+								"name": "value",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "format",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "string",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getDataTimestamps": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getLabelTimestamps": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "string[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"normalize": [
+					{
+						"parameters": [
+							{
+								"name": "values",
+								"type": "number[]",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"tooltipPosition": [
+					{
+						"parameters": [
+							{
+								"name": "useFinalPosition",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Point",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"hasValue": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getProps": [
+					{
+						"typeParameters": "P extends (never)[]",
+						"parameters": [
+							{
+								"name": "props",
+								"type": "P",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "final",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Pick<unknown, P[number]>",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"typeParameters": "P extends string",
+						"parameters": [
+							{
+								"name": "props",
+								"type": "P[]",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "final",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Partial<Record<P, unknown>>",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"draw": [
+					{
+						"parameters": [
+							{
+								"name": "chartArea",
+								"type": "ChartArea",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isHorizontal": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"update": [
+					{
+						"parameters": [
+							{
+								"name": "width",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "height",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "margins",
+								"type": "ChartArea | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getMatchingVisibleMetas": [
+					{
+						"parameters": [
+							{
+								"name": "type",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "ChartMeta<keyof ChartTypeRegistry, Element<AnyObject, AnyObject>, Element<AnyObject, AnyObject>>[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"drawTitle": [
+					{
+						"parameters": [
+							{
+								"name": "chartArea",
+								"type": "ChartArea",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"drawLabels": [
+					{
+						"parameters": [
+							{
+								"name": "chartArea",
+								"type": "ChartArea",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"drawGrid": [
+					{
+						"parameters": [
+							{
+								"name": "chartArea",
+								"type": "ChartArea",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getDecimalForPixel": [
+					{
+						"parameters": [
+							{
+								"name": "pixel",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getPixelForDecimal": [
+					{
+						"parameters": [
+							{
+								"name": "decimal",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getPixelForTick": [
+					{
+						"parameters": [
+							{
+								"name": "index",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getLabelForValue": [
+					{
+						"parameters": [
+							{
+								"name": "value",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "string",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getLineWidthForValue": [
+					{
+						"parameters": [
+							{
+								"name": "value",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getPixelForValue": [
+					{
+						"parameters": [
+							{
+								"name": "value",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "index",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getValueForPixel": [
+					{
+						"parameters": [
+							{
+								"name": "pixel",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number | undefined",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getBaseValue": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getBasePixel": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"init": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "O",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"parse": [
+					{
+						"parameters": [
+							{
+								"name": "raw",
+								"type": "unknown",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "index",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "unknown",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getUserBounds": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "{ min: number; max: number; minDefined: boolean; maxDefined: boolean; }",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getMinMax": [
+					{
+						"parameters": [
+							{
+								"name": "canStack",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "{ min: number; max: number; }",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getTicks": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Tick[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getLabels": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "string[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getLabelItems": [
+					{
+						"parameters": [
+							{
+								"name": "chartArea",
+								"type": "ChartArea | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "LabelItem[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeUpdate": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"configure": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterUpdate": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeSetDimensions": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"setDimensions": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterSetDimensions": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeDataLimits": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"determineDataLimits": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterDataLimits": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeBuildTicks": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"buildTicks": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Tick[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterBuildTicks": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeTickToLabelConversion": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"generateTickLabels": [
+					{
+						"parameters": [
+							{
+								"name": "ticks",
+								"type": "Tick[]",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterTickToLabelConversion": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeCalculateLabelRotation": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"calculateLabelRotation": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterCalculateLabelRotation": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"beforeFit": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"fit": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"afterFit": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isFullSize": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"x": {
+					"type": "number"
+				},
+				"y": {
+					"type": "number"
+				},
+				"active": {
+					"type": "boolean"
+				},
+				"options": {
+					"type": "O"
+				},
+				"$animations": {
+					"type": "Record<never, Animation>"
+				},
+				"position": {
+					"type": "LayoutPosition"
+				},
+				"weight": {
+					"type": "number"
+				},
+				"fullSize": {
+					"type": "boolean"
+				},
+				"width": {
+					"type": "number"
+				},
+				"height": {
+					"type": "number"
+				},
+				"left": {
+					"type": "number"
+				},
+				"top": {
+					"type": "number"
+				},
+				"right": {
+					"type": "number"
+				},
+				"bottom": {
+					"type": "number"
+				},
+				"beforeLayout": {
+					"type": "(() => void) | undefined"
+				},
+				"getPadding": {
+					"type": "(() => ChartArea) | undefined"
+				},
+				"id": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string"
+				},
+				"ctx": {
+					"type": "CanvasRenderingContext2D"
+				},
+				"chart": {
+					"type": "Chart<keyof ChartTypeRegistry, (number | BubbleDataPoint | Point | [number, number] | null)[], unknown>",
+					"handle": "Chart"
+				},
+				"maxWidth": {
+					"type": "number"
+				},
+				"maxHeight": {
+					"type": "number"
+				},
+				"paddingTop": {
+					"type": "number"
+				},
+				"paddingBottom": {
+					"type": "number"
+				},
+				"paddingLeft": {
+					"type": "number"
+				},
+				"paddingRight": {
+					"type": "number"
+				},
+				"axis": {
+					"type": "string"
+				},
+				"labelRotation": {
+					"type": "number"
+				},
+				"min": {
+					"type": "number"
+				},
+				"max": {
+					"type": "number"
+				},
+				"ticks": {
+					"type": "Tick[]"
+				}
+			},
+			"events": [],
+			"releases": []
+		}
+	},
+	"typeExports": [
+		"EasingFunction",
+		"ArcProps",
+		"PointProps",
+		"Animator",
+		"AnimationEvent",
+		"Color",
+		"ChartArea",
+		"Point",
+		"TRBL",
+		"LayoutItem",
+		"LayoutPosition",
+		"ScriptableContext",
+		"ScriptableLineSegmentContext",
+		"Scriptable",
+		"ScriptableOptions",
+		"ScriptableAndScriptableOptions",
+		"ScriptableAndArray",
+		"ScriptableAndArrayOptions",
+		"ParsingOptions",
+		"ControllerDatasetOptions",
+		"BarControllerDatasetOptions",
+		"BarControllerChartOptions",
+		"BubbleControllerDatasetOptions",
+		"BubbleDataPoint",
+		"LineControllerDatasetOptions",
+		"LineControllerChartOptions",
+		"ScatterControllerDatasetOptions",
+		"ScatterDataPoint",
+		"ScatterControllerChartOptions",
+		"DoughnutControllerDatasetOptions",
+		"DoughnutAnimationOptions",
+		"DoughnutControllerChartOptions",
+		"DoughnutDataPoint",
+		"DoughnutMetaExtensions",
+		"PieControllerDatasetOptions",
+		"PieControllerChartOptions",
+		"PieAnimationOptions",
+		"PieDataPoint",
+		"PieMetaExtensions",
+		"PolarAreaControllerDatasetOptions",
+		"PolarAreaAnimationOptions",
+		"PolarAreaControllerChartOptions",
+		"RadarControllerDatasetOptions",
+		"RadarControllerChartOptions",
+		"ChartMeta",
+		"ActiveDataPoint",
+		"ActiveElement",
+		"ChartItem",
+		"UpdateMode",
+		"DatasetControllerChartComponent",
+		"Defaults",
+		"Overrides",
+		"InteractionOptions",
+		"InteractionItem",
+		"InteractionModeFunction",
+		"InteractionModeMap",
+		"InteractionMode",
+		"Plugin",
+		"ChartComponentLike",
+		"Registry",
+		"Tick",
+		"CoreScaleOptions",
+		"ScriptableScaleContext",
+		"ScriptableScalePointLabelContext",
+		"RenderTextOpts",
+		"BackdropOptions",
+		"LabelItem",
+		"TypedRegistry",
+		"ChartEvent",
+		"ChartComponent",
+		"InteractionAxis",
+		"CoreInteractionOptions",
+		"CoreChartOptions",
+		"AnimationSpec",
+		"AnimationsSpec",
+		"TransitionSpec",
+		"TransitionsSpec",
+		"AnimationOptions",
+		"FontSpec",
+		"CanvasFontSpec",
+		"TextAlign",
+		"Align",
+		"VisualElement",
+		"CommonElementOptions",
+		"CommonHoverOptions",
+		"Segment",
+		"ArcBorderRadius",
+		"ArcOptions",
+		"ArcHoverOptions",
+		"LineProps",
+		"LineOptions",
+		"LineHoverOptions",
+		"PointStyle",
+		"PointOptions",
+		"PointHoverOptions",
+		"PointPrefixedOptions",
+		"PointPrefixedHoverOptions",
+		"BarProps",
+		"BarOptions",
+		"BorderRadius",
+		"BarHoverOptions",
+		"ElementChartOptions",
+		"DecimationOptions",
+		"FillerOptions",
+		"FillTarget",
+		"ComplexFillTarget",
+		"FillerControllerDatasetOptions",
+		"LegendItem",
+		"LegendElement",
+		"LegendOptions",
+		"TitleOptions",
+		"TooltipXAlignment",
+		"TooltipYAlignment",
+		"TooltipLabelStyle",
+		"TooltipModel",
+		"TooltipPosition",
+		"TooltipPositionerFunction",
+		"TooltipPositionerMap",
+		"TooltipPositioner",
+		"TooltipDatasetCallbacks",
+		"TooltipCallbacks",
+		"ExtendedPlugin",
+		"ScriptableTooltipContext",
+		"TooltipOptions",
+		"TooltipDatasetOptions",
+		"TooltipItem",
+		"PluginDatasetOptionsByType",
+		"PluginChartOptions",
+		"BorderOptions",
+		"GridLineOptions",
+		"TickOptions",
+		"CartesianTickOptions",
+		"ScriptableCartesianScaleContext",
+		"ScriptableChartContext",
+		"CartesianScaleOptions",
+		"CategoryScaleOptions",
+		"LinearScaleOptions",
+		"LogarithmicScaleOptions",
+		"TimeScaleTimeOptions",
+		"TimeScaleTickOptions",
+		"TimeScaleOptions",
+		"RadialTickOptions",
+		"RadialLinearScaleOptions",
+		"CartesianScaleTypeRegistry",
+		"RadialScaleTypeRegistry",
+		"ScaleTypeRegistry",
+		"ScaleType",
+		"CartesianParsedData",
+		"BarParsedData",
+		"BubbleParsedData",
+		"RadialParsedData",
+		"ChartTypeRegistry",
+		"ChartType",
+		"ScaleOptionsByType",
+		"ScaleOptions",
+		"DatasetChartOptions",
+		"ScaleChartOptions",
+		"ChartOptions",
+		"DefaultDataPoint",
+		"ParsedDataType",
+		"ChartDatasetPropertiesCustomTypesPerDataset",
+		"ChartDataset",
+		"ChartDatasetCustomTypesPerDataset",
+		"ChartData",
+		"ChartDataCustomTypesPerDataset",
+		"ChartConfiguration",
+		"ChartConfigurationCustomTypesPerDataset",
+		"DateAdapter",
+		"TimeUnit",
+		"_adapters",
+		"animator",
+		"Element",
+		"Colors",
+		"controllers",
+		"elements",
+		"plugins",
+		"scales",
+		"BarController",
+		"BubbleController",
+		"DoughnutController",
+		"LineController",
+		"PieController",
+		"PolarAreaController",
+		"RadarController",
+		"ScatterController",
+		"Animation",
+		"Animations",
+		"Chart",
+		"DatasetController",
+		"Interaction",
+		"Scale",
+		"Ticks",
+		"defaults",
+		"layouts",
+		"registry",
+		"ArcElement",
+		"BarElement",
+		"LineElement",
+		"PointElement",
+		"BasePlatform",
+		"BasicPlatform",
+		"DomPlatform",
+		"Decimation",
+		"Filler",
+		"Legend",
+		"SubTitle",
+		"Title",
+		"Tooltip",
+		"CategoryScale",
+		"LinearScale",
+		"LogarithmicScale",
+		"RadialLinearScale",
+		"TimeScale",
+		"TimeSeriesScale",
+		"PluginOptionsByType",
+		"ElementOptionsByType",
+		"ChartDatasetProperties",
+		"UpdateModeEnum",
+		"ArcSpacingMode",
+		"registerables"
+	]
+}

@@ -1,0 +1,375 @@
+{
+	"$schema": "https://effectified.dev/schema/recipe.json",
+	"package": "chart.js",
+	"version": "4.6.2",
+	"types": {
+		"from": "bundled",
+		"package": "chart.js",
+		"version": "4.6.2"
+	},
+	"name": "@effectified/chart.js",
+	"prefix": "ChartJs",
+	"exports": [
+		"Animator",
+		"Element",
+		"BarController",
+		"BubbleController",
+		"DoughnutController",
+		"LineController",
+		"PieController",
+		"PolarAreaController",
+		"RadarController",
+		"ScatterController",
+		"Animation",
+		"Animations",
+		"Chart",
+		"DatasetController",
+		"Scale",
+		"ArcElement",
+		"BarElement",
+		"LineElement",
+		"PointElement",
+		"BasePlatform",
+		"BasicPlatform",
+		"DomPlatform",
+		"CategoryScale",
+		"LinearScale",
+		"LogarithmicScale",
+		"RadialLinearScale",
+		"TimeScale",
+		"TimeSeriesScale"
+	],
+	"handles": {
+		"Animator": {
+			"release": "stop",
+			"events": []
+		},
+		"default": {
+			"events": []
+		},
+		"DatasetController": {
+			"events": []
+		},
+		"DoughnutController": {
+			"events": []
+		},
+		"PolarAreaController": {
+			"events": []
+		},
+		"Animation": {
+			"events": []
+		},
+		"Animations": {
+			"events": []
+		},
+		"Chart": {
+			"release": "destroy",
+			"events": []
+		},
+		"Scale": {
+			"events": []
+		},
+		"BarElement": {
+			"events": []
+		},
+		"LineElement": {
+			"events": []
+		},
+		"BasePlatform": {
+			"events": []
+		},
+		"BasicPlatform": {
+			"events": []
+		},
+		"DomPlatform": {
+			"events": []
+		},
+		"RadialLinearScale": {
+			"events": []
+		},
+		"TimeScale": {
+			"events": []
+		}
+	},
+	"errors": [
+		{
+			"tag": "ChartJsError",
+			"codes": []
+		}
+	],
+	"services": [
+		{
+			"name": "ChartJsAnimator",
+			"handle": "Animator",
+			"acquire": "Animator"
+		},
+		{
+			"name": "ChartJsChart",
+			"handle": "Chart",
+			"acquire": "Chart"
+		}
+	],
+	"methods": {},
+	"derived": [],
+	"testDependencies": {},
+	"ui": {
+		"effectUi": "2fd1a57",
+		"mounts": [
+			"Chart"
+		]
+	},
+	"decisions": [
+		{
+			"id": "exports",
+			"question": "Which exported functions and classes does the facade offer?",
+			"answer": "Animator, Element, BarController, BubbleController, DoughnutController, LineController, PieController, PolarAreaController, RadarController, ScatterController, Animation, Animations, Chart, DatasetController, Scale, ArcElement, BarElement, LineElement, PointElement, BasePlatform, BasicPlatform, DomPlatform, CategoryScale, LinearScale, LogarithmicScale, RadialLinearScale, TimeScale, TimeSeriesScale",
+			"why": "every exported function or class that is async or yields a handle",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Animator.release",
+			"question": "Which method releases a Animator, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "stop",
+			"why": "its release methods are stop",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Animator.events",
+			"question": "Which events of Animator does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.default.release",
+			"question": "Which method releases a default, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.default.events",
+			"question": "Which events of default does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DatasetController.release",
+			"question": "Which method releases a DatasetController, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DatasetController.events",
+			"question": "Which events of DatasetController does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DoughnutController.release",
+			"question": "Which method releases a DoughnutController, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DoughnutController.events",
+			"question": "Which events of DoughnutController does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.PolarAreaController.release",
+			"question": "Which method releases a PolarAreaController, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.PolarAreaController.events",
+			"question": "Which events of PolarAreaController does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Animation.release",
+			"question": "Which method releases a Animation, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Animation.events",
+			"question": "Which events of Animation does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Animations.release",
+			"question": "Which method releases a Animations, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Animations.events",
+			"question": "Which events of Animations does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Chart.release",
+			"question": "Which method releases a Chart, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "destroy",
+			"why": "its release methods are stop, destroy",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Chart.events",
+			"question": "Which events of Chart does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Scale.release",
+			"question": "Which method releases a Scale, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Scale.events",
+			"question": "Which events of Scale does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BarElement.release",
+			"question": "Which method releases a BarElement, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BarElement.events",
+			"question": "Which events of BarElement does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.LineElement.release",
+			"question": "Which method releases a LineElement, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.LineElement.events",
+			"question": "Which events of LineElement does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BasePlatform.release",
+			"question": "Which method releases a BasePlatform, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BasePlatform.events",
+			"question": "Which events of BasePlatform does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BasicPlatform.release",
+			"question": "Which method releases a BasicPlatform, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BasicPlatform.events",
+			"question": "Which events of BasicPlatform does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DomPlatform.release",
+			"question": "Which method releases a DomPlatform, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DomPlatform.events",
+			"question": "Which events of DomPlatform does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.RadialLinearScale.release",
+			"question": "Which method releases a RadialLinearScale, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.RadialLinearScale.events",
+			"question": "Which events of RadialLinearScale does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.TimeScale.release",
+			"question": "Which method releases a TimeScale, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.TimeScale.events",
+			"question": "Which events of TimeScale does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "errors",
+			"question": "Which upstream failures become which tagged errors?",
+			"answer": "ChartJsError",
+			"why": "exported error classes, most specific first, then the catch-all ChartJsError carrying `code` (the source sets no codes)",
+			"by": "engine"
+		},
+		{
+			"id": "services",
+			"question": "Which handles are provided as services (Context.Service with a layer)?",
+			"answer": "ChartJsAnimator <- Animator, ChartJsChart <- Chart",
+			"why": "every offered export that acquires a releasable handle",
+			"by": "engine"
+		},
+		{
+			"id": "ui.mounts",
+			"question": "Which mounts does the frontend facade offer?",
+			"answer": "Chart",
+			"why": "a chart lives on one canvas: created from its configuration, updated in place, its clicks as messages, destroyed with the canvas",
+			"by": "agent"
+		}
+	]
+}

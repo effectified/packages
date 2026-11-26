@@ -33,7 +33,7 @@ export const fixture = Effect.fn("fixture")(function* (name: string) {
 	const errors: Array<string> = [];
 	page.upstream.on("pageerror", (error) => errors.push(String(error)));
 	page.upstream.on("console", (message) => {
-		if (message.type() === "error" && !message.text().includes("favicon")) errors.push(message.text());
+		if (message.type() === "error") errors.push(message.text());
 	});
 	yield* page.goto(new URL(`${name}.html`, origin).href);
 	return { page, errors };
