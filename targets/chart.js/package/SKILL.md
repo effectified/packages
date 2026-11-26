@@ -7,7 +7,7 @@ description: Use chart.js in Effect UI apps through @effectified/chart.js. Use w
 
 A chart updated in place, clicks as messages.
 
-chart.js for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from chart.js's own types (this copy: 4.6.2+2, for chart.js 4.6.2), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+chart.js for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from chart.js's own types (this copy: 4.6.2+3, for chart.js 4.6.2), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 

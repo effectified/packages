@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/codemirror-view.tgz effec
 bun add https://effectified.dev/codemirror-view.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
-`https://effectified.dev/codemirror-view.tgz` always installs the newest release. This one is 6.44.0+2, for @codemirror/view 6.44.0; to pin it, install https://github.com/effectified/packages/releases/download/codemirror-view-v6.44.0+2/effectified-codemirror-view-6.44.0+2.tgz. Effect UI is in public preview: install its snapshot build, as above.
+`https://effectified.dev/codemirror-view.tgz` always installs the newest release. This one is 6.44.0+3, for @codemirror/view 6.44.0; to pin it, install https://github.com/effectified/packages/releases/download/codemirror-view-v6.44.0+3/effectified-codemirror-view-6.44.0+3.tgz. Effect UI is in public preview: install its snapshot build, as above.
 
 ## Examples
 

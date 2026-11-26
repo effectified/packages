@@ -1,6 +1,6 @@
 {
   "name": "@effectified/chart.js",
-  "version": "4.6.2+2",
+  "version": "4.6.2+3",
   "description": "chart.js for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
   "type": "module",
   "license": "MIT",

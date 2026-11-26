@@ -1,6 +1,6 @@
 {
   "name": "@effectified/maplibre-gl",
-  "version": "6.19.0+2",
+  "version": "6.19.0+3",
   "description": "maplibre-gl for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
   "type": "module",
   "license": "MIT",

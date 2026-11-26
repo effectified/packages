@@ -10,14 +10,14 @@
     "version": "25.19.0",
     "npm": "https://www.npmjs.com/package/puppeteer-core"
   },
-  "version": "25.19.0+4",
-  "engine": "0.2.0",
+  "version": "25.19.0+5",
+  "engine": "0.3.0",
   "page": "https://effectified.dev/puppeteer-core",
   "source": "https://github.com/effectified/packages/tree/main/targets/puppeteer-core",
   "install": {
     "latest": "https://effectified.dev/puppeteer-core.tgz",
-    "release": "https://github.com/effectified/packages/releases/download/puppeteer-core-v25.19.0+4/effectified-puppeteer-core-25.19.0+4.tgz",
-    "tag": "puppeteer-core-v25.19.0+4"
+    "release": "https://github.com/effectified/packages/releases/download/puppeteer-core-v25.19.0+5/effectified-puppeteer-core-25.19.0+5.tgz",
+    "tag": "puppeteer-core-v25.19.0+5"
   },
   "tests": 3,
   "examples": [

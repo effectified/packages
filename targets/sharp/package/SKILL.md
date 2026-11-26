@@ -7,7 +7,7 @@ description: Write Effect code that uses sharp through @effectified/sharp. Use w
 
 A builder that is also a Node stream.
 
-sharp in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged. Generated from sharp's own types (this copy: 0.35.5+3, for sharp 0.35.5), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+sharp in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged. Generated from sharp's own types (this copy: 0.35.5+4, for sharp 0.35.5), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 

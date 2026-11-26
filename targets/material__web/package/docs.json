@@ -10,18 +10,18 @@
     "version": "2.5.0",
     "npm": "https://www.npmjs.com/package/@material/web"
   },
-  "version": "2.5.0+2",
-  "engine": "0.2.0",
+  "version": "2.5.0+3",
+  "engine": "0.3.0",
   "page": "https://effectified.dev/material-web",
   "source": "https://github.com/effectified/packages/tree/main/targets/material__web",
   "install": {
     "latest": "https://effectified.dev/material-web.tgz",
-    "release": "https://github.com/effectified/packages/releases/download/material-web-v2.5.0+2/effectified-material-web-2.5.0+2.tgz",
-    "tag": "material-web-v2.5.0+2",
+    "release": "https://github.com/effectified/packages/releases/download/material-web-v2.5.0+3/effectified-material-web-2.5.0+3.tgz",
+    "tag": "material-web-v2.5.0+3",
     "effectUi": "https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57"
   },
   "demo": {
-    "url": "https://github.com/effectified/packages/releases/download/material-web-v2.5.0+2/effectified-material-web-2.5.0+2-demo.tgz",
+    "url": "https://github.com/effectified/packages/releases/download/material-web-v2.5.0+3/effectified-material-web-2.5.0+3-demo.tgz",
     "pages": [
       "elements",
       "form"

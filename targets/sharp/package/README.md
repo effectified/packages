@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/sharp.tgz effect
 bun add https://effectified.dev/sharp.tgz effect
 ```
 
-`https://effectified.dev/sharp.tgz` always installs the newest release. This one is 0.35.5+3, for sharp 0.35.5; to pin it, install https://github.com/effectified/packages/releases/download/sharp-v0.35.5+3/effectified-sharp-0.35.5+3.tgz.
+`https://effectified.dev/sharp.tgz` always installs the newest release. This one is 0.35.5+4, for sharp 0.35.5; to pin it, install https://github.com/effectified/packages/releases/download/sharp-v0.35.5+4/effectified-sharp-0.35.5+4.tgz.
 
 ## Examples
 

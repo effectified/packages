@@ -7,7 +7,7 @@ description: Write Effect code that uses simple-git through @effectified/simple-
 
 Chainable thenables, generics kept.
 
-simple-git in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged. Generated from simple-git's own types (this copy: 4.1.0+4, for simple-git 4.1.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+simple-git in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged. Generated from simple-git's own types (this copy: 4.1.0+5, for simple-git 4.1.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 

@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/puppeteer-core.tgz effect
 bun add https://effectified.dev/puppeteer-core.tgz effect
 ```
 
-`https://effectified.dev/puppeteer-core.tgz` always installs the newest release. This one is 25.19.0+4, for puppeteer-core 25.19.0; to pin it, install https://github.com/effectified/packages/releases/download/puppeteer-core-v25.19.0+4/effectified-puppeteer-core-25.19.0+4.tgz.
+`https://effectified.dev/puppeteer-core.tgz` always installs the newest release. This one is 25.19.0+5, for puppeteer-core 25.19.0; to pin it, install https://github.com/effectified/packages/releases/download/puppeteer-core-v25.19.0+5/effectified-puppeteer-core-25.19.0+5.tgz.
 
 ## Examples
 

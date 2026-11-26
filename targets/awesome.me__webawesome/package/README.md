@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/webawesome.tgz effect htt
 bun add https://effectified.dev/webawesome.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
-`https://effectified.dev/webawesome.tgz` always installs the newest release. This one is 3.15.0+2, for @awesome.me/webawesome 3.15.0; to pin it, install https://github.com/effectified/packages/releases/download/webawesome-v3.15.0+2/effectified-webawesome-3.15.0+2.tgz. Effect UI is in public preview: install its snapshot build, as above.
+`https://effectified.dev/webawesome.tgz` always installs the newest release. This one is 3.15.0+3, for @awesome.me/webawesome 3.15.0; to pin it, install https://github.com/effectified/packages/releases/download/webawesome-v3.15.0+3/effectified-webawesome-3.15.0+3.tgz. Effect UI is in public preview: install its snapshot build, as above.
 
 ## Examples
 

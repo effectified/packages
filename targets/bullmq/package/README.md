@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/bullmq.tgz effect
 bun add https://effectified.dev/bullmq.tgz effect
 ```
 
-`https://effectified.dev/bullmq.tgz` always installs the newest release. This one is 6.7.10+3, for bullmq 6.7.10; to pin it, install https://github.com/effectified/packages/releases/download/bullmq-v6.7.10+3/effectified-bullmq-6.7.10+3.tgz.
+`https://effectified.dev/bullmq.tgz` always installs the newest release. This one is 6.7.10+4, for bullmq 6.7.10; to pin it, install https://github.com/effectified/packages/releases/download/bullmq-v6.7.10+4/effectified-bullmq-6.7.10+4.tgz.
 
 ## Examples
 

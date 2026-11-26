@@ -10,18 +10,18 @@
     "version": "14.14.0",
     "npm": "https://www.npmjs.com/package/motion"
   },
-  "version": "14.14.0+2",
-  "engine": "0.2.0",
+  "version": "14.14.0+3",
+  "engine": "0.3.0",
   "page": "https://effectified.dev/motion",
   "source": "https://github.com/effectified/packages/tree/main/targets/motion",
   "install": {
     "latest": "https://effectified.dev/motion.tgz",
-    "release": "https://github.com/effectified/packages/releases/download/motion-v14.14.0+2/effectified-motion-14.14.0+2.tgz",
-    "tag": "motion-v14.14.0+2",
+    "release": "https://github.com/effectified/packages/releases/download/motion-v14.14.0+3/effectified-motion-14.14.0+3.tgz",
+    "tag": "motion-v14.14.0+3",
     "effectUi": "https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57"
   },
   "demo": {
-    "url": "https://github.com/effectified/packages/releases/download/motion-v14.14.0+2/effectified-motion-14.14.0+2-demo.tgz",
+    "url": "https://github.com/effectified/packages/releases/download/motion-v14.14.0+3/effectified-motion-14.14.0+3-demo.tgz",
     "pages": [
       "animate"
     ]

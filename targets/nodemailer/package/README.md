@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/nodemailer.tgz effect
 bun add https://effectified.dev/nodemailer.tgz effect
 ```
 
-`https://effectified.dev/nodemailer.tgz` always installs the newest release. This one is 10.6.1+4, for nodemailer 10.6.1; to pin it, install https://github.com/effectified/packages/releases/download/nodemailer-v10.6.1+4/effectified-nodemailer-10.6.1+4.tgz.
+`https://effectified.dev/nodemailer.tgz` always installs the newest release. This one is 10.6.1+5, for nodemailer 10.6.1; to pin it, install https://github.com/effectified/packages/releases/download/nodemailer-v10.6.1+5/effectified-nodemailer-10.6.1+5.tgz.
 
 ## Examples
 

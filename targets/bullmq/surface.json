@@ -47,6 +47,66 @@
 					]
 				}
 			],
+			"statics": {
+				"normalize": [
+					{
+						"parameters": [
+							{
+								"name": "backoff",
+								"type": "number | BackoffOptions",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "BackoffOptions | undefined",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"calculate": [
+					{
+						"parameters": [
+							{
+								"name": "backoff",
+								"type": "BackoffOptions",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "attemptsMade",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "err",
+								"type": "Error",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "job",
+								"type": "MinimalJob<any, any, string, JobProgress>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "customStrategy",
+								"type": "BackoffStrategy | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "number | Promise<number> | undefined",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
 			"error": false
 		},
 		{
@@ -405,6 +465,26 @@
 					]
 				}
 			],
+			"statics": {
+				"waitUntilReady": [
+					{
+						"parameters": [
+							{
+								"name": "client",
+								"type": "IRedisClient",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Promise<void>",
+						"resolves": "void",
+						"traits": [
+							"async"
+						]
+					}
+				]
+			},
 			"error": false
 		},
 		{
@@ -731,6 +811,186 @@
 					]
 				}
 			],
+			"statics": {
+				"create": [
+					{
+						"typeParameters": "T = any, R = any, N extends string = string",
+						"parameters": [
+							{
+								"name": "queue",
+								"type": "JobQueue",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "name",
+								"type": "N",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "data",
+								"type": "T",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "opts",
+								"type": "JobsOptions | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Promise<Job<T, R, N, JobProgress>>",
+						"resolves": "Job<T, R, N, JobProgress>",
+						"handle": "Job",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"createBulk": [
+					{
+						"typeParameters": "T = any, R = any, N extends string = string",
+						"parameters": [
+							{
+								"name": "queue",
+								"type": "JobQueue",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "jobs",
+								"type": "{ name: N; data: T; opts?: JobsOptions | undefined; }[]",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Promise<Job<T, R, N, JobProgress>[]>",
+						"resolves": "Job<T, R, N, JobProgress>[]",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"fromJSON": [
+					{
+						"typeParameters": "T = any, R = any, N extends string = string",
+						"parameters": [
+							{
+								"name": "queue",
+								"type": "JobQueue",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "json",
+								"type": "JobJson",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "jobId",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Job<T, R, N, JobProgress>",
+						"handle": "Job",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"optsFromJSON": [
+					{
+						"parameters": [
+							{
+								"name": "rawOpts",
+								"type": "string | undefined",
+								"optional": true,
+								"rest": false
+							},
+							{
+								"name": "optsDecode",
+								"type": "Record<string, string> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "JobsOptions",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"fromId": [
+					{
+						"typeParameters": "T = any, R = any, N extends string = string",
+						"parameters": [
+							{
+								"name": "queue",
+								"type": "JobQueue",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "jobId",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Promise<Job<T, R, N, JobProgress> | undefined>",
+						"resolves": "Job<T, R, N, JobProgress> | undefined",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"addJobLog": [
+					{
+						"parameters": [
+							{
+								"name": "queue",
+								"type": "JobQueue",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "jobId",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "logRow",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "keepLogs",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Promise<number>",
+						"resolves": "number",
+						"traits": [
+							"async"
+						]
+					}
+				]
+			},
 			"error": false
 		},
 		{
@@ -1534,7 +1794,14 @@
 					]
 				}
 			],
-			"error": true
+			"error": true,
+			"fields": [
+				{
+					"name": "code",
+					"type": "RelayErrorCode",
+					"optional": false
+				}
+			]
 		},
 		{
 			"kind": "function",
@@ -1669,6 +1936,18 @@
 					]
 				}
 			],
+			"statics": {
+				"RateLimitError": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "Error",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
 			"error": false,
 			"base": "QueueBase"
 		},
@@ -1821,7 +2100,12 @@
 					"trailingCallback": false,
 					"returns": "Promise<void>",
 					"resolves": "void",
+					"signal": {
+						"index": 1,
+						"property": "signal"
+					},
 					"traits": [
+						"signal",
 						"async"
 					]
 				}
@@ -2681,7 +2965,14 @@
 					]
 				}
 			],
-			"error": true
+			"error": true,
+			"fields": [
+				{
+					"name": "schema",
+					"type": "string",
+					"optional": false
+				}
+			]
 		},
 		{
 			"kind": "class",
@@ -2710,7 +3001,29 @@
 					]
 				}
 			],
-			"error": true
+			"error": true,
+			"fields": [
+				{
+					"name": "clientVersion",
+					"type": "number",
+					"optional": false
+				},
+				{
+					"name": "databaseVersion",
+					"type": "number",
+					"optional": false
+				},
+				{
+					"name": "minimumClientVersion",
+					"type": "number",
+					"optional": false
+				},
+				{
+					"name": "supportedVersion",
+					"type": "number",
+					"optional": false
+				}
+			]
 		},
 		{
 			"kind": "class",
@@ -2739,7 +3052,19 @@
 					]
 				}
 			],
-			"error": true
+			"error": true,
+			"fields": [
+				{
+					"name": "minimumVersion",
+					"type": "number",
+					"optional": false
+				},
+				{
+					"name": "serverVersion",
+					"type": "string",
+					"optional": false
+				}
+			]
 		},
 		{
 			"kind": "function",
@@ -7976,6 +8301,16 @@
 							"sync"
 						]
 					}
+				],
+				"nodes": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "IRedisClient[]",
+						"traits": [
+							"sync"
+						]
+					}
 				]
 			},
 			"properties": {
@@ -7987,9 +8322,6 @@
 				},
 				"options": {
 					"type": "Record<string, any>"
-				},
-				"nodes": {
-					"type": "(() => IRedisClient[]) | undefined"
 				}
 			},
 			"events": [],
@@ -11954,7 +12286,12 @@
 						"trailingCallback": false,
 						"returns": "Promise<void>",
 						"resolves": "void",
+						"signal": {
+							"index": 1,
+							"property": "signal"
+						},
 						"traits": [
+							"signal",
 							"async"
 						]
 					}

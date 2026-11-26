@@ -7,7 +7,7 @@ description: Write Effect code that uses nodemailer through @effectified/nodemai
 
 A scoped transport, error codes, callbacks as Effects.
 
-nodemailer in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged. Generated from nodemailer's own types (this copy: 10.6.1+4, for nodemailer 10.6.1), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+nodemailer in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged. Generated from nodemailer's own types (this copy: 10.6.1+5, for nodemailer 10.6.1), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 

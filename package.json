@@ -12,6 +12,6 @@
     "effectify": "effectify"
   },
   "devDependencies": {
-    "@effectified/engine": "https://github.com/effectified/engine/releases/download/v0.2.0/effectified-engine-0.2.0.tgz"
+    "@effectified/engine": "https://github.com/effectified/engine/releases/download/v0.3.0/effectified-engine-0.3.0.tgz"
   }
 }

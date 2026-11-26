@@ -7,7 +7,7 @@ description: Use @codemirror/view in Effect UI apps through @effectified/codemir
 
 An editor whose document is the Model, its cursor kept.
 
-@codemirror/view for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from @codemirror/view's own types (this copy: 6.44.0+2, for @codemirror/view 6.44.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+@codemirror/view for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from @codemirror/view's own types (this copy: 6.44.0+3, for @codemirror/view 6.44.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 

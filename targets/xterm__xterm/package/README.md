@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/xterm.tgz effect https://
 bun add https://effectified.dev/xterm.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
-`https://effectified.dev/xterm.tgz` always installs the newest release. This one is 6.0.0+2, for @xterm/xterm 6.0.0; to pin it, install https://github.com/effectified/packages/releases/download/xterm-v6.0.0+2/effectified-xterm-6.0.0+2.tgz. Effect UI is in public preview: install its snapshot build, as above.
+`https://effectified.dev/xterm.tgz` always installs the newest release. This one is 6.0.0+3, for @xterm/xterm 6.0.0; to pin it, install https://github.com/effectified/packages/releases/download/xterm-v6.0.0+3/effectified-xterm-6.0.0+3.tgz. Effect UI is in public preview: install its snapshot build, as above.
 
 ## Examples
 

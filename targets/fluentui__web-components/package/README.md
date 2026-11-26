@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/fluentui-web-components.t
 bun add https://effectified.dev/fluentui-web-components.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
-`https://effectified.dev/fluentui-web-components.tgz` always installs the newest release. This one is 3.2.5+2, for @fluentui/web-components 3.2.5; to pin it, install https://github.com/effectified/packages/releases/download/fluentui-web-components-v3.2.5+2/effectified-fluentui-web-components-3.2.5+2.tgz. Effect UI is in public preview: install its snapshot build, as above.
+`https://effectified.dev/fluentui-web-components.tgz` always installs the newest release. This one is 3.2.5+3, for @fluentui/web-components 3.2.5; to pin it, install https://github.com/effectified/packages/releases/download/fluentui-web-components-v3.2.5+3/effectified-fluentui-web-components-3.2.5+3.tgz. Effect UI is in public preview: install its snapshot build, as above.
 
 ## Examples
 

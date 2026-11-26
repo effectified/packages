@@ -10,18 +10,18 @@
     "version": "4.6.2",
     "npm": "https://www.npmjs.com/package/chart.js"
   },
-  "version": "4.6.2+2",
-  "engine": "0.2.0",
+  "version": "4.6.2+3",
+  "engine": "0.3.0",
   "page": "https://effectified.dev/chart.js",
   "source": "https://github.com/effectified/packages/tree/main/targets/chart.js",
   "install": {
     "latest": "https://effectified.dev/chart.js.tgz",
-    "release": "https://github.com/effectified/packages/releases/download/chart.js-v4.6.2+2/effectified-chart.js-4.6.2+2.tgz",
-    "tag": "chart.js-v4.6.2+2",
+    "release": "https://github.com/effectified/packages/releases/download/chart.js-v4.6.2+3/effectified-chart.js-4.6.2+3.tgz",
+    "tag": "chart.js-v4.6.2+3",
     "effectUi": "https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57"
   },
   "demo": {
-    "url": "https://github.com/effectified/packages/releases/download/chart.js-v4.6.2+2/effectified-chart.js-4.6.2+2-demo.tgz",
+    "url": "https://github.com/effectified/packages/releases/download/chart.js-v4.6.2+3/effectified-chart.js-4.6.2+3-demo.tgz",
     "pages": [
       "chart"
     ]

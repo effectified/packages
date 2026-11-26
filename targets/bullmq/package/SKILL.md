@@ -7,7 +7,7 @@ description: Write Effect code that uses bullmq through @effectified/bullmq. Use
 
 Generic constructors, typed event payloads as Streams.
 
-bullmq in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged. Generated from bullmq's own types (this copy: 6.7.10+3, for bullmq 6.7.10), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+bullmq in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged. Generated from bullmq's own types (this copy: 6.7.10+4, for bullmq 6.7.10), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 

@@ -30,7 +30,12 @@
 					"trailingCallback": false,
 					"returns": "Mail<SMTPSentMessageInfo, SMTPPoolOptions>",
 					"handle": "Mail",
+					"signal": {
+						"index": 1,
+						"property": "signal"
+					},
 					"traits": [
+						"signal",
 						"sync"
 					]
 				},
@@ -52,7 +57,12 @@
 					"trailingCallback": false,
 					"returns": "Mail<SendmailSentMessageInfo, SendmailTransportOptions>",
 					"handle": "Mail",
+					"signal": {
+						"index": 1,
+						"property": "signal"
+					},
 					"traits": [
+						"signal",
 						"sync"
 					]
 				},
@@ -74,7 +84,12 @@
 					"trailingCallback": false,
 					"returns": "Mail<StreamSentMessageInfo, StreamTransportOptions>",
 					"handle": "Mail",
+					"signal": {
+						"index": 1,
+						"property": "signal"
+					},
 					"traits": [
+						"signal",
 						"sync"
 					]
 				},
@@ -96,7 +111,12 @@
 					"trailingCallback": false,
 					"returns": "Mail<JSONSentMessageObjectInfo, JSONTransportOptions>",
 					"handle": "Mail",
+					"signal": {
+						"index": 1,
+						"property": "signal"
+					},
 					"traits": [
+						"signal",
 						"sync"
 					]
 				},
@@ -118,7 +138,12 @@
 					"trailingCallback": false,
 					"returns": "Mail<JSONSentMessageInfo<string>, JSONTransportOptions>",
 					"handle": "Mail",
+					"signal": {
+						"index": 1,
+						"property": "signal"
+					},
 					"traits": [
+						"signal",
 						"sync"
 					]
 				},
@@ -140,7 +165,12 @@
 					"trailingCallback": false,
 					"returns": "Mail<SESSentMessageInfo, SESTransportOptions>",
 					"handle": "Mail",
+					"signal": {
+						"index": 1,
+						"property": "signal"
+					},
 					"traits": [
+						"signal",
 						"sync"
 					]
 				},
@@ -162,7 +192,12 @@
 					"trailingCallback": false,
 					"returns": "Mail<SMTPSentMessageInfo, SMTPTransportOptions>",
 					"handle": "Mail",
+					"signal": {
+						"index": 1,
+						"property": "signal"
+					},
 					"traits": [
+						"signal",
 						"sync"
 					]
 				},
@@ -185,7 +220,12 @@
 					"trailingCallback": false,
 					"returns": "Mail<T, D>",
 					"handle": "Mail",
+					"signal": {
+						"index": 1,
+						"property": "signal"
+					},
 					"traits": [
+						"signal",
 						"sync"
 					]
 				},
@@ -207,7 +247,12 @@
 					"trailingCallback": false,
 					"returns": "Mail<SMTPSentMessageInfo, SMTPTransportOptions>",
 					"handle": "Mail",
+					"signal": {
+						"index": 1,
+						"property": "signal"
+					},
 					"traits": [
+						"signal",
 						"sync"
 					]
 				},
@@ -229,7 +274,12 @@
 					"trailingCallback": false,
 					"returns": "Mail<any, any>",
 					"handle": "Mail",
+					"signal": {
+						"index": 1,
+						"property": "signal"
+					},
 					"traits": [
+						"signal",
 						"sync"
 					]
 				}
@@ -413,7 +463,12 @@
 						"trailingCallback": false,
 						"returns": "Promise<SMTPSentMessageInfo>",
 						"resolves": "SMTPSentMessageInfo",
+						"signal": {
+							"index": 0,
+							"property": "signal"
+						},
 						"traits": [
+							"signal",
 							"async"
 						]
 					},
@@ -435,7 +490,12 @@
 						"trailingCallback": true,
 						"callback": "node",
 						"returns": "void",
+						"signal": {
+							"index": 0,
+							"property": "signal"
+						},
 						"traits": [
+							"signal",
 							"callback"
 						]
 					}
@@ -564,6 +624,81 @@
 							"callback"
 						]
 					}
+				],
+				"verify": [
+					{
+						"parameters": [
+							{
+								"name": "args",
+								"type": "any[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "any",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"close": [
+					{
+						"parameters": [
+							{
+								"name": "args",
+								"type": "any[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "any",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isIdle": [
+					{
+						"parameters": [
+							{
+								"name": "args",
+								"type": "any[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "any",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"on": [
+					{
+						"parameters": [
+							{
+								"name": "event",
+								"type": "string | symbol",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "listener",
+								"type": "(...args: any[]) => void",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "Transport<SMTPSentMessageInfo, SMTPPoolOptions>",
+						"handle": "Transport",
+						"traits": [
+							"sync"
+						]
+					}
 				]
 			},
 			"properties": {
@@ -576,18 +711,6 @@
 				"version": {
 					"type": "string"
 				},
-				"verify": {
-					"type": "((...args: any[]) => any) | undefined"
-				},
-				"close": {
-					"type": "((...args: any[]) => any) | undefined"
-				},
-				"isIdle": {
-					"type": "((...args: any[]) => any) | undefined"
-				},
-				"on": {
-					"type": "((event: string | symbol, listener: (...args: any[]) => void) => Transport<SMTPSentMessageInfo, SMTPPoolOptions>) | undefined"
-				},
 				"mailer": {
 					"type": "Mail<SMTPSentMessageInfo, SMTPPoolOptions> | undefined"
 				},
@@ -596,7 +719,9 @@
 				}
 			},
 			"events": [],
-			"releases": []
+			"releases": [
+				"close"
+			]
 		},
 		"Logger": {
 			"name": "Logger",

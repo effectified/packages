@@ -1,6 +1,6 @@
 {
   "name": "@effectified/codemirror-view",
-  "version": "6.44.0+2",
+  "version": "6.44.0+3",
   "description": "@codemirror/view for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
   "type": "module",
   "license": "MIT",

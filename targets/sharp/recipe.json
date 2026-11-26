@@ -69,10 +69,10 @@
 		{
 			"id": "revision",
 			"question": "Which revision of this upstream version is the facade?",
-			"answer": "3",
-			"why": "engine 0.2.0: the package ships its agent skill (SKILL.md) and a README with examples taken from its passing tests and the install URL of its newest release",
+			"answer": "4",
+			"why": "engine 0.3.0: interrupting a call aborts upstream's signal, a facade handed back to upstream is unwrapped, optional methods are wrapped, and errors carry their upstream class's fields",
 			"by": "agent"
 		}
 	],
-	"revision": 3
+	"revision": 4
 }

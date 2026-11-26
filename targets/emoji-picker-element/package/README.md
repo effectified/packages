@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/emoji-picker-element.tgz 
 bun add https://effectified.dev/emoji-picker-element.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
-`https://effectified.dev/emoji-picker-element.tgz` always installs the newest release. This one is 1.29.1+2, for emoji-picker-element 1.29.1; to pin it, install https://github.com/effectified/packages/releases/download/emoji-picker-element-v1.29.1+2/effectified-emoji-picker-element-1.29.1+2.tgz. Effect UI is in public preview: install its snapshot build, as above.
+`https://effectified.dev/emoji-picker-element.tgz` always installs the newest release. This one is 1.29.1+3, for emoji-picker-element 1.29.1; to pin it, install https://github.com/effectified/packages/releases/download/emoji-picker-element-v1.29.1+3/effectified-emoji-picker-element-1.29.1+3.tgz. Effect UI is in public preview: install its snapshot build, as above.
 
 ## API
 

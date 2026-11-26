@@ -10,18 +10,18 @@
     "version": "3.15.0",
     "npm": "https://www.npmjs.com/package/@awesome.me/webawesome"
   },
-  "version": "3.15.0+2",
-  "engine": "0.2.0",
+  "version": "3.15.0+3",
+  "engine": "0.3.0",
   "page": "https://effectified.dev/webawesome",
   "source": "https://github.com/effectified/packages/tree/main/targets/awesome.me__webawesome",
   "install": {
     "latest": "https://effectified.dev/webawesome.tgz",
-    "release": "https://github.com/effectified/packages/releases/download/webawesome-v3.15.0+2/effectified-webawesome-3.15.0+2.tgz",
-    "tag": "webawesome-v3.15.0+2",
+    "release": "https://github.com/effectified/packages/releases/download/webawesome-v3.15.0+3/effectified-webawesome-3.15.0+3.tgz",
+    "tag": "webawesome-v3.15.0+3",
     "effectUi": "https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57"
   },
   "demo": {
-    "url": "https://github.com/effectified/packages/releases/download/webawesome-v3.15.0+2/effectified-webawesome-3.15.0+2-demo.tgz",
+    "url": "https://github.com/effectified/packages/releases/download/webawesome-v3.15.0+3/effectified-webawesome-3.15.0+3-demo.tgz",
     "pages": [
       "elements",
       "form"

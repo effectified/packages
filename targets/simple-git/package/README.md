@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/simple-git.tgz effect
 bun add https://effectified.dev/simple-git.tgz effect
 ```
 
-`https://effectified.dev/simple-git.tgz` always installs the newest release. This one is 4.1.0+4, for simple-git 4.1.0; to pin it, install https://github.com/effectified/packages/releases/download/simple-git-v4.1.0+4/effectified-simple-git-4.1.0+4.tgz.
+`https://effectified.dev/simple-git.tgz` always installs the newest release. This one is 4.1.0+5, for simple-git 4.1.0; to pin it, install https://github.com/effectified/packages/releases/download/simple-git-v4.1.0+5/effectified-simple-git-4.1.0+5.tgz.
 
 ## Examples
 

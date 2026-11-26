@@ -67,7 +67,7 @@
 			"Terminal"
 		]
 	},
-	"revision": 2,
+	"revision": 3,
 	"decisions": [
 		{
 			"id": "exports",
@@ -212,8 +212,8 @@
 		{
 			"id": "revision",
 			"question": "Which revision of this upstream version is the facade?",
-			"answer": "2",
-			"why": "engine 0.2.0: the package ships its agent skill (SKILL.md) and a README with examples taken from its passing tests and the install URL of its newest release",
+			"answer": "3",
+			"why": "engine 0.3.0: regenerated with the engine that makes the runtime facades cancel upstream; no change to this facade's API",
 			"by": "agent"
 		}
 	]

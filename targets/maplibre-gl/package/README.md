@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/maplibre-gl.tgz effect ht
 bun add https://effectified.dev/maplibre-gl.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
-`https://effectified.dev/maplibre-gl.tgz` always installs the newest release. This one is 6.19.0+2, for maplibre-gl 6.19.0; to pin it, install https://github.com/effectified/packages/releases/download/maplibre-gl-v6.19.0+2/effectified-maplibre-gl-6.19.0+2.tgz. Effect UI is in public preview: install its snapshot build, as above.
+`https://effectified.dev/maplibre-gl.tgz` always installs the newest release. This one is 6.19.0+3, for maplibre-gl 6.19.0; to pin it, install https://github.com/effectified/packages/releases/download/maplibre-gl-v6.19.0+3/effectified-maplibre-gl-6.19.0+3.tgz. Effect UI is in public preview: install its snapshot build, as above.
 
 ## Examples
 

@@ -7,7 +7,7 @@ description: Use media-chrome in Effect UI apps through @effectified/media-chrom
 
 47 player elements, play, mute and seek.
 
-media-chrome for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from media-chrome's own types (this copy: 4.19.5+2, for media-chrome 4.19.5), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+media-chrome for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from media-chrome's own types (this copy: 4.19.5+3, for media-chrome 4.19.5), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 

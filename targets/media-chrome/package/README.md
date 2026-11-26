@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/media-chrome.tgz effect h
 bun add https://effectified.dev/media-chrome.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
-`https://effectified.dev/media-chrome.tgz` always installs the newest release. This one is 4.19.5+2, for media-chrome 4.19.5; to pin it, install https://github.com/effectified/packages/releases/download/media-chrome-v4.19.5+2/effectified-media-chrome-4.19.5+2.tgz. Effect UI is in public preview: install its snapshot build, as above.
+`https://effectified.dev/media-chrome.tgz` always installs the newest release. This one is 4.19.5+3, for media-chrome 4.19.5; to pin it, install https://github.com/effectified/packages/releases/download/media-chrome-v4.19.5+3/effectified-media-chrome-4.19.5+3.tgz. Effect UI is in public preview: install its snapshot build, as above.
 
 ## Examples
 

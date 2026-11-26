@@ -7,7 +7,7 @@ description: Write Effect code that uses puppeteer-core through @effectified/pup
 
 16 handles, scoped browser and pages, generics kept through a call.
 
-puppeteer-core in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged. Generated from puppeteer-core's own types (this copy: 25.19.0+4, for puppeteer-core 25.19.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+puppeteer-core in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged. Generated from puppeteer-core's own types (this copy: 25.19.0+5, for puppeteer-core 25.19.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 

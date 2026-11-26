@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/chart.js.tgz effect https
 bun add https://effectified.dev/chart.js.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
-`https://effectified.dev/chart.js.tgz` always installs the newest release. This one is 4.6.2+2, for chart.js 4.6.2; to pin it, install https://github.com/effectified/packages/releases/download/chart.js-v4.6.2+2/effectified-chart.js-4.6.2+2.tgz. Effect UI is in public preview: install its snapshot build, as above.
+`https://effectified.dev/chart.js.tgz` always installs the newest release. This one is 4.6.2+3, for chart.js 4.6.2; to pin it, install https://github.com/effectified/packages/releases/download/chart.js-v4.6.2+3/effectified-chart.js-4.6.2+3.tgz. Effect UI is in public preview: install its snapshot build, as above.
 
 ## Examples
 
