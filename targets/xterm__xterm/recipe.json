@@ -1,0 +1,211 @@
+{
+	"$schema": "https://effectified.dev/schema/recipe.json",
+	"package": "@xterm/xterm",
+	"version": "6.0.0",
+	"types": {
+		"from": "bundled",
+		"package": "@xterm/xterm",
+		"version": "6.0.0"
+	},
+	"name": "@effectified/xterm",
+	"prefix": "Xterm",
+	"exports": [
+		"Terminal"
+	],
+	"handles": {
+		"Terminal": {
+			"release": "dispose",
+			"events": []
+		},
+		"IDisposable": {
+			"release": "dispose",
+			"events": []
+		},
+		"IMarker": {
+			"release": "dispose",
+			"events": []
+		},
+		"IBufferNamespace": {
+			"events": []
+		},
+		"IParser": {
+			"events": []
+		},
+		"IUnicodeHandling": {
+			"events": []
+		},
+		"IBuffer": {
+			"events": []
+		},
+		"IBufferCell": {
+			"events": []
+		}
+	},
+	"errors": [
+		{
+			"tag": "XtermError",
+			"codes": [
+				"EPIPE",
+				"ERROR"
+			]
+		}
+	],
+	"services": [
+		{
+			"name": "XtermTerminal",
+			"handle": "Terminal",
+			"acquire": "Terminal"
+		}
+	],
+	"methods": {},
+	"derived": [],
+	"testDependencies": {},
+	"ui": {
+		"effectUi": "2fd1a57",
+		"mounts": [
+			"Terminal"
+		]
+	},
+	"decisions": [
+		{
+			"id": "exports",
+			"question": "Which exported functions and classes does the facade offer?",
+			"answer": "Terminal",
+			"why": "Terminal is the one class the README starts from (new Terminal(), open, write); the frontend facade offers it through the Terminal mount",
+			"by": "agent"
+		},
+		{
+			"id": "handles.Terminal.release",
+			"question": "Which method releases a Terminal, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "dispose",
+			"why": "its release methods are dispose",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Terminal.events",
+			"question": "Which events of Terminal does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.IDisposable.release",
+			"question": "Which method releases a IDisposable, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "dispose",
+			"why": "its release methods are dispose",
+			"by": "engine"
+		},
+		{
+			"id": "handles.IDisposable.events",
+			"question": "Which events of IDisposable does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.IMarker.release",
+			"question": "Which method releases a IMarker, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "dispose",
+			"why": "its release methods are dispose",
+			"by": "engine"
+		},
+		{
+			"id": "handles.IMarker.events",
+			"question": "Which events of IMarker does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.IBufferNamespace.release",
+			"question": "Which method releases a IBufferNamespace, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.IBufferNamespace.events",
+			"question": "Which events of IBufferNamespace does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.IParser.release",
+			"question": "Which method releases a IParser, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.IParser.events",
+			"question": "Which events of IParser does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.IUnicodeHandling.release",
+			"question": "Which method releases a IUnicodeHandling, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.IUnicodeHandling.events",
+			"question": "Which events of IUnicodeHandling does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.IBuffer.release",
+			"question": "Which method releases a IBuffer, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.IBuffer.events",
+			"question": "Which events of IBuffer does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.IBufferCell.release",
+			"question": "Which method releases a IBufferCell, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.IBufferCell.events",
+			"question": "Which events of IBufferCell does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "errors",
+			"question": "Which upstream failures become which tagged errors?",
+			"answer": "XtermError",
+			"why": "exported error classes, most specific first, then the catch-all XtermError carrying `code` (the source sets EPIPE, ERROR)",
+			"by": "engine"
+		},
+		{
+			"id": "services",
+			"question": "Which handles are provided as services (Context.Service with a layer)?",
+			"answer": "XtermTerminal <- Terminal",
+			"why": "every offered export that acquires a releasable handle",
+			"by": "engine"
+		},
+		{
+			"id": "ui.mounts",
+			"question": "Which mounts does the frontend facade offer?",
+			"answer": "Terminal",
+			"why": "a terminal lives on one div: opened with its options, options applied in place through terminal.options, the Model's output log written as it grows (reset and written again when it shrinks), typed data and resizes as messages, disposed with the div",
+			"by": "agent"
+		}
+	]
+}

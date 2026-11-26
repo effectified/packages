@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-page"]; // element: wa-page
 
-/** `<wa-page>`: Pages scaffold an entire application layout with header, navigation, sidebar, main content, aside, and */
+/** `<wa-page>`: Pages scaffold an entire application layout with header, navigation, sidebar, main content, aside, and footer regions. */
 export const Page = Html.customElement({
 	tag: "wa-page",
 	properties: {
@@ -19,7 +19,6 @@ export const Page = Html.customElement({
 		lang: typed<Of["lang"]>(), // property: wa-page.lang
 		mobileBreakpoint: typed<Of["mobileBreakpoint"]>(), // property: wa-page.mobileBreakpoint
 		navOpen: typed<Of["navOpen"]>(), // property: wa-page.navOpen
-		navigationDrawer: typed<Of["navigationDrawer"]>(), // property: wa-page.navigationDrawer
 		navigationPlacement: typed<Of["navigationPlacement"]>(), // property: wa-page.navigationPlacement
 		nonce: typed<Of["nonce"]>(), // property: wa-page.nonce
 		pageResizeObserver: typed<Of["pageResizeObserver"]>(), // property: wa-page.pageResizeObserver

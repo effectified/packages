@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-badge"]; // element: wa-badge
 
-/** `<wa-badge>`: Badges draw attention to adjacent content by displaying a status, count, or label. Use them to highlight */
+/** `<wa-badge>`: Badges draw attention to adjacent content by displaying a status, count, or label. */
 export const Badge = Html.customElement({
 	tag: "wa-badge",
 	properties: {

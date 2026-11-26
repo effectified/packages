@@ -1,0 +1,4999 @@
+{
+	"package": "media-chrome",
+	"version": "4.19.5",
+	"types": {
+		"from": "bundled",
+		"package": "media-chrome",
+		"version": "4.19.5"
+	},
+	"entry": "named",
+	"exports": [
+		{
+			"kind": "value",
+			"name": "constants",
+			"type": "typeof import(\"media-chrome/dist/constants\")"
+		},
+		{
+			"kind": "value",
+			"name": "timeUtils",
+			"type": "typeof import(\"media-chrome/dist/utils/time\")"
+		},
+		{
+			"kind": "function",
+			"name": "t",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "key",
+							"type": "\"A media error caused playback to be aborted. The media could be corrupt or your browser does not support this format.\" | \"A network error caused the media download to fail.\" | \"An unsupported error occurred. The server or network failed, or your browser does not support this format.\" | \"Audio\" | \"Auto\" | \"Captions\" | \"Decode Error\" | \"Disable captions\" | \"Enable captions\" | \"Encryption Error\" | \"Enter fullscreen mode\" | \"Enter picture in picture mode\" | \"Exit fullscreen mode\" | \"Exit picture in picture mode\" | \"Loop\" | \"Mute\" | \"Network Error\" | \"Off\" | \"Pause\" | \"Play\" | \"Playback rate\" | \"Playback rate {playbackRate}\" | \"Quality\" | \"Seek backward\" | \"Seek forward\" | \"Settings\" | \"Source Not Supported\" | \"Start airplay\" | \"Start casting\" | \"Stop airplay\" | \"Stop casting\" | \"The media is encrypted and there are no keys to decrypt it.\" | \"Unmute\" | \"audio player\" | \"audio tracks\" | \"chapter: {chapterName}\" | \"closed captions\" | \"current playback rate\" | \"enter fullscreen mode\" | \"enter picture in picture mode\" | \"exit fullscreen mode\" | \"exit picture in picture mode\" | \"hour\" | \"hours\" | \"live\" | \"media loading\" | \"minute\" | \"minutes\" | \"mute\" | \"pause\" | \"play\" | \"playback time\" | \"playing live\" | \"quality\" | \"second\" | \"seconds\" | \"seek\" | \"seek back {seekOffset} seconds\" | \"seek forward {seekOffset} seconds\" | \"seek to live\" | \"settings\" | \"start airplay\" | \"start casting\" | \"stop airplay\" | \"stop casting\" | \"unmute\" | \"video not loaded, unknown time.\" | \"video player\" | \"volume\" | \"{currentTime} of {totalTime}\" | \"{time} remaining\"",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "vars",
+							"type": "Record<string, string | number> | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "string",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "class",
+			"name": "MediaAirplayButton",
+			"handle": "MediaAirplayButton",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaAirplayButton",
+					"handle": "MediaAirplayButton",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaChromeButton"
+		},
+		{
+			"kind": "class",
+			"name": "MediaCaptionsButton",
+			"handle": "MediaCaptionsButton",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaCaptionsButton",
+					"handle": "MediaCaptionsButton",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaChromeButton"
+		},
+		{
+			"kind": "class",
+			"name": "MediaCastButton",
+			"handle": "MediaCastButton",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaCastButton",
+					"handle": "MediaCastButton",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaChromeButton"
+		},
+		{
+			"kind": "class",
+			"name": "MediaChromeButton",
+			"handle": "MediaChromeButton",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaChromeButton",
+					"handle": "MediaChromeButton",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "MediaChromeDialog",
+			"handle": "MediaChromeDialog",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaChromeDialog",
+					"handle": "MediaChromeDialog",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "MediaChromeRange",
+			"handle": "MediaChromeRange",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaChromeRange",
+					"handle": "MediaChromeRange",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "MediaControlBar",
+			"handle": "MediaControlBar",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaControlBar",
+					"handle": "MediaControlBar",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "MediaController",
+			"handle": "MediaController",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaController",
+					"handle": "MediaController",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaContainer"
+		},
+		{
+			"kind": "class",
+			"name": "MediaDurationDisplay",
+			"handle": "MediaDurationDisplay",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaDurationDisplay",
+					"handle": "MediaDurationDisplay",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaTextDisplay"
+		},
+		{
+			"kind": "class",
+			"name": "MediaErrorDialog",
+			"handle": "MediaErrorDialog",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaErrorDialog",
+					"handle": "MediaErrorDialog",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaChromeDialog"
+		},
+		{
+			"kind": "class",
+			"name": "MediaKeyboardShortcutsDialog",
+			"handle": "MediaKeyboardShortcutsDialog",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaKeyboardShortcutsDialog",
+					"handle": "MediaKeyboardShortcutsDialog",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaChromeDialog"
+		},
+		{
+			"kind": "class",
+			"name": "MediaFullscreenButton",
+			"handle": "MediaFullscreenButton",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaFullscreenButton",
+					"handle": "MediaFullscreenButton",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaChromeButton"
+		},
+		{
+			"kind": "class",
+			"name": "MediaGestureReceiver",
+			"handle": "MediaGestureReceiver",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaGestureReceiver",
+					"handle": "MediaGestureReceiver",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "MediaLiveButton",
+			"handle": "MediaLiveButton",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaLiveButton",
+					"handle": "MediaLiveButton",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaChromeButton"
+		},
+		{
+			"kind": "class",
+			"name": "MediaLoadingIndicator",
+			"handle": "MediaLoadingIndicator",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaLoadingIndicator",
+					"handle": "MediaLoadingIndicator",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "MediaMuteButton",
+			"handle": "MediaMuteButton",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaMuteButton",
+					"handle": "MediaMuteButton",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaChromeButton"
+		},
+		{
+			"kind": "class",
+			"name": "MediaPipButton",
+			"handle": "MediaPipButton",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaPipButton",
+					"handle": "MediaPipButton",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaChromeButton"
+		},
+		{
+			"kind": "class",
+			"name": "MediaPlaybackRateButton",
+			"handle": "MediaPlaybackRateButton",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaPlaybackRateButton",
+					"handle": "MediaPlaybackRateButton",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaChromeButton"
+		},
+		{
+			"kind": "class",
+			"name": "MediaLoopButton",
+			"handle": "MediaLoopButton",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaLoopButton",
+					"handle": "MediaLoopButton",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaChromeButton"
+		},
+		{
+			"kind": "class",
+			"name": "MediaPlayButton",
+			"handle": "MediaPlayButton",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaPlayButton",
+					"handle": "MediaPlayButton",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaChromeButton"
+		},
+		{
+			"kind": "class",
+			"name": "MediaPosterImage",
+			"handle": "MediaPosterImage",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaPosterImage",
+					"handle": "MediaPosterImage",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "MediaPreviewChapterDisplay",
+			"handle": "MediaPreviewChapterDisplay",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaPreviewChapterDisplay",
+					"handle": "MediaPreviewChapterDisplay",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaTextDisplay"
+		},
+		{
+			"kind": "class",
+			"name": "MediaPreviewThumbnail",
+			"handle": "MediaPreviewThumbnail",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaPreviewThumbnail",
+					"handle": "MediaPreviewThumbnail",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "MediaPreviewTimeDisplay",
+			"handle": "MediaPreviewTimeDisplay",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaPreviewTimeDisplay",
+					"handle": "MediaPreviewTimeDisplay",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaTextDisplay"
+		},
+		{
+			"kind": "class",
+			"name": "MediaSeekBackwardButton",
+			"handle": "MediaSeekBackwardButton",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaSeekBackwardButton",
+					"handle": "MediaSeekBackwardButton",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaChromeButton"
+		},
+		{
+			"kind": "class",
+			"name": "MediaSeekForwardButton",
+			"handle": "MediaSeekForwardButton",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaSeekForwardButton",
+					"handle": "MediaSeekForwardButton",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaChromeButton"
+		},
+		{
+			"kind": "class",
+			"name": "MediaTimeDisplay",
+			"handle": "MediaTimeDisplay",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaTimeDisplay",
+					"handle": "MediaTimeDisplay",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaTextDisplay"
+		},
+		{
+			"kind": "class",
+			"name": "MediaTimeRange",
+			"handle": "MediaTimeRange",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaTimeRange",
+					"handle": "MediaTimeRange",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaChromeRange"
+		},
+		{
+			"kind": "class",
+			"name": "MediaTooltip",
+			"handle": "MediaTooltip",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaTooltip",
+					"handle": "MediaTooltip",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "MediaVolumeRange",
+			"handle": "MediaVolumeRange",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaVolumeRange",
+					"handle": "MediaVolumeRange",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false,
+			"base": "MediaChromeRange"
+		},
+		{
+			"kind": "class",
+			"name": "MediaContainer",
+			"handle": "MediaContainer",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaContainer",
+					"handle": "MediaContainer",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "MediaTextDisplay",
+			"handle": "MediaTextDisplay",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "MediaTextDisplay",
+					"handle": "MediaTextDisplay",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		}
+	],
+	"handles": {
+		"MediaAirplayButton": {
+			"name": "MediaAirplayButton",
+			"typeRef": "Upstream.MediaAirplayButton",
+			"methods": {
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleClick": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"enable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"mediaIsAirplaying": {
+					"type": "boolean"
+				},
+				"mediaAirplayUnavailable": {
+					"type": "string | undefined"
+				},
+				"preventClick": {
+					"type": "boolean"
+				},
+				"tooltipEl": {
+					"type": "MediaTooltip",
+					"handle": "MediaTooltip"
+				},
+				"keysUsed": {
+					"type": "string[]"
+				},
+				"tooltipPlacement": {
+					"type": "TooltipPlacement | undefined"
+				},
+				"mediaController": {
+					"type": "string | undefined"
+				},
+				"disabled": {
+					"type": "boolean | undefined"
+				},
+				"noTooltip": {
+					"type": "boolean | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaCaptionsButton": {
+			"name": "MediaCaptionsButton",
+			"typeRef": "Upstream.MediaCaptionsButton",
+			"methods": {
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleClick": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"enable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"mediaSubtitlesList": {
+					"type": "TextTrackLike[]"
+				},
+				"mediaSubtitlesShowing": {
+					"type": "TextTrackLike[]"
+				},
+				"preventClick": {
+					"type": "boolean"
+				},
+				"tooltipEl": {
+					"type": "MediaTooltip",
+					"handle": "MediaTooltip"
+				},
+				"keysUsed": {
+					"type": "string[]"
+				},
+				"tooltipPlacement": {
+					"type": "TooltipPlacement | undefined"
+				},
+				"mediaController": {
+					"type": "string | undefined"
+				},
+				"disabled": {
+					"type": "boolean | undefined"
+				},
+				"noTooltip": {
+					"type": "boolean | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaCastButton": {
+			"name": "MediaCastButton",
+			"typeRef": "Upstream.MediaCastButton",
+			"methods": {
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleClick": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"enable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"mediaIsCasting": {
+					"type": "boolean"
+				},
+				"mediaCastUnavailable": {
+					"type": "string | undefined"
+				},
+				"preventClick": {
+					"type": "boolean"
+				},
+				"tooltipEl": {
+					"type": "MediaTooltip",
+					"handle": "MediaTooltip"
+				},
+				"keysUsed": {
+					"type": "string[]"
+				},
+				"tooltipPlacement": {
+					"type": "TooltipPlacement | undefined"
+				},
+				"mediaController": {
+					"type": "string | undefined"
+				},
+				"disabled": {
+					"type": "boolean | undefined"
+				},
+				"noTooltip": {
+					"type": "boolean | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaChromeButton": {
+			"name": "MediaChromeButton",
+			"typeRef": "Upstream.MediaChromeButton",
+			"methods": {
+				"enable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "any",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "any",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleClick": [
+					{
+						"parameters": [
+							{
+								"name": "_e",
+								"type": "Event",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"preventClick": {
+					"type": "boolean"
+				},
+				"tooltipEl": {
+					"type": "MediaTooltip",
+					"handle": "MediaTooltip"
+				},
+				"keysUsed": {
+					"type": "string[]"
+				},
+				"tooltipPlacement": {
+					"type": "TooltipPlacement | undefined"
+				},
+				"mediaController": {
+					"type": "string | undefined"
+				},
+				"disabled": {
+					"type": "boolean | undefined"
+				},
+				"noTooltip": {
+					"type": "boolean | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaChromeDialog": {
+			"name": "MediaChromeDialog",
+			"typeRef": "Upstream.MediaChromeDialog",
+			"methods": {
+				"handleEvent": [
+					{
+						"parameters": [
+							{
+								"name": "event",
+								"type": "Event",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"focus": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"open": {
+					"type": "boolean"
+				},
+				"keysUsed": {
+					"type": "string[]"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaChromeRange": {
+			"name": "MediaChromeRange",
+			"typeRef": "Upstream.MediaChromeRange",
+			"methods": {
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updatePointerBar": [
+					{
+						"parameters": [
+							{
+								"name": "evt",
+								"type": "any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateBar": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateSegments": [
+					{
+						"parameters": [
+							{
+								"name": "segments",
+								"type": "any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getPointerRatio": [
+					{
+						"parameters": [
+							{
+								"name": "evt",
+								"type": "any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleEvent": [
+					{
+						"parameters": [
+							{
+								"name": "evt",
+								"type": "any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"container": {
+					"type": "HTMLElement"
+				},
+				"range": {
+					"type": "HTMLInputElement"
+				},
+				"appearance": {
+					"type": "HTMLElement"
+				},
+				"dragging": {
+					"type": "boolean"
+				},
+				"keysUsed": {
+					"type": "string[]"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaControlBar": {
+			"name": "MediaControlBar",
+			"typeRef": "Upstream.MediaControlBar",
+			"methods": {
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {},
+			"events": [],
+			"releases": []
+		},
+		"MediaController": {
+			"name": "MediaController",
+			"typeRef": "Upstream.MediaController",
+			"methods": {
+				"handleMediaUpdated": [
+					{
+						"parameters": [
+							{
+								"name": "media",
+								"type": "HTMLMediaElement",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Promise<void>",
+						"resolves": "void",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"handleEvent": [
+					{
+						"parameters": [
+							{
+								"name": "event",
+								"type": "Event",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"mediaSetCallback": [
+					{
+						"parameters": [
+							{
+								"name": "media",
+								"type": "HTMLMediaElement",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"mediaUnsetCallback": [
+					{
+						"parameters": [
+							{
+								"name": "media",
+								"type": "HTMLMediaElement",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"propagateMediaState": [
+					{
+						"parameters": [
+							{
+								"name": "stateName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "state",
+								"type": "any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"associateElement": [
+					{
+						"parameters": [
+							{
+								"name": "element",
+								"type": "HTMLElement",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"unassociateElement": [
+					{
+						"parameters": [
+							{
+								"name": "element",
+								"type": "HTMLElement",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"registerMediaStateReceiver": [
+					{
+						"parameters": [
+							{
+								"name": "el",
+								"type": "HTMLElement",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"unregisterMediaStateReceiver": [
+					{
+						"parameters": [
+							{
+								"name": "el",
+								"type": "HTMLElement",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"enableHotkeys": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disableHotkeys": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"keyboardShortcutHandler": [
+					{
+						"parameters": [
+							{
+								"name": "e",
+								"type": "KeyboardEvent",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"breakpointsComputed": {
+					"type": "boolean"
+				},
+				"media": {
+					"type": "HTMLVideoElement | null"
+				},
+				"autohide": {
+					"type": "string"
+				},
+				"breakpoints": {
+					"type": "string | undefined"
+				},
+				"audio": {
+					"type": "boolean | undefined"
+				},
+				"gesturesDisabled": {
+					"type": "boolean | undefined"
+				},
+				"keyboardControl": {
+					"type": "boolean | undefined"
+				},
+				"noAutohide": {
+					"type": "boolean | undefined"
+				},
+				"autohideOverControls": {
+					"type": "boolean | undefined"
+				},
+				"userInteractive": {
+					"type": "boolean | undefined"
+				},
+				"mediaStateReceivers": {
+					"type": "HTMLElement[]"
+				},
+				"associatedElementSubscriptions": {
+					"type": "Map<HTMLElement, () => void>"
+				},
+				"mediaStore": {
+					"type": "MediaStore"
+				},
+				"fullscreenElement": {
+					"type": "HTMLElement"
+				},
+				"defaultSubtitles": {
+					"type": "boolean | undefined"
+				},
+				"defaultStreamType": {
+					"type": "string | undefined"
+				},
+				"defaultDuration": {
+					"type": "number | undefined"
+				},
+				"noHotkeys": {
+					"type": "boolean | undefined"
+				},
+				"keysUsed": {
+					"type": "string | undefined"
+				},
+				"liveEdgeOffset": {
+					"type": "number | undefined"
+				},
+				"noAutoSeekToLive": {
+					"type": "boolean | undefined"
+				},
+				"noVolumePref": {
+					"type": "boolean | undefined"
+				},
+				"noMutedPref": {
+					"type": "boolean | undefined"
+				},
+				"noSubtitlesLangPref": {
+					"type": "boolean | undefined"
+				},
+				"noDefaultStore": {
+					"type": "boolean | undefined"
+				},
+				"resolvedLang": {
+					"type": "string"
+				},
+				"hotkeys": {
+					"type": "string | AttributeTokenList"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaDurationDisplay": {
+			"name": "MediaDurationDisplay",
+			"typeRef": "Upstream.MediaDurationDisplay",
+			"methods": {
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"mediaDuration": {
+					"type": "number | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaErrorDialog": {
+			"name": "MediaErrorDialog",
+			"typeRef": "Upstream.MediaErrorDialog",
+			"methods": {
+				"formatErrorMessage": [
+					{
+						"parameters": [
+							{
+								"name": "error",
+								"type": "MediaErrorLike",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "string",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleEvent": [
+					{
+						"parameters": [
+							{
+								"name": "event",
+								"type": "Event",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"focus": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"mediaError": {
+					"type": "MediaErrorLike | null"
+				},
+				"mediaErrorCode": {
+					"type": "number"
+				},
+				"mediaErrorMessage": {
+					"type": "any"
+				},
+				"open": {
+					"type": "boolean"
+				},
+				"keysUsed": {
+					"type": "string[]"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaKeyboardShortcutsDialog": {
+			"name": "MediaKeyboardShortcutsDialog",
+			"typeRef": "Upstream.MediaKeyboardShortcutsDialog",
+			"methods": {
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleEvent": [
+					{
+						"parameters": [
+							{
+								"name": "event",
+								"type": "Event",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"focus": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"hotkeys": {
+					"type": "string | undefined"
+				},
+				"open": {
+					"type": "boolean"
+				},
+				"keysUsed": {
+					"type": "string[]"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaFullscreenButton": {
+			"name": "MediaFullscreenButton",
+			"typeRef": "Upstream.MediaFullscreenButton",
+			"methods": {
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleClick": [
+					{
+						"parameters": [
+							{
+								"name": "e",
+								"type": "Event",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"enable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"mediaFullscreenUnavailable": {
+					"type": "string | undefined"
+				},
+				"mediaIsFullscreen": {
+					"type": "boolean"
+				},
+				"preventClick": {
+					"type": "boolean"
+				},
+				"tooltipEl": {
+					"type": "MediaTooltip",
+					"handle": "MediaTooltip"
+				},
+				"keysUsed": {
+					"type": "string[]"
+				},
+				"tooltipPlacement": {
+					"type": "TooltipPlacement | undefined"
+				},
+				"mediaController": {
+					"type": "string | undefined"
+				},
+				"disabled": {
+					"type": "boolean | undefined"
+				},
+				"noTooltip": {
+					"type": "boolean | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaGestureReceiver": {
+			"name": "MediaGestureReceiver",
+			"typeRef": "Upstream.MediaGestureReceiver",
+			"methods": {
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleEvent": [
+					{
+						"parameters": [
+							{
+								"name": "event",
+								"type": "any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleTap": [
+					{
+						"parameters": [
+							{
+								"name": "e",
+								"type": "any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleMouseClick": [
+					{
+						"parameters": [
+							{
+								"name": "e",
+								"type": "any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"mediaPaused": {
+					"type": "boolean"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaLiveButton": {
+			"name": "MediaLiveButton",
+			"typeRef": "Upstream.MediaLiveButton",
+			"methods": {
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleClick": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"enable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"mediaPaused": {
+					"type": "boolean"
+				},
+				"mediaTimeIsLive": {
+					"type": "boolean"
+				},
+				"preventClick": {
+					"type": "boolean"
+				},
+				"tooltipEl": {
+					"type": "MediaTooltip",
+					"handle": "MediaTooltip"
+				},
+				"keysUsed": {
+					"type": "string[]"
+				},
+				"tooltipPlacement": {
+					"type": "TooltipPlacement | undefined"
+				},
+				"mediaController": {
+					"type": "string | undefined"
+				},
+				"disabled": {
+					"type": "boolean | undefined"
+				},
+				"noTooltip": {
+					"type": "boolean | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaLoadingIndicator": {
+			"name": "MediaLoadingIndicator",
+			"typeRef": "Upstream.MediaLoadingIndicator",
+			"methods": {
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"loadingDelay": {
+					"type": "number"
+				},
+				"mediaPaused": {
+					"type": "boolean"
+				},
+				"mediaLoading": {
+					"type": "boolean"
+				},
+				"mediaController": {
+					"type": "string | undefined"
+				},
+				"noAutohide": {
+					"type": "boolean | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaMuteButton": {
+			"name": "MediaMuteButton",
+			"typeRef": "Upstream.MediaMuteButton",
+			"methods": {
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleClick": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"enable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"mediaVolumeLevel": {
+					"type": "string | undefined"
+				},
+				"preventClick": {
+					"type": "boolean"
+				},
+				"tooltipEl": {
+					"type": "MediaTooltip",
+					"handle": "MediaTooltip"
+				},
+				"keysUsed": {
+					"type": "string[]"
+				},
+				"tooltipPlacement": {
+					"type": "TooltipPlacement | undefined"
+				},
+				"mediaController": {
+					"type": "string | undefined"
+				},
+				"disabled": {
+					"type": "boolean | undefined"
+				},
+				"noTooltip": {
+					"type": "boolean | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaPipButton": {
+			"name": "MediaPipButton",
+			"typeRef": "Upstream.MediaPipButton",
+			"methods": {
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleClick": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"enable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"mediaPipUnavailable": {
+					"type": "string | undefined"
+				},
+				"mediaIsPip": {
+					"type": "boolean"
+				},
+				"preventClick": {
+					"type": "boolean"
+				},
+				"tooltipEl": {
+					"type": "MediaTooltip",
+					"handle": "MediaTooltip"
+				},
+				"keysUsed": {
+					"type": "string[]"
+				},
+				"tooltipPlacement": {
+					"type": "TooltipPlacement | undefined"
+				},
+				"mediaController": {
+					"type": "string | undefined"
+				},
+				"disabled": {
+					"type": "boolean | undefined"
+				},
+				"noTooltip": {
+					"type": "boolean | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaPlaybackRateButton": {
+			"name": "MediaPlaybackRateButton",
+			"typeRef": "Upstream.MediaPlaybackRateButton",
+			"methods": {
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleClick": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"enable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"container": {
+					"type": "HTMLSlotElement"
+				},
+				"rates": {
+					"type": "ArrayLike<number> | AttributeTokenList | null | undefined"
+				},
+				"mediaPlaybackRate": {
+					"type": "number"
+				},
+				"preventClick": {
+					"type": "boolean"
+				},
+				"tooltipEl": {
+					"type": "MediaTooltip",
+					"handle": "MediaTooltip"
+				},
+				"keysUsed": {
+					"type": "string[]"
+				},
+				"tooltipPlacement": {
+					"type": "TooltipPlacement | undefined"
+				},
+				"mediaController": {
+					"type": "string | undefined"
+				},
+				"disabled": {
+					"type": "boolean | undefined"
+				},
+				"noTooltip": {
+					"type": "boolean | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaLoopButton": {
+			"name": "MediaLoopButton",
+			"typeRef": "Upstream.MediaLoopButton",
+			"methods": {
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleClick": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"enable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"container": {
+					"type": "HTMLElement | null"
+				},
+				"mediaLoop": {
+					"type": "boolean"
+				},
+				"preventClick": {
+					"type": "boolean"
+				},
+				"tooltipEl": {
+					"type": "MediaTooltip",
+					"handle": "MediaTooltip"
+				},
+				"keysUsed": {
+					"type": "string[]"
+				},
+				"tooltipPlacement": {
+					"type": "TooltipPlacement | undefined"
+				},
+				"mediaController": {
+					"type": "string | undefined"
+				},
+				"disabled": {
+					"type": "boolean | undefined"
+				},
+				"noTooltip": {
+					"type": "boolean | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaPlayButton": {
+			"name": "MediaPlayButton",
+			"typeRef": "Upstream.MediaPlayButton",
+			"methods": {
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleClick": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"enable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"mediaPaused": {
+					"type": "boolean"
+				},
+				"preventClick": {
+					"type": "boolean"
+				},
+				"tooltipEl": {
+					"type": "MediaTooltip",
+					"handle": "MediaTooltip"
+				},
+				"keysUsed": {
+					"type": "string[]"
+				},
+				"tooltipPlacement": {
+					"type": "TooltipPlacement | undefined"
+				},
+				"mediaController": {
+					"type": "string | undefined"
+				},
+				"disabled": {
+					"type": "boolean | undefined"
+				},
+				"noTooltip": {
+					"type": "boolean | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaPosterImage": {
+			"name": "MediaPosterImage",
+			"typeRef": "Upstream.MediaPosterImage",
+			"methods": {
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"image": {
+					"type": "HTMLImageElement"
+				},
+				"placeholderSrc": {
+					"type": "string | undefined"
+				},
+				"src": {
+					"type": "string | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaPreviewChapterDisplay": {
+			"name": "MediaPreviewChapterDisplay",
+			"typeRef": "Upstream.MediaPreviewChapterDisplay",
+			"methods": {
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"mediaPreviewChapter": {
+					"type": "string | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaPreviewThumbnail": {
+			"name": "MediaPreviewThumbnail",
+			"typeRef": "Upstream.MediaPreviewThumbnail",
+			"methods": {
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"update": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"imgWidth": {
+					"type": "number"
+				},
+				"imgHeight": {
+					"type": "number"
+				},
+				"mediaPreviewImage": {
+					"type": "any"
+				},
+				"mediaPreviewCoords": {
+					"type": "number[]"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaPreviewTimeDisplay": {
+			"name": "MediaPreviewTimeDisplay",
+			"typeRef": "Upstream.MediaPreviewTimeDisplay",
+			"methods": {
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"mediaPreviewTime": {
+					"type": "number | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaSeekBackwardButton": {
+			"name": "MediaSeekBackwardButton",
+			"typeRef": "Upstream.MediaSeekBackwardButton",
+			"methods": {
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "_oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleClick": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"enable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"seekOffset": {
+					"type": "number"
+				},
+				"mediaCurrentTime": {
+					"type": "number"
+				},
+				"preventClick": {
+					"type": "boolean"
+				},
+				"tooltipEl": {
+					"type": "MediaTooltip",
+					"handle": "MediaTooltip"
+				},
+				"keysUsed": {
+					"type": "string[]"
+				},
+				"tooltipPlacement": {
+					"type": "TooltipPlacement | undefined"
+				},
+				"mediaController": {
+					"type": "string | undefined"
+				},
+				"disabled": {
+					"type": "boolean | undefined"
+				},
+				"noTooltip": {
+					"type": "boolean | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaSeekForwardButton": {
+			"name": "MediaSeekForwardButton",
+			"typeRef": "Upstream.MediaSeekForwardButton",
+			"methods": {
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "_oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleClick": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"enable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"seekOffset": {
+					"type": "number"
+				},
+				"mediaCurrentTime": {
+					"type": "number"
+				},
+				"preventClick": {
+					"type": "boolean"
+				},
+				"tooltipEl": {
+					"type": "MediaTooltip",
+					"handle": "MediaTooltip"
+				},
+				"keysUsed": {
+					"type": "string[]"
+				},
+				"tooltipPlacement": {
+					"type": "TooltipPlacement | undefined"
+				},
+				"mediaController": {
+					"type": "string | undefined"
+				},
+				"disabled": {
+					"type": "boolean | undefined"
+				},
+				"noTooltip": {
+					"type": "boolean | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaTimeDisplay": {
+			"name": "MediaTimeDisplay",
+			"typeRef": "Upstream.MediaTimeDisplay",
+			"methods": {
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"toggleTimeDisplay": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"enable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disable": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"update": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"remaining": {
+					"type": "boolean"
+				},
+				"showDuration": {
+					"type": "boolean"
+				},
+				"noToggle": {
+					"type": "boolean"
+				},
+				"mediaDuration": {
+					"type": "number"
+				},
+				"mediaCurrentTime": {
+					"type": "number"
+				},
+				"mediaSeekable": {
+					"type": "[number, number]"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaTimeRange": {
+			"name": "MediaTimeRange",
+			"typeRef": "Upstream.MediaTimeRange",
+			"methods": {
+				"updatePointerBar": [
+					{
+						"parameters": [
+							{
+								"name": "evt",
+								"type": "any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateSegments": [
+					{
+						"parameters": [
+							{
+								"name": "segments",
+								"type": "any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getPointerRatio": [
+					{
+						"parameters": [
+							{
+								"name": "evt",
+								"type": "any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateBar": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateBufferedBar": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateCurrentBox": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleEvent": [
+					{
+						"parameters": [
+							{
+								"name": "evt",
+								"type": "Event | MouseEvent",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"container": {
+					"type": "HTMLElement"
+				},
+				"range": {
+					"type": "HTMLInputElement"
+				},
+				"appearance": {
+					"type": "HTMLElement"
+				},
+				"dragging": {
+					"type": "boolean"
+				},
+				"keysUsed": {
+					"type": "string[]"
+				},
+				"mediaChaptersCues": {
+					"type": "any[]"
+				},
+				"mediaPaused": {
+					"type": "boolean"
+				},
+				"mediaLoading": {
+					"type": "boolean"
+				},
+				"mediaDuration": {
+					"type": "number | undefined"
+				},
+				"mediaCurrentTime": {
+					"type": "number | undefined"
+				},
+				"mediaPlaybackRate": {
+					"type": "number"
+				},
+				"mediaBuffered": {
+					"type": "number[][]"
+				},
+				"mediaSeekable": {
+					"type": "number[] | undefined"
+				},
+				"mediaSeekableEnd": {
+					"type": "number | undefined"
+				},
+				"mediaSeekableStart": {
+					"type": "number"
+				},
+				"mediaPreviewImage": {
+					"type": "string | undefined"
+				},
+				"mediaPreviewTime": {
+					"type": "number | undefined"
+				},
+				"mediaEnded": {
+					"type": "boolean | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaTooltip": {
+			"name": "MediaTooltip",
+			"typeRef": "Upstream.MediaTooltip",
+			"methods": {
+				"updateXOffset": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"arrowEl": {
+					"type": "HTMLElement"
+				},
+				"placement": {
+					"type": "TooltipPlacement | undefined"
+				},
+				"bounds": {
+					"type": "string | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaVolumeRange": {
+			"name": "MediaVolumeRange",
+			"typeRef": "Upstream.MediaVolumeRange",
+			"methods": {
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updatePointerBar": [
+					{
+						"parameters": [
+							{
+								"name": "evt",
+								"type": "any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateBar": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateSegments": [
+					{
+						"parameters": [
+							{
+								"name": "segments",
+								"type": "any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getPointerRatio": [
+					{
+						"parameters": [
+							{
+								"name": "evt",
+								"type": "any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleEvent": [
+					{
+						"parameters": [
+							{
+								"name": "evt",
+								"type": "any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"mediaVolume": {
+					"type": "number"
+				},
+				"mediaMuted": {
+					"type": "boolean"
+				},
+				"mediaVolumeUnavailable": {
+					"type": "string | undefined"
+				},
+				"container": {
+					"type": "HTMLElement"
+				},
+				"range": {
+					"type": "HTMLInputElement"
+				},
+				"appearance": {
+					"type": "HTMLElement"
+				},
+				"dragging": {
+					"type": "boolean"
+				},
+				"keysUsed": {
+					"type": "string[]"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaContainer": {
+			"name": "MediaContainer",
+			"typeRef": "Upstream.MediaContainer",
+			"methods": {
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "_oldValue",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleMediaUpdated": [
+					{
+						"parameters": [
+							{
+								"name": "media",
+								"type": "HTMLMediaElement",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Promise<void>",
+						"resolves": "void",
+						"traits": [
+							"async"
+						]
+					}
+				],
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"mediaSetCallback": [
+					{
+						"parameters": [
+							{
+								"name": "_media",
+								"type": "HTMLMediaElement",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"mediaUnsetCallback": [
+					{
+						"parameters": [
+							{
+								"name": "_media",
+								"type": "HTMLMediaElement",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"handleEvent": [
+					{
+						"parameters": [
+							{
+								"name": "event",
+								"type": "Event",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"breakpointsComputed": {
+					"type": "boolean"
+				},
+				"media": {
+					"type": "HTMLVideoElement | null"
+				},
+				"autohide": {
+					"type": "string"
+				},
+				"breakpoints": {
+					"type": "string | undefined"
+				},
+				"audio": {
+					"type": "boolean | undefined"
+				},
+				"gesturesDisabled": {
+					"type": "boolean | undefined"
+				},
+				"keyboardControl": {
+					"type": "boolean | undefined"
+				},
+				"noAutohide": {
+					"type": "boolean | undefined"
+				},
+				"autohideOverControls": {
+					"type": "boolean | undefined"
+				},
+				"userInteractive": {
+					"type": "boolean | undefined"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"MediaTextDisplay": {
+			"name": "MediaTextDisplay",
+			"typeRef": "Upstream.MediaTextDisplay",
+			"methods": {
+				"attributeChangedCallback": [
+					{
+						"parameters": [
+							{
+								"name": "attrName",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "oldValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "newValue",
+								"type": "string | null",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"connectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"disconnectedCallback": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {},
+			"events": [],
+			"releases": []
+		}
+	},
+	"typeExports": [
+		"constants",
+		"timeUtils",
+		"t",
+		"MediaAirplayButton",
+		"MediaCaptionsButton",
+		"MediaCastButton",
+		"MediaChromeButton",
+		"MediaChromeDialog",
+		"MediaChromeRange",
+		"MediaControlBar",
+		"MediaController",
+		"MediaDurationDisplay",
+		"MediaErrorDialog",
+		"MediaKeyboardShortcutsDialog",
+		"MediaFullscreenButton",
+		"MediaGestureReceiver",
+		"MediaLiveButton",
+		"MediaLoadingIndicator",
+		"MediaMuteButton",
+		"MediaPipButton",
+		"MediaPlaybackRateButton",
+		"MediaLoopButton",
+		"MediaPlayButton",
+		"MediaPosterImage",
+		"MediaPreviewChapterDisplay",
+		"MediaPreviewThumbnail",
+		"MediaPreviewTimeDisplay",
+		"MediaSeekBackwardButton",
+		"MediaSeekForwardButton",
+		"MediaTimeDisplay",
+		"MediaTimeRange",
+		"MediaTooltip",
+		"MediaVolumeRange",
+		"MediaContainer",
+		"MediaTextDisplay"
+	],
+	"elements": [
+		{
+			"tag": "media-airplay-button",
+			"name": "AirplayButton",
+			"definition": "media-chrome/dist/media-airplay-button.js",
+			"properties": [
+				"disabled",
+				"mediaAirplayUnavailable",
+				"mediaController",
+				"mediaIsAirplaying",
+				"noTooltip",
+				"preventClick",
+				"tooltipPlacement"
+			],
+			"events": [
+				"mediaairplayrequest"
+			],
+			"description": ""
+		},
+		{
+			"tag": "media-audio-track-menu",
+			"name": "AudioTrackMenu",
+			"definition": "media-chrome/dist/menu/media-audio-track-menu.js",
+			"properties": [
+				"anchor",
+				"mediaAudioTrackEnabled",
+				"mediaAudioTrackList",
+				"value"
+			],
+			"events": [
+				"change"
+			],
+			"description": ""
+		},
+		{
+			"tag": "media-audio-track-menu-button",
+			"name": "AudioTrackMenuButton",
+			"definition": "media-chrome/dist/menu/media-audio-track-menu-button.js",
+			"properties": [
+				"disabled",
+				"invokeTarget",
+				"mediaAudioTrackEnabled",
+				"mediaController",
+				"noTooltip",
+				"preventClick",
+				"tooltipPlacement"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-captions-button",
+			"name": "CaptionsButton",
+			"definition": "media-chrome/dist/media-captions-button.js",
+			"properties": [
+				"disabled",
+				"mediaController",
+				"mediaSubtitlesList",
+				"mediaSubtitlesShowing",
+				"noTooltip",
+				"preventClick",
+				"tooltipPlacement"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-captions-menu",
+			"name": "CaptionsMenu",
+			"definition": "media-chrome/dist/menu/media-captions-menu.js",
+			"properties": [
+				"anchor",
+				"mediaSubtitlesList",
+				"mediaSubtitlesShowing",
+				"value"
+			],
+			"events": [
+				"change"
+			],
+			"description": ""
+		},
+		{
+			"tag": "media-captions-menu-button",
+			"name": "CaptionsMenuButton",
+			"definition": "media-chrome/dist/menu/media-captions-menu-button.js",
+			"properties": [
+				"disabled",
+				"invokeTarget",
+				"mediaController",
+				"mediaSubtitlesList",
+				"mediaSubtitlesShowing",
+				"noTooltip",
+				"preventClick",
+				"tooltipPlacement"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-cast-button",
+			"name": "CastButton",
+			"definition": "media-chrome/dist/media-cast-button.js",
+			"properties": [
+				"disabled",
+				"mediaCastUnavailable",
+				"mediaController",
+				"mediaIsCasting",
+				"noTooltip",
+				"preventClick",
+				"tooltipPlacement"
+			],
+			"events": [
+				"eventName"
+			],
+			"description": ""
+		},
+		{
+			"tag": "media-chrome-button",
+			"name": "ChromeButton",
+			"definition": "media-chrome/dist/media-chrome-button.js",
+			"properties": [
+				"disabled",
+				"mediaController",
+				"noTooltip",
+				"preventClick",
+				"tooltipPlacement"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-chrome-dialog",
+			"name": "ChromeDialog",
+			"definition": "media-chrome/dist/media-chrome-dialog.js",
+			"properties": [
+				"open"
+			],
+			"events": [
+				"close",
+				"focus",
+				"focusin",
+				"open"
+			],
+			"description": ""
+		},
+		{
+			"tag": "media-chrome-menu",
+			"name": "ChromeMenu",
+			"definition": "media-chrome/dist/menu/media-chrome-menu.js",
+			"properties": [
+				"anchor",
+				"value"
+			],
+			"events": [
+				"change"
+			],
+			"description": ""
+		},
+		{
+			"tag": "media-chrome-menu-button",
+			"name": "ChromeMenuButton",
+			"definition": "media-chrome/dist/menu/media-chrome-menu-button.js",
+			"properties": [
+				"disabled",
+				"invokeTarget",
+				"mediaController",
+				"noTooltip",
+				"preventClick",
+				"tooltipPlacement"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-chrome-menu-item",
+			"name": "ChromeMenuItem",
+			"definition": "media-chrome/dist/menu/media-chrome-menu-item.js",
+			"properties": [
+				"checked",
+				"invokeTarget",
+				"type",
+				"value"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-chrome-range",
+			"name": "ChromeRange",
+			"definition": "media-chrome/dist/media-chrome-range.js",
+			"properties": [],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-container",
+			"name": "Container",
+			"definition": "media-chrome/dist/media-container.js",
+			"properties": [
+				"audio",
+				"autohide",
+				"autohideOverControls",
+				"breakpoints",
+				"breakpointsComputed",
+				"gesturesDisabled",
+				"keyboardControl",
+				"noAutohide",
+				"userInteractive"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-context-menu",
+			"name": "ContextMenu",
+			"definition": "media-chrome/dist/menu/media-context-menu.js",
+			"properties": [
+				"anchor",
+				"value"
+			],
+			"events": [
+				"change"
+			],
+			"description": ""
+		},
+		{
+			"tag": "media-context-menu-item",
+			"name": "ContextMenuItem",
+			"definition": "media-chrome/dist/menu/media-context-menu-item.js",
+			"properties": [
+				"checked",
+				"invokeTarget",
+				"type",
+				"value"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-control-bar",
+			"name": "ControlBar",
+			"definition": "media-chrome/dist/media-control-bar.js",
+			"properties": [],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-controller",
+			"name": "Controller",
+			"definition": "media-chrome/dist/media-controller.js",
+			"properties": [
+				"audio",
+				"autohide",
+				"autohideOverControls",
+				"breakpoints",
+				"breakpointsComputed",
+				"defaultDuration",
+				"defaultStreamType",
+				"defaultSubtitles",
+				"gesturesDisabled",
+				"hotkeys",
+				"keyboardControl",
+				"keysUsed",
+				"liveEdgeOffset",
+				"mediaStore",
+				"noAutoSeekToLive",
+				"noAutohide",
+				"noDefaultStore",
+				"noHotkeys",
+				"noMutedPref",
+				"noSubtitlesLangPref",
+				"noVolumePref",
+				"userInteractive"
+			],
+			"events": [
+				"eventName"
+			],
+			"description": "Media Controller should not mimic the HTMLMediaElement API."
+		},
+		{
+			"tag": "media-duration-display",
+			"name": "DurationDisplay",
+			"definition": "media-chrome/dist/media-duration-display.js",
+			"properties": [
+				"mediaDuration",
+				"textContent"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-error-dialog",
+			"name": "ErrorDialog",
+			"definition": "media-chrome/dist/media-error-dialog.js",
+			"properties": [
+				"mediaError",
+				"mediaErrorCode",
+				"mediaErrorMessage",
+				"open"
+			],
+			"events": [
+				"close",
+				"focus",
+				"focusin",
+				"open"
+			],
+			"description": ""
+		},
+		{
+			"tag": "media-fullscreen-button",
+			"name": "FullscreenButton",
+			"definition": "media-chrome/dist/media-fullscreen-button.js",
+			"properties": [
+				"disabled",
+				"mediaController",
+				"mediaFullscreenUnavailable",
+				"mediaIsFullscreen",
+				"noTooltip",
+				"preventClick",
+				"tooltipPlacement"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-gesture-receiver",
+			"name": "GestureReceiver",
+			"definition": "media-chrome/dist/media-gesture-receiver.js",
+			"properties": [
+				"mediaPaused"
+			],
+			"events": [
+				"eventName"
+			],
+			"description": ""
+		},
+		{
+			"tag": "media-keyboard-shortcuts-dialog",
+			"name": "KeyboardShortcutsDialog",
+			"definition": "media-chrome/dist/media-keyboard-shortcuts-dialog.js",
+			"properties": [
+				"hotkeys",
+				"open"
+			],
+			"events": [
+				"close",
+				"focus",
+				"focusin",
+				"open"
+			],
+			"description": ""
+		},
+		{
+			"tag": "media-live-button",
+			"name": "LiveButton",
+			"definition": "media-chrome/dist/media-live-button.js",
+			"properties": [
+				"disabled",
+				"mediaController",
+				"mediaPaused",
+				"mediaTimeIsLive",
+				"noTooltip",
+				"preventClick",
+				"tooltipPlacement"
+			],
+			"events": [
+				"MEDIA_PLAY_REQUEST",
+				"MEDIA_SEEK_TO_LIVE_REQUEST"
+			],
+			"description": ""
+		},
+		{
+			"tag": "media-loading-indicator",
+			"name": "LoadingIndicator",
+			"definition": "media-chrome/dist/media-loading-indicator.js",
+			"properties": [
+				"loadingDelay",
+				"mediaController",
+				"mediaLoading",
+				"mediaPaused",
+				"noAutohide"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-loop-button",
+			"name": "LoopButton",
+			"definition": "media-chrome/dist/media-loop-button.js",
+			"properties": [
+				"disabled",
+				"mediaController",
+				"mediaLoop",
+				"noTooltip",
+				"preventClick",
+				"tooltipPlacement"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-mute-button",
+			"name": "MuteButton",
+			"definition": "media-chrome/dist/media-mute-button.js",
+			"properties": [
+				"disabled",
+				"mediaController",
+				"mediaVolumeLevel",
+				"noTooltip",
+				"preventClick",
+				"tooltipPlacement"
+			],
+			"events": [
+				"eventName"
+			],
+			"description": ""
+		},
+		{
+			"tag": "media-pip-button",
+			"name": "PipButton",
+			"definition": "media-chrome/dist/media-pip-button.js",
+			"properties": [
+				"disabled",
+				"mediaController",
+				"mediaIsPip",
+				"mediaPipUnavailable",
+				"noTooltip",
+				"preventClick",
+				"tooltipPlacement"
+			],
+			"events": [
+				"eventName"
+			],
+			"description": ""
+		},
+		{
+			"tag": "media-play-button",
+			"name": "PlayButton",
+			"definition": "media-chrome/dist/media-play-button.js",
+			"properties": [
+				"disabled",
+				"mediaController",
+				"mediaPaused",
+				"noTooltip",
+				"preventClick",
+				"tooltipPlacement"
+			],
+			"events": [
+				"eventName"
+			],
+			"description": ""
+		},
+		{
+			"tag": "media-playback-rate-button",
+			"name": "PlaybackRateButton",
+			"definition": "media-chrome/dist/media-playback-rate-button.js",
+			"properties": [
+				"disabled",
+				"innerHTML",
+				"mediaController",
+				"mediaPlaybackRate",
+				"noTooltip",
+				"preventClick",
+				"rates",
+				"tooltipPlacement"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-playback-rate-menu",
+			"name": "PlaybackRateMenu",
+			"definition": "media-chrome/dist/menu/media-playback-rate-menu.js",
+			"properties": [
+				"anchor",
+				"mediaPlaybackRate",
+				"rates",
+				"value"
+			],
+			"events": [
+				"change"
+			],
+			"description": ""
+		},
+		{
+			"tag": "media-playback-rate-menu-button",
+			"name": "PlaybackRateMenuButton",
+			"definition": "media-chrome/dist/menu/media-playback-rate-menu-button.js",
+			"properties": [
+				"disabled",
+				"innerHTML",
+				"invokeTarget",
+				"mediaController",
+				"mediaPlaybackRate",
+				"noTooltip",
+				"preventClick",
+				"tooltipPlacement"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-poster-image",
+			"name": "PosterImage",
+			"definition": "media-chrome/dist/media-poster-image.js",
+			"properties": [
+				"placeholderSrc",
+				"src"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-preview-chapter-display",
+			"name": "PreviewChapterDisplay",
+			"definition": "media-chrome/dist/media-preview-chapter-display.js",
+			"properties": [
+				"mediaPreviewChapter"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-preview-thumbnail",
+			"name": "PreviewThumbnail",
+			"definition": "media-chrome/dist/media-preview-thumbnail.js",
+			"properties": [
+				"imgHeight",
+				"imgWidth",
+				"mediaPreviewCoords",
+				"mediaPreviewImage"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-preview-time-display",
+			"name": "PreviewTimeDisplay",
+			"definition": "media-chrome/dist/media-preview-time-display.js",
+			"properties": [
+				"mediaPreviewTime",
+				"textContent"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-rendition-menu",
+			"name": "RenditionMenu",
+			"definition": "media-chrome/dist/menu/media-rendition-menu.js",
+			"properties": [
+				"anchor",
+				"mediaHeight",
+				"mediaRenditionList",
+				"mediaRenditionSelected",
+				"mediaWidth",
+				"value"
+			],
+			"events": [
+				"change"
+			],
+			"description": ""
+		},
+		{
+			"tag": "media-rendition-menu-button",
+			"name": "RenditionMenuButton",
+			"definition": "media-chrome/dist/menu/media-rendition-menu-button.js",
+			"properties": [
+				"disabled",
+				"invokeTarget",
+				"mediaController",
+				"mediaHeight",
+				"mediaRenditionSelected",
+				"noTooltip",
+				"preventClick",
+				"tooltipPlacement"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-seek-backward-button",
+			"name": "SeekBackwardButton",
+			"definition": "media-chrome/dist/media-seek-backward-button.js",
+			"properties": [
+				"disabled",
+				"mediaController",
+				"mediaCurrentTime",
+				"noTooltip",
+				"preventClick",
+				"seekOffset",
+				"tooltipPlacement"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-seek-forward-button",
+			"name": "SeekForwardButton",
+			"definition": "media-chrome/dist/media-seek-forward-button.js",
+			"properties": [
+				"disabled",
+				"mediaController",
+				"mediaCurrentTime",
+				"noTooltip",
+				"preventClick",
+				"seekOffset",
+				"tooltipPlacement"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-settings-menu",
+			"name": "SettingsMenu",
+			"definition": "media-chrome/dist/menu/media-settings-menu.js",
+			"properties": [
+				"anchor",
+				"value"
+			],
+			"events": [
+				"change"
+			],
+			"description": ""
+		},
+		{
+			"tag": "media-settings-menu-button",
+			"name": "SettingsMenuButton",
+			"definition": "media-chrome/dist/menu/media-settings-menu-button.js",
+			"properties": [
+				"disabled",
+				"invokeTarget",
+				"mediaController",
+				"noTooltip",
+				"preventClick",
+				"tooltipPlacement"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-settings-menu-item",
+			"name": "SettingsMenuItem",
+			"definition": "media-chrome/dist/menu/media-settings-menu-item.js",
+			"properties": [
+				"checked",
+				"invokeTarget",
+				"type",
+				"value"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-text-display",
+			"name": "TextDisplay",
+			"definition": "media-chrome/dist/media-text-display.js",
+			"properties": [],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-theme",
+			"name": "Theme",
+			"definition": "media-chrome/dist/media-theme-element.js",
+			"properties": [
+				"renderer"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-time-display",
+			"name": "TimeDisplay",
+			"definition": "media-chrome/dist/media-time-display.js",
+			"properties": [
+				"innerHTML",
+				"mediaCurrentTime",
+				"mediaDuration",
+				"mediaSeekable",
+				"noToggle",
+				"remaining",
+				"showDuration"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-time-range",
+			"name": "TimeRange",
+			"definition": "media-chrome/dist/media-time-range.js",
+			"properties": [
+				"mediaBuffered",
+				"mediaChaptersCues",
+				"mediaCurrentTime",
+				"mediaDuration",
+				"mediaEnded",
+				"mediaLoading",
+				"mediaPaused",
+				"mediaPlaybackRate",
+				"mediaPreviewImage",
+				"mediaPreviewTime",
+				"mediaSeekable"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-tooltip",
+			"name": "Tooltip",
+			"definition": "media-chrome/dist/media-tooltip.js",
+			"properties": [
+				"bounds",
+				"placement",
+				"updateXOffset"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "media-volume-range",
+			"name": "VolumeRange",
+			"definition": "media-chrome/dist/media-volume-range.js",
+			"properties": [
+				"mediaMuted",
+				"mediaVolume",
+				"mediaVolumeUnavailable"
+			],
+			"events": [],
+			"description": ""
+		}
+	]
+}

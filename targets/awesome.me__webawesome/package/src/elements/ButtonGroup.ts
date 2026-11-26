@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-button-group"]; // element: wa-button-group
 
-/** `<wa-button-group>`: Button groups combine related buttons into a single visual unit. Use them for toolbars, segmented controls, */
+/** `<wa-button-group>`: Button groups combine related buttons into a single visual unit. */
 export const ButtonGroup = Html.customElement({
 	tag: "wa-button-group",
 	properties: {

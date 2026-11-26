@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-resize-observer"]; // element: wa-resize-observer
 
-/** `<wa-resize-observer>`: Resize observers watch their slotted elements for size changes and emit an event when they occur. Provides a */
+/** `<wa-resize-observer>`: Resize observers watch their slotted elements for size changes and emit an event when they occur. */
 export const ResizeObserver = Html.customElement({
 	tag: "wa-resize-observer",
 	properties: {

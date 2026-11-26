@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-intersection-observer"]; // element: wa-intersection-observer
 
-/** `<wa-intersection-observer>`: Tracks immediate child elements and fires events as they move in and out of view. Useful for lazy loading, */
+/** `<wa-intersection-observer>`: Tracks immediate child elements and fires events as they move in and out of view. */
 export const IntersectionObserver = Html.customElement({
 	tag: "wa-intersection-observer",
 	properties: {

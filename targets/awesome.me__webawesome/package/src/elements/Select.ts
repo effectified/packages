@@ -7,13 +7,12 @@ import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-select"]; // element: wa-select
 
-/** `<wa-select>`: Selects let users choose one or more values from a dropdown list of predefined options. Use them in forms */
+/** `<wa-select>`: Selects let users choose one or more values from a dropdown list of predefined options. */
 export const Select = Html.customElement({
 	tag: "wa-select",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-select.appearance
 		assumeInteractionOn: typed<Of["assumeInteractionOn"]>(), // property: wa-select.assumeInteractionOn
-		currentOption: typed<Of["currentOption"]>(), // property: wa-select.currentOption
 		customError: typed<Of["customError"]>(), // property: wa-select.customError
 		defaultValue: typed<Of["defaultValue"]>(), // property: wa-select.defaultValue
 		didSSR: typed<Of["didSSR"]>(), // property: wa-select.didSSR
@@ -33,11 +32,10 @@ export const Select = Html.customElement({
 		pill: typed<Of["pill"]>(), // property: wa-select.pill
 		placeholder: typed<Of["placeholder"]>(), // property: wa-select.placeholder
 		placement: typed<Of["placement"]>(), // property: wa-select.placement
-		popup: typed<Of["popup"]>(), // property: wa-select.popup
 		required: typed<Of["required"]>(), // property: wa-select.required
-		selectedOptions: typed<Of["selectedOptions"]>(), // property: wa-select.selectedOptions
 		size: typed<Of["size"]>(), // property: wa-select.size
 		states: typed<Of["states"]>(), // property: wa-select.states
+		validators: typed<Of["validators"]>(), // property: wa-select.validators
 		value: typed<Of["value"]>(), // property: wa-select.value
 		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-select.valueHasChanged
 		withClear: typed<Of["withClear"]>(), // property: wa-select.withClear

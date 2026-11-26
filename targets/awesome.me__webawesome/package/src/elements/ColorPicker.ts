@@ -7,7 +7,7 @@ import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
-/** `<wa-color-picker>`: Color pickers let users choose a color from a visual palette or by entering a value. They support HEX, RGB, */
+/** `<wa-color-picker>`: Color pickers let users choose a color from a visual palette or by entering a value. */
 export const ColorPicker = Html.customElement({
 	tag: "wa-color-picker",
 	properties: {
@@ -28,12 +28,12 @@ export const ColorPicker = Html.customElement({
 		opacity: typed<Of["opacity"]>(), // property: wa-color-picker.opacity
 		open: typed<Of["open"]>(), // property: wa-color-picker.open
 		placement: typed<Of["placement"]>(), // property: wa-color-picker.placement
-		popup: typed<Of["popup"]>(), // property: wa-color-picker.popup
 		required: typed<Of["required"]>(), // property: wa-color-picker.required
 		size: typed<Of["size"]>(), // property: wa-color-picker.size
 		states: typed<Of["states"]>(), // property: wa-color-picker.states
 		swatches: typed<Of["swatches"]>(), // property: wa-color-picker.swatches
 		uppercase: typed<Of["uppercase"]>(), // property: wa-color-picker.uppercase
+		validators: typed<Of["validators"]>(), // property: wa-color-picker.validators
 		value: typed<Of["value"]>(), // property: wa-color-picker.value
 		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-color-picker.valueHasChanged
 		withHint: typed<Of["withHint"]>(), // property: wa-color-picker.withHint

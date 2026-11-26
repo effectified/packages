@@ -1,0 +1,2068 @@
+{
+	"package": "@codemirror/view",
+	"version": "6.44.0",
+	"types": {
+		"from": "bundled",
+		"package": "@codemirror/view",
+		"version": "6.44.0"
+	},
+	"entry": "named",
+	"exports": [
+		{
+			"kind": "class",
+			"name": "BidiSpan",
+			"handle": "BidiSpan",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "BidiSpan",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "BlockInfo",
+			"handle": "BlockInfo",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "BlockInfo",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "value",
+			"name": "BlockType",
+			"type": "typeof BlockType"
+		},
+		{
+			"kind": "class",
+			"name": "BlockWrapper",
+			"handle": "BlockWrapper",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "BlockWrapper",
+					"handle": "BlockWrapper",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "Decoration",
+			"handle": "Decoration",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "startSide",
+							"type": "number",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "endSide",
+							"type": "number",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "widget",
+							"type": "WidgetType | null",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "spec",
+							"type": "any",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Decoration",
+					"handle": "Decoration",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "value",
+			"name": "Direction",
+			"type": "typeof Direction"
+		},
+		{
+			"kind": "class",
+			"name": "EditorView",
+			"handle": "EditorView",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "config",
+							"type": "EditorViewConfig | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "EditorView",
+					"handle": "EditorView",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "GutterMarker",
+			"handle": "GutterMarker",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "GutterMarker",
+					"handle": "GutterMarker",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "MatchDecorator",
+			"handle": "MatchDecorator",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "config",
+							"type": "{ regexp: RegExp; decoration?: Decoration | ((match: RegExpExecArray, view: EditorView, pos: number) => Decoration | null) | undefined; decorate?: ((add: (from: number, to: number, decoration: Decoration) => void, from: number, to: number, match: RegExpExecArray, view: EditorView) => void) | undefined; boundary?: RegExp | undefined; maxLength?: number | undefined; }",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "MatchDecorator",
+					"handle": "MatchDecorator",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "RectangleMarker",
+			"handle": "RectangleMarker",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "className",
+							"type": "string",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "left",
+							"type": "number",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "top",
+							"type": "number",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "width",
+							"type": "number | null",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "height",
+							"type": "number",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "RectangleMarker",
+					"handle": "RectangleMarker",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "ViewPlugin",
+			"handle": "ViewPlugin",
+			"constructors": [
+				{
+					"typeParameters": "V extends PluginValue, Arg = undefined",
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "ViewPlugin<V, Arg>",
+					"handle": "ViewPlugin",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "ViewUpdate",
+			"handle": "ViewUpdate",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "ViewUpdate",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "class",
+			"name": "WidgetType",
+			"handle": "WidgetType",
+			"constructors": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "WidgetType",
+					"handle": "WidgetType",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		},
+		{
+			"kind": "function",
+			"name": "activateHover",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "view",
+							"type": "EditorView",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "pos",
+							"type": "number",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "side",
+							"type": "-1 | 1",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "options",
+							"type": "{ tooltip?: Extension | undefined; until?: ((tr: Transaction) => boolean) | undefined; } | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "void",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "closeHoverTooltip",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "tooltip",
+							"type": "Extension & { active: StateField<readonly Tooltip[]>; }",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "StateEffect<unknown>",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "value",
+			"name": "closeHoverTooltips",
+			"type": "StateEffect<unknown>"
+		},
+		{
+			"kind": "function",
+			"name": "crosshairCursor",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "options",
+							"type": "{ key?: \"Alt\" | \"Control\" | \"Meta\" | \"Shift\" | undefined; } | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Extension",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "drawSelection",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "config",
+							"type": "SelectionConfig | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Extension",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "dropCursor",
+			"signatures": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "Extension",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "getDialog",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "view",
+							"type": "EditorView",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "className",
+							"type": "string",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Panel | null",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "getDrawSelectionConfig",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "state",
+							"type": "EditorState",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "SelectionConfig",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "getPanel",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "view",
+							"type": "EditorView",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "panel",
+							"type": "PanelConstructor",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": true,
+					"returns": "Panel | null",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "getTooltip",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "view",
+							"type": "EditorView",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "tooltip",
+							"type": "Tooltip",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "TooltipView | null",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "gutter",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "config",
+							"type": "GutterConfig",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Extension",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "value",
+			"name": "gutterLineClass",
+			"type": "Facet<RangeSet<GutterMarker>, readonly RangeSet<GutterMarker>[]>"
+		},
+		{
+			"kind": "value",
+			"name": "gutterWidgetClass",
+			"type": "Facet<(view: EditorView, widget: WidgetType, block: BlockInfo) => GutterMarker | null, readonly ((view: EditorView, widget: WidgetType, block: BlockInfo) => GutterMarker | null)[]>"
+		},
+		{
+			"kind": "function",
+			"name": "gutters",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "config",
+							"type": "{ fixed?: boolean | undefined; } | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Extension",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "hasHoverTooltips",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "state",
+							"type": "EditorState",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "boolean",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "highlightActiveLine",
+			"signatures": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "Extension",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "highlightActiveLineGutter",
+			"signatures": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "Extension",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "highlightSpecialChars",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "config",
+							"type": "SpecialCharConfig | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Extension",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "highlightTrailingWhitespace",
+			"signatures": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "Extension",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "highlightWhitespace",
+			"signatures": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "Extension",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "hoverTooltip",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "source",
+							"type": "HoverTooltipSource",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "options",
+							"type": "{ hideOn?: ((tr: Transaction, tooltip: Tooltip) => boolean) | undefined; hideOnChange?: \"touch\" | boolean | undefined; hoverTime?: number | undefined; } | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Extension & { active: StateField<readonly Tooltip[]>; }",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "value",
+			"name": "keymap",
+			"type": "Facet<readonly KeyBinding[], readonly (readonly KeyBinding[])[]>"
+		},
+		{
+			"kind": "function",
+			"name": "layer",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "config",
+							"type": "LayerConfig",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Extension",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "value",
+			"name": "lineNumberMarkers",
+			"type": "Facet<RangeSet<GutterMarker>, readonly RangeSet<GutterMarker>[]>"
+		},
+		{
+			"kind": "value",
+			"name": "lineNumberWidgetMarker",
+			"type": "Facet<(view: EditorView, widget: WidgetType, block: BlockInfo) => GutterMarker | null, readonly ((view: EditorView, widget: WidgetType, block: BlockInfo) => GutterMarker | null)[]>"
+		},
+		{
+			"kind": "function",
+			"name": "lineNumbers",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "config",
+							"type": "LineNumberConfig | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Extension",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "logException",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "state",
+							"type": "EditorState",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "exception",
+							"type": "any",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "context",
+							"type": "string | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "void",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "panels",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "config",
+							"type": "PanelConfig | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Extension",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "placeholder",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "content",
+							"type": "string | HTMLElement | ((view: EditorView) => HTMLElement)",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Extension",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "rectangularSelection",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "options",
+							"type": "{ eventFilter?: ((event: MouseEvent) => boolean) | undefined; } | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Extension",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "repositionTooltips",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "view",
+							"type": "EditorView",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "void",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "runScopeHandlers",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "view",
+							"type": "EditorView",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "event",
+							"type": "KeyboardEvent",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "scope",
+							"type": "string",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "boolean",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "scrollPastEnd",
+			"signatures": [
+				{
+					"parameters": [],
+					"trailingCallback": false,
+					"returns": "Extension",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "function",
+			"name": "showDialog",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "view",
+							"type": "EditorView",
+							"optional": false,
+							"rest": false
+						},
+						{
+							"name": "config",
+							"type": "DialogConfig",
+							"optional": false,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "{ close: StateEffect<unknown>; result: Promise<HTMLFormElement | null>; }",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		},
+		{
+			"kind": "value",
+			"name": "showPanel",
+			"type": "Facet<PanelConstructor | null, readonly (PanelConstructor | null)[]>"
+		},
+		{
+			"kind": "value",
+			"name": "showTooltip",
+			"type": "Facet<Tooltip | null, readonly (Tooltip | null)[]>"
+		},
+		{
+			"kind": "function",
+			"name": "tooltips",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "config",
+							"type": "{ position?: \"absolute\" | \"fixed\" | undefined; parent?: HTMLElement | undefined; tooltipSpace?: ((view: EditorView) => Rect) | undefined; } | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Extension",
+					"traits": [
+						"sync"
+					]
+				}
+			]
+		}
+	],
+	"handles": {
+		"BlockWrapper": {
+			"name": "BlockWrapper",
+			"typeRef": "Upstream.BlockWrapper",
+			"methods": {
+				"eq": [
+					{
+						"parameters": [
+							{
+								"name": "other",
+								"type": "RangeValue",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {},
+			"events": [],
+			"releases": []
+		},
+		"Decoration": {
+			"name": "Decoration",
+			"typeRef": "Upstream.Decoration",
+			"methods": {
+				"eq": [
+					{
+						"parameters": [
+							{
+								"name": "other",
+								"type": "Decoration",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"spec": {
+					"type": "any"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"EditorView": {
+			"name": "EditorView",
+			"typeRef": "Upstream.EditorView",
+			"methods": {
+				"dispatch": [
+					{
+						"parameters": [
+							{
+								"name": "tr",
+								"type": "Transaction",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "trs",
+								"type": "readonly Transaction[]",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "specs",
+								"type": "TransactionSpec[]",
+								"optional": false,
+								"rest": true
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"update": [
+					{
+						"parameters": [
+							{
+								"name": "transactions",
+								"type": "readonly Transaction[]",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"setState": [
+					{
+						"parameters": [
+							{
+								"name": "newState",
+								"type": "EditorState",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"requestMeasure": [
+					{
+						"typeParameters": "T",
+						"parameters": [
+							{
+								"name": "request",
+								"type": "MeasureRequest<T> | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"plugin": [
+					{
+						"typeParameters": "T extends PluginValue",
+						"parameters": [
+							{
+								"name": "plugin",
+								"type": "ViewPlugin<T, any>",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "T | null",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"elementAtHeight": [
+					{
+						"parameters": [
+							{
+								"name": "height",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "BlockInfo",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"lineBlockAtHeight": [
+					{
+						"parameters": [
+							{
+								"name": "height",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "BlockInfo",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"lineBlockAt": [
+					{
+						"parameters": [
+							{
+								"name": "pos",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "BlockInfo",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"moveByChar": [
+					{
+						"parameters": [
+							{
+								"name": "start",
+								"type": "SelectionRange",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "forward",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "by",
+								"type": "((initial: string) => (next: string) => boolean) | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "SelectionRange",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"moveByGroup": [
+					{
+						"parameters": [
+							{
+								"name": "start",
+								"type": "SelectionRange",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "forward",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "SelectionRange",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"visualLineSide": [
+					{
+						"parameters": [
+							{
+								"name": "line",
+								"type": "Line",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "end",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "SelectionRange",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"moveToLineBoundary": [
+					{
+						"parameters": [
+							{
+								"name": "start",
+								"type": "SelectionRange",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "forward",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "includeWrap",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "SelectionRange",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"moveVertically": [
+					{
+						"parameters": [
+							{
+								"name": "start",
+								"type": "SelectionRange",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "forward",
+								"type": "boolean",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "distance",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "SelectionRange",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"domAtPos": [
+					{
+						"parameters": [
+							{
+								"name": "pos",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "side",
+								"type": "-1 | 1 | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "{ node: Node; offset: number; }",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"posAtDOM": [
+					{
+						"parameters": [
+							{
+								"name": "node",
+								"type": "Node",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "offset",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"posAtCoords": [
+					{
+						"parameters": [
+							{
+								"name": "coords",
+								"type": "{ x: number; y: number; }",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "precise",
+								"type": "false",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "coords",
+								"type": "{ x: number; y: number; }",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "number | null",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"posAndSideAtCoords": [
+					{
+						"parameters": [
+							{
+								"name": "coords",
+								"type": "{ x: number; y: number; }",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "precise",
+								"type": "false",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "{ pos: number; assoc: -1 | 1; }",
+						"traits": [
+							"sync"
+						]
+					},
+					{
+						"parameters": [
+							{
+								"name": "coords",
+								"type": "{ x: number; y: number; }",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "{ pos: number; assoc: -1 | 1; } | null",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"coordsAtPos": [
+					{
+						"parameters": [
+							{
+								"name": "pos",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "side",
+								"type": "-1 | 1 | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Rect | null",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"coordsForChar": [
+					{
+						"parameters": [
+							{
+								"name": "pos",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Rect | null",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"textDirectionAt": [
+					{
+						"parameters": [
+							{
+								"name": "pos",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Direction",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"bidiSpans": [
+					{
+						"parameters": [
+							{
+								"name": "line",
+								"type": "Line",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "readonly BidiSpan[]",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"focus": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"setRoot": [
+					{
+						"parameters": [
+							{
+								"name": "root",
+								"type": "Document | ShadowRoot",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"destroy": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"scrollSnapshot": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "StateEffect<ScrollTarget>",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"setTabFocusMode": [
+					{
+						"parameters": [
+							{
+								"name": "to",
+								"type": "number | boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"state": {
+					"type": "EditorState"
+				},
+				"viewport": {
+					"type": "{ from: number; to: number; }"
+				},
+				"visibleRanges": {
+					"type": "readonly { from: number; to: number; }[]"
+				},
+				"inView": {
+					"type": "boolean"
+				},
+				"composing": {
+					"type": "boolean"
+				},
+				"compositionStarted": {
+					"type": "boolean"
+				},
+				"root": {
+					"type": "DocumentOrShadowRoot"
+				},
+				"dom": {
+					"type": "HTMLElement"
+				},
+				"scrollDOM": {
+					"type": "HTMLElement"
+				},
+				"contentDOM": {
+					"type": "HTMLElement"
+				},
+				"themeClasses": {
+					"type": "string"
+				},
+				"documentTop": {
+					"type": "number"
+				},
+				"documentPadding": {
+					"type": "{ top: number; bottom: number; }"
+				},
+				"scaleX": {
+					"type": "number"
+				},
+				"scaleY": {
+					"type": "number"
+				},
+				"viewportLineBlocks": {
+					"type": "BlockInfo[]"
+				},
+				"contentHeight": {
+					"type": "number"
+				},
+				"defaultCharacterWidth": {
+					"type": "number"
+				},
+				"defaultLineHeight": {
+					"type": "number"
+				},
+				"textDirection": {
+					"type": "Direction"
+				},
+				"lineWrapping": {
+					"type": "boolean"
+				},
+				"hasFocus": {
+					"type": "boolean"
+				}
+			},
+			"events": [],
+			"releases": [
+				"destroy"
+			]
+		},
+		"GutterMarker": {
+			"name": "GutterMarker",
+			"typeRef": "Upstream.GutterMarker",
+			"methods": {
+				"eq": [
+					{
+						"parameters": [
+							{
+								"name": "other",
+								"type": "GutterMarker",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"destroy": [
+					{
+						"parameters": [
+							{
+								"name": "dom",
+								"type": "Node",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"toDOM": {
+					"type": "((view: EditorView) => Node) | undefined"
+				},
+				"elementClass": {
+					"type": "string"
+				}
+			},
+			"events": [],
+			"releases": [
+				"destroy"
+			]
+		},
+		"MatchDecorator": {
+			"name": "MatchDecorator",
+			"typeRef": "Upstream.MatchDecorator",
+			"methods": {
+				"createDeco": [
+					{
+						"parameters": [
+							{
+								"name": "view",
+								"type": "EditorView",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "RangeSet<Decoration>",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateDeco": [
+					{
+						"parameters": [
+							{
+								"name": "update",
+								"type": "ViewUpdate",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "deco",
+								"type": "DecorationSet",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "DecorationSet",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {},
+			"events": [],
+			"releases": []
+		},
+		"RectangleMarker": {
+			"name": "RectangleMarker",
+			"typeRef": "Upstream.RectangleMarker",
+			"methods": {
+				"draw": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "HTMLDivElement",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"update": [
+					{
+						"parameters": [
+							{
+								"name": "elt",
+								"type": "HTMLElement",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "prev",
+								"type": "RectangleMarker",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"eq": [
+					{
+						"parameters": [
+							{
+								"name": "p",
+								"type": "RectangleMarker",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"left": {
+					"type": "number"
+				},
+				"top": {
+					"type": "number"
+				},
+				"width": {
+					"type": "number | null"
+				},
+				"height": {
+					"type": "number"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"ViewPlugin": {
+			"name": "ViewPlugin",
+			"typeRef": "Upstream.ViewPlugin<any, any>",
+			"methods": {
+				"of": [
+					{
+						"parameters": [
+							{
+								"name": "arg",
+								"type": "Arg",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Extension",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"extension": {
+					"type": "Arg extends undefined ? Extension : null"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"WidgetType": {
+			"name": "WidgetType",
+			"typeRef": "Upstream.WidgetType",
+			"methods": {
+				"toDOM": [
+					{
+						"parameters": [
+							{
+								"name": "view",
+								"type": "EditorView",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "HTMLElement",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"eq": [
+					{
+						"parameters": [
+							{
+								"name": "widget",
+								"type": "WidgetType",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"updateDOM": [
+					{
+						"parameters": [
+							{
+								"name": "dom",
+								"type": "HTMLElement",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "view",
+								"type": "EditorView",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "from",
+								"type": "WidgetType",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"ignoreEvent": [
+					{
+						"parameters": [
+							{
+								"name": "event",
+								"type": "Event",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"coordsAt": [
+					{
+						"parameters": [
+							{
+								"name": "dom",
+								"type": "HTMLElement",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "pos",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "side",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "Rect | null",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"destroy": [
+					{
+						"parameters": [
+							{
+								"name": "dom",
+								"type": "HTMLElement",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"estimatedHeight": {
+					"type": "number"
+				},
+				"lineBreaks": {
+					"type": "number"
+				}
+			},
+			"events": [],
+			"releases": [
+				"destroy"
+			]
+		}
+	},
+	"typeExports": [
+		"BidiSpan",
+		"BlockInfo",
+		"BlockType",
+		"BlockWrapper",
+		"Decoration",
+		"Direction",
+		"EditorView",
+		"GutterMarker",
+		"MatchDecorator",
+		"RectangleMarker",
+		"ViewPlugin",
+		"ViewUpdate",
+		"WidgetType",
+		"activateHover",
+		"closeHoverTooltip",
+		"closeHoverTooltips",
+		"crosshairCursor",
+		"drawSelection",
+		"dropCursor",
+		"getDialog",
+		"getDrawSelectionConfig",
+		"getPanel",
+		"getTooltip",
+		"gutter",
+		"gutterLineClass",
+		"gutterWidgetClass",
+		"gutters",
+		"hasHoverTooltips",
+		"highlightActiveLine",
+		"highlightActiveLineGutter",
+		"highlightSpecialChars",
+		"highlightTrailingWhitespace",
+		"highlightWhitespace",
+		"hoverTooltip",
+		"keymap",
+		"layer",
+		"lineNumberMarkers",
+		"lineNumberWidgetMarker",
+		"lineNumbers",
+		"logException",
+		"panels",
+		"placeholder",
+		"rectangularSelection",
+		"repositionTooltips",
+		"runScopeHandlers",
+		"scrollPastEnd",
+		"showDialog",
+		"showPanel",
+		"showTooltip",
+		"tooltips",
+		"Command",
+		"DOMEventHandlers",
+		"DOMEventMap",
+		"DecorationSet",
+		"EditorViewConfig",
+		"HoverTooltipSource",
+		"KeyBinding",
+		"LayerMarker",
+		"MouseSelectionStyle",
+		"Panel",
+		"PanelConstructor",
+		"PluginSpec",
+		"PluginValue",
+		"Rect",
+		"Tooltip",
+		"TooltipView"
+	]
+}

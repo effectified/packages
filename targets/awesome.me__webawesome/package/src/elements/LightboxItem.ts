@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-lightbox-item"]; // element: wa-lightbox-item
 
-/** `<wa-lightbox-item>`: Lightbox items represent the individual images and videos shown in a lightbox. Each one wraps the */
+/** `<wa-lightbox-item>`: Lightbox items represent the individual images and videos shown in a lightbox. */
 export const LightboxItem = Html.customElement({
 	tag: "wa-lightbox-item",
 	properties: {

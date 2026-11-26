@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-button"]; // element: wa-button
 
-/** `<wa-button>`: Buttons represent actions the user can take, such as submitting a form, opening a dialog, or navigating to */
+/** `<wa-button>`: Buttons represent actions the user can take, such as submitting a form, opening a dialog, or navigating to another page. */
 export const Button = Html.customElement({
 	tag: "wa-button",
 	properties: {
@@ -40,6 +40,7 @@ export const Button = Html.customElement({
 		target: typed<Of["target"]>(), // property: wa-button.target
 		title: typed<Of["title"]>(), // property: wa-button.title
 		type: typed<Of["type"]>(), // property: wa-button.type
+		validators: typed<Of["validators"]>(), // property: wa-button.validators
 		value: typed<Of["value"]>(), // property: wa-button.value
 		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-button.valueHasChanged
 		variant: typed<Of["variant"]>(), // property: wa-button.variant

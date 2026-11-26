@@ -7,7 +7,7 @@ import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-number-input"]; // element: wa-number-input
 
-/** `<wa-number-input>`: Number inputs let users enter and edit numeric values, with optional stepper buttons for incrementing and */
+/** `<wa-number-input>`: Number inputs let users enter and edit numeric values, with optional stepper buttons for incrementing and decrementing. */
 export const NumberInput = Html.customElement({
 	tag: "wa-number-input",
 	properties: {
@@ -39,6 +39,7 @@ export const NumberInput = Html.customElement({
 		states: typed<Of["states"]>(), // property: wa-number-input.states
 		step: typed<Of["step"]>(), // property: wa-number-input.step
 		title: typed<Of["title"]>(), // property: wa-number-input.title
+		validators: typed<Of["validators"]>(), // property: wa-number-input.validators
 		value: typed<Of["value"]>(), // property: wa-number-input.value
 		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-number-input.valueHasChanged
 		withHint: typed<Of["withHint"]>(), // property: wa-number-input.withHint

@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-option"]; // element: wa-option
 
-/** `<wa-option>`: Options represent the individual choices inside a select or similar form control. Each option holds a value */
+/** `<wa-option>`: Options represent the individual choices inside a select or similar form control. */
 export const Option = Html.customElement({
 	tag: "wa-option",
 	properties: {

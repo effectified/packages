@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-progress-ring"]; // element: wa-progress-ring
 
-/** `<wa-progress-ring>`: Progress rings show how far along a determinate operation is using a circular indicator. Use them as a */
+/** `<wa-progress-ring>`: Progress rings show how far along a determinate operation is using a circular indicator. */
 export const ProgressRing = Html.customElement({
 	tag: "wa-progress-ring",
 	properties: {

@@ -7,7 +7,7 @@ import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-time-input"]; // element: wa-time-input
 
-/** `<wa-time-input>`: Time pickers let users enter a time through a segmented field or select one visually from a popup column */
+/** `<wa-time-input>`: Time pickers let users enter a time through a segmented field or select one visually from a popup column picker. */
 export const TimeInput = Html.customElement({
 	tag: "wa-time-input",
 	properties: {
@@ -33,12 +33,12 @@ export const TimeInput = Html.customElement({
 		open: typed<Of["open"]>(), // property: wa-time-input.open
 		pill: typed<Of["pill"]>(), // property: wa-time-input.pill
 		placement: typed<Of["placement"]>(), // property: wa-time-input.placement
-		popup: typed<Of["popup"]>(), // property: wa-time-input.popup
 		readonly: typed<Of["readonly"]>(), // property: wa-time-input.readonly
 		required: typed<Of["required"]>(), // property: wa-time-input.required
 		size: typed<Of["size"]>(), // property: wa-time-input.size
 		states: typed<Of["states"]>(), // property: wa-time-input.states
 		step: typed<Of["step"]>(), // property: wa-time-input.step
+		validators: typed<Of["validators"]>(), // property: wa-time-input.validators
 		value: typed<Of["value"]>(), // property: wa-time-input.value
 		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-time-input.valueHasChanged
 		withClear: typed<Of["withClear"]>(), // property: wa-time-input.withClear

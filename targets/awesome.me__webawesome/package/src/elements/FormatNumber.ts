@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-format-number"]; // element: wa-format-number
 
-/** `<wa-format-number>`: Formats a number for display using the specified locale and options, including currency, percent, and unit */
+/** `<wa-format-number>`: Formats a number for display using the specified locale and options, including currency, percent, and unit styles. */
 export const FormatNumber = Html.customElement({
 	tag: "wa-format-number",
 	properties: {

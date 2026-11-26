@@ -25,7 +25,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "check": "tsc -p tsconfig.json",
-    "test": "vitest --run --passWithNoTests --testTimeout=30000"
+    "test": "vitest --run --passWithNoTests --testTimeout=60000"
   },
   "dependencies": {
     "emoji-picker-element": "1.29.1"

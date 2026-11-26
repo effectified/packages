@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-code-highlighter"]; // element: wa-code-highlighter
 
-/** `<wa-code-highlighter>`: Code highlighters display syntax-highlighted code with a copy button. Use them for code samples, install */
+/** `<wa-code-highlighter>`: Code highlighters display syntax-highlighted code with a copy button. */
 export const CodeHighlighter = Html.customElement({
 	tag: "wa-code-highlighter",
 	properties: {

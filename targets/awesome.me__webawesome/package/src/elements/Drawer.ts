@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-drawer"]; // element: wa-drawer
 
-/** `<wa-drawer>`: Drawers slide in from the edge of a container to expose additional options and information without */
+/** `<wa-drawer>`: Drawers slide in from the edge of a container to expose additional options and information without navigating away. */
 export const Drawer = Html.customElement({
 	tag: "wa-drawer",
 	properties: {

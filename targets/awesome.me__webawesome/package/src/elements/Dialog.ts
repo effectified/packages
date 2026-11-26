@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-dialog"]; // element: wa-dialog
 
-/** `<wa-dialog>`: Dialogs appear above the page and require the user's immediate attention. Use them for confirmations, forms, */
+/** `<wa-dialog>`: Dialogs appear above the page and require the user's immediate attention. */
 export const Dialog = Html.customElement({
 	tag: "wa-dialog",
 	properties: {

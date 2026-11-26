@@ -37,6 +37,7 @@ export const OtpInput = Html.customElement({
 		size: typed<Of["size"]>(), // property: wa-otp-input.size
 		states: typed<Of["states"]>(), // property: wa-otp-input.states
 		type: typed<Of["type"]>(), // property: wa-otp-input.type
+		validators: typed<Of["validators"]>(), // property: wa-otp-input.validators
 		value: typed<Of["value"]>(), // property: wa-otp-input.value
 		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-otp-input.valueHasChanged
 		withMask: typed<Of["withMask"]>(), // property: wa-otp-input.withMask

@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-include"]; // element: wa-include
 
-/** `<wa-include>`: Fetches an external HTML file and embeds its contents inline on the page. Useful for reusing shared markup */
+/** `<wa-include>`: Fetches an external HTML file and embeds its contents inline on the page. */
 export const Include = Html.customElement({
 	tag: "wa-include",
 	properties: {

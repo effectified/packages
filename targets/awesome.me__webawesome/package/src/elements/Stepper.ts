@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-stepper"]; // element: wa-stepper
 
-/** `<wa-stepper>`: Steppers visually guide users through a process step by step, breaking content into clear, logical */
+/** `<wa-stepper>`: Steppers visually guide users through a process step by step, breaking content into clear, logical stages. */
 export const Stepper = Html.customElement({
 	tag: "wa-stepper",
 	properties: {

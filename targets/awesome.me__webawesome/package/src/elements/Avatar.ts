@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-avatar"]; // element: wa-avatar
 
-/** `<wa-avatar>`: Avatars represent a person or object with an image, initials, or icon. Use them in lists, comments, and */
+/** `<wa-avatar>`: Avatars represent a person or object with an image, initials, or icon. */
 export const Avatar = Html.customElement({
 	tag: "wa-avatar",
 	properties: {

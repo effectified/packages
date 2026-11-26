@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-divider"]; // element: wa-divider
 
-/** `<wa-divider>`: Dividers visually separate or group adjacent elements with a horizontal or vertical line. Use them to */
+/** `<wa-divider>`: Dividers visually separate or group adjacent elements with a horizontal or vertical line. */
 export const Divider = Html.customElement({
 	tag: "wa-divider",
 	properties: {

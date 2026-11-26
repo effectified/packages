@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-spinner"]; // element: wa-spinner
 
-/** `<wa-spinner>`: Spinners indicate that an operation is in progress when the duration is unknown. Use them for loading states */
+/** `<wa-spinner>`: Spinners indicate that an operation is in progress when the duration is unknown. */
 export const Spinner = Html.customElement({
 	tag: "wa-spinner",
 	properties: {

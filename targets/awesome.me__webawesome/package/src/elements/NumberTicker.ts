@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-number-ticker"]; // element: wa-number-ticker
 
-/** `<wa-number-ticker>`: Number tickers count up or down to a value when they scroll into view and format it with the */
+/** `<wa-number-ticker>`: Number tickers count up or down to a value when they scroll into view and format it with the Intl.NumberFormat API. */
 export const NumberTicker = Html.customElement({
 	tag: "wa-number-ticker",
 	properties: {
@@ -29,7 +29,6 @@ export const NumberTicker = Html.customElement({
 		startValue: typed<Of["startValue"]>(), // property: wa-number-ticker.startValue
 		type: typed<Of["type"]>(), // property: wa-number-ticker.type
 		value: typed<Of["value"]>(), // property: wa-number-ticker.value
-		valueFormatter: typed<Of["valueFormatter"]>(), // property: wa-number-ticker.valueFormatter
 		withoutGrouping: typed<Of["withoutGrouping"]>(), // property: wa-number-ticker.withoutGrouping
 	},
 	events: {

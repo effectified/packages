@@ -7,7 +7,7 @@ import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-switch"]; // element: wa-switch
 
-/** `<wa-switch>`: Switches toggle a single setting on or off and apply the change immediately, without requiring a form */
+/** `<wa-switch>`: Switches toggle a single setting on or off and apply the change immediately, without requiring a form submission. */
 export const Switch = Html.customElement({
 	tag: "wa-switch",
 	properties: {
@@ -28,6 +28,7 @@ export const Switch = Html.customElement({
 		size: typed<Of["size"]>(), // property: wa-switch.size
 		states: typed<Of["states"]>(), // property: wa-switch.states
 		title: typed<Of["title"]>(), // property: wa-switch.title
+		validators: typed<Of["validators"]>(), // property: wa-switch.validators
 		value: typed<Of["value"]>(), // property: wa-switch.value
 		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-switch.valueHasChanged
 		withHint: typed<Of["withHint"]>(), // property: wa-switch.withHint

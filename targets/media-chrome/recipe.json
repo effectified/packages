@@ -1,0 +1,729 @@
+{
+	"$schema": "https://effectified.dev/schema/recipe.json",
+	"package": "media-chrome",
+	"version": "4.19.5",
+	"types": {
+		"from": "bundled",
+		"package": "media-chrome",
+		"version": "4.19.5"
+	},
+	"name": "@effectified/media-chrome",
+	"prefix": "MediaChrome",
+	"exports": [
+		"MediaAirplayButton",
+		"MediaCaptionsButton",
+		"MediaCastButton",
+		"MediaChromeButton",
+		"MediaChromeDialog",
+		"MediaChromeRange",
+		"MediaControlBar",
+		"MediaController",
+		"MediaDurationDisplay",
+		"MediaErrorDialog",
+		"MediaKeyboardShortcutsDialog",
+		"MediaFullscreenButton",
+		"MediaGestureReceiver",
+		"MediaLiveButton",
+		"MediaLoadingIndicator",
+		"MediaMuteButton",
+		"MediaPipButton",
+		"MediaPlaybackRateButton",
+		"MediaLoopButton",
+		"MediaPlayButton",
+		"MediaPosterImage",
+		"MediaPreviewChapterDisplay",
+		"MediaPreviewThumbnail",
+		"MediaPreviewTimeDisplay",
+		"MediaSeekBackwardButton",
+		"MediaSeekForwardButton",
+		"MediaTimeDisplay",
+		"MediaTimeRange",
+		"MediaTooltip",
+		"MediaVolumeRange",
+		"MediaContainer",
+		"MediaTextDisplay"
+	],
+	"handles": {
+		"MediaAirplayButton": {
+			"events": []
+		},
+		"MediaCaptionsButton": {
+			"events": []
+		},
+		"MediaCastButton": {
+			"events": []
+		},
+		"MediaChromeButton": {
+			"events": []
+		},
+		"MediaChromeDialog": {
+			"events": []
+		},
+		"MediaChromeRange": {
+			"events": []
+		},
+		"MediaControlBar": {
+			"events": []
+		},
+		"MediaController": {
+			"events": []
+		},
+		"MediaDurationDisplay": {
+			"events": []
+		},
+		"MediaErrorDialog": {
+			"events": []
+		},
+		"MediaKeyboardShortcutsDialog": {
+			"events": []
+		},
+		"MediaFullscreenButton": {
+			"events": []
+		},
+		"MediaGestureReceiver": {
+			"events": []
+		},
+		"MediaLiveButton": {
+			"events": []
+		},
+		"MediaLoadingIndicator": {
+			"events": []
+		},
+		"MediaMuteButton": {
+			"events": []
+		},
+		"MediaPipButton": {
+			"events": []
+		},
+		"MediaPlaybackRateButton": {
+			"events": []
+		},
+		"MediaLoopButton": {
+			"events": []
+		},
+		"MediaPlayButton": {
+			"events": []
+		},
+		"MediaPosterImage": {
+			"events": []
+		},
+		"MediaPreviewChapterDisplay": {
+			"events": []
+		},
+		"MediaPreviewThumbnail": {
+			"events": []
+		},
+		"MediaPreviewTimeDisplay": {
+			"events": []
+		},
+		"MediaSeekBackwardButton": {
+			"events": []
+		},
+		"MediaSeekForwardButton": {
+			"events": []
+		},
+		"MediaTimeDisplay": {
+			"events": []
+		},
+		"MediaTimeRange": {
+			"events": []
+		},
+		"MediaTooltip": {
+			"events": []
+		},
+		"MediaVolumeRange": {
+			"events": []
+		},
+		"MediaContainer": {
+			"events": []
+		},
+		"MediaTextDisplay": {
+			"events": []
+		}
+	},
+	"errors": [
+		{
+			"tag": "MediaChromeError",
+			"codes": []
+		}
+	],
+	"services": [],
+	"methods": {
+		"media-airplay-button.tooltipEl": "exclude",
+		"media-audio-track-menu-button.tooltipEl": "exclude",
+		"media-captions-button.tooltipEl": "exclude",
+		"media-captions-menu-button.tooltipEl": "exclude",
+		"media-cast-button.tooltipEl": "exclude",
+		"media-chrome-button.tooltipEl": "exclude",
+		"media-chrome-menu-button.tooltipEl": "exclude",
+		"media-container": "exclude",
+		"media-controller.breakpointsComputed": "exclude",
+		"media-controller.userInteractive": "exclude",
+		"media-duration-display.textContent": "exclude",
+		"media-fullscreen-button.tooltipEl": "exclude",
+		"media-keyboard-shortcuts-dialog": "exclude",
+		"media-live-button.tooltipEl": "exclude",
+		"media-loop-button.tooltipEl": "exclude",
+		"media-mute-button.tooltipEl": "exclude",
+		"media-pip-button.tooltipEl": "exclude",
+		"media-play-button.tooltipEl": "exclude",
+		"media-playback-rate-button.innerHTML": "exclude",
+		"media-playback-rate-button.tooltipEl": "exclude",
+		"media-playback-rate-menu-button.innerHTML": "exclude",
+		"media-playback-rate-menu-button.tooltipEl": "exclude",
+		"media-preview-time-display.textContent": "exclude",
+		"media-rendition-menu-button.tooltipEl": "exclude",
+		"media-seek-backward-button.tooltipEl": "exclude",
+		"media-seek-forward-button.tooltipEl": "exclude",
+		"media-settings-menu-button.tooltipEl": "exclude",
+		"media-time-display.innerHTML": "exclude"
+	},
+	"derived": [
+		"media-airplay-button",
+		"media-audio-track-menu",
+		"media-audio-track-menu-button",
+		"media-captions-button",
+		"media-captions-menu",
+		"media-captions-menu-button",
+		"media-cast-button",
+		"media-chrome-button",
+		"media-chrome-dialog",
+		"media-chrome-menu",
+		"media-chrome-menu-button",
+		"media-chrome-menu-item",
+		"media-chrome-range",
+		"media-container",
+		"media-context-menu",
+		"media-context-menu-item",
+		"media-control-bar",
+		"media-controller",
+		"media-duration-display",
+		"media-error-dialog",
+		"media-fullscreen-button",
+		"media-gesture-receiver",
+		"media-keyboard-shortcuts-dialog",
+		"media-live-button",
+		"media-loading-indicator",
+		"media-loop-button",
+		"media-mute-button",
+		"media-pip-button",
+		"media-play-button",
+		"media-playback-rate-button",
+		"media-playback-rate-menu",
+		"media-playback-rate-menu-button",
+		"media-poster-image",
+		"media-preview-chapter-display",
+		"media-preview-thumbnail",
+		"media-preview-time-display",
+		"media-rendition-menu",
+		"media-rendition-menu-button",
+		"media-seek-backward-button",
+		"media-seek-forward-button",
+		"media-settings-menu",
+		"media-settings-menu-button",
+		"media-settings-menu-item",
+		"media-text-display",
+		"media-theme",
+		"media-time-display",
+		"media-time-range",
+		"media-tooltip",
+		"media-volume-range"
+	],
+	"ui": {
+		"effectUi": "2fd1a57",
+		"mounts": []
+	},
+	"testDependencies": {},
+	"decisions": [
+		{
+			"id": "exports",
+			"question": "Which exported functions and classes does the facade offer?",
+			"answer": "MediaAirplayButton, MediaCaptionsButton, MediaCastButton, MediaChromeButton, MediaChromeDialog, MediaChromeRange, MediaControlBar, MediaController, MediaDurationDisplay, MediaErrorDialog, MediaKeyboardShortcutsDialog, MediaFullscreenButton, MediaGestureReceiver, MediaLiveButton, MediaLoadingIndicator, MediaMuteButton, MediaPipButton, MediaPlaybackRateButton, MediaLoopButton, MediaPlayButton, MediaPosterImage, MediaPreviewChapterDisplay, MediaPreviewThumbnail, MediaPreviewTimeDisplay, MediaSeekBackwardButton, MediaSeekForwardButton, MediaTimeDisplay, MediaTimeRange, MediaTooltip, MediaVolumeRange, MediaContainer, MediaTextDisplay",
+			"why": "kept: the element classes media-chrome's index exports, one per core element; the frontend facade binds the Custom Elements Manifest's elements and reads no export, so this list only records them",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaAirplayButton.release",
+			"question": "Which method releases a MediaAirplayButton, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaAirplayButton.events",
+			"question": "Which events of MediaAirplayButton does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaCaptionsButton.release",
+			"question": "Which method releases a MediaCaptionsButton, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaCaptionsButton.events",
+			"question": "Which events of MediaCaptionsButton does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaCastButton.release",
+			"question": "Which method releases a MediaCastButton, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaCastButton.events",
+			"question": "Which events of MediaCastButton does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaChromeButton.release",
+			"question": "Which method releases a MediaChromeButton, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaChromeButton.events",
+			"question": "Which events of MediaChromeButton does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaChromeDialog.release",
+			"question": "Which method releases a MediaChromeDialog, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaChromeDialog.events",
+			"question": "Which events of MediaChromeDialog does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaChromeRange.release",
+			"question": "Which method releases a MediaChromeRange, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaChromeRange.events",
+			"question": "Which events of MediaChromeRange does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaControlBar.release",
+			"question": "Which method releases a MediaControlBar, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaControlBar.events",
+			"question": "Which events of MediaControlBar does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaController.release",
+			"question": "Which method releases a MediaController, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaController.events",
+			"question": "Which events of MediaController does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaDurationDisplay.release",
+			"question": "Which method releases a MediaDurationDisplay, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaDurationDisplay.events",
+			"question": "Which events of MediaDurationDisplay does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaErrorDialog.release",
+			"question": "Which method releases a MediaErrorDialog, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaErrorDialog.events",
+			"question": "Which events of MediaErrorDialog does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaKeyboardShortcutsDialog.release",
+			"question": "Which method releases a MediaKeyboardShortcutsDialog, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaKeyboardShortcutsDialog.events",
+			"question": "Which events of MediaKeyboardShortcutsDialog does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaFullscreenButton.release",
+			"question": "Which method releases a MediaFullscreenButton, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaFullscreenButton.events",
+			"question": "Which events of MediaFullscreenButton does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaGestureReceiver.release",
+			"question": "Which method releases a MediaGestureReceiver, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaGestureReceiver.events",
+			"question": "Which events of MediaGestureReceiver does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaLiveButton.release",
+			"question": "Which method releases a MediaLiveButton, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaLiveButton.events",
+			"question": "Which events of MediaLiveButton does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaLoadingIndicator.release",
+			"question": "Which method releases a MediaLoadingIndicator, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaLoadingIndicator.events",
+			"question": "Which events of MediaLoadingIndicator does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaMuteButton.release",
+			"question": "Which method releases a MediaMuteButton, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaMuteButton.events",
+			"question": "Which events of MediaMuteButton does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaPipButton.release",
+			"question": "Which method releases a MediaPipButton, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaPipButton.events",
+			"question": "Which events of MediaPipButton does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaPlaybackRateButton.release",
+			"question": "Which method releases a MediaPlaybackRateButton, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaPlaybackRateButton.events",
+			"question": "Which events of MediaPlaybackRateButton does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaLoopButton.release",
+			"question": "Which method releases a MediaLoopButton, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaLoopButton.events",
+			"question": "Which events of MediaLoopButton does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaPlayButton.release",
+			"question": "Which method releases a MediaPlayButton, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaPlayButton.events",
+			"question": "Which events of MediaPlayButton does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaPosterImage.release",
+			"question": "Which method releases a MediaPosterImage, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaPosterImage.events",
+			"question": "Which events of MediaPosterImage does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaPreviewChapterDisplay.release",
+			"question": "Which method releases a MediaPreviewChapterDisplay, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaPreviewChapterDisplay.events",
+			"question": "Which events of MediaPreviewChapterDisplay does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaPreviewThumbnail.release",
+			"question": "Which method releases a MediaPreviewThumbnail, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaPreviewThumbnail.events",
+			"question": "Which events of MediaPreviewThumbnail does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaPreviewTimeDisplay.release",
+			"question": "Which method releases a MediaPreviewTimeDisplay, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaPreviewTimeDisplay.events",
+			"question": "Which events of MediaPreviewTimeDisplay does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaSeekBackwardButton.release",
+			"question": "Which method releases a MediaSeekBackwardButton, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaSeekBackwardButton.events",
+			"question": "Which events of MediaSeekBackwardButton does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaSeekForwardButton.release",
+			"question": "Which method releases a MediaSeekForwardButton, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaSeekForwardButton.events",
+			"question": "Which events of MediaSeekForwardButton does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaTimeDisplay.release",
+			"question": "Which method releases a MediaTimeDisplay, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaTimeDisplay.events",
+			"question": "Which events of MediaTimeDisplay does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaTimeRange.release",
+			"question": "Which method releases a MediaTimeRange, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaTimeRange.events",
+			"question": "Which events of MediaTimeRange does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaTooltip.release",
+			"question": "Which method releases a MediaTooltip, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaTooltip.events",
+			"question": "Which events of MediaTooltip does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaVolumeRange.release",
+			"question": "Which method releases a MediaVolumeRange, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaVolumeRange.events",
+			"question": "Which events of MediaVolumeRange does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaContainer.release",
+			"question": "Which method releases a MediaContainer, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaContainer.events",
+			"question": "Which events of MediaContainer does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaTextDisplay.release",
+			"question": "Which method releases a MediaTextDisplay, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "handles.MediaTextDisplay.events",
+			"question": "Which events of MediaTextDisplay does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "errors",
+			"question": "Which upstream failures become which tagged errors?",
+			"answer": "MediaChromeError",
+			"why": "kept: media-chrome exports no error class; a media failure is the media element's `error` (shown by <media-error-dialog>), not a thrown error, and the frontend facade wraps no call",
+			"by": "agent"
+		},
+		{
+			"id": "services",
+			"question": "Which handles are provided as services (Context.Service with a layer)?",
+			"answer": "none",
+			"why": "kept: a frontend facade binds the manifest's elements and reads no handle (src/ui-facade.ts); an element lives as long as its place in the view, so nothing is acquired or released",
+			"by": "agent"
+		},
+		{
+			"id": "ui.elements",
+			"question": "Which of media-chrome's elements does the frontend facade offer?",
+			"answer": "every element in the manifest but media-container and media-keyboard-shortcuts-dialog",
+			"why": "media-container is the base class of <media-controller> (media-controller.ts extends it) and holds no media store on its own; <media-controller> creates its own <media-keyboard-shortcuts-dialog> when `?` is pressed (media-controller.ts:932). The base elements (media-chrome-button, -range, -dialog, -menu, -menu-item, -menu-button, media-text-display) stay: upstream documents them for building custom controls. No element is marked deprecated in the source",
+			"by": "agent"
+		},
+		{
+			"id": "ui.properties",
+			"question": "Which element properties does the facade leave out?",
+			"answer": "tooltipEl on every button; innerHTML and textContent on the displays and playback-rate buttons; breakpointsComputed and userInteractive on media-controller",
+			"why": "tooltipEl holds the button's own <media-tooltip>, set in connectedCallback. innerHTML and textContent are misread by the manifest's analyzer from `this.#slot.textContent = ...` and `this.container.innerHTML = ...`; setting the element's own would replace the children the view renders. breakpointsComputed is the container's internal flag (media-container.ts:300), and userInteractive reflects the `userinactive` attribute the container sets itself on autohide. The media* state properties stay: upstream calls them read-only (the controller writes them), but a control used without a controller is driven by them",
+			"by": "agent"
+		},
+		{
+			"id": "derived",
+			"question": "Which elements are typed `Record<string, unknown>` because upstream's types do not name them?",
+			"answer": "every element",
+			"why": "media-chrome 4.19.5 declares no `HTMLElementTagNameMap` (nor `GlobalEventHandlersEventMap`) entry in its .d.ts files: every property is typed unknown and every event's detail unknown. Upstream should declare them; reported",
+			"by": "agent"
+		}
+	]
+}

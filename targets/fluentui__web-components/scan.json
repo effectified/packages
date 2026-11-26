@@ -1,0 +1,17 @@
+{
+	"files": 478,
+	"errorClasses": [
+		{
+			"name": "HydrationTargetElementError",
+			"base": "Error",
+			"thrown": 12
+		},
+		{
+			"name": "HydrationBindingError",
+			"base": "Error",
+			"thrown": 2
+		}
+	],
+	"codes": [],
+	"events": []
+}

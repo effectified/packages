@@ -18,7 +18,6 @@ export const Pagination = Html.customElement({
 		disabled: typed<Of["disabled"]>(), // property: wa-pagination.disabled
 		format: typed<Of["format"]>(), // property: wa-pagination.format
 		hideSinglePage: typed<Of["hideSinglePage"]>(), // property: wa-pagination.hideSinglePage
-		hrefTemplate: typed<Of["hrefTemplate"]>(), // property: wa-pagination.hrefTemplate
 		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-pagination.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-pagination.label
 		lang: typed<Of["lang"]>(), // property: wa-pagination.lang

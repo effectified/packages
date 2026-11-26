@@ -7,7 +7,7 @@ import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-known-date"]; // element: wa-known-date
 
-/** `<wa-known-date>`: Known dates let users enter dates they already know, like birthdays and expirations, in separate day, month, */
+/** `<wa-known-date>`: Known dates let users enter dates they already know, like birthdays and expirations, in separate day, month, and year fields. */
 export const KnownDate = Html.customElement({
 	tag: "wa-known-date",
 	properties: {
@@ -35,6 +35,7 @@ export const KnownDate = Html.customElement({
 		required: typed<Of["required"]>(), // property: wa-known-date.required
 		size: typed<Of["size"]>(), // property: wa-known-date.size
 		states: typed<Of["states"]>(), // property: wa-known-date.states
+		validators: typed<Of["validators"]>(), // property: wa-known-date.validators
 		value: typed<Of["value"]>(), // property: wa-known-date.value
 		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-known-date.valueHasChanged
 		withHint: typed<Of["withHint"]>(), // property: wa-known-date.withHint

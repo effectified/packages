@@ -1,0 +1,1987 @@
+{
+	"$schema": "https://effectified.dev/schema/recipe.json",
+	"package": "maplibre-gl",
+	"version": "6.19.0",
+	"types": {
+		"from": "bundled",
+		"package": "maplibre-gl",
+		"version": "6.19.0"
+	},
+	"name": "@effectified/maplibre-gl",
+	"prefix": "MaplibreGl",
+	"exports": [
+		"Map"
+	],
+	"handles": {
+		"Map$1": {
+			"release": "remove",
+			"events": [
+				"boxzoomcancel",
+				"boxzoomend",
+				"boxzoomstart",
+				"click",
+				"contextmenu",
+				"cooperativegestureprevented",
+				"data",
+				"dataabort",
+				"dataloading",
+				"dblclick",
+				"drag",
+				"dragend",
+				"dragstart",
+				"error",
+				"idle",
+				"load",
+				"mousedown",
+				"mouseenter",
+				"mouseleave",
+				"mousemove",
+				"mouseout",
+				"mouseover",
+				"mouseup",
+				"move",
+				"moveend",
+				"movestart",
+				"pitch",
+				"pitchend",
+				"pitchstart",
+				"projectiontransition",
+				"remove",
+				"render",
+				"resize",
+				"roll",
+				"rollend",
+				"rollstart",
+				"rotate",
+				"rotateend",
+				"rotatestart",
+				"sourcedata",
+				"sourcedataabort",
+				"sourcedataloading",
+				"style.load",
+				"styledata",
+				"styledataloading",
+				"styleimagemissing",
+				"terrain",
+				"touchcancel",
+				"touchend",
+				"touchmove",
+				"touchstart",
+				"webglcontextlost",
+				"webglcontextrestored",
+				"wheel",
+				"zoom",
+				"zoomend",
+				"zoomstart"
+			]
+		},
+		"LngLat": {
+			"events": []
+		},
+		"LngLatBounds": {
+			"events": []
+		},
+		"Point": {
+			"events": []
+		},
+		"Subscription": {
+			"events": []
+		},
+		"Terrain": {
+			"release": "destroy",
+			"events": []
+		},
+		"Style": {
+			"release": "destroy",
+			"events": [
+				"boxzoomcancel",
+				"boxzoomend",
+				"boxzoomstart",
+				"click",
+				"contextmenu",
+				"cooperativegestureprevented",
+				"data",
+				"dataabort",
+				"dataloading",
+				"dblclick",
+				"drag",
+				"dragend",
+				"dragstart",
+				"error",
+				"idle",
+				"load",
+				"mousedown",
+				"mousemove",
+				"mouseout",
+				"mouseover",
+				"mouseup",
+				"move",
+				"moveend",
+				"movestart",
+				"pitch",
+				"pitchend",
+				"pitchstart",
+				"projectiontransition",
+				"remove",
+				"render",
+				"resize",
+				"roll",
+				"rollend",
+				"rollstart",
+				"rotate",
+				"rotateend",
+				"rotatestart",
+				"sourcedata",
+				"sourcedataabort",
+				"sourcedataloading",
+				"style.load",
+				"styledata",
+				"styledataloading",
+				"styleimagemissing",
+				"terrain",
+				"touchcancel",
+				"touchend",
+				"touchmove",
+				"touchstart",
+				"webglcontextlost",
+				"webglcontextrestored",
+				"wheel",
+				"zoom",
+				"zoomend",
+				"zoomstart"
+			]
+		},
+		"Painter": {
+			"release": "destroy",
+			"events": []
+		},
+		"ScrollZoomHandler": {
+			"events": []
+		},
+		"BoxZoomHandler": {
+			"events": [
+				"boxzoomcancel",
+				"boxzoomend",
+				"boxzoomstart",
+				"click",
+				"contextmenu",
+				"cooperativegestureprevented",
+				"data",
+				"dataabort",
+				"dataloading",
+				"dblclick",
+				"drag",
+				"dragend",
+				"dragstart",
+				"error",
+				"idle",
+				"load",
+				"mousedown",
+				"mousemove",
+				"mouseout",
+				"mouseover",
+				"mouseup",
+				"move",
+				"moveend",
+				"movestart",
+				"pitch",
+				"pitchend",
+				"pitchstart",
+				"projectiontransition",
+				"remove",
+				"render",
+				"resize",
+				"roll",
+				"rollend",
+				"rollstart",
+				"rotate",
+				"rotateend",
+				"rotatestart",
+				"sourcedata",
+				"sourcedataabort",
+				"sourcedataloading",
+				"style.load",
+				"styledata",
+				"styledataloading",
+				"styleimagemissing",
+				"terrain",
+				"touchcancel",
+				"touchend",
+				"touchmove",
+				"touchstart",
+				"webglcontextlost",
+				"webglcontextrestored",
+				"wheel",
+				"zoom",
+				"zoomend",
+				"zoomstart"
+			]
+		},
+		"DragRotateHandler": {
+			"events": []
+		},
+		"DragPanHandler": {
+			"events": []
+		},
+		"KeyboardHandler": {
+			"events": []
+		},
+		"DoubleClickZoomHandler": {
+			"events": []
+		},
+		"TwoFingersTouchZoomRotateHandler": {
+			"events": []
+		},
+		"TwoFingersTouchPitchHandler": {
+			"events": []
+		},
+		"CooperativeGesturesHandler": {
+			"events": [
+				"boxzoomcancel",
+				"boxzoomend",
+				"boxzoomstart",
+				"click",
+				"contextmenu",
+				"cooperativegestureprevented",
+				"data",
+				"dataabort",
+				"dataloading",
+				"dblclick",
+				"drag",
+				"dragend",
+				"dragstart",
+				"error",
+				"idle",
+				"load",
+				"mousedown",
+				"mousemove",
+				"mouseout",
+				"mouseover",
+				"mouseup",
+				"move",
+				"moveend",
+				"movestart",
+				"pitch",
+				"pitchend",
+				"pitchstart",
+				"projectiontransition",
+				"remove",
+				"render",
+				"resize",
+				"roll",
+				"rollend",
+				"rollstart",
+				"rotate",
+				"rotateend",
+				"rotatestart",
+				"sourcedata",
+				"sourcedataabort",
+				"sourcedataloading",
+				"style.load",
+				"styledata",
+				"styledataloading",
+				"styleimagemissing",
+				"terrain",
+				"touchcancel",
+				"touchend",
+				"touchmove",
+				"touchstart",
+				"webglcontextlost",
+				"webglcontextrestored",
+				"wheel",
+				"zoom",
+				"zoomend",
+				"zoomstart"
+			]
+		},
+		"Framebuffer": {
+			"release": "destroy",
+			"events": []
+		},
+		"Mesh": {
+			"release": "destroy",
+			"events": []
+		},
+		"TerrainTileManager": {
+			"events": []
+		},
+		"TerrainCoverage": {
+			"events": []
+		},
+		"Dispatcher": {
+			"events": [
+				"error"
+			]
+		},
+		"ImageManager": {
+			"release": "destroy",
+			"events": [
+				"error",
+				"styleimagemissing"
+			]
+		},
+		"PatternAtlas": {
+			"release": "destroy",
+			"events": []
+		},
+		"GlyphManager": {
+			"release": "destroy",
+			"events": []
+		},
+		"LineAtlas": {
+			"events": []
+		},
+		"Light": {
+			"events": []
+		},
+		"Sky": {
+			"events": []
+		},
+		"ZoomHistory": {
+			"events": []
+		},
+		"CrossTileSymbolIndex": {
+			"events": []
+		},
+		"PauseablePlacement": {
+			"events": []
+		},
+		"Placement": {
+			"events": []
+		},
+		"Texture": {
+			"release": "destroy",
+			"events": []
+		},
+		"Context": {
+			"release": "destroy",
+			"events": []
+		},
+		"IRenderToTexture": {
+			"events": []
+		},
+		"VertexBuffer": {
+			"release": "destroy",
+			"events": []
+		},
+		"SegmentVector": {
+			"release": "destroy",
+			"events": []
+		},
+		"IndexBuffer": {
+			"release": "destroy",
+			"events": []
+		},
+		"ProgramCache": {
+			"release": "destroy",
+			"events": []
+		},
+		"ColorAttachment": {
+			"events": []
+		},
+		"DepthAttachment": {
+			"events": []
+		},
+		"Source": {
+			"events": []
+		},
+		"Tile": {
+			"events": []
+		},
+		"TileManager": {
+			"events": [
+				"data",
+				"dataabort",
+				"dataloading",
+				"error"
+			]
+		},
+		"Actor": {
+			"events": []
+		},
+		"WorkerPool": {
+			"release": "release",
+			"events": [
+				"create",
+				"restart",
+				"terminate"
+			]
+		},
+		"RequestManager": {
+			"events": []
+		},
+		"FontFaceManager": {
+			"release": "destroy",
+			"events": []
+		},
+		"PossiblyEvaluated": {
+			"events": []
+		},
+		"CrossTileIDs": {
+			"events": []
+		},
+		"CollisionIndex": {
+			"events": []
+		},
+		"CollisionGroups": {
+			"events": []
+		},
+		"ClearColor": {
+			"events": []
+		},
+		"ClearDepth": {
+			"events": []
+		},
+		"ClearStencil": {
+			"events": []
+		},
+		"ColorMask": {
+			"events": []
+		},
+		"DepthMask": {
+			"events": []
+		},
+		"StencilMask": {
+			"events": []
+		},
+		"StencilFunc": {
+			"events": []
+		},
+		"StencilOp": {
+			"events": []
+		},
+		"StencilTest": {
+			"events": []
+		},
+		"DepthRange": {
+			"events": []
+		},
+		"DepthTest": {
+			"events": []
+		},
+		"DepthFunc": {
+			"events": []
+		},
+		"Blend": {
+			"events": []
+		},
+		"BlendFunc": {
+			"events": []
+		},
+		"BlendColor": {
+			"events": []
+		},
+		"BlendEquation": {
+			"events": []
+		},
+		"CullFace": {
+			"events": []
+		},
+		"CullFaceSide": {
+			"events": []
+		},
+		"FrontFace": {
+			"events": []
+		},
+		"ProgramValue": {
+			"events": []
+		},
+		"ActiveTextureUnit": {
+			"events": []
+		},
+		"Viewport": {
+			"events": []
+		},
+		"BindFramebuffer": {
+			"events": []
+		},
+		"BindRenderbuffer": {
+			"events": []
+		},
+		"BindTexture": {
+			"events": []
+		},
+		"BindVertexBuffer": {
+			"events": []
+		},
+		"BindElementBuffer": {
+			"events": []
+		},
+		"BindVertexArray": {
+			"events": []
+		},
+		"PixelStoreUnpack": {
+			"events": []
+		},
+		"PixelStoreUnpackPremultiplyAlpha": {
+			"events": []
+		},
+		"PixelStoreUnpackFlipY": {
+			"events": []
+		},
+		"UniformBuffer": {
+			"release": "destroy",
+			"events": []
+		},
+		"Program": {
+			"events": []
+		},
+		"Bucket": {
+			"release": "destroy",
+			"events": []
+		},
+		"OverscaledTileID": {
+			"events": []
+		},
+		"ImageAtlas": {
+			"events": []
+		},
+		"AlphaImage": {
+			"events": []
+		},
+		"CollisionBoxArray": {
+			"events": []
+		},
+		"DEMData": {
+			"events": []
+		},
+		"SourceFeatureState": {
+			"events": []
+		},
+		"WorldCoordinateHelper": {
+			"events": []
+		},
+		"ActorTarget": {
+			"events": []
+		},
+		"ThrottledInvoker": {
+			"events": []
+		},
+		"GridIndex": {
+			"events": []
+		},
+		"Color": {
+			"events": []
+		}
+	},
+	"errors": [
+		{
+			"tag": "AJAXError",
+			"instanceOf": "AJAXError",
+			"codes": []
+		},
+		{
+			"tag": "GPUInitializationError",
+			"instanceOf": "GPUInitializationError",
+			"codes": []
+		},
+		{
+			"tag": "MaplibreGlError",
+			"codes": []
+		}
+	],
+	"services": [
+		{
+			"name": "MaplibreGlMap$1",
+			"handle": "Map$1",
+			"acquire": "Map"
+		}
+	],
+	"methods": {},
+	"derived": [],
+	"testDependencies": {},
+	"ui": {
+		"effectUi": "2fd1a57",
+		"mounts": [
+			"Map"
+		]
+	},
+	"decisions": [
+		{
+			"id": "exports",
+			"question": "Which exported functions and classes does the facade offer?",
+			"answer": "Map",
+			"why": "the README's example starts from `new maplibregl.Map({ container, style, center, zoom })`; markers, popups and controls attach to a map. In the frontend facade the Map is held by the `Map` mount, not wrapped as an export",
+			"by": "agent"
+		},
+		{
+			"id": "handles.Map$1.release",
+			"question": "Which method releases a Map$1, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "remove",
+			"why": "Map.remove() is MapLibre's teardown (\"Clean up and release all internal resources associated with this map\"): its DOM elements, event bindings, web workers and WebGL resources. `stop` only stops a camera animation; the drafter picked it because `remove` is not among its release names",
+			"by": "agent"
+		},
+		{
+			"id": "handles.Map$1.events",
+			"question": "Which events of Map$1 does the facade offer as Streams? (\"none\" for none)",
+			"answer": "boxzoomcancel, boxzoomend, boxzoomstart, click, contextmenu, cooperativegestureprevented, data, dataabort, dataloading, dblclick, drag, dragend, dragstart, error, idle, load, mousedown, mouseenter, mouseleave, mousemove, mouseout, mouseover, mouseup, move, moveend, movestart, pitch, pitchend, pitchstart, projectiontransition, remove, render, resize, roll, rollend, rollstart, rotate, rotateend, rotatestart, sourcedata, sourcedataabort, sourcedataloading, style.load, styledata, styledataloading, styleimagemissing, terrain, touchcancel, touchend, touchmove, touchstart, webglcontextlost, webglcontextrestored, wheel, zoom, zoomend, zoomstart",
+			"why": "the events its `on` names in its types",
+			"by": "engine"
+		},
+		{
+			"id": "handles.LngLat.release",
+			"question": "Which method releases a LngLat, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.LngLat.events",
+			"question": "Which events of LngLat does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.LngLatBounds.release",
+			"question": "Which method releases a LngLatBounds, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.LngLatBounds.events",
+			"question": "Which events of LngLatBounds does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Point.release",
+			"question": "Which method releases a Point, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Point.events",
+			"question": "Which events of Point does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Subscription.release",
+			"question": "Which method releases a Subscription, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Subscription.events",
+			"question": "Which events of Subscription does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Terrain.release",
+			"question": "Which method releases a Terrain, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "destroy",
+			"why": "its release methods are destroy",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Terrain.events",
+			"question": "Which events of Terrain does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Style.release",
+			"question": "Which method releases a Style, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "destroy",
+			"why": "its release methods are destroy",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Style.events",
+			"question": "Which events of Style does the facade offer as Streams? (\"none\" for none)",
+			"answer": "boxzoomcancel, boxzoomend, boxzoomstart, click, contextmenu, cooperativegestureprevented, data, dataabort, dataloading, dblclick, drag, dragend, dragstart, error, idle, load, mousedown, mousemove, mouseout, mouseover, mouseup, move, moveend, movestart, pitch, pitchend, pitchstart, projectiontransition, remove, render, resize, roll, rollend, rollstart, rotate, rotateend, rotatestart, sourcedata, sourcedataabort, sourcedataloading, style.load, styledata, styledataloading, styleimagemissing, terrain, touchcancel, touchend, touchmove, touchstart, webglcontextlost, webglcontextrestored, wheel, zoom, zoomend, zoomstart",
+			"why": "the events its `on` names in its types",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Painter.release",
+			"question": "Which method releases a Painter, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "destroy",
+			"why": "its release methods are destroy",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Painter.events",
+			"question": "Which events of Painter does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ScrollZoomHandler.release",
+			"question": "Which method releases a ScrollZoomHandler, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ScrollZoomHandler.events",
+			"question": "Which events of ScrollZoomHandler does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BoxZoomHandler.release",
+			"question": "Which method releases a BoxZoomHandler, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BoxZoomHandler.events",
+			"question": "Which events of BoxZoomHandler does the facade offer as Streams? (\"none\" for none)",
+			"answer": "boxzoomcancel, boxzoomend, boxzoomstart, click, contextmenu, cooperativegestureprevented, data, dataabort, dataloading, dblclick, drag, dragend, dragstart, error, idle, load, mousedown, mousemove, mouseout, mouseover, mouseup, move, moveend, movestart, pitch, pitchend, pitchstart, projectiontransition, remove, render, resize, roll, rollend, rollstart, rotate, rotateend, rotatestart, sourcedata, sourcedataabort, sourcedataloading, style.load, styledata, styledataloading, styleimagemissing, terrain, touchcancel, touchend, touchmove, touchstart, webglcontextlost, webglcontextrestored, wheel, zoom, zoomend, zoomstart",
+			"why": "the events its `on` names in its types",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DragRotateHandler.release",
+			"question": "Which method releases a DragRotateHandler, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DragRotateHandler.events",
+			"question": "Which events of DragRotateHandler does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DragPanHandler.release",
+			"question": "Which method releases a DragPanHandler, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DragPanHandler.events",
+			"question": "Which events of DragPanHandler does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.KeyboardHandler.release",
+			"question": "Which method releases a KeyboardHandler, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.KeyboardHandler.events",
+			"question": "Which events of KeyboardHandler does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DoubleClickZoomHandler.release",
+			"question": "Which method releases a DoubleClickZoomHandler, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DoubleClickZoomHandler.events",
+			"question": "Which events of DoubleClickZoomHandler does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.TwoFingersTouchZoomRotateHandler.release",
+			"question": "Which method releases a TwoFingersTouchZoomRotateHandler, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.TwoFingersTouchZoomRotateHandler.events",
+			"question": "Which events of TwoFingersTouchZoomRotateHandler does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.TwoFingersTouchPitchHandler.release",
+			"question": "Which method releases a TwoFingersTouchPitchHandler, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.TwoFingersTouchPitchHandler.events",
+			"question": "Which events of TwoFingersTouchPitchHandler does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.CooperativeGesturesHandler.release",
+			"question": "Which method releases a CooperativeGesturesHandler, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.CooperativeGesturesHandler.events",
+			"question": "Which events of CooperativeGesturesHandler does the facade offer as Streams? (\"none\" for none)",
+			"answer": "boxzoomcancel, boxzoomend, boxzoomstart, click, contextmenu, cooperativegestureprevented, data, dataabort, dataloading, dblclick, drag, dragend, dragstart, error, idle, load, mousedown, mousemove, mouseout, mouseover, mouseup, move, moveend, movestart, pitch, pitchend, pitchstart, projectiontransition, remove, render, resize, roll, rollend, rollstart, rotate, rotateend, rotatestart, sourcedata, sourcedataabort, sourcedataloading, style.load, styledata, styledataloading, styleimagemissing, terrain, touchcancel, touchend, touchmove, touchstart, webglcontextlost, webglcontextrestored, wheel, zoom, zoomend, zoomstart",
+			"why": "the events its `on` names in its types",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Framebuffer.release",
+			"question": "Which method releases a Framebuffer, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "destroy",
+			"why": "its release methods are destroy",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Framebuffer.events",
+			"question": "Which events of Framebuffer does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Mesh.release",
+			"question": "Which method releases a Mesh, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "destroy",
+			"why": "its release methods are destroy",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Mesh.events",
+			"question": "Which events of Mesh does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.TerrainTileManager.release",
+			"question": "Which method releases a TerrainTileManager, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.TerrainTileManager.events",
+			"question": "Which events of TerrainTileManager does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.TerrainCoverage.release",
+			"question": "Which method releases a TerrainCoverage, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.TerrainCoverage.events",
+			"question": "Which events of TerrainCoverage does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Dispatcher.release",
+			"question": "Which method releases a Dispatcher, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Dispatcher.events",
+			"question": "Which events of Dispatcher does the facade offer as Streams? (\"none\" for none)",
+			"answer": "error",
+			"why": "the events its `on` names in its types",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ImageManager.release",
+			"question": "Which method releases a ImageManager, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "destroy",
+			"why": "its release methods are destroy",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ImageManager.events",
+			"question": "Which events of ImageManager does the facade offer as Streams? (\"none\" for none)",
+			"answer": "error, styleimagemissing",
+			"why": "the events its `on` names in its types",
+			"by": "engine"
+		},
+		{
+			"id": "handles.PatternAtlas.release",
+			"question": "Which method releases a PatternAtlas, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "destroy",
+			"why": "its release methods are destroy",
+			"by": "engine"
+		},
+		{
+			"id": "handles.PatternAtlas.events",
+			"question": "Which events of PatternAtlas does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.GlyphManager.release",
+			"question": "Which method releases a GlyphManager, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "destroy",
+			"why": "its release methods are destroy",
+			"by": "engine"
+		},
+		{
+			"id": "handles.GlyphManager.events",
+			"question": "Which events of GlyphManager does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.LineAtlas.release",
+			"question": "Which method releases a LineAtlas, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.LineAtlas.events",
+			"question": "Which events of LineAtlas does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Light.release",
+			"question": "Which method releases a Light, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Light.events",
+			"question": "Which events of Light does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Sky.release",
+			"question": "Which method releases a Sky, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Sky.events",
+			"question": "Which events of Sky does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ZoomHistory.release",
+			"question": "Which method releases a ZoomHistory, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ZoomHistory.events",
+			"question": "Which events of ZoomHistory does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.CrossTileSymbolIndex.release",
+			"question": "Which method releases a CrossTileSymbolIndex, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.CrossTileSymbolIndex.events",
+			"question": "Which events of CrossTileSymbolIndex does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.PauseablePlacement.release",
+			"question": "Which method releases a PauseablePlacement, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.PauseablePlacement.events",
+			"question": "Which events of PauseablePlacement does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Placement.release",
+			"question": "Which method releases a Placement, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Placement.events",
+			"question": "Which events of Placement does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Texture.release",
+			"question": "Which method releases a Texture, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "destroy",
+			"why": "its release methods are destroy",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Texture.events",
+			"question": "Which events of Texture does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Context.release",
+			"question": "Which method releases a Context, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "destroy",
+			"why": "its release methods are destroy",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Context.events",
+			"question": "Which events of Context does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.IRenderToTexture.release",
+			"question": "Which method releases a IRenderToTexture, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.IRenderToTexture.events",
+			"question": "Which events of IRenderToTexture does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.VertexBuffer.release",
+			"question": "Which method releases a VertexBuffer, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "destroy",
+			"why": "its release methods are destroy",
+			"by": "engine"
+		},
+		{
+			"id": "handles.VertexBuffer.events",
+			"question": "Which events of VertexBuffer does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.SegmentVector.release",
+			"question": "Which method releases a SegmentVector, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "destroy",
+			"why": "its release methods are destroy",
+			"by": "engine"
+		},
+		{
+			"id": "handles.SegmentVector.events",
+			"question": "Which events of SegmentVector does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.IndexBuffer.release",
+			"question": "Which method releases a IndexBuffer, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "destroy",
+			"why": "its release methods are destroy",
+			"by": "engine"
+		},
+		{
+			"id": "handles.IndexBuffer.events",
+			"question": "Which events of IndexBuffer does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ProgramCache.release",
+			"question": "Which method releases a ProgramCache, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "destroy",
+			"why": "its release methods are destroy",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ProgramCache.events",
+			"question": "Which events of ProgramCache does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ColorAttachment.release",
+			"question": "Which method releases a ColorAttachment, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ColorAttachment.events",
+			"question": "Which events of ColorAttachment does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DepthAttachment.release",
+			"question": "Which method releases a DepthAttachment, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DepthAttachment.events",
+			"question": "Which events of DepthAttachment does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Source.release",
+			"question": "Which method releases a Source, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Source.events",
+			"question": "Which events of Source does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Tile.release",
+			"question": "Which method releases a Tile, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Tile.events",
+			"question": "Which events of Tile does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.TileManager.release",
+			"question": "Which method releases a TileManager, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.TileManager.events",
+			"question": "Which events of TileManager does the facade offer as Streams? (\"none\" for none)",
+			"answer": "data, dataabort, dataloading, error",
+			"why": "the events its `on` names in its types",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Actor.release",
+			"question": "Which method releases a Actor, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Actor.events",
+			"question": "Which events of Actor does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.WorkerPool.release",
+			"question": "Which method releases a WorkerPool, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "release",
+			"why": "its release methods are release",
+			"by": "engine"
+		},
+		{
+			"id": "handles.WorkerPool.events",
+			"question": "Which events of WorkerPool does the facade offer as Streams? (\"none\" for none)",
+			"answer": "create, restart, terminate",
+			"why": "the events its `on` names in its types",
+			"by": "engine"
+		},
+		{
+			"id": "handles.RequestManager.release",
+			"question": "Which method releases a RequestManager, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.RequestManager.events",
+			"question": "Which events of RequestManager does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.FontFaceManager.release",
+			"question": "Which method releases a FontFaceManager, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "destroy",
+			"why": "its release methods are destroy",
+			"by": "engine"
+		},
+		{
+			"id": "handles.FontFaceManager.events",
+			"question": "Which events of FontFaceManager does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.PossiblyEvaluated.release",
+			"question": "Which method releases a PossiblyEvaluated, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.PossiblyEvaluated.events",
+			"question": "Which events of PossiblyEvaluated does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.CrossTileIDs.release",
+			"question": "Which method releases a CrossTileIDs, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.CrossTileIDs.events",
+			"question": "Which events of CrossTileIDs does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.CollisionIndex.release",
+			"question": "Which method releases a CollisionIndex, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.CollisionIndex.events",
+			"question": "Which events of CollisionIndex does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.CollisionGroups.release",
+			"question": "Which method releases a CollisionGroups, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.CollisionGroups.events",
+			"question": "Which events of CollisionGroups does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ClearColor.release",
+			"question": "Which method releases a ClearColor, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ClearColor.events",
+			"question": "Which events of ClearColor does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ClearDepth.release",
+			"question": "Which method releases a ClearDepth, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ClearDepth.events",
+			"question": "Which events of ClearDepth does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ClearStencil.release",
+			"question": "Which method releases a ClearStencil, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ClearStencil.events",
+			"question": "Which events of ClearStencil does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ColorMask.release",
+			"question": "Which method releases a ColorMask, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ColorMask.events",
+			"question": "Which events of ColorMask does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DepthMask.release",
+			"question": "Which method releases a DepthMask, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DepthMask.events",
+			"question": "Which events of DepthMask does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.StencilMask.release",
+			"question": "Which method releases a StencilMask, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.StencilMask.events",
+			"question": "Which events of StencilMask does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.StencilFunc.release",
+			"question": "Which method releases a StencilFunc, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.StencilFunc.events",
+			"question": "Which events of StencilFunc does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.StencilOp.release",
+			"question": "Which method releases a StencilOp, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.StencilOp.events",
+			"question": "Which events of StencilOp does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.StencilTest.release",
+			"question": "Which method releases a StencilTest, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.StencilTest.events",
+			"question": "Which events of StencilTest does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DepthRange.release",
+			"question": "Which method releases a DepthRange, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DepthRange.events",
+			"question": "Which events of DepthRange does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DepthTest.release",
+			"question": "Which method releases a DepthTest, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DepthTest.events",
+			"question": "Which events of DepthTest does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DepthFunc.release",
+			"question": "Which method releases a DepthFunc, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DepthFunc.events",
+			"question": "Which events of DepthFunc does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Blend.release",
+			"question": "Which method releases a Blend, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Blend.events",
+			"question": "Which events of Blend does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BlendFunc.release",
+			"question": "Which method releases a BlendFunc, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BlendFunc.events",
+			"question": "Which events of BlendFunc does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BlendColor.release",
+			"question": "Which method releases a BlendColor, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BlendColor.events",
+			"question": "Which events of BlendColor does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BlendEquation.release",
+			"question": "Which method releases a BlendEquation, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BlendEquation.events",
+			"question": "Which events of BlendEquation does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.CullFace.release",
+			"question": "Which method releases a CullFace, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.CullFace.events",
+			"question": "Which events of CullFace does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.CullFaceSide.release",
+			"question": "Which method releases a CullFaceSide, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.CullFaceSide.events",
+			"question": "Which events of CullFaceSide does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.FrontFace.release",
+			"question": "Which method releases a FrontFace, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.FrontFace.events",
+			"question": "Which events of FrontFace does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ProgramValue.release",
+			"question": "Which method releases a ProgramValue, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ProgramValue.events",
+			"question": "Which events of ProgramValue does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ActiveTextureUnit.release",
+			"question": "Which method releases a ActiveTextureUnit, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ActiveTextureUnit.events",
+			"question": "Which events of ActiveTextureUnit does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Viewport.release",
+			"question": "Which method releases a Viewport, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Viewport.events",
+			"question": "Which events of Viewport does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BindFramebuffer.release",
+			"question": "Which method releases a BindFramebuffer, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BindFramebuffer.events",
+			"question": "Which events of BindFramebuffer does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BindRenderbuffer.release",
+			"question": "Which method releases a BindRenderbuffer, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BindRenderbuffer.events",
+			"question": "Which events of BindRenderbuffer does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BindTexture.release",
+			"question": "Which method releases a BindTexture, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BindTexture.events",
+			"question": "Which events of BindTexture does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BindVertexBuffer.release",
+			"question": "Which method releases a BindVertexBuffer, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BindVertexBuffer.events",
+			"question": "Which events of BindVertexBuffer does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BindElementBuffer.release",
+			"question": "Which method releases a BindElementBuffer, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BindElementBuffer.events",
+			"question": "Which events of BindElementBuffer does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BindVertexArray.release",
+			"question": "Which method releases a BindVertexArray, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.BindVertexArray.events",
+			"question": "Which events of BindVertexArray does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.PixelStoreUnpack.release",
+			"question": "Which method releases a PixelStoreUnpack, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.PixelStoreUnpack.events",
+			"question": "Which events of PixelStoreUnpack does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.PixelStoreUnpackPremultiplyAlpha.release",
+			"question": "Which method releases a PixelStoreUnpackPremultiplyAlpha, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.PixelStoreUnpackPremultiplyAlpha.events",
+			"question": "Which events of PixelStoreUnpackPremultiplyAlpha does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.PixelStoreUnpackFlipY.release",
+			"question": "Which method releases a PixelStoreUnpackFlipY, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.PixelStoreUnpackFlipY.events",
+			"question": "Which events of PixelStoreUnpackFlipY does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.UniformBuffer.release",
+			"question": "Which method releases a UniformBuffer, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "destroy",
+			"why": "its release methods are destroy",
+			"by": "engine"
+		},
+		{
+			"id": "handles.UniformBuffer.events",
+			"question": "Which events of UniformBuffer does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Program.release",
+			"question": "Which method releases a Program, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Program.events",
+			"question": "Which events of Program does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Bucket.release",
+			"question": "Which method releases a Bucket, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "destroy",
+			"why": "its release methods are destroy",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Bucket.events",
+			"question": "Which events of Bucket does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.OverscaledTileID.release",
+			"question": "Which method releases a OverscaledTileID, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.OverscaledTileID.events",
+			"question": "Which events of OverscaledTileID does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ImageAtlas.release",
+			"question": "Which method releases a ImageAtlas, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ImageAtlas.events",
+			"question": "Which events of ImageAtlas does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.AlphaImage.release",
+			"question": "Which method releases a AlphaImage, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.AlphaImage.events",
+			"question": "Which events of AlphaImage does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.CollisionBoxArray.release",
+			"question": "Which method releases a CollisionBoxArray, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.CollisionBoxArray.events",
+			"question": "Which events of CollisionBoxArray does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DEMData.release",
+			"question": "Which method releases a DEMData, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.DEMData.events",
+			"question": "Which events of DEMData does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.SourceFeatureState.release",
+			"question": "Which method releases a SourceFeatureState, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.SourceFeatureState.events",
+			"question": "Which events of SourceFeatureState does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.WorldCoordinateHelper.release",
+			"question": "Which method releases a WorldCoordinateHelper, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.WorldCoordinateHelper.events",
+			"question": "Which events of WorldCoordinateHelper does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ActorTarget.release",
+			"question": "Which method releases a ActorTarget, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ActorTarget.events",
+			"question": "Which events of ActorTarget does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ThrottledInvoker.release",
+			"question": "Which method releases a ThrottledInvoker, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.ThrottledInvoker.events",
+			"question": "Which events of ThrottledInvoker does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.GridIndex.release",
+			"question": "Which method releases a GridIndex, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.GridIndex.events",
+			"question": "Which events of GridIndex does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Color.release",
+			"question": "Which method releases a Color, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "none",
+			"why": "its type has no release method",
+			"by": "engine"
+		},
+		{
+			"id": "handles.Color.events",
+			"question": "Which events of Color does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "its `on` names no events",
+			"by": "engine"
+		},
+		{
+			"id": "errors",
+			"question": "Which upstream failures become which tagged errors?",
+			"answer": "AJAXError <- instanceof AJAXError; GPUInitializationError <- instanceof GPUInitializationError; MaplibreGlError",
+			"why": "exported error classes, most specific first, then the catch-all MaplibreGlError carrying `code` (the source sets no codes)",
+			"by": "engine"
+		},
+		{
+			"id": "services",
+			"question": "Which handles are provided as services (Context.Service with a layer)?",
+			"answer": "MaplibreGlMap$1 <- Map",
+			"why": "every offered export that acquires a releasable handle",
+			"by": "engine"
+		},
+		{
+			"id": "ui.mounts",
+			"question": "Which mounts does the frontend facade offer?",
+			"answer": "Map",
+			"why": "a map lives on one <div>: created from its style, center and zoom (upstream's StyleSpecification | string and LngLatLike), updated in place (setStyle only when the style changed, jumpTo only when the camera changed and is not the map's own camera echoed back by the Model, so a gesture is not interrupted), its moveend camera and clicks as plain [lng, lat] data, removed with map.remove()",
+			"by": "agent"
+		}
+	]
+}

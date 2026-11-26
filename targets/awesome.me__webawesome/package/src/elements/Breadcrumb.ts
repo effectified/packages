@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-breadcrumb"]; // element: wa-breadcrumb
 
-/** `<wa-breadcrumb>`: Breadcrumbs display a trail of links that show users where they are in a site's hierarchy. They help users */
+/** `<wa-breadcrumb>`: Breadcrumbs display a trail of links that show users where they are in a site's hierarchy. */
 export const Breadcrumb = Html.customElement({
 	tag: "wa-breadcrumb",
 	properties: {

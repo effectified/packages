@@ -1,0 +1,89 @@
+{
+	"$schema": "https://effectified.dev/schema/recipe.json",
+	"package": "motion",
+	"version": "14.14.0",
+	"types": {
+		"from": "bundled",
+		"package": "motion",
+		"version": "14.14.0"
+	},
+	"name": "@effectified/motion",
+	"prefix": "Motion",
+	"exports": [
+		"animate",
+		"inView"
+	],
+	"handles": {
+		"Timeline": {
+			"release": "stop",
+			"events": []
+		}
+	},
+	"errors": [
+		{
+			"tag": "MotionError",
+			"codes": []
+		}
+	],
+	"services": [
+		{
+			"name": "MotionTimeline",
+			"handle": "Timeline",
+			"acquire": "animate"
+		}
+	],
+	"methods": {},
+	"derived": [],
+	"testDependencies": {},
+	"ui": {
+		"effectUi": "2fd1a57",
+		"mounts": [
+			"Animate",
+			"InView"
+		]
+	},
+	"decisions": [
+		{
+			"id": "exports",
+			"question": "Which exported functions and classes does the facade offer?",
+			"answer": "animate, inView",
+			"why": "the vanilla DOM API the mounts call (motion's README starts from animate; inView reports viewport entry). A frontend facade offers mounts, not Effect wrappers of these: `make --ui` generates no index from exports, and the React entry points are out of scope",
+			"by": "agent"
+		},
+		{
+			"id": "handles.Timeline.release",
+			"question": "Which method releases a Timeline, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "stop",
+			"why": "Timeline.stop is Motion's own teardown of a running animation; the Animate mount calls it on release",
+			"by": "agent"
+		},
+		{
+			"id": "handles.Timeline.events",
+			"question": "Which events of Timeline does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "a Timeline reports completion through its `finished` promise, not events; the Animate mount turns that into its `finished` message",
+			"by": "agent"
+		},
+		{
+			"id": "errors",
+			"question": "Which upstream failures become which tagged errors?",
+			"answer": "MotionError",
+			"why": "Motion exports no error classes and its DOM API reports no failures to catch: the catch-all is enough",
+			"by": "agent"
+		},
+		{
+			"id": "services",
+			"question": "Which handles are provided as services (Context.Service with a layer)?",
+			"answer": "MotionTimeline <- animate",
+			"why": "kept as drafted; a frontend facade generates no services (an animation lives with its element through the Animate mount, not for a program's lifetime)",
+			"by": "agent"
+		},
+		{
+			"id": "ui.mounts",
+			"question": "Which mounts does the frontend facade offer?",
+			"answer": "Animate, InView",
+			"why": "Animate: one animation on an element, from motion's animate(element, keyframes, options); other keyframes or options animate again from the element's current values (Motion interrupts, no snap), a completed animation is a `finished` message, release stops it. InView: motion's inView with its `amount`, entering and leaving the viewport as `inView` messages, its observer removed with the element (Mount.makeStream: inView is a subscription with nothing to update in place)",
+			"by": "agent"
+		}
+	]
+}

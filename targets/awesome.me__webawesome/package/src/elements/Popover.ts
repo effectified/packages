@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-popover"]; // element: wa-popover
 
-/** `<wa-popover>`: Popovers display contextual content and interactive elements in a floating panel anchored to a trigger. Use */
+/** `<wa-popover>`: Popovers display contextual content and interactive elements in a floating panel anchored to a trigger. */
 export const Popover = Html.customElement({
 	tag: "wa-popover",
 	properties: {
@@ -19,7 +19,6 @@ export const Popover = Html.customElement({
 		lang: typed<Of["lang"]>(), // property: wa-popover.lang
 		open: typed<Of["open"]>(), // property: wa-popover.open
 		placement: typed<Of["placement"]>(), // property: wa-popover.placement
-		popup: typed<Of["popup"]>(), // property: wa-popover.popup
 		skidding: typed<Of["skidding"]>(), // property: wa-popover.skidding
 		withoutArrow: typed<Of["withoutArrow"]>(), // property: wa-popover.withoutArrow
 	},

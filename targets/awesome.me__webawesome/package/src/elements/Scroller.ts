@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-scroller"]; // element: wa-scroller
 
-/** `<wa-scroller>`: Scrollers wrap overflowing content in an accessible container with visual cues that help users recognize and */
+/** `<wa-scroller>`: Scrollers wrap overflowing content in an accessible container with visual cues that help users recognize and navigate scrollable regions. */
 export const Scroller = Html.customElement({
 	tag: "wa-scroller",
 	properties: {

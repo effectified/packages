@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-format-date"]; // element: wa-format-date
 
-/** `<wa-format-date>`: Formats a date or time for display using the specified locale and options. Powered by the */
+/** `<wa-format-date>`: Formats a date or time for display using the specified locale and options. */
 export const FormatDate = Html.customElement({
 	tag: "wa-format-date",
 	properties: {

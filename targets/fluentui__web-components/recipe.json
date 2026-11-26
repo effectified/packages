@@ -1,0 +1,278 @@
+{
+	"$schema": "https://effectified.dev/schema/recipe.json",
+	"package": "@fluentui/web-components",
+	"version": "3.2.5",
+	"types": {
+		"from": "bundled",
+		"package": "@fluentui/web-components",
+		"version": "3.2.5"
+	},
+	"name": "@effectified/fluentui-web-components",
+	"prefix": "FluentuiWebComponents",
+	"exports": [],
+	"handles": {},
+	"errors": [
+		{
+			"tag": "WebComponentsError",
+			"codes": []
+		}
+	],
+	"services": [],
+	"methods": {
+		"fluent-dialog.emitToggle": "exclude",
+		"fluent-drawer.emitBeforeToggle": "exclude",
+		"fluent-drawer.emitToggle": "exclude",
+		"fluent-dropdown-option": "exclude",
+		"fluent-field.input": "exclude",
+		"fluent-listbox.options": "exclude",
+		"fluent-menu.closeMenu": "exclude",
+		"fluent-menu.openMenu": "exclude",
+		"fluent-menu.toggleHandler": "exclude",
+		"fluent-menu.toggleMenu": "exclude",
+		"fluent-menu.triggerKeydownHandler": "exclude",
+		"fluent-message-bar.dismissMessageBar": "exclude",
+		"fluent-radio-group.radios": "exclude",
+		"fluent-slider.handlePointerDown": "exclude",
+		"fluent-slider.handleThumbPointerDown": "exclude",
+		"fluent-tablist.activetab": "exclude",
+		"fluent-text-area": "exclude",
+		"fluent-tooltip.blurAnchorHandler": "exclude",
+		"fluent-tooltip.elementInternals": "exclude",
+		"fluent-tooltip.focusAnchorHandler": "exclude",
+		"fluent-tooltip.mouseenterAnchorHandler": "exclude",
+		"fluent-tooltip.mouseleaveAnchorHandler": "exclude"
+	},
+	"derived": [
+		"fluent-accordion",
+		"fluent-accordion-item",
+		"fluent-anchor-button",
+		"fluent-avatar",
+		"fluent-badge",
+		"fluent-button",
+		"fluent-checkbox",
+		"fluent-compound-button",
+		"fluent-counter-badge",
+		"fluent-dialog",
+		"fluent-dialog-body",
+		"fluent-divider",
+		"fluent-drawer",
+		"fluent-drawer-body",
+		"fluent-dropdown",
+		"fluent-field",
+		"fluent-image",
+		"fluent-label",
+		"fluent-link",
+		"fluent-listbox",
+		"fluent-menu",
+		"fluent-menu-button",
+		"fluent-menu-item",
+		"fluent-menu-list",
+		"fluent-message-bar",
+		"fluent-progress-bar",
+		"fluent-radio",
+		"fluent-radio-group",
+		"fluent-rating-display",
+		"fluent-slider",
+		"fluent-spinner",
+		"fluent-switch",
+		"fluent-tab",
+		"fluent-tablist",
+		"fluent-text",
+		"fluent-text-input",
+		"fluent-toggle-button",
+		"fluent-tooltip",
+		"fluent-tree",
+		"fluent-tree-item"
+	],
+	"ui": {
+		"effectUi": "2fd1a57",
+		"mounts": [
+			"DialogOpen"
+		]
+	},
+	"testDependencies": {},
+	"decisions": [
+		{
+			"id": "exports",
+			"question": "Which exported functions and classes does the facade offer?",
+			"answer": "",
+			"why": "none: a frontend facade offers its elements as Effect UI bindings, and the exported classes are those elements' constructors (Button, BaseButton, ...), which an app never calls; the UI generator reads elements, not exports, so no handles follow either",
+			"by": "agent"
+		},
+		{
+			"id": "errors",
+			"question": "Which upstream failures become which tagged errors?",
+			"answer": "WebComponentsError",
+			"why": "kept: Fluent exports no error classes and the facade wraps no calls that fail; the catch-all is unused by the UI generator",
+			"by": "agent"
+		},
+		{
+			"id": "services",
+			"question": "Which handles are provided as services (Context.Service with a layer)?",
+			"answer": "none",
+			"why": "kept: a frontend facade offers no handles",
+			"by": "agent"
+		},
+		{
+			"id": "ui.mounts",
+			"question": "Which mounts does the frontend facade offer?",
+			"answer": "DialogOpen",
+			"why": "<fluent-dialog> has no `open` property: it opens and closes through `show()` and `hide()` and fires `toggle` after either. DialogOpen applies the view's `open` through those methods (only when the native dialog is elsewhere) and sends `{ open }` on each `toggle`, so the Model follows a close by Escape or a click outside; it releases nothing, since the element is the view's",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-dropdown-option",
+			"question": "Does the facade offer <fluent-dropdown-option>?",
+			"answer": "exclude",
+			"why": "the manifest is stale: upstream registers this element as <fluent-option> (dist/esm/option/, tagName `${prefix}-option`); no module defines <fluent-dropdown-option>, and the binding imported the package root, which defines nothing",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-text-area",
+			"question": "Does the facade offer <fluent-text-area>?",
+			"answer": "exclude",
+			"why": "the manifest is stale: upstream registers this element as <fluent-textarea> (dist/esm/textarea/, tagName `${prefix}-textarea`); no module defines <fluent-text-area>, and the binding imported the package root, which defines nothing",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-dialog.emitToggle",
+			"question": "Does the binding offer the property fluent-dialog.emitToggle?",
+			"answer": "exclude",
+			"why": "a method stored as an instance field (an arrow function upstream binds to its own events); setting it from a view would replace upstream's handler",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-drawer.emitToggle",
+			"question": "Does the binding offer the property fluent-drawer.emitToggle?",
+			"answer": "exclude",
+			"why": "a method stored as an instance field (an arrow function upstream binds to its own events); setting it from a view would replace upstream's handler",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-drawer.emitBeforeToggle",
+			"question": "Does the binding offer the property fluent-drawer.emitBeforeToggle?",
+			"answer": "exclude",
+			"why": "a method stored as an instance field (an arrow function upstream binds to its own events); setting it from a view would replace upstream's handler",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-message-bar.dismissMessageBar",
+			"question": "Does the binding offer the property fluent-message-bar.dismissMessageBar?",
+			"answer": "exclude",
+			"why": "a method stored as an instance field (an arrow function upstream binds to its own events); setting it from a view would replace upstream's handler",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-menu.closeMenu",
+			"question": "Does the binding offer the property fluent-menu.closeMenu?",
+			"answer": "exclude",
+			"why": "a method stored as an instance field (an arrow function upstream binds to its own events); setting it from a view would replace upstream's handler",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-menu.openMenu",
+			"question": "Does the binding offer the property fluent-menu.openMenu?",
+			"answer": "exclude",
+			"why": "a method stored as an instance field (an arrow function upstream binds to its own events); setting it from a view would replace upstream's handler",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-menu.toggleHandler",
+			"question": "Does the binding offer the property fluent-menu.toggleHandler?",
+			"answer": "exclude",
+			"why": "a method stored as an instance field (an arrow function upstream binds to its own events); setting it from a view would replace upstream's handler",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-menu.toggleMenu",
+			"question": "Does the binding offer the property fluent-menu.toggleMenu?",
+			"answer": "exclude",
+			"why": "a method stored as an instance field (an arrow function upstream binds to its own events); setting it from a view would replace upstream's handler",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-menu.triggerKeydownHandler",
+			"question": "Does the binding offer the property fluent-menu.triggerKeydownHandler?",
+			"answer": "exclude",
+			"why": "a method stored as an instance field (an arrow function upstream binds to its own events); setting it from a view would replace upstream's handler",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-slider.handlePointerDown",
+			"question": "Does the binding offer the property fluent-slider.handlePointerDown?",
+			"answer": "exclude",
+			"why": "a method stored as an instance field (an arrow function upstream binds to its own events); setting it from a view would replace upstream's handler",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-slider.handleThumbPointerDown",
+			"question": "Does the binding offer the property fluent-slider.handleThumbPointerDown?",
+			"answer": "exclude",
+			"why": "a method stored as an instance field (an arrow function upstream binds to its own events); setting it from a view would replace upstream's handler",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-tooltip.blurAnchorHandler",
+			"question": "Does the binding offer the property fluent-tooltip.blurAnchorHandler?",
+			"answer": "exclude",
+			"why": "a method stored as an instance field (an arrow function upstream binds to its own events); setting it from a view would replace upstream's handler",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-tooltip.focusAnchorHandler",
+			"question": "Does the binding offer the property fluent-tooltip.focusAnchorHandler?",
+			"answer": "exclude",
+			"why": "a method stored as an instance field (an arrow function upstream binds to its own events); setting it from a view would replace upstream's handler",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-tooltip.mouseenterAnchorHandler",
+			"question": "Does the binding offer the property fluent-tooltip.mouseenterAnchorHandler?",
+			"answer": "exclude",
+			"why": "a method stored as an instance field (an arrow function upstream binds to its own events); setting it from a view would replace upstream's handler",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-tooltip.mouseleaveAnchorHandler",
+			"question": "Does the binding offer the property fluent-tooltip.mouseleaveAnchorHandler?",
+			"answer": "exclude",
+			"why": "a method stored as an instance field (an arrow function upstream binds to its own events); setting it from a view would replace upstream's handler",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-tooltip.elementInternals",
+			"question": "Does the binding offer the property fluent-tooltip.elementInternals?",
+			"answer": "exclude",
+			"why": "the element's own ElementInternals (attachInternals), created by upstream; the manifest gives it no type, so the engine's node filter missed it",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-listbox.options",
+			"question": "Does the binding offer the property fluent-listbox.options?",
+			"answer": "exclude",
+			"why": "the slotted <fluent-option> children, collected by upstream on slotchange; a view renders the options as children instead",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-radio-group.radios",
+			"question": "Does the binding offer the property fluent-radio-group.radios?",
+			"answer": "exclude",
+			"why": "the slotted <fluent-radio> children, collected by upstream on slotchange; a view renders the radios as children instead",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-tablist.activetab",
+			"question": "Does the binding offer the property fluent-tablist.activetab?",
+			"answer": "exclude",
+			"why": "a reference to the active <fluent-tab> node, kept by upstream; a view selects a tab with `activeid`",
+			"by": "agent"
+		},
+		{
+			"id": "methods.fluent-field.input",
+			"question": "Does the binding offer the property fluent-field.input?",
+			"answer": "exclude",
+			"why": "a reference to the slotted input element, kept by upstream on slotchange; a view renders the input as a child instead",
+			"by": "agent"
+		}
+	]
+}

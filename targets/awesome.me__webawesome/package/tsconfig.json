@@ -19,6 +19,7 @@
     "allowImportingTsExtensions": true,
     "rewriteRelativeImportExtensions": true,
     "skipLibCheck": true,
+    "noUncheckedSideEffectImports": false,
     "noEmit": true
   },
   "include": [

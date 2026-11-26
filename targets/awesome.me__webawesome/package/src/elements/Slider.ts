@@ -37,11 +37,10 @@ export const Slider = Html.customElement({
 		size: typed<Of["size"]>(), // property: wa-slider.size
 		states: typed<Of["states"]>(), // property: wa-slider.states
 		step: typed<Of["step"]>(), // property: wa-slider.step
-		tooltip: typed<Of["tooltip"]>(), // property: wa-slider.tooltip
 		tooltipDistance: typed<Of["tooltipDistance"]>(), // property: wa-slider.tooltipDistance
 		tooltipPlacement: typed<Of["tooltipPlacement"]>(), // property: wa-slider.tooltipPlacement
+		validators: typed<Of["validators"]>(), // property: wa-slider.validators
 		value: typed<Of["value"]>(), // property: wa-slider.value
-		valueFormatter: typed<Of["valueFormatter"]>(), // property: wa-slider.valueFormatter
 		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-slider.valueHasChanged
 		withHint: typed<Of["withHint"]>(), // property: wa-slider.withHint
 		withLabel: typed<Of["withLabel"]>(), // property: wa-slider.withLabel

@@ -94,6 +94,8 @@ export const instanceMount = <const Name extends string, const In extends Comman
 				yield* changes.pipe(
 					Stream.runForEach((next) =>
 						Effect.sync(() => {
+							// Effect UI's `changes` begins with the args the instance was created from: not a change.
+							if (next === current) return;
 							if (spec.update === undefined) {
 								stop(live);
 								live = start(next);

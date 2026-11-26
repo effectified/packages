@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-tab-group"]; // element: wa-tab-group
 
-/** `<wa-tab-group>`: Tab groups organize related content into a single container that displays one panel at a time, with tabs for */
+/** `<wa-tab-group>`: Tab groups organize related content into a single container that displays one panel at a time, with tabs for switching between them. */
 export const TabGroup = Html.customElement({
 	tag: "wa-tab-group",
 	properties: {

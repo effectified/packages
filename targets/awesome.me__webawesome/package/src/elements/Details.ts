@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-details"]; // element: wa-details
 
-/** `<wa-details>`: Details display a brief summary and expand to reveal additional content. Use them to progressively disclose */
+/** `<wa-details>`: Details display a brief summary and expand to reveal additional content. */
 export const Details = Html.customElement({
 	tag: "wa-details",
 	properties: {

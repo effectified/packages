@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-tag"]; // element: wa-tag
 
-/** `<wa-tag>`: Tags label, categorize, or represent selections with a compact visual marker. Use them for status */
+/** `<wa-tag>`: Tags label, categorize, or represent selections with a compact visual marker. */
 export const Tag = Html.customElement({
 	tag: "wa-tag",
 	properties: {

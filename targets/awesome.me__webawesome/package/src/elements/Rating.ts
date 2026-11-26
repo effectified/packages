@@ -7,7 +7,7 @@ import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-rating"]; // element: wa-rating
 
-/** `<wa-rating>`: Ratings display a numeric score as a row of selectable symbols, typically stars. Use them to capture quick */
+/** `<wa-rating>`: Ratings display a numeric score as a row of selectable symbols, typically stars. */
 export const Rating = Html.customElement({
 	tag: "wa-rating",
 	properties: {
@@ -18,7 +18,6 @@ export const Rating = Html.customElement({
 		dir: typed<Of["dir"]>(), // property: wa-rating.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-rating.disabled
 		emitInvalid: typed<Of["emitInvalid"]>(), // property: wa-rating.emitInvalid
-		getSymbol: typed<Of["getSymbol"]>(), // property: wa-rating.getSymbol
 		hasInteracted: typed<Of["hasInteracted"]>(), // property: wa-rating.hasInteracted
 		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-rating.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-rating.label
@@ -31,6 +30,7 @@ export const Rating = Html.customElement({
 		role: typed<Of["role"]>(), // property: wa-rating.role
 		size: typed<Of["size"]>(), // property: wa-rating.size
 		states: typed<Of["states"]>(), // property: wa-rating.states
+		validators: typed<Of["validators"]>(), // property: wa-rating.validators
 		value: typed<Of["value"]>(), // property: wa-rating.value
 		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-rating.valueHasChanged
 	},

@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-tree-item"]; // element: wa-tree-item
 
-/** `<wa-tree-item>`: Tree items represent a single hierarchical node inside a tree, and can contain nested items that expand and */
+/** `<wa-tree-item>`: Tree items represent a single hierarchical node inside a tree, and can contain nested items that expand and collapse. */
 export const TreeItem = Html.customElement({
 	tag: "wa-tree-item",
 	properties: {

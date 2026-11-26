@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-skeleton"]; // element: wa-skeleton
 
-/** `<wa-skeleton>`: Skeletons show placeholder shapes where content will appear once it finishes loading, reducing perceived */
+/** `<wa-skeleton>`: Skeletons show placeholder shapes where content will appear once it finishes loading, reducing perceived wait time and preventing layout shift. */
 export const Skeleton = Html.customElement({
 	tag: "wa-skeleton",
 	properties: {

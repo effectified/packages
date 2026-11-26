@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-radio"]; // element: wa-radio
 
-/** `<wa-radio>`: Radios represent a single option within a mutually exclusive set. Use them inside a radio group when users */
+/** `<wa-radio>`: Radios represent a single option within a mutually exclusive set. */
 export const Radio = Html.customElement({
 	tag: "wa-radio",
 	properties: {
@@ -26,6 +26,7 @@ export const Radio = Html.customElement({
 		required: typed<Of["required"]>(), // property: wa-radio.required
 		size: typed<Of["size"]>(), // property: wa-radio.size
 		states: typed<Of["states"]>(), // property: wa-radio.states
+		validators: typed<Of["validators"]>(), // property: wa-radio.validators
 		value: typed<Of["value"]>(), // property: wa-radio.value
 		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-radio.valueHasChanged
 	},

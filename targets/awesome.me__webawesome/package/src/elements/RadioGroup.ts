@@ -7,7 +7,7 @@ import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-radio-group"]; // element: wa-radio-group
 
-/** `<wa-radio-group>`: Radio groups wrap a set of radios so they function as a single form control with one shared value. They */
+/** `<wa-radio-group>`: Radio groups wrap a set of radios so they function as a single form control with one shared value. */
 export const RadioGroup = Html.customElement({
 	tag: "wa-radio-group",
 	properties: {
@@ -28,6 +28,7 @@ export const RadioGroup = Html.customElement({
 		required: typed<Of["required"]>(), // property: wa-radio-group.required
 		size: typed<Of["size"]>(), // property: wa-radio-group.size
 		states: typed<Of["states"]>(), // property: wa-radio-group.states
+		validators: typed<Of["validators"]>(), // property: wa-radio-group.validators
 		value: typed<Of["value"]>(), // property: wa-radio-group.value
 		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-radio-group.valueHasChanged
 		withHint: typed<Of["withHint"]>(), // property: wa-radio-group.withHint

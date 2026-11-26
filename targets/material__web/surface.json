@@ -1,0 +1,962 @@
+{
+	"package": "@material/web",
+	"version": "2.5.0",
+	"types": {
+		"from": "bundled",
+		"package": "@material/web",
+		"version": "2.5.0"
+	},
+	"entry": "named",
+	"exports": [],
+	"handles": {},
+	"typeExports": [],
+	"elements": [
+		{
+			"tag": "md-assist-chip",
+			"name": "AssistChip",
+			"definition": "@material/web/chips/assist-chip.js",
+			"properties": [
+				"alwaysFocusable",
+				"disabled",
+				"download",
+				"elevated",
+				"hasIcon",
+				"href",
+				"label",
+				"softDisabled",
+				"target"
+			],
+			"events": [
+				"update-focus"
+			],
+			"description": "TODO(b/243982145): add docs"
+		},
+		{
+			"tag": "md-badge",
+			"name": "Badge",
+			"definition": "@material/web/labs/badge/badge.js",
+			"properties": [
+				"value"
+			],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "md-branded-fab",
+			"name": "BrandedFab",
+			"definition": "@material/web/fab/branded-fab.js",
+			"properties": [
+				"label",
+				"lowered",
+				"size",
+				"variant"
+			],
+			"events": [],
+			"description": "Floating action buttons (FABs) help people take primary actions."
+		},
+		{
+			"tag": "md-checkbox",
+			"name": "Checkbox",
+			"definition": "@material/web/checkbox/checkbox.js",
+			"properties": [
+				"checked",
+				"indeterminate",
+				"required",
+				"value"
+			],
+			"events": [
+				"change",
+				"input"
+			],
+			"description": "Checkboxes allow users to select one or more items from a set."
+		},
+		{
+			"tag": "md-chip-set",
+			"name": "ChipSet",
+			"definition": "@material/web/chips/chip-set.js",
+			"properties": [],
+			"events": [],
+			"description": "TODO(b/243982145): add docs"
+		},
+		{
+			"tag": "md-circular-progress",
+			"name": "CircularProgress",
+			"definition": "@material/web/progress/circular-progress.js",
+			"properties": [
+				"fourColor",
+				"indeterminate",
+				"max",
+				"value"
+			],
+			"events": [],
+			"description": "Circular progress indicators display progress by animating along an invisible circular track in a clockwise direction."
+		},
+		{
+			"tag": "md-dialog",
+			"name": "Dialog",
+			"definition": "@material/web/dialog/dialog.js",
+			"properties": [
+				"noFocusTrap",
+				"open",
+				"quick",
+				"returnValue",
+				"type"
+			],
+			"events": [
+				"cancel",
+				"close",
+				"closed",
+				"open",
+				"opened"
+			],
+			"description": "Dialogs can require an action, communicate information, or help users accomplish a task."
+		},
+		{
+			"tag": "md-divider",
+			"name": "Divider",
+			"definition": "@material/web/divider/divider.js",
+			"properties": [
+				"inset",
+				"insetEnd",
+				"insetStart"
+			],
+			"events": [],
+			"description": "A divider is a thin line that groups content in lists and containers."
+		},
+		{
+			"tag": "md-elevated-button",
+			"name": "ElevatedButton",
+			"definition": "@material/web/button/elevated-button.js",
+			"properties": [
+				"download",
+				"hasIcon",
+				"href",
+				"softDisabled",
+				"target",
+				"trailingIcon"
+			],
+			"events": [],
+			"description": "Buttons help people take action, such as sending an email, sharing a document, or liking a comment."
+		},
+		{
+			"tag": "md-elevated-card",
+			"name": "ElevatedCard",
+			"definition": "@material/web/labs/card/elevated-card.js",
+			"properties": [],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "md-elevation",
+			"name": "Elevation",
+			"definition": "@material/web/elevation/elevation.js",
+			"properties": [],
+			"events": [],
+			"description": "The `<md-elevation>` custom element with default styles."
+		},
+		{
+			"tag": "md-fab",
+			"name": "Fab",
+			"definition": "@material/web/fab/fab.js",
+			"properties": [
+				"label",
+				"lowered",
+				"size",
+				"variant"
+			],
+			"events": [],
+			"description": "Floating action buttons (FABs) help people take primary actions."
+		},
+		{
+			"tag": "md-filled-button",
+			"name": "FilledButton",
+			"definition": "@material/web/button/filled-button.js",
+			"properties": [
+				"download",
+				"hasIcon",
+				"href",
+				"softDisabled",
+				"target",
+				"trailingIcon"
+			],
+			"events": [],
+			"description": "Buttons help people take action, such as sending an email, sharing a document, or liking a comment."
+		},
+		{
+			"tag": "md-filled-card",
+			"name": "FilledCard",
+			"definition": "@material/web/labs/card/filled-card.js",
+			"properties": [],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "md-filled-field",
+			"name": "FilledField",
+			"definition": "@material/web/field/filled-field.js",
+			"properties": [
+				"count",
+				"disabled",
+				"error",
+				"errorText",
+				"focused",
+				"hasEnd",
+				"hasStart",
+				"label",
+				"max",
+				"noAsterisk",
+				"populated",
+				"required",
+				"resizable",
+				"supportingText"
+			],
+			"events": [],
+			"description": "TODO(b/228525797): add docs"
+		},
+		{
+			"tag": "md-filled-icon-button",
+			"name": "FilledIconButton",
+			"definition": "@material/web/iconbutton/filled-icon-button.js",
+			"properties": [
+				"ariaLabelSelected",
+				"download",
+				"flipIconInRtl",
+				"href",
+				"selected",
+				"softDisabled",
+				"target",
+				"toggle"
+			],
+			"events": [
+				"change",
+				"input"
+			],
+			"description": "Icon buttons help people take supplementary actions with a single tap."
+		},
+		{
+			"tag": "md-filled-select",
+			"name": "FilledSelect",
+			"definition": "@material/web/select/filled-select.js",
+			"properties": [
+				"clampMenuWidth",
+				"displayText",
+				"error",
+				"errorText",
+				"hasLeadingIcon",
+				"label",
+				"menuAlign",
+				"menuPositioning",
+				"noAsterisk",
+				"options",
+				"quick",
+				"required",
+				"selectedIndex",
+				"selectedOptions",
+				"supportingText",
+				"typeaheadDelay",
+				"value"
+			],
+			"events": [
+				"change",
+				"closed",
+				"closing",
+				"input",
+				"opened",
+				"opening"
+			],
+			"description": "Select menus display a list of choices on temporary surfaces and display the currently selected menu item above the menu."
+		},
+		{
+			"tag": "md-filled-text-field",
+			"name": "FilledTextField",
+			"definition": "@material/web/textfield/filled-text-field.js",
+			"properties": [
+				"autocomplete",
+				"cols",
+				"disabled",
+				"error",
+				"errorText",
+				"hasLeadingIcon",
+				"hasTrailingIcon",
+				"inputMode",
+				"label",
+				"max",
+				"maxLength",
+				"min",
+				"minLength",
+				"multiple",
+				"name",
+				"noAsterisk",
+				"noSpinner",
+				"pattern",
+				"placeholder",
+				"prefixText",
+				"readOnly",
+				"required",
+				"rows",
+				"selectionDirection",
+				"selectionEnd",
+				"selectionStart",
+				"step",
+				"suffixText",
+				"supportingText",
+				"textDirection",
+				"type",
+				"value",
+				"valueAsDate",
+				"valueAsNumber"
+			],
+			"events": [
+				"change",
+				"input",
+				"select"
+			],
+			"description": "TODO(b/228525797): Add docs"
+		},
+		{
+			"tag": "md-filled-tonal-button",
+			"name": "FilledTonalButton",
+			"definition": "@material/web/button/filled-tonal-button.js",
+			"properties": [
+				"download",
+				"hasIcon",
+				"href",
+				"softDisabled",
+				"target",
+				"trailingIcon"
+			],
+			"events": [],
+			"description": "Buttons help people take action, such as sending an email, sharing a document, or liking a comment."
+		},
+		{
+			"tag": "md-filled-tonal-icon-button",
+			"name": "FilledTonalIconButton",
+			"definition": "@material/web/iconbutton/filled-tonal-icon-button.js",
+			"properties": [
+				"ariaLabelSelected",
+				"download",
+				"flipIconInRtl",
+				"href",
+				"selected",
+				"softDisabled",
+				"target",
+				"toggle"
+			],
+			"events": [
+				"change",
+				"input"
+			],
+			"description": "Icon buttons help people take supplementary actions with a single tap."
+		},
+		{
+			"tag": "md-filter-chip",
+			"name": "FilterChip",
+			"definition": "@material/web/chips/filter-chip.js",
+			"properties": [
+				"alwaysFocusable",
+				"ariaLabelRemove",
+				"disabled",
+				"elevated",
+				"hasIcon",
+				"hasSelectedIcon",
+				"label",
+				"removable",
+				"selected",
+				"softDisabled"
+			],
+			"events": [
+				"remove",
+				"update-focus"
+			],
+			"description": "TODO(b/243982145): add docs"
+		},
+		{
+			"tag": "md-focus-ring",
+			"name": "FocusRing",
+			"definition": "@material/web/focus/md-focus-ring.js",
+			"properties": [
+				"htmlFor",
+				"inward",
+				"visible"
+			],
+			"events": [
+				"visibility-changed"
+			],
+			"description": "TODO(b/267336424): add docs"
+		},
+		{
+			"tag": "md-icon",
+			"name": "Icon",
+			"definition": "@material/web/icon/icon.js",
+			"properties": [],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "md-icon-button",
+			"name": "IconButton",
+			"definition": "@material/web/iconbutton/icon-button.js",
+			"properties": [
+				"ariaLabelSelected",
+				"download",
+				"flipIconInRtl",
+				"href",
+				"selected",
+				"softDisabled",
+				"target",
+				"toggle"
+			],
+			"events": [
+				"change",
+				"input"
+			],
+			"description": "Icon buttons help people take supplementary actions with a single tap."
+		},
+		{
+			"tag": "md-input-chip",
+			"name": "InputChip",
+			"definition": "@material/web/chips/input-chip.js",
+			"properties": [
+				"alwaysFocusable",
+				"ariaLabelRemove",
+				"avatar",
+				"disabled",
+				"hasIcon",
+				"href",
+				"label",
+				"removeOnly",
+				"selected",
+				"softDisabled",
+				"target"
+			],
+			"events": [
+				"remove",
+				"update-focus"
+			],
+			"description": "TODO(b/243982145): add docs"
+		},
+		{
+			"tag": "md-item",
+			"name": "Item",
+			"definition": "@material/web/labs/item/item.js",
+			"properties": [
+				"multiline"
+			],
+			"events": [],
+			"description": "An item layout component that can be used inside list items to give them their customizable structure."
+		},
+		{
+			"tag": "md-linear-progress",
+			"name": "LinearProgress",
+			"definition": "@material/web/progress/linear-progress.js",
+			"properties": [
+				"buffer",
+				"fourColor",
+				"indeterminate",
+				"max",
+				"value"
+			],
+			"events": [],
+			"description": "Linear progress indicators display progress by animating along the length of a fixed, visible track."
+		},
+		{
+			"tag": "md-list",
+			"name": "List",
+			"definition": "@material/web/list/list.js",
+			"properties": [
+				"items"
+			],
+			"events": [],
+			"description": "Lists are continuous, vertical indexes of text or images."
+		},
+		{
+			"tag": "md-list-item",
+			"name": "ListItem",
+			"definition": "@material/web/list/list-item.js",
+			"properties": [
+				"disabled",
+				"href",
+				"isListItem",
+				"target",
+				"type"
+			],
+			"events": [
+				"request-activation"
+			],
+			"description": "Lists are continuous, vertical indexes of text or images."
+		},
+		{
+			"tag": "md-menu",
+			"name": "Menu",
+			"definition": "@material/web/menu/menu.js",
+			"properties": [
+				"anchor",
+				"anchorCorner",
+				"defaultFocus",
+				"hasOverflow",
+				"isSubmenu",
+				"items",
+				"menuCorner",
+				"noHorizontalFlip",
+				"noNavigationWrap",
+				"noVerticalFlip",
+				"open",
+				"positioning",
+				"quick",
+				"skipRestoreFocus",
+				"stayOpenOnFocusout",
+				"stayOpenOnOutsideClick",
+				"typeaheadController",
+				"typeaheadDelay",
+				"xOffset",
+				"yOffset"
+			],
+			"events": [
+				"closed",
+				"closing",
+				"opened",
+				"opening"
+			],
+			"description": "Menus display a list of choices on a temporary surface."
+		},
+		{
+			"tag": "md-menu-item",
+			"name": "MenuItem",
+			"definition": "@material/web/menu/menu-item.js",
+			"properties": [
+				"disabled",
+				"href",
+				"keepOpen",
+				"selected",
+				"target",
+				"type",
+				"typeaheadText"
+			],
+			"events": [
+				"close-menu"
+			],
+			"description": "Menus display a list of choices on a temporary surface."
+		},
+		{
+			"tag": "md-navigation-bar",
+			"name": "NavigationBar",
+			"definition": "@material/web/labs/navigationbar/navigation-bar.js",
+			"properties": [
+				"activeIndex",
+				"hideInactiveLabels"
+			],
+			"events": [
+				"navigation-bar-activated"
+			],
+			"description": ""
+		},
+		{
+			"tag": "md-navigation-drawer",
+			"name": "NavigationDrawer",
+			"definition": "@material/web/labs/navigationdrawer/navigation-drawer.js",
+			"properties": [
+				"opened",
+				"pivot"
+			],
+			"events": [
+				"navigation-drawer-changed"
+			],
+			"description": ""
+		},
+		{
+			"tag": "md-navigation-drawer-modal",
+			"name": "NavigationDrawerModal",
+			"definition": "@material/web/labs/navigationdrawer/navigation-drawer-modal.js",
+			"properties": [
+				"opened",
+				"pivot"
+			],
+			"events": [
+				"navigation-drawer-changed"
+			],
+			"description": ""
+		},
+		{
+			"tag": "md-navigation-tab",
+			"name": "NavigationTab",
+			"definition": "@material/web/labs/navigationtab/navigation-tab.js",
+			"properties": [
+				"active",
+				"badgeValue",
+				"disabled",
+				"hideInactiveLabel",
+				"label",
+				"showBadge"
+			],
+			"events": [
+				"navigation-tab-interaction",
+				"navigation-tab-rendered"
+			],
+			"description": ""
+		},
+		{
+			"tag": "md-outlined-button",
+			"name": "OutlinedButton",
+			"definition": "@material/web/button/outlined-button.js",
+			"properties": [
+				"download",
+				"hasIcon",
+				"href",
+				"softDisabled",
+				"target",
+				"trailingIcon"
+			],
+			"events": [],
+			"description": "Buttons help people take action, such as sending an email, sharing a document, or liking a comment."
+		},
+		{
+			"tag": "md-outlined-card",
+			"name": "OutlinedCard",
+			"definition": "@material/web/labs/card/outlined-card.js",
+			"properties": [],
+			"events": [],
+			"description": ""
+		},
+		{
+			"tag": "md-outlined-field",
+			"name": "OutlinedField",
+			"definition": "@material/web/field/outlined-field.js",
+			"properties": [
+				"count",
+				"disabled",
+				"error",
+				"errorText",
+				"focused",
+				"hasEnd",
+				"hasStart",
+				"label",
+				"max",
+				"noAsterisk",
+				"populated",
+				"required",
+				"resizable",
+				"supportingText"
+			],
+			"events": [],
+			"description": "TODO(b/228525797): add docs"
+		},
+		{
+			"tag": "md-outlined-icon-button",
+			"name": "OutlinedIconButton",
+			"definition": "@material/web/iconbutton/outlined-icon-button.js",
+			"properties": [
+				"ariaLabelSelected",
+				"download",
+				"flipIconInRtl",
+				"href",
+				"selected",
+				"softDisabled",
+				"target",
+				"toggle"
+			],
+			"events": [
+				"change",
+				"input"
+			],
+			"description": "Icon buttons help people take supplementary actions with a single tap."
+		},
+		{
+			"tag": "md-outlined-segmented-button",
+			"name": "OutlinedSegmentedButton",
+			"definition": "@material/web/labs/segmentedbutton/outlined-segmented-button.js",
+			"properties": [
+				"disabled",
+				"hasIcon",
+				"label",
+				"noCheckmark",
+				"selected"
+			],
+			"events": [
+				"segmented-button-interaction"
+			],
+			"description": "MdOutlinedSegmentedButton is the custom element for the Material Design outlined segmented button component."
+		},
+		{
+			"tag": "md-outlined-segmented-button-set",
+			"name": "OutlinedSegmentedButtonSet",
+			"definition": "@material/web/labs/segmentedbuttonset/outlined-segmented-button-set.js",
+			"properties": [
+				"multiselect"
+			],
+			"events": [
+				"segmented-button-set-selection"
+			],
+			"description": "MdOutlinedSegmentedButtonSet is the custom element for the Material Design outlined segmented button set component."
+		},
+		{
+			"tag": "md-outlined-select",
+			"name": "OutlinedSelect",
+			"definition": "@material/web/select/outlined-select.js",
+			"properties": [
+				"clampMenuWidth",
+				"displayText",
+				"error",
+				"errorText",
+				"hasLeadingIcon",
+				"label",
+				"menuAlign",
+				"menuPositioning",
+				"noAsterisk",
+				"options",
+				"quick",
+				"required",
+				"selectedIndex",
+				"selectedOptions",
+				"supportingText",
+				"typeaheadDelay",
+				"value"
+			],
+			"events": [
+				"change",
+				"closed",
+				"closing",
+				"input",
+				"opened",
+				"opening"
+			],
+			"description": "Select menus display a list of choices on temporary surfaces and display the currently selected menu item above the menu."
+		},
+		{
+			"tag": "md-outlined-text-field",
+			"name": "OutlinedTextField",
+			"definition": "@material/web/textfield/outlined-text-field.js",
+			"properties": [
+				"autocomplete",
+				"cols",
+				"disabled",
+				"error",
+				"errorText",
+				"hasLeadingIcon",
+				"hasTrailingIcon",
+				"inputMode",
+				"label",
+				"max",
+				"maxLength",
+				"min",
+				"minLength",
+				"multiple",
+				"name",
+				"noAsterisk",
+				"noSpinner",
+				"pattern",
+				"placeholder",
+				"prefixText",
+				"readOnly",
+				"required",
+				"rows",
+				"selectionDirection",
+				"selectionEnd",
+				"selectionStart",
+				"step",
+				"suffixText",
+				"supportingText",
+				"textDirection",
+				"type",
+				"value",
+				"valueAsDate",
+				"valueAsNumber"
+			],
+			"events": [
+				"change",
+				"input",
+				"select"
+			],
+			"description": "TODO(b/228525797): Add docs"
+		},
+		{
+			"tag": "md-primary-tab",
+			"name": "PrimaryTab",
+			"definition": "@material/web/tabs/primary-tab.js",
+			"properties": [
+				"active",
+				"hasIcon",
+				"iconOnly",
+				"inlineIcon",
+				"isTab",
+				"selected"
+			],
+			"events": [],
+			"description": "Tab allow users to display a tab within a Tabs."
+		},
+		{
+			"tag": "md-radio",
+			"name": "Radio",
+			"definition": "@material/web/radio/radio.js",
+			"properties": [
+				"checked",
+				"required",
+				"value"
+			],
+			"events": [
+				"change",
+				"input"
+			],
+			"description": "Radio buttons allow users to select one option from a set."
+		},
+		{
+			"tag": "md-ripple",
+			"name": "Ripple",
+			"definition": "@material/web/ripple/ripple.js",
+			"properties": [
+				"disabled",
+				"htmlFor"
+			],
+			"events": [],
+			"description": "Ripples, also known as state layers, are visual indicators used to communicate the status of a component or interactive element."
+		},
+		{
+			"tag": "md-secondary-tab",
+			"name": "SecondaryTab",
+			"definition": "@material/web/tabs/secondary-tab.js",
+			"properties": [
+				"active",
+				"hasIcon",
+				"iconOnly",
+				"isTab",
+				"selected"
+			],
+			"events": [],
+			"description": "Tab allow users to display a tab within a Tabs."
+		},
+		{
+			"tag": "md-select-option",
+			"name": "SelectOption",
+			"definition": "@material/web/select/select-option.js",
+			"properties": [
+				"disabled",
+				"displayText",
+				"isMenuItem",
+				"selected",
+				"type",
+				"typeaheadText",
+				"value"
+			],
+			"events": [
+				"close-menu",
+				"request-deselection",
+				"request-selection"
+			],
+			"description": "Select menus display a list of choices on temporary surfaces and display the currently selected menu item above the menu."
+		},
+		{
+			"tag": "md-slider",
+			"name": "Slider",
+			"definition": "@material/web/slider/slider.js",
+			"properties": [
+				"ariaLabelEnd",
+				"ariaLabelStart",
+				"ariaValueTextEnd",
+				"ariaValueTextStart",
+				"labeled",
+				"max",
+				"min",
+				"nameEnd",
+				"nameStart",
+				"range",
+				"step",
+				"ticks",
+				"value",
+				"valueEnd",
+				"valueLabel",
+				"valueLabelEnd",
+				"valueLabelStart",
+				"valueStart"
+			],
+			"events": [
+				"change",
+				"input"
+			],
+			"description": "Sliders allow users to view and select a value (or range) along a track."
+		},
+		{
+			"tag": "md-sub-menu",
+			"name": "SubMenu",
+			"definition": "@material/web/menu/sub-menu.js",
+			"properties": [
+				"anchorCorner",
+				"hoverCloseDelay",
+				"hoverOpenDelay",
+				"isSubMenu",
+				"item",
+				"menuCorner"
+			],
+			"events": [
+				"activate-typeahead",
+				"deactivate-items",
+				"deactivate-typeahead",
+				"request-activation"
+			],
+			"description": "Menus display a list of choices on a temporary surface."
+		},
+		{
+			"tag": "md-suggestion-chip",
+			"name": "SuggestionChip",
+			"definition": "@material/web/chips/suggestion-chip.js",
+			"properties": [
+				"alwaysFocusable",
+				"disabled",
+				"download",
+				"elevated",
+				"hasIcon",
+				"href",
+				"label",
+				"softDisabled",
+				"target"
+			],
+			"events": [
+				"update-focus"
+			],
+			"description": "TODO(b/243982145): add docs"
+		},
+		{
+			"tag": "md-switch",
+			"name": "Switch",
+			"definition": "@material/web/switch/switch.js",
+			"properties": [
+				"icons",
+				"required",
+				"selected",
+				"showOnlySelectedIcon",
+				"value"
+			],
+			"events": [
+				"change",
+				"input"
+			],
+			"description": "Switches toggle the state of a single item on or off."
+		},
+		{
+			"tag": "md-tabs",
+			"name": "Tabs",
+			"definition": "@material/web/tabs/tabs.js",
+			"properties": [
+				"activeTabIndex",
+				"autoActivate"
+			],
+			"events": [
+				"change"
+			],
+			"description": "Tabs displays a list of selectable tabs."
+		},
+		{
+			"tag": "md-text-button",
+			"name": "TextButton",
+			"definition": "@material/web/button/text-button.js",
+			"properties": [
+				"download",
+				"hasIcon",
+				"href",
+				"softDisabled",
+				"target",
+				"trailingIcon"
+			],
+			"events": [],
+			"description": "Buttons help people take action, such as sending an email, sharing a document, or liking a comment."
+		}
+	]
+}

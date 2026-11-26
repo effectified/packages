@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-dropdown"]; // element: wa-dropdown
 
-/** `<wa-dropdown>`: Dropdowns display a list of options triggered by a button or other element. They support keyboard */
+/** `<wa-dropdown>`: Dropdowns display a list of options triggered by a button or other element. */
 export const Dropdown = Html.customElement({
 	tag: "wa-dropdown",
 	properties: {

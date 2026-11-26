@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-card"]; // element: wa-card
 
-/** `<wa-card>`: Cards group related content and actions inside a bordered container. Use them to present products, articles, */
+/** `<wa-card>`: Cards group related content and actions inside a bordered container. */
 export const Card = Html.customElement({
 	tag: "wa-card",
 	properties: {

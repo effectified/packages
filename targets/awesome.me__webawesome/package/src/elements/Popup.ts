@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-popup"]; // element: wa-popup
 
-/** `<wa-popup>`: Popups declaratively anchor one element to another and keep them positioned together as the page scrolls or */
+/** `<wa-popup>`: Popups declaratively anchor one element to another and keep them positioned together as the page scrolls or resizes. */
 export const Popup = Html.customElement({
 	tag: "wa-popup",
 	properties: {

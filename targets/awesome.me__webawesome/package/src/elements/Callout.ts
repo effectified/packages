@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-callout"]; // element: wa-callout
 
-/** `<wa-callout>`: Callouts display important messages inline with surrounding content. Use them to highlight tips, warnings, */
+/** `<wa-callout>`: Callouts display important messages inline with surrounding content. */
 export const Callout = Html.customElement({
 	tag: "wa-callout",
 	properties: {

@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-animated-image"]; // element: wa-animated-image
 
-/** `<wa-animated-image>`: Animated images display GIFs and WEBPs with controls to play and pause them on demand. Use them when you */
+/** `<wa-animated-image>`: Animated images display GIFs and WEBPs with controls to play and pause them on demand. */
 export const AnimatedImage = Html.customElement({
 	tag: "wa-animated-image",
 	properties: {

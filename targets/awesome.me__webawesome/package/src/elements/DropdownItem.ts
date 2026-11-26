@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-dropdown-item"]; // element: wa-dropdown-item
 
-/** `<wa-dropdown-item>`: Dropdown items represent selectable entries within a dropdown menu, including standard actions, checkable */
+/** `<wa-dropdown-item>`: Dropdown items represent selectable entries within a dropdown menu, including standard actions, checkable items, and submenu triggers. */
 export const DropdownItem = Html.customElement({
 	tag: "wa-dropdown-item",
 	properties: {

@@ -7,7 +7,7 @@ import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-checkbox"]; // element: wa-checkbox
 
-/** `<wa-checkbox>`: Checkboxes let users toggle an option on or off, or select multiple items from a list. They also support an */
+/** `<wa-checkbox>`: Checkboxes let users toggle an option on or off, or select multiple items from a list. */
 export const Checkbox = Html.customElement({
 	tag: "wa-checkbox",
 	properties: {
@@ -29,6 +29,7 @@ export const Checkbox = Html.customElement({
 		size: typed<Of["size"]>(), // property: wa-checkbox.size
 		states: typed<Of["states"]>(), // property: wa-checkbox.states
 		title: typed<Of["title"]>(), // property: wa-checkbox.title
+		validators: typed<Of["validators"]>(), // property: wa-checkbox.validators
 		value: typed<Of["value"]>(), // property: wa-checkbox.value
 		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-checkbox.valueHasChanged
 	},

@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-comparison"]; // element: wa-comparison
 
-/** `<wa-comparison>`: Comparisons show the visual differences between two pieces of similar content using a draggable divider. Use */
+/** `<wa-comparison>`: Comparisons show the visual differences between two pieces of similar content using a draggable divider. */
 export const Comparison = Html.customElement({
 	tag: "wa-comparison",
 	properties: {

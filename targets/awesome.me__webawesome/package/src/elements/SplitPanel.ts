@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-split-panel"]; // element: wa-split-panel
 
-/** `<wa-split-panel>`: Split panels display two adjacent panels separated by a draggable divider, letting users resize each side to */
+/** `<wa-split-panel>`: Split panels display two adjacent panels separated by a draggable divider, letting users resize each side to suit their workflow. */
 export const SplitPanel = Html.customElement({
 	tag: "wa-split-panel",
 	properties: {

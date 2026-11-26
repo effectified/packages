@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-copy-button"]; // element: wa-copy-button
 
-/** `<wa-copy-button>`: Copy buttons copy text to the clipboard when the user activates them. They provide built-in success and */
+/** `<wa-copy-button>`: Copy buttons copy text to the clipboard when the user activates them. */
 export const CopyButton = Html.customElement({
 	tag: "wa-copy-button",
 	properties: {
@@ -22,7 +22,6 @@ export const CopyButton = Html.customElement({
 		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-copy-button.initialReflectedProperties
 		isCopying: typed<Of["isCopying"]>(), // property: wa-copy-button.isCopying
 		lang: typed<Of["lang"]>(), // property: wa-copy-button.lang
-		shadowTooltip: typed<Of["shadowTooltip"]>(), // property: wa-copy-button.shadowTooltip
 		status: typed<Of["status"]>(), // property: wa-copy-button.status
 		successLabel: typed<Of["successLabel"]>(), // property: wa-copy-button.successLabel
 		tooltip: typed<Of["tooltip"]>(), // property: wa-copy-button.tooltip

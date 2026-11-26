@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-counter"]; // element: wa-counter
 
-/** `<wa-counter>`: Counters count down to a date or up from one, ticking through years, months, days, and smaller units. Use */
+/** `<wa-counter>`: Counters count down to a date or up from one, ticking through years, months, days, and smaller units. */
 export const Counter = Html.customElement({
 	tag: "wa-counter",
 	properties: {
@@ -24,7 +24,6 @@ export const Counter = Html.customElement({
 		largestUnit: typed<Of["largestUnit"]>(), // property: wa-counter.largestUnit
 		paused: typed<Of["paused"]>(), // property: wa-counter.paused
 		smallestUnit: typed<Of["smallestUnit"]>(), // property: wa-counter.smallestUnit
-		valueFormatter: typed<Of["valueFormatter"]>(), // property: wa-counter.valueFormatter
 		withoutLabels: typed<Of["withoutLabels"]>(), // property: wa-counter.withoutLabels
 	},
 	events: {

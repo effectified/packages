@@ -1,0 +1,97 @@
+{
+	"$schema": "https://effectified.dev/schema/recipe.json",
+	"package": "@codemirror/view",
+	"version": "6.44.0",
+	"types": {
+		"from": "bundled",
+		"package": "@codemirror/view",
+		"version": "6.44.0"
+	},
+	"name": "@effectified/codemirror-view",
+	"prefix": "CodemirrorView",
+	"exports": [
+		"EditorView"
+	],
+	"handles": {
+		"EditorView": {
+			"release": "destroy",
+			"events": []
+		}
+	},
+	"errors": [
+		{
+			"tag": "ViewError",
+			"codes": []
+		}
+	],
+	"services": [
+		{
+			"name": "ViewEditorView",
+			"handle": "EditorView",
+			"acquire": "EditorView"
+		}
+	],
+	"methods": {},
+	"derived": [],
+	"testDependencies": {},
+	"ui": {
+		"effectUi": "2fd1a57",
+		"mounts": [
+			"Editor"
+		],
+		"dependencies": {
+			"@codemirror/state": "^6.7.0"
+		}
+	},
+	"decisions": [
+		{
+			"id": "exports",
+			"question": "Which exported functions and classes does the facade offer?",
+			"answer": "EditorView",
+			"why": "EditorView is what the README's example constructs; the rest (ViewPlugin, Decoration, keymap, lineNumbers, ...) build Extensions an app passes to the Editor mount, imported from @codemirror/view itself. A frontend facade generates no wrappers from exports: kept for the record",
+			"by": "agent"
+		},
+		{
+			"id": "handles.EditorView.release",
+			"question": "Which method releases a EditorView, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
+			"answer": "destroy",
+			"why": "destroy() is CodeMirror's teardown (plugins, observers, its DOM); the Editor mount's release calls it",
+			"by": "agent"
+		},
+		{
+			"id": "handles.EditorView.events",
+			"question": "Which events of EditorView does the facade offer as Streams? (\"none\" for none)",
+			"answer": "none",
+			"why": "the view has no event emitter: changes are read through an EditorView.updateListener extension, which the Editor mount installs and turns into messages",
+			"by": "agent"
+		},
+		{
+			"id": "errors",
+			"question": "Which upstream failures become which tagged errors?",
+			"answer": "ViewError",
+			"why": "CodeMirror exports no error classes and sets no codes; a frontend facade generates no error mapping: kept for the record",
+			"by": "agent"
+		},
+		{
+			"id": "services",
+			"question": "Which handles are provided as services (Context.Service with a layer)?",
+			"answer": "ViewEditorView <- EditorView",
+			"why": "a frontend facade generates no services; an EditorView lives with its element through the Editor mount, not for a program's lifetime: kept for the record",
+			"by": "agent"
+		},
+		{
+			"id": "ui.mounts",
+			"question": "Which mounts does the frontend facade offer?",
+			"answer": "Editor",
+			"why": "@codemirror/view owns EditorView (codemirror only re-exports it with basicSetup, which an app passes as an extension): one view on a <div>, created from its document and extensions, updated in place (a new document is one change, applied only when the view changed it and it is not the editor's own echo; new extensions reconfigure a compartment), its document and selection changes as messages, destroyed with the element",
+			"by": "agent"
+		},
+		{
+			"id": "ui.dependencies",
+			"question": "Which packages do the mounts import besides upstream?",
+			"answer": "@codemirror/state ^6.7.0",
+			"why": "the Editor mount builds its Compartments and transactions with it; at @codemirror/view's own range, since a second copy would reject the editor's extensions",
+			"by": "agent"
+		}
+	]
+}

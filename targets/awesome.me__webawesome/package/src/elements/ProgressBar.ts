@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-progress-bar"]; // element: wa-progress-bar
 
-/** `<wa-progress-bar>`: Progress bars show how far along an ongoing operation is as a horizontal fill. Use them for file uploads, */
+/** `<wa-progress-bar>`: Progress bars show how far along an ongoing operation is as a horizontal fill. */
 export const ProgressBar = Html.customElement({
 	tag: "wa-progress-bar",
 	properties: {

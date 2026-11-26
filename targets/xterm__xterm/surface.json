@@ -1,0 +1,1400 @@
+{
+	"package": "@xterm/xterm",
+	"version": "6.0.0",
+	"types": {
+		"from": "bundled",
+		"package": "@xterm/xterm",
+		"version": "6.0.0"
+	},
+	"entry": "named",
+	"exports": [
+		{
+			"kind": "class",
+			"name": "Terminal",
+			"handle": "Terminal",
+			"constructors": [
+				{
+					"parameters": [
+						{
+							"name": "options",
+							"type": "(ITerminalOptions & ITerminalInitOnlyOptions) | undefined",
+							"optional": true,
+							"rest": false
+						}
+					],
+					"trailingCallback": false,
+					"returns": "Terminal",
+					"handle": "Terminal",
+					"traits": [
+						"sync"
+					]
+				}
+			],
+			"error": false
+		}
+	],
+	"handles": {
+		"Terminal": {
+			"name": "Terminal",
+			"typeRef": "Upstream.Terminal",
+			"methods": {
+				"onBell": [
+					{
+						"parameters": [
+							{
+								"name": "listener",
+								"type": "(arg1: void, arg2: void) => any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "IDisposable",
+						"handle": "IDisposable",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"onBinary": [
+					{
+						"parameters": [
+							{
+								"name": "listener",
+								"type": "(arg1: string, arg2: void) => any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "IDisposable",
+						"handle": "IDisposable",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"onCursorMove": [
+					{
+						"parameters": [
+							{
+								"name": "listener",
+								"type": "(arg1: void, arg2: void) => any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "IDisposable",
+						"handle": "IDisposable",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"onData": [
+					{
+						"parameters": [
+							{
+								"name": "listener",
+								"type": "(arg1: string, arg2: void) => any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "IDisposable",
+						"handle": "IDisposable",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"onKey": [
+					{
+						"parameters": [
+							{
+								"name": "listener",
+								"type": "(arg1: { key: string; domEvent: KeyboardEvent; }, arg2: void) => any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "IDisposable",
+						"handle": "IDisposable",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"onLineFeed": [
+					{
+						"parameters": [
+							{
+								"name": "listener",
+								"type": "(arg1: void, arg2: void) => any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "IDisposable",
+						"handle": "IDisposable",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"onRender": [
+					{
+						"parameters": [
+							{
+								"name": "listener",
+								"type": "(arg1: { start: number; end: number; }, arg2: void) => any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "IDisposable",
+						"handle": "IDisposable",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"onWriteParsed": [
+					{
+						"parameters": [
+							{
+								"name": "listener",
+								"type": "(arg1: void, arg2: void) => any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "IDisposable",
+						"handle": "IDisposable",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"onResize": [
+					{
+						"parameters": [
+							{
+								"name": "listener",
+								"type": "(arg1: { cols: number; rows: number; }, arg2: void) => any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "IDisposable",
+						"handle": "IDisposable",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"onScroll": [
+					{
+						"parameters": [
+							{
+								"name": "listener",
+								"type": "(arg1: number, arg2: void) => any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "IDisposable",
+						"handle": "IDisposable",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"onSelectionChange": [
+					{
+						"parameters": [
+							{
+								"name": "listener",
+								"type": "(arg1: void, arg2: void) => any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "IDisposable",
+						"handle": "IDisposable",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"onTitleChange": [
+					{
+						"parameters": [
+							{
+								"name": "listener",
+								"type": "(arg1: string, arg2: void) => any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "IDisposable",
+						"handle": "IDisposable",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"blur": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"focus": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"input": [
+					{
+						"parameters": [
+							{
+								"name": "data",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "wasUserInput",
+								"type": "boolean | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"resize": [
+					{
+						"parameters": [
+							{
+								"name": "columns",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "rows",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"open": [
+					{
+						"parameters": [
+							{
+								"name": "parent",
+								"type": "HTMLElement",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"attachCustomKeyEventHandler": [
+					{
+						"parameters": [
+							{
+								"name": "customKeyEventHandler",
+								"type": "(event: KeyboardEvent) => boolean",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "void",
+						"traits": [
+							"callback"
+						]
+					}
+				],
+				"attachCustomWheelEventHandler": [
+					{
+						"parameters": [
+							{
+								"name": "customWheelEventHandler",
+								"type": "(event: WheelEvent) => boolean",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "void",
+						"traits": [
+							"callback"
+						]
+					}
+				],
+				"registerLinkProvider": [
+					{
+						"parameters": [
+							{
+								"name": "linkProvider",
+								"type": "ILinkProvider",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "IDisposable",
+						"handle": "IDisposable",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"registerCharacterJoiner": [
+					{
+						"parameters": [
+							{
+								"name": "handler",
+								"type": "(text: string) => [number, number][]",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"deregisterCharacterJoiner": [
+					{
+						"parameters": [
+							{
+								"name": "joinerId",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"registerMarker": [
+					{
+						"parameters": [
+							{
+								"name": "cursorYOffset",
+								"type": "number | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "IMarker",
+						"handle": "IMarker",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"registerDecoration": [
+					{
+						"parameters": [
+							{
+								"name": "decorationOptions",
+								"type": "IDecorationOptions",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "IDecoration | undefined",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"hasSelection": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getSelection": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "string",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getSelectionPosition": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "IBufferRange | undefined",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"clearSelection": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"select": [
+					{
+						"parameters": [
+							{
+								"name": "column",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "row",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "length",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"selectAll": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"selectLines": [
+					{
+						"parameters": [
+							{
+								"name": "start",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "end",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"dispose": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"scrollLines": [
+					{
+						"parameters": [
+							{
+								"name": "amount",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"scrollPages": [
+					{
+						"parameters": [
+							{
+								"name": "pageCount",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"scrollToTop": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"scrollToBottom": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"scrollToLine": [
+					{
+						"parameters": [
+							{
+								"name": "line",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"clear": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"write": [
+					{
+						"parameters": [
+							{
+								"name": "data",
+								"type": "string | Uint8Array<ArrayBufferLike>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "(() => void) | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "void",
+						"traits": [
+							"callback"
+						]
+					}
+				],
+				"writeln": [
+					{
+						"parameters": [
+							{
+								"name": "data",
+								"type": "string | Uint8Array<ArrayBufferLike>",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "(() => void) | undefined",
+								"optional": true,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "void",
+						"traits": [
+							"callback"
+						]
+					}
+				],
+				"paste": [
+					{
+						"parameters": [
+							{
+								"name": "data",
+								"type": "string",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"refresh": [
+					{
+						"parameters": [
+							{
+								"name": "start",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "end",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"clearTextureAtlas": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"reset": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"loadAddon": [
+					{
+						"parameters": [
+							{
+								"name": "addon",
+								"type": "ITerminalAddon",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"element": {
+					"type": "HTMLElement | undefined"
+				},
+				"textarea": {
+					"type": "HTMLTextAreaElement | undefined"
+				},
+				"rows": {
+					"type": "number"
+				},
+				"cols": {
+					"type": "number"
+				},
+				"buffer": {
+					"type": "IBufferNamespace",
+					"handle": "IBufferNamespace"
+				},
+				"markers": {
+					"type": "readonly IMarker[]"
+				},
+				"parser": {
+					"type": "IParser",
+					"handle": "IParser"
+				},
+				"unicode": {
+					"type": "IUnicodeHandling",
+					"handle": "IUnicodeHandling"
+				},
+				"modes": {
+					"type": "IModes"
+				},
+				"options": {
+					"type": "ITerminalOptions"
+				}
+			},
+			"events": [],
+			"releases": [
+				"dispose"
+			]
+		},
+		"IBufferNamespace": {
+			"name": "IBufferNamespace",
+			"typeRef": "Upstream.IBufferNamespace",
+			"methods": {
+				"onBufferChange": [
+					{
+						"parameters": [
+							{
+								"name": "listener",
+								"type": "(arg1: IBuffer, arg2: void) => any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "IDisposable",
+						"handle": "IDisposable",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"active": {
+					"type": "IBuffer",
+					"handle": "IBuffer"
+				},
+				"normal": {
+					"type": "IBuffer",
+					"handle": "IBuffer"
+				},
+				"alternate": {
+					"type": "IBuffer",
+					"handle": "IBuffer"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"IParser": {
+			"name": "IParser",
+			"typeRef": "Upstream.IParser",
+			"methods": {
+				"registerCsiHandler": [
+					{
+						"parameters": [
+							{
+								"name": "id",
+								"type": "IFunctionIdentifier",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "(params: (number | number[])[]) => boolean | Promise<boolean>",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "IDisposable",
+						"handle": "IDisposable",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"registerDcsHandler": [
+					{
+						"parameters": [
+							{
+								"name": "id",
+								"type": "IFunctionIdentifier",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "(data: string, param: (number | number[])[]) => boolean | Promise<boolean>",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "IDisposable",
+						"handle": "IDisposable",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"registerEscHandler": [
+					{
+						"parameters": [
+							{
+								"name": "id",
+								"type": "IFunctionIdentifier",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "handler",
+								"type": "() => boolean | Promise<boolean>",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "IDisposable",
+						"handle": "IDisposable",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"registerOscHandler": [
+					{
+						"parameters": [
+							{
+								"name": "ident",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							},
+							{
+								"name": "callback",
+								"type": "(data: string) => boolean | Promise<boolean>",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "IDisposable",
+						"handle": "IDisposable",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {},
+			"events": [],
+			"releases": []
+		},
+		"IUnicodeHandling": {
+			"name": "IUnicodeHandling",
+			"typeRef": "Upstream.IUnicodeHandling",
+			"methods": {
+				"register": [
+					{
+						"parameters": [
+							{
+								"name": "provider",
+								"type": "IUnicodeVersionProvider",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"versions": {
+					"type": "readonly string[]"
+				},
+				"activeVersion": {
+					"type": "string"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"IDisposable": {
+			"name": "IDisposable",
+			"typeRef": "Upstream.IDisposable",
+			"methods": {
+				"dispose": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {},
+			"events": [],
+			"releases": [
+				"dispose"
+			]
+		},
+		"IMarker": {
+			"name": "IMarker",
+			"typeRef": "Upstream.IMarker",
+			"methods": {
+				"dispose": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "void",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"onDispose": [
+					{
+						"parameters": [
+							{
+								"name": "listener",
+								"type": "(arg1: void, arg2: void) => any",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": true,
+						"returns": "IDisposable",
+						"handle": "IDisposable",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"id": {
+					"type": "number"
+				},
+				"line": {
+					"type": "number"
+				},
+				"isDisposed": {
+					"type": "boolean"
+				}
+			},
+			"events": [],
+			"releases": [
+				"dispose"
+			]
+		},
+		"IBuffer": {
+			"name": "IBuffer",
+			"typeRef": "Upstream.IBuffer",
+			"methods": {
+				"getLine": [
+					{
+						"parameters": [
+							{
+								"name": "y",
+								"type": "number",
+								"optional": false,
+								"rest": false
+							}
+						],
+						"trailingCallback": false,
+						"returns": "IBufferLine | undefined",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getNullCell": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "IBufferCell",
+						"handle": "IBufferCell",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {
+				"type": {
+					"type": "\"alternate\" | \"normal\""
+				},
+				"cursorY": {
+					"type": "number"
+				},
+				"cursorX": {
+					"type": "number"
+				},
+				"viewportY": {
+					"type": "number"
+				},
+				"baseY": {
+					"type": "number"
+				},
+				"length": {
+					"type": "number"
+				}
+			},
+			"events": [],
+			"releases": []
+		},
+		"IBufferCell": {
+			"name": "IBufferCell",
+			"typeRef": "Upstream.IBufferCell",
+			"methods": {
+				"getWidth": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getChars": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "string",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getCode": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getFgColorMode": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getBgColorMode": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getFgColor": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"getBgColor": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isBold": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isItalic": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isDim": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isUnderline": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isBlink": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isInverse": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isInvisible": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isStrikethrough": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isOverline": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "number",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isFgRGB": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isBgRGB": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isFgPalette": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isBgPalette": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isFgDefault": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isBgDefault": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				],
+				"isAttributeDefault": [
+					{
+						"parameters": [],
+						"trailingCallback": false,
+						"returns": "boolean",
+						"traits": [
+							"sync"
+						]
+					}
+				]
+			},
+			"properties": {},
+			"events": [],
+			"releases": []
+		}
+	},
+	"typeExports": [
+		"FontWeight",
+		"LogLevel",
+		"ITerminalOptions",
+		"ITerminalInitOnlyOptions",
+		"ITheme",
+		"IWindowsPty",
+		"ILogger",
+		"IDisposable",
+		"IEvent",
+		"IMarker",
+		"IDisposableWithEvent",
+		"IDecoration",
+		"IDecorationOverviewRulerOptions",
+		"IDecorationOptions",
+		"ILocalizableStrings",
+		"IOverviewRulerOptions",
+		"IWindowOptions",
+		"ITerminalAddon",
+		"IViewportRange",
+		"IViewportRangePosition",
+		"ILinkHandler",
+		"ILinkProvider",
+		"ILink",
+		"ILinkDecorations",
+		"IBufferRange",
+		"IBufferCellPosition",
+		"IBuffer",
+		"IBufferElementProvider",
+		"IBufferNamespace",
+		"IBufferLine",
+		"IBufferCell",
+		"IFunctionIdentifier",
+		"IParser",
+		"IUnicodeVersionProvider",
+		"IUnicodeHandling",
+		"IModes"
+	]
+}

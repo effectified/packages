@@ -21,7 +21,6 @@ export const Tooltip = Html.customElement({
 		lang: typed<Of["lang"]>(), // property: wa-tooltip.lang
 		open: typed<Of["open"]>(), // property: wa-tooltip.open
 		placement: typed<Of["placement"]>(), // property: wa-tooltip.placement
-		popup: typed<Of["popup"]>(), // property: wa-tooltip.popup
 		showDelay: typed<Of["showDelay"]>(), // property: wa-tooltip.showDelay
 		skidding: typed<Of["skidding"]>(), // property: wa-tooltip.skidding
 		trigger: typed<Of["trigger"]>(), // property: wa-tooltip.trigger

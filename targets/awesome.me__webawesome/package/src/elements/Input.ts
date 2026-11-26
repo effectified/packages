@@ -7,7 +7,7 @@ import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-input"]; // element: wa-input
 
-/** `<wa-input>`: Inputs collect single-line data from the user, such as text, numbers, email addresses, and passwords. They */
+/** `<wa-input>`: Inputs collect single-line data from the user, such as text, numbers, email addresses, and passwords. */
 export const Input = Html.customElement({
 	tag: "wa-input",
 	properties: {
@@ -48,6 +48,7 @@ export const Input = Html.customElement({
 		step: typed<Of["step"]>(), // property: wa-input.step
 		title: typed<Of["title"]>(), // property: wa-input.title
 		type: typed<Of["type"]>(), // property: wa-input.type
+		validators: typed<Of["validators"]>(), // property: wa-input.validators
 		value: typed<Of["value"]>(), // property: wa-input.value
 		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-input.valueHasChanged
 		withClear: typed<Of["withClear"]>(), // property: wa-input.withClear

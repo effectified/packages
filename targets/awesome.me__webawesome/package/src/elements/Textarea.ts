@@ -42,6 +42,7 @@ export const Textarea = Html.customElement({
 		spellcheck: typed<Of["spellcheck"]>(), // property: wa-textarea.spellcheck
 		states: typed<Of["states"]>(), // property: wa-textarea.states
 		title: typed<Of["title"]>(), // property: wa-textarea.title
+		validators: typed<Of["validators"]>(), // property: wa-textarea.validators
 		value: typed<Of["value"]>(), // property: wa-textarea.value
 		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-textarea.valueHasChanged
 		withCount: typed<Of["withCount"]>(), // property: wa-textarea.withCount

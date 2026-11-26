@@ -42,6 +42,7 @@ export const TagInput = Html.customElement({
 		size: typed<Of["size"]>(), // property: wa-tag-input.size
 		spellcheck: typed<Of["spellcheck"]>(), // property: wa-tag-input.spellcheck
 		states: typed<Of["states"]>(), // property: wa-tag-input.states
+		validators: typed<Of["validators"]>(), // property: wa-tag-input.validators
 		value: typed<Of["value"]>(), // property: wa-tag-input.value
 		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-tag-input.valueHasChanged
 		withClear: typed<Of["withClear"]>(), // property: wa-tag-input.withClear

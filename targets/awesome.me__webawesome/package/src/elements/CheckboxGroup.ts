@@ -7,7 +7,7 @@ import { typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-checkbox-group"]; // element: wa-checkbox-group
 
-/** `<wa-checkbox-group>`: Checkbox groups wrap a set of related checkboxes or switches so they share a label, hint, and grouping */
+/** `<wa-checkbox-group>`: Checkbox groups wrap a set of related checkboxes or switches so they share a label, hint, and grouping semantics. */
 export const CheckboxGroup = Html.customElement({
 	tag: "wa-checkbox-group",
 	properties: {

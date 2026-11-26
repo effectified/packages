@@ -7,7 +7,7 @@ import { type DetailOf, typed } from "../internal/ui.ts";
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-mutation-observer"]; // element: wa-mutation-observer
 
-/** `<wa-mutation-observer>`: Mutation observers watch for changes to an element's DOM tree and emit an event when they occur. Provides a */
+/** `<wa-mutation-observer>`: Mutation observers watch for changes to an element's DOM tree and emit an event when they occur. */
 export const MutationObserver = Html.customElement({
 	tag: "wa-mutation-observer",
 	properties: {
