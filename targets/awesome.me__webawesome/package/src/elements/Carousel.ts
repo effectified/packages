@@ -10,22 +10,15 @@ type Of = HTMLElementTagNameMap["wa-carousel"]; // element: wa-carousel
 
 /** The properties a view sets on `<wa-carousel>`, as upstream types them. */
 type Properties = {
-	readonly activeSlide: Schema.declare<Of["activeSlide"]>; // property: wa-carousel.activeSlide
 	readonly autoplay: Schema.declare<Of["autoplay"]>; // property: wa-carousel.autoplay
 	readonly autoplayInterval: Schema.declare<Of["autoplayInterval"]>; // property: wa-carousel.autoplayInterval
-	readonly awaitingInitialPosition: Schema.declare<Of["awaitingInitialPosition"]>; // property: wa-carousel.awaitingInitialPosition
 	readonly currentSlide: Schema.declare<Of["currentSlide"]>; // property: wa-carousel.currentSlide
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-carousel.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-carousel.dir
-	readonly dragging: Schema.declare<Of["dragging"]>; // property: wa-carousel.dragging
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-carousel.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-carousel.lang
 	readonly loop: Schema.declare<Of["loop"]>; // property: wa-carousel.loop
 	readonly mouseDragging: Schema.declare<Of["mouseDragging"]>; // property: wa-carousel.mouseDragging
 	readonly navigation: Schema.declare<Of["navigation"]>; // property: wa-carousel.navigation
 	readonly orientation: Schema.declare<Of["orientation"]>; // property: wa-carousel.orientation
 	readonly pagination: Schema.declare<Of["pagination"]>; // property: wa-carousel.pagination
-	readonly scrolling: Schema.declare<Of["scrolling"]>; // property: wa-carousel.scrolling
 	readonly slides: Schema.declare<Of["slides"]>; // property: wa-carousel.slides
 	readonly slidesPerMove: Schema.declare<Of["slidesPerMove"]>; // property: wa-carousel.slidesPerMove
 	readonly slidesPerPage: Schema.declare<Of["slidesPerPage"]>; // property: wa-carousel.slidesPerPage
@@ -40,22 +33,15 @@ type Events = {
 export const Carousel: Html.CustomElementBinding<"wa-carousel", Properties, Events> = Html.customElement({
 	tag: "wa-carousel",
 	properties: {
-		activeSlide: typed<Of["activeSlide"]>(), // property: wa-carousel.activeSlide
 		autoplay: typed<Of["autoplay"]>(), // property: wa-carousel.autoplay
 		autoplayInterval: typed<Of["autoplayInterval"]>(), // property: wa-carousel.autoplayInterval
-		awaitingInitialPosition: typed<Of["awaitingInitialPosition"]>(), // property: wa-carousel.awaitingInitialPosition
 		currentSlide: typed<Of["currentSlide"]>(), // property: wa-carousel.currentSlide
 		didSSR: typed<Of["didSSR"]>(), // property: wa-carousel.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-carousel.dir
-		dragging: typed<Of["dragging"]>(), // property: wa-carousel.dragging
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-carousel.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-carousel.lang
 		loop: typed<Of["loop"]>(), // property: wa-carousel.loop
 		mouseDragging: typed<Of["mouseDragging"]>(), // property: wa-carousel.mouseDragging
 		navigation: typed<Of["navigation"]>(), // property: wa-carousel.navigation
 		orientation: typed<Of["orientation"]>(), // property: wa-carousel.orientation
 		pagination: typed<Of["pagination"]>(), // property: wa-carousel.pagination
-		scrolling: typed<Of["scrolling"]>(), // property: wa-carousel.scrolling
 		slides: typed<Of["slides"]>(), // property: wa-carousel.slides
 		slidesPerMove: typed<Of["slidesPerMove"]>(), // property: wa-carousel.slidesPerMove
 		slidesPerPage: typed<Of["slidesPerPage"]>(), // property: wa-carousel.slidesPerPage

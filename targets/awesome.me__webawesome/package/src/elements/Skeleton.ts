@@ -11,10 +11,7 @@ type Of = HTMLElementTagNameMap["wa-skeleton"]; // element: wa-skeleton
 /** The properties a view sets on `<wa-skeleton>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-skeleton.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-skeleton.dir
 	readonly effect: Schema.declare<Of["effect"]>; // property: wa-skeleton.effect
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-skeleton.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-skeleton.lang
 };
 
 /** The custom events of `<wa-skeleton>`, each its `detail`. */
@@ -25,10 +22,7 @@ export const Skeleton: Html.CustomElementBinding<"wa-skeleton", Properties, Even
 	tag: "wa-skeleton",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-skeleton.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-skeleton.dir
 		effect: typed<Of["effect"]>(), // property: wa-skeleton.effect
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-skeleton.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-skeleton.lang
 	},
 	events: {},
 });

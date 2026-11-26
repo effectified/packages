@@ -10,26 +10,16 @@ type Of = HTMLElementTagNameMap["wa-switch"]; // element: wa-switch
 
 /** The properties a view sets on `<wa-switch>`, as upstream types them. */
 type Properties = {
-	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-switch.assumeInteractionOn
 	readonly checked: Schema.declare<Of["checked"]>; // property: wa-switch.checked
 	readonly customError: Schema.declare<Of["customError"]>; // property: wa-switch.customError
 	readonly defaultChecked: Schema.declare<Of["defaultChecked"]>; // property: wa-switch.defaultChecked
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-switch.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-switch.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-switch.disabled
-	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-switch.emitInvalid
-	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-switch.hasInteracted
 	readonly hint: Schema.declare<Of["hint"]>; // property: wa-switch.hint
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-switch.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-switch.lang
 	readonly name: Schema.declare<Of["name"]>; // property: wa-switch.name
 	readonly required: Schema.declare<Of["required"]>; // property: wa-switch.required
 	readonly size: Schema.declare<Of["size"]>; // property: wa-switch.size
-	readonly states: Schema.declare<Of["states"]>; // property: wa-switch.states
-	readonly title: Schema.declare<Of["title"]>; // property: wa-switch.title
-	readonly validators: Schema.declare<Of["validators"]>; // property: wa-switch.validators
 	readonly value: Schema.declare<Of["value"]>; // property: wa-switch.value
-	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-switch.valueHasChanged
 	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-switch.withHint
 };
 
@@ -42,26 +32,16 @@ type Events = {
 export const Switch: Html.CustomElementBinding<"wa-switch", Properties, Events> = Html.customElement({
 	tag: "wa-switch",
 	properties: {
-		assumeInteractionOn: typed<Of["assumeInteractionOn"]>(), // property: wa-switch.assumeInteractionOn
 		checked: typed<Of["checked"]>(), // property: wa-switch.checked
 		customError: typed<Of["customError"]>(), // property: wa-switch.customError
 		defaultChecked: typed<Of["defaultChecked"]>(), // property: wa-switch.defaultChecked
 		didSSR: typed<Of["didSSR"]>(), // property: wa-switch.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-switch.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-switch.disabled
-		emitInvalid: typed<Of["emitInvalid"]>(), // property: wa-switch.emitInvalid
-		hasInteracted: typed<Of["hasInteracted"]>(), // property: wa-switch.hasInteracted
 		hint: typed<Of["hint"]>(), // property: wa-switch.hint
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-switch.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-switch.lang
 		name: typed<Of["name"]>(), // property: wa-switch.name
 		required: typed<Of["required"]>(), // property: wa-switch.required
 		size: typed<Of["size"]>(), // property: wa-switch.size
-		states: typed<Of["states"]>(), // property: wa-switch.states
-		title: typed<Of["title"]>(), // property: wa-switch.title
-		validators: typed<Of["validators"]>(), // property: wa-switch.validators
 		value: typed<Of["value"]>(), // property: wa-switch.value
-		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-switch.valueHasChanged
 		withHint: typed<Of["withHint"]>(), // property: wa-switch.withHint
 	},
 	events: {

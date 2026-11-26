@@ -13,17 +13,14 @@ type Properties = {
 	readonly currentTime: Schema.declare<Of["currentTime"]>; // property: wa-animation.currentTime
 	readonly delay: Schema.declare<Of["delay"]>; // property: wa-animation.delay
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-animation.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-animation.dir
 	readonly direction: Schema.declare<Of["direction"]>; // property: wa-animation.direction
 	readonly duration: Schema.declare<Of["duration"]>; // property: wa-animation.duration
 	readonly easing: Schema.declare<Of["easing"]>; // property: wa-animation.easing
 	readonly endDelay: Schema.declare<Of["endDelay"]>; // property: wa-animation.endDelay
 	readonly fill: Schema.declare<Of["fill"]>; // property: wa-animation.fill
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-animation.initialReflectedProperties
 	readonly iterationStart: Schema.declare<Of["iterationStart"]>; // property: wa-animation.iterationStart
 	readonly iterations: Schema.declare<Of["iterations"]>; // property: wa-animation.iterations
 	readonly keyframes: Schema.declare<Of["keyframes"]>; // property: wa-animation.keyframes
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-animation.lang
 	readonly name: Schema.declare<Of["name"]>; // property: wa-animation.name
 	readonly play: Schema.declare<Of["play"]>; // property: wa-animation.play
 	readonly playbackRate: Schema.declare<Of["playbackRate"]>; // property: wa-animation.playbackRate
@@ -43,17 +40,14 @@ export const Animation: Html.CustomElementBinding<"wa-animation", Properties, Ev
 		currentTime: typed<Of["currentTime"]>(), // property: wa-animation.currentTime
 		delay: typed<Of["delay"]>(), // property: wa-animation.delay
 		didSSR: typed<Of["didSSR"]>(), // property: wa-animation.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-animation.dir
 		direction: typed<Of["direction"]>(), // property: wa-animation.direction
 		duration: typed<Of["duration"]>(), // property: wa-animation.duration
 		easing: typed<Of["easing"]>(), // property: wa-animation.easing
 		endDelay: typed<Of["endDelay"]>(), // property: wa-animation.endDelay
 		fill: typed<Of["fill"]>(), // property: wa-animation.fill
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-animation.initialReflectedProperties
 		iterationStart: typed<Of["iterationStart"]>(), // property: wa-animation.iterationStart
 		iterations: typed<Of["iterations"]>(), // property: wa-animation.iterations
 		keyframes: typed<Of["keyframes"]>(), // property: wa-animation.keyframes
-		lang: typed<Of["lang"]>(), // property: wa-animation.lang
 		name: typed<Of["name"]>(), // property: wa-animation.name
 		play: typed<Of["play"]>(), // property: wa-animation.play
 		playbackRate: typed<Of["playbackRate"]>(), // property: wa-animation.playbackRate

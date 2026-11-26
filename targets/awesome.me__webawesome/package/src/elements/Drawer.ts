@@ -11,10 +11,7 @@ type Of = HTMLElementTagNameMap["wa-drawer"]; // element: wa-drawer
 /** The properties a view sets on `<wa-drawer>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-drawer.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-drawer.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-drawer.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-drawer.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-drawer.lang
 	readonly lightDismiss: Schema.declare<Of["lightDismiss"]>; // property: wa-drawer.lightDismiss
 	readonly open: Schema.declare<Of["open"]>; // property: wa-drawer.open
 	readonly placement: Schema.declare<Of["placement"]>; // property: wa-drawer.placement
@@ -36,10 +33,7 @@ export const Drawer: Html.CustomElementBinding<"wa-drawer", Properties, Events> 
 	tag: "wa-drawer",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-drawer.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-drawer.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-drawer.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-drawer.label
-		lang: typed<Of["lang"]>(), // property: wa-drawer.lang
 		lightDismiss: typed<Of["lightDismiss"]>(), // property: wa-drawer.lightDismiss
 		open: typed<Of["open"]>(), // property: wa-drawer.open
 		placement: typed<Of["placement"]>(), // property: wa-drawer.placement

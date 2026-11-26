@@ -10,12 +10,16 @@ type Of = HTMLElementTagNameMap["md-filled-tonal-button"]; // element: md-filled
 
 /** The properties a view sets on `<md-filled-tonal-button>`, as upstream types them. */
 type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-filled-tonal-button.disabled
 	readonly download: Schema.declare<Of["download"]>; // property: md-filled-tonal-button.download
 	readonly hasIcon: Schema.declare<Of["hasIcon"]>; // property: md-filled-tonal-button.hasIcon
 	readonly href: Schema.declare<Of["href"]>; // property: md-filled-tonal-button.href
+	readonly name: Schema.declare<Of["name"]>; // property: md-filled-tonal-button.name
 	readonly softDisabled: Schema.declare<Of["softDisabled"]>; // property: md-filled-tonal-button.softDisabled
 	readonly target: Schema.declare<Of["target"]>; // property: md-filled-tonal-button.target
 	readonly trailingIcon: Schema.declare<Of["trailingIcon"]>; // property: md-filled-tonal-button.trailingIcon
+	readonly type: Schema.declare<Of["type"]>; // property: md-filled-tonal-button.type
+	readonly value: Schema.declare<Of["value"]>; // property: md-filled-tonal-button.value
 };
 
 /** The custom events of `<md-filled-tonal-button>`, each its `detail`. */
@@ -25,12 +29,16 @@ type Events = {};
 export const FilledTonalButton: Html.CustomElementBinding<"md-filled-tonal-button", Properties, Events> = Html.customElement({
 	tag: "md-filled-tonal-button",
 	properties: {
+		disabled: typed<Of["disabled"]>(), // property: md-filled-tonal-button.disabled
 		download: typed<Of["download"]>(), // property: md-filled-tonal-button.download
 		hasIcon: typed<Of["hasIcon"]>(), // property: md-filled-tonal-button.hasIcon
 		href: typed<Of["href"]>(), // property: md-filled-tonal-button.href
+		name: typed<Of["name"]>(), // property: md-filled-tonal-button.name
 		softDisabled: typed<Of["softDisabled"]>(), // property: md-filled-tonal-button.softDisabled
 		target: typed<Of["target"]>(), // property: md-filled-tonal-button.target
 		trailingIcon: typed<Of["trailingIcon"]>(), // property: md-filled-tonal-button.trailingIcon
+		type: typed<Of["type"]>(), // property: md-filled-tonal-button.type
+		value: typed<Of["value"]>(), // property: md-filled-tonal-button.value
 	},
 	events: {},
 });

@@ -8,7 +8,7 @@
 ```ts
 import { EmojiPicker } from "@effectified/emoji-picker-element";
 
-// in a view: EmojiPicker(h).customCategorySorting(...).on("emoji-click", (detail) => Message.Changed({ ... }))
+// in a view: EmojiPicker(h).customEmoji(...).on("emoji-click", (detail) => Message.Changed({ ... }))
 ```
 
 ## Install

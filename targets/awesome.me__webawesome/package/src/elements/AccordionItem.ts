@@ -11,12 +11,9 @@ type Of = HTMLElementTagNameMap["wa-accordion-item"]; // element: wa-accordion-i
 /** The properties a view sets on `<wa-accordion-item>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-accordion-item.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-accordion-item.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-accordion-item.disabled
 	readonly expanded: Schema.declare<Of["expanded"]>; // property: wa-accordion-item.expanded
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-accordion-item.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-accordion-item.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-accordion-item.lang
 };
 
 /** The custom events of `<wa-accordion-item>`, each its `detail`. */
@@ -27,12 +24,9 @@ export const AccordionItem: Html.CustomElementBinding<"wa-accordion-item", Prope
 	tag: "wa-accordion-item",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-accordion-item.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-accordion-item.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-accordion-item.disabled
 		expanded: typed<Of["expanded"]>(), // property: wa-accordion-item.expanded
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-accordion-item.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-accordion-item.label
-		lang: typed<Of["lang"]>(), // property: wa-accordion-item.lang
 	},
 	events: {},
 });

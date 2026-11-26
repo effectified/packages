@@ -12,10 +12,7 @@ type Of = HTMLElementTagNameMap["wa-code-highlighter"]; // element: wa-code-high
 type Properties = {
 	readonly code: Schema.declare<Of["code"]>; // property: wa-code-highlighter.code
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-code-highlighter.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-code-highlighter.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-code-highlighter.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-code-highlighter.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-code-highlighter.lang
 	readonly language: Schema.declare<Of["language"]>; // property: wa-code-highlighter.language
 	readonly withoutCopy: Schema.declare<Of["withoutCopy"]>; // property: wa-code-highlighter.withoutCopy
 	readonly withoutDedent: Schema.declare<Of["withoutDedent"]>; // property: wa-code-highlighter.withoutDedent
@@ -34,10 +31,7 @@ export const CodeHighlighter: Html.CustomElementBinding<"wa-code-highlighter", P
 	properties: {
 		code: typed<Of["code"]>(), // property: wa-code-highlighter.code
 		didSSR: typed<Of["didSSR"]>(), // property: wa-code-highlighter.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-code-highlighter.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-code-highlighter.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-code-highlighter.label
-		lang: typed<Of["lang"]>(), // property: wa-code-highlighter.lang
 		language: typed<Of["language"]>(), // property: wa-code-highlighter.language
 		withoutCopy: typed<Of["withoutCopy"]>(), // property: wa-code-highlighter.withoutCopy
 		withoutDedent: typed<Of["withoutDedent"]>(), // property: wa-code-highlighter.withoutDedent

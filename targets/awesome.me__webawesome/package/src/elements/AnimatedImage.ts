@@ -12,11 +12,6 @@ type Of = HTMLElementTagNameMap["wa-animated-image"]; // element: wa-animated-im
 type Properties = {
 	readonly alt: Schema.declare<Of["alt"]>; // property: wa-animated-image.alt
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-animated-image.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-animated-image.dir
-	readonly frozenFrame: Schema.declare<Of["frozenFrame"]>; // property: wa-animated-image.frozenFrame
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-animated-image.initialReflectedProperties
-	readonly isLoaded: Schema.declare<Of["isLoaded"]>; // property: wa-animated-image.isLoaded
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-animated-image.lang
 	readonly play: Schema.declare<Of["play"]>; // property: wa-animated-image.play
 	readonly src: Schema.declare<Of["src"]>; // property: wa-animated-image.src
 };
@@ -33,11 +28,6 @@ export const AnimatedImage: Html.CustomElementBinding<"wa-animated-image", Prope
 	properties: {
 		alt: typed<Of["alt"]>(), // property: wa-animated-image.alt
 		didSSR: typed<Of["didSSR"]>(), // property: wa-animated-image.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-animated-image.dir
-		frozenFrame: typed<Of["frozenFrame"]>(), // property: wa-animated-image.frozenFrame
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-animated-image.initialReflectedProperties
-		isLoaded: typed<Of["isLoaded"]>(), // property: wa-animated-image.isLoaded
-		lang: typed<Of["lang"]>(), // property: wa-animated-image.lang
 		play: typed<Of["play"]>(), // property: wa-animated-image.play
 		src: typed<Of["src"]>(), // property: wa-animated-image.src
 	},

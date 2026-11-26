@@ -13,7 +13,6 @@ type Properties = {
 	readonly active: Schema.declare<Of["active"]>; // property: md-secondary-tab.active
 	readonly hasIcon: Schema.declare<Of["hasIcon"]>; // property: md-secondary-tab.hasIcon
 	readonly iconOnly: Schema.declare<Of["iconOnly"]>; // property: md-secondary-tab.iconOnly
-	readonly isTab: Schema.declare<Of["isTab"]>; // property: md-secondary-tab.isTab
 	readonly selected: Schema.declare<Of["selected"]>; // property: md-secondary-tab.selected
 };
 
@@ -27,7 +26,6 @@ export const SecondaryTab: Html.CustomElementBinding<"md-secondary-tab", Propert
 		active: typed<Of["active"]>(), // property: md-secondary-tab.active
 		hasIcon: typed<Of["hasIcon"]>(), // property: md-secondary-tab.hasIcon
 		iconOnly: typed<Of["iconOnly"]>(), // property: md-secondary-tab.iconOnly
-		isTab: typed<Of["isTab"]>(), // property: md-secondary-tab.isTab
 		selected: typed<Of["selected"]>(), // property: md-secondary-tab.selected
 	},
 	events: {},

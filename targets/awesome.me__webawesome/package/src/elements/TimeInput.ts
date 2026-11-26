@@ -16,16 +16,11 @@ type Properties = {
 	readonly customError: Schema.declare<Of["customError"]>; // property: wa-time-input.customError
 	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-time-input.defaultValue
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-time-input.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-time-input.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-time-input.disabled
 	readonly distance: Schema.declare<Of["distance"]>; // property: wa-time-input.distance
-	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-time-input.emitInvalid
-	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-time-input.hasInteracted
 	readonly hint: Schema.declare<Of["hint"]>; // property: wa-time-input.hint
 	readonly hourFormat: Schema.declare<Of["hourFormat"]>; // property: wa-time-input.hourFormat
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-time-input.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-time-input.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-time-input.lang
 	readonly max: Schema.declare<Of["max"]>; // property: wa-time-input.max
 	readonly min: Schema.declare<Of["min"]>; // property: wa-time-input.min
 	readonly name: Schema.declare<Of["name"]>; // property: wa-time-input.name
@@ -35,11 +30,8 @@ type Properties = {
 	readonly readonly: Schema.declare<Of["readonly"]>; // property: wa-time-input.readonly
 	readonly required: Schema.declare<Of["required"]>; // property: wa-time-input.required
 	readonly size: Schema.declare<Of["size"]>; // property: wa-time-input.size
-	readonly states: Schema.declare<Of["states"]>; // property: wa-time-input.states
 	readonly step: Schema.declare<Of["step"]>; // property: wa-time-input.step
-	readonly validators: Schema.declare<Of["validators"]>; // property: wa-time-input.validators
 	readonly value: Schema.declare<Of["value"]>; // property: wa-time-input.value
-	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-time-input.valueHasChanged
 	readonly withClear: Schema.declare<Of["withClear"]>; // property: wa-time-input.withClear
 	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-time-input.withHint
 	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-time-input.withLabel
@@ -66,16 +58,11 @@ export const TimeInput: Html.CustomElementBinding<"wa-time-input", Properties, E
 		customError: typed<Of["customError"]>(), // property: wa-time-input.customError
 		defaultValue: typed<Of["defaultValue"]>(), // property: wa-time-input.defaultValue
 		didSSR: typed<Of["didSSR"]>(), // property: wa-time-input.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-time-input.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-time-input.disabled
 		distance: typed<Of["distance"]>(), // property: wa-time-input.distance
-		emitInvalid: typed<Of["emitInvalid"]>(), // property: wa-time-input.emitInvalid
-		hasInteracted: typed<Of["hasInteracted"]>(), // property: wa-time-input.hasInteracted
 		hint: typed<Of["hint"]>(), // property: wa-time-input.hint
 		hourFormat: typed<Of["hourFormat"]>(), // property: wa-time-input.hourFormat
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-time-input.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-time-input.label
-		lang: typed<Of["lang"]>(), // property: wa-time-input.lang
 		max: typed<Of["max"]>(), // property: wa-time-input.max
 		min: typed<Of["min"]>(), // property: wa-time-input.min
 		name: typed<Of["name"]>(), // property: wa-time-input.name
@@ -85,11 +72,8 @@ export const TimeInput: Html.CustomElementBinding<"wa-time-input", Properties, E
 		readonly: typed<Of["readonly"]>(), // property: wa-time-input.readonly
 		required: typed<Of["required"]>(), // property: wa-time-input.required
 		size: typed<Of["size"]>(), // property: wa-time-input.size
-		states: typed<Of["states"]>(), // property: wa-time-input.states
 		step: typed<Of["step"]>(), // property: wa-time-input.step
-		validators: typed<Of["validators"]>(), // property: wa-time-input.validators
 		value: typed<Of["value"]>(), // property: wa-time-input.value
-		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-time-input.valueHasChanged
 		withClear: typed<Of["withClear"]>(), // property: wa-time-input.withClear
 		withHint: typed<Of["withHint"]>(), // property: wa-time-input.withHint
 		withLabel: typed<Of["withLabel"]>(), // property: wa-time-input.withLabel

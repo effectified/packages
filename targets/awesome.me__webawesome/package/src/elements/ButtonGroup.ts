@@ -11,12 +11,7 @@ type Of = HTMLElementTagNameMap["wa-button-group"]; // element: wa-button-group
 /** The properties a view sets on `<wa-button-group>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-button-group.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-button-group.dir
-	readonly disableRole: Schema.declare<Of["disableRole"]>; // property: wa-button-group.disableRole
-	readonly hasOutlined: Schema.declare<Of["hasOutlined"]>; // property: wa-button-group.hasOutlined
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-button-group.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-button-group.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-button-group.lang
 	readonly orientation: Schema.declare<Of["orientation"]>; // property: wa-button-group.orientation
 };
 
@@ -28,12 +23,7 @@ export const ButtonGroup: Html.CustomElementBinding<"wa-button-group", Propertie
 	tag: "wa-button-group",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-button-group.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-button-group.dir
-		disableRole: typed<Of["disableRole"]>(), // property: wa-button-group.disableRole
-		hasOutlined: typed<Of["hasOutlined"]>(), // property: wa-button-group.hasOutlined
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-button-group.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-button-group.label
-		lang: typed<Of["lang"]>(), // property: wa-button-group.lang
 		orientation: typed<Of["orientation"]>(), // property: wa-button-group.orientation
 	},
 	events: {},

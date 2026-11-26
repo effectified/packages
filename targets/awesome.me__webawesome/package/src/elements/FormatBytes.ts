@@ -11,10 +11,7 @@ type Of = HTMLElementTagNameMap["wa-format-bytes"]; // element: wa-format-bytes
 /** The properties a view sets on `<wa-format-bytes>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-format-bytes.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-format-bytes.dir
 	readonly display: Schema.declare<Of["display"]>; // property: wa-format-bytes.display
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-format-bytes.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-format-bytes.lang
 	readonly unit: Schema.declare<Of["unit"]>; // property: wa-format-bytes.unit
 	readonly value: Schema.declare<Of["value"]>; // property: wa-format-bytes.value
 };
@@ -27,10 +24,7 @@ export const FormatBytes: Html.CustomElementBinding<"wa-format-bytes", Propertie
 	tag: "wa-format-bytes",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-format-bytes.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-format-bytes.dir
 		display: typed<Of["display"]>(), // property: wa-format-bytes.display
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-format-bytes.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-format-bytes.lang
 		unit: typed<Of["unit"]>(), // property: wa-format-bytes.unit
 		value: typed<Of["value"]>(), // property: wa-format-bytes.value
 	},

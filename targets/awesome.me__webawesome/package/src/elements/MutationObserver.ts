@@ -16,10 +16,7 @@ type Properties = {
 	readonly charDataOldValue: Schema.declare<Of["charDataOldValue"]>; // property: wa-mutation-observer.charDataOldValue
 	readonly childList: Schema.declare<Of["childList"]>; // property: wa-mutation-observer.childList
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-mutation-observer.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-mutation-observer.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-mutation-observer.disabled
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-mutation-observer.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-mutation-observer.lang
 };
 
 /** The custom events of `<wa-mutation-observer>`, each its `detail`. */
@@ -37,10 +34,7 @@ export const MutationObserver: Html.CustomElementBinding<"wa-mutation-observer",
 		charDataOldValue: typed<Of["charDataOldValue"]>(), // property: wa-mutation-observer.charDataOldValue
 		childList: typed<Of["childList"]>(), // property: wa-mutation-observer.childList
 		didSSR: typed<Of["didSSR"]>(), // property: wa-mutation-observer.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-mutation-observer.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-mutation-observer.disabled
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-mutation-observer.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-mutation-observer.lang
 	},
 	events: {
 		"wa-mutation": typed<DetailOf<"wa-mutation">>(),

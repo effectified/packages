@@ -13,12 +13,9 @@ type Properties = {
 	readonly date: Schema.declare<Of["date"]>; // property: wa-format-date.date
 	readonly day: Schema.declare<Of["day"]>; // property: wa-format-date.day
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-format-date.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-format-date.dir
 	readonly era: Schema.declare<Of["era"]>; // property: wa-format-date.era
 	readonly hour: Schema.declare<Of["hour"]>; // property: wa-format-date.hour
 	readonly hourFormat: Schema.declare<Of["hourFormat"]>; // property: wa-format-date.hourFormat
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-format-date.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-format-date.lang
 	readonly minute: Schema.declare<Of["minute"]>; // property: wa-format-date.minute
 	readonly month: Schema.declare<Of["month"]>; // property: wa-format-date.month
 	readonly second: Schema.declare<Of["second"]>; // property: wa-format-date.second
@@ -38,12 +35,9 @@ export const FormatDate: Html.CustomElementBinding<"wa-format-date", Properties,
 		date: typed<Of["date"]>(), // property: wa-format-date.date
 		day: typed<Of["day"]>(), // property: wa-format-date.day
 		didSSR: typed<Of["didSSR"]>(), // property: wa-format-date.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-format-date.dir
 		era: typed<Of["era"]>(), // property: wa-format-date.era
 		hour: typed<Of["hour"]>(), // property: wa-format-date.hour
 		hourFormat: typed<Of["hourFormat"]>(), // property: wa-format-date.hourFormat
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-format-date.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-format-date.lang
 		minute: typed<Of["minute"]>(), // property: wa-format-date.minute
 		month: typed<Of["month"]>(), // property: wa-format-date.month
 		second: typed<Of["second"]>(), // property: wa-format-date.second

@@ -13,13 +13,11 @@ type Properties = {
 	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-pagination.appearance
 	readonly boundaryCount: Schema.declare<Of["boundaryCount"]>; // property: wa-pagination.boundaryCount
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-pagination.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-pagination.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-pagination.disabled
 	readonly format: Schema.declare<Of["format"]>; // property: wa-pagination.format
 	readonly hideSinglePage: Schema.declare<Of["hideSinglePage"]>; // property: wa-pagination.hideSinglePage
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-pagination.initialReflectedProperties
+	readonly hrefTemplate: Schema.declare<Of["hrefTemplate"]>; // property: wa-pagination.hrefTemplate
 	readonly label: Schema.declare<Of["label"]>; // property: wa-pagination.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-pagination.lang
 	readonly page: Schema.declare<Of["page"]>; // property: wa-pagination.page
 	readonly pageSize: Schema.declare<Of["pageSize"]>; // property: wa-pagination.pageSize
 	readonly siblingCount: Schema.declare<Of["siblingCount"]>; // property: wa-pagination.siblingCount
@@ -42,13 +40,11 @@ export const Pagination: Html.CustomElementBinding<"wa-pagination", Properties, 
 		appearance: typed<Of["appearance"]>(), // property: wa-pagination.appearance
 		boundaryCount: typed<Of["boundaryCount"]>(), // property: wa-pagination.boundaryCount
 		didSSR: typed<Of["didSSR"]>(), // property: wa-pagination.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-pagination.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-pagination.disabled
 		format: typed<Of["format"]>(), // property: wa-pagination.format
 		hideSinglePage: typed<Of["hideSinglePage"]>(), // property: wa-pagination.hideSinglePage
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-pagination.initialReflectedProperties
+		hrefTemplate: typed<Of["hrefTemplate"]>(), // property: wa-pagination.hrefTemplate
 		label: typed<Of["label"]>(), // property: wa-pagination.label
-		lang: typed<Of["lang"]>(), // property: wa-pagination.lang
 		page: typed<Of["page"]>(), // property: wa-pagination.page
 		pageSize: typed<Of["pageSize"]>(), // property: wa-pagination.pageSize
 		siblingCount: typed<Of["siblingCount"]>(), // property: wa-pagination.siblingCount

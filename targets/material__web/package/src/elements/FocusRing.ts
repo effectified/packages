@@ -10,7 +10,6 @@ type Of = HTMLElementTagNameMap["md-focus-ring"]; // element: md-focus-ring
 
 /** The properties a view sets on `<md-focus-ring>`, as upstream types them. */
 type Properties = {
-	readonly htmlFor: Schema.declare<Of["htmlFor"]>; // property: md-focus-ring.htmlFor
 	readonly inward: Schema.declare<Of["inward"]>; // property: md-focus-ring.inward
 	readonly visible: Schema.declare<Of["visible"]>; // property: md-focus-ring.visible
 };
@@ -24,7 +23,6 @@ type Events = {
 export const FocusRing: Html.CustomElementBinding<"md-focus-ring", Properties, Events> = Html.customElement({
 	tag: "md-focus-ring",
 	properties: {
-		htmlFor: typed<Of["htmlFor"]>(), // property: md-focus-ring.htmlFor
 		inward: typed<Of["inward"]>(), // property: md-focus-ring.inward
 		visible: typed<Of["visible"]>(), // property: md-focus-ring.visible
 	},

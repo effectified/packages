@@ -11,11 +11,8 @@ type Of = HTMLElementTagNameMap["wa-checkbox-group"]; // element: wa-checkbox-gr
 /** The properties a view sets on `<wa-checkbox-group>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-checkbox-group.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-checkbox-group.dir
 	readonly hint: Schema.declare<Of["hint"]>; // property: wa-checkbox-group.hint
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-checkbox-group.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-checkbox-group.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-checkbox-group.lang
 	readonly orientation: Schema.declare<Of["orientation"]>; // property: wa-checkbox-group.orientation
 	readonly required: Schema.declare<Of["required"]>; // property: wa-checkbox-group.required
 	readonly size: Schema.declare<Of["size"]>; // property: wa-checkbox-group.size
@@ -31,11 +28,8 @@ export const CheckboxGroup: Html.CustomElementBinding<"wa-checkbox-group", Prope
 	tag: "wa-checkbox-group",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-checkbox-group.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-checkbox-group.dir
 		hint: typed<Of["hint"]>(), // property: wa-checkbox-group.hint
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-checkbox-group.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-checkbox-group.label
-		lang: typed<Of["lang"]>(), // property: wa-checkbox-group.lang
 		orientation: typed<Of["orientation"]>(), // property: wa-checkbox-group.orientation
 		required: typed<Of["required"]>(), // property: wa-checkbox-group.required
 		size: typed<Of["size"]>(), // property: wa-checkbox-group.size

@@ -11,12 +11,7 @@ type Of = HTMLElementTagNameMap["wa-progress-ring"]; // element: wa-progress-rin
 /** The properties a view sets on `<wa-progress-ring>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-progress-ring.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-progress-ring.dir
-	readonly indicator: Schema.declare<Of["indicator"]>; // property: wa-progress-ring.indicator
-	readonly indicatorOffset: Schema.declare<Of["indicatorOffset"]>; // property: wa-progress-ring.indicatorOffset
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-progress-ring.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-progress-ring.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-progress-ring.lang
 	readonly value: Schema.declare<Of["value"]>; // property: wa-progress-ring.value
 };
 
@@ -28,12 +23,7 @@ export const ProgressRing: Html.CustomElementBinding<"wa-progress-ring", Propert
 	tag: "wa-progress-ring",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-progress-ring.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-progress-ring.dir
-		indicator: typed<Of["indicator"]>(), // property: wa-progress-ring.indicator
-		indicatorOffset: typed<Of["indicatorOffset"]>(), // property: wa-progress-ring.indicatorOffset
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-progress-ring.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-progress-ring.label
-		lang: typed<Of["lang"]>(), // property: wa-progress-ring.lang
 		value: typed<Of["value"]>(), // property: wa-progress-ring.value
 	},
 	events: {},

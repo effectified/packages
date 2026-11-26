@@ -10,11 +10,7 @@ type Of = HTMLElementTagNameMap["wa-scroller"]; // element: wa-scroller
 
 /** The properties a view sets on `<wa-scroller>`, as upstream types them. */
 type Properties = {
-	readonly canScroll: Schema.declare<Of["canScroll"]>; // property: wa-scroller.canScroll
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-scroller.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-scroller.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-scroller.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-scroller.lang
 	readonly orientation: Schema.declare<Of["orientation"]>; // property: wa-scroller.orientation
 	readonly withoutScrollbar: Schema.declare<Of["withoutScrollbar"]>; // property: wa-scroller.withoutScrollbar
 	readonly withoutShadow: Schema.declare<Of["withoutShadow"]>; // property: wa-scroller.withoutShadow
@@ -27,11 +23,7 @@ type Events = {};
 export const Scroller: Html.CustomElementBinding<"wa-scroller", Properties, Events> = Html.customElement({
 	tag: "wa-scroller",
 	properties: {
-		canScroll: typed<Of["canScroll"]>(), // property: wa-scroller.canScroll
 		didSSR: typed<Of["didSSR"]>(), // property: wa-scroller.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-scroller.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-scroller.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-scroller.lang
 		orientation: typed<Of["orientation"]>(), // property: wa-scroller.orientation
 		withoutScrollbar: typed<Of["withoutScrollbar"]>(), // property: wa-scroller.withoutScrollbar
 		withoutShadow: typed<Of["withoutShadow"]>(), // property: wa-scroller.withoutShadow

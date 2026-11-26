@@ -11,6 +11,8 @@ type Of = HTMLElementTagNameMap["md-radio"]; // element: md-radio
 /** The properties a view sets on `<md-radio>`, as upstream types them. */
 type Properties = {
 	readonly checked: Schema.declare<Of["checked"]>; // property: md-radio.checked
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-radio.disabled
+	readonly name: Schema.declare<Of["name"]>; // property: md-radio.name
 	readonly required: Schema.declare<Of["required"]>; // property: md-radio.required
 	readonly value: Schema.declare<Of["value"]>; // property: md-radio.value
 };
@@ -23,6 +25,8 @@ export const Radio: Html.CustomElementBinding<"md-radio", Properties, Events> = 
 	tag: "md-radio",
 	properties: {
 		checked: typed<Of["checked"]>(), // property: md-radio.checked
+		disabled: typed<Of["disabled"]>(), // property: md-radio.disabled
+		name: typed<Of["name"]>(), // property: md-radio.name
 		required: typed<Of["required"]>(), // property: md-radio.required
 		value: typed<Of["value"]>(), // property: md-radio.value
 	},

@@ -11,7 +11,6 @@ type Of = HTMLElementTagNameMap["md-input-chip"]; // element: md-input-chip
 /** The properties a view sets on `<md-input-chip>`, as upstream types them. */
 type Properties = {
 	readonly alwaysFocusable: Schema.declare<Of["alwaysFocusable"]>; // property: md-input-chip.alwaysFocusable
-	readonly ariaLabelRemove: Schema.declare<Of["ariaLabelRemove"]>; // property: md-input-chip.ariaLabelRemove
 	readonly avatar: Schema.declare<Of["avatar"]>; // property: md-input-chip.avatar
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-input-chip.disabled
 	readonly hasIcon: Schema.declare<Of["hasIcon"]>; // property: md-input-chip.hasIcon
@@ -34,7 +33,6 @@ export const InputChip: Html.CustomElementBinding<"md-input-chip", Properties, E
 	tag: "md-input-chip",
 	properties: {
 		alwaysFocusable: typed<Of["alwaysFocusable"]>(), // property: md-input-chip.alwaysFocusable
-		ariaLabelRemove: typed<Of["ariaLabelRemove"]>(), // property: md-input-chip.ariaLabelRemove
 		avatar: typed<Of["avatar"]>(), // property: md-input-chip.avatar
 		disabled: typed<Of["disabled"]>(), // property: md-input-chip.disabled
 		hasIcon: typed<Of["hasIcon"]>(), // property: md-input-chip.hasIcon

@@ -16,7 +16,6 @@ type Properties = {
 	readonly selected: Schema.declare<Of["selected"]>; // property: md-menu-item.selected
 	readonly target: Schema.declare<Of["target"]>; // property: md-menu-item.target
 	readonly type: Schema.declare<Of["type"]>; // property: md-menu-item.type
-	readonly typeaheadText: Schema.declare<Of["typeaheadText"]>; // property: md-menu-item.typeaheadText
 };
 
 /** The custom events of `<md-menu-item>`, each its `detail`. */
@@ -34,7 +33,6 @@ export const MenuItem: Html.CustomElementBinding<"md-menu-item", Properties, Eve
 		selected: typed<Of["selected"]>(), // property: md-menu-item.selected
 		target: typed<Of["target"]>(), // property: md-menu-item.target
 		type: typed<Of["type"]>(), // property: md-menu-item.type
-		typeaheadText: typed<Of["typeaheadText"]>(), // property: md-menu-item.typeaheadText
 	},
 	events: {
 		"close-menu": typed<DetailOf<"close-menu">>(),

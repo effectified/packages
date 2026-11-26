@@ -14,10 +14,7 @@ type Properties = {
 	readonly autoplay: Schema.declare<Of["autoplay"]>; // property: wa-random-content.autoplay
 	readonly autoplayInterval: Schema.declare<Of["autoplayInterval"]>; // property: wa-random-content.autoplayInterval
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-random-content.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-random-content.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-random-content.initialReflectedProperties
 	readonly items: Schema.declare<Of["items"]>; // property: wa-random-content.items
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-random-content.lang
 	readonly mode: Schema.declare<Of["mode"]>; // property: wa-random-content.mode
 };
 
@@ -34,10 +31,7 @@ export const RandomContent: Html.CustomElementBinding<"wa-random-content", Prope
 		autoplay: typed<Of["autoplay"]>(), // property: wa-random-content.autoplay
 		autoplayInterval: typed<Of["autoplayInterval"]>(), // property: wa-random-content.autoplayInterval
 		didSSR: typed<Of["didSSR"]>(), // property: wa-random-content.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-random-content.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-random-content.initialReflectedProperties
 		items: typed<Of["items"]>(), // property: wa-random-content.items
-		lang: typed<Of["lang"]>(), // property: wa-random-content.lang
 		mode: typed<Of["mode"]>(), // property: wa-random-content.mode
 	},
 	events: {

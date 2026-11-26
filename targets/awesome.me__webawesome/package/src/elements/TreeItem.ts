@@ -11,19 +11,10 @@ type Of = HTMLElementTagNameMap["wa-tree-item"]; // element: wa-tree-item
 /** The properties a view sets on `<wa-tree-item>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-tree-item.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-tree-item.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-tree-item.disabled
 	readonly expanded: Schema.declare<Of["expanded"]>; // property: wa-tree-item.expanded
-	readonly indeterminate: Schema.declare<Of["indeterminate"]>; // property: wa-tree-item.indeterminate
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-tree-item.initialReflectedProperties
-	readonly isLeaf: Schema.declare<Of["isLeaf"]>; // property: wa-tree-item.isLeaf
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-tree-item.lang
 	readonly lazy: Schema.declare<Of["lazy"]>; // property: wa-tree-item.lazy
-	readonly loading: Schema.declare<Of["loading"]>; // property: wa-tree-item.loading
-	readonly role: Schema.declare<Of["role"]>; // property: wa-tree-item.role
-	readonly selectable: Schema.declare<Of["selectable"]>; // property: wa-tree-item.selectable
 	readonly selected: Schema.declare<Of["selected"]>; // property: wa-tree-item.selected
-	readonly tabIndex: Schema.declare<Of["tabIndex"]>; // property: wa-tree-item.tabIndex
 };
 
 /** The custom events of `<wa-tree-item>`, each its `detail`. */
@@ -41,19 +32,10 @@ export const TreeItem: Html.CustomElementBinding<"wa-tree-item", Properties, Eve
 	tag: "wa-tree-item",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-tree-item.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-tree-item.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-tree-item.disabled
 		expanded: typed<Of["expanded"]>(), // property: wa-tree-item.expanded
-		indeterminate: typed<Of["indeterminate"]>(), // property: wa-tree-item.indeterminate
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-tree-item.initialReflectedProperties
-		isLeaf: typed<Of["isLeaf"]>(), // property: wa-tree-item.isLeaf
-		lang: typed<Of["lang"]>(), // property: wa-tree-item.lang
 		lazy: typed<Of["lazy"]>(), // property: wa-tree-item.lazy
-		loading: typed<Of["loading"]>(), // property: wa-tree-item.loading
-		role: typed<Of["role"]>(), // property: wa-tree-item.role
-		selectable: typed<Of["selectable"]>(), // property: wa-tree-item.selectable
 		selected: typed<Of["selected"]>(), // property: wa-tree-item.selected
-		tabIndex: typed<Of["tabIndex"]>(), // property: wa-tree-item.tabIndex
 	},
 	events: {
 		"wa-after-collapse": typed<DetailOf<"wa-after-collapse">>(),

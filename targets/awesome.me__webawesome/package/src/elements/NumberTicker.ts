@@ -14,12 +14,9 @@ type Properties = {
 	readonly currencyDisplay: Schema.declare<Of["currencyDisplay"]>; // property: wa-number-ticker.currencyDisplay
 	readonly delay: Schema.declare<Of["delay"]>; // property: wa-number-ticker.delay
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-number-ticker.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-number-ticker.dir
 	readonly duration: Schema.declare<Of["duration"]>; // property: wa-number-ticker.duration
 	readonly eager: Schema.declare<Of["eager"]>; // property: wa-number-ticker.eager
 	readonly easing: Schema.declare<Of["easing"]>; // property: wa-number-ticker.easing
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-number-ticker.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-number-ticker.lang
 	readonly maximumFractionDigits: Schema.declare<Of["maximumFractionDigits"]>; // property: wa-number-ticker.maximumFractionDigits
 	readonly maximumSignificantDigits: Schema.declare<Of["maximumSignificantDigits"]>; // property: wa-number-ticker.maximumSignificantDigits
 	readonly minimumFractionDigits: Schema.declare<Of["minimumFractionDigits"]>; // property: wa-number-ticker.minimumFractionDigits
@@ -44,12 +41,9 @@ export const NumberTicker: Html.CustomElementBinding<"wa-number-ticker", Propert
 		currencyDisplay: typed<Of["currencyDisplay"]>(), // property: wa-number-ticker.currencyDisplay
 		delay: typed<Of["delay"]>(), // property: wa-number-ticker.delay
 		didSSR: typed<Of["didSSR"]>(), // property: wa-number-ticker.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-number-ticker.dir
 		duration: typed<Of["duration"]>(), // property: wa-number-ticker.duration
 		eager: typed<Of["eager"]>(), // property: wa-number-ticker.eager
 		easing: typed<Of["easing"]>(), // property: wa-number-ticker.easing
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-number-ticker.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-number-ticker.lang
 		maximumFractionDigits: typed<Of["maximumFractionDigits"]>(), // property: wa-number-ticker.maximumFractionDigits
 		maximumSignificantDigits: typed<Of["maximumSignificantDigits"]>(), // property: wa-number-ticker.maximumSignificantDigits
 		minimumFractionDigits: typed<Of["minimumFractionDigits"]>(), // property: wa-number-ticker.minimumFractionDigits

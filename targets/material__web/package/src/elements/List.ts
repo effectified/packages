@@ -9,9 +9,7 @@ import { typed } from "../internal/ui.ts";
 type Of = HTMLElementTagNameMap["md-list"]; // element: md-list
 
 /** The properties a view sets on `<md-list>`, as upstream types them. */
-type Properties = {
-	readonly items: Schema.declare<Of["items"]>; // property: md-list.items
-};
+type Properties = {};
 
 /** The custom events of `<md-list>`, each its `detail`. */
 type Events = {};
@@ -19,8 +17,6 @@ type Events = {};
 /** `<md-list>`: Lists are continuous, vertical indexes of text or images. */
 export const List: Html.CustomElementBinding<"md-list", Properties, Events> = Html.customElement({
 	tag: "md-list",
-	properties: {
-		items: typed<Of["items"]>(), // property: md-list.items
-	},
+	properties: {},
 	events: {},
 });

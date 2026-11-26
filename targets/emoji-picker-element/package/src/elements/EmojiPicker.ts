@@ -10,7 +10,6 @@ type Of = HTMLElementTagNameMap["emoji-picker"]; // element: emoji-picker
 
 /** The properties a view sets on `<emoji-picker>`, as upstream types them. */
 type Properties = {
-	readonly customCategorySorting: Schema.declare<Of["customCategorySorting"]>; // property: emoji-picker.customCategorySorting
 	readonly customEmoji: Schema.declare<Of["customEmoji"]>; // property: emoji-picker.customEmoji
 	readonly dataSource: Schema.declare<Of["dataSource"]>; // property: emoji-picker.dataSource
 	readonly i18n: Schema.declare<Of["i18n"]>; // property: emoji-picker.i18n
@@ -29,7 +28,6 @@ type Events = {
 export const EmojiPicker: Html.CustomElementBinding<"emoji-picker", Properties, Events> = Html.customElement({
 	tag: "emoji-picker",
 	properties: {
-		customCategorySorting: typed<Of["customCategorySorting"]>(), // property: emoji-picker.customCategorySorting
 		customEmoji: typed<Of["customEmoji"]>(), // property: emoji-picker.customEmoji
 		dataSource: typed<Of["dataSource"]>(), // property: emoji-picker.dataSource
 		i18n: typed<Of["i18n"]>(), // property: emoji-picker.i18n

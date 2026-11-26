@@ -14,7 +14,6 @@ type Properties = {
 	readonly hoverCloseDelay: Schema.declare<Of["hoverCloseDelay"]>; // property: md-sub-menu.hoverCloseDelay
 	readonly hoverOpenDelay: Schema.declare<Of["hoverOpenDelay"]>; // property: md-sub-menu.hoverOpenDelay
 	readonly isSubMenu: Schema.declare<Of["isSubMenu"]>; // property: md-sub-menu.isSubMenu
-	readonly item: Schema.declare<Of["item"]>; // property: md-sub-menu.item
 	readonly menuCorner: Schema.declare<Of["menuCorner"]>; // property: md-sub-menu.menuCorner
 };
 
@@ -34,7 +33,6 @@ export const SubMenu: Html.CustomElementBinding<"md-sub-menu", Properties, Event
 		hoverCloseDelay: typed<Of["hoverCloseDelay"]>(), // property: md-sub-menu.hoverCloseDelay
 		hoverOpenDelay: typed<Of["hoverOpenDelay"]>(), // property: md-sub-menu.hoverOpenDelay
 		isSubMenu: typed<Of["isSubMenu"]>(), // property: md-sub-menu.isSubMenu
-		item: typed<Of["item"]>(), // property: md-sub-menu.item
 		menuCorner: typed<Of["menuCorner"]>(), // property: md-sub-menu.menuCorner
 	},
 	events: {

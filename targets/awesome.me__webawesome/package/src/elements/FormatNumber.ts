@@ -13,9 +13,6 @@ type Properties = {
 	readonly currency: Schema.declare<Of["currency"]>; // property: wa-format-number.currency
 	readonly currencyDisplay: Schema.declare<Of["currencyDisplay"]>; // property: wa-format-number.currencyDisplay
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-format-number.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-format-number.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-format-number.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-format-number.lang
 	readonly maximumFractionDigits: Schema.declare<Of["maximumFractionDigits"]>; // property: wa-format-number.maximumFractionDigits
 	readonly maximumSignificantDigits: Schema.declare<Of["maximumSignificantDigits"]>; // property: wa-format-number.maximumSignificantDigits
 	readonly minimumFractionDigits: Schema.declare<Of["minimumFractionDigits"]>; // property: wa-format-number.minimumFractionDigits
@@ -36,9 +33,6 @@ export const FormatNumber: Html.CustomElementBinding<"wa-format-number", Propert
 		currency: typed<Of["currency"]>(), // property: wa-format-number.currency
 		currencyDisplay: typed<Of["currencyDisplay"]>(), // property: wa-format-number.currencyDisplay
 		didSSR: typed<Of["didSSR"]>(), // property: wa-format-number.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-format-number.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-format-number.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-format-number.lang
 		maximumFractionDigits: typed<Of["maximumFractionDigits"]>(), // property: wa-format-number.maximumFractionDigits
 		maximumSignificantDigits: typed<Of["maximumSignificantDigits"]>(), // property: wa-format-number.maximumSignificantDigits
 		minimumFractionDigits: typed<Of["minimumFractionDigits"]>(), // property: wa-format-number.minimumFractionDigits

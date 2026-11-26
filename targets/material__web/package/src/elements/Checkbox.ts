@@ -11,7 +11,9 @@ type Of = HTMLElementTagNameMap["md-checkbox"]; // element: md-checkbox
 /** The properties a view sets on `<md-checkbox>`, as upstream types them. */
 type Properties = {
 	readonly checked: Schema.declare<Of["checked"]>; // property: md-checkbox.checked
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-checkbox.disabled
 	readonly indeterminate: Schema.declare<Of["indeterminate"]>; // property: md-checkbox.indeterminate
+	readonly name: Schema.declare<Of["name"]>; // property: md-checkbox.name
 	readonly required: Schema.declare<Of["required"]>; // property: md-checkbox.required
 	readonly value: Schema.declare<Of["value"]>; // property: md-checkbox.value
 };
@@ -24,7 +26,9 @@ export const Checkbox: Html.CustomElementBinding<"md-checkbox", Properties, Even
 	tag: "md-checkbox",
 	properties: {
 		checked: typed<Of["checked"]>(), // property: md-checkbox.checked
+		disabled: typed<Of["disabled"]>(), // property: md-checkbox.disabled
 		indeterminate: typed<Of["indeterminate"]>(), // property: md-checkbox.indeterminate
+		name: typed<Of["name"]>(), // property: md-checkbox.name
 		required: typed<Of["required"]>(), // property: md-checkbox.required
 		value: typed<Of["value"]>(), // property: md-checkbox.value
 	},

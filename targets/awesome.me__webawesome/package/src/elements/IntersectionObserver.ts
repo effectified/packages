@@ -11,11 +11,8 @@ type Of = HTMLElementTagNameMap["wa-intersection-observer"]; // element: wa-inte
 /** The properties a view sets on `<wa-intersection-observer>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-intersection-observer.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-intersection-observer.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-intersection-observer.disabled
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-intersection-observer.initialReflectedProperties
 	readonly intersectClass: Schema.declare<Of["intersectClass"]>; // property: wa-intersection-observer.intersectClass
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-intersection-observer.lang
 	readonly once: Schema.declare<Of["once"]>; // property: wa-intersection-observer.once
 	readonly root: Schema.declare<Of["root"]>; // property: wa-intersection-observer.root
 	readonly rootMargin: Schema.declare<Of["rootMargin"]>; // property: wa-intersection-observer.rootMargin
@@ -32,11 +29,8 @@ export const IntersectionObserver: Html.CustomElementBinding<"wa-intersection-ob
 	tag: "wa-intersection-observer",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-intersection-observer.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-intersection-observer.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-intersection-observer.disabled
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-intersection-observer.initialReflectedProperties
 		intersectClass: typed<Of["intersectClass"]>(), // property: wa-intersection-observer.intersectClass
-		lang: typed<Of["lang"]>(), // property: wa-intersection-observer.lang
 		once: typed<Of["once"]>(), // property: wa-intersection-observer.once
 		root: typed<Of["root"]>(), // property: wa-intersection-observer.root
 		rootMargin: typed<Of["rootMargin"]>(), // property: wa-intersection-observer.rootMargin

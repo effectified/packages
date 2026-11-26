@@ -11,13 +11,17 @@ type Of = HTMLElementTagNameMap["md-outlined-icon-button"]; // element: md-outli
 /** The properties a view sets on `<md-outlined-icon-button>`, as upstream types them. */
 type Properties = {
 	readonly ariaLabelSelected: Schema.declare<Of["ariaLabelSelected"]>; // property: md-outlined-icon-button.ariaLabelSelected
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-outlined-icon-button.disabled
 	readonly download: Schema.declare<Of["download"]>; // property: md-outlined-icon-button.download
 	readonly flipIconInRtl: Schema.declare<Of["flipIconInRtl"]>; // property: md-outlined-icon-button.flipIconInRtl
 	readonly href: Schema.declare<Of["href"]>; // property: md-outlined-icon-button.href
+	readonly name: Schema.declare<Of["name"]>; // property: md-outlined-icon-button.name
 	readonly selected: Schema.declare<Of["selected"]>; // property: md-outlined-icon-button.selected
 	readonly softDisabled: Schema.declare<Of["softDisabled"]>; // property: md-outlined-icon-button.softDisabled
 	readonly target: Schema.declare<Of["target"]>; // property: md-outlined-icon-button.target
 	readonly toggle: Schema.declare<Of["toggle"]>; // property: md-outlined-icon-button.toggle
+	readonly type: Schema.declare<Of["type"]>; // property: md-outlined-icon-button.type
+	readonly value: Schema.declare<Of["value"]>; // property: md-outlined-icon-button.value
 };
 
 /** The custom events of `<md-outlined-icon-button>`, each its `detail`. */
@@ -28,16 +32,20 @@ export const OutlinedIconButton: Html.CustomElementBinding<"md-outlined-icon-but
 	tag: "md-outlined-icon-button",
 	properties: {
 		ariaLabelSelected: typed<Of["ariaLabelSelected"]>(), // property: md-outlined-icon-button.ariaLabelSelected
+		disabled: typed<Of["disabled"]>(), // property: md-outlined-icon-button.disabled
 		download: typed<Of["download"]>(), // property: md-outlined-icon-button.download
 		flipIconInRtl: typed<Of["flipIconInRtl"]>(), // property: md-outlined-icon-button.flipIconInRtl
 		href: typed<Of["href"]>(), // property: md-outlined-icon-button.href
+		name: typed<Of["name"]>(), // property: md-outlined-icon-button.name
 		selected: typed<Of["selected"]>(), // property: md-outlined-icon-button.selected
 		softDisabled: typed<Of["softDisabled"]>(), // property: md-outlined-icon-button.softDisabled
 		target: typed<Of["target"]>(), // property: md-outlined-icon-button.target
 		toggle: typed<Of["toggle"]>(), // property: md-outlined-icon-button.toggle
+		type: typed<Of["type"]>(), // property: md-outlined-icon-button.type
+		value: typed<Of["value"]>(), // property: md-outlined-icon-button.value
 	},
 	events: {},
 });
 
-/** `<md-outlined-icon-button>`'s `selected` each time it fires `input` or `change`: `OutlinedIconButton(h).onMount(OutlinedIconButtonChanges({}).pipe(Mount.map(...)))`. */
-export const OutlinedIconButtonChanges = changesMount<Of, "selected">("OutlinedIconButtonChanges", ["selected"]);
+/** `<md-outlined-icon-button>`'s `value` and `selected` each time it fires `input` or `change`: `OutlinedIconButton(h).onMount(OutlinedIconButtonChanges({}).pipe(Mount.map(...)))`. */
+export const OutlinedIconButtonChanges = changesMount<Of, "value" | "selected">("OutlinedIconButtonChanges", ["value", "selected"]);

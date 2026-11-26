@@ -13,13 +13,10 @@ type Properties = {
 	readonly date: Schema.declare<Of["date"]>; // property: wa-counter.date
 	readonly delimiter: Schema.declare<Of["delimiter"]>; // property: wa-counter.delimiter
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-counter.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-counter.dir
 	readonly direction: Schema.declare<Of["direction"]>; // property: wa-counter.direction
 	readonly duration: Schema.declare<Of["duration"]>; // property: wa-counter.duration
 	readonly format: Schema.declare<Of["format"]>; // property: wa-counter.format
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-counter.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-counter.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-counter.lang
 	readonly largestUnit: Schema.declare<Of["largestUnit"]>; // property: wa-counter.largestUnit
 	readonly paused: Schema.declare<Of["paused"]>; // property: wa-counter.paused
 	readonly smallestUnit: Schema.declare<Of["smallestUnit"]>; // property: wa-counter.smallestUnit
@@ -38,13 +35,10 @@ export const Counter: Html.CustomElementBinding<"wa-counter", Properties, Events
 		date: typed<Of["date"]>(), // property: wa-counter.date
 		delimiter: typed<Of["delimiter"]>(), // property: wa-counter.delimiter
 		didSSR: typed<Of["didSSR"]>(), // property: wa-counter.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-counter.dir
 		direction: typed<Of["direction"]>(), // property: wa-counter.direction
 		duration: typed<Of["duration"]>(), // property: wa-counter.duration
 		format: typed<Of["format"]>(), // property: wa-counter.format
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-counter.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-counter.label
-		lang: typed<Of["lang"]>(), // property: wa-counter.lang
 		largestUnit: typed<Of["largestUnit"]>(), // property: wa-counter.largestUnit
 		paused: typed<Of["paused"]>(), // property: wa-counter.paused
 		smallestUnit: typed<Of["smallestUnit"]>(), // property: wa-counter.smallestUnit

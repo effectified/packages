@@ -13,9 +13,6 @@ type Properties = {
 	readonly activation: Schema.declare<Of["activation"]>; // property: wa-tab-group.activation
 	readonly active: Schema.declare<Of["active"]>; // property: wa-tab-group.active
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-tab-group.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-tab-group.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-tab-group.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-tab-group.lang
 	readonly placement: Schema.declare<Of["placement"]>; // property: wa-tab-group.placement
 	readonly withoutScrollControls: Schema.declare<Of["withoutScrollControls"]>; // property: wa-tab-group.withoutScrollControls
 };
@@ -33,9 +30,6 @@ export const TabGroup: Html.CustomElementBinding<"wa-tab-group", Properties, Eve
 		activation: typed<Of["activation"]>(), // property: wa-tab-group.activation
 		active: typed<Of["active"]>(), // property: wa-tab-group.active
 		didSSR: typed<Of["didSSR"]>(), // property: wa-tab-group.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-tab-group.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-tab-group.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-tab-group.lang
 		placement: typed<Of["placement"]>(), // property: wa-tab-group.placement
 		withoutScrollControls: typed<Of["withoutScrollControls"]>(), // property: wa-tab-group.withoutScrollControls
 	},

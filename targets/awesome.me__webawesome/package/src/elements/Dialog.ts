@@ -11,10 +11,7 @@ type Of = HTMLElementTagNameMap["wa-dialog"]; // element: wa-dialog
 /** The properties a view sets on `<wa-dialog>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-dialog.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-dialog.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-dialog.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-dialog.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-dialog.lang
 	readonly lightDismiss: Schema.declare<Of["lightDismiss"]>; // property: wa-dialog.lightDismiss
 	readonly open: Schema.declare<Of["open"]>; // property: wa-dialog.open
 	readonly withFooter: Schema.declare<Of["withFooter"]>; // property: wa-dialog.withFooter
@@ -35,10 +32,7 @@ export const Dialog: Html.CustomElementBinding<"wa-dialog", Properties, Events> 
 	tag: "wa-dialog",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-dialog.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-dialog.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-dialog.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-dialog.label
-		lang: typed<Of["lang"]>(), // property: wa-dialog.lang
 		lightDismiss: typed<Of["lightDismiss"]>(), // property: wa-dialog.lightDismiss
 		open: typed<Of["open"]>(), // property: wa-dialog.open
 		withFooter: typed<Of["withFooter"]>(), // property: wa-dialog.withFooter

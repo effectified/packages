@@ -11,10 +11,7 @@ type Of = HTMLElementTagNameMap["wa-dropdown"]; // element: wa-dropdown
 /** The properties a view sets on `<wa-dropdown>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-dropdown.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-dropdown.dir
 	readonly distance: Schema.declare<Of["distance"]>; // property: wa-dropdown.distance
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-dropdown.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-dropdown.lang
 	readonly open: Schema.declare<Of["open"]>; // property: wa-dropdown.open
 	readonly placement: Schema.declare<Of["placement"]>; // property: wa-dropdown.placement
 	readonly size: Schema.declare<Of["size"]>; // property: wa-dropdown.size
@@ -35,10 +32,7 @@ export const Dropdown: Html.CustomElementBinding<"wa-dropdown", Properties, Even
 	tag: "wa-dropdown",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-dropdown.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-dropdown.dir
 		distance: typed<Of["distance"]>(), // property: wa-dropdown.distance
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-dropdown.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-dropdown.lang
 		open: typed<Of["open"]>(), // property: wa-dropdown.open
 		placement: typed<Of["placement"]>(), // property: wa-dropdown.placement
 		size: typed<Of["size"]>(), // property: wa-dropdown.size

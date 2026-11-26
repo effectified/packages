@@ -11,11 +11,8 @@ type Of = HTMLElementTagNameMap["wa-progress-bar"]; // element: wa-progress-bar
 /** The properties a view sets on `<wa-progress-bar>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-progress-bar.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-progress-bar.dir
 	readonly indeterminate: Schema.declare<Of["indeterminate"]>; // property: wa-progress-bar.indeterminate
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-progress-bar.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-progress-bar.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-progress-bar.lang
 	readonly value: Schema.declare<Of["value"]>; // property: wa-progress-bar.value
 };
 
@@ -27,11 +24,8 @@ export const ProgressBar: Html.CustomElementBinding<"wa-progress-bar", Propertie
 	tag: "wa-progress-bar",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-progress-bar.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-progress-bar.dir
 		indeterminate: typed<Of["indeterminate"]>(), // property: wa-progress-bar.indeterminate
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-progress-bar.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-progress-bar.label
-		lang: typed<Of["lang"]>(), // property: wa-progress-bar.lang
 		value: typed<Of["value"]>(), // property: wa-progress-bar.value
 	},
 	events: {},

@@ -11,24 +11,15 @@ type Of = HTMLElementTagNameMap["wa-textarea"]; // element: wa-textarea
 /** The properties a view sets on `<wa-textarea>`, as upstream types them. */
 type Properties = {
 	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-textarea.appearance
-	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-textarea.assumeInteractionOn
-	readonly autocapitalize: Schema.declare<Of["autocapitalize"]>; // property: wa-textarea.autocapitalize
 	readonly autocomplete: Schema.declare<Of["autocomplete"]>; // property: wa-textarea.autocomplete
-	readonly autocorrect: Schema.declare<Of["autocorrect"]>; // property: wa-textarea.autocorrect
-	readonly autofocus: Schema.declare<Of["autofocus"]>; // property: wa-textarea.autofocus
 	readonly customError: Schema.declare<Of["customError"]>; // property: wa-textarea.customError
 	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-textarea.defaultValue
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-textarea.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-textarea.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-textarea.disabled
-	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-textarea.emitInvalid
 	readonly enterkeyhint: Schema.declare<Of["enterkeyhint"]>; // property: wa-textarea.enterkeyhint
-	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-textarea.hasInteracted
 	readonly hint: Schema.declare<Of["hint"]>; // property: wa-textarea.hint
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-textarea.initialReflectedProperties
 	readonly inputmode: Schema.declare<Of["inputmode"]>; // property: wa-textarea.inputmode
 	readonly label: Schema.declare<Of["label"]>; // property: wa-textarea.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-textarea.lang
 	readonly maxlength: Schema.declare<Of["maxlength"]>; // property: wa-textarea.maxlength
 	readonly minlength: Schema.declare<Of["minlength"]>; // property: wa-textarea.minlength
 	readonly name: Schema.declare<Of["name"]>; // property: wa-textarea.name
@@ -38,12 +29,7 @@ type Properties = {
 	readonly resize: Schema.declare<Of["resize"]>; // property: wa-textarea.resize
 	readonly rows: Schema.declare<Of["rows"]>; // property: wa-textarea.rows
 	readonly size: Schema.declare<Of["size"]>; // property: wa-textarea.size
-	readonly spellcheck: Schema.declare<Of["spellcheck"]>; // property: wa-textarea.spellcheck
-	readonly states: Schema.declare<Of["states"]>; // property: wa-textarea.states
-	readonly title: Schema.declare<Of["title"]>; // property: wa-textarea.title
-	readonly validators: Schema.declare<Of["validators"]>; // property: wa-textarea.validators
 	readonly value: Schema.declare<Of["value"]>; // property: wa-textarea.value
-	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-textarea.valueHasChanged
 	readonly withCount: Schema.declare<Of["withCount"]>; // property: wa-textarea.withCount
 	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-textarea.withHint
 	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-textarea.withLabel
@@ -59,24 +45,15 @@ export const Textarea: Html.CustomElementBinding<"wa-textarea", Properties, Even
 	tag: "wa-textarea",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-textarea.appearance
-		assumeInteractionOn: typed<Of["assumeInteractionOn"]>(), // property: wa-textarea.assumeInteractionOn
-		autocapitalize: typed<Of["autocapitalize"]>(), // property: wa-textarea.autocapitalize
 		autocomplete: typed<Of["autocomplete"]>(), // property: wa-textarea.autocomplete
-		autocorrect: typed<Of["autocorrect"]>(), // property: wa-textarea.autocorrect
-		autofocus: typed<Of["autofocus"]>(), // property: wa-textarea.autofocus
 		customError: typed<Of["customError"]>(), // property: wa-textarea.customError
 		defaultValue: typed<Of["defaultValue"]>(), // property: wa-textarea.defaultValue
 		didSSR: typed<Of["didSSR"]>(), // property: wa-textarea.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-textarea.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-textarea.disabled
-		emitInvalid: typed<Of["emitInvalid"]>(), // property: wa-textarea.emitInvalid
 		enterkeyhint: typed<Of["enterkeyhint"]>(), // property: wa-textarea.enterkeyhint
-		hasInteracted: typed<Of["hasInteracted"]>(), // property: wa-textarea.hasInteracted
 		hint: typed<Of["hint"]>(), // property: wa-textarea.hint
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-textarea.initialReflectedProperties
 		inputmode: typed<Of["inputmode"]>(), // property: wa-textarea.inputmode
 		label: typed<Of["label"]>(), // property: wa-textarea.label
-		lang: typed<Of["lang"]>(), // property: wa-textarea.lang
 		maxlength: typed<Of["maxlength"]>(), // property: wa-textarea.maxlength
 		minlength: typed<Of["minlength"]>(), // property: wa-textarea.minlength
 		name: typed<Of["name"]>(), // property: wa-textarea.name
@@ -86,12 +63,7 @@ export const Textarea: Html.CustomElementBinding<"wa-textarea", Properties, Even
 		resize: typed<Of["resize"]>(), // property: wa-textarea.resize
 		rows: typed<Of["rows"]>(), // property: wa-textarea.rows
 		size: typed<Of["size"]>(), // property: wa-textarea.size
-		spellcheck: typed<Of["spellcheck"]>(), // property: wa-textarea.spellcheck
-		states: typed<Of["states"]>(), // property: wa-textarea.states
-		title: typed<Of["title"]>(), // property: wa-textarea.title
-		validators: typed<Of["validators"]>(), // property: wa-textarea.validators
 		value: typed<Of["value"]>(), // property: wa-textarea.value
-		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-textarea.valueHasChanged
 		withCount: typed<Of["withCount"]>(), // property: wa-textarea.withCount
 		withHint: typed<Of["withHint"]>(), // property: wa-textarea.withHint
 		withLabel: typed<Of["withLabel"]>(), // property: wa-textarea.withLabel

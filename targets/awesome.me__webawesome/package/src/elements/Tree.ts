@@ -11,12 +11,7 @@ type Of = HTMLElementTagNameMap["wa-tree"]; // element: wa-tree
 /** The properties a view sets on `<wa-tree>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-tree.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-tree.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-tree.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-tree.lang
-	readonly role: Schema.declare<Of["role"]>; // property: wa-tree.role
 	readonly selection: Schema.declare<Of["selection"]>; // property: wa-tree.selection
-	readonly tabIndex: Schema.declare<Of["tabIndex"]>; // property: wa-tree.tabIndex
 };
 
 /** The custom events of `<wa-tree>`, each its `detail`. */
@@ -29,12 +24,7 @@ export const Tree: Html.CustomElementBinding<"wa-tree", Properties, Events> = Ht
 	tag: "wa-tree",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-tree.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-tree.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-tree.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-tree.lang
-		role: typed<Of["role"]>(), // property: wa-tree.role
 		selection: typed<Of["selection"]>(), // property: wa-tree.selection
-		tabIndex: typed<Of["tabIndex"]>(), // property: wa-tree.tabIndex
 	},
 	events: {
 		"wa-selection-change": typed<DetailOf<"wa-selection-change">>(),

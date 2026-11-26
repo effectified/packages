@@ -14,7 +14,6 @@ type Properties = {
 	readonly hasIcon: Schema.declare<Of["hasIcon"]>; // property: md-primary-tab.hasIcon
 	readonly iconOnly: Schema.declare<Of["iconOnly"]>; // property: md-primary-tab.iconOnly
 	readonly inlineIcon: Schema.declare<Of["inlineIcon"]>; // property: md-primary-tab.inlineIcon
-	readonly isTab: Schema.declare<Of["isTab"]>; // property: md-primary-tab.isTab
 	readonly selected: Schema.declare<Of["selected"]>; // property: md-primary-tab.selected
 };
 
@@ -29,7 +28,6 @@ export const PrimaryTab: Html.CustomElementBinding<"md-primary-tab", Properties,
 		hasIcon: typed<Of["hasIcon"]>(), // property: md-primary-tab.hasIcon
 		iconOnly: typed<Of["iconOnly"]>(), // property: md-primary-tab.iconOnly
 		inlineIcon: typed<Of["inlineIcon"]>(), // property: md-primary-tab.inlineIcon
-		isTab: typed<Of["isTab"]>(), // property: md-primary-tab.isTab
 		selected: typed<Of["selected"]>(), // property: md-primary-tab.selected
 	},
 	events: {},

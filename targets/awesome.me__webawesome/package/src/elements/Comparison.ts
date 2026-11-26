@@ -11,9 +11,6 @@ type Of = HTMLElementTagNameMap["wa-comparison"]; // element: wa-comparison
 /** The properties a view sets on `<wa-comparison>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-comparison.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-comparison.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-comparison.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-comparison.lang
 	readonly position: Schema.declare<Of["position"]>; // property: wa-comparison.position
 };
 
@@ -25,9 +22,6 @@ export const Comparison: Html.CustomElementBinding<"wa-comparison", Properties, 
 	tag: "wa-comparison",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-comparison.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-comparison.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-comparison.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-comparison.lang
 		position: typed<Of["position"]>(), // property: wa-comparison.position
 	},
 	events: {},

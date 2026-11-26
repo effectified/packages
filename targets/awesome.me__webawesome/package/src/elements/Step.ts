@@ -14,13 +14,9 @@ type Properties = {
 	readonly attention: Schema.declare<Of["attention"]>; // property: wa-step.attention
 	readonly completed: Schema.declare<Of["completed"]>; // property: wa-step.completed
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-step.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-step.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-step.disabled
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-step.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-step.lang
 	readonly loading: Schema.declare<Of["loading"]>; // property: wa-step.loading
 	readonly name: Schema.declare<Of["name"]>; // property: wa-step.name
-	readonly role: Schema.declare<Of["role"]>; // property: wa-step.role
 	readonly variant: Schema.declare<Of["variant"]>; // property: wa-step.variant
 	readonly withDescription: Schema.declare<Of["withDescription"]>; // property: wa-step.withDescription
 };
@@ -36,13 +32,9 @@ export const Step: Html.CustomElementBinding<"wa-step", Properties, Events> = Ht
 		attention: typed<Of["attention"]>(), // property: wa-step.attention
 		completed: typed<Of["completed"]>(), // property: wa-step.completed
 		didSSR: typed<Of["didSSR"]>(), // property: wa-step.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-step.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-step.disabled
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-step.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-step.lang
 		loading: typed<Of["loading"]>(), // property: wa-step.loading
 		name: typed<Of["name"]>(), // property: wa-step.name
-		role: typed<Of["role"]>(), // property: wa-step.role
 		variant: typed<Of["variant"]>(), // property: wa-step.variant
 		withDescription: typed<Of["withDescription"]>(), // property: wa-step.withDescription
 	},

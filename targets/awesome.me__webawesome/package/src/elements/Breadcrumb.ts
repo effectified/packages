@@ -11,10 +11,7 @@ type Of = HTMLElementTagNameMap["wa-breadcrumb"]; // element: wa-breadcrumb
 /** The properties a view sets on `<wa-breadcrumb>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-breadcrumb.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-breadcrumb.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-breadcrumb.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-breadcrumb.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-breadcrumb.lang
 };
 
 /** The custom events of `<wa-breadcrumb>`, each its `detail`. */
@@ -25,10 +22,7 @@ export const Breadcrumb: Html.CustomElementBinding<"wa-breadcrumb", Properties, 
 	tag: "wa-breadcrumb",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-breadcrumb.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-breadcrumb.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-breadcrumb.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-breadcrumb.label
-		lang: typed<Of["lang"]>(), // property: wa-breadcrumb.lang
 	},
 	events: {},
 });

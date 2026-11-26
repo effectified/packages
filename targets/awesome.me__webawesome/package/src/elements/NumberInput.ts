@@ -11,22 +11,15 @@ type Of = HTMLElementTagNameMap["wa-number-input"]; // element: wa-number-input
 /** The properties a view sets on `<wa-number-input>`, as upstream types them. */
 type Properties = {
 	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-number-input.appearance
-	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-number-input.assumeInteractionOn
 	readonly autocomplete: Schema.declare<Of["autocomplete"]>; // property: wa-number-input.autocomplete
-	readonly autofocus: Schema.declare<Of["autofocus"]>; // property: wa-number-input.autofocus
 	readonly customError: Schema.declare<Of["customError"]>; // property: wa-number-input.customError
 	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-number-input.defaultValue
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-number-input.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-number-input.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-number-input.disabled
-	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-number-input.emitInvalid
 	readonly enterkeyhint: Schema.declare<Of["enterkeyhint"]>; // property: wa-number-input.enterkeyhint
-	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-number-input.hasInteracted
 	readonly hint: Schema.declare<Of["hint"]>; // property: wa-number-input.hint
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-number-input.initialReflectedProperties
 	readonly inputmode: Schema.declare<Of["inputmode"]>; // property: wa-number-input.inputmode
 	readonly label: Schema.declare<Of["label"]>; // property: wa-number-input.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-number-input.lang
 	readonly max: Schema.declare<Of["max"]>; // property: wa-number-input.max
 	readonly min: Schema.declare<Of["min"]>; // property: wa-number-input.min
 	readonly name: Schema.declare<Of["name"]>; // property: wa-number-input.name
@@ -35,12 +28,8 @@ type Properties = {
 	readonly readonly: Schema.declare<Of["readonly"]>; // property: wa-number-input.readonly
 	readonly required: Schema.declare<Of["required"]>; // property: wa-number-input.required
 	readonly size: Schema.declare<Of["size"]>; // property: wa-number-input.size
-	readonly states: Schema.declare<Of["states"]>; // property: wa-number-input.states
 	readonly step: Schema.declare<Of["step"]>; // property: wa-number-input.step
-	readonly title: Schema.declare<Of["title"]>; // property: wa-number-input.title
-	readonly validators: Schema.declare<Of["validators"]>; // property: wa-number-input.validators
 	readonly value: Schema.declare<Of["value"]>; // property: wa-number-input.value
-	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-number-input.valueHasChanged
 	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-number-input.withHint
 	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-number-input.withLabel
 	readonly withoutSteppers: Schema.declare<Of["withoutSteppers"]>; // property: wa-number-input.withoutSteppers
@@ -56,22 +45,15 @@ export const NumberInput: Html.CustomElementBinding<"wa-number-input", Propertie
 	tag: "wa-number-input",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-number-input.appearance
-		assumeInteractionOn: typed<Of["assumeInteractionOn"]>(), // property: wa-number-input.assumeInteractionOn
 		autocomplete: typed<Of["autocomplete"]>(), // property: wa-number-input.autocomplete
-		autofocus: typed<Of["autofocus"]>(), // property: wa-number-input.autofocus
 		customError: typed<Of["customError"]>(), // property: wa-number-input.customError
 		defaultValue: typed<Of["defaultValue"]>(), // property: wa-number-input.defaultValue
 		didSSR: typed<Of["didSSR"]>(), // property: wa-number-input.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-number-input.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-number-input.disabled
-		emitInvalid: typed<Of["emitInvalid"]>(), // property: wa-number-input.emitInvalid
 		enterkeyhint: typed<Of["enterkeyhint"]>(), // property: wa-number-input.enterkeyhint
-		hasInteracted: typed<Of["hasInteracted"]>(), // property: wa-number-input.hasInteracted
 		hint: typed<Of["hint"]>(), // property: wa-number-input.hint
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-number-input.initialReflectedProperties
 		inputmode: typed<Of["inputmode"]>(), // property: wa-number-input.inputmode
 		label: typed<Of["label"]>(), // property: wa-number-input.label
-		lang: typed<Of["lang"]>(), // property: wa-number-input.lang
 		max: typed<Of["max"]>(), // property: wa-number-input.max
 		min: typed<Of["min"]>(), // property: wa-number-input.min
 		name: typed<Of["name"]>(), // property: wa-number-input.name
@@ -80,12 +62,8 @@ export const NumberInput: Html.CustomElementBinding<"wa-number-input", Propertie
 		readonly: typed<Of["readonly"]>(), // property: wa-number-input.readonly
 		required: typed<Of["required"]>(), // property: wa-number-input.required
 		size: typed<Of["size"]>(), // property: wa-number-input.size
-		states: typed<Of["states"]>(), // property: wa-number-input.states
 		step: typed<Of["step"]>(), // property: wa-number-input.step
-		title: typed<Of["title"]>(), // property: wa-number-input.title
-		validators: typed<Of["validators"]>(), // property: wa-number-input.validators
 		value: typed<Of["value"]>(), // property: wa-number-input.value
-		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-number-input.valueHasChanged
 		withHint: typed<Of["withHint"]>(), // property: wa-number-input.withHint
 		withLabel: typed<Of["withLabel"]>(), // property: wa-number-input.withLabel
 		withoutSteppers: typed<Of["withoutSteppers"]>(), // property: wa-number-input.withoutSteppers

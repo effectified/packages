@@ -12,19 +12,16 @@ type Of = HTMLElementTagNameMap["md-filled-text-field"]; // element: md-filled-t
 type Properties = {
 	readonly autocomplete: Schema.declare<Of["autocomplete"]>; // property: md-filled-text-field.autocomplete
 	readonly cols: Schema.declare<Of["cols"]>; // property: md-filled-text-field.cols
-	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-filled-text-field.disabled
 	readonly error: Schema.declare<Of["error"]>; // property: md-filled-text-field.error
 	readonly errorText: Schema.declare<Of["errorText"]>; // property: md-filled-text-field.errorText
 	readonly hasLeadingIcon: Schema.declare<Of["hasLeadingIcon"]>; // property: md-filled-text-field.hasLeadingIcon
 	readonly hasTrailingIcon: Schema.declare<Of["hasTrailingIcon"]>; // property: md-filled-text-field.hasTrailingIcon
-	readonly inputMode: Schema.declare<Of["inputMode"]>; // property: md-filled-text-field.inputMode
 	readonly label: Schema.declare<Of["label"]>; // property: md-filled-text-field.label
 	readonly max: Schema.declare<Of["max"]>; // property: md-filled-text-field.max
 	readonly maxLength: Schema.declare<Of["maxLength"]>; // property: md-filled-text-field.maxLength
 	readonly min: Schema.declare<Of["min"]>; // property: md-filled-text-field.min
 	readonly minLength: Schema.declare<Of["minLength"]>; // property: md-filled-text-field.minLength
 	readonly multiple: Schema.declare<Of["multiple"]>; // property: md-filled-text-field.multiple
-	readonly name: Schema.declare<Of["name"]>; // property: md-filled-text-field.name
 	readonly noAsterisk: Schema.declare<Of["noAsterisk"]>; // property: md-filled-text-field.noAsterisk
 	readonly noSpinner: Schema.declare<Of["noSpinner"]>; // property: md-filled-text-field.noSpinner
 	readonly pattern: Schema.declare<Of["pattern"]>; // property: md-filled-text-field.pattern
@@ -33,17 +30,12 @@ type Properties = {
 	readonly readOnly: Schema.declare<Of["readOnly"]>; // property: md-filled-text-field.readOnly
 	readonly required: Schema.declare<Of["required"]>; // property: md-filled-text-field.required
 	readonly rows: Schema.declare<Of["rows"]>; // property: md-filled-text-field.rows
-	readonly selectionDirection: Schema.declare<Of["selectionDirection"]>; // property: md-filled-text-field.selectionDirection
-	readonly selectionEnd: Schema.declare<Of["selectionEnd"]>; // property: md-filled-text-field.selectionEnd
-	readonly selectionStart: Schema.declare<Of["selectionStart"]>; // property: md-filled-text-field.selectionStart
 	readonly step: Schema.declare<Of["step"]>; // property: md-filled-text-field.step
 	readonly suffixText: Schema.declare<Of["suffixText"]>; // property: md-filled-text-field.suffixText
 	readonly supportingText: Schema.declare<Of["supportingText"]>; // property: md-filled-text-field.supportingText
 	readonly textDirection: Schema.declare<Of["textDirection"]>; // property: md-filled-text-field.textDirection
 	readonly type: Schema.declare<Of["type"]>; // property: md-filled-text-field.type
 	readonly value: Schema.declare<Of["value"]>; // property: md-filled-text-field.value
-	readonly valueAsDate: Schema.declare<Of["valueAsDate"]>; // property: md-filled-text-field.valueAsDate
-	readonly valueAsNumber: Schema.declare<Of["valueAsNumber"]>; // property: md-filled-text-field.valueAsNumber
 };
 
 /** The custom events of `<md-filled-text-field>`, each its `detail`. */
@@ -55,19 +47,16 @@ export const FilledTextField: Html.CustomElementBinding<"md-filled-text-field", 
 	properties: {
 		autocomplete: typed<Of["autocomplete"]>(), // property: md-filled-text-field.autocomplete
 		cols: typed<Of["cols"]>(), // property: md-filled-text-field.cols
-		disabled: typed<Of["disabled"]>(), // property: md-filled-text-field.disabled
 		error: typed<Of["error"]>(), // property: md-filled-text-field.error
 		errorText: typed<Of["errorText"]>(), // property: md-filled-text-field.errorText
 		hasLeadingIcon: typed<Of["hasLeadingIcon"]>(), // property: md-filled-text-field.hasLeadingIcon
 		hasTrailingIcon: typed<Of["hasTrailingIcon"]>(), // property: md-filled-text-field.hasTrailingIcon
-		inputMode: typed<Of["inputMode"]>(), // property: md-filled-text-field.inputMode
 		label: typed<Of["label"]>(), // property: md-filled-text-field.label
 		max: typed<Of["max"]>(), // property: md-filled-text-field.max
 		maxLength: typed<Of["maxLength"]>(), // property: md-filled-text-field.maxLength
 		min: typed<Of["min"]>(), // property: md-filled-text-field.min
 		minLength: typed<Of["minLength"]>(), // property: md-filled-text-field.minLength
 		multiple: typed<Of["multiple"]>(), // property: md-filled-text-field.multiple
-		name: typed<Of["name"]>(), // property: md-filled-text-field.name
 		noAsterisk: typed<Of["noAsterisk"]>(), // property: md-filled-text-field.noAsterisk
 		noSpinner: typed<Of["noSpinner"]>(), // property: md-filled-text-field.noSpinner
 		pattern: typed<Of["pattern"]>(), // property: md-filled-text-field.pattern
@@ -76,20 +65,15 @@ export const FilledTextField: Html.CustomElementBinding<"md-filled-text-field", 
 		readOnly: typed<Of["readOnly"]>(), // property: md-filled-text-field.readOnly
 		required: typed<Of["required"]>(), // property: md-filled-text-field.required
 		rows: typed<Of["rows"]>(), // property: md-filled-text-field.rows
-		selectionDirection: typed<Of["selectionDirection"]>(), // property: md-filled-text-field.selectionDirection
-		selectionEnd: typed<Of["selectionEnd"]>(), // property: md-filled-text-field.selectionEnd
-		selectionStart: typed<Of["selectionStart"]>(), // property: md-filled-text-field.selectionStart
 		step: typed<Of["step"]>(), // property: md-filled-text-field.step
 		suffixText: typed<Of["suffixText"]>(), // property: md-filled-text-field.suffixText
 		supportingText: typed<Of["supportingText"]>(), // property: md-filled-text-field.supportingText
 		textDirection: typed<Of["textDirection"]>(), // property: md-filled-text-field.textDirection
 		type: typed<Of["type"]>(), // property: md-filled-text-field.type
 		value: typed<Of["value"]>(), // property: md-filled-text-field.value
-		valueAsDate: typed<Of["valueAsDate"]>(), // property: md-filled-text-field.valueAsDate
-		valueAsNumber: typed<Of["valueAsNumber"]>(), // property: md-filled-text-field.valueAsNumber
 	},
 	events: {},
 });
 
-/** `<md-filled-text-field>`'s `value` and `valueAsNumber` each time it fires `input` or `change`: `FilledTextField(h).onMount(FilledTextFieldChanges({}).pipe(Mount.map(...)))`. */
-export const FilledTextFieldChanges = changesMount<Of, "value" | "valueAsNumber">("FilledTextFieldChanges", ["value", "valueAsNumber"]);
+/** `<md-filled-text-field>`'s `value` each time it fires `input` or `change`: `FilledTextField(h).onMount(FilledTextFieldChanges({}).pipe(Mount.map(...)))`. */
+export const FilledTextFieldChanges = changesMount<Of, "value">("FilledTextFieldChanges", ["value"]);

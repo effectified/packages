@@ -11,13 +11,17 @@ type Of = HTMLElementTagNameMap["md-icon-button"]; // element: md-icon-button
 /** The properties a view sets on `<md-icon-button>`, as upstream types them. */
 type Properties = {
 	readonly ariaLabelSelected: Schema.declare<Of["ariaLabelSelected"]>; // property: md-icon-button.ariaLabelSelected
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-icon-button.disabled
 	readonly download: Schema.declare<Of["download"]>; // property: md-icon-button.download
 	readonly flipIconInRtl: Schema.declare<Of["flipIconInRtl"]>; // property: md-icon-button.flipIconInRtl
 	readonly href: Schema.declare<Of["href"]>; // property: md-icon-button.href
+	readonly name: Schema.declare<Of["name"]>; // property: md-icon-button.name
 	readonly selected: Schema.declare<Of["selected"]>; // property: md-icon-button.selected
 	readonly softDisabled: Schema.declare<Of["softDisabled"]>; // property: md-icon-button.softDisabled
 	readonly target: Schema.declare<Of["target"]>; // property: md-icon-button.target
 	readonly toggle: Schema.declare<Of["toggle"]>; // property: md-icon-button.toggle
+	readonly type: Schema.declare<Of["type"]>; // property: md-icon-button.type
+	readonly value: Schema.declare<Of["value"]>; // property: md-icon-button.value
 };
 
 /** The custom events of `<md-icon-button>`, each its `detail`. */
@@ -28,16 +32,20 @@ export const IconButton: Html.CustomElementBinding<"md-icon-button", Properties,
 	tag: "md-icon-button",
 	properties: {
 		ariaLabelSelected: typed<Of["ariaLabelSelected"]>(), // property: md-icon-button.ariaLabelSelected
+		disabled: typed<Of["disabled"]>(), // property: md-icon-button.disabled
 		download: typed<Of["download"]>(), // property: md-icon-button.download
 		flipIconInRtl: typed<Of["flipIconInRtl"]>(), // property: md-icon-button.flipIconInRtl
 		href: typed<Of["href"]>(), // property: md-icon-button.href
+		name: typed<Of["name"]>(), // property: md-icon-button.name
 		selected: typed<Of["selected"]>(), // property: md-icon-button.selected
 		softDisabled: typed<Of["softDisabled"]>(), // property: md-icon-button.softDisabled
 		target: typed<Of["target"]>(), // property: md-icon-button.target
 		toggle: typed<Of["toggle"]>(), // property: md-icon-button.toggle
+		type: typed<Of["type"]>(), // property: md-icon-button.type
+		value: typed<Of["value"]>(), // property: md-icon-button.value
 	},
 	events: {},
 });
 
-/** `<md-icon-button>`'s `selected` each time it fires `input` or `change`: `IconButton(h).onMount(IconButtonChanges({}).pipe(Mount.map(...)))`. */
-export const IconButtonChanges = changesMount<Of, "selected">("IconButtonChanges", ["selected"]);
+/** `<md-icon-button>`'s `value` and `selected` each time it fires `input` or `change`: `IconButton(h).onMount(IconButtonChanges({}).pipe(Mount.map(...)))`. */
+export const IconButtonChanges = changesMount<Of, "value" | "selected">("IconButtonChanges", ["value", "selected"]);

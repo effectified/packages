@@ -20,7 +20,6 @@
     "test": "vitest --run --passWithNoTests"
   },
   "dependencies": {
-    "node-abort-controller": "3.1.1",
     "bullmq": "6.7.10"
   },
   "peerDependencies": {

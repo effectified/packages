@@ -11,13 +11,17 @@ type Of = HTMLElementTagNameMap["md-filled-tonal-icon-button"]; // element: md-f
 /** The properties a view sets on `<md-filled-tonal-icon-button>`, as upstream types them. */
 type Properties = {
 	readonly ariaLabelSelected: Schema.declare<Of["ariaLabelSelected"]>; // property: md-filled-tonal-icon-button.ariaLabelSelected
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-filled-tonal-icon-button.disabled
 	readonly download: Schema.declare<Of["download"]>; // property: md-filled-tonal-icon-button.download
 	readonly flipIconInRtl: Schema.declare<Of["flipIconInRtl"]>; // property: md-filled-tonal-icon-button.flipIconInRtl
 	readonly href: Schema.declare<Of["href"]>; // property: md-filled-tonal-icon-button.href
+	readonly name: Schema.declare<Of["name"]>; // property: md-filled-tonal-icon-button.name
 	readonly selected: Schema.declare<Of["selected"]>; // property: md-filled-tonal-icon-button.selected
 	readonly softDisabled: Schema.declare<Of["softDisabled"]>; // property: md-filled-tonal-icon-button.softDisabled
 	readonly target: Schema.declare<Of["target"]>; // property: md-filled-tonal-icon-button.target
 	readonly toggle: Schema.declare<Of["toggle"]>; // property: md-filled-tonal-icon-button.toggle
+	readonly type: Schema.declare<Of["type"]>; // property: md-filled-tonal-icon-button.type
+	readonly value: Schema.declare<Of["value"]>; // property: md-filled-tonal-icon-button.value
 };
 
 /** The custom events of `<md-filled-tonal-icon-button>`, each its `detail`. */
@@ -28,16 +32,20 @@ export const FilledTonalIconButton: Html.CustomElementBinding<"md-filled-tonal-i
 	tag: "md-filled-tonal-icon-button",
 	properties: {
 		ariaLabelSelected: typed<Of["ariaLabelSelected"]>(), // property: md-filled-tonal-icon-button.ariaLabelSelected
+		disabled: typed<Of["disabled"]>(), // property: md-filled-tonal-icon-button.disabled
 		download: typed<Of["download"]>(), // property: md-filled-tonal-icon-button.download
 		flipIconInRtl: typed<Of["flipIconInRtl"]>(), // property: md-filled-tonal-icon-button.flipIconInRtl
 		href: typed<Of["href"]>(), // property: md-filled-tonal-icon-button.href
+		name: typed<Of["name"]>(), // property: md-filled-tonal-icon-button.name
 		selected: typed<Of["selected"]>(), // property: md-filled-tonal-icon-button.selected
 		softDisabled: typed<Of["softDisabled"]>(), // property: md-filled-tonal-icon-button.softDisabled
 		target: typed<Of["target"]>(), // property: md-filled-tonal-icon-button.target
 		toggle: typed<Of["toggle"]>(), // property: md-filled-tonal-icon-button.toggle
+		type: typed<Of["type"]>(), // property: md-filled-tonal-icon-button.type
+		value: typed<Of["value"]>(), // property: md-filled-tonal-icon-button.value
 	},
 	events: {},
 });
 
-/** `<md-filled-tonal-icon-button>`'s `selected` each time it fires `input` or `change`: `FilledTonalIconButton(h).onMount(FilledTonalIconButtonChanges({}).pipe(Mount.map(...)))`. */
-export const FilledTonalIconButtonChanges = changesMount<Of, "selected">("FilledTonalIconButtonChanges", ["selected"]);
+/** `<md-filled-tonal-icon-button>`'s `value` and `selected` each time it fires `input` or `change`: `FilledTonalIconButton(h).onMount(FilledTonalIconButtonChanges({}).pipe(Mount.map(...)))`. */
+export const FilledTonalIconButtonChanges = changesMount<Of, "value" | "selected">("FilledTonalIconButtonChanges", ["value", "selected"]);

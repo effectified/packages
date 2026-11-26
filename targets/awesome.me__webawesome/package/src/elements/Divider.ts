@@ -11,10 +11,7 @@ type Of = HTMLElementTagNameMap["wa-divider"]; // element: wa-divider
 /** The properties a view sets on `<wa-divider>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-divider.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-divider.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-divider.initialReflectedProperties
 	readonly labelPlacement: Schema.declare<Of["labelPlacement"]>; // property: wa-divider.labelPlacement
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-divider.lang
 	readonly orientation: Schema.declare<Of["orientation"]>; // property: wa-divider.orientation
 	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-divider.withLabel
 };
@@ -27,10 +24,7 @@ export const Divider: Html.CustomElementBinding<"wa-divider", Properties, Events
 	tag: "wa-divider",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-divider.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-divider.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-divider.initialReflectedProperties
 		labelPlacement: typed<Of["labelPlacement"]>(), // property: wa-divider.labelPlacement
-		lang: typed<Of["lang"]>(), // property: wa-divider.lang
 		orientation: typed<Of["orientation"]>(), // property: wa-divider.orientation
 		withLabel: typed<Of["withLabel"]>(), // property: wa-divider.withLabel
 	},

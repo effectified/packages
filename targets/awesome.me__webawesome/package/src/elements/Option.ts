@@ -10,14 +10,10 @@ type Of = HTMLElementTagNameMap["wa-option"]; // element: wa-option
 
 /** The properties a view sets on `<wa-option>`, as upstream types them. */
 type Properties = {
-	readonly current: Schema.declare<Of["current"]>; // property: wa-option.current
 	readonly defaultSelected: Schema.declare<Of["defaultSelected"]>; // property: wa-option.defaultSelected
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-option.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-option.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-option.disabled
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-option.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-option.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-option.lang
 	readonly value: Schema.declare<Of["value"]>; // property: wa-option.value
 };
 
@@ -28,14 +24,10 @@ type Events = {};
 export const Option: Html.CustomElementBinding<"wa-option", Properties, Events> = Html.customElement({
 	tag: "wa-option",
 	properties: {
-		current: typed<Of["current"]>(), // property: wa-option.current
 		defaultSelected: typed<Of["defaultSelected"]>(), // property: wa-option.defaultSelected
 		didSSR: typed<Of["didSSR"]>(), // property: wa-option.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-option.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-option.disabled
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-option.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-option.label
-		lang: typed<Of["lang"]>(), // property: wa-option.lang
 		value: typed<Of["value"]>(), // property: wa-option.value
 	},
 	events: {},

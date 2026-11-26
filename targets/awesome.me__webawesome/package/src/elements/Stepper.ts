@@ -13,10 +13,7 @@ type Properties = {
 	readonly active: Schema.declare<Of["active"]>; // property: wa-stepper.active
 	readonly clickable: Schema.declare<Of["clickable"]>; // property: wa-stepper.clickable
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-stepper.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-stepper.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-stepper.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-stepper.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-stepper.lang
 	readonly linear: Schema.declare<Of["linear"]>; // property: wa-stepper.linear
 	readonly orientation: Schema.declare<Of["orientation"]>; // property: wa-stepper.orientation
 };
@@ -35,10 +32,7 @@ export const Stepper: Html.CustomElementBinding<"wa-stepper", Properties, Events
 		active: typed<Of["active"]>(), // property: wa-stepper.active
 		clickable: typed<Of["clickable"]>(), // property: wa-stepper.clickable
 		didSSR: typed<Of["didSSR"]>(), // property: wa-stepper.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-stepper.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-stepper.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-stepper.label
-		lang: typed<Of["lang"]>(), // property: wa-stepper.lang
 		linear: typed<Of["linear"]>(), // property: wa-stepper.linear
 		orientation: typed<Of["orientation"]>(), // property: wa-stepper.orientation
 	},

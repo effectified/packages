@@ -14932,5 +14932,8 @@
 			],
 			"description": "The Fluent Tree Item Element."
 		}
-	]
+	],
+	"typeDependencies": {
+		"@fluentui/tokens": "^1.0.0-alpha.25"
+	}
 }

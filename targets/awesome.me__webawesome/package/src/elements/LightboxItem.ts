@@ -13,10 +13,7 @@ type Properties = {
 	readonly alt: Schema.declare<Of["alt"]>; // property: wa-lightbox-item.alt
 	readonly caption: Schema.declare<Of["caption"]>; // property: wa-lightbox-item.caption
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-lightbox-item.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-lightbox-item.dir
 	readonly height: Schema.declare<Of["height"]>; // property: wa-lightbox-item.height
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-lightbox-item.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-lightbox-item.lang
 	readonly sizes: Schema.declare<Of["sizes"]>; // property: wa-lightbox-item.sizes
 	readonly src: Schema.declare<Of["src"]>; // property: wa-lightbox-item.src
 	readonly srcset: Schema.declare<Of["srcset"]>; // property: wa-lightbox-item.srcset
@@ -35,10 +32,7 @@ export const LightboxItem: Html.CustomElementBinding<"wa-lightbox-item", Propert
 		alt: typed<Of["alt"]>(), // property: wa-lightbox-item.alt
 		caption: typed<Of["caption"]>(), // property: wa-lightbox-item.caption
 		didSSR: typed<Of["didSSR"]>(), // property: wa-lightbox-item.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-lightbox-item.dir
 		height: typed<Of["height"]>(), // property: wa-lightbox-item.height
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-lightbox-item.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-lightbox-item.lang
 		sizes: typed<Of["sizes"]>(), // property: wa-lightbox-item.sizes
 		src: typed<Of["src"]>(), // property: wa-lightbox-item.src
 		srcset: typed<Of["srcset"]>(), // property: wa-lightbox-item.srcset

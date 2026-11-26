@@ -10,28 +10,18 @@ type Of = HTMLElementTagNameMap["wa-rating"]; // element: wa-rating
 
 /** The properties a view sets on `<wa-rating>`, as upstream types them. */
 type Properties = {
-	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-rating.assumeInteractionOn
 	readonly customError: Schema.declare<Of["customError"]>; // property: wa-rating.customError
 	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-rating.defaultValue
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-rating.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-rating.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-rating.disabled
-	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-rating.emitInvalid
-	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-rating.hasInteracted
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-rating.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-rating.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-rating.lang
 	readonly max: Schema.declare<Of["max"]>; // property: wa-rating.max
 	readonly name: Schema.declare<Of["name"]>; // property: wa-rating.name
 	readonly precision: Schema.declare<Of["precision"]>; // property: wa-rating.precision
 	readonly readonly: Schema.declare<Of["readonly"]>; // property: wa-rating.readonly
 	readonly required: Schema.declare<Of["required"]>; // property: wa-rating.required
-	readonly role: Schema.declare<Of["role"]>; // property: wa-rating.role
 	readonly size: Schema.declare<Of["size"]>; // property: wa-rating.size
-	readonly states: Schema.declare<Of["states"]>; // property: wa-rating.states
-	readonly validators: Schema.declare<Of["validators"]>; // property: wa-rating.validators
 	readonly value: Schema.declare<Of["value"]>; // property: wa-rating.value
-	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-rating.valueHasChanged
 };
 
 /** The custom events of `<wa-rating>`, each its `detail`. */
@@ -44,28 +34,18 @@ type Events = {
 export const Rating: Html.CustomElementBinding<"wa-rating", Properties, Events> = Html.customElement({
 	tag: "wa-rating",
 	properties: {
-		assumeInteractionOn: typed<Of["assumeInteractionOn"]>(), // property: wa-rating.assumeInteractionOn
 		customError: typed<Of["customError"]>(), // property: wa-rating.customError
 		defaultValue: typed<Of["defaultValue"]>(), // property: wa-rating.defaultValue
 		didSSR: typed<Of["didSSR"]>(), // property: wa-rating.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-rating.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-rating.disabled
-		emitInvalid: typed<Of["emitInvalid"]>(), // property: wa-rating.emitInvalid
-		hasInteracted: typed<Of["hasInteracted"]>(), // property: wa-rating.hasInteracted
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-rating.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-rating.label
-		lang: typed<Of["lang"]>(), // property: wa-rating.lang
 		max: typed<Of["max"]>(), // property: wa-rating.max
 		name: typed<Of["name"]>(), // property: wa-rating.name
 		precision: typed<Of["precision"]>(), // property: wa-rating.precision
 		readonly: typed<Of["readonly"]>(), // property: wa-rating.readonly
 		required: typed<Of["required"]>(), // property: wa-rating.required
-		role: typed<Of["role"]>(), // property: wa-rating.role
 		size: typed<Of["size"]>(), // property: wa-rating.size
-		states: typed<Of["states"]>(), // property: wa-rating.states
-		validators: typed<Of["validators"]>(), // property: wa-rating.validators
 		value: typed<Of["value"]>(), // property: wa-rating.value
-		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-rating.valueHasChanged
 	},
 	events: {
 		"wa-hover": typed<DetailOf<"wa-hover">>(),

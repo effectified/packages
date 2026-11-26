@@ -12,16 +12,10 @@ type Of = HTMLElementTagNameMap["wa-copy-button"]; // element: wa-copy-button
 type Properties = {
 	readonly copyLabel: Schema.declare<Of["copyLabel"]>; // property: wa-copy-button.copyLabel
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-copy-button.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-copy-button.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-copy-button.disabled
 	readonly errorLabel: Schema.declare<Of["errorLabel"]>; // property: wa-copy-button.errorLabel
 	readonly feedbackDuration: Schema.declare<Of["feedbackDuration"]>; // property: wa-copy-button.feedbackDuration
 	readonly from: Schema.declare<Of["from"]>; // property: wa-copy-button.from
-	readonly hasCustomTrigger: Schema.declare<Of["hasCustomTrigger"]>; // property: wa-copy-button.hasCustomTrigger
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-copy-button.initialReflectedProperties
-	readonly isCopying: Schema.declare<Of["isCopying"]>; // property: wa-copy-button.isCopying
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-copy-button.lang
-	readonly status: Schema.declare<Of["status"]>; // property: wa-copy-button.status
 	readonly successLabel: Schema.declare<Of["successLabel"]>; // property: wa-copy-button.successLabel
 	readonly tooltip: Schema.declare<Of["tooltip"]>; // property: wa-copy-button.tooltip
 	readonly tooltipPlacement: Schema.declare<Of["tooltipPlacement"]>; // property: wa-copy-button.tooltipPlacement
@@ -40,16 +34,10 @@ export const CopyButton: Html.CustomElementBinding<"wa-copy-button", Properties,
 	properties: {
 		copyLabel: typed<Of["copyLabel"]>(), // property: wa-copy-button.copyLabel
 		didSSR: typed<Of["didSSR"]>(), // property: wa-copy-button.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-copy-button.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-copy-button.disabled
 		errorLabel: typed<Of["errorLabel"]>(), // property: wa-copy-button.errorLabel
 		feedbackDuration: typed<Of["feedbackDuration"]>(), // property: wa-copy-button.feedbackDuration
 		from: typed<Of["from"]>(), // property: wa-copy-button.from
-		hasCustomTrigger: typed<Of["hasCustomTrigger"]>(), // property: wa-copy-button.hasCustomTrigger
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-copy-button.initialReflectedProperties
-		isCopying: typed<Of["isCopying"]>(), // property: wa-copy-button.isCopying
-		lang: typed<Of["lang"]>(), // property: wa-copy-button.lang
-		status: typed<Of["status"]>(), // property: wa-copy-button.status
 		successLabel: typed<Of["successLabel"]>(), // property: wa-copy-button.successLabel
 		tooltip: typed<Of["tooltip"]>(), // property: wa-copy-button.tooltip
 		tooltipPlacement: typed<Of["tooltipPlacement"]>(), // property: wa-copy-button.tooltipPlacement

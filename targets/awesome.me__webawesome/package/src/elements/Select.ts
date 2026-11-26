@@ -11,19 +11,11 @@ type Of = HTMLElementTagNameMap["wa-select"]; // element: wa-select
 /** The properties a view sets on `<wa-select>`, as upstream types them. */
 type Properties = {
 	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-select.appearance
-	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-select.assumeInteractionOn
 	readonly customError: Schema.declare<Of["customError"]>; // property: wa-select.customError
-	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-select.defaultValue
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-select.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-select.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-select.disabled
-	readonly displayLabel: Schema.declare<Of["displayLabel"]>; // property: wa-select.displayLabel
-	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-select.emitInvalid
-	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-select.hasInteracted
 	readonly hint: Schema.declare<Of["hint"]>; // property: wa-select.hint
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-select.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-select.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-select.lang
 	readonly maxOptionsVisible: Schema.declare<Of["maxOptionsVisible"]>; // property: wa-select.maxOptionsVisible
 	readonly multiple: Schema.declare<Of["multiple"]>; // property: wa-select.multiple
 	readonly name: Schema.declare<Of["name"]>; // property: wa-select.name
@@ -33,10 +25,7 @@ type Properties = {
 	readonly placement: Schema.declare<Of["placement"]>; // property: wa-select.placement
 	readonly required: Schema.declare<Of["required"]>; // property: wa-select.required
 	readonly size: Schema.declare<Of["size"]>; // property: wa-select.size
-	readonly states: Schema.declare<Of["states"]>; // property: wa-select.states
-	readonly validators: Schema.declare<Of["validators"]>; // property: wa-select.validators
 	readonly value: Schema.declare<Of["value"]>; // property: wa-select.value
-	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-select.valueHasChanged
 	readonly withClear: Schema.declare<Of["withClear"]>; // property: wa-select.withClear
 	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-select.withHint
 	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-select.withLabel
@@ -57,19 +46,11 @@ export const Select: Html.CustomElementBinding<"wa-select", Properties, Events> 
 	tag: "wa-select",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-select.appearance
-		assumeInteractionOn: typed<Of["assumeInteractionOn"]>(), // property: wa-select.assumeInteractionOn
 		customError: typed<Of["customError"]>(), // property: wa-select.customError
-		defaultValue: typed<Of["defaultValue"]>(), // property: wa-select.defaultValue
 		didSSR: typed<Of["didSSR"]>(), // property: wa-select.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-select.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-select.disabled
-		displayLabel: typed<Of["displayLabel"]>(), // property: wa-select.displayLabel
-		emitInvalid: typed<Of["emitInvalid"]>(), // property: wa-select.emitInvalid
-		hasInteracted: typed<Of["hasInteracted"]>(), // property: wa-select.hasInteracted
 		hint: typed<Of["hint"]>(), // property: wa-select.hint
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-select.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-select.label
-		lang: typed<Of["lang"]>(), // property: wa-select.lang
 		maxOptionsVisible: typed<Of["maxOptionsVisible"]>(), // property: wa-select.maxOptionsVisible
 		multiple: typed<Of["multiple"]>(), // property: wa-select.multiple
 		name: typed<Of["name"]>(), // property: wa-select.name
@@ -79,10 +60,7 @@ export const Select: Html.CustomElementBinding<"wa-select", Properties, Events> 
 		placement: typed<Of["placement"]>(), // property: wa-select.placement
 		required: typed<Of["required"]>(), // property: wa-select.required
 		size: typed<Of["size"]>(), // property: wa-select.size
-		states: typed<Of["states"]>(), // property: wa-select.states
-		validators: typed<Of["validators"]>(), // property: wa-select.validators
 		value: typed<Of["value"]>(), // property: wa-select.value
-		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-select.valueHasChanged
 		withClear: typed<Of["withClear"]>(), // property: wa-select.withClear
 		withHint: typed<Of["withHint"]>(), // property: wa-select.withHint
 		withLabel: typed<Of["withLabel"]>(), // property: wa-select.withLabel

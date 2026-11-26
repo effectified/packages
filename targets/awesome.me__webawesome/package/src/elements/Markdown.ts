@@ -11,9 +11,6 @@ type Of = HTMLElementTagNameMap["wa-markdown"]; // element: wa-markdown
 /** The properties a view sets on `<wa-markdown>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-markdown.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-markdown.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-markdown.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-markdown.lang
 	readonly tabSize: Schema.declare<Of["tabSize"]>; // property: wa-markdown.tabSize
 };
 
@@ -25,9 +22,6 @@ export const Markdown: Html.CustomElementBinding<"wa-markdown", Properties, Even
 	tag: "wa-markdown",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-markdown.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-markdown.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-markdown.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-markdown.lang
 		tabSize: typed<Of["tabSize"]>(), // property: wa-markdown.tabSize
 	},
 	events: {},

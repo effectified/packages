@@ -11,9 +11,6 @@ type Of = HTMLElementTagNameMap["wa-spinner"]; // element: wa-spinner
 /** The properties a view sets on `<wa-spinner>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-spinner.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-spinner.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-spinner.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-spinner.lang
 };
 
 /** The custom events of `<wa-spinner>`, each its `detail`. */
@@ -24,9 +21,6 @@ export const Spinner: Html.CustomElementBinding<"wa-spinner", Properties, Events
 	tag: "wa-spinner",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-spinner.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-spinner.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-spinner.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-spinner.lang
 	},
 	events: {},
 });

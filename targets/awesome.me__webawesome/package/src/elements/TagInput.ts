@@ -12,25 +12,17 @@ type Of = HTMLElementTagNameMap["wa-tag-input"]; // element: wa-tag-input
 type Properties = {
 	readonly allowDuplicates: Schema.declare<Of["allowDuplicates"]>; // property: wa-tag-input.allowDuplicates
 	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-tag-input.appearance
-	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-tag-input.assumeInteractionOn
-	readonly autocapitalize: Schema.declare<Of["autocapitalize"]>; // property: wa-tag-input.autocapitalize
 	readonly autocomplete: Schema.declare<Of["autocomplete"]>; // property: wa-tag-input.autocomplete
-	readonly autocorrect: Schema.declare<Of["autocorrect"]>; // property: wa-tag-input.autocorrect
 	readonly customError: Schema.declare<Of["customError"]>; // property: wa-tag-input.customError
 	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-tag-input.defaultValue
 	readonly delimiter: Schema.declare<Of["delimiter"]>; // property: wa-tag-input.delimiter
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-tag-input.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-tag-input.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-tag-input.disabled
-	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-tag-input.emitInvalid
 	readonly enterkeyhint: Schema.declare<Of["enterkeyhint"]>; // property: wa-tag-input.enterkeyhint
-	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-tag-input.hasInteracted
 	readonly hint: Schema.declare<Of["hint"]>; // property: wa-tag-input.hint
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-tag-input.initialReflectedProperties
 	readonly inputValue: Schema.declare<Of["inputValue"]>; // property: wa-tag-input.inputValue
 	readonly inputmode: Schema.declare<Of["inputmode"]>; // property: wa-tag-input.inputmode
 	readonly label: Schema.declare<Of["label"]>; // property: wa-tag-input.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-tag-input.lang
 	readonly maxTags: Schema.declare<Of["maxTags"]>; // property: wa-tag-input.maxTags
 	readonly minTags: Schema.declare<Of["minTags"]>; // property: wa-tag-input.minTags
 	readonly name: Schema.declare<Of["name"]>; // property: wa-tag-input.name
@@ -39,11 +31,7 @@ type Properties = {
 	readonly readonly: Schema.declare<Of["readonly"]>; // property: wa-tag-input.readonly
 	readonly required: Schema.declare<Of["required"]>; // property: wa-tag-input.required
 	readonly size: Schema.declare<Of["size"]>; // property: wa-tag-input.size
-	readonly spellcheck: Schema.declare<Of["spellcheck"]>; // property: wa-tag-input.spellcheck
-	readonly states: Schema.declare<Of["states"]>; // property: wa-tag-input.states
-	readonly validators: Schema.declare<Of["validators"]>; // property: wa-tag-input.validators
 	readonly value: Schema.declare<Of["value"]>; // property: wa-tag-input.value
-	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-tag-input.valueHasChanged
 	readonly withClear: Schema.declare<Of["withClear"]>; // property: wa-tag-input.withClear
 	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-tag-input.withHint
 	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-tag-input.withLabel
@@ -62,25 +50,17 @@ export const TagInput: Html.CustomElementBinding<"wa-tag-input", Properties, Eve
 	properties: {
 		allowDuplicates: typed<Of["allowDuplicates"]>(), // property: wa-tag-input.allowDuplicates
 		appearance: typed<Of["appearance"]>(), // property: wa-tag-input.appearance
-		assumeInteractionOn: typed<Of["assumeInteractionOn"]>(), // property: wa-tag-input.assumeInteractionOn
-		autocapitalize: typed<Of["autocapitalize"]>(), // property: wa-tag-input.autocapitalize
 		autocomplete: typed<Of["autocomplete"]>(), // property: wa-tag-input.autocomplete
-		autocorrect: typed<Of["autocorrect"]>(), // property: wa-tag-input.autocorrect
 		customError: typed<Of["customError"]>(), // property: wa-tag-input.customError
 		defaultValue: typed<Of["defaultValue"]>(), // property: wa-tag-input.defaultValue
 		delimiter: typed<Of["delimiter"]>(), // property: wa-tag-input.delimiter
 		didSSR: typed<Of["didSSR"]>(), // property: wa-tag-input.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-tag-input.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-tag-input.disabled
-		emitInvalid: typed<Of["emitInvalid"]>(), // property: wa-tag-input.emitInvalid
 		enterkeyhint: typed<Of["enterkeyhint"]>(), // property: wa-tag-input.enterkeyhint
-		hasInteracted: typed<Of["hasInteracted"]>(), // property: wa-tag-input.hasInteracted
 		hint: typed<Of["hint"]>(), // property: wa-tag-input.hint
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-tag-input.initialReflectedProperties
 		inputValue: typed<Of["inputValue"]>(), // property: wa-tag-input.inputValue
 		inputmode: typed<Of["inputmode"]>(), // property: wa-tag-input.inputmode
 		label: typed<Of["label"]>(), // property: wa-tag-input.label
-		lang: typed<Of["lang"]>(), // property: wa-tag-input.lang
 		maxTags: typed<Of["maxTags"]>(), // property: wa-tag-input.maxTags
 		minTags: typed<Of["minTags"]>(), // property: wa-tag-input.minTags
 		name: typed<Of["name"]>(), // property: wa-tag-input.name
@@ -89,11 +69,7 @@ export const TagInput: Html.CustomElementBinding<"wa-tag-input", Properties, Eve
 		readonly: typed<Of["readonly"]>(), // property: wa-tag-input.readonly
 		required: typed<Of["required"]>(), // property: wa-tag-input.required
 		size: typed<Of["size"]>(), // property: wa-tag-input.size
-		spellcheck: typed<Of["spellcheck"]>(), // property: wa-tag-input.spellcheck
-		states: typed<Of["states"]>(), // property: wa-tag-input.states
-		validators: typed<Of["validators"]>(), // property: wa-tag-input.validators
 		value: typed<Of["value"]>(), // property: wa-tag-input.value
-		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-tag-input.valueHasChanged
 		withClear: typed<Of["withClear"]>(), // property: wa-tag-input.withClear
 		withHint: typed<Of["withHint"]>(), // property: wa-tag-input.withHint
 		withLabel: typed<Of["withLabel"]>(), // property: wa-tag-input.withLabel

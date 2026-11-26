@@ -11,11 +11,8 @@ type Of = HTMLElementTagNameMap["md-select-option"]; // element: md-select-optio
 /** The properties a view sets on `<md-select-option>`, as upstream types them. */
 type Properties = {
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-select-option.disabled
-	readonly displayText: Schema.declare<Of["displayText"]>; // property: md-select-option.displayText
 	readonly isMenuItem: Schema.declare<Of["isMenuItem"]>; // property: md-select-option.isMenuItem
 	readonly selected: Schema.declare<Of["selected"]>; // property: md-select-option.selected
-	readonly type: Schema.declare<Of["type"]>; // property: md-select-option.type
-	readonly typeaheadText: Schema.declare<Of["typeaheadText"]>; // property: md-select-option.typeaheadText
 	readonly value: Schema.declare<Of["value"]>; // property: md-select-option.value
 };
 
@@ -31,11 +28,8 @@ export const SelectOption: Html.CustomElementBinding<"md-select-option", Propert
 	tag: "md-select-option",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: md-select-option.disabled
-		displayText: typed<Of["displayText"]>(), // property: md-select-option.displayText
 		isMenuItem: typed<Of["isMenuItem"]>(), // property: md-select-option.isMenuItem
 		selected: typed<Of["selected"]>(), // property: md-select-option.selected
-		type: typed<Of["type"]>(), // property: md-select-option.type
-		typeaheadText: typed<Of["typeaheadText"]>(), // property: md-select-option.typeaheadText
 		value: typed<Of["value"]>(), // property: md-select-option.value
 	},
 	events: {

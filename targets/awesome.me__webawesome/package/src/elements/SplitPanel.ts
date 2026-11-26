@@ -11,10 +11,7 @@ type Of = HTMLElementTagNameMap["wa-split-panel"]; // element: wa-split-panel
 /** The properties a view sets on `<wa-split-panel>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-split-panel.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-split-panel.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-split-panel.disabled
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-split-panel.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-split-panel.lang
 	readonly orientation: Schema.declare<Of["orientation"]>; // property: wa-split-panel.orientation
 	readonly position: Schema.declare<Of["position"]>; // property: wa-split-panel.position
 	readonly positionInPixels: Schema.declare<Of["positionInPixels"]>; // property: wa-split-panel.positionInPixels
@@ -33,10 +30,7 @@ export const SplitPanel: Html.CustomElementBinding<"wa-split-panel", Properties,
 	tag: "wa-split-panel",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-split-panel.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-split-panel.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-split-panel.disabled
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-split-panel.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-split-panel.lang
 		orientation: typed<Of["orientation"]>(), // property: wa-split-panel.orientation
 		position: typed<Of["position"]>(), // property: wa-split-panel.position
 		positionInPixels: typed<Of["positionInPixels"]>(), // property: wa-split-panel.positionInPixels

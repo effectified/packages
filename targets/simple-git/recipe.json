@@ -66,6 +66,7 @@
 	"services": [],
 	"methods": {},
 	"derived": [],
+	"revision": 2,
 	"testDependencies": {},
 	"decisions": [
 		{
@@ -153,5 +154,7 @@
 			"by": "agent"
 		}
 	],
-	"revision": 2
+	"typeDependencies": {
+		"@simple-git/argv-parser": "3.0.0"
+	}
 }

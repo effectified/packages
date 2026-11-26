@@ -12,9 +12,6 @@ type Of = HTMLElementTagNameMap["wa-card"]; // element: wa-card
 type Properties = {
 	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-card.appearance
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-card.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-card.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-card.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-card.lang
 	readonly orientation: Schema.declare<Of["orientation"]>; // property: wa-card.orientation
 	readonly withFooter: Schema.declare<Of["withFooter"]>; // property: wa-card.withFooter
 	readonly withFooterActions: Schema.declare<Of["withFooterActions"]>; // property: wa-card.withFooterActions
@@ -32,9 +29,6 @@ export const Card: Html.CustomElementBinding<"wa-card", Properties, Events> = Ht
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-card.appearance
 		didSSR: typed<Of["didSSR"]>(), // property: wa-card.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-card.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-card.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-card.lang
 		orientation: typed<Of["orientation"]>(), // property: wa-card.orientation
 		withFooter: typed<Of["withFooter"]>(), // property: wa-card.withFooter
 		withFooterActions: typed<Of["withFooterActions"]>(), // property: wa-card.withFooterActions

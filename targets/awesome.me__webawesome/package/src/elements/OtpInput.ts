@@ -11,34 +11,24 @@ type Of = HTMLElementTagNameMap["wa-otp-input"]; // element: wa-otp-input
 /** The properties a view sets on `<wa-otp-input>`, as upstream types them. */
 type Properties = {
 	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-otp-input.appearance
-	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-otp-input.assumeInteractionOn
 	readonly autocomplete: Schema.declare<Of["autocomplete"]>; // property: wa-otp-input.autocomplete
-	readonly autofocus: Schema.declare<Of["autofocus"]>; // property: wa-otp-input.autofocus
 	readonly autosubmit: Schema.declare<Of["autosubmit"]>; // property: wa-otp-input.autosubmit
 	readonly case: Schema.declare<Of["case"]>; // property: wa-otp-input.case
 	readonly customError: Schema.declare<Of["customError"]>; // property: wa-otp-input.customError
 	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-otp-input.defaultValue
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-otp-input.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-otp-input.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-otp-input.disabled
-	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-otp-input.emitInvalid
 	readonly format: Schema.declare<Of["format"]>; // property: wa-otp-input.format
-	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-otp-input.hasInteracted
 	readonly hint: Schema.declare<Of["hint"]>; // property: wa-otp-input.hint
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-otp-input.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-otp-input.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-otp-input.lang
 	readonly length: Schema.declare<Of["length"]>; // property: wa-otp-input.length
 	readonly mask: Schema.declare<Of["mask"]>; // property: wa-otp-input.mask
 	readonly name: Schema.declare<Of["name"]>; // property: wa-otp-input.name
 	readonly readonly: Schema.declare<Of["readonly"]>; // property: wa-otp-input.readonly
 	readonly required: Schema.declare<Of["required"]>; // property: wa-otp-input.required
 	readonly size: Schema.declare<Of["size"]>; // property: wa-otp-input.size
-	readonly states: Schema.declare<Of["states"]>; // property: wa-otp-input.states
 	readonly type: Schema.declare<Of["type"]>; // property: wa-otp-input.type
-	readonly validators: Schema.declare<Of["validators"]>; // property: wa-otp-input.validators
 	readonly value: Schema.declare<Of["value"]>; // property: wa-otp-input.value
-	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-otp-input.valueHasChanged
 	readonly withMask: Schema.declare<Of["withMask"]>; // property: wa-otp-input.withMask
 };
 
@@ -54,34 +44,24 @@ export const OtpInput: Html.CustomElementBinding<"wa-otp-input", Properties, Eve
 	tag: "wa-otp-input",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-otp-input.appearance
-		assumeInteractionOn: typed<Of["assumeInteractionOn"]>(), // property: wa-otp-input.assumeInteractionOn
 		autocomplete: typed<Of["autocomplete"]>(), // property: wa-otp-input.autocomplete
-		autofocus: typed<Of["autofocus"]>(), // property: wa-otp-input.autofocus
 		autosubmit: typed<Of["autosubmit"]>(), // property: wa-otp-input.autosubmit
 		case: typed<Of["case"]>(), // property: wa-otp-input.case
 		customError: typed<Of["customError"]>(), // property: wa-otp-input.customError
 		defaultValue: typed<Of["defaultValue"]>(), // property: wa-otp-input.defaultValue
 		didSSR: typed<Of["didSSR"]>(), // property: wa-otp-input.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-otp-input.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-otp-input.disabled
-		emitInvalid: typed<Of["emitInvalid"]>(), // property: wa-otp-input.emitInvalid
 		format: typed<Of["format"]>(), // property: wa-otp-input.format
-		hasInteracted: typed<Of["hasInteracted"]>(), // property: wa-otp-input.hasInteracted
 		hint: typed<Of["hint"]>(), // property: wa-otp-input.hint
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-otp-input.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-otp-input.label
-		lang: typed<Of["lang"]>(), // property: wa-otp-input.lang
 		length: typed<Of["length"]>(), // property: wa-otp-input.length
 		mask: typed<Of["mask"]>(), // property: wa-otp-input.mask
 		name: typed<Of["name"]>(), // property: wa-otp-input.name
 		readonly: typed<Of["readonly"]>(), // property: wa-otp-input.readonly
 		required: typed<Of["required"]>(), // property: wa-otp-input.required
 		size: typed<Of["size"]>(), // property: wa-otp-input.size
-		states: typed<Of["states"]>(), // property: wa-otp-input.states
 		type: typed<Of["type"]>(), // property: wa-otp-input.type
-		validators: typed<Of["validators"]>(), // property: wa-otp-input.validators
 		value: typed<Of["value"]>(), // property: wa-otp-input.value
-		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-otp-input.valueHasChanged
 		withMask: typed<Of["withMask"]>(), // property: wa-otp-input.withMask
 	},
 	events: {

@@ -18,15 +18,12 @@ type Properties = {
 	readonly autoSizePadding: Schema.declare<Of["autoSizePadding"]>; // property: wa-popup.autoSizePadding
 	readonly boundary: Schema.declare<Of["boundary"]>; // property: wa-popup.boundary
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-popup.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-popup.dir
 	readonly distance: Schema.declare<Of["distance"]>; // property: wa-popup.distance
 	readonly flip: Schema.declare<Of["flip"]>; // property: wa-popup.flip
 	readonly flipFallbackPlacements: Schema.declare<Of["flipFallbackPlacements"]>; // property: wa-popup.flipFallbackPlacements
 	readonly flipFallbackStrategy: Schema.declare<Of["flipFallbackStrategy"]>; // property: wa-popup.flipFallbackStrategy
 	readonly flipPadding: Schema.declare<Of["flipPadding"]>; // property: wa-popup.flipPadding
 	readonly hoverBridge: Schema.declare<Of["hoverBridge"]>; // property: wa-popup.hoverBridge
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-popup.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-popup.lang
 	readonly placement: Schema.declare<Of["placement"]>; // property: wa-popup.placement
 	readonly shift: Schema.declare<Of["shift"]>; // property: wa-popup.shift
 	readonly shiftPadding: Schema.declare<Of["shiftPadding"]>; // property: wa-popup.shiftPadding
@@ -51,15 +48,12 @@ export const Popup: Html.CustomElementBinding<"wa-popup", Properties, Events> = 
 		autoSizePadding: typed<Of["autoSizePadding"]>(), // property: wa-popup.autoSizePadding
 		boundary: typed<Of["boundary"]>(), // property: wa-popup.boundary
 		didSSR: typed<Of["didSSR"]>(), // property: wa-popup.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-popup.dir
 		distance: typed<Of["distance"]>(), // property: wa-popup.distance
 		flip: typed<Of["flip"]>(), // property: wa-popup.flip
 		flipFallbackPlacements: typed<Of["flipFallbackPlacements"]>(), // property: wa-popup.flipFallbackPlacements
 		flipFallbackStrategy: typed<Of["flipFallbackStrategy"]>(), // property: wa-popup.flipFallbackStrategy
 		flipPadding: typed<Of["flipPadding"]>(), // property: wa-popup.flipPadding
 		hoverBridge: typed<Of["hoverBridge"]>(), // property: wa-popup.hoverBridge
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-popup.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-popup.lang
 		placement: typed<Of["placement"]>(), // property: wa-popup.placement
 		shift: typed<Of["shift"]>(), // property: wa-popup.shift
 		shiftPadding: typed<Of["shiftPadding"]>(), // property: wa-popup.shiftPadding

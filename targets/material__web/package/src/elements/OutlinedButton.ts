@@ -10,12 +10,16 @@ type Of = HTMLElementTagNameMap["md-outlined-button"]; // element: md-outlined-b
 
 /** The properties a view sets on `<md-outlined-button>`, as upstream types them. */
 type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-outlined-button.disabled
 	readonly download: Schema.declare<Of["download"]>; // property: md-outlined-button.download
 	readonly hasIcon: Schema.declare<Of["hasIcon"]>; // property: md-outlined-button.hasIcon
 	readonly href: Schema.declare<Of["href"]>; // property: md-outlined-button.href
+	readonly name: Schema.declare<Of["name"]>; // property: md-outlined-button.name
 	readonly softDisabled: Schema.declare<Of["softDisabled"]>; // property: md-outlined-button.softDisabled
 	readonly target: Schema.declare<Of["target"]>; // property: md-outlined-button.target
 	readonly trailingIcon: Schema.declare<Of["trailingIcon"]>; // property: md-outlined-button.trailingIcon
+	readonly type: Schema.declare<Of["type"]>; // property: md-outlined-button.type
+	readonly value: Schema.declare<Of["value"]>; // property: md-outlined-button.value
 };
 
 /** The custom events of `<md-outlined-button>`, each its `detail`. */
@@ -25,12 +29,16 @@ type Events = {};
 export const OutlinedButton: Html.CustomElementBinding<"md-outlined-button", Properties, Events> = Html.customElement({
 	tag: "md-outlined-button",
 	properties: {
+		disabled: typed<Of["disabled"]>(), // property: md-outlined-button.disabled
 		download: typed<Of["download"]>(), // property: md-outlined-button.download
 		hasIcon: typed<Of["hasIcon"]>(), // property: md-outlined-button.hasIcon
 		href: typed<Of["href"]>(), // property: md-outlined-button.href
+		name: typed<Of["name"]>(), // property: md-outlined-button.name
 		softDisabled: typed<Of["softDisabled"]>(), // property: md-outlined-button.softDisabled
 		target: typed<Of["target"]>(), // property: md-outlined-button.target
 		trailingIcon: typed<Of["trailingIcon"]>(), // property: md-outlined-button.trailingIcon
+		type: typed<Of["type"]>(), // property: md-outlined-button.type
+		value: typed<Of["value"]>(), // property: md-outlined-button.value
 	},
 	events: {},
 });

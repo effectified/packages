@@ -11,6 +11,7 @@ type Of = HTMLElementTagNameMap["md-outlined-select"]; // element: md-outlined-s
 /** The properties a view sets on `<md-outlined-select>`, as upstream types them. */
 type Properties = {
 	readonly clampMenuWidth: Schema.declare<Of["clampMenuWidth"]>; // property: md-outlined-select.clampMenuWidth
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-outlined-select.disabled
 	readonly displayText: Schema.declare<Of["displayText"]>; // property: md-outlined-select.displayText
 	readonly error: Schema.declare<Of["error"]>; // property: md-outlined-select.error
 	readonly errorText: Schema.declare<Of["errorText"]>; // property: md-outlined-select.errorText
@@ -18,12 +19,11 @@ type Properties = {
 	readonly label: Schema.declare<Of["label"]>; // property: md-outlined-select.label
 	readonly menuAlign: Schema.declare<Of["menuAlign"]>; // property: md-outlined-select.menuAlign
 	readonly menuPositioning: Schema.declare<Of["menuPositioning"]>; // property: md-outlined-select.menuPositioning
+	readonly name: Schema.declare<Of["name"]>; // property: md-outlined-select.name
 	readonly noAsterisk: Schema.declare<Of["noAsterisk"]>; // property: md-outlined-select.noAsterisk
-	readonly options: Schema.declare<Of["options"]>; // property: md-outlined-select.options
 	readonly quick: Schema.declare<Of["quick"]>; // property: md-outlined-select.quick
 	readonly required: Schema.declare<Of["required"]>; // property: md-outlined-select.required
 	readonly selectedIndex: Schema.declare<Of["selectedIndex"]>; // property: md-outlined-select.selectedIndex
-	readonly selectedOptions: Schema.declare<Of["selectedOptions"]>; // property: md-outlined-select.selectedOptions
 	readonly supportingText: Schema.declare<Of["supportingText"]>; // property: md-outlined-select.supportingText
 	readonly typeaheadDelay: Schema.declare<Of["typeaheadDelay"]>; // property: md-outlined-select.typeaheadDelay
 	readonly value: Schema.declare<Of["value"]>; // property: md-outlined-select.value
@@ -42,6 +42,7 @@ export const OutlinedSelect: Html.CustomElementBinding<"md-outlined-select", Pro
 	tag: "md-outlined-select",
 	properties: {
 		clampMenuWidth: typed<Of["clampMenuWidth"]>(), // property: md-outlined-select.clampMenuWidth
+		disabled: typed<Of["disabled"]>(), // property: md-outlined-select.disabled
 		displayText: typed<Of["displayText"]>(), // property: md-outlined-select.displayText
 		error: typed<Of["error"]>(), // property: md-outlined-select.error
 		errorText: typed<Of["errorText"]>(), // property: md-outlined-select.errorText
@@ -49,12 +50,11 @@ export const OutlinedSelect: Html.CustomElementBinding<"md-outlined-select", Pro
 		label: typed<Of["label"]>(), // property: md-outlined-select.label
 		menuAlign: typed<Of["menuAlign"]>(), // property: md-outlined-select.menuAlign
 		menuPositioning: typed<Of["menuPositioning"]>(), // property: md-outlined-select.menuPositioning
+		name: typed<Of["name"]>(), // property: md-outlined-select.name
 		noAsterisk: typed<Of["noAsterisk"]>(), // property: md-outlined-select.noAsterisk
-		options: typed<Of["options"]>(), // property: md-outlined-select.options
 		quick: typed<Of["quick"]>(), // property: md-outlined-select.quick
 		required: typed<Of["required"]>(), // property: md-outlined-select.required
 		selectedIndex: typed<Of["selectedIndex"]>(), // property: md-outlined-select.selectedIndex
-		selectedOptions: typed<Of["selectedOptions"]>(), // property: md-outlined-select.selectedOptions
 		supportingText: typed<Of["supportingText"]>(), // property: md-outlined-select.supportingText
 		typeaheadDelay: typed<Of["typeaheadDelay"]>(), // property: md-outlined-select.typeaheadDelay
 		value: typed<Of["value"]>(), // property: md-outlined-select.value

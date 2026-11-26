@@ -12,10 +12,7 @@ type Of = HTMLElementTagNameMap["wa-relative-time"]; // element: wa-relative-tim
 type Properties = {
 	readonly date: Schema.declare<Of["date"]>; // property: wa-relative-time.date
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-relative-time.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-relative-time.dir
 	readonly format: Schema.declare<Of["format"]>; // property: wa-relative-time.format
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-relative-time.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-relative-time.lang
 	readonly numeric: Schema.declare<Of["numeric"]>; // property: wa-relative-time.numeric
 	readonly sync: Schema.declare<Of["sync"]>; // property: wa-relative-time.sync
 };
@@ -29,10 +26,7 @@ export const RelativeTime: Html.CustomElementBinding<"wa-relative-time", Propert
 	properties: {
 		date: typed<Of["date"]>(), // property: wa-relative-time.date
 		didSSR: typed<Of["didSSR"]>(), // property: wa-relative-time.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-relative-time.dir
 		format: typed<Of["format"]>(), // property: wa-relative-time.format
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-relative-time.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-relative-time.lang
 		numeric: typed<Of["numeric"]>(), // property: wa-relative-time.numeric
 		sync: typed<Of["sync"]>(), // property: wa-relative-time.sync
 	},

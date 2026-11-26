@@ -12,12 +12,9 @@ type Of = HTMLElementTagNameMap["wa-dropdown-item"]; // element: wa-dropdown-ite
 type Properties = {
 	readonly checked: Schema.declare<Of["checked"]>; // property: wa-dropdown-item.checked
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-dropdown-item.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-dropdown-item.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-dropdown-item.disabled
 	readonly download: Schema.declare<Of["download"]>; // property: wa-dropdown-item.download
 	readonly href: Schema.declare<Of["href"]>; // property: wa-dropdown-item.href
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-dropdown-item.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-dropdown-item.lang
 	readonly rel: Schema.declare<Of["rel"]>; // property: wa-dropdown-item.rel
 	readonly submenuOpen: Schema.declare<Of["submenuOpen"]>; // property: wa-dropdown-item.submenuOpen
 	readonly target: Schema.declare<Of["target"]>; // property: wa-dropdown-item.target
@@ -35,12 +32,9 @@ export const DropdownItem: Html.CustomElementBinding<"wa-dropdown-item", Propert
 	properties: {
 		checked: typed<Of["checked"]>(), // property: wa-dropdown-item.checked
 		didSSR: typed<Of["didSSR"]>(), // property: wa-dropdown-item.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-dropdown-item.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-dropdown-item.disabled
 		download: typed<Of["download"]>(), // property: wa-dropdown-item.download
 		href: typed<Of["href"]>(), // property: wa-dropdown-item.href
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-dropdown-item.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-dropdown-item.lang
 		rel: typed<Of["rel"]>(), // property: wa-dropdown-item.rel
 		submenuOpen: typed<Of["submenuOpen"]>(), // property: wa-dropdown-item.submenuOpen
 		target: typed<Of["target"]>(), // property: wa-dropdown-item.target

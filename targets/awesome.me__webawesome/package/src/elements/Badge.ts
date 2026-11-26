@@ -13,9 +13,6 @@ type Properties = {
 	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-badge.appearance
 	readonly attention: Schema.declare<Of["attention"]>; // property: wa-badge.attention
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-badge.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-badge.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-badge.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-badge.lang
 	readonly pill: Schema.declare<Of["pill"]>; // property: wa-badge.pill
 	readonly variant: Schema.declare<Of["variant"]>; // property: wa-badge.variant
 };
@@ -30,9 +27,6 @@ export const Badge: Html.CustomElementBinding<"wa-badge", Properties, Events> = 
 		appearance: typed<Of["appearance"]>(), // property: wa-badge.appearance
 		attention: typed<Of["attention"]>(), // property: wa-badge.attention
 		didSSR: typed<Of["didSSR"]>(), // property: wa-badge.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-badge.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-badge.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-badge.lang
 		pill: typed<Of["pill"]>(), // property: wa-badge.pill
 		variant: typed<Of["variant"]>(), // property: wa-badge.variant
 	},

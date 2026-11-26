@@ -11,13 +11,17 @@ type Of = HTMLElementTagNameMap["md-filled-icon-button"]; // element: md-filled-
 /** The properties a view sets on `<md-filled-icon-button>`, as upstream types them. */
 type Properties = {
 	readonly ariaLabelSelected: Schema.declare<Of["ariaLabelSelected"]>; // property: md-filled-icon-button.ariaLabelSelected
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-filled-icon-button.disabled
 	readonly download: Schema.declare<Of["download"]>; // property: md-filled-icon-button.download
 	readonly flipIconInRtl: Schema.declare<Of["flipIconInRtl"]>; // property: md-filled-icon-button.flipIconInRtl
 	readonly href: Schema.declare<Of["href"]>; // property: md-filled-icon-button.href
+	readonly name: Schema.declare<Of["name"]>; // property: md-filled-icon-button.name
 	readonly selected: Schema.declare<Of["selected"]>; // property: md-filled-icon-button.selected
 	readonly softDisabled: Schema.declare<Of["softDisabled"]>; // property: md-filled-icon-button.softDisabled
 	readonly target: Schema.declare<Of["target"]>; // property: md-filled-icon-button.target
 	readonly toggle: Schema.declare<Of["toggle"]>; // property: md-filled-icon-button.toggle
+	readonly type: Schema.declare<Of["type"]>; // property: md-filled-icon-button.type
+	readonly value: Schema.declare<Of["value"]>; // property: md-filled-icon-button.value
 };
 
 /** The custom events of `<md-filled-icon-button>`, each its `detail`. */
@@ -28,16 +32,20 @@ export const FilledIconButton: Html.CustomElementBinding<"md-filled-icon-button"
 	tag: "md-filled-icon-button",
 	properties: {
 		ariaLabelSelected: typed<Of["ariaLabelSelected"]>(), // property: md-filled-icon-button.ariaLabelSelected
+		disabled: typed<Of["disabled"]>(), // property: md-filled-icon-button.disabled
 		download: typed<Of["download"]>(), // property: md-filled-icon-button.download
 		flipIconInRtl: typed<Of["flipIconInRtl"]>(), // property: md-filled-icon-button.flipIconInRtl
 		href: typed<Of["href"]>(), // property: md-filled-icon-button.href
+		name: typed<Of["name"]>(), // property: md-filled-icon-button.name
 		selected: typed<Of["selected"]>(), // property: md-filled-icon-button.selected
 		softDisabled: typed<Of["softDisabled"]>(), // property: md-filled-icon-button.softDisabled
 		target: typed<Of["target"]>(), // property: md-filled-icon-button.target
 		toggle: typed<Of["toggle"]>(), // property: md-filled-icon-button.toggle
+		type: typed<Of["type"]>(), // property: md-filled-icon-button.type
+		value: typed<Of["value"]>(), // property: md-filled-icon-button.value
 	},
 	events: {},
 });
 
-/** `<md-filled-icon-button>`'s `selected` each time it fires `input` or `change`: `FilledIconButton(h).onMount(FilledIconButtonChanges({}).pipe(Mount.map(...)))`. */
-export const FilledIconButtonChanges = changesMount<Of, "selected">("FilledIconButtonChanges", ["selected"]);
+/** `<md-filled-icon-button>`'s `value` and `selected` each time it fires `input` or `change`: `FilledIconButton(h).onMount(FilledIconButtonChanges({}).pipe(Mount.map(...)))`. */
+export const FilledIconButtonChanges = changesMount<Of, "value" | "selected">("FilledIconButtonChanges", ["value", "selected"]);

@@ -11,11 +11,8 @@ type Of = HTMLElementTagNameMap["wa-lightbox"]; // element: wa-lightbox
 /** The properties a view sets on `<wa-lightbox>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-lightbox.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-lightbox.dir
 	readonly index: Schema.declare<Of["index"]>; // property: wa-lightbox.index
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-lightbox.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-lightbox.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-lightbox.lang
 	readonly loop: Schema.declare<Of["loop"]>; // property: wa-lightbox.loop
 	readonly open: Schema.declare<Of["open"]>; // property: wa-lightbox.open
 	readonly withThumbnails: Schema.declare<Of["withThumbnails"]>; // property: wa-lightbox.withThumbnails
@@ -38,11 +35,8 @@ export const Lightbox: Html.CustomElementBinding<"wa-lightbox", Properties, Even
 	tag: "wa-lightbox",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-lightbox.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-lightbox.dir
 		index: typed<Of["index"]>(), // property: wa-lightbox.index
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-lightbox.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-lightbox.label
-		lang: typed<Of["lang"]>(), // property: wa-lightbox.lang
 		loop: typed<Of["loop"]>(), // property: wa-lightbox.loop
 		open: typed<Of["open"]>(), // property: wa-lightbox.open
 		withThumbnails: typed<Of["withThumbnails"]>(), // property: wa-lightbox.withThumbnails

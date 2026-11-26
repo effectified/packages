@@ -11,16 +11,11 @@ type Of = HTMLElementTagNameMap["wa-page"]; // element: wa-page
 /** The properties a view sets on `<wa-page>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-page.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-page.dir
 	readonly disableNavigationToggle: Schema.declare<Of["disableNavigationToggle"]>; // property: wa-page.disableNavigationToggle
 	readonly disableSticky: Schema.declare<Of["disableSticky"]>; // property: wa-page.disableSticky
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-page.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-page.lang
 	readonly mobileBreakpoint: Schema.declare<Of["mobileBreakpoint"]>; // property: wa-page.mobileBreakpoint
 	readonly navOpen: Schema.declare<Of["navOpen"]>; // property: wa-page.navOpen
 	readonly navigationPlacement: Schema.declare<Of["navigationPlacement"]>; // property: wa-page.navigationPlacement
-	readonly nonce: Schema.declare<Of["nonce"]>; // property: wa-page.nonce
-	readonly pageResizeObserver: Schema.declare<Of["pageResizeObserver"]>; // property: wa-page.pageResizeObserver
 	readonly view: Schema.declare<Of["view"]>; // property: wa-page.view
 };
 
@@ -32,16 +27,11 @@ export const Page: Html.CustomElementBinding<"wa-page", Properties, Events> = Ht
 	tag: "wa-page",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-page.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-page.dir
 		disableNavigationToggle: typed<Of["disableNavigationToggle"]>(), // property: wa-page.disableNavigationToggle
 		disableSticky: typed<Of["disableSticky"]>(), // property: wa-page.disableSticky
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-page.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-page.lang
 		mobileBreakpoint: typed<Of["mobileBreakpoint"]>(), // property: wa-page.mobileBreakpoint
 		navOpen: typed<Of["navOpen"]>(), // property: wa-page.navOpen
 		navigationPlacement: typed<Of["navigationPlacement"]>(), // property: wa-page.navigationPlacement
-		nonce: typed<Of["nonce"]>(), // property: wa-page.nonce
-		pageResizeObserver: typed<Of["pageResizeObserver"]>(), // property: wa-page.pageResizeObserver
 		view: typed<Of["view"]>(), // property: wa-page.view
 	},
 	events: {},

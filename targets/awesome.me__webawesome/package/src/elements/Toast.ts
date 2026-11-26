@@ -11,9 +11,6 @@ type Of = HTMLElementTagNameMap["wa-toast"]; // element: wa-toast
 /** The properties a view sets on `<wa-toast>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-toast.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-toast.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-toast.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-toast.lang
 	readonly placement: Schema.declare<Of["placement"]>; // property: wa-toast.placement
 };
 
@@ -25,9 +22,6 @@ export const Toast: Html.CustomElementBinding<"wa-toast", Properties, Events> = 
 	tag: "wa-toast",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-toast.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-toast.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-toast.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-toast.lang
 		placement: typed<Of["placement"]>(), // property: wa-toast.placement
 	},
 	events: {},

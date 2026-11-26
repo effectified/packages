@@ -11,7 +11,6 @@ type Of = HTMLElementTagNameMap["md-filter-chip"]; // element: md-filter-chip
 /** The properties a view sets on `<md-filter-chip>`, as upstream types them. */
 type Properties = {
 	readonly alwaysFocusable: Schema.declare<Of["alwaysFocusable"]>; // property: md-filter-chip.alwaysFocusable
-	readonly ariaLabelRemove: Schema.declare<Of["ariaLabelRemove"]>; // property: md-filter-chip.ariaLabelRemove
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-filter-chip.disabled
 	readonly elevated: Schema.declare<Of["elevated"]>; // property: md-filter-chip.elevated
 	readonly hasIcon: Schema.declare<Of["hasIcon"]>; // property: md-filter-chip.hasIcon
@@ -33,7 +32,6 @@ export const FilterChip: Html.CustomElementBinding<"md-filter-chip", Properties,
 	tag: "md-filter-chip",
 	properties: {
 		alwaysFocusable: typed<Of["alwaysFocusable"]>(), // property: md-filter-chip.alwaysFocusable
-		ariaLabelRemove: typed<Of["ariaLabelRemove"]>(), // property: md-filter-chip.ariaLabelRemove
 		disabled: typed<Of["disabled"]>(), // property: md-filter-chip.disabled
 		elevated: typed<Of["elevated"]>(), // property: md-filter-chip.elevated
 		hasIcon: typed<Of["hasIcon"]>(), // property: md-filter-chip.hasIcon

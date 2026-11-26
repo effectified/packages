@@ -11,12 +11,8 @@ type Of = HTMLElementTagNameMap["wa-tab"]; // element: wa-tab
 /** The properties a view sets on `<wa-tab>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-tab.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-tab.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-tab.disabled
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-tab.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-tab.lang
 	readonly panel: Schema.declare<Of["panel"]>; // property: wa-tab.panel
-	readonly role: Schema.declare<Of["role"]>; // property: wa-tab.role
 };
 
 /** The custom events of `<wa-tab>`, each its `detail`. */
@@ -27,12 +23,8 @@ export const Tab: Html.CustomElementBinding<"wa-tab", Properties, Events> = Html
 	tag: "wa-tab",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-tab.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-tab.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-tab.disabled
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-tab.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-tab.lang
 		panel: typed<Of["panel"]>(), // property: wa-tab.panel
-		role: typed<Of["role"]>(), // property: wa-tab.role
 	},
 	events: {},
 });

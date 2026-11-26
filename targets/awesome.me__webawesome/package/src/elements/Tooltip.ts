@@ -11,13 +11,10 @@ type Of = HTMLElementTagNameMap["wa-tooltip"]; // element: wa-tooltip
 /** The properties a view sets on `<wa-tooltip>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-tooltip.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-tooltip.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-tooltip.disabled
 	readonly distance: Schema.declare<Of["distance"]>; // property: wa-tooltip.distance
 	readonly for: Schema.declare<Of["for"]>; // property: wa-tooltip.for
 	readonly hideDelay: Schema.declare<Of["hideDelay"]>; // property: wa-tooltip.hideDelay
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-tooltip.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-tooltip.lang
 	readonly open: Schema.declare<Of["open"]>; // property: wa-tooltip.open
 	readonly placement: Schema.declare<Of["placement"]>; // property: wa-tooltip.placement
 	readonly showDelay: Schema.declare<Of["showDelay"]>; // property: wa-tooltip.showDelay
@@ -39,13 +36,10 @@ export const Tooltip: Html.CustomElementBinding<"wa-tooltip", Properties, Events
 	tag: "wa-tooltip",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-tooltip.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-tooltip.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-tooltip.disabled
 		distance: typed<Of["distance"]>(), // property: wa-tooltip.distance
 		for: typed<Of["for"]>(), // property: wa-tooltip.for
 		hideDelay: typed<Of["hideDelay"]>(), // property: wa-tooltip.hideDelay
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-tooltip.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-tooltip.lang
 		open: typed<Of["open"]>(), // property: wa-tooltip.open
 		placement: typed<Of["placement"]>(), // property: wa-tooltip.placement
 		showDelay: typed<Of["showDelay"]>(), // property: wa-tooltip.showDelay

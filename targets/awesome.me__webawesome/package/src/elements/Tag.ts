@@ -12,9 +12,6 @@ type Of = HTMLElementTagNameMap["wa-tag"]; // element: wa-tag
 type Properties = {
 	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-tag.appearance
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-tag.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-tag.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-tag.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-tag.lang
 	readonly pill: Schema.declare<Of["pill"]>; // property: wa-tag.pill
 	readonly size: Schema.declare<Of["size"]>; // property: wa-tag.size
 	readonly variant: Schema.declare<Of["variant"]>; // property: wa-tag.variant
@@ -32,9 +29,6 @@ export const Tag: Html.CustomElementBinding<"wa-tag", Properties, Events> = Html
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-tag.appearance
 		didSSR: typed<Of["didSSR"]>(), // property: wa-tag.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-tag.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-tag.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-tag.lang
 		pill: typed<Of["pill"]>(), // property: wa-tag.pill
 		size: typed<Of["size"]>(), // property: wa-tag.size
 		variant: typed<Of["variant"]>(), // property: wa-tag.variant

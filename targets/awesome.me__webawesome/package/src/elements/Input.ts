@@ -11,24 +11,15 @@ type Of = HTMLElementTagNameMap["wa-input"]; // element: wa-input
 /** The properties a view sets on `<wa-input>`, as upstream types them. */
 type Properties = {
 	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-input.appearance
-	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-input.assumeInteractionOn
-	readonly autocapitalize: Schema.declare<Of["autocapitalize"]>; // property: wa-input.autocapitalize
 	readonly autocomplete: Schema.declare<Of["autocomplete"]>; // property: wa-input.autocomplete
-	readonly autocorrect: Schema.declare<Of["autocorrect"]>; // property: wa-input.autocorrect
-	readonly autofocus: Schema.declare<Of["autofocus"]>; // property: wa-input.autofocus
 	readonly customError: Schema.declare<Of["customError"]>; // property: wa-input.customError
 	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-input.defaultValue
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-input.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-input.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-input.disabled
-	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-input.emitInvalid
 	readonly enterkeyhint: Schema.declare<Of["enterkeyhint"]>; // property: wa-input.enterkeyhint
-	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-input.hasInteracted
 	readonly hint: Schema.declare<Of["hint"]>; // property: wa-input.hint
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-input.initialReflectedProperties
 	readonly inputmode: Schema.declare<Of["inputmode"]>; // property: wa-input.inputmode
 	readonly label: Schema.declare<Of["label"]>; // property: wa-input.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-input.lang
 	readonly max: Schema.declare<Of["max"]>; // property: wa-input.max
 	readonly maxlength: Schema.declare<Of["maxlength"]>; // property: wa-input.maxlength
 	readonly min: Schema.declare<Of["min"]>; // property: wa-input.min
@@ -42,14 +33,9 @@ type Properties = {
 	readonly readonly: Schema.declare<Of["readonly"]>; // property: wa-input.readonly
 	readonly required: Schema.declare<Of["required"]>; // property: wa-input.required
 	readonly size: Schema.declare<Of["size"]>; // property: wa-input.size
-	readonly spellcheck: Schema.declare<Of["spellcheck"]>; // property: wa-input.spellcheck
-	readonly states: Schema.declare<Of["states"]>; // property: wa-input.states
 	readonly step: Schema.declare<Of["step"]>; // property: wa-input.step
-	readonly title: Schema.declare<Of["title"]>; // property: wa-input.title
 	readonly type: Schema.declare<Of["type"]>; // property: wa-input.type
-	readonly validators: Schema.declare<Of["validators"]>; // property: wa-input.validators
 	readonly value: Schema.declare<Of["value"]>; // property: wa-input.value
-	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-input.valueHasChanged
 	readonly withClear: Schema.declare<Of["withClear"]>; // property: wa-input.withClear
 	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-input.withHint
 	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-input.withLabel
@@ -67,24 +53,15 @@ export const Input: Html.CustomElementBinding<"wa-input", Properties, Events> = 
 	tag: "wa-input",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-input.appearance
-		assumeInteractionOn: typed<Of["assumeInteractionOn"]>(), // property: wa-input.assumeInteractionOn
-		autocapitalize: typed<Of["autocapitalize"]>(), // property: wa-input.autocapitalize
 		autocomplete: typed<Of["autocomplete"]>(), // property: wa-input.autocomplete
-		autocorrect: typed<Of["autocorrect"]>(), // property: wa-input.autocorrect
-		autofocus: typed<Of["autofocus"]>(), // property: wa-input.autofocus
 		customError: typed<Of["customError"]>(), // property: wa-input.customError
 		defaultValue: typed<Of["defaultValue"]>(), // property: wa-input.defaultValue
 		didSSR: typed<Of["didSSR"]>(), // property: wa-input.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-input.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-input.disabled
-		emitInvalid: typed<Of["emitInvalid"]>(), // property: wa-input.emitInvalid
 		enterkeyhint: typed<Of["enterkeyhint"]>(), // property: wa-input.enterkeyhint
-		hasInteracted: typed<Of["hasInteracted"]>(), // property: wa-input.hasInteracted
 		hint: typed<Of["hint"]>(), // property: wa-input.hint
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-input.initialReflectedProperties
 		inputmode: typed<Of["inputmode"]>(), // property: wa-input.inputmode
 		label: typed<Of["label"]>(), // property: wa-input.label
-		lang: typed<Of["lang"]>(), // property: wa-input.lang
 		max: typed<Of["max"]>(), // property: wa-input.max
 		maxlength: typed<Of["maxlength"]>(), // property: wa-input.maxlength
 		min: typed<Of["min"]>(), // property: wa-input.min
@@ -98,14 +75,9 @@ export const Input: Html.CustomElementBinding<"wa-input", Properties, Events> = 
 		readonly: typed<Of["readonly"]>(), // property: wa-input.readonly
 		required: typed<Of["required"]>(), // property: wa-input.required
 		size: typed<Of["size"]>(), // property: wa-input.size
-		spellcheck: typed<Of["spellcheck"]>(), // property: wa-input.spellcheck
-		states: typed<Of["states"]>(), // property: wa-input.states
 		step: typed<Of["step"]>(), // property: wa-input.step
-		title: typed<Of["title"]>(), // property: wa-input.title
 		type: typed<Of["type"]>(), // property: wa-input.type
-		validators: typed<Of["validators"]>(), // property: wa-input.validators
 		value: typed<Of["value"]>(), // property: wa-input.value
-		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-input.valueHasChanged
 		withClear: typed<Of["withClear"]>(), // property: wa-input.withClear
 		withHint: typed<Of["withHint"]>(), // property: wa-input.withHint
 		withLabel: typed<Of["withLabel"]>(), // property: wa-input.withLabel

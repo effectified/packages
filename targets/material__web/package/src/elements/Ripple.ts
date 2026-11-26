@@ -11,7 +11,6 @@ type Of = HTMLElementTagNameMap["md-ripple"]; // element: md-ripple
 /** The properties a view sets on `<md-ripple>`, as upstream types them. */
 type Properties = {
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-ripple.disabled
-	readonly htmlFor: Schema.declare<Of["htmlFor"]>; // property: md-ripple.htmlFor
 };
 
 /** The custom events of `<md-ripple>`, each its `detail`. */
@@ -22,7 +21,6 @@ export const Ripple: Html.CustomElementBinding<"md-ripple", Properties, Events> 
 	tag: "md-ripple",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: md-ripple.disabled
-		htmlFor: typed<Of["htmlFor"]>(), // property: md-ripple.htmlFor
 	},
 	events: {},
 });

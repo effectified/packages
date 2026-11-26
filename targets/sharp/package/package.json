@@ -20,7 +20,6 @@
     "test": "vitest --run --passWithNoTests"
   },
   "dependencies": {
-    "@img/colour": "^1.1.0",
     "sharp": "0.35.5"
   },
   "peerDependencies": {

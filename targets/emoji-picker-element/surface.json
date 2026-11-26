@@ -211,10 +211,8 @@
 			"name": "EmojiPicker",
 			"definition": "emoji-picker-element/picker.js",
 			"properties": [
-				"customCategorySorting",
 				"customEmoji",
 				"dataSource",
-				"emojiVersion",
 				"i18n",
 				"locale",
 				"skinToneEmoji"

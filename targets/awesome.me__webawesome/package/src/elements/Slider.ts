@@ -10,20 +10,13 @@ type Of = HTMLElementTagNameMap["wa-slider"]; // element: wa-slider
 
 /** The properties a view sets on `<wa-slider>`, as upstream types them. */
 type Properties = {
-	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-slider.assumeInteractionOn
-	readonly autofocus: Schema.declare<Of["autofocus"]>; // property: wa-slider.autofocus
 	readonly customError: Schema.declare<Of["customError"]>; // property: wa-slider.customError
 	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-slider.defaultValue
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-slider.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-slider.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-slider.disabled
-	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-slider.emitInvalid
-	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-slider.hasInteracted
 	readonly hint: Schema.declare<Of["hint"]>; // property: wa-slider.hint
 	readonly indicatorOffset: Schema.declare<Of["indicatorOffset"]>; // property: wa-slider.indicatorOffset
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-slider.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-slider.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-slider.lang
 	readonly max: Schema.declare<Of["max"]>; // property: wa-slider.max
 	readonly maxValue: Schema.declare<Of["maxValue"]>; // property: wa-slider.maxValue
 	readonly min: Schema.declare<Of["min"]>; // property: wa-slider.min
@@ -32,15 +25,11 @@ type Properties = {
 	readonly orientation: Schema.declare<Of["orientation"]>; // property: wa-slider.orientation
 	readonly range: Schema.declare<Of["range"]>; // property: wa-slider.range
 	readonly readonly: Schema.declare<Of["readonly"]>; // property: wa-slider.readonly
-	readonly required: Schema.declare<Of["required"]>; // property: wa-slider.required
 	readonly size: Schema.declare<Of["size"]>; // property: wa-slider.size
-	readonly states: Schema.declare<Of["states"]>; // property: wa-slider.states
 	readonly step: Schema.declare<Of["step"]>; // property: wa-slider.step
 	readonly tooltipDistance: Schema.declare<Of["tooltipDistance"]>; // property: wa-slider.tooltipDistance
 	readonly tooltipPlacement: Schema.declare<Of["tooltipPlacement"]>; // property: wa-slider.tooltipPlacement
-	readonly validators: Schema.declare<Of["validators"]>; // property: wa-slider.validators
 	readonly value: Schema.declare<Of["value"]>; // property: wa-slider.value
-	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-slider.valueHasChanged
 	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-slider.withHint
 	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-slider.withLabel
 	readonly withMarkers: Schema.declare<Of["withMarkers"]>; // property: wa-slider.withMarkers
@@ -56,20 +45,13 @@ type Events = {
 export const Slider: Html.CustomElementBinding<"wa-slider", Properties, Events> = Html.customElement({
 	tag: "wa-slider",
 	properties: {
-		assumeInteractionOn: typed<Of["assumeInteractionOn"]>(), // property: wa-slider.assumeInteractionOn
-		autofocus: typed<Of["autofocus"]>(), // property: wa-slider.autofocus
 		customError: typed<Of["customError"]>(), // property: wa-slider.customError
 		defaultValue: typed<Of["defaultValue"]>(), // property: wa-slider.defaultValue
 		didSSR: typed<Of["didSSR"]>(), // property: wa-slider.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-slider.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-slider.disabled
-		emitInvalid: typed<Of["emitInvalid"]>(), // property: wa-slider.emitInvalid
-		hasInteracted: typed<Of["hasInteracted"]>(), // property: wa-slider.hasInteracted
 		hint: typed<Of["hint"]>(), // property: wa-slider.hint
 		indicatorOffset: typed<Of["indicatorOffset"]>(), // property: wa-slider.indicatorOffset
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-slider.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-slider.label
-		lang: typed<Of["lang"]>(), // property: wa-slider.lang
 		max: typed<Of["max"]>(), // property: wa-slider.max
 		maxValue: typed<Of["maxValue"]>(), // property: wa-slider.maxValue
 		min: typed<Of["min"]>(), // property: wa-slider.min
@@ -78,15 +60,11 @@ export const Slider: Html.CustomElementBinding<"wa-slider", Properties, Events> 
 		orientation: typed<Of["orientation"]>(), // property: wa-slider.orientation
 		range: typed<Of["range"]>(), // property: wa-slider.range
 		readonly: typed<Of["readonly"]>(), // property: wa-slider.readonly
-		required: typed<Of["required"]>(), // property: wa-slider.required
 		size: typed<Of["size"]>(), // property: wa-slider.size
-		states: typed<Of["states"]>(), // property: wa-slider.states
 		step: typed<Of["step"]>(), // property: wa-slider.step
 		tooltipDistance: typed<Of["tooltipDistance"]>(), // property: wa-slider.tooltipDistance
 		tooltipPlacement: typed<Of["tooltipPlacement"]>(), // property: wa-slider.tooltipPlacement
-		validators: typed<Of["validators"]>(), // property: wa-slider.validators
 		value: typed<Of["value"]>(), // property: wa-slider.value
-		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-slider.valueHasChanged
 		withHint: typed<Of["withHint"]>(), // property: wa-slider.withHint
 		withLabel: typed<Of["withLabel"]>(), // property: wa-slider.withLabel
 		withMarkers: typed<Of["withMarkers"]>(), // property: wa-slider.withMarkers

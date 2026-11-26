@@ -11,37 +11,24 @@ type Of = HTMLElementTagNameMap["wa-button"]; // element: wa-button
 /** The properties a view sets on `<wa-button>`, as upstream types them. */
 type Properties = {
 	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-button.appearance
-	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-button.assumeInteractionOn
 	readonly customError: Schema.declare<Of["customError"]>; // property: wa-button.customError
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-button.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-button.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-button.disabled
 	readonly download: Schema.declare<Of["download"]>; // property: wa-button.download
-	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-button.emitInvalid
 	readonly formAction: Schema.declare<Of["formAction"]>; // property: wa-button.formAction
 	readonly formEnctype: Schema.declare<Of["formEnctype"]>; // property: wa-button.formEnctype
 	readonly formMethod: Schema.declare<Of["formMethod"]>; // property: wa-button.formMethod
 	readonly formNoValidate: Schema.declare<Of["formNoValidate"]>; // property: wa-button.formNoValidate
 	readonly formTarget: Schema.declare<Of["formTarget"]>; // property: wa-button.formTarget
-	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-button.hasInteracted
 	readonly href: Schema.declare<Of["href"]>; // property: wa-button.href
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-button.initialReflectedProperties
-	readonly invalid: Schema.declare<Of["invalid"]>; // property: wa-button.invalid
-	readonly isIconButton: Schema.declare<Of["isIconButton"]>; // property: wa-button.isIconButton
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-button.lang
 	readonly loading: Schema.declare<Of["loading"]>; // property: wa-button.loading
 	readonly name: Schema.declare<Of["name"]>; // property: wa-button.name
 	readonly pill: Schema.declare<Of["pill"]>; // property: wa-button.pill
 	readonly rel: Schema.declare<Of["rel"]>; // property: wa-button.rel
-	readonly required: Schema.declare<Of["required"]>; // property: wa-button.required
 	readonly size: Schema.declare<Of["size"]>; // property: wa-button.size
-	readonly states: Schema.declare<Of["states"]>; // property: wa-button.states
 	readonly target: Schema.declare<Of["target"]>; // property: wa-button.target
-	readonly title: Schema.declare<Of["title"]>; // property: wa-button.title
 	readonly type: Schema.declare<Of["type"]>; // property: wa-button.type
-	readonly validators: Schema.declare<Of["validators"]>; // property: wa-button.validators
 	readonly value: Schema.declare<Of["value"]>; // property: wa-button.value
-	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-button.valueHasChanged
 	readonly variant: Schema.declare<Of["variant"]>; // property: wa-button.variant
 	readonly withCaret: Schema.declare<Of["withCaret"]>; // property: wa-button.withCaret
 	readonly withEnd: Schema.declare<Of["withEnd"]>; // property: wa-button.withEnd
@@ -58,37 +45,24 @@ export const Button: Html.CustomElementBinding<"wa-button", Properties, Events> 
 	tag: "wa-button",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-button.appearance
-		assumeInteractionOn: typed<Of["assumeInteractionOn"]>(), // property: wa-button.assumeInteractionOn
 		customError: typed<Of["customError"]>(), // property: wa-button.customError
 		didSSR: typed<Of["didSSR"]>(), // property: wa-button.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-button.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-button.disabled
 		download: typed<Of["download"]>(), // property: wa-button.download
-		emitInvalid: typed<Of["emitInvalid"]>(), // property: wa-button.emitInvalid
 		formAction: typed<Of["formAction"]>(), // property: wa-button.formAction
 		formEnctype: typed<Of["formEnctype"]>(), // property: wa-button.formEnctype
 		formMethod: typed<Of["formMethod"]>(), // property: wa-button.formMethod
 		formNoValidate: typed<Of["formNoValidate"]>(), // property: wa-button.formNoValidate
 		formTarget: typed<Of["formTarget"]>(), // property: wa-button.formTarget
-		hasInteracted: typed<Of["hasInteracted"]>(), // property: wa-button.hasInteracted
 		href: typed<Of["href"]>(), // property: wa-button.href
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-button.initialReflectedProperties
-		invalid: typed<Of["invalid"]>(), // property: wa-button.invalid
-		isIconButton: typed<Of["isIconButton"]>(), // property: wa-button.isIconButton
-		lang: typed<Of["lang"]>(), // property: wa-button.lang
 		loading: typed<Of["loading"]>(), // property: wa-button.loading
 		name: typed<Of["name"]>(), // property: wa-button.name
 		pill: typed<Of["pill"]>(), // property: wa-button.pill
 		rel: typed<Of["rel"]>(), // property: wa-button.rel
-		required: typed<Of["required"]>(), // property: wa-button.required
 		size: typed<Of["size"]>(), // property: wa-button.size
-		states: typed<Of["states"]>(), // property: wa-button.states
 		target: typed<Of["target"]>(), // property: wa-button.target
-		title: typed<Of["title"]>(), // property: wa-button.title
 		type: typed<Of["type"]>(), // property: wa-button.type
-		validators: typed<Of["validators"]>(), // property: wa-button.validators
 		value: typed<Of["value"]>(), // property: wa-button.value
-		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-button.valueHasChanged
 		variant: typed<Of["variant"]>(), // property: wa-button.variant
 		withCaret: typed<Of["withCaret"]>(), // property: wa-button.withCaret
 		withEnd: typed<Of["withEnd"]>(), // property: wa-button.withEnd

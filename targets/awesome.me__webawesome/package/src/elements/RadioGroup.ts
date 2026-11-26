@@ -10,26 +10,17 @@ type Of = HTMLElementTagNameMap["wa-radio-group"]; // element: wa-radio-group
 
 /** The properties a view sets on `<wa-radio-group>`, as upstream types them. */
 type Properties = {
-	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-radio-group.assumeInteractionOn
 	readonly customError: Schema.declare<Of["customError"]>; // property: wa-radio-group.customError
 	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-radio-group.defaultValue
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-radio-group.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-radio-group.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-radio-group.disabled
-	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-radio-group.emitInvalid
-	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-radio-group.hasInteracted
 	readonly hint: Schema.declare<Of["hint"]>; // property: wa-radio-group.hint
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-radio-group.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-radio-group.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-radio-group.lang
 	readonly name: Schema.declare<Of["name"]>; // property: wa-radio-group.name
 	readonly orientation: Schema.declare<Of["orientation"]>; // property: wa-radio-group.orientation
 	readonly required: Schema.declare<Of["required"]>; // property: wa-radio-group.required
 	readonly size: Schema.declare<Of["size"]>; // property: wa-radio-group.size
-	readonly states: Schema.declare<Of["states"]>; // property: wa-radio-group.states
-	readonly validators: Schema.declare<Of["validators"]>; // property: wa-radio-group.validators
 	readonly value: Schema.declare<Of["value"]>; // property: wa-radio-group.value
-	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-radio-group.valueHasChanged
 	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-radio-group.withHint
 	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-radio-group.withLabel
 };
@@ -43,26 +34,17 @@ type Events = {
 export const RadioGroup: Html.CustomElementBinding<"wa-radio-group", Properties, Events> = Html.customElement({
 	tag: "wa-radio-group",
 	properties: {
-		assumeInteractionOn: typed<Of["assumeInteractionOn"]>(), // property: wa-radio-group.assumeInteractionOn
 		customError: typed<Of["customError"]>(), // property: wa-radio-group.customError
 		defaultValue: typed<Of["defaultValue"]>(), // property: wa-radio-group.defaultValue
 		didSSR: typed<Of["didSSR"]>(), // property: wa-radio-group.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-radio-group.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-radio-group.disabled
-		emitInvalid: typed<Of["emitInvalid"]>(), // property: wa-radio-group.emitInvalid
-		hasInteracted: typed<Of["hasInteracted"]>(), // property: wa-radio-group.hasInteracted
 		hint: typed<Of["hint"]>(), // property: wa-radio-group.hint
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-radio-group.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-radio-group.label
-		lang: typed<Of["lang"]>(), // property: wa-radio-group.lang
 		name: typed<Of["name"]>(), // property: wa-radio-group.name
 		orientation: typed<Of["orientation"]>(), // property: wa-radio-group.orientation
 		required: typed<Of["required"]>(), // property: wa-radio-group.required
 		size: typed<Of["size"]>(), // property: wa-radio-group.size
-		states: typed<Of["states"]>(), // property: wa-radio-group.states
-		validators: typed<Of["validators"]>(), // property: wa-radio-group.validators
 		value: typed<Of["value"]>(), // property: wa-radio-group.value
-		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-radio-group.valueHasChanged
 		withHint: typed<Of["withHint"]>(), // property: wa-radio-group.withHint
 		withLabel: typed<Of["withLabel"]>(), // property: wa-radio-group.withLabel
 	},

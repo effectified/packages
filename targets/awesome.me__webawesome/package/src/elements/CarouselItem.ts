@@ -11,9 +11,6 @@ type Of = HTMLElementTagNameMap["wa-carousel-item"]; // element: wa-carousel-ite
 /** The properties a view sets on `<wa-carousel-item>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-carousel-item.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-carousel-item.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-carousel-item.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-carousel-item.lang
 };
 
 /** The custom events of `<wa-carousel-item>`, each its `detail`. */
@@ -24,9 +21,6 @@ export const CarouselItem: Html.CustomElementBinding<"wa-carousel-item", Propert
 	tag: "wa-carousel-item",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-carousel-item.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-carousel-item.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-carousel-item.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-carousel-item.lang
 	},
 	events: {},
 });

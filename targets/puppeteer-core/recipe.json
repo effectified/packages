@@ -177,6 +177,7 @@
 		"WebMCP.on",
 		"WebMCP.once"
 	],
+	"revision": 2,
 	"testDependencies": {},
 	"decisions": [
 		{
@@ -544,5 +545,8 @@
 			"by": "agent"
 		}
 	],
-	"revision": 2
+	"typeDependencies": {
+		"devtools-protocol": "0.0.1724436",
+		"typed-query-selector": "^2.12.3"
+	}
 }

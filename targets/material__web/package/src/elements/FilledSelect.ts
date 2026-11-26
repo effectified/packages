@@ -11,6 +11,7 @@ type Of = HTMLElementTagNameMap["md-filled-select"]; // element: md-filled-selec
 /** The properties a view sets on `<md-filled-select>`, as upstream types them. */
 type Properties = {
 	readonly clampMenuWidth: Schema.declare<Of["clampMenuWidth"]>; // property: md-filled-select.clampMenuWidth
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-filled-select.disabled
 	readonly displayText: Schema.declare<Of["displayText"]>; // property: md-filled-select.displayText
 	readonly error: Schema.declare<Of["error"]>; // property: md-filled-select.error
 	readonly errorText: Schema.declare<Of["errorText"]>; // property: md-filled-select.errorText
@@ -18,12 +19,11 @@ type Properties = {
 	readonly label: Schema.declare<Of["label"]>; // property: md-filled-select.label
 	readonly menuAlign: Schema.declare<Of["menuAlign"]>; // property: md-filled-select.menuAlign
 	readonly menuPositioning: Schema.declare<Of["menuPositioning"]>; // property: md-filled-select.menuPositioning
+	readonly name: Schema.declare<Of["name"]>; // property: md-filled-select.name
 	readonly noAsterisk: Schema.declare<Of["noAsterisk"]>; // property: md-filled-select.noAsterisk
-	readonly options: Schema.declare<Of["options"]>; // property: md-filled-select.options
 	readonly quick: Schema.declare<Of["quick"]>; // property: md-filled-select.quick
 	readonly required: Schema.declare<Of["required"]>; // property: md-filled-select.required
 	readonly selectedIndex: Schema.declare<Of["selectedIndex"]>; // property: md-filled-select.selectedIndex
-	readonly selectedOptions: Schema.declare<Of["selectedOptions"]>; // property: md-filled-select.selectedOptions
 	readonly supportingText: Schema.declare<Of["supportingText"]>; // property: md-filled-select.supportingText
 	readonly typeaheadDelay: Schema.declare<Of["typeaheadDelay"]>; // property: md-filled-select.typeaheadDelay
 	readonly value: Schema.declare<Of["value"]>; // property: md-filled-select.value
@@ -42,6 +42,7 @@ export const FilledSelect: Html.CustomElementBinding<"md-filled-select", Propert
 	tag: "md-filled-select",
 	properties: {
 		clampMenuWidth: typed<Of["clampMenuWidth"]>(), // property: md-filled-select.clampMenuWidth
+		disabled: typed<Of["disabled"]>(), // property: md-filled-select.disabled
 		displayText: typed<Of["displayText"]>(), // property: md-filled-select.displayText
 		error: typed<Of["error"]>(), // property: md-filled-select.error
 		errorText: typed<Of["errorText"]>(), // property: md-filled-select.errorText
@@ -49,12 +50,11 @@ export const FilledSelect: Html.CustomElementBinding<"md-filled-select", Propert
 		label: typed<Of["label"]>(), // property: md-filled-select.label
 		menuAlign: typed<Of["menuAlign"]>(), // property: md-filled-select.menuAlign
 		menuPositioning: typed<Of["menuPositioning"]>(), // property: md-filled-select.menuPositioning
+		name: typed<Of["name"]>(), // property: md-filled-select.name
 		noAsterisk: typed<Of["noAsterisk"]>(), // property: md-filled-select.noAsterisk
-		options: typed<Of["options"]>(), // property: md-filled-select.options
 		quick: typed<Of["quick"]>(), // property: md-filled-select.quick
 		required: typed<Of["required"]>(), // property: md-filled-select.required
 		selectedIndex: typed<Of["selectedIndex"]>(), // property: md-filled-select.selectedIndex
-		selectedOptions: typed<Of["selectedOptions"]>(), // property: md-filled-select.selectedOptions
 		supportingText: typed<Of["supportingText"]>(), // property: md-filled-select.supportingText
 		typeaheadDelay: typed<Of["typeaheadDelay"]>(), // property: md-filled-select.typeaheadDelay
 		value: typed<Of["value"]>(), // property: md-filled-select.value

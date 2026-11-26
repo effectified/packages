@@ -4995,5 +4995,8 @@
 			"events": [],
 			"description": ""
 		}
-	]
+	],
+	"typeDependencies": {
+		"ce-la-react": "^0.3.2"
+	}
 }

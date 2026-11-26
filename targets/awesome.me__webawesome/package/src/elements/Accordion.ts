@@ -12,11 +12,8 @@ type Of = HTMLElementTagNameMap["wa-accordion"]; // element: wa-accordion
 type Properties = {
 	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-accordion.appearance
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-accordion.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-accordion.dir
 	readonly headingLevel: Schema.declare<Of["headingLevel"]>; // property: wa-accordion.headingLevel
 	readonly iconPlacement: Schema.declare<Of["iconPlacement"]>; // property: wa-accordion.iconPlacement
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-accordion.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-accordion.lang
 	readonly mode: Schema.declare<Of["mode"]>; // property: wa-accordion.mode
 };
 
@@ -34,11 +31,8 @@ export const Accordion: Html.CustomElementBinding<"wa-accordion", Properties, Ev
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-accordion.appearance
 		didSSR: typed<Of["didSSR"]>(), // property: wa-accordion.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-accordion.dir
 		headingLevel: typed<Of["headingLevel"]>(), // property: wa-accordion.headingLevel
 		iconPlacement: typed<Of["iconPlacement"]>(), // property: wa-accordion.iconPlacement
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-accordion.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-accordion.lang
 		mode: typed<Of["mode"]>(), // property: wa-accordion.mode
 	},
 	events: {

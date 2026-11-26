@@ -11,11 +11,8 @@ type Of = HTMLElementTagNameMap["wa-popover"]; // element: wa-popover
 /** The properties a view sets on `<wa-popover>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-popover.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-popover.dir
 	readonly distance: Schema.declare<Of["distance"]>; // property: wa-popover.distance
 	readonly for: Schema.declare<Of["for"]>; // property: wa-popover.for
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-popover.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-popover.lang
 	readonly open: Schema.declare<Of["open"]>; // property: wa-popover.open
 	readonly placement: Schema.declare<Of["placement"]>; // property: wa-popover.placement
 	readonly skidding: Schema.declare<Of["skidding"]>; // property: wa-popover.skidding
@@ -35,11 +32,8 @@ export const Popover: Html.CustomElementBinding<"wa-popover", Properties, Events
 	tag: "wa-popover",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-popover.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-popover.dir
 		distance: typed<Of["distance"]>(), // property: wa-popover.distance
 		for: typed<Of["for"]>(), // property: wa-popover.for
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-popover.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-popover.lang
 		open: typed<Of["open"]>(), // property: wa-popover.open
 		placement: typed<Of["placement"]>(), // property: wa-popover.placement
 		skidding: typed<Of["skidding"]>(), // property: wa-popover.skidding

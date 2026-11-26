@@ -60,7 +60,9 @@
 			"definition": "@material/web/checkbox/checkbox.js",
 			"properties": [
 				"checked",
+				"disabled",
 				"indeterminate",
+				"name",
 				"required",
 				"value"
 			],
@@ -128,12 +130,16 @@
 			"name": "ElevatedButton",
 			"definition": "@material/web/button/elevated-button.js",
 			"properties": [
+				"disabled",
 				"download",
 				"hasIcon",
 				"href",
+				"name",
 				"softDisabled",
 				"target",
-				"trailingIcon"
+				"trailingIcon",
+				"type",
+				"value"
 			],
 			"events": [],
 			"description": "Buttons help people take action, such as sending an email, sharing a document, or liking a comment."
@@ -172,12 +178,16 @@
 			"name": "FilledButton",
 			"definition": "@material/web/button/filled-button.js",
 			"properties": [
+				"disabled",
 				"download",
 				"hasIcon",
 				"href",
+				"name",
 				"softDisabled",
 				"target",
-				"trailingIcon"
+				"trailingIcon",
+				"type",
+				"value"
 			],
 			"events": [],
 			"description": "Buttons help people take action, such as sending an email, sharing a document, or liking a comment."
@@ -219,13 +229,17 @@
 			"definition": "@material/web/iconbutton/filled-icon-button.js",
 			"properties": [
 				"ariaLabelSelected",
+				"disabled",
 				"download",
 				"flipIconInRtl",
 				"href",
+				"name",
 				"selected",
 				"softDisabled",
 				"target",
-				"toggle"
+				"toggle",
+				"type",
+				"value"
 			],
 			"events": [
 				"change",
@@ -239,6 +253,7 @@
 			"definition": "@material/web/select/filled-select.js",
 			"properties": [
 				"clampMenuWidth",
+				"disabled",
 				"displayText",
 				"error",
 				"errorText",
@@ -246,12 +261,11 @@
 				"label",
 				"menuAlign",
 				"menuPositioning",
+				"name",
 				"noAsterisk",
-				"options",
 				"quick",
 				"required",
 				"selectedIndex",
-				"selectedOptions",
 				"supportingText",
 				"typeaheadDelay",
 				"value"
@@ -273,19 +287,16 @@
 			"properties": [
 				"autocomplete",
 				"cols",
-				"disabled",
 				"error",
 				"errorText",
 				"hasLeadingIcon",
 				"hasTrailingIcon",
-				"inputMode",
 				"label",
 				"max",
 				"maxLength",
 				"min",
 				"minLength",
 				"multiple",
-				"name",
 				"noAsterisk",
 				"noSpinner",
 				"pattern",
@@ -294,17 +305,12 @@
 				"readOnly",
 				"required",
 				"rows",
-				"selectionDirection",
-				"selectionEnd",
-				"selectionStart",
 				"step",
 				"suffixText",
 				"supportingText",
 				"textDirection",
 				"type",
-				"value",
-				"valueAsDate",
-				"valueAsNumber"
+				"value"
 			],
 			"events": [
 				"change",
@@ -318,12 +324,16 @@
 			"name": "FilledTonalButton",
 			"definition": "@material/web/button/filled-tonal-button.js",
 			"properties": [
+				"disabled",
 				"download",
 				"hasIcon",
 				"href",
+				"name",
 				"softDisabled",
 				"target",
-				"trailingIcon"
+				"trailingIcon",
+				"type",
+				"value"
 			],
 			"events": [],
 			"description": "Buttons help people take action, such as sending an email, sharing a document, or liking a comment."
@@ -334,13 +344,17 @@
 			"definition": "@material/web/iconbutton/filled-tonal-icon-button.js",
 			"properties": [
 				"ariaLabelSelected",
+				"disabled",
 				"download",
 				"flipIconInRtl",
 				"href",
+				"name",
 				"selected",
 				"softDisabled",
 				"target",
-				"toggle"
+				"toggle",
+				"type",
+				"value"
 			],
 			"events": [
 				"change",
@@ -354,7 +368,6 @@
 			"definition": "@material/web/chips/filter-chip.js",
 			"properties": [
 				"alwaysFocusable",
-				"ariaLabelRemove",
 				"disabled",
 				"elevated",
 				"hasIcon",
@@ -375,7 +388,6 @@
 			"name": "FocusRing",
 			"definition": "@material/web/focus/md-focus-ring.js",
 			"properties": [
-				"htmlFor",
 				"inward",
 				"visible"
 			],
@@ -398,13 +410,17 @@
 			"definition": "@material/web/iconbutton/icon-button.js",
 			"properties": [
 				"ariaLabelSelected",
+				"disabled",
 				"download",
 				"flipIconInRtl",
 				"href",
+				"name",
 				"selected",
 				"softDisabled",
 				"target",
-				"toggle"
+				"toggle",
+				"type",
+				"value"
 			],
 			"events": [
 				"change",
@@ -418,7 +434,6 @@
 			"definition": "@material/web/chips/input-chip.js",
 			"properties": [
 				"alwaysFocusable",
-				"ariaLabelRemove",
 				"avatar",
 				"disabled",
 				"hasIcon",
@@ -463,9 +478,7 @@
 			"tag": "md-list",
 			"name": "List",
 			"definition": "@material/web/list/list.js",
-			"properties": [
-				"items"
-			],
+			"properties": [],
 			"events": [],
 			"description": "Lists are continuous, vertical indexes of text or images."
 		},
@@ -495,7 +508,6 @@
 				"defaultFocus",
 				"hasOverflow",
 				"isSubmenu",
-				"items",
 				"menuCorner",
 				"noHorizontalFlip",
 				"noNavigationWrap",
@@ -506,6 +518,7 @@
 				"skipRestoreFocus",
 				"stayOpenOnFocusout",
 				"stayOpenOnOutsideClick",
+				"typeaheadController",
 				"typeaheadDelay",
 				"xOffset",
 				"yOffset"
@@ -528,8 +541,7 @@
 				"keepOpen",
 				"selected",
 				"target",
-				"type",
-				"typeaheadText"
+				"type"
 			],
 			"events": [
 				"close-menu"
@@ -598,12 +610,16 @@
 			"name": "OutlinedButton",
 			"definition": "@material/web/button/outlined-button.js",
 			"properties": [
+				"disabled",
 				"download",
 				"hasIcon",
 				"href",
+				"name",
 				"softDisabled",
 				"target",
-				"trailingIcon"
+				"trailingIcon",
+				"type",
+				"value"
 			],
 			"events": [],
 			"description": "Buttons help people take action, such as sending an email, sharing a document, or liking a comment."
@@ -645,13 +661,17 @@
 			"definition": "@material/web/iconbutton/outlined-icon-button.js",
 			"properties": [
 				"ariaLabelSelected",
+				"disabled",
 				"download",
 				"flipIconInRtl",
 				"href",
+				"name",
 				"selected",
 				"softDisabled",
 				"target",
-				"toggle"
+				"toggle",
+				"type",
+				"value"
 			],
 			"events": [
 				"change",
@@ -693,6 +713,7 @@
 			"definition": "@material/web/select/outlined-select.js",
 			"properties": [
 				"clampMenuWidth",
+				"disabled",
 				"displayText",
 				"error",
 				"errorText",
@@ -700,12 +721,11 @@
 				"label",
 				"menuAlign",
 				"menuPositioning",
+				"name",
 				"noAsterisk",
-				"options",
 				"quick",
 				"required",
 				"selectedIndex",
-				"selectedOptions",
 				"supportingText",
 				"typeaheadDelay",
 				"value"
@@ -727,19 +747,16 @@
 			"properties": [
 				"autocomplete",
 				"cols",
-				"disabled",
 				"error",
 				"errorText",
 				"hasLeadingIcon",
 				"hasTrailingIcon",
-				"inputMode",
 				"label",
 				"max",
 				"maxLength",
 				"min",
 				"minLength",
 				"multiple",
-				"name",
 				"noAsterisk",
 				"noSpinner",
 				"pattern",
@@ -748,17 +765,12 @@
 				"readOnly",
 				"required",
 				"rows",
-				"selectionDirection",
-				"selectionEnd",
-				"selectionStart",
 				"step",
 				"suffixText",
 				"supportingText",
 				"textDirection",
 				"type",
-				"value",
-				"valueAsDate",
-				"valueAsNumber"
+				"value"
 			],
 			"events": [
 				"change",
@@ -776,7 +788,6 @@
 				"hasIcon",
 				"iconOnly",
 				"inlineIcon",
-				"isTab",
 				"selected"
 			],
 			"events": [],
@@ -788,6 +799,8 @@
 			"definition": "@material/web/radio/radio.js",
 			"properties": [
 				"checked",
+				"disabled",
+				"name",
 				"required",
 				"value"
 			],
@@ -802,8 +815,7 @@
 			"name": "Ripple",
 			"definition": "@material/web/ripple/ripple.js",
 			"properties": [
-				"disabled",
-				"htmlFor"
+				"disabled"
 			],
 			"events": [],
 			"description": "Ripples, also known as state layers, are visual indicators used to communicate the status of a component or interactive element."
@@ -816,7 +828,6 @@
 				"active",
 				"hasIcon",
 				"iconOnly",
-				"isTab",
 				"selected"
 			],
 			"events": [],
@@ -828,11 +839,8 @@
 			"definition": "@material/web/select/select-option.js",
 			"properties": [
 				"disabled",
-				"displayText",
 				"isMenuItem",
 				"selected",
-				"type",
-				"typeaheadText",
 				"value"
 			],
 			"events": [
@@ -851,11 +859,11 @@
 				"ariaLabelStart",
 				"ariaValueTextEnd",
 				"ariaValueTextStart",
+				"disabled",
 				"labeled",
 				"max",
 				"min",
-				"nameEnd",
-				"nameStart",
+				"name",
 				"range",
 				"step",
 				"ticks",
@@ -881,7 +889,6 @@
 				"hoverCloseDelay",
 				"hoverOpenDelay",
 				"isSubMenu",
-				"item",
 				"menuCorner"
 			],
 			"events": [
@@ -917,7 +924,9 @@
 			"name": "Switch",
 			"definition": "@material/web/switch/switch.js",
 			"properties": [
+				"disabled",
 				"icons",
+				"name",
 				"required",
 				"selected",
 				"showOnlySelectedIcon",
@@ -947,15 +956,22 @@
 			"name": "TextButton",
 			"definition": "@material/web/button/text-button.js",
 			"properties": [
+				"disabled",
 				"download",
 				"hasIcon",
 				"href",
+				"name",
 				"softDisabled",
 				"target",
-				"trailingIcon"
+				"trailingIcon",
+				"type",
+				"value"
 			],
 			"events": [],
 			"description": "Buttons help people take action, such as sending an email, sharing a document, or liking a comment."
 		}
-	]
+	],
+	"typeDependencies": {
+		"lit": "^2.8.0 || ^3.0.0"
+	}
 }

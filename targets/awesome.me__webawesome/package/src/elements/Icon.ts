@@ -14,12 +14,9 @@ type Properties = {
 	readonly autoWidth: Schema.declare<Of["autoWidth"]>; // property: wa-icon.autoWidth
 	readonly canvas: Schema.declare<Of["canvas"]>; // property: wa-icon.canvas
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-icon.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-icon.dir
 	readonly family: Schema.declare<Of["family"]>; // property: wa-icon.family
 	readonly flip: Schema.declare<Of["flip"]>; // property: wa-icon.flip
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-icon.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-icon.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-icon.lang
 	readonly library: Schema.declare<Of["library"]>; // property: wa-icon.library
 	readonly name: Schema.declare<Of["name"]>; // property: wa-icon.name
 	readonly rotate: Schema.declare<Of["rotate"]>; // property: wa-icon.rotate
@@ -42,12 +39,9 @@ export const Icon: Html.CustomElementBinding<"wa-icon", Properties, Events> = Ht
 		autoWidth: typed<Of["autoWidth"]>(), // property: wa-icon.autoWidth
 		canvas: typed<Of["canvas"]>(), // property: wa-icon.canvas
 		didSSR: typed<Of["didSSR"]>(), // property: wa-icon.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-icon.dir
 		family: typed<Of["family"]>(), // property: wa-icon.family
 		flip: typed<Of["flip"]>(), // property: wa-icon.flip
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-icon.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-icon.label
-		lang: typed<Of["lang"]>(), // property: wa-icon.lang
 		library: typed<Of["library"]>(), // property: wa-icon.library
 		name: typed<Of["name"]>(), // property: wa-icon.name
 		rotate: typed<Of["rotate"]>(), // property: wa-icon.rotate

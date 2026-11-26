@@ -11,10 +11,7 @@ type Of = HTMLElementTagNameMap["wa-resize-observer"]; // element: wa-resize-obs
 /** The properties a view sets on `<wa-resize-observer>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-resize-observer.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-resize-observer.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-resize-observer.disabled
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-resize-observer.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-resize-observer.lang
 };
 
 /** The custom events of `<wa-resize-observer>`, each its `detail`. */
@@ -27,10 +24,7 @@ export const ResizeObserver: Html.CustomElementBinding<"wa-resize-observer", Pro
 	tag: "wa-resize-observer",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-resize-observer.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-resize-observer.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-resize-observer.disabled
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-resize-observer.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-resize-observer.lang
 	},
 	events: {
 		"wa-resize": typed<DetailOf<"wa-resize">>(),

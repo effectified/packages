@@ -10,12 +10,16 @@ type Of = HTMLElementTagNameMap["md-elevated-button"]; // element: md-elevated-b
 
 /** The properties a view sets on `<md-elevated-button>`, as upstream types them. */
 type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-elevated-button.disabled
 	readonly download: Schema.declare<Of["download"]>; // property: md-elevated-button.download
 	readonly hasIcon: Schema.declare<Of["hasIcon"]>; // property: md-elevated-button.hasIcon
 	readonly href: Schema.declare<Of["href"]>; // property: md-elevated-button.href
+	readonly name: Schema.declare<Of["name"]>; // property: md-elevated-button.name
 	readonly softDisabled: Schema.declare<Of["softDisabled"]>; // property: md-elevated-button.softDisabled
 	readonly target: Schema.declare<Of["target"]>; // property: md-elevated-button.target
 	readonly trailingIcon: Schema.declare<Of["trailingIcon"]>; // property: md-elevated-button.trailingIcon
+	readonly type: Schema.declare<Of["type"]>; // property: md-elevated-button.type
+	readonly value: Schema.declare<Of["value"]>; // property: md-elevated-button.value
 };
 
 /** The custom events of `<md-elevated-button>`, each its `detail`. */
@@ -25,12 +29,16 @@ type Events = {};
 export const ElevatedButton: Html.CustomElementBinding<"md-elevated-button", Properties, Events> = Html.customElement({
 	tag: "md-elevated-button",
 	properties: {
+		disabled: typed<Of["disabled"]>(), // property: md-elevated-button.disabled
 		download: typed<Of["download"]>(), // property: md-elevated-button.download
 		hasIcon: typed<Of["hasIcon"]>(), // property: md-elevated-button.hasIcon
 		href: typed<Of["href"]>(), // property: md-elevated-button.href
+		name: typed<Of["name"]>(), // property: md-elevated-button.name
 		softDisabled: typed<Of["softDisabled"]>(), // property: md-elevated-button.softDisabled
 		target: typed<Of["target"]>(), // property: md-elevated-button.target
 		trailingIcon: typed<Of["trailingIcon"]>(), // property: md-elevated-button.trailingIcon
+		type: typed<Of["type"]>(), // property: md-elevated-button.type
+		value: typed<Of["value"]>(), // property: md-elevated-button.value
 	},
 	events: {},
 });

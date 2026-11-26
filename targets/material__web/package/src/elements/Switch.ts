@@ -10,7 +10,9 @@ type Of = HTMLElementTagNameMap["md-switch"]; // element: md-switch
 
 /** The properties a view sets on `<md-switch>`, as upstream types them. */
 type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-switch.disabled
 	readonly icons: Schema.declare<Of["icons"]>; // property: md-switch.icons
+	readonly name: Schema.declare<Of["name"]>; // property: md-switch.name
 	readonly required: Schema.declare<Of["required"]>; // property: md-switch.required
 	readonly selected: Schema.declare<Of["selected"]>; // property: md-switch.selected
 	readonly showOnlySelectedIcon: Schema.declare<Of["showOnlySelectedIcon"]>; // property: md-switch.showOnlySelectedIcon
@@ -24,7 +26,9 @@ type Events = {};
 export const Switch: Html.CustomElementBinding<"md-switch", Properties, Events> = Html.customElement({
 	tag: "md-switch",
 	properties: {
+		disabled: typed<Of["disabled"]>(), // property: md-switch.disabled
 		icons: typed<Of["icons"]>(), // property: md-switch.icons
+		name: typed<Of["name"]>(), // property: md-switch.name
 		required: typed<Of["required"]>(), // property: md-switch.required
 		selected: typed<Of["selected"]>(), // property: md-switch.selected
 		showOnlySelectedIcon: typed<Of["showOnlySelectedIcon"]>(), // property: md-switch.showOnlySelectedIcon

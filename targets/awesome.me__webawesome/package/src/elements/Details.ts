@@ -12,12 +12,8 @@ type Of = HTMLElementTagNameMap["wa-details"]; // element: wa-details
 type Properties = {
 	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-details.appearance
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-details.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-details.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-details.disabled
 	readonly iconPlacement: Schema.declare<Of["iconPlacement"]>; // property: wa-details.iconPlacement
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-details.initialReflectedProperties
-	readonly isAnimating: Schema.declare<Of["isAnimating"]>; // property: wa-details.isAnimating
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-details.lang
 	readonly name: Schema.declare<Of["name"]>; // property: wa-details.name
 	readonly open: Schema.declare<Of["open"]>; // property: wa-details.open
 	readonly summary: Schema.declare<Of["summary"]>; // property: wa-details.summary
@@ -37,12 +33,8 @@ export const Details: Html.CustomElementBinding<"wa-details", Properties, Events
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-details.appearance
 		didSSR: typed<Of["didSSR"]>(), // property: wa-details.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-details.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-details.disabled
 		iconPlacement: typed<Of["iconPlacement"]>(), // property: wa-details.iconPlacement
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-details.initialReflectedProperties
-		isAnimating: typed<Of["isAnimating"]>(), // property: wa-details.isAnimating
-		lang: typed<Of["lang"]>(), // property: wa-details.lang
 		name: typed<Of["name"]>(), // property: wa-details.name
 		open: typed<Of["open"]>(), // property: wa-details.open
 		summary: typed<Of["summary"]>(), // property: wa-details.summary

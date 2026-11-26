@@ -11,12 +11,9 @@ type Of = HTMLElementTagNameMap["wa-avatar"]; // element: wa-avatar
 /** The properties a view sets on `<wa-avatar>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-avatar.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-avatar.dir
 	readonly image: Schema.declare<Of["image"]>; // property: wa-avatar.image
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-avatar.initialReflectedProperties
 	readonly initials: Schema.declare<Of["initials"]>; // property: wa-avatar.initials
 	readonly label: Schema.declare<Of["label"]>; // property: wa-avatar.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-avatar.lang
 	readonly loading: Schema.declare<Of["loading"]>; // property: wa-avatar.loading
 	readonly shape: Schema.declare<Of["shape"]>; // property: wa-avatar.shape
 };
@@ -31,12 +28,9 @@ export const Avatar: Html.CustomElementBinding<"wa-avatar", Properties, Events> 
 	tag: "wa-avatar",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-avatar.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-avatar.dir
 		image: typed<Of["image"]>(), // property: wa-avatar.image
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-avatar.initialReflectedProperties
 		initials: typed<Of["initials"]>(), // property: wa-avatar.initials
 		label: typed<Of["label"]>(), // property: wa-avatar.label
-		lang: typed<Of["lang"]>(), // property: wa-avatar.lang
 		loading: typed<Of["loading"]>(), // property: wa-avatar.loading
 		shape: typed<Of["shape"]>(), // property: wa-avatar.shape
 	},

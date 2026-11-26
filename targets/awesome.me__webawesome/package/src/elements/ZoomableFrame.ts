@@ -13,10 +13,7 @@ type Properties = {
 	readonly allow: Schema.declare<Of["allow"]>; // property: wa-zoomable-frame.allow
 	readonly allowfullscreen: Schema.declare<Of["allowfullscreen"]>; // property: wa-zoomable-frame.allowfullscreen
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-zoomable-frame.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-zoomable-frame.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-zoomable-frame.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-zoomable-frame.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-zoomable-frame.lang
 	readonly loading: Schema.declare<Of["loading"]>; // property: wa-zoomable-frame.loading
 	readonly name: Schema.declare<Of["name"]>; // property: wa-zoomable-frame.name
 	readonly referrerpolicy: Schema.declare<Of["referrerpolicy"]>; // property: wa-zoomable-frame.referrerpolicy
@@ -40,10 +37,7 @@ export const ZoomableFrame: Html.CustomElementBinding<"wa-zoomable-frame", Prope
 		allow: typed<Of["allow"]>(), // property: wa-zoomable-frame.allow
 		allowfullscreen: typed<Of["allowfullscreen"]>(), // property: wa-zoomable-frame.allowfullscreen
 		didSSR: typed<Of["didSSR"]>(), // property: wa-zoomable-frame.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-zoomable-frame.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-zoomable-frame.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-zoomable-frame.label
-		lang: typed<Of["lang"]>(), // property: wa-zoomable-frame.lang
 		loading: typed<Of["loading"]>(), // property: wa-zoomable-frame.loading
 		name: typed<Of["name"]>(), // property: wa-zoomable-frame.name
 		referrerpolicy: typed<Of["referrerpolicy"]>(), // property: wa-zoomable-frame.referrerpolicy

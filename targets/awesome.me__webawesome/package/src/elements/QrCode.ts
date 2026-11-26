@@ -12,16 +12,13 @@ type Of = HTMLElementTagNameMap["wa-qr-code"]; // element: wa-qr-code
 type Properties = {
 	readonly background: Schema.declare<Of["background"]>; // property: wa-qr-code.background
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-qr-code.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-qr-code.dir
 	readonly errorCorrection: Schema.declare<Of["errorCorrection"]>; // property: wa-qr-code.errorCorrection
 	readonly fill: Schema.declare<Of["fill"]>; // property: wa-qr-code.fill
 	readonly image: Schema.declare<Of["image"]>; // property: wa-qr-code.image
 	readonly imageBackground: Schema.declare<Of["imageBackground"]>; // property: wa-qr-code.imageBackground
 	readonly imageCoverage: Schema.declare<Of["imageCoverage"]>; // property: wa-qr-code.imageCoverage
 	readonly imagePadding: Schema.declare<Of["imagePadding"]>; // property: wa-qr-code.imagePadding
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-qr-code.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-qr-code.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-qr-code.lang
 	readonly radius: Schema.declare<Of["radius"]>; // property: wa-qr-code.radius
 	readonly size: Schema.declare<Of["size"]>; // property: wa-qr-code.size
 	readonly value: Schema.declare<Of["value"]>; // property: wa-qr-code.value
@@ -36,16 +33,13 @@ export const QrCode: Html.CustomElementBinding<"wa-qr-code", Properties, Events>
 	properties: {
 		background: typed<Of["background"]>(), // property: wa-qr-code.background
 		didSSR: typed<Of["didSSR"]>(), // property: wa-qr-code.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-qr-code.dir
 		errorCorrection: typed<Of["errorCorrection"]>(), // property: wa-qr-code.errorCorrection
 		fill: typed<Of["fill"]>(), // property: wa-qr-code.fill
 		image: typed<Of["image"]>(), // property: wa-qr-code.image
 		imageBackground: typed<Of["imageBackground"]>(), // property: wa-qr-code.imageBackground
 		imageCoverage: typed<Of["imageCoverage"]>(), // property: wa-qr-code.imageCoverage
 		imagePadding: typed<Of["imagePadding"]>(), // property: wa-qr-code.imagePadding
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-qr-code.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-qr-code.label
-		lang: typed<Of["lang"]>(), // property: wa-qr-code.lang
 		radius: typed<Of["radius"]>(), // property: wa-qr-code.radius
 		size: typed<Of["size"]>(), // property: wa-qr-code.size
 		value: typed<Of["value"]>(), // property: wa-qr-code.value

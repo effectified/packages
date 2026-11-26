@@ -11,19 +11,13 @@ type Of = HTMLElementTagNameMap["wa-known-date"]; // element: wa-known-date
 /** The properties a view sets on `<wa-known-date>`, as upstream types them. */
 type Properties = {
 	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-known-date.appearance
-	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-known-date.assumeInteractionOn
 	readonly autocomplete: Schema.declare<Of["autocomplete"]>; // property: wa-known-date.autocomplete
 	readonly customError: Schema.declare<Of["customError"]>; // property: wa-known-date.customError
 	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-known-date.defaultValue
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-known-date.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-known-date.dir
 	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-known-date.disabled
-	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-known-date.emitInvalid
-	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-known-date.hasInteracted
 	readonly hint: Schema.declare<Of["hint"]>; // property: wa-known-date.hint
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-known-date.initialReflectedProperties
 	readonly label: Schema.declare<Of["label"]>; // property: wa-known-date.label
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-known-date.lang
 	readonly locale: Schema.declare<Of["locale"]>; // property: wa-known-date.locale
 	readonly max: Schema.declare<Of["max"]>; // property: wa-known-date.max
 	readonly min: Schema.declare<Of["min"]>; // property: wa-known-date.min
@@ -33,10 +27,7 @@ type Properties = {
 	readonly readonly: Schema.declare<Of["readonly"]>; // property: wa-known-date.readonly
 	readonly required: Schema.declare<Of["required"]>; // property: wa-known-date.required
 	readonly size: Schema.declare<Of["size"]>; // property: wa-known-date.size
-	readonly states: Schema.declare<Of["states"]>; // property: wa-known-date.states
-	readonly validators: Schema.declare<Of["validators"]>; // property: wa-known-date.validators
 	readonly value: Schema.declare<Of["value"]>; // property: wa-known-date.value
-	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-known-date.valueHasChanged
 	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-known-date.withHint
 	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-known-date.withLabel
 };
@@ -51,19 +42,13 @@ export const KnownDate: Html.CustomElementBinding<"wa-known-date", Properties, E
 	tag: "wa-known-date",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-known-date.appearance
-		assumeInteractionOn: typed<Of["assumeInteractionOn"]>(), // property: wa-known-date.assumeInteractionOn
 		autocomplete: typed<Of["autocomplete"]>(), // property: wa-known-date.autocomplete
 		customError: typed<Of["customError"]>(), // property: wa-known-date.customError
 		defaultValue: typed<Of["defaultValue"]>(), // property: wa-known-date.defaultValue
 		didSSR: typed<Of["didSSR"]>(), // property: wa-known-date.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-known-date.dir
 		disabled: typed<Of["disabled"]>(), // property: wa-known-date.disabled
-		emitInvalid: typed<Of["emitInvalid"]>(), // property: wa-known-date.emitInvalid
-		hasInteracted: typed<Of["hasInteracted"]>(), // property: wa-known-date.hasInteracted
 		hint: typed<Of["hint"]>(), // property: wa-known-date.hint
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-known-date.initialReflectedProperties
 		label: typed<Of["label"]>(), // property: wa-known-date.label
-		lang: typed<Of["lang"]>(), // property: wa-known-date.lang
 		locale: typed<Of["locale"]>(), // property: wa-known-date.locale
 		max: typed<Of["max"]>(), // property: wa-known-date.max
 		min: typed<Of["min"]>(), // property: wa-known-date.min
@@ -73,10 +58,7 @@ export const KnownDate: Html.CustomElementBinding<"wa-known-date", Properties, E
 		readonly: typed<Of["readonly"]>(), // property: wa-known-date.readonly
 		required: typed<Of["required"]>(), // property: wa-known-date.required
 		size: typed<Of["size"]>(), // property: wa-known-date.size
-		states: typed<Of["states"]>(), // property: wa-known-date.states
-		validators: typed<Of["validators"]>(), // property: wa-known-date.validators
 		value: typed<Of["value"]>(), // property: wa-known-date.value
-		valueHasChanged: typed<Of["valueHasChanged"]>(), // property: wa-known-date.valueHasChanged
 		withHint: typed<Of["withHint"]>(), // property: wa-known-date.withHint
 		withLabel: typed<Of["withLabel"]>(), // property: wa-known-date.withLabel
 	},

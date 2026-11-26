@@ -12,11 +12,7 @@ type Of = HTMLElementTagNameMap["wa-tab-panel"]; // element: wa-tab-panel
 type Properties = {
 	readonly active: Schema.declare<Of["active"]>; // property: wa-tab-panel.active
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-tab-panel.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-tab-panel.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-tab-panel.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-tab-panel.lang
 	readonly name: Schema.declare<Of["name"]>; // property: wa-tab-panel.name
-	readonly role: Schema.declare<Of["role"]>; // property: wa-tab-panel.role
 };
 
 /** The custom events of `<wa-tab-panel>`, each its `detail`. */
@@ -28,11 +24,7 @@ export const TabPanel: Html.CustomElementBinding<"wa-tab-panel", Properties, Eve
 	properties: {
 		active: typed<Of["active"]>(), // property: wa-tab-panel.active
 		didSSR: typed<Of["didSSR"]>(), // property: wa-tab-panel.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-tab-panel.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-tab-panel.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-tab-panel.lang
 		name: typed<Of["name"]>(), // property: wa-tab-panel.name
-		role: typed<Of["role"]>(), // property: wa-tab-panel.role
 	},
 	events: {},
 });

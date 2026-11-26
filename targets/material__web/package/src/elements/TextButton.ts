@@ -10,12 +10,16 @@ type Of = HTMLElementTagNameMap["md-text-button"]; // element: md-text-button
 
 /** The properties a view sets on `<md-text-button>`, as upstream types them. */
 type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-text-button.disabled
 	readonly download: Schema.declare<Of["download"]>; // property: md-text-button.download
 	readonly hasIcon: Schema.declare<Of["hasIcon"]>; // property: md-text-button.hasIcon
 	readonly href: Schema.declare<Of["href"]>; // property: md-text-button.href
+	readonly name: Schema.declare<Of["name"]>; // property: md-text-button.name
 	readonly softDisabled: Schema.declare<Of["softDisabled"]>; // property: md-text-button.softDisabled
 	readonly target: Schema.declare<Of["target"]>; // property: md-text-button.target
 	readonly trailingIcon: Schema.declare<Of["trailingIcon"]>; // property: md-text-button.trailingIcon
+	readonly type: Schema.declare<Of["type"]>; // property: md-text-button.type
+	readonly value: Schema.declare<Of["value"]>; // property: md-text-button.value
 };
 
 /** The custom events of `<md-text-button>`, each its `detail`. */
@@ -25,12 +29,16 @@ type Events = {};
 export const TextButton: Html.CustomElementBinding<"md-text-button", Properties, Events> = Html.customElement({
 	tag: "md-text-button",
 	properties: {
+		disabled: typed<Of["disabled"]>(), // property: md-text-button.disabled
 		download: typed<Of["download"]>(), // property: md-text-button.download
 		hasIcon: typed<Of["hasIcon"]>(), // property: md-text-button.hasIcon
 		href: typed<Of["href"]>(), // property: md-text-button.href
+		name: typed<Of["name"]>(), // property: md-text-button.name
 		softDisabled: typed<Of["softDisabled"]>(), // property: md-text-button.softDisabled
 		target: typed<Of["target"]>(), // property: md-text-button.target
 		trailingIcon: typed<Of["trailingIcon"]>(), // property: md-text-button.trailingIcon
+		type: typed<Of["type"]>(), // property: md-text-button.type
+		value: typed<Of["value"]>(), // property: md-text-button.value
 	},
 	events: {},
 });

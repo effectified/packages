@@ -4123,10 +4123,5 @@
 		"ResetMode",
 		"pathspec",
 		"simpleGit"
-	],
-	"typeDependencies": {
-		"@simple-git/args-pathspec": "1.0.4",
-		"@simple-git/argv-parser": "3.0.0",
-		"debug": "^4.4.0"
-	}
+	]
 }

@@ -14,11 +14,11 @@ type Properties = {
 	readonly ariaLabelStart: Schema.declare<Of["ariaLabelStart"]>; // property: md-slider.ariaLabelStart
 	readonly ariaValueTextEnd: Schema.declare<Of["ariaValueTextEnd"]>; // property: md-slider.ariaValueTextEnd
 	readonly ariaValueTextStart: Schema.declare<Of["ariaValueTextStart"]>; // property: md-slider.ariaValueTextStart
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-slider.disabled
 	readonly labeled: Schema.declare<Of["labeled"]>; // property: md-slider.labeled
 	readonly max: Schema.declare<Of["max"]>; // property: md-slider.max
 	readonly min: Schema.declare<Of["min"]>; // property: md-slider.min
-	readonly nameEnd: Schema.declare<Of["nameEnd"]>; // property: md-slider.nameEnd
-	readonly nameStart: Schema.declare<Of["nameStart"]>; // property: md-slider.nameStart
+	readonly name: Schema.declare<Of["name"]>; // property: md-slider.name
 	readonly range: Schema.declare<Of["range"]>; // property: md-slider.range
 	readonly step: Schema.declare<Of["step"]>; // property: md-slider.step
 	readonly ticks: Schema.declare<Of["ticks"]>; // property: md-slider.ticks
@@ -41,11 +41,11 @@ export const Slider: Html.CustomElementBinding<"md-slider", Properties, Events> 
 		ariaLabelStart: typed<Of["ariaLabelStart"]>(), // property: md-slider.ariaLabelStart
 		ariaValueTextEnd: typed<Of["ariaValueTextEnd"]>(), // property: md-slider.ariaValueTextEnd
 		ariaValueTextStart: typed<Of["ariaValueTextStart"]>(), // property: md-slider.ariaValueTextStart
+		disabled: typed<Of["disabled"]>(), // property: md-slider.disabled
 		labeled: typed<Of["labeled"]>(), // property: md-slider.labeled
 		max: typed<Of["max"]>(), // property: md-slider.max
 		min: typed<Of["min"]>(), // property: md-slider.min
-		nameEnd: typed<Of["nameEnd"]>(), // property: md-slider.nameEnd
-		nameStart: typed<Of["nameStart"]>(), // property: md-slider.nameStart
+		name: typed<Of["name"]>(), // property: md-slider.name
 		range: typed<Of["range"]>(), // property: md-slider.range
 		step: typed<Of["step"]>(), // property: md-slider.step
 		ticks: typed<Of["ticks"]>(), // property: md-slider.ticks

@@ -1660,8 +1660,5 @@
 		"Matrix4x4",
 		"SharpConstructor",
 		"default"
-	],
-	"typeDependencies": {
-		"@img/colour": "^1.1.0"
-	}
+	]
 }

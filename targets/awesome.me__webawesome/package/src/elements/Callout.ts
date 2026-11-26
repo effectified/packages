@@ -12,9 +12,6 @@ type Of = HTMLElementTagNameMap["wa-callout"]; // element: wa-callout
 type Properties = {
 	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-callout.appearance
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-callout.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-callout.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-callout.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-callout.lang
 	readonly size: Schema.declare<Of["size"]>; // property: wa-callout.size
 	readonly variant: Schema.declare<Of["variant"]>; // property: wa-callout.variant
 };
@@ -28,9 +25,6 @@ export const Callout: Html.CustomElementBinding<"wa-callout", Properties, Events
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-callout.appearance
 		didSSR: typed<Of["didSSR"]>(), // property: wa-callout.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-callout.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-callout.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-callout.lang
 		size: typed<Of["size"]>(), // property: wa-callout.size
 		variant: typed<Of["variant"]>(), // property: wa-callout.variant
 	},

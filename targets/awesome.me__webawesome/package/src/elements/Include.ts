@@ -12,9 +12,6 @@ type Of = HTMLElementTagNameMap["wa-include"]; // element: wa-include
 type Properties = {
 	readonly allowScripts: Schema.declare<Of["allowScripts"]>; // property: wa-include.allowScripts
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-include.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-include.dir
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-include.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-include.lang
 	readonly mode: Schema.declare<Of["mode"]>; // property: wa-include.mode
 	readonly src: Schema.declare<Of["src"]>; // property: wa-include.src
 };
@@ -31,9 +28,6 @@ export const Include: Html.CustomElementBinding<"wa-include", Properties, Events
 	properties: {
 		allowScripts: typed<Of["allowScripts"]>(), // property: wa-include.allowScripts
 		didSSR: typed<Of["didSSR"]>(), // property: wa-include.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-include.dir
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-include.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-include.lang
 		mode: typed<Of["mode"]>(), // property: wa-include.mode
 		src: typed<Of["src"]>(), // property: wa-include.src
 	},

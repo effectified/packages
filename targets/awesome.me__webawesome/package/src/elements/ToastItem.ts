@@ -11,10 +11,7 @@ type Of = HTMLElementTagNameMap["wa-toast-item"]; // element: wa-toast-item
 /** The properties a view sets on `<wa-toast-item>`, as upstream types them. */
 type Properties = {
 	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-toast-item.didSSR
-	readonly dir: Schema.declare<Of["dir"]>; // property: wa-toast-item.dir
 	readonly duration: Schema.declare<Of["duration"]>; // property: wa-toast-item.duration
-	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-toast-item.initialReflectedProperties
-	readonly lang: Schema.declare<Of["lang"]>; // property: wa-toast-item.lang
 	readonly size: Schema.declare<Of["size"]>; // property: wa-toast-item.size
 	readonly variant: Schema.declare<Of["variant"]>; // property: wa-toast-item.variant
 	readonly withIcon: Schema.declare<Of["withIcon"]>; // property: wa-toast-item.withIcon
@@ -33,10 +30,7 @@ export const ToastItem: Html.CustomElementBinding<"wa-toast-item", Properties, E
 	tag: "wa-toast-item",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-toast-item.didSSR
-		dir: typed<Of["dir"]>(), // property: wa-toast-item.dir
 		duration: typed<Of["duration"]>(), // property: wa-toast-item.duration
-		initialReflectedProperties: typed<Of["initialReflectedProperties"]>(), // property: wa-toast-item.initialReflectedProperties
-		lang: typed<Of["lang"]>(), // property: wa-toast-item.lang
 		size: typed<Of["size"]>(), // property: wa-toast-item.size
 		variant: typed<Of["variant"]>(), // property: wa-toast-item.variant
 		withIcon: typed<Of["withIcon"]>(), // property: wa-toast-item.withIcon
