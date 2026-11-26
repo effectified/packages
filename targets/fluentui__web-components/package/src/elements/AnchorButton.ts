@@ -2,13 +2,30 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/anchor-button/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-anchor-button>`, as upstream types them. */
+type Properties = {
+	readonly download: Schema.declare<Of["download"]>; // property: fluent-anchor-button.download
+	readonly href: Schema.declare<Of["href"]>; // property: fluent-anchor-button.href
+	readonly hreflang: Schema.declare<Of["hreflang"]>; // property: fluent-anchor-button.hreflang
+	readonly ping: Schema.declare<Of["ping"]>; // property: fluent-anchor-button.ping
+	readonly referrerpolicy: Schema.declare<Of["referrerpolicy"]>; // property: fluent-anchor-button.referrerpolicy
+	readonly rel: Schema.declare<Of["rel"]>; // property: fluent-anchor-button.rel
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-anchor-button.role
+	readonly target: Schema.declare<Of["target"]>; // property: fluent-anchor-button.target
+	readonly type: Schema.declare<Of["type"]>; // property: fluent-anchor-button.type
+};
+
+/** The custom events of `<fluent-anchor-button>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-anchor-button>`: An Anchor Custom HTML Element. */
-export const AnchorButton = Html.customElement({
+export const AnchorButton: Html.CustomElementBinding<"fluent-anchor-button", Properties, Events> = Html.customElement({
 	tag: "fluent-anchor-button",
 	properties: {
 		download: typed<Of["download"]>(), // property: fluent-anchor-button.download

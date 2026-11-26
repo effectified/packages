@@ -2,13 +2,33 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/dropdown/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-dropdown>`, as upstream types them. */
+type Properties = {
+	readonly ariaLabelledBy: Schema.declare<Of["ariaLabelledBy"]>; // property: fluent-dropdown.ariaLabelledBy
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: fluent-dropdown.disabled
+	readonly id: Schema.declare<Of["id"]>; // property: fluent-dropdown.id
+	readonly initialValue: Schema.declare<Of["initialValue"]>; // property: fluent-dropdown.initialValue
+	readonly multiple: Schema.declare<Of["multiple"]>; // property: fluent-dropdown.multiple
+	readonly name: Schema.declare<Of["name"]>; // property: fluent-dropdown.name
+	readonly open: Schema.declare<Of["open"]>; // property: fluent-dropdown.open
+	readonly placeholder: Schema.declare<Of["placeholder"]>; // property: fluent-dropdown.placeholder
+	readonly required: Schema.declare<Of["required"]>; // property: fluent-dropdown.required
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-dropdown.role
+	readonly type: Schema.declare<Of["type"]>; // property: fluent-dropdown.type
+	readonly value: Schema.declare<Of["value"]>; // property: fluent-dropdown.value
+};
+
+/** The custom events of `<fluent-dropdown>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-dropdown>`: The Fluent Dropdown Element. */
-export const Dropdown = Html.customElement({
+export const Dropdown: Html.CustomElementBinding<"fluent-dropdown", Properties, Events> = Html.customElement({
 	tag: "fluent-dropdown",
 	properties: {
 		ariaLabelledBy: typed<Of["ariaLabelledBy"]>(), // property: fluent-dropdown.ariaLabelledBy

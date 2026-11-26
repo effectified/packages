@@ -2,13 +2,28 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/format-bytes/format-bytes.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-format-bytes"]; // element: wa-format-bytes
 
+/** The properties a view sets on `<wa-format-bytes>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-format-bytes.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-format-bytes.dir
+	readonly display: Schema.declare<Of["display"]>; // property: wa-format-bytes.display
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-format-bytes.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-format-bytes.lang
+	readonly unit: Schema.declare<Of["unit"]>; // property: wa-format-bytes.unit
+	readonly value: Schema.declare<Of["value"]>; // property: wa-format-bytes.value
+};
+
+/** The custom events of `<wa-format-bytes>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-format-bytes>`: Formats a number of bytes as a human-readable string with the appropriate unit, such as kB, MB, or GB. */
-export const FormatBytes = Html.customElement({
+export const FormatBytes: Html.CustomElementBinding<"wa-format-bytes", Properties, Events> = Html.customElement({
 	tag: "wa-format-bytes",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-format-bytes.didSSR

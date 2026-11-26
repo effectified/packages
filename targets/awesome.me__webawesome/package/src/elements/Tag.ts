@@ -2,13 +2,32 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/tag/tag.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-tag"]; // element: wa-tag
 
+/** The properties a view sets on `<wa-tag>`, as upstream types them. */
+type Properties = {
+	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-tag.appearance
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-tag.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-tag.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-tag.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-tag.lang
+	readonly pill: Schema.declare<Of["pill"]>; // property: wa-tag.pill
+	readonly size: Schema.declare<Of["size"]>; // property: wa-tag.size
+	readonly variant: Schema.declare<Of["variant"]>; // property: wa-tag.variant
+	readonly withRemove: Schema.declare<Of["withRemove"]>; // property: wa-tag.withRemove
+};
+
+/** The custom events of `<wa-tag>`, each its `detail`. */
+type Events = {
+	readonly "wa-remove": Schema.declare<DetailOf<"wa-remove">>;
+};
+
 /** `<wa-tag>`: Tags label, categorize, or represent selections with a compact visual marker. */
-export const Tag = Html.customElement({
+export const Tag: Html.CustomElementBinding<"wa-tag", Properties, Events> = Html.customElement({
 	tag: "wa-tag",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-tag.appearance

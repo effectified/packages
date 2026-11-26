@@ -2,13 +2,36 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/dialog/dialog.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-dialog"]; // element: wa-dialog
 
+/** The properties a view sets on `<wa-dialog>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-dialog.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-dialog.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-dialog.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-dialog.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-dialog.lang
+	readonly lightDismiss: Schema.declare<Of["lightDismiss"]>; // property: wa-dialog.lightDismiss
+	readonly open: Schema.declare<Of["open"]>; // property: wa-dialog.open
+	readonly withFooter: Schema.declare<Of["withFooter"]>; // property: wa-dialog.withFooter
+	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-dialog.withLabel
+	readonly withoutHeader: Schema.declare<Of["withoutHeader"]>; // property: wa-dialog.withoutHeader
+};
+
+/** The custom events of `<wa-dialog>`, each its `detail`. */
+type Events = {
+	readonly "wa-after-hide": Schema.declare<DetailOf<"wa-after-hide">>;
+	readonly "wa-after-show": Schema.declare<DetailOf<"wa-after-show">>;
+	readonly "wa-hide": Schema.declare<DetailOf<"wa-hide">>;
+	readonly "wa-show": Schema.declare<DetailOf<"wa-show">>;
+};
+
 /** `<wa-dialog>`: Dialogs appear above the page and require the user's immediate attention. */
-export const Dialog = Html.customElement({
+export const Dialog: Html.CustomElementBinding<"wa-dialog", Properties, Events> = Html.customElement({
 	tag: "wa-dialog",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-dialog.didSSR

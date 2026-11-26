@@ -2,13 +2,45 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/popup/popup.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-popup"]; // element: wa-popup
 
+/** The properties a view sets on `<wa-popup>`, as upstream types them. */
+type Properties = {
+	readonly active: Schema.declare<Of["active"]>; // property: wa-popup.active
+	readonly arrow: Schema.declare<Of["arrow"]>; // property: wa-popup.arrow
+	readonly arrowPadding: Schema.declare<Of["arrowPadding"]>; // property: wa-popup.arrowPadding
+	readonly arrowPlacement: Schema.declare<Of["arrowPlacement"]>; // property: wa-popup.arrowPlacement
+	readonly autoSize: Schema.declare<Of["autoSize"]>; // property: wa-popup.autoSize
+	readonly autoSizePadding: Schema.declare<Of["autoSizePadding"]>; // property: wa-popup.autoSizePadding
+	readonly boundary: Schema.declare<Of["boundary"]>; // property: wa-popup.boundary
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-popup.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-popup.dir
+	readonly distance: Schema.declare<Of["distance"]>; // property: wa-popup.distance
+	readonly flip: Schema.declare<Of["flip"]>; // property: wa-popup.flip
+	readonly flipFallbackPlacements: Schema.declare<Of["flipFallbackPlacements"]>; // property: wa-popup.flipFallbackPlacements
+	readonly flipFallbackStrategy: Schema.declare<Of["flipFallbackStrategy"]>; // property: wa-popup.flipFallbackStrategy
+	readonly flipPadding: Schema.declare<Of["flipPadding"]>; // property: wa-popup.flipPadding
+	readonly hoverBridge: Schema.declare<Of["hoverBridge"]>; // property: wa-popup.hoverBridge
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-popup.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-popup.lang
+	readonly placement: Schema.declare<Of["placement"]>; // property: wa-popup.placement
+	readonly shift: Schema.declare<Of["shift"]>; // property: wa-popup.shift
+	readonly shiftPadding: Schema.declare<Of["shiftPadding"]>; // property: wa-popup.shiftPadding
+	readonly skidding: Schema.declare<Of["skidding"]>; // property: wa-popup.skidding
+	readonly sync: Schema.declare<Of["sync"]>; // property: wa-popup.sync
+};
+
+/** The custom events of `<wa-popup>`, each its `detail`. */
+type Events = {
+	readonly "wa-reposition": Schema.declare<DetailOf<"wa-reposition">>;
+};
+
 /** `<wa-popup>`: Popups declaratively anchor one element to another and keep them positioned together as the page scrolls or resizes. */
-export const Popup = Html.customElement({
+export const Popup: Html.CustomElementBinding<"wa-popup", Properties, Events> = Html.customElement({
 	tag: "wa-popup",
 	properties: {
 		active: typed<Of["active"]>(), // property: wa-popup.active

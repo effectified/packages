@@ -2,13 +2,25 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/labs/navigationdrawer/navigation-drawer.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-navigation-drawer"]; // element: md-navigation-drawer
 
+/** The properties a view sets on `<md-navigation-drawer>`, as upstream types them. */
+type Properties = {
+	readonly opened: Schema.declare<Of["opened"]>; // property: md-navigation-drawer.opened
+	readonly pivot: Schema.declare<Of["pivot"]>; // property: md-navigation-drawer.pivot
+};
+
+/** The custom events of `<md-navigation-drawer>`, each its `detail`. */
+type Events = {
+	readonly "navigation-drawer-changed": Schema.declare<DetailOf<"navigation-drawer-changed">>;
+};
+
 /** `<md-navigation-drawer>` */
-export const NavigationDrawer = Html.customElement({
+export const NavigationDrawer: Html.CustomElementBinding<"md-navigation-drawer", Properties, Events> = Html.customElement({
 	tag: "md-navigation-drawer",
 	properties: {
 		opened: typed<Of["opened"]>(), // property: md-navigation-drawer.opened

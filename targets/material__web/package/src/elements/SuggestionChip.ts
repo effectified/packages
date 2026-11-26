@@ -2,13 +2,32 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/chips/suggestion-chip.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-suggestion-chip"]; // element: md-suggestion-chip
 
+/** The properties a view sets on `<md-suggestion-chip>`, as upstream types them. */
+type Properties = {
+	readonly alwaysFocusable: Schema.declare<Of["alwaysFocusable"]>; // property: md-suggestion-chip.alwaysFocusable
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-suggestion-chip.disabled
+	readonly download: Schema.declare<Of["download"]>; // property: md-suggestion-chip.download
+	readonly elevated: Schema.declare<Of["elevated"]>; // property: md-suggestion-chip.elevated
+	readonly hasIcon: Schema.declare<Of["hasIcon"]>; // property: md-suggestion-chip.hasIcon
+	readonly href: Schema.declare<Of["href"]>; // property: md-suggestion-chip.href
+	readonly label: Schema.declare<Of["label"]>; // property: md-suggestion-chip.label
+	readonly softDisabled: Schema.declare<Of["softDisabled"]>; // property: md-suggestion-chip.softDisabled
+	readonly target: Schema.declare<Of["target"]>; // property: md-suggestion-chip.target
+};
+
+/** The custom events of `<md-suggestion-chip>`, each its `detail`. */
+type Events = {
+	readonly "update-focus": Schema.declare<DetailOf<"update-focus">>;
+};
+
 /** `<md-suggestion-chip>`: TODO(b/243982145): add docs */
-export const SuggestionChip = Html.customElement({
+export const SuggestionChip: Html.CustomElementBinding<"md-suggestion-chip", Properties, Events> = Html.customElement({
 	tag: "md-suggestion-chip",
 	properties: {
 		alwaysFocusable: typed<Of["alwaysFocusable"]>(), // property: md-suggestion-chip.alwaysFocusable

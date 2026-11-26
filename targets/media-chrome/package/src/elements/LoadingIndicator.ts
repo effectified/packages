@@ -2,13 +2,26 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-loading-indicator.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-loading-indicator>`, as upstream types them. */
+type Properties = {
+	readonly loadingDelay: Schema.declare<Of["loadingDelay"]>; // property: media-loading-indicator.loadingDelay
+	readonly mediaController: Schema.declare<Of["mediaController"]>; // property: media-loading-indicator.mediaController
+	readonly mediaLoading: Schema.declare<Of["mediaLoading"]>; // property: media-loading-indicator.mediaLoading
+	readonly mediaPaused: Schema.declare<Of["mediaPaused"]>; // property: media-loading-indicator.mediaPaused
+	readonly noAutohide: Schema.declare<Of["noAutohide"]>; // property: media-loading-indicator.noAutohide
+};
+
+/** The custom events of `<media-loading-indicator>`, each its `detail`. */
+type Events = {};
+
 /** `<media-loading-indicator>` */
-export const LoadingIndicator = Html.customElement({
+export const LoadingIndicator: Html.CustomElementBinding<"media-loading-indicator", Properties, Events> = Html.customElement({
 	tag: "media-loading-indicator",
 	properties: {
 		loadingDelay: typed<Of["loadingDelay"]>(), // property: media-loading-indicator.loadingDelay

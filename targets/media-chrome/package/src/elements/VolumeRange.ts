@@ -2,13 +2,24 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-volume-range.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-volume-range>`, as upstream types them. */
+type Properties = {
+	readonly mediaMuted: Schema.declare<Of["mediaMuted"]>; // property: media-volume-range.mediaMuted
+	readonly mediaVolume: Schema.declare<Of["mediaVolume"]>; // property: media-volume-range.mediaVolume
+	readonly mediaVolumeUnavailable: Schema.declare<Of["mediaVolumeUnavailable"]>; // property: media-volume-range.mediaVolumeUnavailable
+};
+
+/** The custom events of `<media-volume-range>`, each its `detail`. */
+type Events = {};
+
 /** `<media-volume-range>` */
-export const VolumeRange = Html.customElement({
+export const VolumeRange: Html.CustomElementBinding<"media-volume-range", Properties, Events> = Html.customElement({
 	tag: "media-volume-range",
 	properties: {
 		mediaMuted: typed<Of["mediaMuted"]>(), // property: media-volume-range.mediaMuted

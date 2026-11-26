@@ -2,13 +2,29 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/scroller/scroller.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-scroller"]; // element: wa-scroller
 
+/** The properties a view sets on `<wa-scroller>`, as upstream types them. */
+type Properties = {
+	readonly canScroll: Schema.declare<Of["canScroll"]>; // property: wa-scroller.canScroll
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-scroller.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-scroller.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-scroller.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-scroller.lang
+	readonly orientation: Schema.declare<Of["orientation"]>; // property: wa-scroller.orientation
+	readonly withoutScrollbar: Schema.declare<Of["withoutScrollbar"]>; // property: wa-scroller.withoutScrollbar
+	readonly withoutShadow: Schema.declare<Of["withoutShadow"]>; // property: wa-scroller.withoutShadow
+};
+
+/** The custom events of `<wa-scroller>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-scroller>`: Scrollers wrap overflowing content in an accessible container with visual cues that help users recognize and navigate scrollable regions. */
-export const Scroller = Html.customElement({
+export const Scroller: Html.CustomElementBinding<"wa-scroller", Properties, Events> = Html.customElement({
 	tag: "wa-scroller",
 	properties: {
 		canScroll: typed<Of["canScroll"]>(), // property: wa-scroller.canScroll

@@ -2,13 +2,25 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-preview-thumbnail.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-preview-thumbnail>`, as upstream types them. */
+type Properties = {
+	readonly imgHeight: Schema.declare<Of["imgHeight"]>; // property: media-preview-thumbnail.imgHeight
+	readonly imgWidth: Schema.declare<Of["imgWidth"]>; // property: media-preview-thumbnail.imgWidth
+	readonly mediaPreviewCoords: Schema.declare<Of["mediaPreviewCoords"]>; // property: media-preview-thumbnail.mediaPreviewCoords
+	readonly mediaPreviewImage: Schema.declare<Of["mediaPreviewImage"]>; // property: media-preview-thumbnail.mediaPreviewImage
+};
+
+/** The custom events of `<media-preview-thumbnail>`, each its `detail`. */
+type Events = {};
+
 /** `<media-preview-thumbnail>` */
-export const PreviewThumbnail = Html.customElement({
+export const PreviewThumbnail: Html.CustomElementBinding<"media-preview-thumbnail", Properties, Events> = Html.customElement({
 	tag: "media-preview-thumbnail",
 	properties: {
 		imgHeight: typed<Of["imgHeight"]>(), // property: media-preview-thumbnail.imgHeight

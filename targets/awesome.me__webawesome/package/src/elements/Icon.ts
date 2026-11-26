@@ -2,13 +2,40 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/icon/icon.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-icon"]; // element: wa-icon
 
+/** The properties a view sets on `<wa-icon>`, as upstream types them. */
+type Properties = {
+	readonly animation: Schema.declare<Of["animation"]>; // property: wa-icon.animation
+	readonly autoWidth: Schema.declare<Of["autoWidth"]>; // property: wa-icon.autoWidth
+	readonly canvas: Schema.declare<Of["canvas"]>; // property: wa-icon.canvas
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-icon.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-icon.dir
+	readonly family: Schema.declare<Of["family"]>; // property: wa-icon.family
+	readonly flip: Schema.declare<Of["flip"]>; // property: wa-icon.flip
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-icon.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-icon.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-icon.lang
+	readonly library: Schema.declare<Of["library"]>; // property: wa-icon.library
+	readonly name: Schema.declare<Of["name"]>; // property: wa-icon.name
+	readonly rotate: Schema.declare<Of["rotate"]>; // property: wa-icon.rotate
+	readonly src: Schema.declare<Of["src"]>; // property: wa-icon.src
+	readonly swapOpacity: Schema.declare<Of["swapOpacity"]>; // property: wa-icon.swapOpacity
+	readonly variant: Schema.declare<Of["variant"]>; // property: wa-icon.variant
+};
+
+/** The custom events of `<wa-icon>`, each its `detail`. */
+type Events = {
+	readonly "wa-error": Schema.declare<DetailOf<"wa-error">>;
+	readonly "wa-load": Schema.declare<DetailOf<"wa-load">>;
+};
+
 /** `<wa-icon>`: Icons are scalable vector symbols that represent actions, content, or status throughout your application. */
-export const Icon = Html.customElement({
+export const Icon: Html.CustomElementBinding<"wa-icon", Properties, Events> = Html.customElement({
 	tag: "wa-icon",
 	properties: {
 		animation: typed<Of["animation"]>(), // property: wa-icon.animation

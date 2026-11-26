@@ -2,13 +2,20 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/chips/chip-set.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-chip-set"]; // element: md-chip-set
 
+/** The properties a view sets on `<md-chip-set>`, as upstream types them. */
+type Properties = {};
+
+/** The custom events of `<md-chip-set>`, each its `detail`. */
+type Events = {};
+
 /** `<md-chip-set>`: TODO(b/243982145): add docs */
-export const ChipSet = Html.customElement({
+export const ChipSet: Html.CustomElementBinding<"md-chip-set", Properties, Events> = Html.customElement({
 	tag: "md-chip-set",
 	properties: {},
 	events: {},

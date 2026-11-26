@@ -2,13 +2,36 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/dropdown/dropdown.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-dropdown"]; // element: wa-dropdown
 
+/** The properties a view sets on `<wa-dropdown>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-dropdown.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-dropdown.dir
+	readonly distance: Schema.declare<Of["distance"]>; // property: wa-dropdown.distance
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-dropdown.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-dropdown.lang
+	readonly open: Schema.declare<Of["open"]>; // property: wa-dropdown.open
+	readonly placement: Schema.declare<Of["placement"]>; // property: wa-dropdown.placement
+	readonly size: Schema.declare<Of["size"]>; // property: wa-dropdown.size
+	readonly skidding: Schema.declare<Of["skidding"]>; // property: wa-dropdown.skidding
+};
+
+/** The custom events of `<wa-dropdown>`, each its `detail`. */
+type Events = {
+	readonly "wa-after-hide": Schema.declare<DetailOf<"wa-after-hide">>;
+	readonly "wa-after-show": Schema.declare<DetailOf<"wa-after-show">>;
+	readonly "wa-hide": Schema.declare<DetailOf<"wa-hide">>;
+	readonly "wa-select": Schema.declare<DetailOf<"wa-select">>;
+	readonly "wa-show": Schema.declare<DetailOf<"wa-show">>;
+};
+
 /** `<wa-dropdown>`: Dropdowns display a list of options triggered by a button or other element. */
-export const Dropdown = Html.customElement({
+export const Dropdown: Html.CustomElementBinding<"wa-dropdown", Properties, Events> = Html.customElement({
 	tag: "wa-dropdown",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-dropdown.didSSR

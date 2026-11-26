@@ -2,13 +2,34 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/step/step.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-step"]; // element: wa-step
 
+/** The properties a view sets on `<wa-step>`, as upstream types them. */
+type Properties = {
+	readonly active: Schema.declare<Of["active"]>; // property: wa-step.active
+	readonly attention: Schema.declare<Of["attention"]>; // property: wa-step.attention
+	readonly completed: Schema.declare<Of["completed"]>; // property: wa-step.completed
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-step.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-step.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-step.disabled
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-step.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-step.lang
+	readonly loading: Schema.declare<Of["loading"]>; // property: wa-step.loading
+	readonly name: Schema.declare<Of["name"]>; // property: wa-step.name
+	readonly role: Schema.declare<Of["role"]>; // property: wa-step.role
+	readonly variant: Schema.declare<Of["variant"]>; // property: wa-step.variant
+	readonly withDescription: Schema.declare<Of["withDescription"]>; // property: wa-step.withDescription
+};
+
+/** The custom events of `<wa-step>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-step>`: Steps represent a single stage inside a `<wa-stepper>`, showing its position, label, and status. */
-export const Step = Html.customElement({
+export const Step: Html.CustomElementBinding<"wa-step", Properties, Events> = Html.customElement({
 	tag: "wa-step",
 	properties: {
 		active: typed<Of["active"]>(), // property: wa-step.active

@@ -2,13 +2,33 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/mutation-observer/mutation-observer.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-mutation-observer"]; // element: wa-mutation-observer
 
+/** The properties a view sets on `<wa-mutation-observer>`, as upstream types them. */
+type Properties = {
+	readonly attr: Schema.declare<Of["attr"]>; // property: wa-mutation-observer.attr
+	readonly attrOldValue: Schema.declare<Of["attrOldValue"]>; // property: wa-mutation-observer.attrOldValue
+	readonly charData: Schema.declare<Of["charData"]>; // property: wa-mutation-observer.charData
+	readonly charDataOldValue: Schema.declare<Of["charDataOldValue"]>; // property: wa-mutation-observer.charDataOldValue
+	readonly childList: Schema.declare<Of["childList"]>; // property: wa-mutation-observer.childList
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-mutation-observer.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-mutation-observer.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-mutation-observer.disabled
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-mutation-observer.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-mutation-observer.lang
+};
+
+/** The custom events of `<wa-mutation-observer>`, each its `detail`. */
+type Events = {
+	readonly "wa-mutation": Schema.declare<DetailOf<"wa-mutation">>;
+};
+
 /** `<wa-mutation-observer>`: Mutation observers watch for changes to an element's DOM tree and emit an event when they occur. */
-export const MutationObserver = Html.customElement({
+export const MutationObserver: Html.CustomElementBinding<"wa-mutation-observer", Properties, Events> = Html.customElement({
 	tag: "wa-mutation-observer",
 	properties: {
 		attr: typed<Of["attr"]>(), // property: wa-mutation-observer.attr

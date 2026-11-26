@@ -2,13 +2,31 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-live-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-live-button>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: media-live-button.disabled
+	readonly mediaController: Schema.declare<Of["mediaController"]>; // property: media-live-button.mediaController
+	readonly mediaPaused: Schema.declare<Of["mediaPaused"]>; // property: media-live-button.mediaPaused
+	readonly mediaTimeIsLive: Schema.declare<Of["mediaTimeIsLive"]>; // property: media-live-button.mediaTimeIsLive
+	readonly noTooltip: Schema.declare<Of["noTooltip"]>; // property: media-live-button.noTooltip
+	readonly preventClick: Schema.declare<Of["preventClick"]>; // property: media-live-button.preventClick
+	readonly tooltipPlacement: Schema.declare<Of["tooltipPlacement"]>; // property: media-live-button.tooltipPlacement
+};
+
+/** The custom events of `<media-live-button>`, each its `detail`. */
+type Events = {
+	readonly MEDIA_PLAY_REQUEST: Schema.declare<DetailOf<"MEDIA_PLAY_REQUEST">>;
+	readonly MEDIA_SEEK_TO_LIVE_REQUEST: Schema.declare<DetailOf<"MEDIA_SEEK_TO_LIVE_REQUEST">>;
+};
+
 /** `<media-live-button>` */
-export const LiveButton = Html.customElement({
+export const LiveButton: Html.CustomElementBinding<"media-live-button", Properties, Events> = Html.customElement({
 	tag: "media-live-button",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: media-live-button.disabled

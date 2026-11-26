@@ -2,13 +2,68 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/input/input.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-input"]; // element: wa-input
 
+/** The properties a view sets on `<wa-input>`, as upstream types them. */
+type Properties = {
+	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-input.appearance
+	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-input.assumeInteractionOn
+	readonly autocapitalize: Schema.declare<Of["autocapitalize"]>; // property: wa-input.autocapitalize
+	readonly autocomplete: Schema.declare<Of["autocomplete"]>; // property: wa-input.autocomplete
+	readonly autocorrect: Schema.declare<Of["autocorrect"]>; // property: wa-input.autocorrect
+	readonly autofocus: Schema.declare<Of["autofocus"]>; // property: wa-input.autofocus
+	readonly customError: Schema.declare<Of["customError"]>; // property: wa-input.customError
+	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-input.defaultValue
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-input.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-input.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-input.disabled
+	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-input.emitInvalid
+	readonly enterkeyhint: Schema.declare<Of["enterkeyhint"]>; // property: wa-input.enterkeyhint
+	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-input.hasInteracted
+	readonly hint: Schema.declare<Of["hint"]>; // property: wa-input.hint
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-input.initialReflectedProperties
+	readonly inputmode: Schema.declare<Of["inputmode"]>; // property: wa-input.inputmode
+	readonly label: Schema.declare<Of["label"]>; // property: wa-input.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-input.lang
+	readonly max: Schema.declare<Of["max"]>; // property: wa-input.max
+	readonly maxlength: Schema.declare<Of["maxlength"]>; // property: wa-input.maxlength
+	readonly min: Schema.declare<Of["min"]>; // property: wa-input.min
+	readonly minlength: Schema.declare<Of["minlength"]>; // property: wa-input.minlength
+	readonly name: Schema.declare<Of["name"]>; // property: wa-input.name
+	readonly passwordToggle: Schema.declare<Of["passwordToggle"]>; // property: wa-input.passwordToggle
+	readonly passwordVisible: Schema.declare<Of["passwordVisible"]>; // property: wa-input.passwordVisible
+	readonly pattern: Schema.declare<Of["pattern"]>; // property: wa-input.pattern
+	readonly pill: Schema.declare<Of["pill"]>; // property: wa-input.pill
+	readonly placeholder: Schema.declare<Of["placeholder"]>; // property: wa-input.placeholder
+	readonly readonly: Schema.declare<Of["readonly"]>; // property: wa-input.readonly
+	readonly required: Schema.declare<Of["required"]>; // property: wa-input.required
+	readonly size: Schema.declare<Of["size"]>; // property: wa-input.size
+	readonly spellcheck: Schema.declare<Of["spellcheck"]>; // property: wa-input.spellcheck
+	readonly states: Schema.declare<Of["states"]>; // property: wa-input.states
+	readonly step: Schema.declare<Of["step"]>; // property: wa-input.step
+	readonly title: Schema.declare<Of["title"]>; // property: wa-input.title
+	readonly type: Schema.declare<Of["type"]>; // property: wa-input.type
+	readonly validators: Schema.declare<Of["validators"]>; // property: wa-input.validators
+	readonly value: Schema.declare<Of["value"]>; // property: wa-input.value
+	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-input.valueHasChanged
+	readonly withClear: Schema.declare<Of["withClear"]>; // property: wa-input.withClear
+	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-input.withHint
+	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-input.withLabel
+	readonly withoutSpinButtons: Schema.declare<Of["withoutSpinButtons"]>; // property: wa-input.withoutSpinButtons
+};
+
+/** The custom events of `<wa-input>`, each its `detail`. */
+type Events = {
+	readonly "wa-clear": Schema.declare<DetailOf<"wa-clear">>;
+	readonly "wa-invalid": Schema.declare<DetailOf<"wa-invalid">>;
+};
+
 /** `<wa-input>`: Inputs collect single-line data from the user, such as text, numbers, email addresses, and passwords. */
-export const Input = Html.customElement({
+export const Input: Html.CustomElementBinding<"wa-input", Properties, Events> = Html.customElement({
 	tag: "wa-input",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-input.appearance

@@ -2,13 +2,59 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/button/button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-button"]; // element: wa-button
 
+/** The properties a view sets on `<wa-button>`, as upstream types them. */
+type Properties = {
+	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-button.appearance
+	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-button.assumeInteractionOn
+	readonly customError: Schema.declare<Of["customError"]>; // property: wa-button.customError
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-button.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-button.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-button.disabled
+	readonly download: Schema.declare<Of["download"]>; // property: wa-button.download
+	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-button.emitInvalid
+	readonly formAction: Schema.declare<Of["formAction"]>; // property: wa-button.formAction
+	readonly formEnctype: Schema.declare<Of["formEnctype"]>; // property: wa-button.formEnctype
+	readonly formMethod: Schema.declare<Of["formMethod"]>; // property: wa-button.formMethod
+	readonly formNoValidate: Schema.declare<Of["formNoValidate"]>; // property: wa-button.formNoValidate
+	readonly formTarget: Schema.declare<Of["formTarget"]>; // property: wa-button.formTarget
+	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-button.hasInteracted
+	readonly href: Schema.declare<Of["href"]>; // property: wa-button.href
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-button.initialReflectedProperties
+	readonly invalid: Schema.declare<Of["invalid"]>; // property: wa-button.invalid
+	readonly isIconButton: Schema.declare<Of["isIconButton"]>; // property: wa-button.isIconButton
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-button.lang
+	readonly loading: Schema.declare<Of["loading"]>; // property: wa-button.loading
+	readonly name: Schema.declare<Of["name"]>; // property: wa-button.name
+	readonly pill: Schema.declare<Of["pill"]>; // property: wa-button.pill
+	readonly rel: Schema.declare<Of["rel"]>; // property: wa-button.rel
+	readonly required: Schema.declare<Of["required"]>; // property: wa-button.required
+	readonly size: Schema.declare<Of["size"]>; // property: wa-button.size
+	readonly states: Schema.declare<Of["states"]>; // property: wa-button.states
+	readonly target: Schema.declare<Of["target"]>; // property: wa-button.target
+	readonly title: Schema.declare<Of["title"]>; // property: wa-button.title
+	readonly type: Schema.declare<Of["type"]>; // property: wa-button.type
+	readonly validators: Schema.declare<Of["validators"]>; // property: wa-button.validators
+	readonly value: Schema.declare<Of["value"]>; // property: wa-button.value
+	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-button.valueHasChanged
+	readonly variant: Schema.declare<Of["variant"]>; // property: wa-button.variant
+	readonly withCaret: Schema.declare<Of["withCaret"]>; // property: wa-button.withCaret
+	readonly withEnd: Schema.declare<Of["withEnd"]>; // property: wa-button.withEnd
+	readonly withStart: Schema.declare<Of["withStart"]>; // property: wa-button.withStart
+};
+
+/** The custom events of `<wa-button>`, each its `detail`. */
+type Events = {
+	readonly "wa-invalid": Schema.declare<DetailOf<"wa-invalid">>;
+};
+
 /** `<wa-button>`: Buttons represent actions the user can take, such as submitting a form, opening a dialog, or navigating to another page. */
-export const Button = Html.customElement({
+export const Button: Html.CustomElementBinding<"wa-button", Properties, Events> = Html.customElement({
 	tag: "wa-button",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-button.appearance

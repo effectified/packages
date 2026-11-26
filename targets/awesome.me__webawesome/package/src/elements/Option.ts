@@ -2,13 +2,30 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/option/option.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-option"]; // element: wa-option
 
+/** The properties a view sets on `<wa-option>`, as upstream types them. */
+type Properties = {
+	readonly current: Schema.declare<Of["current"]>; // property: wa-option.current
+	readonly defaultSelected: Schema.declare<Of["defaultSelected"]>; // property: wa-option.defaultSelected
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-option.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-option.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-option.disabled
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-option.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-option.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-option.lang
+	readonly value: Schema.declare<Of["value"]>; // property: wa-option.value
+};
+
+/** The custom events of `<wa-option>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-option>`: Options represent the individual choices inside a select or similar form control. */
-export const Option = Html.customElement({
+export const Option: Html.CustomElementBinding<"wa-option", Properties, Events> = Html.customElement({
 	tag: "wa-option",
 	properties: {
 		current: typed<Of["current"]>(), // property: wa-option.current

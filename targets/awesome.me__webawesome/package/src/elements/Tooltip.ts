@@ -2,13 +2,40 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/tooltip/tooltip.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-tooltip"]; // element: wa-tooltip
 
+/** The properties a view sets on `<wa-tooltip>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-tooltip.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-tooltip.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-tooltip.disabled
+	readonly distance: Schema.declare<Of["distance"]>; // property: wa-tooltip.distance
+	readonly for: Schema.declare<Of["for"]>; // property: wa-tooltip.for
+	readonly hideDelay: Schema.declare<Of["hideDelay"]>; // property: wa-tooltip.hideDelay
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-tooltip.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-tooltip.lang
+	readonly open: Schema.declare<Of["open"]>; // property: wa-tooltip.open
+	readonly placement: Schema.declare<Of["placement"]>; // property: wa-tooltip.placement
+	readonly showDelay: Schema.declare<Of["showDelay"]>; // property: wa-tooltip.showDelay
+	readonly skidding: Schema.declare<Of["skidding"]>; // property: wa-tooltip.skidding
+	readonly trigger: Schema.declare<Of["trigger"]>; // property: wa-tooltip.trigger
+	readonly withoutArrow: Schema.declare<Of["withoutArrow"]>; // property: wa-tooltip.withoutArrow
+};
+
+/** The custom events of `<wa-tooltip>`, each its `detail`. */
+type Events = {
+	readonly "wa-after-hide": Schema.declare<DetailOf<"wa-after-hide">>;
+	readonly "wa-after-show": Schema.declare<DetailOf<"wa-after-show">>;
+	readonly "wa-hide": Schema.declare<DetailOf<"wa-hide">>;
+	readonly "wa-show": Schema.declare<DetailOf<"wa-show">>;
+};
+
 /** `<wa-tooltip>`: Tooltips display brief contextual information when the user hovers, focuses, or taps a target element. */
-export const Tooltip = Html.customElement({
+export const Tooltip: Html.CustomElementBinding<"wa-tooltip", Properties, Events> = Html.customElement({
 	tag: "wa-tooltip",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-tooltip.didSSR

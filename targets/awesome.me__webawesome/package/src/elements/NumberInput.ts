@@ -2,13 +2,57 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/number-input/number-input.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-number-input"]; // element: wa-number-input
 
+/** The properties a view sets on `<wa-number-input>`, as upstream types them. */
+type Properties = {
+	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-number-input.appearance
+	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-number-input.assumeInteractionOn
+	readonly autocomplete: Schema.declare<Of["autocomplete"]>; // property: wa-number-input.autocomplete
+	readonly autofocus: Schema.declare<Of["autofocus"]>; // property: wa-number-input.autofocus
+	readonly customError: Schema.declare<Of["customError"]>; // property: wa-number-input.customError
+	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-number-input.defaultValue
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-number-input.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-number-input.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-number-input.disabled
+	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-number-input.emitInvalid
+	readonly enterkeyhint: Schema.declare<Of["enterkeyhint"]>; // property: wa-number-input.enterkeyhint
+	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-number-input.hasInteracted
+	readonly hint: Schema.declare<Of["hint"]>; // property: wa-number-input.hint
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-number-input.initialReflectedProperties
+	readonly inputmode: Schema.declare<Of["inputmode"]>; // property: wa-number-input.inputmode
+	readonly label: Schema.declare<Of["label"]>; // property: wa-number-input.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-number-input.lang
+	readonly max: Schema.declare<Of["max"]>; // property: wa-number-input.max
+	readonly min: Schema.declare<Of["min"]>; // property: wa-number-input.min
+	readonly name: Schema.declare<Of["name"]>; // property: wa-number-input.name
+	readonly pill: Schema.declare<Of["pill"]>; // property: wa-number-input.pill
+	readonly placeholder: Schema.declare<Of["placeholder"]>; // property: wa-number-input.placeholder
+	readonly readonly: Schema.declare<Of["readonly"]>; // property: wa-number-input.readonly
+	readonly required: Schema.declare<Of["required"]>; // property: wa-number-input.required
+	readonly size: Schema.declare<Of["size"]>; // property: wa-number-input.size
+	readonly states: Schema.declare<Of["states"]>; // property: wa-number-input.states
+	readonly step: Schema.declare<Of["step"]>; // property: wa-number-input.step
+	readonly title: Schema.declare<Of["title"]>; // property: wa-number-input.title
+	readonly validators: Schema.declare<Of["validators"]>; // property: wa-number-input.validators
+	readonly value: Schema.declare<Of["value"]>; // property: wa-number-input.value
+	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-number-input.valueHasChanged
+	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-number-input.withHint
+	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-number-input.withLabel
+	readonly withoutSteppers: Schema.declare<Of["withoutSteppers"]>; // property: wa-number-input.withoutSteppers
+};
+
+/** The custom events of `<wa-number-input>`, each its `detail`. */
+type Events = {
+	readonly "wa-invalid": Schema.declare<DetailOf<"wa-invalid">>;
+};
+
 /** `<wa-number-input>`: Number inputs let users enter and edit numeric values, with optional stepper buttons for incrementing and decrementing. */
-export const NumberInput = Html.customElement({
+export const NumberInput: Html.CustomElementBinding<"wa-number-input", Properties, Events> = Html.customElement({
 	tag: "wa-number-input",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-number-input.appearance

@@ -2,13 +2,34 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/toast-item/toast-item.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-toast-item"]; // element: wa-toast-item
 
+/** The properties a view sets on `<wa-toast-item>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-toast-item.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-toast-item.dir
+	readonly duration: Schema.declare<Of["duration"]>; // property: wa-toast-item.duration
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-toast-item.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-toast-item.lang
+	readonly size: Schema.declare<Of["size"]>; // property: wa-toast-item.size
+	readonly variant: Schema.declare<Of["variant"]>; // property: wa-toast-item.variant
+	readonly withIcon: Schema.declare<Of["withIcon"]>; // property: wa-toast-item.withIcon
+};
+
+/** The custom events of `<wa-toast-item>`, each its `detail`. */
+type Events = {
+	readonly "wa-after-hide": Schema.declare<DetailOf<"wa-after-hide">>;
+	readonly "wa-after-show": Schema.declare<DetailOf<"wa-after-show">>;
+	readonly "wa-hide": Schema.declare<DetailOf<"wa-hide">>;
+	readonly "wa-show": Schema.declare<DetailOf<"wa-show">>;
+};
+
 /** `<wa-toast-item>`: Toast items are individual notifications displayed within a toast container. */
-export const ToastItem = Html.customElement({
+export const ToastItem: Html.CustomElementBinding<"wa-toast-item", Properties, Events> = Html.customElement({
 	tag: "wa-toast-item",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-toast-item.didSSR

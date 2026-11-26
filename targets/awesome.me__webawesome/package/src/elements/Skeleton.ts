@@ -2,13 +2,26 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/skeleton/skeleton.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-skeleton"]; // element: wa-skeleton
 
+/** The properties a view sets on `<wa-skeleton>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-skeleton.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-skeleton.dir
+	readonly effect: Schema.declare<Of["effect"]>; // property: wa-skeleton.effect
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-skeleton.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-skeleton.lang
+};
+
+/** The custom events of `<wa-skeleton>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-skeleton>`: Skeletons show placeholder shapes where content will appear once it finishes loading, reducing perceived wait time and preventing layout shift. */
-export const Skeleton = Html.customElement({
+export const Skeleton: Html.CustomElementBinding<"wa-skeleton", Properties, Events> = Html.customElement({
 	tag: "wa-skeleton",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-skeleton.didSSR

@@ -2,13 +2,28 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/accordion-item/accordion-item.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-accordion-item"]; // element: wa-accordion-item
 
+/** The properties a view sets on `<wa-accordion-item>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-accordion-item.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-accordion-item.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-accordion-item.disabled
+	readonly expanded: Schema.declare<Of["expanded"]>; // property: wa-accordion-item.expanded
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-accordion-item.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-accordion-item.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-accordion-item.lang
+};
+
+/** The custom events of `<wa-accordion-item>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-accordion-item>`: Accordion items are used inside `<wa-accordion>` to create expandable sections with accessible headers. */
-export const AccordionItem = Html.customElement({
+export const AccordionItem: Html.CustomElementBinding<"wa-accordion-item", Properties, Events> = Html.customElement({
 	tag: "wa-accordion-item",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-accordion-item.didSSR

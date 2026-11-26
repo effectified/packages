@@ -2,13 +2,39 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/radio/radio.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-radio"]; // element: wa-radio
 
+/** The properties a view sets on `<wa-radio>`, as upstream types them. */
+type Properties = {
+	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-radio.appearance
+	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-radio.assumeInteractionOn
+	readonly checked: Schema.declare<Of["checked"]>; // property: wa-radio.checked
+	readonly customError: Schema.declare<Of["customError"]>; // property: wa-radio.customError
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-radio.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-radio.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-radio.disabled
+	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-radio.emitInvalid
+	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-radio.hasInteracted
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-radio.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-radio.lang
+	readonly name: Schema.declare<Of["name"]>; // property: wa-radio.name
+	readonly required: Schema.declare<Of["required"]>; // property: wa-radio.required
+	readonly size: Schema.declare<Of["size"]>; // property: wa-radio.size
+	readonly states: Schema.declare<Of["states"]>; // property: wa-radio.states
+	readonly validators: Schema.declare<Of["validators"]>; // property: wa-radio.validators
+	readonly value: Schema.declare<Of["value"]>; // property: wa-radio.value
+	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-radio.valueHasChanged
+};
+
+/** The custom events of `<wa-radio>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-radio>`: Radios represent a single option within a mutually exclusive set. */
-export const Radio = Html.customElement({
+export const Radio: Html.CustomElementBinding<"wa-radio", Properties, Events> = Html.customElement({
 	tag: "wa-radio",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-radio.appearance

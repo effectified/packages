@@ -2,13 +2,24 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-chrome-dialog.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-chrome-dialog>`, as upstream types them. */
+type Properties = {
+	readonly open: Schema.declare<Of["open"]>; // property: media-chrome-dialog.open
+};
+
+/** The custom events of `<media-chrome-dialog>`, each its `detail`. */
+type Events = {
+	readonly open: Schema.declare<DetailOf<"open">>;
+};
+
 /** `<media-chrome-dialog>` */
-export const ChromeDialog = Html.customElement({
+export const ChromeDialog: Html.CustomElementBinding<"media-chrome-dialog", Properties, Events> = Html.customElement({
 	tag: "media-chrome-dialog",
 	properties: {
 		open: typed<Of["open"]>(), // property: media-chrome-dialog.open

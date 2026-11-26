@@ -2,13 +2,29 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/radio-group/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-radio-group>`, as upstream types them. */
+type Properties = {
+	readonly ariaOrientation: Schema.declare<Of["ariaOrientation"]>; // property: fluent-radio-group.ariaOrientation
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: fluent-radio-group.disabled
+	readonly initialValue: Schema.declare<Of["initialValue"]>; // property: fluent-radio-group.initialValue
+	readonly name: Schema.declare<Of["name"]>; // property: fluent-radio-group.name
+	readonly orientation: Schema.declare<Of["orientation"]>; // property: fluent-radio-group.orientation
+	readonly required: Schema.declare<Of["required"]>; // property: fluent-radio-group.required
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-radio-group.role
+	readonly value: Schema.declare<Of["value"]>; // property: fluent-radio-group.value
+};
+
+/** The custom events of `<fluent-radio-group>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-radio-group>`: A Radio Group Custom HTML Element. */
-export const RadioGroup = Html.customElement({
+export const RadioGroup: Html.CustomElementBinding<"fluent-radio-group", Properties, Events> = Html.customElement({
 	tag: "fluent-radio-group",
 	properties: {
 		ariaOrientation: typed<Of["ariaOrientation"]>(), // property: fluent-radio-group.ariaOrientation

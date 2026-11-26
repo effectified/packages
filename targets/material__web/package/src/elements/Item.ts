@@ -2,13 +2,22 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/labs/item/item.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-item"]; // element: md-item
 
+/** The properties a view sets on `<md-item>`, as upstream types them. */
+type Properties = {
+	readonly multiline: Schema.declare<Of["multiline"]>; // property: md-item.multiline
+};
+
+/** The custom events of `<md-item>`, each its `detail`. */
+type Events = {};
+
 /** `<md-item>`: An item layout component that can be used inside list items to give them their customizable structure. */
-export const Item = Html.customElement({
+export const Item: Html.CustomElementBinding<"md-item", Properties, Events> = Html.customElement({
 	tag: "md-item",
 	properties: {
 		multiline: typed<Of["multiline"]>(), // property: md-item.multiline

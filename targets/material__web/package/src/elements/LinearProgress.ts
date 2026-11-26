@@ -2,13 +2,26 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/progress/linear-progress.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-linear-progress"]; // element: md-linear-progress
 
+/** The properties a view sets on `<md-linear-progress>`, as upstream types them. */
+type Properties = {
+	readonly buffer: Schema.declare<Of["buffer"]>; // property: md-linear-progress.buffer
+	readonly fourColor: Schema.declare<Of["fourColor"]>; // property: md-linear-progress.fourColor
+	readonly indeterminate: Schema.declare<Of["indeterminate"]>; // property: md-linear-progress.indeterminate
+	readonly max: Schema.declare<Of["max"]>; // property: md-linear-progress.max
+	readonly value: Schema.declare<Of["value"]>; // property: md-linear-progress.value
+};
+
+/** The custom events of `<md-linear-progress>`, each its `detail`. */
+type Events = {};
+
 /** `<md-linear-progress>`: Linear progress indicators display progress by animating along the length of a fixed, visible track. */
-export const LinearProgress = Html.customElement({
+export const LinearProgress: Html.CustomElementBinding<"md-linear-progress", Properties, Events> = Html.customElement({
 	tag: "md-linear-progress",
 	properties: {
 		buffer: typed<Of["buffer"]>(), // property: md-linear-progress.buffer

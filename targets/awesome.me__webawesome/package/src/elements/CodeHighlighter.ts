@@ -2,13 +2,34 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/code-highlighter/code-highlighter.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-code-highlighter"]; // element: wa-code-highlighter
 
+/** The properties a view sets on `<wa-code-highlighter>`, as upstream types them. */
+type Properties = {
+	readonly code: Schema.declare<Of["code"]>; // property: wa-code-highlighter.code
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-code-highlighter.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-code-highlighter.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-code-highlighter.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-code-highlighter.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-code-highlighter.lang
+	readonly language: Schema.declare<Of["language"]>; // property: wa-code-highlighter.language
+	readonly withoutCopy: Schema.declare<Of["withoutCopy"]>; // property: wa-code-highlighter.withoutCopy
+	readonly withoutDedent: Schema.declare<Of["withoutDedent"]>; // property: wa-code-highlighter.withoutDedent
+	readonly wrap: Schema.declare<Of["wrap"]>; // property: wa-code-highlighter.wrap
+};
+
+/** The custom events of `<wa-code-highlighter>`, each its `detail`. */
+type Events = {
+	readonly "wa-error": Schema.declare<DetailOf<"wa-error">>;
+	readonly "wa-load": Schema.declare<DetailOf<"wa-load">>;
+};
+
 /** `<wa-code-highlighter>`: Code highlighters display syntax-highlighted code with a copy button. */
-export const CodeHighlighter = Html.customElement({
+export const CodeHighlighter: Html.CustomElementBinding<"wa-code-highlighter", Properties, Events> = Html.customElement({
 	tag: "wa-code-highlighter",
 	properties: {
 		code: typed<Of["code"]>(), // property: wa-code-highlighter.code

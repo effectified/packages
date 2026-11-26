@@ -2,13 +2,29 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/iconbutton/filled-tonal-icon-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-filled-tonal-icon-button"]; // element: md-filled-tonal-icon-button
 
+/** The properties a view sets on `<md-filled-tonal-icon-button>`, as upstream types them. */
+type Properties = {
+	readonly ariaLabelSelected: Schema.declare<Of["ariaLabelSelected"]>; // property: md-filled-tonal-icon-button.ariaLabelSelected
+	readonly download: Schema.declare<Of["download"]>; // property: md-filled-tonal-icon-button.download
+	readonly flipIconInRtl: Schema.declare<Of["flipIconInRtl"]>; // property: md-filled-tonal-icon-button.flipIconInRtl
+	readonly href: Schema.declare<Of["href"]>; // property: md-filled-tonal-icon-button.href
+	readonly selected: Schema.declare<Of["selected"]>; // property: md-filled-tonal-icon-button.selected
+	readonly softDisabled: Schema.declare<Of["softDisabled"]>; // property: md-filled-tonal-icon-button.softDisabled
+	readonly target: Schema.declare<Of["target"]>; // property: md-filled-tonal-icon-button.target
+	readonly toggle: Schema.declare<Of["toggle"]>; // property: md-filled-tonal-icon-button.toggle
+};
+
+/** The custom events of `<md-filled-tonal-icon-button>`, each its `detail`. */
+type Events = {};
+
 /** `<md-filled-tonal-icon-button>`: Icon buttons help people take supplementary actions with a single tap. */
-export const FilledTonalIconButton = Html.customElement({
+export const FilledTonalIconButton: Html.CustomElementBinding<"md-filled-tonal-icon-button", Properties, Events> = Html.customElement({
 	tag: "md-filled-tonal-icon-button",
 	properties: {
 		ariaLabelSelected: typed<Of["ariaLabelSelected"]>(), // property: md-filled-tonal-icon-button.ariaLabelSelected

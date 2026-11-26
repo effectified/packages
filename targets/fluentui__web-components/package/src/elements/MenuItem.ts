@@ -2,13 +2,25 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/menu-item/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-menu-item>`, as upstream types them. */
+type Properties = {
+	readonly checked: Schema.declare<Of["checked"]>; // property: fluent-menu-item.checked
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: fluent-menu-item.disabled
+	readonly hidden: Schema.declare<Of["hidden"]>; // property: fluent-menu-item.hidden
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-menu-item.role
+};
+
+/** The custom events of `<fluent-menu-item>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-menu-item>`: A Switch Custom HTML Element. */
-export const MenuItem = Html.customElement({
+export const MenuItem: Html.CustomElementBinding<"fluent-menu-item", Properties, Events> = Html.customElement({
 	tag: "fluent-menu-item",
 	properties: {
 		checked: typed<Of["checked"]>(), // property: fluent-menu-item.checked

@@ -2,13 +2,24 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-tooltip.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-tooltip>`, as upstream types them. */
+type Properties = {
+	readonly bounds: Schema.declare<Of["bounds"]>; // property: media-tooltip.bounds
+	readonly placement: Schema.declare<Of["placement"]>; // property: media-tooltip.placement
+	readonly updateXOffset: Schema.declare<Of["updateXOffset"]>; // property: media-tooltip.updateXOffset
+};
+
+/** The custom events of `<media-tooltip>`, each its `detail`. */
+type Events = {};
+
 /** `<media-tooltip>` */
-export const Tooltip = Html.customElement({
+export const Tooltip: Html.CustomElementBinding<"media-tooltip", Properties, Events> = Html.customElement({
 	tag: "media-tooltip",
 	properties: {
 		bounds: typed<Of["bounds"]>(), // property: media-tooltip.bounds

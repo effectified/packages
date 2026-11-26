@@ -2,13 +2,27 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-error-dialog.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-error-dialog>`, as upstream types them. */
+type Properties = {
+	readonly mediaError: Schema.declare<Of["mediaError"]>; // property: media-error-dialog.mediaError
+	readonly mediaErrorCode: Schema.declare<Of["mediaErrorCode"]>; // property: media-error-dialog.mediaErrorCode
+	readonly mediaErrorMessage: Schema.declare<Of["mediaErrorMessage"]>; // property: media-error-dialog.mediaErrorMessage
+	readonly open: Schema.declare<Of["open"]>; // property: media-error-dialog.open
+};
+
+/** The custom events of `<media-error-dialog>`, each its `detail`. */
+type Events = {
+	readonly open: Schema.declare<DetailOf<"open">>;
+};
+
 /** `<media-error-dialog>` */
-export const ErrorDialog = Html.customElement({
+export const ErrorDialog: Html.CustomElementBinding<"media-error-dialog", Properties, Events> = Html.customElement({
 	tag: "media-error-dialog",
 	properties: {
 		mediaError: typed<Of["mediaError"]>(), // property: media-error-dialog.mediaError

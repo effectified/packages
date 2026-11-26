@@ -2,13 +2,58 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/slider/slider.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-slider"]; // element: wa-slider
 
+/** The properties a view sets on `<wa-slider>`, as upstream types them. */
+type Properties = {
+	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-slider.assumeInteractionOn
+	readonly autofocus: Schema.declare<Of["autofocus"]>; // property: wa-slider.autofocus
+	readonly customError: Schema.declare<Of["customError"]>; // property: wa-slider.customError
+	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-slider.defaultValue
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-slider.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-slider.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-slider.disabled
+	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-slider.emitInvalid
+	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-slider.hasInteracted
+	readonly hint: Schema.declare<Of["hint"]>; // property: wa-slider.hint
+	readonly indicatorOffset: Schema.declare<Of["indicatorOffset"]>; // property: wa-slider.indicatorOffset
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-slider.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-slider.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-slider.lang
+	readonly max: Schema.declare<Of["max"]>; // property: wa-slider.max
+	readonly maxValue: Schema.declare<Of["maxValue"]>; // property: wa-slider.maxValue
+	readonly min: Schema.declare<Of["min"]>; // property: wa-slider.min
+	readonly minValue: Schema.declare<Of["minValue"]>; // property: wa-slider.minValue
+	readonly name: Schema.declare<Of["name"]>; // property: wa-slider.name
+	readonly orientation: Schema.declare<Of["orientation"]>; // property: wa-slider.orientation
+	readonly range: Schema.declare<Of["range"]>; // property: wa-slider.range
+	readonly readonly: Schema.declare<Of["readonly"]>; // property: wa-slider.readonly
+	readonly required: Schema.declare<Of["required"]>; // property: wa-slider.required
+	readonly size: Schema.declare<Of["size"]>; // property: wa-slider.size
+	readonly states: Schema.declare<Of["states"]>; // property: wa-slider.states
+	readonly step: Schema.declare<Of["step"]>; // property: wa-slider.step
+	readonly tooltipDistance: Schema.declare<Of["tooltipDistance"]>; // property: wa-slider.tooltipDistance
+	readonly tooltipPlacement: Schema.declare<Of["tooltipPlacement"]>; // property: wa-slider.tooltipPlacement
+	readonly validators: Schema.declare<Of["validators"]>; // property: wa-slider.validators
+	readonly value: Schema.declare<Of["value"]>; // property: wa-slider.value
+	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-slider.valueHasChanged
+	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-slider.withHint
+	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-slider.withLabel
+	readonly withMarkers: Schema.declare<Of["withMarkers"]>; // property: wa-slider.withMarkers
+	readonly withTooltip: Schema.declare<Of["withTooltip"]>; // property: wa-slider.withTooltip
+};
+
+/** The custom events of `<wa-slider>`, each its `detail`. */
+type Events = {
+	readonly "wa-invalid": Schema.declare<DetailOf<"wa-invalid">>;
+};
+
 /** `<wa-slider>`: Sliders let users choose a numeric value within a defined range by dragging a thumb along a track. */
-export const Slider = Html.customElement({
+export const Slider: Html.CustomElementBinding<"wa-slider", Properties, Events> = Html.customElement({
 	tag: "wa-slider",
 	properties: {
 		assumeInteractionOn: typed<Of["assumeInteractionOn"]>(), // property: wa-slider.assumeInteractionOn

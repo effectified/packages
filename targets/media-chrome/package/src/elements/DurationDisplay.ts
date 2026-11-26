@@ -2,13 +2,22 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-duration-display.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-duration-display>`, as upstream types them. */
+type Properties = {
+	readonly mediaDuration: Schema.declare<Of["mediaDuration"]>; // property: media-duration-display.mediaDuration
+};
+
+/** The custom events of `<media-duration-display>`, each its `detail`. */
+type Events = {};
+
 /** `<media-duration-display>` */
-export const DurationDisplay = Html.customElement({
+export const DurationDisplay: Html.CustomElementBinding<"media-duration-display", Properties, Events> = Html.customElement({
 	tag: "media-duration-display",
 	properties: {
 		mediaDuration: typed<Of["mediaDuration"]>(), // property: media-duration-display.mediaDuration

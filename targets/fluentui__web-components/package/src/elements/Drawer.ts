@@ -2,13 +2,25 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/drawer/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-drawer>`, as upstream types them. */
+type Properties = {
+	readonly ariaDescribedby: Schema.declare<Of["ariaDescribedby"]>; // property: fluent-drawer.ariaDescribedby
+	readonly ariaLabelledby: Schema.declare<Of["ariaLabelledby"]>; // property: fluent-drawer.ariaLabelledby
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-drawer.role
+	readonly type: Schema.declare<Of["type"]>; // property: fluent-drawer.type
+};
+
+/** The custom events of `<fluent-drawer>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-drawer>`: A component that provides a drawer for displaying content in a side panel. */
-export const Drawer = Html.customElement({
+export const Drawer: Html.CustomElementBinding<"fluent-drawer", Properties, Events> = Html.customElement({
 	tag: "fluent-drawer",
 	properties: {
 		ariaDescribedby: typed<Of["ariaDescribedby"]>(), // property: fluent-drawer.ariaDescribedby

@@ -2,13 +2,23 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/menu/media-chrome-menu.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-chrome-menu>`, as upstream types them. */
+type Properties = {
+	readonly anchor: Schema.declare<Of["anchor"]>; // property: media-chrome-menu.anchor
+	readonly value: Schema.declare<Of["value"]>; // property: media-chrome-menu.value
+};
+
+/** The custom events of `<media-chrome-menu>`, each its `detail`. */
+type Events = {};
+
 /** `<media-chrome-menu>` */
-export const ChromeMenu = Html.customElement({
+export const ChromeMenu: Html.CustomElementBinding<"media-chrome-menu", Properties, Events> = Html.customElement({
 	tag: "media-chrome-menu",
 	properties: {
 		anchor: typed<Of["anchor"]>(), // property: media-chrome-menu.anchor

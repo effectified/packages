@@ -2,13 +2,32 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/random-content/random-content.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-random-content"]; // element: wa-random-content
 
+/** The properties a view sets on `<wa-random-content>`, as upstream types them. */
+type Properties = {
+	readonly animation: Schema.declare<Of["animation"]>; // property: wa-random-content.animation
+	readonly autoplay: Schema.declare<Of["autoplay"]>; // property: wa-random-content.autoplay
+	readonly autoplayInterval: Schema.declare<Of["autoplayInterval"]>; // property: wa-random-content.autoplayInterval
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-random-content.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-random-content.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-random-content.initialReflectedProperties
+	readonly items: Schema.declare<Of["items"]>; // property: wa-random-content.items
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-random-content.lang
+	readonly mode: Schema.declare<Of["mode"]>; // property: wa-random-content.mode
+};
+
+/** The custom events of `<wa-random-content>`, each its `detail`. */
+type Events = {
+	readonly "wa-content-change": Schema.declare<DetailOf<"wa-content-change">>;
+};
+
 /** `<wa-random-content>`: Selects one or more child elements at random and displays them, hiding the rest. */
-export const RandomContent = Html.customElement({
+export const RandomContent: Html.CustomElementBinding<"wa-random-content", Properties, Events> = Html.customElement({
 	tag: "wa-random-content",
 	properties: {
 		animation: typed<Of["animation"]>(), // property: wa-random-content.animation

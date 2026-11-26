@@ -2,13 +2,35 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/dropdown-item/dropdown-item.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-dropdown-item"]; // element: wa-dropdown-item
 
+/** The properties a view sets on `<wa-dropdown-item>`, as upstream types them. */
+type Properties = {
+	readonly checked: Schema.declare<Of["checked"]>; // property: wa-dropdown-item.checked
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-dropdown-item.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-dropdown-item.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-dropdown-item.disabled
+	readonly download: Schema.declare<Of["download"]>; // property: wa-dropdown-item.download
+	readonly href: Schema.declare<Of["href"]>; // property: wa-dropdown-item.href
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-dropdown-item.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-dropdown-item.lang
+	readonly rel: Schema.declare<Of["rel"]>; // property: wa-dropdown-item.rel
+	readonly submenuOpen: Schema.declare<Of["submenuOpen"]>; // property: wa-dropdown-item.submenuOpen
+	readonly target: Schema.declare<Of["target"]>; // property: wa-dropdown-item.target
+	readonly type: Schema.declare<Of["type"]>; // property: wa-dropdown-item.type
+	readonly value: Schema.declare<Of["value"]>; // property: wa-dropdown-item.value
+	readonly variant: Schema.declare<Of["variant"]>; // property: wa-dropdown-item.variant
+};
+
+/** The custom events of `<wa-dropdown-item>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-dropdown-item>`: Dropdown items represent selectable entries within a dropdown menu, including standard actions, checkable items, and submenu triggers. */
-export const DropdownItem = Html.customElement({
+export const DropdownItem: Html.CustomElementBinding<"wa-dropdown-item", Properties, Events> = Html.customElement({
 	tag: "wa-dropdown-item",
 	properties: {
 		checked: typed<Of["checked"]>(), // property: wa-dropdown-item.checked

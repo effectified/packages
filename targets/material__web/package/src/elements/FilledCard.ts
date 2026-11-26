@@ -2,13 +2,20 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/labs/card/filled-card.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-filled-card"]; // element: md-filled-card
 
+/** The properties a view sets on `<md-filled-card>`, as upstream types them. */
+type Properties = {};
+
+/** The custom events of `<md-filled-card>`, each its `detail`. */
+type Events = {};
+
 /** `<md-filled-card>` */
-export const FilledCard = Html.customElement({
+export const FilledCard: Html.CustomElementBinding<"md-filled-card", Properties, Events> = Html.customElement({
 	tag: "md-filled-card",
 	properties: {},
 	events: {},

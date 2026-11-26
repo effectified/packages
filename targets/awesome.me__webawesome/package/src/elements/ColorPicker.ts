@@ -2,13 +2,55 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/color-picker/color-picker.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<wa-color-picker>`, as upstream types them. */
+type Properties = {
+	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-color-picker.assumeInteractionOn
+	readonly customError: Schema.declare<Of["customError"]>; // property: wa-color-picker.customError
+	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-color-picker.defaultValue
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-color-picker.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-color-picker.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-color-picker.disabled
+	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-color-picker.emitInvalid
+	readonly format: Schema.declare<Of["format"]>; // property: wa-color-picker.format
+	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-color-picker.hasInteracted
+	readonly hint: Schema.declare<Of["hint"]>; // property: wa-color-picker.hint
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-color-picker.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-color-picker.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-color-picker.lang
+	readonly name: Schema.declare<Of["name"]>; // property: wa-color-picker.name
+	readonly opacity: Schema.declare<Of["opacity"]>; // property: wa-color-picker.opacity
+	readonly open: Schema.declare<Of["open"]>; // property: wa-color-picker.open
+	readonly placement: Schema.declare<Of["placement"]>; // property: wa-color-picker.placement
+	readonly required: Schema.declare<Of["required"]>; // property: wa-color-picker.required
+	readonly size: Schema.declare<Of["size"]>; // property: wa-color-picker.size
+	readonly states: Schema.declare<Of["states"]>; // property: wa-color-picker.states
+	readonly swatches: Schema.declare<Of["swatches"]>; // property: wa-color-picker.swatches
+	readonly uppercase: Schema.declare<Of["uppercase"]>; // property: wa-color-picker.uppercase
+	readonly validators: Schema.declare<Of["validators"]>; // property: wa-color-picker.validators
+	readonly value: Schema.declare<Of["value"]>; // property: wa-color-picker.value
+	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-color-picker.valueHasChanged
+	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-color-picker.withHint
+	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-color-picker.withLabel
+	readonly withoutFormatToggle: Schema.declare<Of["withoutFormatToggle"]>; // property: wa-color-picker.withoutFormatToggle
+};
+
+/** The custom events of `<wa-color-picker>`, each its `detail`. */
+type Events = {
+	readonly "wa-after-hide": Schema.declare<DetailOf<"wa-after-hide">>;
+	readonly "wa-after-show": Schema.declare<DetailOf<"wa-after-show">>;
+	readonly "wa-hide": Schema.declare<DetailOf<"wa-hide">>;
+	readonly "wa-invalid": Schema.declare<DetailOf<"wa-invalid">>;
+	readonly "wa-show": Schema.declare<DetailOf<"wa-show">>;
+};
+
 /** `<wa-color-picker>`: Color pickers let users choose a color from a visual palette or by entering a value. */
-export const ColorPicker = Html.customElement({
+export const ColorPicker: Html.CustomElementBinding<"wa-color-picker", Properties, Events> = Html.customElement({
 	tag: "wa-color-picker",
 	properties: {
 		assumeInteractionOn: typed<Of["assumeInteractionOn"]>(), // property: wa-color-picker.assumeInteractionOn

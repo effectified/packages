@@ -2,13 +2,24 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-gesture-receiver.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-gesture-receiver>`, as upstream types them. */
+type Properties = {
+	readonly mediaPaused: Schema.declare<Of["mediaPaused"]>; // property: media-gesture-receiver.mediaPaused
+};
+
+/** The custom events of `<media-gesture-receiver>`, each its `detail`. */
+type Events = {
+	readonly eventName: Schema.declare<DetailOf<"eventName">>;
+};
+
 /** `<media-gesture-receiver>` */
-export const GestureReceiver = Html.customElement({
+export const GestureReceiver: Html.CustomElementBinding<"media-gesture-receiver", Properties, Events> = Html.customElement({
 	tag: "media-gesture-receiver",
 	properties: {
 		mediaPaused: typed<Of["mediaPaused"]>(), // property: media-gesture-receiver.mediaPaused

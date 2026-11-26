@@ -2,13 +2,27 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-time-display.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-time-display>`, as upstream types them. */
+type Properties = {
+	readonly mediaCurrentTime: Schema.declare<Of["mediaCurrentTime"]>; // property: media-time-display.mediaCurrentTime
+	readonly mediaDuration: Schema.declare<Of["mediaDuration"]>; // property: media-time-display.mediaDuration
+	readonly mediaSeekable: Schema.declare<Of["mediaSeekable"]>; // property: media-time-display.mediaSeekable
+	readonly noToggle: Schema.declare<Of["noToggle"]>; // property: media-time-display.noToggle
+	readonly remaining: Schema.declare<Of["remaining"]>; // property: media-time-display.remaining
+	readonly showDuration: Schema.declare<Of["showDuration"]>; // property: media-time-display.showDuration
+};
+
+/** The custom events of `<media-time-display>`, each its `detail`. */
+type Events = {};
+
 /** `<media-time-display>` */
-export const TimeDisplay = Html.customElement({
+export const TimeDisplay: Html.CustomElementBinding<"media-time-display", Properties, Events> = Html.customElement({
 	tag: "media-time-display",
 	properties: {
 		mediaCurrentTime: typed<Of["mediaCurrentTime"]>(), // property: media-time-display.mediaCurrentTime

@@ -2,13 +2,34 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/accordion/accordion.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-accordion"]; // element: wa-accordion
 
+/** The properties a view sets on `<wa-accordion>`, as upstream types them. */
+type Properties = {
+	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-accordion.appearance
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-accordion.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-accordion.dir
+	readonly headingLevel: Schema.declare<Of["headingLevel"]>; // property: wa-accordion.headingLevel
+	readonly iconPlacement: Schema.declare<Of["iconPlacement"]>; // property: wa-accordion.iconPlacement
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-accordion.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-accordion.lang
+	readonly mode: Schema.declare<Of["mode"]>; // property: wa-accordion.mode
+};
+
+/** The custom events of `<wa-accordion>`, each its `detail`. */
+type Events = {
+	readonly "wa-after-collapse": Schema.declare<DetailOf<"wa-after-collapse">>;
+	readonly "wa-after-expand": Schema.declare<DetailOf<"wa-after-expand">>;
+	readonly "wa-collapse": Schema.declare<DetailOf<"wa-collapse">>;
+	readonly "wa-expand": Schema.declare<DetailOf<"wa-expand">>;
+};
+
 /** `<wa-accordion>`: Accordions are a vertically stacked set of interactive headings that each contain a title, representing a section of content. */
-export const Accordion = Html.customElement({
+export const Accordion: Html.CustomElementBinding<"wa-accordion", Properties, Events> = Html.customElement({
 	tag: "wa-accordion",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-accordion.appearance

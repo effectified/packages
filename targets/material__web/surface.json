@@ -506,7 +506,6 @@
 				"skipRestoreFocus",
 				"stayOpenOnFocusout",
 				"stayOpenOnOutsideClick",
-				"typeaheadController",
 				"typeaheadDelay",
 				"xOffset",
 				"yOffset"

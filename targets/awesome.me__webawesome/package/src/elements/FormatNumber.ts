@@ -2,13 +2,35 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/format-number/format-number.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-format-number"]; // element: wa-format-number
 
+/** The properties a view sets on `<wa-format-number>`, as upstream types them. */
+type Properties = {
+	readonly currency: Schema.declare<Of["currency"]>; // property: wa-format-number.currency
+	readonly currencyDisplay: Schema.declare<Of["currencyDisplay"]>; // property: wa-format-number.currencyDisplay
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-format-number.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-format-number.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-format-number.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-format-number.lang
+	readonly maximumFractionDigits: Schema.declare<Of["maximumFractionDigits"]>; // property: wa-format-number.maximumFractionDigits
+	readonly maximumSignificantDigits: Schema.declare<Of["maximumSignificantDigits"]>; // property: wa-format-number.maximumSignificantDigits
+	readonly minimumFractionDigits: Schema.declare<Of["minimumFractionDigits"]>; // property: wa-format-number.minimumFractionDigits
+	readonly minimumIntegerDigits: Schema.declare<Of["minimumIntegerDigits"]>; // property: wa-format-number.minimumIntegerDigits
+	readonly minimumSignificantDigits: Schema.declare<Of["minimumSignificantDigits"]>; // property: wa-format-number.minimumSignificantDigits
+	readonly type: Schema.declare<Of["type"]>; // property: wa-format-number.type
+	readonly value: Schema.declare<Of["value"]>; // property: wa-format-number.value
+	readonly withoutGrouping: Schema.declare<Of["withoutGrouping"]>; // property: wa-format-number.withoutGrouping
+};
+
+/** The custom events of `<wa-format-number>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-format-number>`: Formats a number for display using the specified locale and options, including currency, percent, and unit styles. */
-export const FormatNumber = Html.customElement({
+export const FormatNumber: Html.CustomElementBinding<"wa-format-number", Properties, Events> = Html.customElement({
 	tag: "wa-format-number",
 	properties: {
 		currency: typed<Of["currency"]>(), // property: wa-format-number.currency

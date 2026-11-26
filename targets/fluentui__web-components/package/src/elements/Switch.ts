@@ -2,13 +2,31 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/switch/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-switch>`, as upstream types them. */
+type Properties = {
+	readonly checked: Schema.declare<Of["checked"]>; // property: fluent-switch.checked
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: fluent-switch.disabled
+	readonly disabledAttribute: Schema.declare<Of["disabledAttribute"]>; // property: fluent-switch.disabledAttribute
+	readonly formAttribute: Schema.declare<Of["formAttribute"]>; // property: fluent-switch.formAttribute
+	readonly initialChecked: Schema.declare<Of["initialChecked"]>; // property: fluent-switch.initialChecked
+	readonly initialValue: Schema.declare<Of["initialValue"]>; // property: fluent-switch.initialValue
+	readonly name: Schema.declare<Of["name"]>; // property: fluent-switch.name
+	readonly required: Schema.declare<Of["required"]>; // property: fluent-switch.required
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-switch.role
+	readonly value: Schema.declare<Of["value"]>; // property: fluent-switch.value
+};
+
+/** The custom events of `<fluent-switch>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-switch>`: A Switch Custom HTML Element. */
-export const Switch = Html.customElement({
+export const Switch: Html.CustomElementBinding<"fluent-switch", Properties, Events> = Html.customElement({
 	tag: "fluent-switch",
 	properties: {
 		checked: typed<Of["checked"]>(), // property: fluent-switch.checked

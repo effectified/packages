@@ -2,13 +2,25 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/checkbox/checkbox.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-checkbox"]; // element: md-checkbox
 
+/** The properties a view sets on `<md-checkbox>`, as upstream types them. */
+type Properties = {
+	readonly checked: Schema.declare<Of["checked"]>; // property: md-checkbox.checked
+	readonly indeterminate: Schema.declare<Of["indeterminate"]>; // property: md-checkbox.indeterminate
+	readonly required: Schema.declare<Of["required"]>; // property: md-checkbox.required
+	readonly value: Schema.declare<Of["value"]>; // property: md-checkbox.value
+};
+
+/** The custom events of `<md-checkbox>`, each its `detail`. */
+type Events = {};
+
 /** `<md-checkbox>`: Checkboxes allow users to select one or more items from a set. */
-export const Checkbox = Html.customElement({
+export const Checkbox: Html.CustomElementBinding<"md-checkbox", Properties, Events> = Html.customElement({
 	tag: "md-checkbox",
 	properties: {
 		checked: typed<Of["checked"]>(), // property: md-checkbox.checked

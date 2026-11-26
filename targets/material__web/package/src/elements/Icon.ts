@@ -2,13 +2,20 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/icon/icon.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-icon"]; // element: md-icon
 
+/** The properties a view sets on `<md-icon>`, as upstream types them. */
+type Properties = {};
+
+/** The custom events of `<md-icon>`, each its `detail`. */
+type Events = {};
+
 /** `<md-icon>` */
-export const Icon = Html.customElement({
+export const Icon: Html.CustomElementBinding<"md-icon", Properties, Events> = Html.customElement({
 	tag: "md-icon",
 	properties: {},
 	events: {},

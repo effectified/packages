@@ -2,13 +2,34 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/chips/filter-chip.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-filter-chip"]; // element: md-filter-chip
 
+/** The properties a view sets on `<md-filter-chip>`, as upstream types them. */
+type Properties = {
+	readonly alwaysFocusable: Schema.declare<Of["alwaysFocusable"]>; // property: md-filter-chip.alwaysFocusable
+	readonly ariaLabelRemove: Schema.declare<Of["ariaLabelRemove"]>; // property: md-filter-chip.ariaLabelRemove
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-filter-chip.disabled
+	readonly elevated: Schema.declare<Of["elevated"]>; // property: md-filter-chip.elevated
+	readonly hasIcon: Schema.declare<Of["hasIcon"]>; // property: md-filter-chip.hasIcon
+	readonly hasSelectedIcon: Schema.declare<Of["hasSelectedIcon"]>; // property: md-filter-chip.hasSelectedIcon
+	readonly label: Schema.declare<Of["label"]>; // property: md-filter-chip.label
+	readonly removable: Schema.declare<Of["removable"]>; // property: md-filter-chip.removable
+	readonly selected: Schema.declare<Of["selected"]>; // property: md-filter-chip.selected
+	readonly softDisabled: Schema.declare<Of["softDisabled"]>; // property: md-filter-chip.softDisabled
+};
+
+/** The custom events of `<md-filter-chip>`, each its `detail`. */
+type Events = {
+	readonly remove: Schema.declare<DetailOf<"remove">>;
+	readonly "update-focus": Schema.declare<DetailOf<"update-focus">>;
+};
+
 /** `<md-filter-chip>`: TODO(b/243982145): add docs */
-export const FilterChip = Html.customElement({
+export const FilterChip: Html.CustomElementBinding<"md-filter-chip", Properties, Events> = Html.customElement({
 	tag: "md-filter-chip",
 	properties: {
 		alwaysFocusable: typed<Of["alwaysFocusable"]>(), // property: md-filter-chip.alwaysFocusable

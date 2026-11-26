@@ -2,13 +2,22 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/field/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-field>`, as upstream types them. */
+type Properties = {
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-field.role
+};
+
+/** The custom events of `<fluent-field>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-field>`: A Field Custom HTML Element. */
-export const Field = Html.customElement({
+export const Field: Html.CustomElementBinding<"fluent-field", Properties, Events> = Html.customElement({
 	tag: "fluent-field",
 	properties: {
 		role: typed<Of["role"]>(), // property: fluent-field.role

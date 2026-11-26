@@ -2,13 +2,43 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-controller.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-controller>`, as upstream types them. */
+type Properties = {
+	readonly audio: Schema.declare<Of["audio"]>; // property: media-controller.audio
+	readonly autohide: Schema.declare<Of["autohide"]>; // property: media-controller.autohide
+	readonly autohideOverControls: Schema.declare<Of["autohideOverControls"]>; // property: media-controller.autohideOverControls
+	readonly breakpoints: Schema.declare<Of["breakpoints"]>; // property: media-controller.breakpoints
+	readonly defaultDuration: Schema.declare<Of["defaultDuration"]>; // property: media-controller.defaultDuration
+	readonly defaultStreamType: Schema.declare<Of["defaultStreamType"]>; // property: media-controller.defaultStreamType
+	readonly defaultSubtitles: Schema.declare<Of["defaultSubtitles"]>; // property: media-controller.defaultSubtitles
+	readonly gesturesDisabled: Schema.declare<Of["gesturesDisabled"]>; // property: media-controller.gesturesDisabled
+	readonly hotkeys: Schema.declare<Of["hotkeys"]>; // property: media-controller.hotkeys
+	readonly keyboardControl: Schema.declare<Of["keyboardControl"]>; // property: media-controller.keyboardControl
+	readonly keysUsed: Schema.declare<Of["keysUsed"]>; // property: media-controller.keysUsed
+	readonly liveEdgeOffset: Schema.declare<Of["liveEdgeOffset"]>; // property: media-controller.liveEdgeOffset
+	readonly mediaStore: Schema.declare<Of["mediaStore"]>; // property: media-controller.mediaStore
+	readonly noAutoSeekToLive: Schema.declare<Of["noAutoSeekToLive"]>; // property: media-controller.noAutoSeekToLive
+	readonly noAutohide: Schema.declare<Of["noAutohide"]>; // property: media-controller.noAutohide
+	readonly noDefaultStore: Schema.declare<Of["noDefaultStore"]>; // property: media-controller.noDefaultStore
+	readonly noHotkeys: Schema.declare<Of["noHotkeys"]>; // property: media-controller.noHotkeys
+	readonly noMutedPref: Schema.declare<Of["noMutedPref"]>; // property: media-controller.noMutedPref
+	readonly noSubtitlesLangPref: Schema.declare<Of["noSubtitlesLangPref"]>; // property: media-controller.noSubtitlesLangPref
+	readonly noVolumePref: Schema.declare<Of["noVolumePref"]>; // property: media-controller.noVolumePref
+};
+
+/** The custom events of `<media-controller>`, each its `detail`. */
+type Events = {
+	readonly eventName: Schema.declare<DetailOf<"eventName">>;
+};
+
 /** `<media-controller>`: Media Controller should not mimic the HTMLMediaElement API. */
-export const Controller = Html.customElement({
+export const Controller: Html.CustomElementBinding<"media-controller", Properties, Events> = Html.customElement({
 	tag: "media-controller",
 	properties: {
 		audio: typed<Of["audio"]>(), // property: media-controller.audio

@@ -2,13 +2,25 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/spinner/spinner.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-spinner"]; // element: wa-spinner
 
+/** The properties a view sets on `<wa-spinner>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-spinner.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-spinner.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-spinner.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-spinner.lang
+};
+
+/** The custom events of `<wa-spinner>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-spinner>`: Spinners indicate that an operation is in progress when the duration is unknown. */
-export const Spinner = Html.customElement({
+export const Spinner: Html.CustomElementBinding<"wa-spinner", Properties, Events> = Html.customElement({
 	tag: "wa-spinner",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-spinner.didSSR

@@ -2,13 +2,35 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/field/filled-field.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-filled-field"]; // element: md-filled-field
 
+/** The properties a view sets on `<md-filled-field>`, as upstream types them. */
+type Properties = {
+	readonly count: Schema.declare<Of["count"]>; // property: md-filled-field.count
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-filled-field.disabled
+	readonly error: Schema.declare<Of["error"]>; // property: md-filled-field.error
+	readonly errorText: Schema.declare<Of["errorText"]>; // property: md-filled-field.errorText
+	readonly focused: Schema.declare<Of["focused"]>; // property: md-filled-field.focused
+	readonly hasEnd: Schema.declare<Of["hasEnd"]>; // property: md-filled-field.hasEnd
+	readonly hasStart: Schema.declare<Of["hasStart"]>; // property: md-filled-field.hasStart
+	readonly label: Schema.declare<Of["label"]>; // property: md-filled-field.label
+	readonly max: Schema.declare<Of["max"]>; // property: md-filled-field.max
+	readonly noAsterisk: Schema.declare<Of["noAsterisk"]>; // property: md-filled-field.noAsterisk
+	readonly populated: Schema.declare<Of["populated"]>; // property: md-filled-field.populated
+	readonly required: Schema.declare<Of["required"]>; // property: md-filled-field.required
+	readonly resizable: Schema.declare<Of["resizable"]>; // property: md-filled-field.resizable
+	readonly supportingText: Schema.declare<Of["supportingText"]>; // property: md-filled-field.supportingText
+};
+
+/** The custom events of `<md-filled-field>`, each its `detail`. */
+type Events = {};
+
 /** `<md-filled-field>`: TODO(b/228525797): add docs */
-export const FilledField = Html.customElement({
+export const FilledField: Html.CustomElementBinding<"md-filled-field", Properties, Events> = Html.customElement({
 	tag: "md-filled-field",
 	properties: {
 		count: typed<Of["count"]>(), // property: md-filled-field.count

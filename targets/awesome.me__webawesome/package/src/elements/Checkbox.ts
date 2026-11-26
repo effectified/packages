@@ -2,13 +2,44 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/checkbox/checkbox.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-checkbox"]; // element: wa-checkbox
 
+/** The properties a view sets on `<wa-checkbox>`, as upstream types them. */
+type Properties = {
+	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-checkbox.assumeInteractionOn
+	readonly checked: Schema.declare<Of["checked"]>; // property: wa-checkbox.checked
+	readonly customError: Schema.declare<Of["customError"]>; // property: wa-checkbox.customError
+	readonly defaultChecked: Schema.declare<Of["defaultChecked"]>; // property: wa-checkbox.defaultChecked
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-checkbox.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-checkbox.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-checkbox.disabled
+	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-checkbox.emitInvalid
+	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-checkbox.hasInteracted
+	readonly hint: Schema.declare<Of["hint"]>; // property: wa-checkbox.hint
+	readonly indeterminate: Schema.declare<Of["indeterminate"]>; // property: wa-checkbox.indeterminate
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-checkbox.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-checkbox.lang
+	readonly name: Schema.declare<Of["name"]>; // property: wa-checkbox.name
+	readonly required: Schema.declare<Of["required"]>; // property: wa-checkbox.required
+	readonly size: Schema.declare<Of["size"]>; // property: wa-checkbox.size
+	readonly states: Schema.declare<Of["states"]>; // property: wa-checkbox.states
+	readonly title: Schema.declare<Of["title"]>; // property: wa-checkbox.title
+	readonly validators: Schema.declare<Of["validators"]>; // property: wa-checkbox.validators
+	readonly value: Schema.declare<Of["value"]>; // property: wa-checkbox.value
+	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-checkbox.valueHasChanged
+};
+
+/** The custom events of `<wa-checkbox>`, each its `detail`. */
+type Events = {
+	readonly "wa-invalid": Schema.declare<DetailOf<"wa-invalid">>;
+};
+
 /** `<wa-checkbox>`: Checkboxes let users toggle an option on or off, or select multiple items from a list. */
-export const Checkbox = Html.customElement({
+export const Checkbox: Html.CustomElementBinding<"wa-checkbox", Properties, Events> = Html.customElement({
 	tag: "wa-checkbox",
 	properties: {
 		assumeInteractionOn: typed<Of["assumeInteractionOn"]>(), // property: wa-checkbox.assumeInteractionOn

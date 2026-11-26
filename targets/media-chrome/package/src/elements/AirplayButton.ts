@@ -2,13 +2,30 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-airplay-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-airplay-button>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: media-airplay-button.disabled
+	readonly mediaAirplayUnavailable: Schema.declare<Of["mediaAirplayUnavailable"]>; // property: media-airplay-button.mediaAirplayUnavailable
+	readonly mediaController: Schema.declare<Of["mediaController"]>; // property: media-airplay-button.mediaController
+	readonly mediaIsAirplaying: Schema.declare<Of["mediaIsAirplaying"]>; // property: media-airplay-button.mediaIsAirplaying
+	readonly noTooltip: Schema.declare<Of["noTooltip"]>; // property: media-airplay-button.noTooltip
+	readonly preventClick: Schema.declare<Of["preventClick"]>; // property: media-airplay-button.preventClick
+	readonly tooltipPlacement: Schema.declare<Of["tooltipPlacement"]>; // property: media-airplay-button.tooltipPlacement
+};
+
+/** The custom events of `<media-airplay-button>`, each its `detail`. */
+type Events = {
+	readonly mediaairplayrequest: Schema.declare<DetailOf<"mediaairplayrequest">>;
+};
+
 /** `<media-airplay-button>` */
-export const AirplayButton = Html.customElement({
+export const AirplayButton: Html.CustomElementBinding<"media-airplay-button", Properties, Events> = Html.customElement({
 	tag: "media-airplay-button",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: media-airplay-button.disabled

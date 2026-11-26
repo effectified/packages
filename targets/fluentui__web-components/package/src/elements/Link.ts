@@ -2,13 +2,30 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/link/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-link>`, as upstream types them. */
+type Properties = {
+	readonly download: Schema.declare<Of["download"]>; // property: fluent-link.download
+	readonly href: Schema.declare<Of["href"]>; // property: fluent-link.href
+	readonly hreflang: Schema.declare<Of["hreflang"]>; // property: fluent-link.hreflang
+	readonly ping: Schema.declare<Of["ping"]>; // property: fluent-link.ping
+	readonly referrerpolicy: Schema.declare<Of["referrerpolicy"]>; // property: fluent-link.referrerpolicy
+	readonly rel: Schema.declare<Of["rel"]>; // property: fluent-link.rel
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-link.role
+	readonly target: Schema.declare<Of["target"]>; // property: fluent-link.target
+	readonly type: Schema.declare<Of["type"]>; // property: fluent-link.type
+};
+
+/** The custom events of `<fluent-link>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-link>`: An Anchor Custom HTML Element. */
-export const Link = Html.customElement({
+export const Link: Html.CustomElementBinding<"fluent-link", Properties, Events> = Html.customElement({
 	tag: "fluent-link",
 	properties: {
 		download: typed<Of["download"]>(), // property: fluent-link.download

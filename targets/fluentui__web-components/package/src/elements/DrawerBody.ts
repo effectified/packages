@@ -2,13 +2,20 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/drawer-body/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-drawer-body>`, as upstream types them. */
+type Properties = {};
+
+/** The custom events of `<fluent-drawer-body>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-drawer-body>`: A component that provides a drawer body for displaying content in a side panel. */
-export const DrawerBody = Html.customElement({
+export const DrawerBody: Html.CustomElementBinding<"fluent-drawer-body", Properties, Events> = Html.customElement({
 	tag: "fluent-drawer-body",
 	properties: {},
 	events: {},

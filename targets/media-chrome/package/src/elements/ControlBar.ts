@@ -2,13 +2,20 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-control-bar.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-control-bar>`, as upstream types them. */
+type Properties = {};
+
+/** The custom events of `<media-control-bar>`, each its `detail`. */
+type Events = {};
+
 /** `<media-control-bar>` */
-export const ControlBar = Html.customElement({
+export const ControlBar: Html.CustomElementBinding<"media-control-bar", Properties, Events> = Html.customElement({
 	tag: "media-control-bar",
 	properties: {},
 	events: {},

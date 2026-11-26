@@ -2,13 +2,32 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/card/card.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-card"]; // element: wa-card
 
+/** The properties a view sets on `<wa-card>`, as upstream types them. */
+type Properties = {
+	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-card.appearance
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-card.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-card.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-card.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-card.lang
+	readonly orientation: Schema.declare<Of["orientation"]>; // property: wa-card.orientation
+	readonly withFooter: Schema.declare<Of["withFooter"]>; // property: wa-card.withFooter
+	readonly withFooterActions: Schema.declare<Of["withFooterActions"]>; // property: wa-card.withFooterActions
+	readonly withHeader: Schema.declare<Of["withHeader"]>; // property: wa-card.withHeader
+	readonly withHeaderActions: Schema.declare<Of["withHeaderActions"]>; // property: wa-card.withHeaderActions
+	readonly withMedia: Schema.declare<Of["withMedia"]>; // property: wa-card.withMedia
+};
+
+/** The custom events of `<wa-card>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-card>`: Cards group related content and actions inside a bordered container. */
-export const Card = Html.customElement({
+export const Card: Html.CustomElementBinding<"wa-card", Properties, Events> = Html.customElement({
 	tag: "wa-card",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-card.appearance

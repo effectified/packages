@@ -2,13 +2,26 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/focus/md-focus-ring.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-focus-ring"]; // element: md-focus-ring
 
+/** The properties a view sets on `<md-focus-ring>`, as upstream types them. */
+type Properties = {
+	readonly htmlFor: Schema.declare<Of["htmlFor"]>; // property: md-focus-ring.htmlFor
+	readonly inward: Schema.declare<Of["inward"]>; // property: md-focus-ring.inward
+	readonly visible: Schema.declare<Of["visible"]>; // property: md-focus-ring.visible
+};
+
+/** The custom events of `<md-focus-ring>`, each its `detail`. */
+type Events = {
+	readonly "visibility-changed": Schema.declare<DetailOf<"visibility-changed">>;
+};
+
 /** `<md-focus-ring>`: TODO(b/267336424): add docs */
-export const FocusRing = Html.customElement({
+export const FocusRing: Html.CustomElementBinding<"md-focus-ring", Properties, Events> = Html.customElement({
 	tag: "md-focus-ring",
 	properties: {
 		htmlFor: typed<Of["htmlFor"]>(), // property: md-focus-ring.htmlFor

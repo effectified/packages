@@ -2,13 +2,25 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/progress/circular-progress.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-circular-progress"]; // element: md-circular-progress
 
+/** The properties a view sets on `<md-circular-progress>`, as upstream types them. */
+type Properties = {
+	readonly fourColor: Schema.declare<Of["fourColor"]>; // property: md-circular-progress.fourColor
+	readonly indeterminate: Schema.declare<Of["indeterminate"]>; // property: md-circular-progress.indeterminate
+	readonly max: Schema.declare<Of["max"]>; // property: md-circular-progress.max
+	readonly value: Schema.declare<Of["value"]>; // property: md-circular-progress.value
+};
+
+/** The custom events of `<md-circular-progress>`, each its `detail`. */
+type Events = {};
+
 /** `<md-circular-progress>`: Circular progress indicators display progress by animating along an invisible circular track in a clockwise direction. */
-export const CircularProgress = Html.customElement({
+export const CircularProgress: Html.CustomElementBinding<"md-circular-progress", Properties, Events> = Html.customElement({
 	tag: "md-circular-progress",
 	properties: {
 		fourColor: typed<Of["fourColor"]>(), // property: md-circular-progress.fourColor

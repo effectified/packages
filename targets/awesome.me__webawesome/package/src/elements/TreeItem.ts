@@ -2,13 +2,42 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/tree-item/tree-item.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-tree-item"]; // element: wa-tree-item
 
+/** The properties a view sets on `<wa-tree-item>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-tree-item.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-tree-item.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-tree-item.disabled
+	readonly expanded: Schema.declare<Of["expanded"]>; // property: wa-tree-item.expanded
+	readonly indeterminate: Schema.declare<Of["indeterminate"]>; // property: wa-tree-item.indeterminate
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-tree-item.initialReflectedProperties
+	readonly isLeaf: Schema.declare<Of["isLeaf"]>; // property: wa-tree-item.isLeaf
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-tree-item.lang
+	readonly lazy: Schema.declare<Of["lazy"]>; // property: wa-tree-item.lazy
+	readonly loading: Schema.declare<Of["loading"]>; // property: wa-tree-item.loading
+	readonly role: Schema.declare<Of["role"]>; // property: wa-tree-item.role
+	readonly selectable: Schema.declare<Of["selectable"]>; // property: wa-tree-item.selectable
+	readonly selected: Schema.declare<Of["selected"]>; // property: wa-tree-item.selected
+	readonly tabIndex: Schema.declare<Of["tabIndex"]>; // property: wa-tree-item.tabIndex
+};
+
+/** The custom events of `<wa-tree-item>`, each its `detail`. */
+type Events = {
+	readonly "wa-after-collapse": Schema.declare<DetailOf<"wa-after-collapse">>;
+	readonly "wa-after-expand": Schema.declare<DetailOf<"wa-after-expand">>;
+	readonly "wa-collapse": Schema.declare<DetailOf<"wa-collapse">>;
+	readonly "wa-expand": Schema.declare<DetailOf<"wa-expand">>;
+	readonly "wa-lazy-change": Schema.declare<DetailOf<"wa-lazy-change">>;
+	readonly "wa-lazy-load": Schema.declare<DetailOf<"wa-lazy-load">>;
+};
+
 /** `<wa-tree-item>`: Tree items represent a single hierarchical node inside a tree, and can contain nested items that expand and collapse. */
-export const TreeItem = Html.customElement({
+export const TreeItem: Html.CustomElementBinding<"wa-tree-item", Properties, Events> = Html.customElement({
 	tag: "wa-tree-item",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-tree-item.didSSR

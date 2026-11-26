@@ -2,13 +2,25 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/menu/media-audio-track-menu.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-audio-track-menu>`, as upstream types them. */
+type Properties = {
+	readonly anchor: Schema.declare<Of["anchor"]>; // property: media-audio-track-menu.anchor
+	readonly mediaAudioTrackEnabled: Schema.declare<Of["mediaAudioTrackEnabled"]>; // property: media-audio-track-menu.mediaAudioTrackEnabled
+	readonly mediaAudioTrackList: Schema.declare<Of["mediaAudioTrackList"]>; // property: media-audio-track-menu.mediaAudioTrackList
+	readonly value: Schema.declare<Of["value"]>; // property: media-audio-track-menu.value
+};
+
+/** The custom events of `<media-audio-track-menu>`, each its `detail`. */
+type Events = {};
+
 /** `<media-audio-track-menu>` */
-export const AudioTrackMenu = Html.customElement({
+export const AudioTrackMenu: Html.CustomElementBinding<"media-audio-track-menu", Properties, Events> = Html.customElement({
 	tag: "media-audio-track-menu",
 	properties: {
 		anchor: typed<Of["anchor"]>(), // property: media-audio-track-menu.anchor

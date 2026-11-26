@@ -2,13 +2,27 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/menu/media-rendition-menu.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-rendition-menu>`, as upstream types them. */
+type Properties = {
+	readonly anchor: Schema.declare<Of["anchor"]>; // property: media-rendition-menu.anchor
+	readonly mediaHeight: Schema.declare<Of["mediaHeight"]>; // property: media-rendition-menu.mediaHeight
+	readonly mediaRenditionList: Schema.declare<Of["mediaRenditionList"]>; // property: media-rendition-menu.mediaRenditionList
+	readonly mediaRenditionSelected: Schema.declare<Of["mediaRenditionSelected"]>; // property: media-rendition-menu.mediaRenditionSelected
+	readonly mediaWidth: Schema.declare<Of["mediaWidth"]>; // property: media-rendition-menu.mediaWidth
+	readonly value: Schema.declare<Of["value"]>; // property: media-rendition-menu.value
+};
+
+/** The custom events of `<media-rendition-menu>`, each its `detail`. */
+type Events = {};
+
 /** `<media-rendition-menu>` */
-export const RenditionMenu = Html.customElement({
+export const RenditionMenu: Html.CustomElementBinding<"media-rendition-menu", Properties, Events> = Html.customElement({
 	tag: "media-rendition-menu",
 	properties: {
 		anchor: typed<Of["anchor"]>(), // property: media-rendition-menu.anchor

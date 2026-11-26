@@ -2,13 +2,25 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/menu/media-playback-rate-menu.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-playback-rate-menu>`, as upstream types them. */
+type Properties = {
+	readonly anchor: Schema.declare<Of["anchor"]>; // property: media-playback-rate-menu.anchor
+	readonly mediaPlaybackRate: Schema.declare<Of["mediaPlaybackRate"]>; // property: media-playback-rate-menu.mediaPlaybackRate
+	readonly rates: Schema.declare<Of["rates"]>; // property: media-playback-rate-menu.rates
+	readonly value: Schema.declare<Of["value"]>; // property: media-playback-rate-menu.value
+};
+
+/** The custom events of `<media-playback-rate-menu>`, each its `detail`. */
+type Events = {};
+
 /** `<media-playback-rate-menu>` */
-export const PlaybackRateMenu = Html.customElement({
+export const PlaybackRateMenu: Html.CustomElementBinding<"media-playback-rate-menu", Properties, Events> = Html.customElement({
 	tag: "media-playback-rate-menu",
 	properties: {
 		anchor: typed<Of["anchor"]>(), // property: media-playback-rate-menu.anchor

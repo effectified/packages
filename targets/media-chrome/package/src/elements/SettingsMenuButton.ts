@@ -2,13 +2,27 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/menu/media-settings-menu-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-settings-menu-button>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: media-settings-menu-button.disabled
+	readonly invokeTarget: Schema.declare<Of["invokeTarget"]>; // property: media-settings-menu-button.invokeTarget
+	readonly mediaController: Schema.declare<Of["mediaController"]>; // property: media-settings-menu-button.mediaController
+	readonly noTooltip: Schema.declare<Of["noTooltip"]>; // property: media-settings-menu-button.noTooltip
+	readonly preventClick: Schema.declare<Of["preventClick"]>; // property: media-settings-menu-button.preventClick
+	readonly tooltipPlacement: Schema.declare<Of["tooltipPlacement"]>; // property: media-settings-menu-button.tooltipPlacement
+};
+
+/** The custom events of `<media-settings-menu-button>`, each its `detail`. */
+type Events = {};
+
 /** `<media-settings-menu-button>` */
-export const SettingsMenuButton = Html.customElement({
+export const SettingsMenuButton: Html.CustomElementBinding<"media-settings-menu-button", Properties, Events> = Html.customElement({
 	tag: "media-settings-menu-button",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: media-settings-menu-button.disabled

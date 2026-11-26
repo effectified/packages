@@ -2,13 +2,42 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/animation/animation.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-animation"]; // element: wa-animation
 
+/** The properties a view sets on `<wa-animation>`, as upstream types them. */
+type Properties = {
+	readonly currentTime: Schema.declare<Of["currentTime"]>; // property: wa-animation.currentTime
+	readonly delay: Schema.declare<Of["delay"]>; // property: wa-animation.delay
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-animation.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-animation.dir
+	readonly direction: Schema.declare<Of["direction"]>; // property: wa-animation.direction
+	readonly duration: Schema.declare<Of["duration"]>; // property: wa-animation.duration
+	readonly easing: Schema.declare<Of["easing"]>; // property: wa-animation.easing
+	readonly endDelay: Schema.declare<Of["endDelay"]>; // property: wa-animation.endDelay
+	readonly fill: Schema.declare<Of["fill"]>; // property: wa-animation.fill
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-animation.initialReflectedProperties
+	readonly iterationStart: Schema.declare<Of["iterationStart"]>; // property: wa-animation.iterationStart
+	readonly iterations: Schema.declare<Of["iterations"]>; // property: wa-animation.iterations
+	readonly keyframes: Schema.declare<Of["keyframes"]>; // property: wa-animation.keyframes
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-animation.lang
+	readonly name: Schema.declare<Of["name"]>; // property: wa-animation.name
+	readonly play: Schema.declare<Of["play"]>; // property: wa-animation.play
+	readonly playbackRate: Schema.declare<Of["playbackRate"]>; // property: wa-animation.playbackRate
+};
+
+/** The custom events of `<wa-animation>`, each its `detail`. */
+type Events = {
+	readonly "wa-cancel": Schema.declare<DetailOf<"wa-cancel">>;
+	readonly "wa-finish": Schema.declare<DetailOf<"wa-finish">>;
+	readonly "wa-start": Schema.declare<DetailOf<"wa-start">>;
+};
+
 /** `<wa-animation>`: Animate elements declaratively with nearly 100 baked-in presets, or roll your own with custom keyframes. */
-export const Animation = Html.customElement({
+export const Animation: Html.CustomElementBinding<"wa-animation", Properties, Events> = Html.customElement({
 	tag: "wa-animation",
 	properties: {
 		currentTime: typed<Of["currentTime"]>(), // property: wa-animation.currentTime

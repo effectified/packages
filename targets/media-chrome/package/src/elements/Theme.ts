@@ -2,13 +2,22 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-theme-element.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-theme>`, as upstream types them. */
+type Properties = {
+	readonly renderer: Schema.declare<Of["renderer"]>; // property: media-theme.renderer
+};
+
+/** The custom events of `<media-theme>`, each its `detail`. */
+type Events = {};
+
 /** `<media-theme>` */
-export const Theme = Html.customElement({
+export const Theme: Html.CustomElementBinding<"media-theme", Properties, Events> = Html.customElement({
 	tag: "media-theme",
 	properties: {
 		renderer: typed<Of["renderer"]>(), // property: media-theme.renderer

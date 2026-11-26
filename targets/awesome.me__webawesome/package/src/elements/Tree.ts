@@ -2,13 +2,30 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/tree/tree.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-tree"]; // element: wa-tree
 
+/** The properties a view sets on `<wa-tree>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-tree.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-tree.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-tree.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-tree.lang
+	readonly role: Schema.declare<Of["role"]>; // property: wa-tree.role
+	readonly selection: Schema.declare<Of["selection"]>; // property: wa-tree.selection
+	readonly tabIndex: Schema.declare<Of["tabIndex"]>; // property: wa-tree.tabIndex
+};
+
+/** The custom events of `<wa-tree>`, each its `detail`. */
+type Events = {
+	readonly "wa-selection-change": Schema.declare<DetailOf<"wa-selection-change">>;
+};
+
 /** `<wa-tree>`: Trees allow you to display a hierarchical list of selectable tree items. */
-export const Tree = Html.customElement({
+export const Tree: Html.CustomElementBinding<"wa-tree", Properties, Events> = Html.customElement({
 	tag: "wa-tree",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-tree.didSSR

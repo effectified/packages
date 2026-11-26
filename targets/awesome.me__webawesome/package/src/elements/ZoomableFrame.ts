@@ -2,13 +2,39 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/zoomable-frame/zoomable-frame.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-zoomable-frame"]; // element: wa-zoomable-frame
 
+/** The properties a view sets on `<wa-zoomable-frame>`, as upstream types them. */
+type Properties = {
+	readonly allow: Schema.declare<Of["allow"]>; // property: wa-zoomable-frame.allow
+	readonly allowfullscreen: Schema.declare<Of["allowfullscreen"]>; // property: wa-zoomable-frame.allowfullscreen
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-zoomable-frame.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-zoomable-frame.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-zoomable-frame.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-zoomable-frame.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-zoomable-frame.lang
+	readonly loading: Schema.declare<Of["loading"]>; // property: wa-zoomable-frame.loading
+	readonly name: Schema.declare<Of["name"]>; // property: wa-zoomable-frame.name
+	readonly referrerpolicy: Schema.declare<Of["referrerpolicy"]>; // property: wa-zoomable-frame.referrerpolicy
+	readonly sandbox: Schema.declare<Of["sandbox"]>; // property: wa-zoomable-frame.sandbox
+	readonly src: Schema.declare<Of["src"]>; // property: wa-zoomable-frame.src
+	readonly srcdoc: Schema.declare<Of["srcdoc"]>; // property: wa-zoomable-frame.srcdoc
+	readonly withThemeSync: Schema.declare<Of["withThemeSync"]>; // property: wa-zoomable-frame.withThemeSync
+	readonly withoutControls: Schema.declare<Of["withoutControls"]>; // property: wa-zoomable-frame.withoutControls
+	readonly withoutInteraction: Schema.declare<Of["withoutInteraction"]>; // property: wa-zoomable-frame.withoutInteraction
+	readonly zoom: Schema.declare<Of["zoom"]>; // property: wa-zoomable-frame.zoom
+	readonly zoomLevels: Schema.declare<Of["zoomLevels"]>; // property: wa-zoomable-frame.zoomLevels
+};
+
+/** The custom events of `<wa-zoomable-frame>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-zoomable-frame>`: Zoomable frames embed iframe content with built-in controls for zooming, panning, and managing interaction. */
-export const ZoomableFrame = Html.customElement({
+export const ZoomableFrame: Html.CustomElementBinding<"wa-zoomable-frame", Properties, Events> = Html.customElement({
 	tag: "wa-zoomable-frame",
 	properties: {
 		allow: typed<Of["allow"]>(), // property: wa-zoomable-frame.allow

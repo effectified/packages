@@ -2,13 +2,27 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/button/outlined-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-outlined-button"]; // element: md-outlined-button
 
+/** The properties a view sets on `<md-outlined-button>`, as upstream types them. */
+type Properties = {
+	readonly download: Schema.declare<Of["download"]>; // property: md-outlined-button.download
+	readonly hasIcon: Schema.declare<Of["hasIcon"]>; // property: md-outlined-button.hasIcon
+	readonly href: Schema.declare<Of["href"]>; // property: md-outlined-button.href
+	readonly softDisabled: Schema.declare<Of["softDisabled"]>; // property: md-outlined-button.softDisabled
+	readonly target: Schema.declare<Of["target"]>; // property: md-outlined-button.target
+	readonly trailingIcon: Schema.declare<Of["trailingIcon"]>; // property: md-outlined-button.trailingIcon
+};
+
+/** The custom events of `<md-outlined-button>`, each its `detail`. */
+type Events = {};
+
 /** `<md-outlined-button>`: Buttons help people take action, such as sending an email, sharing a document, or liking a comment. */
-export const OutlinedButton = Html.customElement({
+export const OutlinedButton: Html.CustomElementBinding<"md-outlined-button", Properties, Events> = Html.customElement({
 	tag: "md-outlined-button",
 	properties: {
 		download: typed<Of["download"]>(), // property: md-outlined-button.download

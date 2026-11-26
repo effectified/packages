@@ -2,13 +2,25 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/fab/fab.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-fab"]; // element: md-fab
 
+/** The properties a view sets on `<md-fab>`, as upstream types them. */
+type Properties = {
+	readonly label: Schema.declare<Of["label"]>; // property: md-fab.label
+	readonly lowered: Schema.declare<Of["lowered"]>; // property: md-fab.lowered
+	readonly size: Schema.declare<Of["size"]>; // property: md-fab.size
+	readonly variant: Schema.declare<Of["variant"]>; // property: md-fab.variant
+};
+
+/** The custom events of `<md-fab>`, each its `detail`. */
+type Events = {};
+
 /** `<md-fab>`: Floating action buttons (FABs) help people take primary actions. */
-export const Fab = Html.customElement({
+export const Fab: Html.CustomElementBinding<"md-fab", Properties, Events> = Html.customElement({
 	tag: "md-fab",
 	properties: {
 		label: typed<Of["label"]>(), // property: md-fab.label

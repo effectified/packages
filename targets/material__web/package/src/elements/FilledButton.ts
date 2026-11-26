@@ -2,13 +2,27 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/button/filled-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-filled-button"]; // element: md-filled-button
 
+/** The properties a view sets on `<md-filled-button>`, as upstream types them. */
+type Properties = {
+	readonly download: Schema.declare<Of["download"]>; // property: md-filled-button.download
+	readonly hasIcon: Schema.declare<Of["hasIcon"]>; // property: md-filled-button.hasIcon
+	readonly href: Schema.declare<Of["href"]>; // property: md-filled-button.href
+	readonly softDisabled: Schema.declare<Of["softDisabled"]>; // property: md-filled-button.softDisabled
+	readonly target: Schema.declare<Of["target"]>; // property: md-filled-button.target
+	readonly trailingIcon: Schema.declare<Of["trailingIcon"]>; // property: md-filled-button.trailingIcon
+};
+
+/** The custom events of `<md-filled-button>`, each its `detail`. */
+type Events = {};
+
 /** `<md-filled-button>`: Buttons help people take action, such as sending an email, sharing a document, or liking a comment. */
-export const FilledButton = Html.customElement({
+export const FilledButton: Html.CustomElementBinding<"md-filled-button", Properties, Events> = Html.customElement({
 	tag: "md-filled-button",
 	properties: {
 		download: typed<Of["download"]>(), // property: md-filled-button.download

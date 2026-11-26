@@ -2,13 +2,44 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/switch/switch.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-switch"]; // element: wa-switch
 
+/** The properties a view sets on `<wa-switch>`, as upstream types them. */
+type Properties = {
+	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-switch.assumeInteractionOn
+	readonly checked: Schema.declare<Of["checked"]>; // property: wa-switch.checked
+	readonly customError: Schema.declare<Of["customError"]>; // property: wa-switch.customError
+	readonly defaultChecked: Schema.declare<Of["defaultChecked"]>; // property: wa-switch.defaultChecked
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-switch.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-switch.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-switch.disabled
+	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-switch.emitInvalid
+	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-switch.hasInteracted
+	readonly hint: Schema.declare<Of["hint"]>; // property: wa-switch.hint
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-switch.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-switch.lang
+	readonly name: Schema.declare<Of["name"]>; // property: wa-switch.name
+	readonly required: Schema.declare<Of["required"]>; // property: wa-switch.required
+	readonly size: Schema.declare<Of["size"]>; // property: wa-switch.size
+	readonly states: Schema.declare<Of["states"]>; // property: wa-switch.states
+	readonly title: Schema.declare<Of["title"]>; // property: wa-switch.title
+	readonly validators: Schema.declare<Of["validators"]>; // property: wa-switch.validators
+	readonly value: Schema.declare<Of["value"]>; // property: wa-switch.value
+	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-switch.valueHasChanged
+	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-switch.withHint
+};
+
+/** The custom events of `<wa-switch>`, each its `detail`. */
+type Events = {
+	readonly "wa-invalid": Schema.declare<DetailOf<"wa-invalid">>;
+};
+
 /** `<wa-switch>`: Switches toggle a single setting on or off and apply the change immediately, without requiring a form submission. */
-export const Switch = Html.customElement({
+export const Switch: Html.CustomElementBinding<"wa-switch", Properties, Events> = Html.customElement({
 	tag: "wa-switch",
 	properties: {
 		assumeInteractionOn: typed<Of["assumeInteractionOn"]>(), // property: wa-switch.assumeInteractionOn

@@ -2,13 +2,22 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/accordion/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-accordion>`, as upstream types them. */
+type Properties = {
+	readonly expandmode: Schema.declare<Of["expandmode"]>; // property: fluent-accordion.expandmode
+};
+
+/** The custom events of `<fluent-accordion>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-accordion>`: An Accordion Custom HTML Element Implements https://www.w3.org/TR/wai-aria-practices-1.1/#accordion | ARIA Accordion. */
-export const Accordion = Html.customElement({
+export const Accordion: Html.CustomElementBinding<"fluent-accordion", Properties, Events> = Html.customElement({
 	tag: "fluent-accordion",
 	properties: {
 		expandmode: typed<Of["expandmode"]>(), // property: fluent-accordion.expandmode

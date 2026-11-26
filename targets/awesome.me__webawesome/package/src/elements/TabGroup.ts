@@ -2,13 +2,32 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/tab-group/tab-group.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-tab-group"]; // element: wa-tab-group
 
+/** The properties a view sets on `<wa-tab-group>`, as upstream types them. */
+type Properties = {
+	readonly activation: Schema.declare<Of["activation"]>; // property: wa-tab-group.activation
+	readonly active: Schema.declare<Of["active"]>; // property: wa-tab-group.active
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-tab-group.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-tab-group.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-tab-group.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-tab-group.lang
+	readonly placement: Schema.declare<Of["placement"]>; // property: wa-tab-group.placement
+	readonly withoutScrollControls: Schema.declare<Of["withoutScrollControls"]>; // property: wa-tab-group.withoutScrollControls
+};
+
+/** The custom events of `<wa-tab-group>`, each its `detail`. */
+type Events = {
+	readonly "wa-tab-hide": Schema.declare<DetailOf<"wa-tab-hide">>;
+	readonly "wa-tab-show": Schema.declare<DetailOf<"wa-tab-show">>;
+};
+
 /** `<wa-tab-group>`: Tab groups organize related content into a single container that displays one panel at a time, with tabs for switching between them. */
-export const TabGroup = Html.customElement({
+export const TabGroup: Html.CustomElementBinding<"wa-tab-group", Properties, Events> = Html.customElement({
 	tag: "wa-tab-group",
 	properties: {
 		activation: typed<Of["activation"]>(), // property: wa-tab-group.activation

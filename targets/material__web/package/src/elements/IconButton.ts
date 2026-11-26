@@ -2,13 +2,29 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/iconbutton/icon-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-icon-button"]; // element: md-icon-button
 
+/** The properties a view sets on `<md-icon-button>`, as upstream types them. */
+type Properties = {
+	readonly ariaLabelSelected: Schema.declare<Of["ariaLabelSelected"]>; // property: md-icon-button.ariaLabelSelected
+	readonly download: Schema.declare<Of["download"]>; // property: md-icon-button.download
+	readonly flipIconInRtl: Schema.declare<Of["flipIconInRtl"]>; // property: md-icon-button.flipIconInRtl
+	readonly href: Schema.declare<Of["href"]>; // property: md-icon-button.href
+	readonly selected: Schema.declare<Of["selected"]>; // property: md-icon-button.selected
+	readonly softDisabled: Schema.declare<Of["softDisabled"]>; // property: md-icon-button.softDisabled
+	readonly target: Schema.declare<Of["target"]>; // property: md-icon-button.target
+	readonly toggle: Schema.declare<Of["toggle"]>; // property: md-icon-button.toggle
+};
+
+/** The custom events of `<md-icon-button>`, each its `detail`. */
+type Events = {};
+
 /** `<md-icon-button>`: Icon buttons help people take supplementary actions with a single tap. */
-export const IconButton = Html.customElement({
+export const IconButton: Html.CustomElementBinding<"md-icon-button", Properties, Events> = Html.customElement({
 	tag: "md-icon-button",
 	properties: {
 		ariaLabelSelected: typed<Of["ariaLabelSelected"]>(), // property: md-icon-button.ariaLabelSelected

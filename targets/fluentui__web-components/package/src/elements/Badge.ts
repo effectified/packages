@@ -2,13 +2,20 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/badge/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-badge>`, as upstream types them. */
+type Properties = {};
+
+/** The custom events of `<fluent-badge>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-badge>`: The base class used for constructing a fluent-badge custom element */
-export const Badge = Html.customElement({
+export const Badge: Html.CustomElementBinding<"fluent-badge", Properties, Events> = Html.customElement({
 	tag: "fluent-badge",
 	properties: {},
 	events: {},

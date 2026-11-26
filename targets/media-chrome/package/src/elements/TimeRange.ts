@@ -2,13 +2,32 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-time-range.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-time-range>`, as upstream types them. */
+type Properties = {
+	readonly mediaBuffered: Schema.declare<Of["mediaBuffered"]>; // property: media-time-range.mediaBuffered
+	readonly mediaChaptersCues: Schema.declare<Of["mediaChaptersCues"]>; // property: media-time-range.mediaChaptersCues
+	readonly mediaCurrentTime: Schema.declare<Of["mediaCurrentTime"]>; // property: media-time-range.mediaCurrentTime
+	readonly mediaDuration: Schema.declare<Of["mediaDuration"]>; // property: media-time-range.mediaDuration
+	readonly mediaEnded: Schema.declare<Of["mediaEnded"]>; // property: media-time-range.mediaEnded
+	readonly mediaLoading: Schema.declare<Of["mediaLoading"]>; // property: media-time-range.mediaLoading
+	readonly mediaPaused: Schema.declare<Of["mediaPaused"]>; // property: media-time-range.mediaPaused
+	readonly mediaPlaybackRate: Schema.declare<Of["mediaPlaybackRate"]>; // property: media-time-range.mediaPlaybackRate
+	readonly mediaPreviewImage: Schema.declare<Of["mediaPreviewImage"]>; // property: media-time-range.mediaPreviewImage
+	readonly mediaPreviewTime: Schema.declare<Of["mediaPreviewTime"]>; // property: media-time-range.mediaPreviewTime
+	readonly mediaSeekable: Schema.declare<Of["mediaSeekable"]>; // property: media-time-range.mediaSeekable
+};
+
+/** The custom events of `<media-time-range>`, each its `detail`. */
+type Events = {};
+
 /** `<media-time-range>` */
-export const TimeRange = Html.customElement({
+export const TimeRange: Html.CustomElementBinding<"media-time-range", Properties, Events> = Html.customElement({
 	tag: "media-time-range",
 	properties: {
 		mediaBuffered: typed<Of["mediaBuffered"]>(), // property: media-time-range.mediaBuffered

@@ -2,13 +2,43 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/select/filled-select.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-filled-select"]; // element: md-filled-select
 
+/** The properties a view sets on `<md-filled-select>`, as upstream types them. */
+type Properties = {
+	readonly clampMenuWidth: Schema.declare<Of["clampMenuWidth"]>; // property: md-filled-select.clampMenuWidth
+	readonly displayText: Schema.declare<Of["displayText"]>; // property: md-filled-select.displayText
+	readonly error: Schema.declare<Of["error"]>; // property: md-filled-select.error
+	readonly errorText: Schema.declare<Of["errorText"]>; // property: md-filled-select.errorText
+	readonly hasLeadingIcon: Schema.declare<Of["hasLeadingIcon"]>; // property: md-filled-select.hasLeadingIcon
+	readonly label: Schema.declare<Of["label"]>; // property: md-filled-select.label
+	readonly menuAlign: Schema.declare<Of["menuAlign"]>; // property: md-filled-select.menuAlign
+	readonly menuPositioning: Schema.declare<Of["menuPositioning"]>; // property: md-filled-select.menuPositioning
+	readonly noAsterisk: Schema.declare<Of["noAsterisk"]>; // property: md-filled-select.noAsterisk
+	readonly options: Schema.declare<Of["options"]>; // property: md-filled-select.options
+	readonly quick: Schema.declare<Of["quick"]>; // property: md-filled-select.quick
+	readonly required: Schema.declare<Of["required"]>; // property: md-filled-select.required
+	readonly selectedIndex: Schema.declare<Of["selectedIndex"]>; // property: md-filled-select.selectedIndex
+	readonly selectedOptions: Schema.declare<Of["selectedOptions"]>; // property: md-filled-select.selectedOptions
+	readonly supportingText: Schema.declare<Of["supportingText"]>; // property: md-filled-select.supportingText
+	readonly typeaheadDelay: Schema.declare<Of["typeaheadDelay"]>; // property: md-filled-select.typeaheadDelay
+	readonly value: Schema.declare<Of["value"]>; // property: md-filled-select.value
+};
+
+/** The custom events of `<md-filled-select>`, each its `detail`. */
+type Events = {
+	readonly closed: Schema.declare<DetailOf<"closed">>;
+	readonly closing: Schema.declare<DetailOf<"closing">>;
+	readonly opened: Schema.declare<DetailOf<"opened">>;
+	readonly opening: Schema.declare<DetailOf<"opening">>;
+};
+
 /** `<md-filled-select>`: Select menus display a list of choices on temporary surfaces and display the currently selected menu item above the menu. */
-export const FilledSelect = Html.customElement({
+export const FilledSelect: Html.CustomElementBinding<"md-filled-select", Properties, Events> = Html.customElement({
 	tag: "md-filled-select",
 	properties: {
 		clampMenuWidth: typed<Of["clampMenuWidth"]>(), // property: md-filled-select.clampMenuWidth

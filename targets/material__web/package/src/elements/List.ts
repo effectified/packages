@@ -2,13 +2,22 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/list/list.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-list"]; // element: md-list
 
+/** The properties a view sets on `<md-list>`, as upstream types them. */
+type Properties = {
+	readonly items: Schema.declare<Of["items"]>; // property: md-list.items
+};
+
+/** The custom events of `<md-list>`, each its `detail`. */
+type Events = {};
+
 /** `<md-list>`: Lists are continuous, vertical indexes of text or images. */
-export const List = Html.customElement({
+export const List: Html.CustomElementBinding<"md-list", Properties, Events> = Html.customElement({
 	tag: "md-list",
 	properties: {
 		items: typed<Of["items"]>(), // property: md-list.items

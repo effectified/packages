@@ -2,13 +2,45 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/menu/menu.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-menu"]; // element: md-menu
 
+/** The properties a view sets on `<md-menu>`, as upstream types them. */
+type Properties = {
+	readonly anchor: Schema.declare<Of["anchor"]>; // property: md-menu.anchor
+	readonly anchorCorner: Schema.declare<Of["anchorCorner"]>; // property: md-menu.anchorCorner
+	readonly defaultFocus: Schema.declare<Of["defaultFocus"]>; // property: md-menu.defaultFocus
+	readonly hasOverflow: Schema.declare<Of["hasOverflow"]>; // property: md-menu.hasOverflow
+	readonly isSubmenu: Schema.declare<Of["isSubmenu"]>; // property: md-menu.isSubmenu
+	readonly items: Schema.declare<Of["items"]>; // property: md-menu.items
+	readonly menuCorner: Schema.declare<Of["menuCorner"]>; // property: md-menu.menuCorner
+	readonly noHorizontalFlip: Schema.declare<Of["noHorizontalFlip"]>; // property: md-menu.noHorizontalFlip
+	readonly noNavigationWrap: Schema.declare<Of["noNavigationWrap"]>; // property: md-menu.noNavigationWrap
+	readonly noVerticalFlip: Schema.declare<Of["noVerticalFlip"]>; // property: md-menu.noVerticalFlip
+	readonly open: Schema.declare<Of["open"]>; // property: md-menu.open
+	readonly positioning: Schema.declare<Of["positioning"]>; // property: md-menu.positioning
+	readonly quick: Schema.declare<Of["quick"]>; // property: md-menu.quick
+	readonly skipRestoreFocus: Schema.declare<Of["skipRestoreFocus"]>; // property: md-menu.skipRestoreFocus
+	readonly stayOpenOnFocusout: Schema.declare<Of["stayOpenOnFocusout"]>; // property: md-menu.stayOpenOnFocusout
+	readonly stayOpenOnOutsideClick: Schema.declare<Of["stayOpenOnOutsideClick"]>; // property: md-menu.stayOpenOnOutsideClick
+	readonly typeaheadDelay: Schema.declare<Of["typeaheadDelay"]>; // property: md-menu.typeaheadDelay
+	readonly xOffset: Schema.declare<Of["xOffset"]>; // property: md-menu.xOffset
+	readonly yOffset: Schema.declare<Of["yOffset"]>; // property: md-menu.yOffset
+};
+
+/** The custom events of `<md-menu>`, each its `detail`. */
+type Events = {
+	readonly closed: Schema.declare<DetailOf<"closed">>;
+	readonly closing: Schema.declare<DetailOf<"closing">>;
+	readonly opened: Schema.declare<DetailOf<"opened">>;
+	readonly opening: Schema.declare<DetailOf<"opening">>;
+};
+
 /** `<md-menu>`: Menus display a list of choices on a temporary surface. */
-export const Menu = Html.customElement({
+export const Menu: Html.CustomElementBinding<"md-menu", Properties, Events> = Html.customElement({
 	tag: "md-menu",
 	properties: {
 		anchor: typed<Of["anchor"]>(), // property: md-menu.anchor
@@ -27,7 +59,6 @@ export const Menu = Html.customElement({
 		skipRestoreFocus: typed<Of["skipRestoreFocus"]>(), // property: md-menu.skipRestoreFocus
 		stayOpenOnFocusout: typed<Of["stayOpenOnFocusout"]>(), // property: md-menu.stayOpenOnFocusout
 		stayOpenOnOutsideClick: typed<Of["stayOpenOnOutsideClick"]>(), // property: md-menu.stayOpenOnOutsideClick
-		typeaheadController: typed<Of["typeaheadController"]>(), // property: md-menu.typeaheadController
 		typeaheadDelay: typed<Of["typeaheadDelay"]>(), // property: md-menu.typeaheadDelay
 		xOffset: typed<Of["xOffset"]>(), // property: md-menu.xOffset
 		yOffset: typed<Of["yOffset"]>(), // property: md-menu.yOffset

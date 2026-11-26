@@ -2,13 +2,25 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/carousel-item/carousel-item.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-carousel-item"]; // element: wa-carousel-item
 
+/** The properties a view sets on `<wa-carousel-item>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-carousel-item.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-carousel-item.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-carousel-item.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-carousel-item.lang
+};
+
+/** The custom events of `<wa-carousel-item>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-carousel-item>`: Carousel items represent individual slides within a carousel. */
-export const CarouselItem = Html.customElement({
+export const CarouselItem: Html.CustomElementBinding<"wa-carousel-item", Properties, Events> = Html.customElement({
 	tag: "wa-carousel-item",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-carousel-item.didSSR

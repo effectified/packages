@@ -2,13 +2,62 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/time-input/time-input.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-time-input"]; // element: wa-time-input
 
+/** The properties a view sets on `<wa-time-input>`, as upstream types them. */
+type Properties = {
+	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-time-input.appearance
+	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-time-input.assumeInteractionOn
+	readonly autocomplete: Schema.declare<Of["autocomplete"]>; // property: wa-time-input.autocomplete
+	readonly customError: Schema.declare<Of["customError"]>; // property: wa-time-input.customError
+	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-time-input.defaultValue
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-time-input.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-time-input.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-time-input.disabled
+	readonly distance: Schema.declare<Of["distance"]>; // property: wa-time-input.distance
+	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-time-input.emitInvalid
+	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-time-input.hasInteracted
+	readonly hint: Schema.declare<Of["hint"]>; // property: wa-time-input.hint
+	readonly hourFormat: Schema.declare<Of["hourFormat"]>; // property: wa-time-input.hourFormat
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-time-input.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-time-input.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-time-input.lang
+	readonly max: Schema.declare<Of["max"]>; // property: wa-time-input.max
+	readonly min: Schema.declare<Of["min"]>; // property: wa-time-input.min
+	readonly name: Schema.declare<Of["name"]>; // property: wa-time-input.name
+	readonly open: Schema.declare<Of["open"]>; // property: wa-time-input.open
+	readonly pill: Schema.declare<Of["pill"]>; // property: wa-time-input.pill
+	readonly placement: Schema.declare<Of["placement"]>; // property: wa-time-input.placement
+	readonly readonly: Schema.declare<Of["readonly"]>; // property: wa-time-input.readonly
+	readonly required: Schema.declare<Of["required"]>; // property: wa-time-input.required
+	readonly size: Schema.declare<Of["size"]>; // property: wa-time-input.size
+	readonly states: Schema.declare<Of["states"]>; // property: wa-time-input.states
+	readonly step: Schema.declare<Of["step"]>; // property: wa-time-input.step
+	readonly validators: Schema.declare<Of["validators"]>; // property: wa-time-input.validators
+	readonly value: Schema.declare<Of["value"]>; // property: wa-time-input.value
+	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-time-input.valueHasChanged
+	readonly withClear: Schema.declare<Of["withClear"]>; // property: wa-time-input.withClear
+	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-time-input.withHint
+	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-time-input.withLabel
+	readonly withNow: Schema.declare<Of["withNow"]>; // property: wa-time-input.withNow
+};
+
+/** The custom events of `<wa-time-input>`, each its `detail`. */
+type Events = {
+	readonly "wa-after-hide": Schema.declare<DetailOf<"wa-after-hide">>;
+	readonly "wa-after-show": Schema.declare<DetailOf<"wa-after-show">>;
+	readonly "wa-clear": Schema.declare<DetailOf<"wa-clear">>;
+	readonly "wa-hide": Schema.declare<DetailOf<"wa-hide">>;
+	readonly "wa-invalid": Schema.declare<DetailOf<"wa-invalid">>;
+	readonly "wa-show": Schema.declare<DetailOf<"wa-show">>;
+};
+
 /** `<wa-time-input>`: Time pickers let users enter a time through a segmented field or select one visually from a popup column picker. */
-export const TimeInput = Html.customElement({
+export const TimeInput: Html.CustomElementBinding<"wa-time-input", Properties, Events> = Html.customElement({
 	tag: "wa-time-input",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-time-input.appearance

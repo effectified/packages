@@ -2,13 +2,36 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/popover/popover.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-popover"]; // element: wa-popover
 
+/** The properties a view sets on `<wa-popover>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-popover.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-popover.dir
+	readonly distance: Schema.declare<Of["distance"]>; // property: wa-popover.distance
+	readonly for: Schema.declare<Of["for"]>; // property: wa-popover.for
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-popover.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-popover.lang
+	readonly open: Schema.declare<Of["open"]>; // property: wa-popover.open
+	readonly placement: Schema.declare<Of["placement"]>; // property: wa-popover.placement
+	readonly skidding: Schema.declare<Of["skidding"]>; // property: wa-popover.skidding
+	readonly withoutArrow: Schema.declare<Of["withoutArrow"]>; // property: wa-popover.withoutArrow
+};
+
+/** The custom events of `<wa-popover>`, each its `detail`. */
+type Events = {
+	readonly "wa-after-hide": Schema.declare<DetailOf<"wa-after-hide">>;
+	readonly "wa-after-show": Schema.declare<DetailOf<"wa-after-show">>;
+	readonly "wa-hide": Schema.declare<DetailOf<"wa-hide">>;
+	readonly "wa-show": Schema.declare<DetailOf<"wa-show">>;
+};
+
 /** `<wa-popover>`: Popovers display contextual content and interactive elements in a floating panel anchored to a trigger. */
-export const Popover = Html.customElement({
+export const Popover: Html.CustomElementBinding<"wa-popover", Properties, Events> = Html.customElement({
 	tag: "wa-popover",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-popover.didSSR

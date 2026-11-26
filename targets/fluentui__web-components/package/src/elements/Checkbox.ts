@@ -2,13 +2,32 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/checkbox/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-checkbox>`, as upstream types them. */
+type Properties = {
+	readonly checked: Schema.declare<Of["checked"]>; // property: fluent-checkbox.checked
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: fluent-checkbox.disabled
+	readonly disabledAttribute: Schema.declare<Of["disabledAttribute"]>; // property: fluent-checkbox.disabledAttribute
+	readonly formAttribute: Schema.declare<Of["formAttribute"]>; // property: fluent-checkbox.formAttribute
+	readonly indeterminate: Schema.declare<Of["indeterminate"]>; // property: fluent-checkbox.indeterminate
+	readonly initialChecked: Schema.declare<Of["initialChecked"]>; // property: fluent-checkbox.initialChecked
+	readonly initialValue: Schema.declare<Of["initialValue"]>; // property: fluent-checkbox.initialValue
+	readonly name: Schema.declare<Of["name"]>; // property: fluent-checkbox.name
+	readonly required: Schema.declare<Of["required"]>; // property: fluent-checkbox.required
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-checkbox.role
+	readonly value: Schema.declare<Of["value"]>; // property: fluent-checkbox.value
+};
+
+/** The custom events of `<fluent-checkbox>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-checkbox>`: A Checkbox Custom HTML Element. */
-export const Checkbox = Html.customElement({
+export const Checkbox: Html.CustomElementBinding<"fluent-checkbox", Properties, Events> = Html.customElement({
 	tag: "fluent-checkbox",
 	properties: {
 		checked: typed<Of["checked"]>(), // property: fluent-checkbox.checked

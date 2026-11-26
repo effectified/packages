@@ -2,13 +2,34 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/split-panel/split-panel.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-split-panel"]; // element: wa-split-panel
 
+/** The properties a view sets on `<wa-split-panel>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-split-panel.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-split-panel.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-split-panel.disabled
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-split-panel.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-split-panel.lang
+	readonly orientation: Schema.declare<Of["orientation"]>; // property: wa-split-panel.orientation
+	readonly position: Schema.declare<Of["position"]>; // property: wa-split-panel.position
+	readonly positionInPixels: Schema.declare<Of["positionInPixels"]>; // property: wa-split-panel.positionInPixels
+	readonly primary: Schema.declare<Of["primary"]>; // property: wa-split-panel.primary
+	readonly snap: Schema.declare<Of["snap"]>; // property: wa-split-panel.snap
+	readonly snapThreshold: Schema.declare<Of["snapThreshold"]>; // property: wa-split-panel.snapThreshold
+};
+
+/** The custom events of `<wa-split-panel>`, each its `detail`. */
+type Events = {
+	readonly "wa-reposition": Schema.declare<DetailOf<"wa-reposition">>;
+};
+
 /** `<wa-split-panel>`: Split panels display two adjacent panels separated by a draggable divider, letting users resize each side to suit their workflow. */
-export const SplitPanel = Html.customElement({
+export const SplitPanel: Html.CustomElementBinding<"wa-split-panel", Properties, Events> = Html.customElement({
 	tag: "wa-split-panel",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-split-panel.didSSR

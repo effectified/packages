@@ -2,13 +2,26 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/tabs/secondary-tab.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-secondary-tab"]; // element: md-secondary-tab
 
+/** The properties a view sets on `<md-secondary-tab>`, as upstream types them. */
+type Properties = {
+	readonly active: Schema.declare<Of["active"]>; // property: md-secondary-tab.active
+	readonly hasIcon: Schema.declare<Of["hasIcon"]>; // property: md-secondary-tab.hasIcon
+	readonly iconOnly: Schema.declare<Of["iconOnly"]>; // property: md-secondary-tab.iconOnly
+	readonly isTab: Schema.declare<Of["isTab"]>; // property: md-secondary-tab.isTab
+	readonly selected: Schema.declare<Of["selected"]>; // property: md-secondary-tab.selected
+};
+
+/** The custom events of `<md-secondary-tab>`, each its `detail`. */
+type Events = {};
+
 /** `<md-secondary-tab>`: Tab allow users to display a tab within a Tabs. */
-export const SecondaryTab = Html.customElement({
+export const SecondaryTab: Html.CustomElementBinding<"md-secondary-tab", Properties, Events> = Html.customElement({
 	tag: "md-secondary-tab",
 	properties: {
 		active: typed<Of["active"]>(), // property: md-secondary-tab.active

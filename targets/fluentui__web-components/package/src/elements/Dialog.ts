@@ -2,13 +2,25 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/dialog/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-dialog>`, as upstream types them. */
+type Properties = {
+	readonly ariaDescribedby: Schema.declare<Of["ariaDescribedby"]>; // property: fluent-dialog.ariaDescribedby
+	readonly ariaLabel: Schema.declare<Of["ariaLabel"]>; // property: fluent-dialog.ariaLabel
+	readonly ariaLabelledby: Schema.declare<Of["ariaLabelledby"]>; // property: fluent-dialog.ariaLabelledby
+	readonly type: Schema.declare<Of["type"]>; // property: fluent-dialog.type
+};
+
+/** The custom events of `<fluent-dialog>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-dialog>`: A Dialog Custom HTML Element. */
-export const Dialog = Html.customElement({
+export const Dialog: Html.CustomElementBinding<"fluent-dialog", Properties, Events> = Html.customElement({
 	tag: "fluent-dialog",
 	properties: {
 		ariaDescribedby: typed<Of["ariaDescribedby"]>(), // property: fluent-dialog.ariaDescribedby

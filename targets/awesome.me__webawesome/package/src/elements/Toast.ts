@@ -2,13 +2,26 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/toast/toast.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-toast"]; // element: wa-toast
 
+/** The properties a view sets on `<wa-toast>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-toast.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-toast.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-toast.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-toast.lang
+	readonly placement: Schema.declare<Of["placement"]>; // property: wa-toast.placement
+};
+
+/** The custom events of `<wa-toast>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-toast>`: Toasts display brief, non-blocking notifications that appear temporarily above the page content. */
-export const Toast = Html.customElement({
+export const Toast: Html.CustomElementBinding<"wa-toast", Properties, Events> = Html.customElement({
 	tag: "wa-toast",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-toast.didSSR

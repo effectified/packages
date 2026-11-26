@@ -2,13 +2,33 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/compound-button/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-compound-button>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: fluent-compound-button.disabled
+	readonly disabledFocusable: Schema.declare<Of["disabledFocusable"]>; // property: fluent-compound-button.disabledFocusable
+	readonly formAction: Schema.declare<Of["formAction"]>; // property: fluent-compound-button.formAction
+	readonly formAttribute: Schema.declare<Of["formAttribute"]>; // property: fluent-compound-button.formAttribute
+	readonly formEnctype: Schema.declare<Of["formEnctype"]>; // property: fluent-compound-button.formEnctype
+	readonly formMethod: Schema.declare<Of["formMethod"]>; // property: fluent-compound-button.formMethod
+	readonly formNoValidate: Schema.declare<Of["formNoValidate"]>; // property: fluent-compound-button.formNoValidate
+	readonly formTarget: Schema.declare<Of["formTarget"]>; // property: fluent-compound-button.formTarget
+	readonly name: Schema.declare<Of["name"]>; // property: fluent-compound-button.name
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-compound-button.role
+	readonly type: Schema.declare<Of["type"]>; // property: fluent-compound-button.type
+	readonly value: Schema.declare<Of["value"]>; // property: fluent-compound-button.value
+};
+
+/** The custom events of `<fluent-compound-button>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-compound-button>`: The base class used for constructing a fluent-compound-button custom element */
-export const CompoundButton = Html.customElement({
+export const CompoundButton: Html.CustomElementBinding<"fluent-compound-button", Properties, Events> = Html.customElement({
 	tag: "fluent-compound-button",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: fluent-compound-button.disabled

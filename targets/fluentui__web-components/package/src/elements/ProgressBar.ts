@@ -2,13 +2,25 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/progress-bar/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-progress-bar>`, as upstream types them. */
+type Properties = {
+	readonly max: Schema.declare<Of["max"]>; // property: fluent-progress-bar.max
+	readonly min: Schema.declare<Of["min"]>; // property: fluent-progress-bar.min
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-progress-bar.role
+	readonly value: Schema.declare<Of["value"]>; // property: fluent-progress-bar.value
+};
+
+/** The custom events of `<fluent-progress-bar>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-progress-bar>`: A Progress HTML Element. */
-export const ProgressBar = Html.customElement({
+export const ProgressBar: Html.CustomElementBinding<"fluent-progress-bar", Properties, Events> = Html.customElement({
 	tag: "fluent-progress-bar",
 	properties: {
 		max: typed<Of["max"]>(), // property: fluent-progress-bar.max

@@ -2,13 +2,32 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/select/select-option.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-select-option"]; // element: md-select-option
 
+/** The properties a view sets on `<md-select-option>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-select-option.disabled
+	readonly displayText: Schema.declare<Of["displayText"]>; // property: md-select-option.displayText
+	readonly isMenuItem: Schema.declare<Of["isMenuItem"]>; // property: md-select-option.isMenuItem
+	readonly selected: Schema.declare<Of["selected"]>; // property: md-select-option.selected
+	readonly type: Schema.declare<Of["type"]>; // property: md-select-option.type
+	readonly typeaheadText: Schema.declare<Of["typeaheadText"]>; // property: md-select-option.typeaheadText
+	readonly value: Schema.declare<Of["value"]>; // property: md-select-option.value
+};
+
+/** The custom events of `<md-select-option>`, each its `detail`. */
+type Events = {
+	readonly "close-menu": Schema.declare<DetailOf<"close-menu">>;
+	readonly "request-deselection": Schema.declare<DetailOf<"request-deselection">>;
+	readonly "request-selection": Schema.declare<DetailOf<"request-selection">>;
+};
+
 /** `<md-select-option>`: Select menus display a list of choices on temporary surfaces and display the currently selected menu item above the menu. */
-export const SelectOption = Html.customElement({
+export const SelectOption: Html.CustomElementBinding<"md-select-option", Properties, Events> = Html.customElement({
 	tag: "md-select-option",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: md-select-option.disabled

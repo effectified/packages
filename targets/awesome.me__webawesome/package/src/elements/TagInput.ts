@@ -2,13 +2,62 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/tag-input/tag-input.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-tag-input"]; // element: wa-tag-input
 
+/** The properties a view sets on `<wa-tag-input>`, as upstream types them. */
+type Properties = {
+	readonly allowDuplicates: Schema.declare<Of["allowDuplicates"]>; // property: wa-tag-input.allowDuplicates
+	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-tag-input.appearance
+	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-tag-input.assumeInteractionOn
+	readonly autocapitalize: Schema.declare<Of["autocapitalize"]>; // property: wa-tag-input.autocapitalize
+	readonly autocomplete: Schema.declare<Of["autocomplete"]>; // property: wa-tag-input.autocomplete
+	readonly autocorrect: Schema.declare<Of["autocorrect"]>; // property: wa-tag-input.autocorrect
+	readonly customError: Schema.declare<Of["customError"]>; // property: wa-tag-input.customError
+	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-tag-input.defaultValue
+	readonly delimiter: Schema.declare<Of["delimiter"]>; // property: wa-tag-input.delimiter
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-tag-input.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-tag-input.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-tag-input.disabled
+	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-tag-input.emitInvalid
+	readonly enterkeyhint: Schema.declare<Of["enterkeyhint"]>; // property: wa-tag-input.enterkeyhint
+	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-tag-input.hasInteracted
+	readonly hint: Schema.declare<Of["hint"]>; // property: wa-tag-input.hint
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-tag-input.initialReflectedProperties
+	readonly inputValue: Schema.declare<Of["inputValue"]>; // property: wa-tag-input.inputValue
+	readonly inputmode: Schema.declare<Of["inputmode"]>; // property: wa-tag-input.inputmode
+	readonly label: Schema.declare<Of["label"]>; // property: wa-tag-input.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-tag-input.lang
+	readonly maxTags: Schema.declare<Of["maxTags"]>; // property: wa-tag-input.maxTags
+	readonly minTags: Schema.declare<Of["minTags"]>; // property: wa-tag-input.minTags
+	readonly name: Schema.declare<Of["name"]>; // property: wa-tag-input.name
+	readonly pill: Schema.declare<Of["pill"]>; // property: wa-tag-input.pill
+	readonly placeholder: Schema.declare<Of["placeholder"]>; // property: wa-tag-input.placeholder
+	readonly readonly: Schema.declare<Of["readonly"]>; // property: wa-tag-input.readonly
+	readonly required: Schema.declare<Of["required"]>; // property: wa-tag-input.required
+	readonly size: Schema.declare<Of["size"]>; // property: wa-tag-input.size
+	readonly spellcheck: Schema.declare<Of["spellcheck"]>; // property: wa-tag-input.spellcheck
+	readonly states: Schema.declare<Of["states"]>; // property: wa-tag-input.states
+	readonly validators: Schema.declare<Of["validators"]>; // property: wa-tag-input.validators
+	readonly value: Schema.declare<Of["value"]>; // property: wa-tag-input.value
+	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-tag-input.valueHasChanged
+	readonly withClear: Schema.declare<Of["withClear"]>; // property: wa-tag-input.withClear
+	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-tag-input.withHint
+	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-tag-input.withLabel
+};
+
+/** The custom events of `<wa-tag-input>`, each its `detail`. */
+type Events = {
+	readonly "wa-clear": Schema.declare<DetailOf<"wa-clear">>;
+	readonly "wa-create": Schema.declare<DetailOf<"wa-create">>;
+	readonly "wa-invalid": Schema.declare<DetailOf<"wa-invalid">>;
+};
+
 /** `<wa-tag-input>`: Tag inputs collect a list of short values, such as keywords, email addresses, or labels, as removable tags. */
-export const TagInput = Html.customElement({
+export const TagInput: Html.CustomElementBinding<"wa-tag-input", Properties, Events> = Html.customElement({
 	tag: "wa-tag-input",
 	properties: {
 		allowDuplicates: typed<Of["allowDuplicates"]>(), // property: wa-tag-input.allowDuplicates

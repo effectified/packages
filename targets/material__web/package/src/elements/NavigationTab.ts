@@ -2,13 +2,30 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/labs/navigationtab/navigation-tab.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-navigation-tab"]; // element: md-navigation-tab
 
+/** The properties a view sets on `<md-navigation-tab>`, as upstream types them. */
+type Properties = {
+	readonly active: Schema.declare<Of["active"]>; // property: md-navigation-tab.active
+	readonly badgeValue: Schema.declare<Of["badgeValue"]>; // property: md-navigation-tab.badgeValue
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-navigation-tab.disabled
+	readonly hideInactiveLabel: Schema.declare<Of["hideInactiveLabel"]>; // property: md-navigation-tab.hideInactiveLabel
+	readonly label: Schema.declare<Of["label"]>; // property: md-navigation-tab.label
+	readonly showBadge: Schema.declare<Of["showBadge"]>; // property: md-navigation-tab.showBadge
+};
+
+/** The custom events of `<md-navigation-tab>`, each its `detail`. */
+type Events = {
+	readonly "navigation-tab-interaction": Schema.declare<DetailOf<"navigation-tab-interaction">>;
+	readonly "navigation-tab-rendered": Schema.declare<DetailOf<"navigation-tab-rendered">>;
+};
+
 /** `<md-navigation-tab>` */
-export const NavigationTab = Html.customElement({
+export const NavigationTab: Html.CustomElementBinding<"md-navigation-tab", Properties, Events> = Html.customElement({
 	tag: "md-navigation-tab",
 	properties: {
 		active: typed<Of["active"]>(), // property: md-navigation-tab.active

@@ -2,13 +2,55 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/textfield/outlined-text-field.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-outlined-text-field"]; // element: md-outlined-text-field
 
+/** The properties a view sets on `<md-outlined-text-field>`, as upstream types them. */
+type Properties = {
+	readonly autocomplete: Schema.declare<Of["autocomplete"]>; // property: md-outlined-text-field.autocomplete
+	readonly cols: Schema.declare<Of["cols"]>; // property: md-outlined-text-field.cols
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-outlined-text-field.disabled
+	readonly error: Schema.declare<Of["error"]>; // property: md-outlined-text-field.error
+	readonly errorText: Schema.declare<Of["errorText"]>; // property: md-outlined-text-field.errorText
+	readonly hasLeadingIcon: Schema.declare<Of["hasLeadingIcon"]>; // property: md-outlined-text-field.hasLeadingIcon
+	readonly hasTrailingIcon: Schema.declare<Of["hasTrailingIcon"]>; // property: md-outlined-text-field.hasTrailingIcon
+	readonly inputMode: Schema.declare<Of["inputMode"]>; // property: md-outlined-text-field.inputMode
+	readonly label: Schema.declare<Of["label"]>; // property: md-outlined-text-field.label
+	readonly max: Schema.declare<Of["max"]>; // property: md-outlined-text-field.max
+	readonly maxLength: Schema.declare<Of["maxLength"]>; // property: md-outlined-text-field.maxLength
+	readonly min: Schema.declare<Of["min"]>; // property: md-outlined-text-field.min
+	readonly minLength: Schema.declare<Of["minLength"]>; // property: md-outlined-text-field.minLength
+	readonly multiple: Schema.declare<Of["multiple"]>; // property: md-outlined-text-field.multiple
+	readonly name: Schema.declare<Of["name"]>; // property: md-outlined-text-field.name
+	readonly noAsterisk: Schema.declare<Of["noAsterisk"]>; // property: md-outlined-text-field.noAsterisk
+	readonly noSpinner: Schema.declare<Of["noSpinner"]>; // property: md-outlined-text-field.noSpinner
+	readonly pattern: Schema.declare<Of["pattern"]>; // property: md-outlined-text-field.pattern
+	readonly placeholder: Schema.declare<Of["placeholder"]>; // property: md-outlined-text-field.placeholder
+	readonly prefixText: Schema.declare<Of["prefixText"]>; // property: md-outlined-text-field.prefixText
+	readonly readOnly: Schema.declare<Of["readOnly"]>; // property: md-outlined-text-field.readOnly
+	readonly required: Schema.declare<Of["required"]>; // property: md-outlined-text-field.required
+	readonly rows: Schema.declare<Of["rows"]>; // property: md-outlined-text-field.rows
+	readonly selectionDirection: Schema.declare<Of["selectionDirection"]>; // property: md-outlined-text-field.selectionDirection
+	readonly selectionEnd: Schema.declare<Of["selectionEnd"]>; // property: md-outlined-text-field.selectionEnd
+	readonly selectionStart: Schema.declare<Of["selectionStart"]>; // property: md-outlined-text-field.selectionStart
+	readonly step: Schema.declare<Of["step"]>; // property: md-outlined-text-field.step
+	readonly suffixText: Schema.declare<Of["suffixText"]>; // property: md-outlined-text-field.suffixText
+	readonly supportingText: Schema.declare<Of["supportingText"]>; // property: md-outlined-text-field.supportingText
+	readonly textDirection: Schema.declare<Of["textDirection"]>; // property: md-outlined-text-field.textDirection
+	readonly type: Schema.declare<Of["type"]>; // property: md-outlined-text-field.type
+	readonly value: Schema.declare<Of["value"]>; // property: md-outlined-text-field.value
+	readonly valueAsDate: Schema.declare<Of["valueAsDate"]>; // property: md-outlined-text-field.valueAsDate
+	readonly valueAsNumber: Schema.declare<Of["valueAsNumber"]>; // property: md-outlined-text-field.valueAsNumber
+};
+
+/** The custom events of `<md-outlined-text-field>`, each its `detail`. */
+type Events = {};
+
 /** `<md-outlined-text-field>`: TODO(b/228525797): Add docs */
-export const OutlinedTextField = Html.customElement({
+export const OutlinedTextField: Html.CustomElementBinding<"md-outlined-text-field", Properties, Events> = Html.customElement({
 	tag: "md-outlined-text-field",
 	properties: {
 		autocomplete: typed<Of["autocomplete"]>(), // property: md-outlined-text-field.autocomplete

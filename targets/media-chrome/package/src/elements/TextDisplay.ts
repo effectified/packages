@@ -2,13 +2,20 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-text-display.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-text-display>`, as upstream types them. */
+type Properties = {};
+
+/** The custom events of `<media-text-display>`, each its `detail`. */
+type Events = {};
+
 /** `<media-text-display>` */
-export const TextDisplay = Html.customElement({
+export const TextDisplay: Html.CustomElementBinding<"media-text-display", Properties, Events> = Html.customElement({
 	tag: "media-text-display",
 	properties: {},
 	events: {},

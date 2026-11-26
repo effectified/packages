@@ -2,13 +2,23 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/tab/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-tab>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: fluent-tab.disabled
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-tab.role
+};
+
+/** The custom events of `<fluent-tab>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-tab>`: Tab extends the FASTTab and is a child of the TabList */
-export const Tab = Html.customElement({
+export const Tab: Html.CustomElementBinding<"fluent-tab", Properties, Events> = Html.customElement({
 	tag: "fluent-tab",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: fluent-tab.disabled

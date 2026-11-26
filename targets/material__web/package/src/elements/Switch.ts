@@ -2,13 +2,26 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/switch/switch.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-switch"]; // element: md-switch
 
+/** The properties a view sets on `<md-switch>`, as upstream types them. */
+type Properties = {
+	readonly icons: Schema.declare<Of["icons"]>; // property: md-switch.icons
+	readonly required: Schema.declare<Of["required"]>; // property: md-switch.required
+	readonly selected: Schema.declare<Of["selected"]>; // property: md-switch.selected
+	readonly showOnlySelectedIcon: Schema.declare<Of["showOnlySelectedIcon"]>; // property: md-switch.showOnlySelectedIcon
+	readonly value: Schema.declare<Of["value"]>; // property: md-switch.value
+};
+
+/** The custom events of `<md-switch>`, each its `detail`. */
+type Events = {};
+
 /** `<md-switch>`: Switches toggle the state of a single item on or off. */
-export const Switch = Html.customElement({
+export const Switch: Html.CustomElementBinding<"md-switch", Properties, Events> = Html.customElement({
 	tag: "md-switch",
 	properties: {
 		icons: typed<Of["icons"]>(), // property: md-switch.icons

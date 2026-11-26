@@ -2,13 +2,39 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/slider/slider.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-slider"]; // element: md-slider
 
+/** The properties a view sets on `<md-slider>`, as upstream types them. */
+type Properties = {
+	readonly ariaLabelEnd: Schema.declare<Of["ariaLabelEnd"]>; // property: md-slider.ariaLabelEnd
+	readonly ariaLabelStart: Schema.declare<Of["ariaLabelStart"]>; // property: md-slider.ariaLabelStart
+	readonly ariaValueTextEnd: Schema.declare<Of["ariaValueTextEnd"]>; // property: md-slider.ariaValueTextEnd
+	readonly ariaValueTextStart: Schema.declare<Of["ariaValueTextStart"]>; // property: md-slider.ariaValueTextStart
+	readonly labeled: Schema.declare<Of["labeled"]>; // property: md-slider.labeled
+	readonly max: Schema.declare<Of["max"]>; // property: md-slider.max
+	readonly min: Schema.declare<Of["min"]>; // property: md-slider.min
+	readonly nameEnd: Schema.declare<Of["nameEnd"]>; // property: md-slider.nameEnd
+	readonly nameStart: Schema.declare<Of["nameStart"]>; // property: md-slider.nameStart
+	readonly range: Schema.declare<Of["range"]>; // property: md-slider.range
+	readonly step: Schema.declare<Of["step"]>; // property: md-slider.step
+	readonly ticks: Schema.declare<Of["ticks"]>; // property: md-slider.ticks
+	readonly value: Schema.declare<Of["value"]>; // property: md-slider.value
+	readonly valueEnd: Schema.declare<Of["valueEnd"]>; // property: md-slider.valueEnd
+	readonly valueLabel: Schema.declare<Of["valueLabel"]>; // property: md-slider.valueLabel
+	readonly valueLabelEnd: Schema.declare<Of["valueLabelEnd"]>; // property: md-slider.valueLabelEnd
+	readonly valueLabelStart: Schema.declare<Of["valueLabelStart"]>; // property: md-slider.valueLabelStart
+	readonly valueStart: Schema.declare<Of["valueStart"]>; // property: md-slider.valueStart
+};
+
+/** The custom events of `<md-slider>`, each its `detail`. */
+type Events = {};
+
 /** `<md-slider>`: Sliders allow users to view and select a value (or range) along a track. */
-export const Slider = Html.customElement({
+export const Slider: Html.CustomElementBinding<"md-slider", Properties, Events> = Html.customElement({
 	tag: "md-slider",
 	properties: {
 		ariaLabelEnd: typed<Of["ariaLabelEnd"]>(), // property: md-slider.ariaLabelEnd

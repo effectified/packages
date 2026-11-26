@@ -2,13 +2,29 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/badge/badge.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-badge"]; // element: wa-badge
 
+/** The properties a view sets on `<wa-badge>`, as upstream types them. */
+type Properties = {
+	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-badge.appearance
+	readonly attention: Schema.declare<Of["attention"]>; // property: wa-badge.attention
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-badge.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-badge.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-badge.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-badge.lang
+	readonly pill: Schema.declare<Of["pill"]>; // property: wa-badge.pill
+	readonly variant: Schema.declare<Of["variant"]>; // property: wa-badge.variant
+};
+
+/** The custom events of `<wa-badge>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-badge>`: Badges draw attention to adjacent content by displaying a status, count, or label. */
-export const Badge = Html.customElement({
+export const Badge: Html.CustomElementBinding<"wa-badge", Properties, Events> = Html.customElement({
 	tag: "wa-badge",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-badge.appearance

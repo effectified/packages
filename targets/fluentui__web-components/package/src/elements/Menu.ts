@@ -2,13 +2,25 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/menu/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-menu>`, as upstream types them. */
+type Properties = {
+	readonly closeOnScroll: Schema.declare<Of["closeOnScroll"]>; // property: fluent-menu.closeOnScroll
+	readonly openOnContext: Schema.declare<Of["openOnContext"]>; // property: fluent-menu.openOnContext
+	readonly openOnHover: Schema.declare<Of["openOnHover"]>; // property: fluent-menu.openOnHover
+	readonly persistOnItemClick: Schema.declare<Of["persistOnItemClick"]>; // property: fluent-menu.persistOnItemClick
+};
+
+/** The custom events of `<fluent-menu>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-menu>`: The Menu component functions as a customizable menu element. */
-export const Menu = Html.customElement({
+export const Menu: Html.CustomElementBinding<"fluent-menu", Properties, Events> = Html.customElement({
 	tag: "fluent-menu",
 	properties: {
 		closeOnScroll: typed<Of["closeOnScroll"]>(), // property: fluent-menu.closeOnScroll

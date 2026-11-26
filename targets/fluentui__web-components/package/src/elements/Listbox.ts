@@ -2,13 +2,23 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/listbox/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-listbox>`, as upstream types them. */
+type Properties = {
+	readonly multiple: Schema.declare<Of["multiple"]>; // property: fluent-listbox.multiple
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-listbox.role
+};
+
+/** The custom events of `<fluent-listbox>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-listbox>`: A Listbox Custom HTML Element. */
-export const Listbox = Html.customElement({
+export const Listbox: Html.CustomElementBinding<"fluent-listbox", Properties, Events> = Html.customElement({
 	tag: "fluent-listbox",
 	properties: {
 		multiple: typed<Of["multiple"]>(), // property: fluent-listbox.multiple

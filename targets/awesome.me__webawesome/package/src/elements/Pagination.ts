@@ -2,13 +2,41 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/pagination/pagination.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-pagination"]; // element: wa-pagination
 
+/** The properties a view sets on `<wa-pagination>`, as upstream types them. */
+type Properties = {
+	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-pagination.appearance
+	readonly boundaryCount: Schema.declare<Of["boundaryCount"]>; // property: wa-pagination.boundaryCount
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-pagination.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-pagination.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-pagination.disabled
+	readonly format: Schema.declare<Of["format"]>; // property: wa-pagination.format
+	readonly hideSinglePage: Schema.declare<Of["hideSinglePage"]>; // property: wa-pagination.hideSinglePage
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-pagination.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-pagination.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-pagination.lang
+	readonly page: Schema.declare<Of["page"]>; // property: wa-pagination.page
+	readonly pageSize: Schema.declare<Of["pageSize"]>; // property: wa-pagination.pageSize
+	readonly siblingCount: Schema.declare<Of["siblingCount"]>; // property: wa-pagination.siblingCount
+	readonly total: Schema.declare<Of["total"]>; // property: wa-pagination.total
+	readonly withEdges: Schema.declare<Of["withEdges"]>; // property: wa-pagination.withEdges
+	readonly withSummary: Schema.declare<Of["withSummary"]>; // property: wa-pagination.withSummary
+	readonly withoutNav: Schema.declare<Of["withoutNav"]>; // property: wa-pagination.withoutNav
+};
+
+/** The custom events of `<wa-pagination>`, each its `detail`. */
+type Events = {
+	readonly "wa-before-page-change": Schema.declare<DetailOf<"wa-before-page-change">>;
+	readonly "wa-page-change": Schema.declare<DetailOf<"wa-page-change">>;
+};
+
 /** `<wa-pagination>`: Pagination splits long lists of content into pages, letting users navigate between them. */
-export const Pagination = Html.customElement({
+export const Pagination: Html.CustomElementBinding<"wa-pagination", Properties, Events> = Html.customElement({
 	tag: "wa-pagination",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-pagination.appearance

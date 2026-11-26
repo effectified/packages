@@ -2,13 +2,55 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/textfield/filled-text-field.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-filled-text-field"]; // element: md-filled-text-field
 
+/** The properties a view sets on `<md-filled-text-field>`, as upstream types them. */
+type Properties = {
+	readonly autocomplete: Schema.declare<Of["autocomplete"]>; // property: md-filled-text-field.autocomplete
+	readonly cols: Schema.declare<Of["cols"]>; // property: md-filled-text-field.cols
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-filled-text-field.disabled
+	readonly error: Schema.declare<Of["error"]>; // property: md-filled-text-field.error
+	readonly errorText: Schema.declare<Of["errorText"]>; // property: md-filled-text-field.errorText
+	readonly hasLeadingIcon: Schema.declare<Of["hasLeadingIcon"]>; // property: md-filled-text-field.hasLeadingIcon
+	readonly hasTrailingIcon: Schema.declare<Of["hasTrailingIcon"]>; // property: md-filled-text-field.hasTrailingIcon
+	readonly inputMode: Schema.declare<Of["inputMode"]>; // property: md-filled-text-field.inputMode
+	readonly label: Schema.declare<Of["label"]>; // property: md-filled-text-field.label
+	readonly max: Schema.declare<Of["max"]>; // property: md-filled-text-field.max
+	readonly maxLength: Schema.declare<Of["maxLength"]>; // property: md-filled-text-field.maxLength
+	readonly min: Schema.declare<Of["min"]>; // property: md-filled-text-field.min
+	readonly minLength: Schema.declare<Of["minLength"]>; // property: md-filled-text-field.minLength
+	readonly multiple: Schema.declare<Of["multiple"]>; // property: md-filled-text-field.multiple
+	readonly name: Schema.declare<Of["name"]>; // property: md-filled-text-field.name
+	readonly noAsterisk: Schema.declare<Of["noAsterisk"]>; // property: md-filled-text-field.noAsterisk
+	readonly noSpinner: Schema.declare<Of["noSpinner"]>; // property: md-filled-text-field.noSpinner
+	readonly pattern: Schema.declare<Of["pattern"]>; // property: md-filled-text-field.pattern
+	readonly placeholder: Schema.declare<Of["placeholder"]>; // property: md-filled-text-field.placeholder
+	readonly prefixText: Schema.declare<Of["prefixText"]>; // property: md-filled-text-field.prefixText
+	readonly readOnly: Schema.declare<Of["readOnly"]>; // property: md-filled-text-field.readOnly
+	readonly required: Schema.declare<Of["required"]>; // property: md-filled-text-field.required
+	readonly rows: Schema.declare<Of["rows"]>; // property: md-filled-text-field.rows
+	readonly selectionDirection: Schema.declare<Of["selectionDirection"]>; // property: md-filled-text-field.selectionDirection
+	readonly selectionEnd: Schema.declare<Of["selectionEnd"]>; // property: md-filled-text-field.selectionEnd
+	readonly selectionStart: Schema.declare<Of["selectionStart"]>; // property: md-filled-text-field.selectionStart
+	readonly step: Schema.declare<Of["step"]>; // property: md-filled-text-field.step
+	readonly suffixText: Schema.declare<Of["suffixText"]>; // property: md-filled-text-field.suffixText
+	readonly supportingText: Schema.declare<Of["supportingText"]>; // property: md-filled-text-field.supportingText
+	readonly textDirection: Schema.declare<Of["textDirection"]>; // property: md-filled-text-field.textDirection
+	readonly type: Schema.declare<Of["type"]>; // property: md-filled-text-field.type
+	readonly value: Schema.declare<Of["value"]>; // property: md-filled-text-field.value
+	readonly valueAsDate: Schema.declare<Of["valueAsDate"]>; // property: md-filled-text-field.valueAsDate
+	readonly valueAsNumber: Schema.declare<Of["valueAsNumber"]>; // property: md-filled-text-field.valueAsNumber
+};
+
+/** The custom events of `<md-filled-text-field>`, each its `detail`. */
+type Events = {};
+
 /** `<md-filled-text-field>`: TODO(b/228525797): Add docs */
-export const FilledTextField = Html.customElement({
+export const FilledTextField: Html.CustomElementBinding<"md-filled-text-field", Properties, Events> = Html.customElement({
 	tag: "md-filled-text-field",
 	properties: {
 		autocomplete: typed<Of["autocomplete"]>(), // property: md-filled-text-field.autocomplete

@@ -2,13 +2,30 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/dialog/dialog.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-dialog"]; // element: md-dialog
 
+/** The properties a view sets on `<md-dialog>`, as upstream types them. */
+type Properties = {
+	readonly noFocusTrap: Schema.declare<Of["noFocusTrap"]>; // property: md-dialog.noFocusTrap
+	readonly open: Schema.declare<Of["open"]>; // property: md-dialog.open
+	readonly quick: Schema.declare<Of["quick"]>; // property: md-dialog.quick
+	readonly returnValue: Schema.declare<Of["returnValue"]>; // property: md-dialog.returnValue
+	readonly type: Schema.declare<Of["type"]>; // property: md-dialog.type
+};
+
+/** The custom events of `<md-dialog>`, each its `detail`. */
+type Events = {
+	readonly closed: Schema.declare<DetailOf<"closed">>;
+	readonly open: Schema.declare<DetailOf<"open">>;
+	readonly opened: Schema.declare<DetailOf<"opened">>;
+};
+
 /** `<md-dialog>`: Dialogs can require an action, communicate information, or help users accomplish a task. */
-export const Dialog = Html.customElement({
+export const Dialog: Html.CustomElementBinding<"md-dialog", Properties, Events> = Html.customElement({
 	tag: "md-dialog",
 	properties: {
 		noFocusTrap: typed<Of["noFocusTrap"]>(), // property: md-dialog.noFocusTrap

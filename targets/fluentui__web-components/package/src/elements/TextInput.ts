@@ -2,13 +2,40 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/text-input/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-text-input>`, as upstream types them. */
+type Properties = {
+	readonly autocomplete: Schema.declare<Of["autocomplete"]>; // property: fluent-text-input.autocomplete
+	readonly currentValue: Schema.declare<Of["currentValue"]>; // property: fluent-text-input.currentValue
+	readonly dirname: Schema.declare<Of["dirname"]>; // property: fluent-text-input.dirname
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: fluent-text-input.disabled
+	readonly formAttribute: Schema.declare<Of["formAttribute"]>; // property: fluent-text-input.formAttribute
+	readonly initialValue: Schema.declare<Of["initialValue"]>; // property: fluent-text-input.initialValue
+	readonly list: Schema.declare<Of["list"]>; // property: fluent-text-input.list
+	readonly maxlength: Schema.declare<Of["maxlength"]>; // property: fluent-text-input.maxlength
+	readonly minlength: Schema.declare<Of["minlength"]>; // property: fluent-text-input.minlength
+	readonly multiple: Schema.declare<Of["multiple"]>; // property: fluent-text-input.multiple
+	readonly name: Schema.declare<Of["name"]>; // property: fluent-text-input.name
+	readonly pattern: Schema.declare<Of["pattern"]>; // property: fluent-text-input.pattern
+	readonly placeholder: Schema.declare<Of["placeholder"]>; // property: fluent-text-input.placeholder
+	readonly readOnly: Schema.declare<Of["readOnly"]>; // property: fluent-text-input.readOnly
+	readonly required: Schema.declare<Of["required"]>; // property: fluent-text-input.required
+	readonly size: Schema.declare<Of["size"]>; // property: fluent-text-input.size
+	readonly spellcheck: Schema.declare<Of["spellcheck"]>; // property: fluent-text-input.spellcheck
+	readonly type: Schema.declare<Of["type"]>; // property: fluent-text-input.type
+	readonly value: Schema.declare<Of["value"]>; // property: fluent-text-input.value
+};
+
+/** The custom events of `<fluent-text-input>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-text-input>`: A Text Input Custom HTML Element. */
-export const TextInput = Html.customElement({
+export const TextInput: Html.CustomElementBinding<"fluent-text-input", Properties, Events> = Html.customElement({
 	tag: "fluent-text-input",
 	properties: {
 		autocomplete: typed<Of["autocomplete"]>(), // property: fluent-text-input.autocomplete

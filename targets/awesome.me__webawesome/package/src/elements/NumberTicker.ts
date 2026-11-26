@@ -2,13 +2,42 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/number-ticker/number-ticker.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-number-ticker"]; // element: wa-number-ticker
 
+/** The properties a view sets on `<wa-number-ticker>`, as upstream types them. */
+type Properties = {
+	readonly currency: Schema.declare<Of["currency"]>; // property: wa-number-ticker.currency
+	readonly currencyDisplay: Schema.declare<Of["currencyDisplay"]>; // property: wa-number-ticker.currencyDisplay
+	readonly delay: Schema.declare<Of["delay"]>; // property: wa-number-ticker.delay
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-number-ticker.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-number-ticker.dir
+	readonly duration: Schema.declare<Of["duration"]>; // property: wa-number-ticker.duration
+	readonly eager: Schema.declare<Of["eager"]>; // property: wa-number-ticker.eager
+	readonly easing: Schema.declare<Of["easing"]>; // property: wa-number-ticker.easing
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-number-ticker.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-number-ticker.lang
+	readonly maximumFractionDigits: Schema.declare<Of["maximumFractionDigits"]>; // property: wa-number-ticker.maximumFractionDigits
+	readonly maximumSignificantDigits: Schema.declare<Of["maximumSignificantDigits"]>; // property: wa-number-ticker.maximumSignificantDigits
+	readonly minimumFractionDigits: Schema.declare<Of["minimumFractionDigits"]>; // property: wa-number-ticker.minimumFractionDigits
+	readonly minimumIntegerDigits: Schema.declare<Of["minimumIntegerDigits"]>; // property: wa-number-ticker.minimumIntegerDigits
+	readonly minimumSignificantDigits: Schema.declare<Of["minimumSignificantDigits"]>; // property: wa-number-ticker.minimumSignificantDigits
+	readonly startValue: Schema.declare<Of["startValue"]>; // property: wa-number-ticker.startValue
+	readonly type: Schema.declare<Of["type"]>; // property: wa-number-ticker.type
+	readonly value: Schema.declare<Of["value"]>; // property: wa-number-ticker.value
+	readonly withoutGrouping: Schema.declare<Of["withoutGrouping"]>; // property: wa-number-ticker.withoutGrouping
+};
+
+/** The custom events of `<wa-number-ticker>`, each its `detail`. */
+type Events = {
+	readonly "wa-finish": Schema.declare<DetailOf<"wa-finish">>;
+};
+
 /** `<wa-number-ticker>`: Number tickers count up or down to a value when they scroll into view and format it with the Intl.NumberFormat API. */
-export const NumberTicker = Html.customElement({
+export const NumberTicker: Html.CustomElementBinding<"wa-number-ticker", Properties, Events> = Html.customElement({
 	tag: "wa-number-ticker",
 	properties: {
 		currency: typed<Of["currency"]>(), // property: wa-number-ticker.currency

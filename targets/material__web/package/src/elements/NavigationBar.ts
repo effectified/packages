@@ -2,13 +2,25 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/labs/navigationbar/navigation-bar.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-navigation-bar"]; // element: md-navigation-bar
 
+/** The properties a view sets on `<md-navigation-bar>`, as upstream types them. */
+type Properties = {
+	readonly activeIndex: Schema.declare<Of["activeIndex"]>; // property: md-navigation-bar.activeIndex
+	readonly hideInactiveLabels: Schema.declare<Of["hideInactiveLabels"]>; // property: md-navigation-bar.hideInactiveLabels
+};
+
+/** The custom events of `<md-navigation-bar>`, each its `detail`. */
+type Events = {
+	readonly "navigation-bar-activated": Schema.declare<DetailOf<"navigation-bar-activated">>;
+};
+
 /** `<md-navigation-bar>` */
-export const NavigationBar = Html.customElement({
+export const NavigationBar: Html.CustomElementBinding<"md-navigation-bar", Properties, Events> = Html.customElement({
 	tag: "md-navigation-bar",
 	properties: {
 		activeIndex: typed<Of["activeIndex"]>(), // property: md-navigation-bar.activeIndex

@@ -2,13 +2,24 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/message-bar/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-message-bar>`, as upstream types them. */
+type Properties = {
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-message-bar.role
+};
+
+/** The custom events of `<fluent-message-bar>`, each its `detail`. */
+type Events = {
+	readonly dismiss: Schema.declare<DetailOf<"dismiss">>;
+};
+
 /** `<fluent-message-bar>`: A Message Bar Custom HTML Element. */
-export const MessageBar = Html.customElement({
+export const MessageBar: Html.CustomElementBinding<"fluent-message-bar", Properties, Events> = Html.customElement({
 	tag: "fluent-message-bar",
 	properties: {
 		role: typed<Of["role"]>(), // property: fluent-message-bar.role

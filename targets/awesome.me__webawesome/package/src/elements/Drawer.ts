@@ -2,13 +2,37 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/drawer/drawer.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-drawer"]; // element: wa-drawer
 
+/** The properties a view sets on `<wa-drawer>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-drawer.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-drawer.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-drawer.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-drawer.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-drawer.lang
+	readonly lightDismiss: Schema.declare<Of["lightDismiss"]>; // property: wa-drawer.lightDismiss
+	readonly open: Schema.declare<Of["open"]>; // property: wa-drawer.open
+	readonly placement: Schema.declare<Of["placement"]>; // property: wa-drawer.placement
+	readonly withFooter: Schema.declare<Of["withFooter"]>; // property: wa-drawer.withFooter
+	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-drawer.withLabel
+	readonly withoutHeader: Schema.declare<Of["withoutHeader"]>; // property: wa-drawer.withoutHeader
+};
+
+/** The custom events of `<wa-drawer>`, each its `detail`. */
+type Events = {
+	readonly "wa-after-hide": Schema.declare<DetailOf<"wa-after-hide">>;
+	readonly "wa-after-show": Schema.declare<DetailOf<"wa-after-show">>;
+	readonly "wa-hide": Schema.declare<DetailOf<"wa-hide">>;
+	readonly "wa-show": Schema.declare<DetailOf<"wa-show">>;
+};
+
 /** `<wa-drawer>`: Drawers slide in from the edge of a container to expose additional options and information without navigating away. */
-export const Drawer = Html.customElement({
+export const Drawer: Html.CustomElementBinding<"wa-drawer", Properties, Events> = Html.customElement({
 	tag: "wa-drawer",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-drawer.didSSR

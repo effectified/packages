@@ -2,13 +2,31 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "emoji-picker-element/picker.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["emoji-picker"]; // element: emoji-picker
 
+/** The properties a view sets on `<emoji-picker>`, as upstream types them. */
+type Properties = {
+	readonly customCategorySorting: Schema.declare<Of["customCategorySorting"]>; // property: emoji-picker.customCategorySorting
+	readonly customEmoji: Schema.declare<Of["customEmoji"]>; // property: emoji-picker.customEmoji
+	readonly dataSource: Schema.declare<Of["dataSource"]>; // property: emoji-picker.dataSource
+	readonly i18n: Schema.declare<Of["i18n"]>; // property: emoji-picker.i18n
+	readonly locale: Schema.declare<Of["locale"]>; // property: emoji-picker.locale
+	readonly skinToneEmoji: Schema.declare<Of["skinToneEmoji"]>; // property: emoji-picker.skinToneEmoji
+};
+
+/** The custom events of `<emoji-picker>`, each its `detail`. */
+type Events = {
+	readonly "emoji-click": Schema.declare<DetailOf<"emoji-click">>;
+	readonly "emoji-click-sync": Schema.declare<DetailOf<"emoji-click-sync">>;
+	readonly "skin-tone-change": Schema.declare<DetailOf<"skin-tone-change">>;
+};
+
 /** `<emoji-picker>`: Lightweight emoji picker distributed as a web component */
-export const EmojiPicker = Html.customElement({
+export const EmojiPicker: Html.CustomElementBinding<"emoji-picker", Properties, Events> = Html.customElement({
 	tag: "emoji-picker",
 	properties: {
 		customCategorySorting: typed<Of["customCategorySorting"]>(), // property: emoji-picker.customCategorySorting

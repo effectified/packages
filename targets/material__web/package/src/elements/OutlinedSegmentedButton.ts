@@ -2,13 +2,28 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/labs/segmentedbutton/outlined-segmented-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-outlined-segmented-button"]; // element: md-outlined-segmented-button
 
+/** The properties a view sets on `<md-outlined-segmented-button>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-outlined-segmented-button.disabled
+	readonly hasIcon: Schema.declare<Of["hasIcon"]>; // property: md-outlined-segmented-button.hasIcon
+	readonly label: Schema.declare<Of["label"]>; // property: md-outlined-segmented-button.label
+	readonly noCheckmark: Schema.declare<Of["noCheckmark"]>; // property: md-outlined-segmented-button.noCheckmark
+	readonly selected: Schema.declare<Of["selected"]>; // property: md-outlined-segmented-button.selected
+};
+
+/** The custom events of `<md-outlined-segmented-button>`, each its `detail`. */
+type Events = {
+	readonly "segmented-button-interaction": Schema.declare<DetailOf<"segmented-button-interaction">>;
+};
+
 /** `<md-outlined-segmented-button>`: MdOutlinedSegmentedButton is the custom element for the Material Design outlined segmented button component. */
-export const OutlinedSegmentedButton = Html.customElement({
+export const OutlinedSegmentedButton: Html.CustomElementBinding<"md-outlined-segmented-button", Properties, Events> = Html.customElement({
 	tag: "md-outlined-segmented-button",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: md-outlined-segmented-button.disabled

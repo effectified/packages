@@ -2,13 +2,29 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/menu/media-captions-menu-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-captions-menu-button>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: media-captions-menu-button.disabled
+	readonly invokeTarget: Schema.declare<Of["invokeTarget"]>; // property: media-captions-menu-button.invokeTarget
+	readonly mediaController: Schema.declare<Of["mediaController"]>; // property: media-captions-menu-button.mediaController
+	readonly mediaSubtitlesList: Schema.declare<Of["mediaSubtitlesList"]>; // property: media-captions-menu-button.mediaSubtitlesList
+	readonly mediaSubtitlesShowing: Schema.declare<Of["mediaSubtitlesShowing"]>; // property: media-captions-menu-button.mediaSubtitlesShowing
+	readonly noTooltip: Schema.declare<Of["noTooltip"]>; // property: media-captions-menu-button.noTooltip
+	readonly preventClick: Schema.declare<Of["preventClick"]>; // property: media-captions-menu-button.preventClick
+	readonly tooltipPlacement: Schema.declare<Of["tooltipPlacement"]>; // property: media-captions-menu-button.tooltipPlacement
+};
+
+/** The custom events of `<media-captions-menu-button>`, each its `detail`. */
+type Events = {};
+
 /** `<media-captions-menu-button>` */
-export const CaptionsMenuButton = Html.customElement({
+export const CaptionsMenuButton: Html.CustomElementBinding<"media-captions-menu-button", Properties, Events> = Html.customElement({
 	tag: "media-captions-menu-button",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: media-captions-menu-button.disabled

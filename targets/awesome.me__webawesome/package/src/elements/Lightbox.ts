@@ -2,13 +2,39 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/lightbox/lightbox.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-lightbox"]; // element: wa-lightbox
 
+/** The properties a view sets on `<wa-lightbox>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-lightbox.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-lightbox.dir
+	readonly index: Schema.declare<Of["index"]>; // property: wa-lightbox.index
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-lightbox.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-lightbox.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-lightbox.lang
+	readonly loop: Schema.declare<Of["loop"]>; // property: wa-lightbox.loop
+	readonly open: Schema.declare<Of["open"]>; // property: wa-lightbox.open
+	readonly withThumbnails: Schema.declare<Of["withThumbnails"]>; // property: wa-lightbox.withThumbnails
+	readonly withoutCounter: Schema.declare<Of["withoutCounter"]>; // property: wa-lightbox.withoutCounter
+	readonly withoutNavigation: Schema.declare<Of["withoutNavigation"]>; // property: wa-lightbox.withoutNavigation
+	readonly withoutZoom: Schema.declare<Of["withoutZoom"]>; // property: wa-lightbox.withoutZoom
+};
+
+/** The custom events of `<wa-lightbox>`, each its `detail`. */
+type Events = {
+	readonly "wa-after-hide": Schema.declare<DetailOf<"wa-after-hide">>;
+	readonly "wa-after-show": Schema.declare<DetailOf<"wa-after-show">>;
+	readonly "wa-hide": Schema.declare<DetailOf<"wa-hide">>;
+	readonly "wa-item-change": Schema.declare<DetailOf<"wa-item-change">>;
+	readonly "wa-show": Schema.declare<DetailOf<"wa-show">>;
+};
+
 /** `<wa-lightbox>`: Lightboxes show images and videos in a full-screen viewer that opens from their thumbnails. */
-export const Lightbox = Html.customElement({
+export const Lightbox: Html.CustomElementBinding<"wa-lightbox", Properties, Events> = Html.customElement({
 	tag: "wa-lightbox",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-lightbox.didSSR

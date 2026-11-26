@@ -2,13 +2,27 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-loop-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-loop-button>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: media-loop-button.disabled
+	readonly mediaController: Schema.declare<Of["mediaController"]>; // property: media-loop-button.mediaController
+	readonly mediaLoop: Schema.declare<Of["mediaLoop"]>; // property: media-loop-button.mediaLoop
+	readonly noTooltip: Schema.declare<Of["noTooltip"]>; // property: media-loop-button.noTooltip
+	readonly preventClick: Schema.declare<Of["preventClick"]>; // property: media-loop-button.preventClick
+	readonly tooltipPlacement: Schema.declare<Of["tooltipPlacement"]>; // property: media-loop-button.tooltipPlacement
+};
+
+/** The custom events of `<media-loop-button>`, each its `detail`. */
+type Events = {};
+
 /** `<media-loop-button>` */
-export const LoopButton = Html.customElement({
+export const LoopButton: Html.CustomElementBinding<"media-loop-button", Properties, Events> = Html.customElement({
 	tag: "media-loop-button",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: media-loop-button.disabled

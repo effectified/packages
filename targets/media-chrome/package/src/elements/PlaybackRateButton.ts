@@ -2,13 +2,28 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-playback-rate-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-playback-rate-button>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: media-playback-rate-button.disabled
+	readonly mediaController: Schema.declare<Of["mediaController"]>; // property: media-playback-rate-button.mediaController
+	readonly mediaPlaybackRate: Schema.declare<Of["mediaPlaybackRate"]>; // property: media-playback-rate-button.mediaPlaybackRate
+	readonly noTooltip: Schema.declare<Of["noTooltip"]>; // property: media-playback-rate-button.noTooltip
+	readonly preventClick: Schema.declare<Of["preventClick"]>; // property: media-playback-rate-button.preventClick
+	readonly rates: Schema.declare<Of["rates"]>; // property: media-playback-rate-button.rates
+	readonly tooltipPlacement: Schema.declare<Of["tooltipPlacement"]>; // property: media-playback-rate-button.tooltipPlacement
+};
+
+/** The custom events of `<media-playback-rate-button>`, each its `detail`. */
+type Events = {};
+
 /** `<media-playback-rate-button>` */
-export const PlaybackRateButton = Html.customElement({
+export const PlaybackRateButton: Html.CustomElementBinding<"media-playback-rate-button", Properties, Events> = Html.customElement({
 	tag: "media-playback-rate-button",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: media-playback-rate-button.disabled

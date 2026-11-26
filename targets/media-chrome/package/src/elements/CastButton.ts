@@ -2,13 +2,30 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-cast-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-cast-button>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: media-cast-button.disabled
+	readonly mediaCastUnavailable: Schema.declare<Of["mediaCastUnavailable"]>; // property: media-cast-button.mediaCastUnavailable
+	readonly mediaController: Schema.declare<Of["mediaController"]>; // property: media-cast-button.mediaController
+	readonly mediaIsCasting: Schema.declare<Of["mediaIsCasting"]>; // property: media-cast-button.mediaIsCasting
+	readonly noTooltip: Schema.declare<Of["noTooltip"]>; // property: media-cast-button.noTooltip
+	readonly preventClick: Schema.declare<Of["preventClick"]>; // property: media-cast-button.preventClick
+	readonly tooltipPlacement: Schema.declare<Of["tooltipPlacement"]>; // property: media-cast-button.tooltipPlacement
+};
+
+/** The custom events of `<media-cast-button>`, each its `detail`. */
+type Events = {
+	readonly eventName: Schema.declare<DetailOf<"eventName">>;
+};
+
 /** `<media-cast-button>` */
-export const CastButton = Html.customElement({
+export const CastButton: Html.CustomElementBinding<"media-cast-button", Properties, Events> = Html.customElement({
 	tag: "media-cast-button",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: media-cast-button.disabled

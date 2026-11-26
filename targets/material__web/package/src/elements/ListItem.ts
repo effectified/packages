@@ -2,13 +2,28 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/list/list-item.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-list-item"]; // element: md-list-item
 
+/** The properties a view sets on `<md-list-item>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-list-item.disabled
+	readonly href: Schema.declare<Of["href"]>; // property: md-list-item.href
+	readonly isListItem: Schema.declare<Of["isListItem"]>; // property: md-list-item.isListItem
+	readonly target: Schema.declare<Of["target"]>; // property: md-list-item.target
+	readonly type: Schema.declare<Of["type"]>; // property: md-list-item.type
+};
+
+/** The custom events of `<md-list-item>`, each its `detail`. */
+type Events = {
+	readonly "request-activation": Schema.declare<DetailOf<"request-activation">>;
+};
+
 /** `<md-list-item>`: Lists are continuous, vertical indexes of text or images. */
-export const ListItem = Html.customElement({
+export const ListItem: Html.CustomElementBinding<"md-list-item", Properties, Events> = Html.customElement({
 	tag: "md-list-item",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: md-list-item.disabled

@@ -2,13 +2,33 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/page/page.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-page"]; // element: wa-page
 
+/** The properties a view sets on `<wa-page>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-page.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-page.dir
+	readonly disableNavigationToggle: Schema.declare<Of["disableNavigationToggle"]>; // property: wa-page.disableNavigationToggle
+	readonly disableSticky: Schema.declare<Of["disableSticky"]>; // property: wa-page.disableSticky
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-page.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-page.lang
+	readonly mobileBreakpoint: Schema.declare<Of["mobileBreakpoint"]>; // property: wa-page.mobileBreakpoint
+	readonly navOpen: Schema.declare<Of["navOpen"]>; // property: wa-page.navOpen
+	readonly navigationPlacement: Schema.declare<Of["navigationPlacement"]>; // property: wa-page.navigationPlacement
+	readonly nonce: Schema.declare<Of["nonce"]>; // property: wa-page.nonce
+	readonly pageResizeObserver: Schema.declare<Of["pageResizeObserver"]>; // property: wa-page.pageResizeObserver
+	readonly view: Schema.declare<Of["view"]>; // property: wa-page.view
+};
+
+/** The custom events of `<wa-page>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-page>`: Pages scaffold an entire application layout with header, navigation, sidebar, main content, aside, and footer regions. */
-export const Page = Html.customElement({
+export const Page: Html.CustomElementBinding<"wa-page", Properties, Events> = Html.customElement({
 	tag: "wa-page",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-page.didSSR

@@ -2,13 +2,24 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/accordion-item/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-accordion-item>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: fluent-accordion-item.disabled
+	readonly expanded: Schema.declare<Of["expanded"]>; // property: fluent-accordion-item.expanded
+	readonly headinglevel: Schema.declare<Of["headinglevel"]>; // property: fluent-accordion-item.headinglevel
+};
+
+/** The custom events of `<fluent-accordion-item>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-accordion-item>`: An Accordion Item Custom HTML Element. */
-export const AccordionItem = Html.customElement({
+export const AccordionItem: Html.CustomElementBinding<"fluent-accordion-item", Properties, Events> = Html.customElement({
 	tag: "fluent-accordion-item",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: fluent-accordion-item.disabled

@@ -2,13 +2,35 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/toggle-button/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-toggle-button>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: fluent-toggle-button.disabled
+	readonly disabledFocusable: Schema.declare<Of["disabledFocusable"]>; // property: fluent-toggle-button.disabledFocusable
+	readonly formAction: Schema.declare<Of["formAction"]>; // property: fluent-toggle-button.formAction
+	readonly formAttribute: Schema.declare<Of["formAttribute"]>; // property: fluent-toggle-button.formAttribute
+	readonly formEnctype: Schema.declare<Of["formEnctype"]>; // property: fluent-toggle-button.formEnctype
+	readonly formMethod: Schema.declare<Of["formMethod"]>; // property: fluent-toggle-button.formMethod
+	readonly formNoValidate: Schema.declare<Of["formNoValidate"]>; // property: fluent-toggle-button.formNoValidate
+	readonly formTarget: Schema.declare<Of["formTarget"]>; // property: fluent-toggle-button.formTarget
+	readonly mixed: Schema.declare<Of["mixed"]>; // property: fluent-toggle-button.mixed
+	readonly name: Schema.declare<Of["name"]>; // property: fluent-toggle-button.name
+	readonly pressed: Schema.declare<Of["pressed"]>; // property: fluent-toggle-button.pressed
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-toggle-button.role
+	readonly type: Schema.declare<Of["type"]>; // property: fluent-toggle-button.type
+	readonly value: Schema.declare<Of["value"]>; // property: fluent-toggle-button.value
+};
+
+/** The custom events of `<fluent-toggle-button>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-toggle-button>`: The base class used for constructing a `<fluent-toggle-button>` custom element. */
-export const ToggleButton = Html.customElement({
+export const ToggleButton: Html.CustomElementBinding<"fluent-toggle-button", Properties, Events> = Html.customElement({
 	tag: "fluent-toggle-button",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: fluent-toggle-button.disabled

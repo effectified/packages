@@ -2,13 +2,35 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/chips/input-chip.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-input-chip"]; // element: md-input-chip
 
+/** The properties a view sets on `<md-input-chip>`, as upstream types them. */
+type Properties = {
+	readonly alwaysFocusable: Schema.declare<Of["alwaysFocusable"]>; // property: md-input-chip.alwaysFocusable
+	readonly ariaLabelRemove: Schema.declare<Of["ariaLabelRemove"]>; // property: md-input-chip.ariaLabelRemove
+	readonly avatar: Schema.declare<Of["avatar"]>; // property: md-input-chip.avatar
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-input-chip.disabled
+	readonly hasIcon: Schema.declare<Of["hasIcon"]>; // property: md-input-chip.hasIcon
+	readonly href: Schema.declare<Of["href"]>; // property: md-input-chip.href
+	readonly label: Schema.declare<Of["label"]>; // property: md-input-chip.label
+	readonly removeOnly: Schema.declare<Of["removeOnly"]>; // property: md-input-chip.removeOnly
+	readonly selected: Schema.declare<Of["selected"]>; // property: md-input-chip.selected
+	readonly softDisabled: Schema.declare<Of["softDisabled"]>; // property: md-input-chip.softDisabled
+	readonly target: Schema.declare<Of["target"]>; // property: md-input-chip.target
+};
+
+/** The custom events of `<md-input-chip>`, each its `detail`. */
+type Events = {
+	readonly remove: Schema.declare<DetailOf<"remove">>;
+	readonly "update-focus": Schema.declare<DetailOf<"update-focus">>;
+};
+
 /** `<md-input-chip>`: TODO(b/243982145): add docs */
-export const InputChip = Html.customElement({
+export const InputChip: Html.CustomElementBinding<"md-input-chip", Properties, Events> = Html.customElement({
 	tag: "md-input-chip",
 	properties: {
 		alwaysFocusable: typed<Of["alwaysFocusable"]>(), // property: md-input-chip.alwaysFocusable

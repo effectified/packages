@@ -2,13 +2,29 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-mute-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-mute-button>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: media-mute-button.disabled
+	readonly mediaController: Schema.declare<Of["mediaController"]>; // property: media-mute-button.mediaController
+	readonly mediaVolumeLevel: Schema.declare<Of["mediaVolumeLevel"]>; // property: media-mute-button.mediaVolumeLevel
+	readonly noTooltip: Schema.declare<Of["noTooltip"]>; // property: media-mute-button.noTooltip
+	readonly preventClick: Schema.declare<Of["preventClick"]>; // property: media-mute-button.preventClick
+	readonly tooltipPlacement: Schema.declare<Of["tooltipPlacement"]>; // property: media-mute-button.tooltipPlacement
+};
+
+/** The custom events of `<media-mute-button>`, each its `detail`. */
+type Events = {
+	readonly eventName: Schema.declare<DetailOf<"eventName">>;
+};
+
 /** `<media-mute-button>` */
-export const MuteButton = Html.customElement({
+export const MuteButton: Html.CustomElementBinding<"media-mute-button", Properties, Events> = Html.customElement({
 	tag: "media-mute-button",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: media-mute-button.disabled

@@ -2,13 +2,26 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/breadcrumb/breadcrumb.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-breadcrumb"]; // element: wa-breadcrumb
 
+/** The properties a view sets on `<wa-breadcrumb>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-breadcrumb.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-breadcrumb.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-breadcrumb.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-breadcrumb.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-breadcrumb.lang
+};
+
+/** The custom events of `<wa-breadcrumb>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-breadcrumb>`: Breadcrumbs display a trail of links that show users where they are in a site's hierarchy. */
-export const Breadcrumb = Html.customElement({
+export const Breadcrumb: Html.CustomElementBinding<"wa-breadcrumb", Properties, Events> = Html.customElement({
 	tag: "wa-breadcrumb",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-breadcrumb.didSSR

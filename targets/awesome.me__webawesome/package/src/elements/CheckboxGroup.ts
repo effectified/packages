@@ -2,13 +2,32 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/checkbox-group/checkbox-group.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-checkbox-group"]; // element: wa-checkbox-group
 
+/** The properties a view sets on `<wa-checkbox-group>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-checkbox-group.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-checkbox-group.dir
+	readonly hint: Schema.declare<Of["hint"]>; // property: wa-checkbox-group.hint
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-checkbox-group.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-checkbox-group.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-checkbox-group.lang
+	readonly orientation: Schema.declare<Of["orientation"]>; // property: wa-checkbox-group.orientation
+	readonly required: Schema.declare<Of["required"]>; // property: wa-checkbox-group.required
+	readonly size: Schema.declare<Of["size"]>; // property: wa-checkbox-group.size
+	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-checkbox-group.withHint
+	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-checkbox-group.withLabel
+};
+
+/** The custom events of `<wa-checkbox-group>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-checkbox-group>`: Checkbox groups wrap a set of related checkboxes or switches so they share a label, hint, and grouping semantics. */
-export const CheckboxGroup = Html.customElement({
+export const CheckboxGroup: Html.CustomElementBinding<"wa-checkbox-group", Properties, Events> = Html.customElement({
 	tag: "wa-checkbox-group",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-checkbox-group.didSSR

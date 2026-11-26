@@ -2,13 +2,28 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/callout/callout.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-callout"]; // element: wa-callout
 
+/** The properties a view sets on `<wa-callout>`, as upstream types them. */
+type Properties = {
+	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-callout.appearance
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-callout.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-callout.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-callout.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-callout.lang
+	readonly size: Schema.declare<Of["size"]>; // property: wa-callout.size
+	readonly variant: Schema.declare<Of["variant"]>; // property: wa-callout.variant
+};
+
+/** The custom events of `<wa-callout>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-callout>`: Callouts display important messages inline with surrounding content. */
-export const Callout = Html.customElement({
+export const Callout: Html.CustomElementBinding<"wa-callout", Properties, Events> = Html.customElement({
 	tag: "wa-callout",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-callout.appearance

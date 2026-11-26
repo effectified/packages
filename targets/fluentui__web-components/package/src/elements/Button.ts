@@ -2,13 +2,33 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/button/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-button>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: fluent-button.disabled
+	readonly disabledFocusable: Schema.declare<Of["disabledFocusable"]>; // property: fluent-button.disabledFocusable
+	readonly formAction: Schema.declare<Of["formAction"]>; // property: fluent-button.formAction
+	readonly formAttribute: Schema.declare<Of["formAttribute"]>; // property: fluent-button.formAttribute
+	readonly formEnctype: Schema.declare<Of["formEnctype"]>; // property: fluent-button.formEnctype
+	readonly formMethod: Schema.declare<Of["formMethod"]>; // property: fluent-button.formMethod
+	readonly formNoValidate: Schema.declare<Of["formNoValidate"]>; // property: fluent-button.formNoValidate
+	readonly formTarget: Schema.declare<Of["formTarget"]>; // property: fluent-button.formTarget
+	readonly name: Schema.declare<Of["name"]>; // property: fluent-button.name
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-button.role
+	readonly type: Schema.declare<Of["type"]>; // property: fluent-button.type
+	readonly value: Schema.declare<Of["value"]>; // property: fluent-button.value
+};
+
+/** The custom events of `<fluent-button>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-button>`: A Button Custom HTML Element. */
-export const Button = Html.customElement({
+export const Button: Html.CustomElementBinding<"fluent-button", Properties, Events> = Html.customElement({
 	tag: "fluent-button",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: fluent-button.disabled

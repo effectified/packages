@@ -2,13 +2,40 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/copy-button/copy-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-copy-button"]; // element: wa-copy-button
 
+/** The properties a view sets on `<wa-copy-button>`, as upstream types them. */
+type Properties = {
+	readonly copyLabel: Schema.declare<Of["copyLabel"]>; // property: wa-copy-button.copyLabel
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-copy-button.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-copy-button.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-copy-button.disabled
+	readonly errorLabel: Schema.declare<Of["errorLabel"]>; // property: wa-copy-button.errorLabel
+	readonly feedbackDuration: Schema.declare<Of["feedbackDuration"]>; // property: wa-copy-button.feedbackDuration
+	readonly from: Schema.declare<Of["from"]>; // property: wa-copy-button.from
+	readonly hasCustomTrigger: Schema.declare<Of["hasCustomTrigger"]>; // property: wa-copy-button.hasCustomTrigger
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-copy-button.initialReflectedProperties
+	readonly isCopying: Schema.declare<Of["isCopying"]>; // property: wa-copy-button.isCopying
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-copy-button.lang
+	readonly status: Schema.declare<Of["status"]>; // property: wa-copy-button.status
+	readonly successLabel: Schema.declare<Of["successLabel"]>; // property: wa-copy-button.successLabel
+	readonly tooltip: Schema.declare<Of["tooltip"]>; // property: wa-copy-button.tooltip
+	readonly tooltipPlacement: Schema.declare<Of["tooltipPlacement"]>; // property: wa-copy-button.tooltipPlacement
+	readonly value: Schema.declare<Of["value"]>; // property: wa-copy-button.value
+};
+
+/** The custom events of `<wa-copy-button>`, each its `detail`. */
+type Events = {
+	readonly "wa-copy": Schema.declare<DetailOf<"wa-copy">>;
+	readonly "wa-error": Schema.declare<DetailOf<"wa-error">>;
+};
+
 /** `<wa-copy-button>`: Copy buttons copy text to the clipboard when the user activates them. */
-export const CopyButton = Html.customElement({
+export const CopyButton: Html.CustomElementBinding<"wa-copy-button", Properties, Events> = Html.customElement({
 	tag: "wa-copy-button",
 	properties: {
 		copyLabel: typed<Of["copyLabel"]>(), // property: wa-copy-button.copyLabel

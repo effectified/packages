@@ -2,13 +2,26 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/tablist/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-tablist>`, as upstream types them. */
+type Properties = {
+	readonly activeid: Schema.declare<Of["activeid"]>; // property: fluent-tablist.activeid
+	readonly ariaOrientation: Schema.declare<Of["ariaOrientation"]>; // property: fluent-tablist.ariaOrientation
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: fluent-tablist.disabled
+	readonly orientation: Schema.declare<Of["orientation"]>; // property: fluent-tablist.orientation
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-tablist.role
+};
+
+/** The custom events of `<fluent-tablist>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-tablist>`: A Tablist component. */
-export const Tablist = Html.customElement({
+export const Tablist: Html.CustomElementBinding<"fluent-tablist", Properties, Events> = Html.customElement({
 	tag: "fluent-tablist",
 	properties: {
 		activeid: typed<Of["activeid"]>(), // property: fluent-tablist.activeid

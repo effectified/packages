@@ -2,13 +2,27 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/avatar/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-avatar>`, as upstream types them. */
+type Properties = {
+	readonly color: Schema.declare<Of["color"]>; // property: fluent-avatar.color
+	readonly colorId: Schema.declare<Of["colorId"]>; // property: fluent-avatar.colorId
+	readonly initials: Schema.declare<Of["initials"]>; // property: fluent-avatar.initials
+	readonly name: Schema.declare<Of["name"]>; // property: fluent-avatar.name
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-avatar.role
+	readonly size: Schema.declare<Of["size"]>; // property: fluent-avatar.size
+};
+
+/** The custom events of `<fluent-avatar>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-avatar>`: An Avatar Custom HTML Element. */
-export const Avatar = Html.customElement({
+export const Avatar: Html.CustomElementBinding<"fluent-avatar", Properties, Events> = Html.customElement({
 	tag: "fluent-avatar",
 	properties: {
 		color: typed<Of["color"]>(), // property: fluent-avatar.color

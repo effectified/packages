@@ -2,13 +2,22 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-preview-chapter-display.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-preview-chapter-display>`, as upstream types them. */
+type Properties = {
+	readonly mediaPreviewChapter: Schema.declare<Of["mediaPreviewChapter"]>; // property: media-preview-chapter-display.mediaPreviewChapter
+};
+
+/** The custom events of `<media-preview-chapter-display>`, each its `detail`. */
+type Events = {};
+
 /** `<media-preview-chapter-display>` */
-export const PreviewChapterDisplay = Html.customElement({
+export const PreviewChapterDisplay: Html.CustomElementBinding<"media-preview-chapter-display", Properties, Events> = Html.customElement({
 	tag: "media-preview-chapter-display",
 	properties: {
 		mediaPreviewChapter: typed<Of["mediaPreviewChapter"]>(), // property: media-preview-chapter-display.mediaPreviewChapter

@@ -2,13 +2,20 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/elevation/elevation.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-elevation"]; // element: md-elevation
 
+/** The properties a view sets on `<md-elevation>`, as upstream types them. */
+type Properties = {};
+
+/** The custom events of `<md-elevation>`, each its `detail`. */
+type Events = {};
+
 /** `<md-elevation>`: The `<md-elevation>` custom element with default styles. */
-export const Elevation = Html.customElement({
+export const Elevation: Html.CustomElementBinding<"md-elevation", Properties, Events> = Html.customElement({
 	tag: "md-elevation",
 	properties: {},
 	events: {},

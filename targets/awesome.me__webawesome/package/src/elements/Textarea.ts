@@ -2,13 +2,60 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/textarea/textarea.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-textarea"]; // element: wa-textarea
 
+/** The properties a view sets on `<wa-textarea>`, as upstream types them. */
+type Properties = {
+	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-textarea.appearance
+	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-textarea.assumeInteractionOn
+	readonly autocapitalize: Schema.declare<Of["autocapitalize"]>; // property: wa-textarea.autocapitalize
+	readonly autocomplete: Schema.declare<Of["autocomplete"]>; // property: wa-textarea.autocomplete
+	readonly autocorrect: Schema.declare<Of["autocorrect"]>; // property: wa-textarea.autocorrect
+	readonly autofocus: Schema.declare<Of["autofocus"]>; // property: wa-textarea.autofocus
+	readonly customError: Schema.declare<Of["customError"]>; // property: wa-textarea.customError
+	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-textarea.defaultValue
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-textarea.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-textarea.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-textarea.disabled
+	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-textarea.emitInvalid
+	readonly enterkeyhint: Schema.declare<Of["enterkeyhint"]>; // property: wa-textarea.enterkeyhint
+	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-textarea.hasInteracted
+	readonly hint: Schema.declare<Of["hint"]>; // property: wa-textarea.hint
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-textarea.initialReflectedProperties
+	readonly inputmode: Schema.declare<Of["inputmode"]>; // property: wa-textarea.inputmode
+	readonly label: Schema.declare<Of["label"]>; // property: wa-textarea.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-textarea.lang
+	readonly maxlength: Schema.declare<Of["maxlength"]>; // property: wa-textarea.maxlength
+	readonly minlength: Schema.declare<Of["minlength"]>; // property: wa-textarea.minlength
+	readonly name: Schema.declare<Of["name"]>; // property: wa-textarea.name
+	readonly placeholder: Schema.declare<Of["placeholder"]>; // property: wa-textarea.placeholder
+	readonly readonly: Schema.declare<Of["readonly"]>; // property: wa-textarea.readonly
+	readonly required: Schema.declare<Of["required"]>; // property: wa-textarea.required
+	readonly resize: Schema.declare<Of["resize"]>; // property: wa-textarea.resize
+	readonly rows: Schema.declare<Of["rows"]>; // property: wa-textarea.rows
+	readonly size: Schema.declare<Of["size"]>; // property: wa-textarea.size
+	readonly spellcheck: Schema.declare<Of["spellcheck"]>; // property: wa-textarea.spellcheck
+	readonly states: Schema.declare<Of["states"]>; // property: wa-textarea.states
+	readonly title: Schema.declare<Of["title"]>; // property: wa-textarea.title
+	readonly validators: Schema.declare<Of["validators"]>; // property: wa-textarea.validators
+	readonly value: Schema.declare<Of["value"]>; // property: wa-textarea.value
+	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-textarea.valueHasChanged
+	readonly withCount: Schema.declare<Of["withCount"]>; // property: wa-textarea.withCount
+	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-textarea.withHint
+	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-textarea.withLabel
+};
+
+/** The custom events of `<wa-textarea>`, each its `detail`. */
+type Events = {
+	readonly "wa-invalid": Schema.declare<DetailOf<"wa-invalid">>;
+};
+
 /** `<wa-textarea>`: Textareas collect multi-line text input from the user, with optional resizing and character counting. */
-export const Textarea = Html.customElement({
+export const Textarea: Html.CustomElementBinding<"wa-textarea", Properties, Events> = Html.customElement({
 	tag: "wa-textarea",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-textarea.appearance

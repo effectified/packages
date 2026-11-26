@@ -2,13 +2,23 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-poster-image.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-poster-image>`, as upstream types them. */
+type Properties = {
+	readonly placeholderSrc: Schema.declare<Of["placeholderSrc"]>; // property: media-poster-image.placeholderSrc
+	readonly src: Schema.declare<Of["src"]>; // property: media-poster-image.src
+};
+
+/** The custom events of `<media-poster-image>`, each its `detail`. */
+type Events = {};
+
 /** `<media-poster-image>` */
-export const PosterImage = Html.customElement({
+export const PosterImage: Html.CustomElementBinding<"media-poster-image", Properties, Events> = Html.customElement({
 	tag: "media-poster-image",
 	properties: {
 		placeholderSrc: typed<Of["placeholderSrc"]>(), // property: media-poster-image.placeholderSrc

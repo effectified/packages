@@ -2,13 +2,32 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/slider/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-slider>`, as upstream types them. */
+type Properties = {
+	readonly ariaOrientation: Schema.declare<Of["ariaOrientation"]>; // property: fluent-slider.ariaOrientation
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: fluent-slider.disabled
+	readonly initialValue: Schema.declare<Of["initialValue"]>; // property: fluent-slider.initialValue
+	readonly max: Schema.declare<Of["max"]>; // property: fluent-slider.max
+	readonly min: Schema.declare<Of["min"]>; // property: fluent-slider.min
+	readonly mode: Schema.declare<Of["mode"]>; // property: fluent-slider.mode
+	readonly orientation: Schema.declare<Of["orientation"]>; // property: fluent-slider.orientation
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-slider.role
+	readonly step: Schema.declare<Of["step"]>; // property: fluent-slider.step
+	readonly value: Schema.declare<Of["value"]>; // property: fluent-slider.value
+	readonly valueAsNumber: Schema.declare<Of["valueAsNumber"]>; // property: fluent-slider.valueAsNumber
+};
+
+/** The custom events of `<fluent-slider>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-slider>`: The base class used for constructing a fluent-slider custom element */
-export const Slider = Html.customElement({
+export const Slider: Html.CustomElementBinding<"fluent-slider", Properties, Events> = Html.customElement({
 	tag: "fluent-slider",
 	properties: {
 		ariaOrientation: typed<Of["ariaOrientation"]>(), // property: fluent-slider.ariaOrientation

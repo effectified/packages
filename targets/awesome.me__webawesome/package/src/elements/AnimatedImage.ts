@@ -2,13 +2,33 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/animated-image/animated-image.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-animated-image"]; // element: wa-animated-image
 
+/** The properties a view sets on `<wa-animated-image>`, as upstream types them. */
+type Properties = {
+	readonly alt: Schema.declare<Of["alt"]>; // property: wa-animated-image.alt
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-animated-image.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-animated-image.dir
+	readonly frozenFrame: Schema.declare<Of["frozenFrame"]>; // property: wa-animated-image.frozenFrame
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-animated-image.initialReflectedProperties
+	readonly isLoaded: Schema.declare<Of["isLoaded"]>; // property: wa-animated-image.isLoaded
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-animated-image.lang
+	readonly play: Schema.declare<Of["play"]>; // property: wa-animated-image.play
+	readonly src: Schema.declare<Of["src"]>; // property: wa-animated-image.src
+};
+
+/** The custom events of `<wa-animated-image>`, each its `detail`. */
+type Events = {
+	readonly "wa-error": Schema.declare<DetailOf<"wa-error">>;
+	readonly "wa-load": Schema.declare<DetailOf<"wa-load">>;
+};
+
 /** `<wa-animated-image>`: Animated images display GIFs and WEBPs with controls to play and pause them on demand. */
-export const AnimatedImage = Html.customElement({
+export const AnimatedImage: Html.CustomElementBinding<"wa-animated-image", Properties, Events> = Html.customElement({
 	tag: "wa-animated-image",
 	properties: {
 		alt: typed<Of["alt"]>(), // property: wa-animated-image.alt

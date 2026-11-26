@@ -2,13 +2,37 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/format-date/format-date.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-format-date"]; // element: wa-format-date
 
+/** The properties a view sets on `<wa-format-date>`, as upstream types them. */
+type Properties = {
+	readonly date: Schema.declare<Of["date"]>; // property: wa-format-date.date
+	readonly day: Schema.declare<Of["day"]>; // property: wa-format-date.day
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-format-date.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-format-date.dir
+	readonly era: Schema.declare<Of["era"]>; // property: wa-format-date.era
+	readonly hour: Schema.declare<Of["hour"]>; // property: wa-format-date.hour
+	readonly hourFormat: Schema.declare<Of["hourFormat"]>; // property: wa-format-date.hourFormat
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-format-date.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-format-date.lang
+	readonly minute: Schema.declare<Of["minute"]>; // property: wa-format-date.minute
+	readonly month: Schema.declare<Of["month"]>; // property: wa-format-date.month
+	readonly second: Schema.declare<Of["second"]>; // property: wa-format-date.second
+	readonly timeZone: Schema.declare<Of["timeZone"]>; // property: wa-format-date.timeZone
+	readonly timeZoneName: Schema.declare<Of["timeZoneName"]>; // property: wa-format-date.timeZoneName
+	readonly weekday: Schema.declare<Of["weekday"]>; // property: wa-format-date.weekday
+	readonly year: Schema.declare<Of["year"]>; // property: wa-format-date.year
+};
+
+/** The custom events of `<wa-format-date>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-format-date>`: Formats a date or time for display using the specified locale and options. */
-export const FormatDate = Html.customElement({
+export const FormatDate: Html.CustomElementBinding<"wa-format-date", Properties, Events> = Html.customElement({
 	tag: "wa-format-date",
 	properties: {
 		date: typed<Of["date"]>(), // property: wa-format-date.date

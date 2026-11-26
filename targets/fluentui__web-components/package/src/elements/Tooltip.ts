@@ -2,13 +2,26 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/tooltip/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-tooltip>`, as upstream types them. */
+type Properties = {
+	readonly anchor: Schema.declare<Of["anchor"]>; // property: fluent-tooltip.anchor
+	readonly delay: Schema.declare<Of["delay"]>; // property: fluent-tooltip.delay
+	readonly id: Schema.declare<Of["id"]>; // property: fluent-tooltip.id
+	readonly positioning: Schema.declare<Of["positioning"]>; // property: fluent-tooltip.positioning
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-tooltip.role
+};
+
+/** The custom events of `<fluent-tooltip>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-tooltip>`: A Tooltip Custom HTML Element. */
-export const Tooltip = Html.customElement({
+export const Tooltip: Html.CustomElementBinding<"fluent-tooltip", Properties, Events> = Html.customElement({
 	tag: "fluent-tooltip",
 	properties: {
 		anchor: typed<Of["anchor"]>(), // property: fluent-tooltip.anchor

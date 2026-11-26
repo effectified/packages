@@ -2,13 +2,32 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/chips/assist-chip.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-assist-chip"]; // element: md-assist-chip
 
+/** The properties a view sets on `<md-assist-chip>`, as upstream types them. */
+type Properties = {
+	readonly alwaysFocusable: Schema.declare<Of["alwaysFocusable"]>; // property: md-assist-chip.alwaysFocusable
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-assist-chip.disabled
+	readonly download: Schema.declare<Of["download"]>; // property: md-assist-chip.download
+	readonly elevated: Schema.declare<Of["elevated"]>; // property: md-assist-chip.elevated
+	readonly hasIcon: Schema.declare<Of["hasIcon"]>; // property: md-assist-chip.hasIcon
+	readonly href: Schema.declare<Of["href"]>; // property: md-assist-chip.href
+	readonly label: Schema.declare<Of["label"]>; // property: md-assist-chip.label
+	readonly softDisabled: Schema.declare<Of["softDisabled"]>; // property: md-assist-chip.softDisabled
+	readonly target: Schema.declare<Of["target"]>; // property: md-assist-chip.target
+};
+
+/** The custom events of `<md-assist-chip>`, each its `detail`. */
+type Events = {
+	readonly "update-focus": Schema.declare<DetailOf<"update-focus">>;
+};
+
 /** `<md-assist-chip>`: TODO(b/243982145): add docs */
-export const AssistChip = Html.customElement({
+export const AssistChip: Html.CustomElementBinding<"md-assist-chip", Properties, Events> = Html.customElement({
 	tag: "md-assist-chip",
 	properties: {
 		alwaysFocusable: typed<Of["alwaysFocusable"]>(), // property: md-assist-chip.alwaysFocusable

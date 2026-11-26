@@ -2,13 +2,32 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/avatar/avatar.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-avatar"]; // element: wa-avatar
 
+/** The properties a view sets on `<wa-avatar>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-avatar.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-avatar.dir
+	readonly image: Schema.declare<Of["image"]>; // property: wa-avatar.image
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-avatar.initialReflectedProperties
+	readonly initials: Schema.declare<Of["initials"]>; // property: wa-avatar.initials
+	readonly label: Schema.declare<Of["label"]>; // property: wa-avatar.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-avatar.lang
+	readonly loading: Schema.declare<Of["loading"]>; // property: wa-avatar.loading
+	readonly shape: Schema.declare<Of["shape"]>; // property: wa-avatar.shape
+};
+
+/** The custom events of `<wa-avatar>`, each its `detail`. */
+type Events = {
+	readonly "wa-error": Schema.declare<DetailOf<"wa-error">>;
+};
+
 /** `<wa-avatar>`: Avatars represent a person or object with an image, initials, or icon. */
-export const Avatar = Html.customElement({
+export const Avatar: Html.CustomElementBinding<"wa-avatar", Properties, Events> = Html.customElement({
 	tag: "wa-avatar",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-avatar.didSSR

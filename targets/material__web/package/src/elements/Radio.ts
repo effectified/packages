@@ -2,13 +2,24 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/radio/radio.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-radio"]; // element: md-radio
 
+/** The properties a view sets on `<md-radio>`, as upstream types them. */
+type Properties = {
+	readonly checked: Schema.declare<Of["checked"]>; // property: md-radio.checked
+	readonly required: Schema.declare<Of["required"]>; // property: md-radio.required
+	readonly value: Schema.declare<Of["value"]>; // property: md-radio.value
+};
+
+/** The custom events of `<md-radio>`, each its `detail`. */
+type Events = {};
+
 /** `<md-radio>`: Radio buttons allow users to select one option from a set. */
-export const Radio = Html.customElement({
+export const Radio: Html.CustomElementBinding<"md-radio", Properties, Events> = Html.customElement({
 	tag: "md-radio",
 	properties: {
 		checked: typed<Of["checked"]>(), // property: md-radio.checked

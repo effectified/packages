@@ -2,13 +2,28 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/breadcrumb-item/breadcrumb-item.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-breadcrumb-item"]; // element: wa-breadcrumb-item
 
+/** The properties a view sets on `<wa-breadcrumb-item>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-breadcrumb-item.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-breadcrumb-item.dir
+	readonly href: Schema.declare<Of["href"]>; // property: wa-breadcrumb-item.href
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-breadcrumb-item.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-breadcrumb-item.lang
+	readonly rel: Schema.declare<Of["rel"]>; // property: wa-breadcrumb-item.rel
+	readonly target: Schema.declare<Of["target"]>; // property: wa-breadcrumb-item.target
+};
+
+/** The custom events of `<wa-breadcrumb-item>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-breadcrumb-item>`: Breadcrumb items represent individual links inside a breadcrumb, typically one per level of the site hierarchy. */
-export const BreadcrumbItem = Html.customElement({
+export const BreadcrumbItem: Html.CustomElementBinding<"wa-breadcrumb-item", Properties, Events> = Html.customElement({
 	tag: "wa-breadcrumb-item",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-breadcrumb-item.didSSR

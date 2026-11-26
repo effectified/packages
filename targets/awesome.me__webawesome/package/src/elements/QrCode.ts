@@ -2,13 +2,36 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/qr-code/qr-code.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-qr-code"]; // element: wa-qr-code
 
+/** The properties a view sets on `<wa-qr-code>`, as upstream types them. */
+type Properties = {
+	readonly background: Schema.declare<Of["background"]>; // property: wa-qr-code.background
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-qr-code.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-qr-code.dir
+	readonly errorCorrection: Schema.declare<Of["errorCorrection"]>; // property: wa-qr-code.errorCorrection
+	readonly fill: Schema.declare<Of["fill"]>; // property: wa-qr-code.fill
+	readonly image: Schema.declare<Of["image"]>; // property: wa-qr-code.image
+	readonly imageBackground: Schema.declare<Of["imageBackground"]>; // property: wa-qr-code.imageBackground
+	readonly imageCoverage: Schema.declare<Of["imageCoverage"]>; // property: wa-qr-code.imageCoverage
+	readonly imagePadding: Schema.declare<Of["imagePadding"]>; // property: wa-qr-code.imagePadding
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-qr-code.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-qr-code.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-qr-code.lang
+	readonly radius: Schema.declare<Of["radius"]>; // property: wa-qr-code.radius
+	readonly size: Schema.declare<Of["size"]>; // property: wa-qr-code.size
+	readonly value: Schema.declare<Of["value"]>; // property: wa-qr-code.value
+};
+
+/** The custom events of `<wa-qr-code>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-qr-code>`: QR codes encode a URL or other short text into a scannable image, rendered client-side using the Canvas API. */
-export const QrCode = Html.customElement({
+export const QrCode: Html.CustomElementBinding<"wa-qr-code", Properties, Events> = Html.customElement({
 	tag: "wa-qr-code",
 	properties: {
 		background: typed<Of["background"]>(), // property: wa-qr-code.background

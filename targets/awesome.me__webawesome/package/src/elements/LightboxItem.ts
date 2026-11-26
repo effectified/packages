@@ -2,13 +2,34 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/lightbox-item/lightbox-item.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-lightbox-item"]; // element: wa-lightbox-item
 
+/** The properties a view sets on `<wa-lightbox-item>`, as upstream types them. */
+type Properties = {
+	readonly alt: Schema.declare<Of["alt"]>; // property: wa-lightbox-item.alt
+	readonly caption: Schema.declare<Of["caption"]>; // property: wa-lightbox-item.caption
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-lightbox-item.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-lightbox-item.dir
+	readonly height: Schema.declare<Of["height"]>; // property: wa-lightbox-item.height
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-lightbox-item.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-lightbox-item.lang
+	readonly sizes: Schema.declare<Of["sizes"]>; // property: wa-lightbox-item.sizes
+	readonly src: Schema.declare<Of["src"]>; // property: wa-lightbox-item.src
+	readonly srcset: Schema.declare<Of["srcset"]>; // property: wa-lightbox-item.srcset
+	readonly thumbnail: Schema.declare<Of["thumbnail"]>; // property: wa-lightbox-item.thumbnail
+	readonly type: Schema.declare<Of["type"]>; // property: wa-lightbox-item.type
+	readonly width: Schema.declare<Of["width"]>; // property: wa-lightbox-item.width
+};
+
+/** The custom events of `<wa-lightbox-item>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-lightbox-item>`: Lightbox items represent the individual images and videos shown in a lightbox. */
-export const LightboxItem = Html.customElement({
+export const LightboxItem: Html.CustomElementBinding<"wa-lightbox-item", Properties, Events> = Html.customElement({
 	tag: "wa-lightbox-item",
 	properties: {
 		alt: typed<Of["alt"]>(), // property: wa-lightbox-item.alt

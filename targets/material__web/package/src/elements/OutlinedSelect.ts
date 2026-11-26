@@ -2,13 +2,43 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/select/outlined-select.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-outlined-select"]; // element: md-outlined-select
 
+/** The properties a view sets on `<md-outlined-select>`, as upstream types them. */
+type Properties = {
+	readonly clampMenuWidth: Schema.declare<Of["clampMenuWidth"]>; // property: md-outlined-select.clampMenuWidth
+	readonly displayText: Schema.declare<Of["displayText"]>; // property: md-outlined-select.displayText
+	readonly error: Schema.declare<Of["error"]>; // property: md-outlined-select.error
+	readonly errorText: Schema.declare<Of["errorText"]>; // property: md-outlined-select.errorText
+	readonly hasLeadingIcon: Schema.declare<Of["hasLeadingIcon"]>; // property: md-outlined-select.hasLeadingIcon
+	readonly label: Schema.declare<Of["label"]>; // property: md-outlined-select.label
+	readonly menuAlign: Schema.declare<Of["menuAlign"]>; // property: md-outlined-select.menuAlign
+	readonly menuPositioning: Schema.declare<Of["menuPositioning"]>; // property: md-outlined-select.menuPositioning
+	readonly noAsterisk: Schema.declare<Of["noAsterisk"]>; // property: md-outlined-select.noAsterisk
+	readonly options: Schema.declare<Of["options"]>; // property: md-outlined-select.options
+	readonly quick: Schema.declare<Of["quick"]>; // property: md-outlined-select.quick
+	readonly required: Schema.declare<Of["required"]>; // property: md-outlined-select.required
+	readonly selectedIndex: Schema.declare<Of["selectedIndex"]>; // property: md-outlined-select.selectedIndex
+	readonly selectedOptions: Schema.declare<Of["selectedOptions"]>; // property: md-outlined-select.selectedOptions
+	readonly supportingText: Schema.declare<Of["supportingText"]>; // property: md-outlined-select.supportingText
+	readonly typeaheadDelay: Schema.declare<Of["typeaheadDelay"]>; // property: md-outlined-select.typeaheadDelay
+	readonly value: Schema.declare<Of["value"]>; // property: md-outlined-select.value
+};
+
+/** The custom events of `<md-outlined-select>`, each its `detail`. */
+type Events = {
+	readonly closed: Schema.declare<DetailOf<"closed">>;
+	readonly closing: Schema.declare<DetailOf<"closing">>;
+	readonly opened: Schema.declare<DetailOf<"opened">>;
+	readonly opening: Schema.declare<DetailOf<"opening">>;
+};
+
 /** `<md-outlined-select>`: Select menus display a list of choices on temporary surfaces and display the currently selected menu item above the menu. */
-export const OutlinedSelect = Html.customElement({
+export const OutlinedSelect: Html.CustomElementBinding<"md-outlined-select", Properties, Events> = Html.customElement({
 	tag: "md-outlined-select",
 	properties: {
 		clampMenuWidth: typed<Of["clampMenuWidth"]>(), // property: md-outlined-select.clampMenuWidth

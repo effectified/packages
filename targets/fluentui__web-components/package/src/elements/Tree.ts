@@ -2,13 +2,24 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/tree/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-tree>`, as upstream types them. */
+type Properties = {
+	readonly appearance: Schema.declare<Of["appearance"]>; // property: fluent-tree.appearance
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-tree.role
+	readonly size: Schema.declare<Of["size"]>; // property: fluent-tree.size
+};
+
+/** The custom events of `<fluent-tree>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-tree>`: The Fluent Tree Element. */
-export const Tree = Html.customElement({
+export const Tree: Html.CustomElementBinding<"fluent-tree", Properties, Events> = Html.customElement({
 	tag: "fluent-tree",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: fluent-tree.appearance

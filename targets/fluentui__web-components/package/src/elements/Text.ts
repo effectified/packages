@@ -2,13 +2,20 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/text/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-text>`, as upstream types them. */
+type Properties = {};
+
+/** The custom events of `<fluent-text>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-text>`: The base class used for constructing a fluent-text custom element */
-export const Text = Html.customElement({
+export const Text: Html.CustomElementBinding<"fluent-text", Properties, Events> = Html.customElement({
 	tag: "fluent-text",
 	properties: {},
 	events: {},

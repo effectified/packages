@@ -2,13 +2,29 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/iconbutton/outlined-icon-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-outlined-icon-button"]; // element: md-outlined-icon-button
 
+/** The properties a view sets on `<md-outlined-icon-button>`, as upstream types them. */
+type Properties = {
+	readonly ariaLabelSelected: Schema.declare<Of["ariaLabelSelected"]>; // property: md-outlined-icon-button.ariaLabelSelected
+	readonly download: Schema.declare<Of["download"]>; // property: md-outlined-icon-button.download
+	readonly flipIconInRtl: Schema.declare<Of["flipIconInRtl"]>; // property: md-outlined-icon-button.flipIconInRtl
+	readonly href: Schema.declare<Of["href"]>; // property: md-outlined-icon-button.href
+	readonly selected: Schema.declare<Of["selected"]>; // property: md-outlined-icon-button.selected
+	readonly softDisabled: Schema.declare<Of["softDisabled"]>; // property: md-outlined-icon-button.softDisabled
+	readonly target: Schema.declare<Of["target"]>; // property: md-outlined-icon-button.target
+	readonly toggle: Schema.declare<Of["toggle"]>; // property: md-outlined-icon-button.toggle
+};
+
+/** The custom events of `<md-outlined-icon-button>`, each its `detail`. */
+type Events = {};
+
 /** `<md-outlined-icon-button>`: Icon buttons help people take supplementary actions with a single tap. */
-export const OutlinedIconButton = Html.customElement({
+export const OutlinedIconButton: Html.CustomElementBinding<"md-outlined-icon-button", Properties, Events> = Html.customElement({
 	tag: "md-outlined-icon-button",
 	properties: {
 		ariaLabelSelected: typed<Of["ariaLabelSelected"]>(), // property: md-outlined-icon-button.ariaLabelSelected

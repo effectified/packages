@@ -2,13 +2,20 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-chrome-range.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-chrome-range>`, as upstream types them. */
+type Properties = {};
+
+/** The custom events of `<media-chrome-range>`, each its `detail`. */
+type Events = {};
+
 /** `<media-chrome-range>` */
-export const ChromeRange = Html.customElement({
+export const ChromeRange: Html.CustomElementBinding<"media-chrome-range", Properties, Events> = Html.customElement({
 	tag: "media-chrome-range",
 	properties: {},
 	events: {},

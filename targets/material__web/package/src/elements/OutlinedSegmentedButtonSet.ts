@@ -2,13 +2,24 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/labs/segmentedbuttonset/outlined-segmented-button-set.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-outlined-segmented-button-set"]; // element: md-outlined-segmented-button-set
 
+/** The properties a view sets on `<md-outlined-segmented-button-set>`, as upstream types them. */
+type Properties = {
+	readonly multiselect: Schema.declare<Of["multiselect"]>; // property: md-outlined-segmented-button-set.multiselect
+};
+
+/** The custom events of `<md-outlined-segmented-button-set>`, each its `detail`. */
+type Events = {
+	readonly "segmented-button-set-selection": Schema.declare<DetailOf<"segmented-button-set-selection">>;
+};
+
 /** `<md-outlined-segmented-button-set>`: MdOutlinedSegmentedButtonSet is the custom element for the Material Design outlined segmented button set component. */
-export const OutlinedSegmentedButtonSet = Html.customElement({
+export const OutlinedSegmentedButtonSet: Html.CustomElementBinding<"md-outlined-segmented-button-set", Properties, Events> = Html.customElement({
 	tag: "md-outlined-segmented-button-set",
 	properties: {
 		multiselect: typed<Of["multiselect"]>(), // property: md-outlined-segmented-button-set.multiselect

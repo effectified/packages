@@ -2,13 +2,26 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/comparison/comparison.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-comparison"]; // element: wa-comparison
 
+/** The properties a view sets on `<wa-comparison>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-comparison.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-comparison.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-comparison.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-comparison.lang
+	readonly position: Schema.declare<Of["position"]>; // property: wa-comparison.position
+};
+
+/** The custom events of `<wa-comparison>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-comparison>`: Comparisons show the visual differences between two pieces of similar content using a draggable divider. */
-export const Comparison = Html.customElement({
+export const Comparison: Html.CustomElementBinding<"wa-comparison", Properties, Events> = Html.customElement({
 	tag: "wa-comparison",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-comparison.didSSR

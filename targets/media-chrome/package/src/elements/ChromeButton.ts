@@ -2,13 +2,26 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-chrome-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-chrome-button>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: media-chrome-button.disabled
+	readonly mediaController: Schema.declare<Of["mediaController"]>; // property: media-chrome-button.mediaController
+	readonly noTooltip: Schema.declare<Of["noTooltip"]>; // property: media-chrome-button.noTooltip
+	readonly preventClick: Schema.declare<Of["preventClick"]>; // property: media-chrome-button.preventClick
+	readonly tooltipPlacement: Schema.declare<Of["tooltipPlacement"]>; // property: media-chrome-button.tooltipPlacement
+};
+
+/** The custom events of `<media-chrome-button>`, each its `detail`. */
+type Events = {};
+
 /** `<media-chrome-button>` */
-export const ChromeButton = Html.customElement({
+export const ChromeButton: Html.CustomElementBinding<"media-chrome-button", Properties, Events> = Html.customElement({
 	tag: "media-chrome-button",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: media-chrome-button.disabled

@@ -2,13 +2,37 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/counter/counter.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-counter"]; // element: wa-counter
 
+/** The properties a view sets on `<wa-counter>`, as upstream types them. */
+type Properties = {
+	readonly date: Schema.declare<Of["date"]>; // property: wa-counter.date
+	readonly delimiter: Schema.declare<Of["delimiter"]>; // property: wa-counter.delimiter
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-counter.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-counter.dir
+	readonly direction: Schema.declare<Of["direction"]>; // property: wa-counter.direction
+	readonly duration: Schema.declare<Of["duration"]>; // property: wa-counter.duration
+	readonly format: Schema.declare<Of["format"]>; // property: wa-counter.format
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-counter.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-counter.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-counter.lang
+	readonly largestUnit: Schema.declare<Of["largestUnit"]>; // property: wa-counter.largestUnit
+	readonly paused: Schema.declare<Of["paused"]>; // property: wa-counter.paused
+	readonly smallestUnit: Schema.declare<Of["smallestUnit"]>; // property: wa-counter.smallestUnit
+	readonly withoutLabels: Schema.declare<Of["withoutLabels"]>; // property: wa-counter.withoutLabels
+};
+
+/** The custom events of `<wa-counter>`, each its `detail`. */
+type Events = {
+	readonly "wa-finish": Schema.declare<DetailOf<"wa-finish">>;
+};
+
 /** `<wa-counter>`: Counters count down to a date or up from one, ticking through years, months, days, and smaller units. */
-export const Counter = Html.customElement({
+export const Counter: Html.CustomElementBinding<"wa-counter", Properties, Events> = Html.customElement({
 	tag: "wa-counter",
 	properties: {
 		date: typed<Of["date"]>(), // property: wa-counter.date

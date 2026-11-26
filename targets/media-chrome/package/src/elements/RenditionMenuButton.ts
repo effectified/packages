@@ -2,13 +2,29 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/menu/media-rendition-menu-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-rendition-menu-button>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: media-rendition-menu-button.disabled
+	readonly invokeTarget: Schema.declare<Of["invokeTarget"]>; // property: media-rendition-menu-button.invokeTarget
+	readonly mediaController: Schema.declare<Of["mediaController"]>; // property: media-rendition-menu-button.mediaController
+	readonly mediaHeight: Schema.declare<Of["mediaHeight"]>; // property: media-rendition-menu-button.mediaHeight
+	readonly mediaRenditionSelected: Schema.declare<Of["mediaRenditionSelected"]>; // property: media-rendition-menu-button.mediaRenditionSelected
+	readonly noTooltip: Schema.declare<Of["noTooltip"]>; // property: media-rendition-menu-button.noTooltip
+	readonly preventClick: Schema.declare<Of["preventClick"]>; // property: media-rendition-menu-button.preventClick
+	readonly tooltipPlacement: Schema.declare<Of["tooltipPlacement"]>; // property: media-rendition-menu-button.tooltipPlacement
+};
+
+/** The custom events of `<media-rendition-menu-button>`, each its `detail`. */
+type Events = {};
+
 /** `<media-rendition-menu-button>` */
-export const RenditionMenuButton = Html.customElement({
+export const RenditionMenuButton: Html.CustomElementBinding<"media-rendition-menu-button", Properties, Events> = Html.customElement({
 	tag: "media-rendition-menu-button",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: media-rendition-menu-button.disabled

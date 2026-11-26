@@ -2,13 +2,31 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/include/include.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-include"]; // element: wa-include
 
+/** The properties a view sets on `<wa-include>`, as upstream types them. */
+type Properties = {
+	readonly allowScripts: Schema.declare<Of["allowScripts"]>; // property: wa-include.allowScripts
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-include.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-include.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-include.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-include.lang
+	readonly mode: Schema.declare<Of["mode"]>; // property: wa-include.mode
+	readonly src: Schema.declare<Of["src"]>; // property: wa-include.src
+};
+
+/** The custom events of `<wa-include>`, each its `detail`. */
+type Events = {
+	readonly "wa-include-error": Schema.declare<DetailOf<"wa-include-error">>;
+	readonly "wa-load": Schema.declare<DetailOf<"wa-load">>;
+};
+
 /** `<wa-include>`: Fetches an external HTML file and embeds its contents inline on the page. */
-export const Include = Html.customElement({
+export const Include: Html.CustomElementBinding<"wa-include", Properties, Events> = Html.customElement({
 	tag: "wa-include",
 	properties: {
 		allowScripts: typed<Of["allowScripts"]>(), // property: wa-include.allowScripts

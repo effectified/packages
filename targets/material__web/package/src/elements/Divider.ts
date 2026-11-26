@@ -2,13 +2,24 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/divider/divider.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-divider"]; // element: md-divider
 
+/** The properties a view sets on `<md-divider>`, as upstream types them. */
+type Properties = {
+	readonly inset: Schema.declare<Of["inset"]>; // property: md-divider.inset
+	readonly insetEnd: Schema.declare<Of["insetEnd"]>; // property: md-divider.insetEnd
+	readonly insetStart: Schema.declare<Of["insetStart"]>; // property: md-divider.insetStart
+};
+
+/** The custom events of `<md-divider>`, each its `detail`. */
+type Events = {};
+
 /** `<md-divider>`: A divider is a thin line that groups content in lists and containers. */
-export const Divider = Html.customElement({
+export const Divider: Html.CustomElementBinding<"md-divider", Properties, Events> = Html.customElement({
 	tag: "md-divider",
 	properties: {
 		inset: typed<Of["inset"]>(), // property: md-divider.inset

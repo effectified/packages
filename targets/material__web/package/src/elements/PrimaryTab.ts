@@ -2,13 +2,27 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/tabs/primary-tab.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-primary-tab"]; // element: md-primary-tab
 
+/** The properties a view sets on `<md-primary-tab>`, as upstream types them. */
+type Properties = {
+	readonly active: Schema.declare<Of["active"]>; // property: md-primary-tab.active
+	readonly hasIcon: Schema.declare<Of["hasIcon"]>; // property: md-primary-tab.hasIcon
+	readonly iconOnly: Schema.declare<Of["iconOnly"]>; // property: md-primary-tab.iconOnly
+	readonly inlineIcon: Schema.declare<Of["inlineIcon"]>; // property: md-primary-tab.inlineIcon
+	readonly isTab: Schema.declare<Of["isTab"]>; // property: md-primary-tab.isTab
+	readonly selected: Schema.declare<Of["selected"]>; // property: md-primary-tab.selected
+};
+
+/** The custom events of `<md-primary-tab>`, each its `detail`. */
+type Events = {};
+
 /** `<md-primary-tab>`: Tab allow users to display a tab within a Tabs. */
-export const PrimaryTab = Html.customElement({
+export const PrimaryTab: Html.CustomElementBinding<"md-primary-tab", Properties, Events> = Html.customElement({
 	tag: "md-primary-tab",
 	properties: {
 		active: typed<Of["active"]>(), // property: md-primary-tab.active

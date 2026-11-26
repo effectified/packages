@@ -2,13 +2,23 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/ripple/ripple.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-ripple"]; // element: md-ripple
 
+/** The properties a view sets on `<md-ripple>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-ripple.disabled
+	readonly htmlFor: Schema.declare<Of["htmlFor"]>; // property: md-ripple.htmlFor
+};
+
+/** The custom events of `<md-ripple>`, each its `detail`. */
+type Events = {};
+
 /** `<md-ripple>`: Ripples, also known as state layers, are visual indicators used to communicate the status of a component or interactive element. */
-export const Ripple = Html.customElement({
+export const Ripple: Html.CustomElementBinding<"md-ripple", Properties, Events> = Html.customElement({
 	tag: "md-ripple",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: md-ripple.disabled

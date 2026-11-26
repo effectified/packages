@@ -2,13 +2,20 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/image/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-image>`, as upstream types them. */
+type Properties = {};
+
+/** The custom events of `<fluent-image>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-image>`: The base class used for constucting a fluent image custom element */
-export const Image = Html.customElement({
+export const Image: Html.CustomElementBinding<"fluent-image", Properties, Events> = Html.customElement({
 	tag: "fluent-image",
 	properties: {},
 	events: {},

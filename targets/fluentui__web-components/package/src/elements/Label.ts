@@ -2,13 +2,22 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/label/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-label>`, as upstream types them. */
+type Properties = {
+	readonly required: Schema.declare<Of["required"]>; // property: fluent-label.required
+};
+
+/** The custom events of `<fluent-label>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-label>`: The base class used for constructing a fluent-label custom element */
-export const Label = Html.customElement({
+export const Label: Html.CustomElementBinding<"fluent-label", Properties, Events> = Html.customElement({
 	tag: "fluent-label",
 	properties: {
 		required: typed<Of["required"]>(), // property: fluent-label.required

@@ -2,13 +2,27 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/button/elevated-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-elevated-button"]; // element: md-elevated-button
 
+/** The properties a view sets on `<md-elevated-button>`, as upstream types them. */
+type Properties = {
+	readonly download: Schema.declare<Of["download"]>; // property: md-elevated-button.download
+	readonly hasIcon: Schema.declare<Of["hasIcon"]>; // property: md-elevated-button.hasIcon
+	readonly href: Schema.declare<Of["href"]>; // property: md-elevated-button.href
+	readonly softDisabled: Schema.declare<Of["softDisabled"]>; // property: md-elevated-button.softDisabled
+	readonly target: Schema.declare<Of["target"]>; // property: md-elevated-button.target
+	readonly trailingIcon: Schema.declare<Of["trailingIcon"]>; // property: md-elevated-button.trailingIcon
+};
+
+/** The custom events of `<md-elevated-button>`, each its `detail`. */
+type Events = {};
+
 /** `<md-elevated-button>`: Buttons help people take action, such as sending an email, sharing a document, or liking a comment. */
-export const ElevatedButton = Html.customElement({
+export const ElevatedButton: Html.CustomElementBinding<"md-elevated-button", Properties, Events> = Html.customElement({
 	tag: "md-elevated-button",
 	properties: {
 		download: typed<Of["download"]>(), // property: md-elevated-button.download

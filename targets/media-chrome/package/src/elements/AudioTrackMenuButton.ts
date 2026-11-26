@@ -2,13 +2,28 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/menu/media-audio-track-menu-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-audio-track-menu-button>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: media-audio-track-menu-button.disabled
+	readonly invokeTarget: Schema.declare<Of["invokeTarget"]>; // property: media-audio-track-menu-button.invokeTarget
+	readonly mediaAudioTrackEnabled: Schema.declare<Of["mediaAudioTrackEnabled"]>; // property: media-audio-track-menu-button.mediaAudioTrackEnabled
+	readonly mediaController: Schema.declare<Of["mediaController"]>; // property: media-audio-track-menu-button.mediaController
+	readonly noTooltip: Schema.declare<Of["noTooltip"]>; // property: media-audio-track-menu-button.noTooltip
+	readonly preventClick: Schema.declare<Of["preventClick"]>; // property: media-audio-track-menu-button.preventClick
+	readonly tooltipPlacement: Schema.declare<Of["tooltipPlacement"]>; // property: media-audio-track-menu-button.tooltipPlacement
+};
+
+/** The custom events of `<media-audio-track-menu-button>`, each its `detail`. */
+type Events = {};
+
 /** `<media-audio-track-menu-button>` */
-export const AudioTrackMenuButton = Html.customElement({
+export const AudioTrackMenuButton: Html.CustomElementBinding<"media-audio-track-menu-button", Properties, Events> = Html.customElement({
 	tag: "media-audio-track-menu-button",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: media-audio-track-menu-button.disabled

@@ -2,13 +2,29 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/button-group/button-group.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-button-group"]; // element: wa-button-group
 
+/** The properties a view sets on `<wa-button-group>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-button-group.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-button-group.dir
+	readonly disableRole: Schema.declare<Of["disableRole"]>; // property: wa-button-group.disableRole
+	readonly hasOutlined: Schema.declare<Of["hasOutlined"]>; // property: wa-button-group.hasOutlined
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-button-group.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-button-group.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-button-group.lang
+	readonly orientation: Schema.declare<Of["orientation"]>; // property: wa-button-group.orientation
+};
+
+/** The custom events of `<wa-button-group>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-button-group>`: Button groups combine related buttons into a single visual unit. */
-export const ButtonGroup = Html.customElement({
+export const ButtonGroup: Html.CustomElementBinding<"wa-button-group", Properties, Events> = Html.customElement({
 	tag: "wa-button-group",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-button-group.didSSR

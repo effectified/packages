@@ -2,13 +2,20 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/dialog-body/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-dialog-body>`, as upstream types them. */
+type Properties = {};
+
+/** The custom events of `<fluent-dialog-body>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-dialog-body>`: Dialog Body component that extends the FASTElement class. */
-export const DialogBody = Html.customElement({
+export const DialogBody: Html.CustomElementBinding<"fluent-dialog-body", Properties, Events> = Html.customElement({
 	tag: "fluent-dialog-body",
 	properties: {},
 	events: {},

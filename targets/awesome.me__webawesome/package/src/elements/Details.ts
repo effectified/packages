@@ -2,13 +2,37 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/details/details.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-details"]; // element: wa-details
 
+/** The properties a view sets on `<wa-details>`, as upstream types them. */
+type Properties = {
+	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-details.appearance
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-details.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-details.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-details.disabled
+	readonly iconPlacement: Schema.declare<Of["iconPlacement"]>; // property: wa-details.iconPlacement
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-details.initialReflectedProperties
+	readonly isAnimating: Schema.declare<Of["isAnimating"]>; // property: wa-details.isAnimating
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-details.lang
+	readonly name: Schema.declare<Of["name"]>; // property: wa-details.name
+	readonly open: Schema.declare<Of["open"]>; // property: wa-details.open
+	readonly summary: Schema.declare<Of["summary"]>; // property: wa-details.summary
+};
+
+/** The custom events of `<wa-details>`, each its `detail`. */
+type Events = {
+	readonly "wa-after-hide": Schema.declare<DetailOf<"wa-after-hide">>;
+	readonly "wa-after-show": Schema.declare<DetailOf<"wa-after-show">>;
+	readonly "wa-hide": Schema.declare<DetailOf<"wa-hide">>;
+	readonly "wa-show": Schema.declare<DetailOf<"wa-show">>;
+};
+
 /** `<wa-details>`: Details display a brief summary and expand to reveal additional content. */
-export const Details = Html.customElement({
+export const Details: Html.CustomElementBinding<"wa-details", Properties, Events> = Html.customElement({
 	tag: "wa-details",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-details.appearance

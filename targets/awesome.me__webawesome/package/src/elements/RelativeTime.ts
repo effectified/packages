@@ -2,13 +2,29 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/relative-time/relative-time.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-relative-time"]; // element: wa-relative-time
 
+/** The properties a view sets on `<wa-relative-time>`, as upstream types them. */
+type Properties = {
+	readonly date: Schema.declare<Of["date"]>; // property: wa-relative-time.date
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-relative-time.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-relative-time.dir
+	readonly format: Schema.declare<Of["format"]>; // property: wa-relative-time.format
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-relative-time.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-relative-time.lang
+	readonly numeric: Schema.declare<Of["numeric"]>; // property: wa-relative-time.numeric
+	readonly sync: Schema.declare<Of["sync"]>; // property: wa-relative-time.sync
+};
+
+/** The custom events of `<wa-relative-time>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-relative-time>`: Relative times display a date as a localized phrase relative to now, such as "3 hours ago" or "in 2 days". */
-export const RelativeTime = Html.customElement({
+export const RelativeTime: Html.CustomElementBinding<"wa-relative-time", Properties, Events> = Html.customElement({
 	tag: "wa-relative-time",
 	properties: {
 		date: typed<Of["date"]>(), // property: wa-relative-time.date

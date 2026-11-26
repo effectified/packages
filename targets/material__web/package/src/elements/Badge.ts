@@ -2,13 +2,22 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/labs/badge/badge.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-badge"]; // element: md-badge
 
+/** The properties a view sets on `<md-badge>`, as upstream types them. */
+type Properties = {
+	readonly value: Schema.declare<Of["value"]>; // property: md-badge.value
+};
+
+/** The custom events of `<md-badge>`, each its `detail`. */
+type Events = {};
+
 /** `<md-badge>` */
-export const Badge = Html.customElement({
+export const Badge: Html.CustomElementBinding<"md-badge", Properties, Events> = Html.customElement({
 	tag: "md-badge",
 	properties: {
 		value: typed<Of["value"]>(), // property: md-badge.value

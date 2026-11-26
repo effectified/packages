@@ -2,13 +2,34 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/stepper/stepper.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-stepper"]; // element: wa-stepper
 
+/** The properties a view sets on `<wa-stepper>`, as upstream types them. */
+type Properties = {
+	readonly active: Schema.declare<Of["active"]>; // property: wa-stepper.active
+	readonly clickable: Schema.declare<Of["clickable"]>; // property: wa-stepper.clickable
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-stepper.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-stepper.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-stepper.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-stepper.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-stepper.lang
+	readonly linear: Schema.declare<Of["linear"]>; // property: wa-stepper.linear
+	readonly orientation: Schema.declare<Of["orientation"]>; // property: wa-stepper.orientation
+};
+
+/** The custom events of `<wa-stepper>`, each its `detail`. */
+type Events = {
+	readonly detail: Schema.declare<DetailOf<"detail">>;
+	readonly "wa-before-step-change": Schema.declare<DetailOf<"wa-before-step-change">>;
+	readonly "wa-step-change": Schema.declare<DetailOf<"wa-step-change">>;
+};
+
 /** `<wa-stepper>`: Steppers visually guide users through a process step by step, breaking content into clear, logical stages. */
-export const Stepper = Html.customElement({
+export const Stepper: Html.CustomElementBinding<"wa-stepper", Properties, Events> = Html.customElement({
 	tag: "wa-stepper",
 	properties: {
 		active: typed<Of["active"]>(), // property: wa-stepper.active

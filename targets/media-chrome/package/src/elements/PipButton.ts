@@ -2,13 +2,30 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-pip-button.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-pip-button>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: media-pip-button.disabled
+	readonly mediaController: Schema.declare<Of["mediaController"]>; // property: media-pip-button.mediaController
+	readonly mediaIsPip: Schema.declare<Of["mediaIsPip"]>; // property: media-pip-button.mediaIsPip
+	readonly mediaPipUnavailable: Schema.declare<Of["mediaPipUnavailable"]>; // property: media-pip-button.mediaPipUnavailable
+	readonly noTooltip: Schema.declare<Of["noTooltip"]>; // property: media-pip-button.noTooltip
+	readonly preventClick: Schema.declare<Of["preventClick"]>; // property: media-pip-button.preventClick
+	readonly tooltipPlacement: Schema.declare<Of["tooltipPlacement"]>; // property: media-pip-button.tooltipPlacement
+};
+
+/** The custom events of `<media-pip-button>`, each its `detail`. */
+type Events = {
+	readonly eventName: Schema.declare<DetailOf<"eventName">>;
+};
+
 /** `<media-pip-button>` */
-export const PipButton = Html.customElement({
+export const PipButton: Html.CustomElementBinding<"media-pip-button", Properties, Events> = Html.customElement({
 	tag: "media-pip-button",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: media-pip-button.disabled

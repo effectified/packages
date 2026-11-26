@@ -2,13 +2,32 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/menu/sub-menu.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-sub-menu"]; // element: md-sub-menu
 
+/** The properties a view sets on `<md-sub-menu>`, as upstream types them. */
+type Properties = {
+	readonly anchorCorner: Schema.declare<Of["anchorCorner"]>; // property: md-sub-menu.anchorCorner
+	readonly hoverCloseDelay: Schema.declare<Of["hoverCloseDelay"]>; // property: md-sub-menu.hoverCloseDelay
+	readonly hoverOpenDelay: Schema.declare<Of["hoverOpenDelay"]>; // property: md-sub-menu.hoverOpenDelay
+	readonly isSubMenu: Schema.declare<Of["isSubMenu"]>; // property: md-sub-menu.isSubMenu
+	readonly item: Schema.declare<Of["item"]>; // property: md-sub-menu.item
+	readonly menuCorner: Schema.declare<Of["menuCorner"]>; // property: md-sub-menu.menuCorner
+};
+
+/** The custom events of `<md-sub-menu>`, each its `detail`. */
+type Events = {
+	readonly "activate-typeahead": Schema.declare<DetailOf<"activate-typeahead">>;
+	readonly "deactivate-items": Schema.declare<DetailOf<"deactivate-items">>;
+	readonly "deactivate-typeahead": Schema.declare<DetailOf<"deactivate-typeahead">>;
+	readonly "request-activation": Schema.declare<DetailOf<"request-activation">>;
+};
+
 /** `<md-sub-menu>`: Menus display a list of choices on a temporary surface. */
-export const SubMenu = Html.customElement({
+export const SubMenu: Html.CustomElementBinding<"md-sub-menu", Properties, Events> = Html.customElement({
 	tag: "md-sub-menu",
 	properties: {
 		anchorCorner: typed<Of["anchorCorner"]>(), // property: md-sub-menu.anchorCorner

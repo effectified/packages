@@ -2,13 +2,26 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/markdown/markdown.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-markdown"]; // element: wa-markdown
 
+/** The properties a view sets on `<wa-markdown>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-markdown.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-markdown.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-markdown.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-markdown.lang
+	readonly tabSize: Schema.declare<Of["tabSize"]>; // property: wa-markdown.tabSize
+};
+
+/** The custom events of `<wa-markdown>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-markdown>`: Markdown elements render markdown content as HTML directly in the browser, with no server-side build step. */
-export const Markdown = Html.customElement({
+export const Markdown: Html.CustomElementBinding<"wa-markdown", Properties, Events> = Html.customElement({
 	tag: "wa-markdown",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-markdown.didSSR

@@ -2,13 +2,22 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/media-preview-time-display.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-preview-time-display>`, as upstream types them. */
+type Properties = {
+	readonly mediaPreviewTime: Schema.declare<Of["mediaPreviewTime"]>; // property: media-preview-time-display.mediaPreviewTime
+};
+
+/** The custom events of `<media-preview-time-display>`, each its `detail`. */
+type Events = {};
+
 /** `<media-preview-time-display>` */
-export const PreviewTimeDisplay = Html.customElement({
+export const PreviewTimeDisplay: Html.CustomElementBinding<"media-preview-time-display", Properties, Events> = Html.customElement({
 	tag: "media-preview-time-display",
 	properties: {
 		mediaPreviewTime: typed<Of["mediaPreviewTime"]>(), // property: media-preview-time-display.mediaPreviewTime

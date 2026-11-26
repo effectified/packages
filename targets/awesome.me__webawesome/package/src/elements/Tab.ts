@@ -2,13 +2,28 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/tab/tab.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-tab"]; // element: wa-tab
 
+/** The properties a view sets on `<wa-tab>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-tab.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-tab.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-tab.disabled
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-tab.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-tab.lang
+	readonly panel: Schema.declare<Of["panel"]>; // property: wa-tab.panel
+	readonly role: Schema.declare<Of["role"]>; // property: wa-tab.role
+};
+
+/** The custom events of `<wa-tab>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-tab>`: Tabs label and activate an individual panel inside a tab group. */
-export const Tab = Html.customElement({
+export const Tab: Html.CustomElementBinding<"wa-tab", Properties, Events> = Html.customElement({
 	tag: "wa-tab",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-tab.didSSR

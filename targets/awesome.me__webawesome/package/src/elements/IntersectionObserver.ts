@@ -2,13 +2,33 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/intersection-observer/intersection-observer.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-intersection-observer"]; // element: wa-intersection-observer
 
+/** The properties a view sets on `<wa-intersection-observer>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-intersection-observer.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-intersection-observer.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-intersection-observer.disabled
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-intersection-observer.initialReflectedProperties
+	readonly intersectClass: Schema.declare<Of["intersectClass"]>; // property: wa-intersection-observer.intersectClass
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-intersection-observer.lang
+	readonly once: Schema.declare<Of["once"]>; // property: wa-intersection-observer.once
+	readonly root: Schema.declare<Of["root"]>; // property: wa-intersection-observer.root
+	readonly rootMargin: Schema.declare<Of["rootMargin"]>; // property: wa-intersection-observer.rootMargin
+	readonly threshold: Schema.declare<Of["threshold"]>; // property: wa-intersection-observer.threshold
+};
+
+/** The custom events of `<wa-intersection-observer>`, each its `detail`. */
+type Events = {
+	readonly "wa-intersect": Schema.declare<DetailOf<"wa-intersect">>;
+};
+
 /** `<wa-intersection-observer>`: Tracks immediate child elements and fires events as they move in and out of view. */
-export const IntersectionObserver = Html.customElement({
+export const IntersectionObserver: Html.CustomElementBinding<"wa-intersection-observer", Properties, Events> = Html.customElement({
 	tag: "wa-intersection-observer",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-intersection-observer.didSSR

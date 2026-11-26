@@ -2,13 +2,25 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "media-chrome/dist/menu/media-captions-menu.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<media-captions-menu>`, as upstream types them. */
+type Properties = {
+	readonly anchor: Schema.declare<Of["anchor"]>; // property: media-captions-menu.anchor
+	readonly mediaSubtitlesList: Schema.declare<Of["mediaSubtitlesList"]>; // property: media-captions-menu.mediaSubtitlesList
+	readonly mediaSubtitlesShowing: Schema.declare<Of["mediaSubtitlesShowing"]>; // property: media-captions-menu.mediaSubtitlesShowing
+	readonly value: Schema.declare<Of["value"]>; // property: media-captions-menu.value
+};
+
+/** The custom events of `<media-captions-menu>`, each its `detail`. */
+type Events = {};
+
 /** `<media-captions-menu>` */
-export const CaptionsMenu = Html.customElement({
+export const CaptionsMenu: Html.CustomElementBinding<"media-captions-menu", Properties, Events> = Html.customElement({
 	tag: "media-captions-menu",
 	properties: {
 		anchor: typed<Of["anchor"]>(), // property: media-captions-menu.anchor

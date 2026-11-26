@@ -2,13 +2,28 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/resize-observer/resize-observer.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-resize-observer"]; // element: wa-resize-observer
 
+/** The properties a view sets on `<wa-resize-observer>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-resize-observer.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-resize-observer.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-resize-observer.disabled
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-resize-observer.initialReflectedProperties
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-resize-observer.lang
+};
+
+/** The custom events of `<wa-resize-observer>`, each its `detail`. */
+type Events = {
+	readonly "wa-resize": Schema.declare<DetailOf<"wa-resize">>;
+};
+
 /** `<wa-resize-observer>`: Resize observers watch their slotted elements for size changes and emit an event when they occur. */
-export const ResizeObserver = Html.customElement({
+export const ResizeObserver: Html.CustomElementBinding<"wa-resize-observer", Properties, Events> = Html.customElement({
 	tag: "wa-resize-observer",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-resize-observer.didSSR

@@ -2,13 +2,29 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/counter-badge/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-counter-badge>`, as upstream types them. */
+type Properties = {
+	readonly appearance: Schema.declare<Of["appearance"]>; // property: fluent-counter-badge.appearance
+	readonly color: Schema.declare<Of["color"]>; // property: fluent-counter-badge.color
+	readonly count: Schema.declare<Of["count"]>; // property: fluent-counter-badge.count
+	readonly dot: Schema.declare<Of["dot"]>; // property: fluent-counter-badge.dot
+	readonly overflowCount: Schema.declare<Of["overflowCount"]>; // property: fluent-counter-badge.overflowCount
+	readonly shape: Schema.declare<Of["shape"]>; // property: fluent-counter-badge.shape
+	readonly showZero: Schema.declare<Of["showZero"]>; // property: fluent-counter-badge.showZero
+	readonly size: Schema.declare<Of["size"]>; // property: fluent-counter-badge.size
+};
+
+/** The custom events of `<fluent-counter-badge>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-counter-badge>`: A CounterBadge Custom HTML Element. */
-export const CounterBadge = Html.customElement({
+export const CounterBadge: Html.CustomElementBinding<"fluent-counter-badge", Properties, Events> = Html.customElement({
 	tag: "fluent-counter-badge",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: fluent-counter-badge.appearance

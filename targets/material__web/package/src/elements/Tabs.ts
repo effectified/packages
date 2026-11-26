@@ -2,13 +2,23 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/tabs/tabs.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-tabs"]; // element: md-tabs
 
+/** The properties a view sets on `<md-tabs>`, as upstream types them. */
+type Properties = {
+	readonly activeTabIndex: Schema.declare<Of["activeTabIndex"]>; // property: md-tabs.activeTabIndex
+	readonly autoActivate: Schema.declare<Of["autoActivate"]>; // property: md-tabs.autoActivate
+};
+
+/** The custom events of `<md-tabs>`, each its `detail`. */
+type Events = {};
+
 /** `<md-tabs>`: Tabs displays a list of selectable tabs. */
-export const Tabs = Html.customElement({
+export const Tabs: Html.CustomElementBinding<"md-tabs", Properties, Events> = Html.customElement({
 	tag: "md-tabs",
 	properties: {
 		activeTabIndex: typed<Of["activeTabIndex"]>(), // property: md-tabs.activeTabIndex

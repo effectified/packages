@@ -2,13 +2,28 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/progress-bar/progress-bar.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-progress-bar"]; // element: wa-progress-bar
 
+/** The properties a view sets on `<wa-progress-bar>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-progress-bar.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-progress-bar.dir
+	readonly indeterminate: Schema.declare<Of["indeterminate"]>; // property: wa-progress-bar.indeterminate
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-progress-bar.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-progress-bar.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-progress-bar.lang
+	readonly value: Schema.declare<Of["value"]>; // property: wa-progress-bar.value
+};
+
+/** The custom events of `<wa-progress-bar>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-progress-bar>`: Progress bars show how far along an ongoing operation is as a horizontal fill. */
-export const ProgressBar = Html.customElement({
+export const ProgressBar: Html.CustomElementBinding<"wa-progress-bar", Properties, Events> = Html.customElement({
 	tag: "wa-progress-bar",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-progress-bar.didSSR

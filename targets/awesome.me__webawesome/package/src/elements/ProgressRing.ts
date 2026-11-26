@@ -2,13 +2,29 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/progress-ring/progress-ring.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-progress-ring"]; // element: wa-progress-ring
 
+/** The properties a view sets on `<wa-progress-ring>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-progress-ring.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-progress-ring.dir
+	readonly indicator: Schema.declare<Of["indicator"]>; // property: wa-progress-ring.indicator
+	readonly indicatorOffset: Schema.declare<Of["indicatorOffset"]>; // property: wa-progress-ring.indicatorOffset
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-progress-ring.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-progress-ring.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-progress-ring.lang
+	readonly value: Schema.declare<Of["value"]>; // property: wa-progress-ring.value
+};
+
+/** The custom events of `<wa-progress-ring>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-progress-ring>`: Progress rings show how far along a determinate operation is using a circular indicator. */
-export const ProgressRing = Html.customElement({
+export const ProgressRing: Html.CustomElementBinding<"wa-progress-ring", Properties, Events> = Html.customElement({
 	tag: "wa-progress-ring",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-progress-ring.didSSR

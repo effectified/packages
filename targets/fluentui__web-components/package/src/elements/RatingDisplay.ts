@@ -2,13 +2,26 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/rating-display/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-rating-display>`, as upstream types them. */
+type Properties = {
+	readonly count: Schema.declare<Of["count"]>; // property: fluent-rating-display.count
+	readonly iconViewBox: Schema.declare<Of["iconViewBox"]>; // property: fluent-rating-display.iconViewBox
+	readonly max: Schema.declare<Of["max"]>; // property: fluent-rating-display.max
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-rating-display.role
+	readonly value: Schema.declare<Of["value"]>; // property: fluent-rating-display.value
+};
+
+/** The custom events of `<fluent-rating-display>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-rating-display>`: A Rating Display Custom HTML Element. */
-export const RatingDisplay = Html.customElement({
+export const RatingDisplay: Html.CustomElementBinding<"fluent-rating-display", Properties, Events> = Html.customElement({
 	tag: "fluent-rating-display",
 	properties: {
 		count: typed<Of["count"]>(), // property: fluent-rating-display.count

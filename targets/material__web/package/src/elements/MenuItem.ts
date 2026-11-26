@@ -2,13 +2,30 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@material/web/menu/menu-item.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["md-menu-item"]; // element: md-menu-item
 
+/** The properties a view sets on `<md-menu-item>`, as upstream types them. */
+type Properties = {
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: md-menu-item.disabled
+	readonly href: Schema.declare<Of["href"]>; // property: md-menu-item.href
+	readonly keepOpen: Schema.declare<Of["keepOpen"]>; // property: md-menu-item.keepOpen
+	readonly selected: Schema.declare<Of["selected"]>; // property: md-menu-item.selected
+	readonly target: Schema.declare<Of["target"]>; // property: md-menu-item.target
+	readonly type: Schema.declare<Of["type"]>; // property: md-menu-item.type
+	readonly typeaheadText: Schema.declare<Of["typeaheadText"]>; // property: md-menu-item.typeaheadText
+};
+
+/** The custom events of `<md-menu-item>`, each its `detail`. */
+type Events = {
+	readonly "close-menu": Schema.declare<DetailOf<"close-menu">>;
+};
+
 /** `<md-menu-item>`: Menus display a list of choices on a temporary surface. */
-export const MenuItem = Html.customElement({
+export const MenuItem: Html.CustomElementBinding<"md-menu-item", Properties, Events> = Html.customElement({
 	tag: "md-menu-item",
 	properties: {
 		disabled: typed<Of["disabled"]>(), // property: md-menu-item.disabled

@@ -2,13 +2,46 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/rating/rating.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-rating"]; // element: wa-rating
 
+/** The properties a view sets on `<wa-rating>`, as upstream types them. */
+type Properties = {
+	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-rating.assumeInteractionOn
+	readonly customError: Schema.declare<Of["customError"]>; // property: wa-rating.customError
+	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-rating.defaultValue
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-rating.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-rating.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-rating.disabled
+	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-rating.emitInvalid
+	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-rating.hasInteracted
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-rating.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-rating.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-rating.lang
+	readonly max: Schema.declare<Of["max"]>; // property: wa-rating.max
+	readonly name: Schema.declare<Of["name"]>; // property: wa-rating.name
+	readonly precision: Schema.declare<Of["precision"]>; // property: wa-rating.precision
+	readonly readonly: Schema.declare<Of["readonly"]>; // property: wa-rating.readonly
+	readonly required: Schema.declare<Of["required"]>; // property: wa-rating.required
+	readonly role: Schema.declare<Of["role"]>; // property: wa-rating.role
+	readonly size: Schema.declare<Of["size"]>; // property: wa-rating.size
+	readonly states: Schema.declare<Of["states"]>; // property: wa-rating.states
+	readonly validators: Schema.declare<Of["validators"]>; // property: wa-rating.validators
+	readonly value: Schema.declare<Of["value"]>; // property: wa-rating.value
+	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-rating.valueHasChanged
+};
+
+/** The custom events of `<wa-rating>`, each its `detail`. */
+type Events = {
+	readonly "wa-hover": Schema.declare<DetailOf<"wa-hover">>;
+	readonly "wa-invalid": Schema.declare<DetailOf<"wa-invalid">>;
+};
+
 /** `<wa-rating>`: Ratings display a numeric score as a row of selectable symbols, typically stars. */
-export const Rating = Html.customElement({
+export const Rating: Html.CustomElementBinding<"wa-rating", Properties, Events> = Html.customElement({
 	tag: "wa-rating",
 	properties: {
 		assumeInteractionOn: typed<Of["assumeInteractionOn"]>(), // property: wa-rating.assumeInteractionOn

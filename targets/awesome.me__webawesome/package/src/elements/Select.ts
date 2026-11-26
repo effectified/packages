@@ -2,13 +2,58 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/select/select.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { type DetailOf, changesMount, typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-select"]; // element: wa-select
 
+/** The properties a view sets on `<wa-select>`, as upstream types them. */
+type Properties = {
+	readonly appearance: Schema.declare<Of["appearance"]>; // property: wa-select.appearance
+	readonly assumeInteractionOn: Schema.declare<Of["assumeInteractionOn"]>; // property: wa-select.assumeInteractionOn
+	readonly customError: Schema.declare<Of["customError"]>; // property: wa-select.customError
+	readonly defaultValue: Schema.declare<Of["defaultValue"]>; // property: wa-select.defaultValue
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-select.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-select.dir
+	readonly disabled: Schema.declare<Of["disabled"]>; // property: wa-select.disabled
+	readonly displayLabel: Schema.declare<Of["displayLabel"]>; // property: wa-select.displayLabel
+	readonly emitInvalid: Schema.declare<Of["emitInvalid"]>; // property: wa-select.emitInvalid
+	readonly hasInteracted: Schema.declare<Of["hasInteracted"]>; // property: wa-select.hasInteracted
+	readonly hint: Schema.declare<Of["hint"]>; // property: wa-select.hint
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-select.initialReflectedProperties
+	readonly label: Schema.declare<Of["label"]>; // property: wa-select.label
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-select.lang
+	readonly maxOptionsVisible: Schema.declare<Of["maxOptionsVisible"]>; // property: wa-select.maxOptionsVisible
+	readonly multiple: Schema.declare<Of["multiple"]>; // property: wa-select.multiple
+	readonly name: Schema.declare<Of["name"]>; // property: wa-select.name
+	readonly open: Schema.declare<Of["open"]>; // property: wa-select.open
+	readonly pill: Schema.declare<Of["pill"]>; // property: wa-select.pill
+	readonly placeholder: Schema.declare<Of["placeholder"]>; // property: wa-select.placeholder
+	readonly placement: Schema.declare<Of["placement"]>; // property: wa-select.placement
+	readonly required: Schema.declare<Of["required"]>; // property: wa-select.required
+	readonly size: Schema.declare<Of["size"]>; // property: wa-select.size
+	readonly states: Schema.declare<Of["states"]>; // property: wa-select.states
+	readonly validators: Schema.declare<Of["validators"]>; // property: wa-select.validators
+	readonly value: Schema.declare<Of["value"]>; // property: wa-select.value
+	readonly valueHasChanged: Schema.declare<Of["valueHasChanged"]>; // property: wa-select.valueHasChanged
+	readonly withClear: Schema.declare<Of["withClear"]>; // property: wa-select.withClear
+	readonly withHint: Schema.declare<Of["withHint"]>; // property: wa-select.withHint
+	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-select.withLabel
+};
+
+/** The custom events of `<wa-select>`, each its `detail`. */
+type Events = {
+	readonly "wa-after-hide": Schema.declare<DetailOf<"wa-after-hide">>;
+	readonly "wa-after-show": Schema.declare<DetailOf<"wa-after-show">>;
+	readonly "wa-clear": Schema.declare<DetailOf<"wa-clear">>;
+	readonly "wa-hide": Schema.declare<DetailOf<"wa-hide">>;
+	readonly "wa-invalid": Schema.declare<DetailOf<"wa-invalid">>;
+	readonly "wa-show": Schema.declare<DetailOf<"wa-show">>;
+};
+
 /** `<wa-select>`: Selects let users choose one or more values from a dropdown list of predefined options. */
-export const Select = Html.customElement({
+export const Select: Html.CustomElementBinding<"wa-select", Properties, Events> = Html.customElement({
 	tag: "wa-select",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: wa-select.appearance

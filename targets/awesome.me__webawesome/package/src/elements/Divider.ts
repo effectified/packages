@@ -2,13 +2,28 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@awesome.me/webawesome/dist/components/divider/divider.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { typed } from "../internal/ui.ts";
 
 /** The upstream element's type, which types the binding's properties. */
 type Of = HTMLElementTagNameMap["wa-divider"]; // element: wa-divider
 
+/** The properties a view sets on `<wa-divider>`, as upstream types them. */
+type Properties = {
+	readonly didSSR: Schema.declare<Of["didSSR"]>; // property: wa-divider.didSSR
+	readonly dir: Schema.declare<Of["dir"]>; // property: wa-divider.dir
+	readonly initialReflectedProperties: Schema.declare<Of["initialReflectedProperties"]>; // property: wa-divider.initialReflectedProperties
+	readonly labelPlacement: Schema.declare<Of["labelPlacement"]>; // property: wa-divider.labelPlacement
+	readonly lang: Schema.declare<Of["lang"]>; // property: wa-divider.lang
+	readonly orientation: Schema.declare<Of["orientation"]>; // property: wa-divider.orientation
+	readonly withLabel: Schema.declare<Of["withLabel"]>; // property: wa-divider.withLabel
+};
+
+/** The custom events of `<wa-divider>`, each its `detail`. */
+type Events = {};
+
 /** `<wa-divider>`: Dividers visually separate or group adjacent elements with a horizontal or vertical line. */
-export const Divider = Html.customElement({
+export const Divider: Html.CustomElementBinding<"wa-divider", Properties, Events> = Html.customElement({
 	tag: "wa-divider",
 	properties: {
 		didSSR: typed<Of["didSSR"]>(), // property: wa-divider.didSSR

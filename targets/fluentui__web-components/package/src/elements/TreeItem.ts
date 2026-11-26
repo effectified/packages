@@ -2,13 +2,27 @@
 // Do not edit: change recipe.json and run `effectify generate`.
 import "@fluentui/web-components/tree-item/define.js";
 import { Html } from "@effect/ui/html";
+import type { Schema } from "effect";
 import { changesMount, typed } from "../internal/ui.ts";
 
 // Upstream's types do not name this element in HTMLElementTagNameMap: its properties are typed unknown.
 type Of = Record<string, unknown>;
 
+/** The properties a view sets on `<fluent-tree-item>`, as upstream types them. */
+type Properties = {
+	readonly appearance: Schema.declare<Of["appearance"]>; // property: fluent-tree-item.appearance
+	readonly empty: Schema.declare<Of["empty"]>; // property: fluent-tree-item.empty
+	readonly expanded: Schema.declare<Of["expanded"]>; // property: fluent-tree-item.expanded
+	readonly role: Schema.declare<Of["role"]>; // property: fluent-tree-item.role
+	readonly selected: Schema.declare<Of["selected"]>; // property: fluent-tree-item.selected
+	readonly size: Schema.declare<Of["size"]>; // property: fluent-tree-item.size
+};
+
+/** The custom events of `<fluent-tree-item>`, each its `detail`. */
+type Events = {};
+
 /** `<fluent-tree-item>`: The Fluent Tree Item Element. */
-export const TreeItem = Html.customElement({
+export const TreeItem: Html.CustomElementBinding<"fluent-tree-item", Properties, Events> = Html.customElement({
 	tag: "fluent-tree-item",
 	properties: {
 		appearance: typed<Of["appearance"]>(), // property: fluent-tree-item.appearance
