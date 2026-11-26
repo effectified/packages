@@ -47,27 +47,33 @@ type Handles =
 
 /** The methods of `TemplateValue` the facade wraps: those simple-git declares itself. */
 type TemplateValueMethods = "validate";
+/** The methods of `TemplateValue` that report through a trailing callback: Effects of what it reports. */
+type TemplateValueCallbacks = never;
 /** The properties of `TemplateValue` the facade reads through. */
 type TemplateValueProperties = "value";
 
 /** A simple-git `TemplateValue`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface TemplateValue extends Effectify.Effectified<Awaited<ReturnType<typeof Upstream.refName>>, Failure, Handles, TemplateValueMethods, TemplateValueProperties> {}
+export interface TemplateValue extends Effectify.Effectified<Awaited<ReturnType<typeof Upstream.refName>>, Failure, Handles, TemplateValueMethods, TemplateValueProperties, TemplateValueCallbacks> {}
 
 /** The methods of `GitGrepQuery` the facade wraps: those simple-git declares itself. */
 type GitGrepQueryMethods = "and" | "param";
+/** The methods of `GitGrepQuery` that report through a trailing callback: Effects of what it reports. */
+type GitGrepQueryCallbacks = never;
 /** The properties of `GitGrepQuery` the facade reads through. */
 type GitGrepQueryProperties = never;
 
 /** A simple-git `GitGrepQuery`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface GitGrepQuery extends Effectify.Effectified<Upstream.GitGrepQuery, Failure, Handles, GitGrepQueryMethods, GitGrepQueryProperties> {}
+export interface GitGrepQuery extends Effectify.Effectified<Upstream.GitGrepQuery, Failure, Handles, GitGrepQueryMethods, GitGrepQueryProperties, GitGrepQueryCallbacks> {}
 
 /** The methods of `SimpleGit` the facade wraps: those simple-git declares itself. */
 type SimpleGitMethods = "add" | "addAnnotatedTag" | "addConfig" | "addRemote" | "addTag" | "applyPatch" | "binaryCatFile" | "branch" | "branchLocal" | "catFile" | "checkIgnore" | "checkIsRepo" | "checkout" | "checkoutBranch" | "checkoutLatestTag" | "checkoutLocalBranch" | "clean" | "clone" | "cmd" | "commit" | "countObjects" | "customBinary" | "cwd" | "deleteLocalBranch" | "deleteLocalBranches" | "diff" | "diffSummary" | "env" | "exec" | "fetch" | "firstCommit" | "getConfig" | "getRemotes" | "grep" | "hashObject" | "init" | "interpretTrailers" | "listConfig" | "listRemote" | "log" | "merge" | "mergeFromTo" | "mirror" | "mv" | "outputHandler" | "pull" | "push" | "pushTags" | "raw" | "rebase" | "remote" | "removeRemote" | "reset" | "revert" | "revparse" | "rm" | "rmKeepLocal" | "show" | "showBuffer" | "stash" | "stashList" | "status" | "subModule" | "submoduleAdd" | "submoduleInit" | "submoduleUpdate" | "tag" | "tags" | "updateServerInfo" | "version";
+/** The methods of `SimpleGit` that report through a trailing callback: Effects of what it reports. */
+type SimpleGitCallbacks = never;
 /** The properties of `SimpleGit` the facade reads through. */
 type SimpleGitProperties = never;
 
 /** A simple-git `SimpleGit`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface SimpleGit extends Omit<Effectify.Effectified<Upstream.SimpleGit, Failure, Handles, SimpleGitMethods, SimpleGitProperties>, "cwd" | "log" | "mergeFromTo"> {
+export interface SimpleGit extends Omit<Effectify.Effectified<Upstream.SimpleGit, Failure, Handles, SimpleGitMethods, SimpleGitProperties, SimpleGitCallbacks>, "cwd" | "log" | "mergeFromTo"> {
 	cwd(directory: { path: string; root?: boolean | undefined; }): Effectify.Resolved<string, Failure, Handles>; // explicit: SimpleGit.cwd
 	cwd<path extends string>(directory: path): Effectify.Resolved<path, Failure, Handles>; // explicit: SimpleGit.cwd
 	log<T = Upstream.DefaultLogFields>(options?: Upstream.LogOptions<T> | Upstream.TaskOptions | undefined): Effectify.Resolved<Upstream.LogResult<T>, Failure, Handles>; // explicit: SimpleGit.log
@@ -77,11 +83,13 @@ export interface SimpleGit extends Omit<Effectify.Effectified<Upstream.SimpleGit
 
 /** The methods of `StatusResult` the facade wraps: those simple-git declares itself. */
 type StatusResultMethods = "isClean";
+/** The methods of `StatusResult` that report through a trailing callback: Effects of what it reports. */
+type StatusResultCallbacks = never;
 /** The properties of `StatusResult` the facade reads through. */
 type StatusResultProperties = "ahead" | "behind" | "conflicted" | "created" | "current" | "deleted" | "detached" | "files" | "ignored" | "modified" | "not_added" | "renamed" | "staged" | "tracking";
 
 /** A simple-git `StatusResult`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface StatusResult extends Effectify.Effectified<Upstream.StatusResult, Failure, Handles, StatusResultMethods, StatusResultProperties> {}
+export interface StatusResult extends Effectify.Effectified<Upstream.StatusResult, Failure, Handles, StatusResultMethods, StatusResultProperties, StatusResultCallbacks> {}
 
 const kinds = {
 	TemplateValue: {
@@ -91,6 +99,7 @@ const kinds = {
 			async: {} satisfies Effectify.AsyncSpec<Pick<Awaited<ReturnType<typeof Upstream.refName>>, TemplateValueMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Awaited<ReturnType<typeof Upstream.refName>>, TemplateValueMethods>, Handles>,
 			returns: {},
+			callback: {} satisfies Record<TemplateValueCallbacks, "node" | "done">,
 			properties: { "value": true } satisfies Record<TemplateValueProperties, string | true>,
 		},
 	},
@@ -101,6 +110,7 @@ const kinds = {
 			async: {} satisfies Effectify.AsyncSpec<Pick<Upstream.GitGrepQuery, GitGrepQueryMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.GitGrepQuery, GitGrepQueryMethods>, Handles>,
 			returns: { "and": "GitGrepQuery", "param": "GitGrepQuery" },
+			callback: {} satisfies Record<GitGrepQueryCallbacks, "node" | "done">,
 			properties: {} satisfies Record<GitGrepQueryProperties, string | true>,
 		},
 	},
@@ -111,6 +121,7 @@ const kinds = {
 			async: { "add": true, "addAnnotatedTag": true, "addConfig": true, "addRemote": true, "addTag": true, "applyPatch": true, "binaryCatFile": true, "branch": true, "branchLocal": true, "catFile": true, "checkIgnore": true, "checkIsRepo": true, "checkout": true, "checkoutBranch": true, "checkoutLatestTag": true, "checkoutLocalBranch": true, "clean": true, "clone": true, "cmd": true, "commit": true, "countObjects": true, "cwd": true, "deleteLocalBranch": true, "deleteLocalBranches": true, "diff": true, "diffSummary": true, "exec": true, "fetch": true, "firstCommit": true, "getConfig": true, "getRemotes": true, "grep": true, "hashObject": true, "init": true, "interpretTrailers": true, "listConfig": true, "listRemote": true, "log": true, "merge": true, "mergeFromTo": true, "mirror": true, "mv": true, "pull": true, "push": true, "pushTags": true, "raw": true, "rebase": true, "remote": true, "removeRemote": true, "reset": true, "revert": true, "revparse": true, "rm": true, "rmKeepLocal": true, "show": true, "showBuffer": true, "stash": true, "stashList": true, "status": true, "subModule": true, "submoduleAdd": true, "submoduleInit": true, "submoduleUpdate": true, "tag": true, "tags": true, "updateServerInfo": true, "version": true } satisfies Effectify.AsyncSpec<Pick<Upstream.SimpleGit, SimpleGitMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.SimpleGit, SimpleGitMethods>, Handles>,
 			returns: { "customBinary": "SimpleGit", "env": "SimpleGit", "outputHandler": "SimpleGit", "status": "StatusResult" },
+			callback: {} satisfies Record<SimpleGitCallbacks, "node" | "done">,
 			properties: {} satisfies Record<SimpleGitProperties, string | true>,
 		},
 	},
@@ -121,6 +132,7 @@ const kinds = {
 			async: {} satisfies Effectify.AsyncSpec<Pick<Upstream.StatusResult, StatusResultMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.StatusResult, StatusResultMethods>, Handles>,
 			returns: {},
+			callback: {} satisfies Record<StatusResultCallbacks, "node" | "done">,
 			properties: { "ahead": true, "behind": true, "conflicted": true, "created": true, "current": true, "deleted": true, "detached": true, "files": true, "ignored": true, "modified": true, "not_added": true, "renamed": true, "staged": true, "tracking": true } satisfies Record<StatusResultProperties, string | true>,
 		},
 	},

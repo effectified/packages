@@ -67,11 +67,13 @@ type Handles =
 
 /** The methods of `Browser` the facade wraps: those puppeteer-core declares itself. */
 type BrowserMethods = "addScreen" | "browserContexts" | "close" | "cookies" | "createBrowserContext" | "defaultBrowserContext" | "deleteCookie" | "deleteMatchingCookies" | "disconnect" | "emit" | "extensions" | "getPWAState" | "getWindowBounds" | "installExtension" | "installPWA" | "launchPWA" | "listenerCount" | "newPage" | "off" | "on" | "once" | "pages" | "process" | "removeAllListeners" | "removeScreen" | "restrictNetwork" | "screens" | "setCookie" | "setPermission" | "setWindowBounds" | "target" | "targets" | "uninstallExtension" | "uninstallPWA" | "userAgent" | "version" | "waitForTarget" | "wsEndpoint";
+/** The methods of `Browser` that report through a trailing callback: Effects of what it reports. */
+type BrowserCallbacks = never;
 /** The properties of `Browser` the facade reads through. */
 type BrowserProperties = "connected" | "debugInfo";
 
 /** A puppeteer-core `Browser`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface Browser extends Omit<Effectify.Effectified<Upstream.Browser, Failure, Handles, BrowserMethods, BrowserProperties>, "emit" | "off" | "on" | "once"> {
+export interface Browser extends Omit<Effectify.Effectified<Upstream.Browser, Failure, Handles, BrowserMethods, BrowserProperties, BrowserCallbacks>, "emit" | "off" | "on" | "once"> {
 	emit<Key extends keyof Upstream.EventsWithWildcard<Upstream.BrowserEvents>>(type: Key, event: Upstream.EventsWithWildcard<Upstream.BrowserEvents>[Key]): Effectify.Lift<boolean, Handles>; // explicit: Browser.emit
 	off<Key extends keyof Upstream.EventsWithWildcard<Upstream.BrowserEvents>>(type: Key): Effectify.Lift<Upstream.Browser, Handles>; // explicit: Browser.off
 	on<Key extends keyof Upstream.EventsWithWildcard<Upstream.BrowserEvents>>(type: Key, handler: (event: Upstream.EventsWithWildcard<Upstream.BrowserEvents>[Key], eventData: Key extends "*" ? unknown : never) => void): Effectify.Lift<Upstream.Browser, Handles>; // explicit: Browser.on
@@ -80,11 +82,13 @@ export interface Browser extends Omit<Effectify.Effectified<Upstream.Browser, Fa
 
 /** The methods of `BrowserContext` the facade wraps: those puppeteer-core declares itself. */
 type BrowserContextMethods = "browser" | "clearPermissionOverrides" | "close" | "cookies" | "deleteCookie" | "deleteMatchingCookies" | "emit" | "listenerCount" | "newPage" | "off" | "on" | "once" | "overridePermissions" | "pages" | "removeAllListeners" | "setCookie" | "setPermission" | "targets" | "waitForTarget";
+/** The methods of `BrowserContext` that report through a trailing callback: Effects of what it reports. */
+type BrowserContextCallbacks = never;
 /** The properties of `BrowserContext` the facade reads through. */
 type BrowserContextProperties = "closed" | "id";
 
 /** A puppeteer-core `BrowserContext`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface BrowserContext extends Omit<Effectify.Effectified<Upstream.BrowserContext, Failure, Handles, BrowserContextMethods, BrowserContextProperties>, "emit" | "off" | "on" | "once"> {
+export interface BrowserContext extends Omit<Effectify.Effectified<Upstream.BrowserContext, Failure, Handles, BrowserContextMethods, BrowserContextProperties, BrowserContextCallbacks>, "emit" | "off" | "on" | "once"> {
 	emit<Key extends keyof Upstream.EventsWithWildcard<Upstream.BrowserContextEvents>>(type: Key, event: Upstream.EventsWithWildcard<Upstream.BrowserContextEvents>[Key]): Effectify.Lift<boolean, Handles>; // explicit: BrowserContext.emit
 	off<Key extends keyof Upstream.EventsWithWildcard<Upstream.BrowserContextEvents>>(type: Key): Effectify.Lift<Upstream.BrowserContext, Handles>; // explicit: BrowserContext.off
 	on<Key extends keyof Upstream.EventsWithWildcard<Upstream.BrowserContextEvents>>(type: Key, handler: (event: Upstream.EventsWithWildcard<Upstream.BrowserContextEvents>[Key], eventData: Key extends "*" ? unknown : never) => void): Effectify.Lift<Upstream.BrowserContext, Handles>; // explicit: BrowserContext.on
@@ -93,6 +97,8 @@ export interface BrowserContext extends Omit<Effectify.Effectified<Upstream.Brow
 
 /** The methods of `Page` the facade wraps: those puppeteer-core declares itself. */
 type PageMethods = "$" | "$$" | "$$eval" | "$eval" | "addScriptTag" | "addStyleTag" | "authenticate" | "bringToFront" | "browser" | "browserContext" | "captureHeapSnapshot" | "click" | "close" | "content" | "cookies" | "createCDPSession" | "createPDFStream" | "deleteCookie" | "emit" | "emulate" | "emulateCPUThrottling" | "emulateFocusedPage" | "emulateIdleState" | "emulateLocale" | "emulateMediaFeatures" | "emulateMediaType" | "emulateNetworkConditions" | "emulateTimezone" | "emulateVisionDeficiency" | "evaluate" | "evaluateHandle" | "evaluateOnNewDocument" | "exposeFunction" | "extensionRealms" | "focus" | "frames" | "getDefaultNavigationTimeout" | "getDefaultTimeout" | "goBack" | "goForward" | "goto" | "hasDevTools" | "hover" | "isClosed" | "isDragInterceptionEnabled" | "isJavaScriptEnabled" | "isServiceWorkerBypassed" | "listenerCount" | "locator" | "mainFrame" | "metrics" | "off" | "on" | "once" | "openDevTools" | "pdf" | "queryObjects" | "record" | "reload" | "removeAllListeners" | "removeExposedFunction" | "removeScriptToEvaluateOnNewDocument" | "resize" | "screencast" | "screenshot" | "select" | "setBypassCSP" | "setBypassServiceWorker" | "setCacheEnabled" | "setContent" | "setCookie" | "setDefaultNavigationTimeout" | "setDefaultTimeout" | "setDragInterception" | "setExtraHTTPHeaders" | "setGeolocation" | "setJavaScriptEnabled" | "setOfflineMode" | "setRequestInterception" | "setUserAgent" | "setViewport" | "tabInfo" | "tap" | "target" | "title" | "triggerExtensionAction" | "type" | "url" | "viewport" | "waitForDevicePrompt" | "waitForFileChooser" | "waitForFrame" | "waitForFunction" | "waitForNavigation" | "waitForNetworkIdle" | "waitForRequest" | "waitForResponse" | "waitForSelector" | "windowId" | "workers";
+/** The methods of `Page` that report through a trailing callback: Effects of what it reports. */
+type PageCallbacks = never;
 /** The properties of `Page` the facade reads through. */
 type PageProperties = "accessibility" | "bluetooth" | "coverage" | "keyboard" | "mouse" | "touchscreen" | "tracing" | "webmcp";
 
@@ -107,7 +113,7 @@ const liftedPage = () => ({
 	waitForSelector: Effectify.lifted<Failure, Handles>()(instanceOfPage.waitForSelector), // lifted: Page.waitForSelector
 });
 
-export interface Page extends Omit<Effectify.Effectified<Upstream.Page, Failure, Handles, PageMethods, PageProperties>, "emit" | "evaluate" | "evaluateHandle" | "evaluateOnNewDocument" | "off" | "on" | "once" | "queryObjects" | "waitForFunction" | "$" | "$$" | "$$eval" | "$eval" | "waitForSelector"> {
+export interface Page extends Omit<Effectify.Effectified<Upstream.Page, Failure, Handles, PageMethods, PageProperties, PageCallbacks>, "emit" | "evaluate" | "evaluateHandle" | "evaluateOnNewDocument" | "off" | "on" | "once" | "queryObjects" | "waitForFunction" | "$" | "$$" | "$$eval" | "$eval" | "waitForSelector"> {
 	emit<Key extends keyof Upstream.EventsWithWildcard<Upstream.PageEvents>>(type: Key, event: Upstream.EventsWithWildcard<Upstream.PageEvents>[Key]): Effectify.Lift<boolean, Handles>; // explicit: Page.emit
 	evaluate<Params extends unknown[], Func extends Upstream.EvaluateFunc<Params> = Upstream.EvaluateFunc<Params>>(pageFunction: string | Func, ...args: Params): Effectify.Resolved<Awaited<ReturnType<Func>>, Failure, Handles>; // explicit: Page.evaluate
 	evaluateHandle<Params extends unknown[], Func extends Upstream.EvaluateFunc<Params> = Upstream.EvaluateFunc<Params>>(pageFunction: string | Func, ...args: Params): Effectify.Resolved<Upstream.HandleFor<Awaited<ReturnType<Func>>>, Failure, Handles>; // explicit: Page.evaluateHandle
@@ -126,22 +132,28 @@ export interface Page extends Omit<Effectify.Effectified<Upstream.Page, Failure,
 
 /** The methods of `Target` the facade wraps: those puppeteer-core declares itself. */
 type TargetMethods = "asPage" | "browser" | "browserContext" | "close" | "createCDPSession" | "opener" | "page" | "type" | "url" | "worker";
+/** The methods of `Target` that report through a trailing callback: Effects of what it reports. */
+type TargetCallbacks = never;
 /** The properties of `Target` the facade reads through. */
 type TargetProperties = never;
 
 /** A puppeteer-core `Target`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface Target extends Effectify.Effectified<Upstream.Target, Failure, Handles, TargetMethods, TargetProperties> {}
+export interface Target extends Effectify.Effectified<Upstream.Target, Failure, Handles, TargetMethods, TargetProperties, TargetCallbacks> {}
 
 /** The methods of `FileChooser` the facade wraps: those puppeteer-core declares itself. */
 type FileChooserMethods = "accept" | "cancel" | "isMultiple";
+/** The methods of `FileChooser` that report through a trailing callback: Effects of what it reports. */
+type FileChooserCallbacks = never;
 /** The properties of `FileChooser` the facade reads through. */
 type FileChooserProperties = never;
 
 /** A puppeteer-core `FileChooser`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface FileChooser extends Effectify.Effectified<Upstream.FileChooser, Failure, Handles, FileChooserMethods, FileChooserProperties> {}
+export interface FileChooser extends Effectify.Effectified<Upstream.FileChooser, Failure, Handles, FileChooserMethods, FileChooserProperties, FileChooserCallbacks> {}
 
 /** The methods of `Frame` the facade wraps: those puppeteer-core declares itself. */
 type FrameMethods = "$" | "$$" | "$$eval" | "$eval" | "addScriptTag" | "addStyleTag" | "childFrames" | "click" | "content" | "emit" | "evaluate" | "evaluateHandle" | "extensionRealms" | "focus" | "frameElement" | "goto" | "hover" | "isDetached" | "listenerCount" | "locator" | "name" | "off" | "on" | "once" | "page" | "parentFrame" | "removeAllListeners" | "select" | "setContent" | "tap" | "title" | "type" | "url" | "waitForFunction" | "waitForNavigation" | "waitForSelector";
+/** The methods of `Frame` that report through a trailing callback: Effects of what it reports. */
+type FrameCallbacks = never;
 /** The properties of `Frame` the facade reads through. */
 type FrameProperties = "detached";
 
@@ -156,7 +168,7 @@ const liftedFrame = () => ({
 	waitForSelector: Effectify.lifted<Failure, Handles>()(instanceOfFrame.waitForSelector), // lifted: Frame.waitForSelector
 });
 
-export interface Frame extends Omit<Effectify.Effectified<Upstream.Frame, Failure, Handles, FrameMethods, FrameProperties>, "emit" | "evaluate" | "evaluateHandle" | "off" | "on" | "once" | "waitForFunction" | "$" | "$$" | "$$eval" | "$eval" | "waitForSelector"> {
+export interface Frame extends Omit<Effectify.Effectified<Upstream.Frame, Failure, Handles, FrameMethods, FrameProperties, FrameCallbacks>, "emit" | "evaluate" | "evaluateHandle" | "off" | "on" | "once" | "waitForFunction" | "$" | "$$" | "$$eval" | "$eval" | "waitForSelector"> {
 	emit<Key extends keyof Upstream.EventsWithWildcard<Upstream.FrameEvents>>(type: Key, event: Upstream.EventsWithWildcard<Upstream.FrameEvents>[Key]): Effectify.Lift<boolean, Handles>; // explicit: Frame.emit
 	evaluate<Params extends unknown[], Func extends Upstream.EvaluateFunc<Params> = Upstream.EvaluateFunc<Params>>(pageFunction: string | Func, ...args: Params): Effectify.Resolved<Awaited<ReturnType<Func>>, Failure, Handles>; // explicit: Frame.evaluate
 	evaluateHandle<Params extends unknown[], Func extends Upstream.EvaluateFunc<Params> = Upstream.EvaluateFunc<Params>>(pageFunction: string | Func, ...args: Params): Effectify.Resolved<Upstream.HandleFor<Awaited<ReturnType<Func>>>, Failure, Handles>; // explicit: Frame.evaluateHandle
@@ -173,6 +185,8 @@ export interface Frame extends Omit<Effectify.Effectified<Upstream.Frame, Failur
 
 /** The methods of `CDPSession` the facade wraps: those puppeteer-core declares itself. */
 type CDPSessionMethods = "connection" | "detach" | "emit" | "id" | "listenerCount" | "off" | "on" | "once" | "removeAllListeners" | "send";
+/** The methods of `CDPSession` that report through a trailing callback: Effects of what it reports. */
+type CDPSessionCallbacks = never;
 /** The properties of `CDPSession` the facade reads through. */
 type CDPSessionProperties = "detached";
 
@@ -183,7 +197,7 @@ const liftedCDPSession = () => ({
 	send: Effectify.lifted<Failure, Handles>()(instanceOfCDPSession.send), // lifted: CDPSession.send
 });
 
-export interface CDPSession extends Omit<Effectify.Effectified<Upstream.CDPSession, Failure, Handles, CDPSessionMethods, CDPSessionProperties>, "emit" | "off" | "on" | "once" | "send"> {
+export interface CDPSession extends Omit<Effectify.Effectified<Upstream.CDPSession, Failure, Handles, CDPSessionMethods, CDPSessionProperties, CDPSessionCallbacks>, "emit" | "off" | "on" | "once" | "send"> {
 	emit<Key extends keyof Upstream.EventsWithWildcard<Upstream.CDPSessionEvents>>(type: Key, event: Upstream.EventsWithWildcard<Upstream.CDPSessionEvents>[Key]): Effectify.Lift<boolean, Handles>; // explicit: CDPSession.emit
 	off<Key extends keyof Upstream.EventsWithWildcard<Upstream.CDPSessionEvents>>(type: Key): Effectify.Lift<Upstream.CDPSession, Handles>; // explicit: CDPSession.off
 	on<Key extends keyof Upstream.EventsWithWildcard<Upstream.CDPSessionEvents>>(type: Key, handler: (event: Upstream.EventsWithWildcard<Upstream.CDPSessionEvents>[Key], eventData: Key extends "*" ? unknown : never) => void): Effectify.Lift<Upstream.CDPSession, Handles>; // explicit: CDPSession.on
@@ -193,6 +207,8 @@ export interface CDPSession extends Omit<Effectify.Effectified<Upstream.CDPSessi
 
 /** The methods of `Locator` the facade wraps: those puppeteer-core declares itself. */
 type LocatorMethods = "click" | "clone" | "emit" | "fill" | "filter" | "hover" | "listenerCount" | "map" | "off" | "on" | "once" | "removeAllListeners" | "scroll" | "setEnsureElementIsInTheViewport" | "setTimeout" | "setVisibility" | "setWaitForEnabled" | "setWaitForStableBoundingBox" | "wait" | "waitHandle";
+/** The methods of `Locator` that report through a trailing callback: Effects of what it reports. */
+type LocatorCallbacks = never;
 /** The properties of `Locator` the facade reads through. */
 type LocatorProperties = "timeout";
 
@@ -205,7 +221,7 @@ const liftedLocator = () => ({
 	once: Effectify.lifted<Failure, Handles>()(instanceOfLocator.once), // lifted: Locator.once
 });
 
-export interface Locator extends Omit<Effectify.Effectified<Upstream.Locator<any>, Failure, Handles, LocatorMethods, LocatorProperties>, "click" | "emit" | "fill" | "hover" | "scroll" | "setEnsureElementIsInTheViewport" | "setVisibility" | "setWaitForEnabled" | "setWaitForStableBoundingBox" | "off" | "on" | "once"> {
+export interface Locator extends Omit<Effectify.Effectified<Upstream.Locator<any>, Failure, Handles, LocatorMethods, LocatorProperties, LocatorCallbacks>, "click" | "emit" | "fill" | "hover" | "scroll" | "setEnsureElementIsInTheViewport" | "setVisibility" | "setWaitForEnabled" | "setWaitForStableBoundingBox" | "off" | "on" | "once"> {
 	click<ElementType extends Element>(options?: Readonly<Upstream.LocatorClickOptions> | undefined): Effectify.Resolved<void, Failure, Handles>; // explicit: Locator.click
 	emit<Key extends keyof Upstream.EventsWithWildcard<Upstream.LocatorEvents>>(type: Key, event: Upstream.EventsWithWildcard<Upstream.LocatorEvents>[Key]): Effectify.Lift<boolean, Handles>; // explicit: Locator.emit
 	fill<ElementType extends Element>(value: string | boolean, options?: Readonly<Upstream.LocatorFillOptions> | undefined): Effectify.Resolved<void, Failure, Handles>; // explicit: Locator.fill
@@ -222,6 +238,8 @@ export interface Locator extends Omit<Effectify.Effectified<Upstream.Locator<any
 
 /** The methods of `JSHandle` the facade wraps: those puppeteer-core declares itself. */
 type JSHandleMethods = "asElement" | "dispose" | "evaluate" | "evaluateHandle" | "getProperties" | "getProperty" | "jsonValue" | "move" | "remoteObject" | "toString";
+/** The methods of `JSHandle` that report through a trailing callback: Effects of what it reports. */
+type JSHandleCallbacks = never;
 /** The properties of `JSHandle` the facade reads through. */
 type JSHandleProperties = never;
 
@@ -233,13 +251,15 @@ const liftedJSHandle = () => ({
 	evaluateHandle: Effectify.lifted<Failure, Handles>()(instanceOfJSHandle.evaluateHandle), // lifted: JSHandle.evaluateHandle
 });
 
-export interface JSHandle extends Omit<Effectify.Effectified<Upstream.JSHandle<any>, Failure, Handles, JSHandleMethods, JSHandleProperties>, "evaluate" | "evaluateHandle"> {
+export interface JSHandle extends Omit<Effectify.Effectified<Upstream.JSHandle<any>, Failure, Handles, JSHandleMethods, JSHandleProperties, JSHandleCallbacks>, "evaluate" | "evaluateHandle"> {
 	readonly evaluate: ReturnType<typeof liftedJSHandle>["evaluate"]; // lifted: JSHandle.evaluate
 	readonly evaluateHandle: ReturnType<typeof liftedJSHandle>["evaluateHandle"]; // lifted: JSHandle.evaluateHandle
 }
 
 /** The methods of `ElementHandle` the facade wraps: those puppeteer-core declares itself. */
 type ElementHandleMethods = "$" | "$$" | "$$eval" | "$eval" | "asElement" | "asLocator" | "autofill" | "backendNodeId" | "boundingBox" | "boxModel" | "click" | "clickablePoint" | "contentFrame" | "dispose" | "drag" | "dragAndDrop" | "dragEnter" | "dragOver" | "drop" | "evaluate" | "evaluateHandle" | "focus" | "getProperties" | "getProperty" | "hover" | "isHidden" | "isIntersectingViewport" | "isVisible" | "jsonValue" | "move" | "press" | "remoteObject" | "screenshot" | "scrollIntoView" | "select" | "tap" | "toElement" | "toString" | "touchEnd" | "touchMove" | "touchStart" | "type" | "uploadFile" | "waitForSelector";
+/** The methods of `ElementHandle` that report through a trailing callback: Effects of what it reports. */
+type ElementHandleCallbacks = never;
 /** The properties of `ElementHandle` the facade reads through. */
 type ElementHandleProperties = "frame";
 
@@ -256,7 +276,7 @@ const liftedElementHandle = () => ({
 	waitForSelector: Effectify.lifted<Failure, Handles>()(instanceOfElementHandle.waitForSelector), // lifted: ElementHandle.waitForSelector
 });
 
-export interface ElementHandle extends Omit<Effectify.Effectified<Upstream.ElementHandle<any>, Failure, Handles, ElementHandleMethods, ElementHandleProperties>, "$" | "$$" | "$$eval" | "$eval" | "evaluate" | "evaluateHandle" | "waitForSelector"> {
+export interface ElementHandle extends Omit<Effectify.Effectified<Upstream.ElementHandle<any>, Failure, Handles, ElementHandleMethods, ElementHandleProperties, ElementHandleCallbacks>, "$" | "$$" | "$$eval" | "$eval" | "evaluate" | "evaluateHandle" | "waitForSelector"> {
 	readonly $: ReturnType<typeof liftedElementHandle>["$"]; // lifted: ElementHandle.$
 	readonly $$: ReturnType<typeof liftedElementHandle>["$$"]; // lifted: ElementHandle.$$
 	readonly $$eval: ReturnType<typeof liftedElementHandle>["$$eval"]; // lifted: ElementHandle.$$eval
@@ -268,81 +288,101 @@ export interface ElementHandle extends Omit<Effectify.Effectified<Upstream.Eleme
 
 /** The methods of `HTTPRequest` the facade wraps: those puppeteer-core declares itself. */
 type HTTPRequestMethods = "abort" | "abortErrorReason" | "asFetchRequest" | "content" | "continue" | "continueRequestOverrides" | "enqueueInterceptAction" | "failure" | "fetchPostData" | "finalizeInterceptions" | "frame" | "hasPostData" | "headers" | "initiator" | "interceptResolutionState" | "isInterceptResolutionHandled" | "isNavigationRequest" | "method" | "page" | "postData" | "redirectChain" | "resourceType" | "respond" | "response" | "responseForRequest" | "url" | "worker";
+/** The methods of `HTTPRequest` that report through a trailing callback: Effects of what it reports. */
+type HTTPRequestCallbacks = never;
 /** The properties of `HTTPRequest` the facade reads through. */
 type HTTPRequestProperties = "client";
 
 /** A puppeteer-core `HTTPRequest`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface HTTPRequest extends Effectify.Effectified<Upstream.HTTPRequest, Failure, Handles, HTTPRequestMethods, HTTPRequestProperties> {}
+export interface HTTPRequest extends Effectify.Effectified<Upstream.HTTPRequest, Failure, Handles, HTTPRequestMethods, HTTPRequestProperties, HTTPRequestCallbacks> {}
 
 /** The methods of `HTTPResponse` the facade wraps: those puppeteer-core declares itself. */
 type HTTPResponseMethods = "asFetchResponse" | "buffer" | "content" | "encodedDataLength" | "frame" | "fromCache" | "fromServiceWorker" | "headers" | "json" | "ok" | "remoteAddress" | "request" | "securityDetails" | "status" | "statusText" | "stream" | "text" | "timing" | "url";
+/** The methods of `HTTPResponse` that report through a trailing callback: Effects of what it reports. */
+type HTTPResponseCallbacks = never;
 /** The properties of `HTTPResponse` the facade reads through. */
 type HTTPResponseProperties = never;
 
 /** A puppeteer-core `HTTPResponse`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface HTTPResponse extends Effectify.Effectified<Upstream.HTTPResponse, Failure, Handles, HTTPResponseMethods, HTTPResponseProperties> {}
+export interface HTTPResponse extends Effectify.Effectified<Upstream.HTTPResponse, Failure, Handles, HTTPResponseMethods, HTTPResponseProperties, HTTPResponseCallbacks> {}
 
 /** The methods of `ScreenRecorder` the facade wraps: those puppeteer-core declares itself. */
 type ScreenRecorderMethods = "stop";
+/** The methods of `ScreenRecorder` that report through a trailing callback: Effects of what it reports. */
+type ScreenRecorderCallbacks = never;
 /** The properties of `ScreenRecorder` the facade reads through. */
 type ScreenRecorderProperties = never;
 
 /** A puppeteer-core `ScreenRecorder`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface ScreenRecorder extends Effectify.Effectified<Upstream.ScreenRecorder, Failure, Handles, ScreenRecorderMethods, ScreenRecorderProperties> {}
+export interface ScreenRecorder extends Effectify.Effectified<Upstream.ScreenRecorder, Failure, Handles, ScreenRecorderMethods, ScreenRecorderProperties, ScreenRecorderCallbacks> {}
 
 /** The methods of `ScreenRecording` the facade wraps: those puppeteer-core declares itself. */
 type ScreenRecordingMethods = "pipe" | "stop";
+/** The methods of `ScreenRecording` that report through a trailing callback: Effects of what it reports. */
+type ScreenRecordingCallbacks = never;
 /** The properties of `ScreenRecording` the facade reads through. */
 type ScreenRecordingProperties = never;
 
 /** A puppeteer-core `ScreenRecording`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface ScreenRecording extends Omit<Effectify.Effectified<Upstream.ScreenRecording, Failure, Handles, ScreenRecordingMethods, ScreenRecordingProperties>, "pipe"> {
+export interface ScreenRecording extends Omit<Effectify.Effectified<Upstream.ScreenRecording, Failure, Handles, ScreenRecordingMethods, ScreenRecordingProperties, ScreenRecordingCallbacks>, "pipe"> {
 	pipe<T extends WritableStream<Uint8Array>>(destination: T): Effectify.Resolved<void, Failure, Handles>; // explicit: ScreenRecording.pipe
 	pipe<T extends Upstream.WritableDestination>(destination: T): Effectify.Lift<T, Handles>; // explicit: ScreenRecording.pipe
 }
 
 /** The methods of `DeviceRequestPrompt` the facade wraps: those puppeteer-core declares itself. */
 type DeviceRequestPromptMethods = "cancel" | "select" | "waitForDevice";
+/** The methods of `DeviceRequestPrompt` that report through a trailing callback: Effects of what it reports. */
+type DeviceRequestPromptCallbacks = never;
 /** The properties of `DeviceRequestPrompt` the facade reads through. */
 type DeviceRequestPromptProperties = "devices";
 
 /** A puppeteer-core `DeviceRequestPrompt`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface DeviceRequestPrompt extends Effectify.Effectified<Upstream.DeviceRequestPrompt, Failure, Handles, DeviceRequestPromptMethods, DeviceRequestPromptProperties> {}
+export interface DeviceRequestPrompt extends Effectify.Effectified<Upstream.DeviceRequestPrompt, Failure, Handles, DeviceRequestPromptMethods, DeviceRequestPromptProperties, DeviceRequestPromptCallbacks> {}
 
 /** The methods of `Keyboard` the facade wraps: those puppeteer-core declares itself. */
 type KeyboardMethods = "down" | "press" | "sendCharacter" | "type" | "up";
+/** The methods of `Keyboard` that report through a trailing callback: Effects of what it reports. */
+type KeyboardCallbacks = never;
 /** The properties of `Keyboard` the facade reads through. */
 type KeyboardProperties = never;
 
 /** A puppeteer-core `Keyboard`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface Keyboard extends Effectify.Effectified<Upstream.Keyboard, Failure, Handles, KeyboardMethods, KeyboardProperties> {}
+export interface Keyboard extends Effectify.Effectified<Upstream.Keyboard, Failure, Handles, KeyboardMethods, KeyboardProperties, KeyboardCallbacks> {}
 
 /** The methods of `Touchscreen` the facade wraps: those puppeteer-core declares itself. */
 type TouchscreenMethods = "tap" | "touchEnd" | "touchMove" | "touchStart";
+/** The methods of `Touchscreen` that report through a trailing callback: Effects of what it reports. */
+type TouchscreenCallbacks = never;
 /** The properties of `Touchscreen` the facade reads through. */
 type TouchscreenProperties = never;
 
 /** A puppeteer-core `Touchscreen`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface Touchscreen extends Effectify.Effectified<Upstream.Touchscreen, Failure, Handles, TouchscreenMethods, TouchscreenProperties> {}
+export interface Touchscreen extends Effectify.Effectified<Upstream.Touchscreen, Failure, Handles, TouchscreenMethods, TouchscreenProperties, TouchscreenCallbacks> {}
 
 /** The methods of `Coverage` the facade wraps: those puppeteer-core declares itself. */
 type CoverageMethods = "startCSSCoverage" | "startJSCoverage" | "stopCSSCoverage" | "stopJSCoverage";
+/** The methods of `Coverage` that report through a trailing callback: Effects of what it reports. */
+type CoverageCallbacks = never;
 /** The properties of `Coverage` the facade reads through. */
 type CoverageProperties = never;
 
 /** A puppeteer-core `Coverage`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface Coverage extends Effectify.Effectified<Upstream.Coverage, Failure, Handles, CoverageMethods, CoverageProperties> {}
+export interface Coverage extends Effectify.Effectified<Upstream.Coverage, Failure, Handles, CoverageMethods, CoverageProperties, CoverageCallbacks> {}
 
 /** The methods of `Tracing` the facade wraps: those puppeteer-core declares itself. */
 type TracingMethods = "start" | "stop";
+/** The methods of `Tracing` that report through a trailing callback: Effects of what it reports. */
+type TracingCallbacks = never;
 /** The properties of `Tracing` the facade reads through. */
 type TracingProperties = never;
 
 /** A puppeteer-core `Tracing`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface Tracing extends Effectify.Effectified<Upstream.Tracing, Failure, Handles, TracingMethods, TracingProperties> {}
+export interface Tracing extends Effectify.Effectified<Upstream.Tracing, Failure, Handles, TracingMethods, TracingProperties, TracingCallbacks> {}
 
 /** The methods of `WebMCP` the facade wraps: those puppeteer-core declares itself. */
 type WebMCPMethods = "emit" | "listenerCount" | "off" | "on" | "once" | "removeAllListeners" | "tools";
+/** The methods of `WebMCP` that report through a trailing callback: Effects of what it reports. */
+type WebMCPCallbacks = never;
 /** The properties of `WebMCP` the facade reads through. */
 type WebMCPProperties = never;
 
@@ -354,7 +394,7 @@ const liftedWebMCP = () => ({
 	once: Effectify.lifted<Failure, Handles>()(instanceOfWebMCP.once), // lifted: WebMCP.once
 });
 
-export interface WebMCP extends Omit<Effectify.Effectified<Upstream.WebMCP, Failure, Handles, WebMCPMethods, WebMCPProperties>, "emit" | "off" | "on" | "once"> {
+export interface WebMCP extends Omit<Effectify.Effectified<Upstream.WebMCP, Failure, Handles, WebMCPMethods, WebMCPProperties, WebMCPCallbacks>, "emit" | "off" | "on" | "once"> {
 	emit<Key extends keyof Upstream.EventsWithWildcard<{ toolsadded: Upstream.WebMCPToolsAddedEvent; toolsremoved: Upstream.WebMCPToolsRemovedEvent; toolinvoked: Upstream.WebMCPToolCall; toolresponded: Upstream.WebMCPToolCallResult; }>>(type: Key, event: Upstream.EventsWithWildcard<{ toolsadded: Upstream.WebMCPToolsAddedEvent; toolsremoved: Upstream.WebMCPToolsRemovedEvent; toolinvoked: Upstream.WebMCPToolCall; toolresponded: Upstream.WebMCPToolCallResult; }>[Key]): Effectify.Lift<boolean, Handles>; // explicit: WebMCP.emit
 	off<Key extends keyof Upstream.EventsWithWildcard<{ toolsadded: Upstream.WebMCPToolsAddedEvent; toolsremoved: Upstream.WebMCPToolsRemovedEvent; toolinvoked: Upstream.WebMCPToolCall; toolresponded: Upstream.WebMCPToolCallResult; }>>(type: Key): Effectify.Lift<Upstream.WebMCP, Handles>; // explicit: WebMCP.off
 	readonly on: ReturnType<typeof liftedWebMCP>["on"]; // lifted: WebMCP.on
@@ -363,35 +403,43 @@ export interface WebMCP extends Omit<Effectify.Effectified<Upstream.WebMCP, Fail
 
 /** The methods of `Accessibility` the facade wraps: those puppeteer-core declares itself. */
 type AccessibilityMethods = "snapshot";
+/** The methods of `Accessibility` that report through a trailing callback: Effects of what it reports. */
+type AccessibilityCallbacks = never;
 /** The properties of `Accessibility` the facade reads through. */
 type AccessibilityProperties = never;
 
 /** A puppeteer-core `Accessibility`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface Accessibility extends Effectify.Effectified<Upstream.Accessibility, Failure, Handles, AccessibilityMethods, AccessibilityProperties> {}
+export interface Accessibility extends Effectify.Effectified<Upstream.Accessibility, Failure, Handles, AccessibilityMethods, AccessibilityProperties, AccessibilityCallbacks> {}
 
 /** The methods of `Mouse` the facade wraps: those puppeteer-core declares itself. */
 type MouseMethods = "click" | "down" | "drag" | "dragAndDrop" | "dragEnter" | "dragOver" | "drop" | "move" | "reset" | "up" | "wheel";
+/** The methods of `Mouse` that report through a trailing callback: Effects of what it reports. */
+type MouseCallbacks = never;
 /** The properties of `Mouse` the facade reads through. */
 type MouseProperties = never;
 
 /** A puppeteer-core `Mouse`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface Mouse extends Effectify.Effectified<Upstream.Mouse, Failure, Handles, MouseMethods, MouseProperties> {}
+export interface Mouse extends Effectify.Effectified<Upstream.Mouse, Failure, Handles, MouseMethods, MouseProperties, MouseCallbacks> {}
 
 /** The methods of `BluetoothEmulation` the facade wraps: those puppeteer-core declares itself. */
 type BluetoothEmulationMethods = "disableEmulation" | "emulateAdapter" | "simulatePreconnectedPeripheral";
+/** The methods of `BluetoothEmulation` that report through a trailing callback: Effects of what it reports. */
+type BluetoothEmulationCallbacks = never;
 /** The properties of `BluetoothEmulation` the facade reads through. */
 type BluetoothEmulationProperties = never;
 
 /** A puppeteer-core `BluetoothEmulation`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface BluetoothEmulation extends Effectify.Effectified<Upstream.BluetoothEmulation, Failure, Handles, BluetoothEmulationMethods, BluetoothEmulationProperties> {}
+export interface BluetoothEmulation extends Effectify.Effectified<Upstream.BluetoothEmulation, Failure, Handles, BluetoothEmulationMethods, BluetoothEmulationProperties, BluetoothEmulationCallbacks> {}
 
 /** The methods of `TouchHandle` the facade wraps: those puppeteer-core declares itself. */
 type TouchHandleMethods = "end" | "move";
+/** The methods of `TouchHandle` that report through a trailing callback: Effects of what it reports. */
+type TouchHandleCallbacks = never;
 /** The properties of `TouchHandle` the facade reads through. */
 type TouchHandleProperties = never;
 
 /** A puppeteer-core `TouchHandle`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface TouchHandle extends Effectify.Effectified<Upstream.TouchHandle, Failure, Handles, TouchHandleMethods, TouchHandleProperties> {}
+export interface TouchHandle extends Effectify.Effectified<Upstream.TouchHandle, Failure, Handles, TouchHandleMethods, TouchHandleProperties, TouchHandleCallbacks> {}
 
 const kinds = {
 	Browser: {
@@ -401,6 +449,7 @@ const kinds = {
 			async: { "addScreen": true, "close": true, "cookies": true, "createBrowserContext": true, "deleteCookie": true, "deleteMatchingCookies": true, "disconnect": true, "extensions": true, "getPWAState": true, "getWindowBounds": true, "installExtension": true, "installPWA": true, "launchPWA": true, "newPage": true, "pages": true, "removeScreen": true, "restrictNetwork": true, "screens": true, "setCookie": true, "setPermission": true, "setWindowBounds": true, "uninstallExtension": true, "uninstallPWA": true, "userAgent": true, "version": true, "waitForTarget": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Browser, BrowserMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Browser, BrowserMethods>, Handles>,
 			returns: { "createBrowserContext": "BrowserContext", "defaultBrowserContext": "BrowserContext", "launchPWA": "Page", "newPage": "Page", "off": "Browser", "on": "Browser", "once": "Browser", "removeAllListeners": "Browser", "target": "Target", "waitForTarget": "Target" },
+			callback: {} satisfies Record<BrowserCallbacks, "node" | "done">,
 			properties: { "connected": true, "debugInfo": true } satisfies Record<BrowserProperties, string | true>,
 		},
 		release: "close",
@@ -412,6 +461,7 @@ const kinds = {
 			async: { "clearPermissionOverrides": true, "close": true, "cookies": true, "deleteCookie": true, "deleteMatchingCookies": true, "newPage": true, "overridePermissions": true, "pages": true, "setCookie": true, "setPermission": true, "waitForTarget": true } satisfies Effectify.AsyncSpec<Pick<Upstream.BrowserContext, BrowserContextMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.BrowserContext, BrowserContextMethods>, Handles>,
 			returns: { "browser": "Browser", "newPage": "Page", "off": "BrowserContext", "on": "BrowserContext", "once": "BrowserContext", "removeAllListeners": "BrowserContext", "waitForTarget": "Target" },
+			callback: {} satisfies Record<BrowserContextCallbacks, "node" | "done">,
 			properties: { "closed": true, "id": true } satisfies Record<BrowserContextProperties, string | true>,
 		},
 		release: "close",
@@ -423,6 +473,7 @@ const kinds = {
 			async: { "$": true, "$$": true, "$$eval": true, "$eval": true, "addScriptTag": true, "addStyleTag": true, "authenticate": true, "bringToFront": true, "captureHeapSnapshot": true, "click": true, "close": true, "content": true, "cookies": true, "createCDPSession": true, "createPDFStream": true, "deleteCookie": true, "emulate": true, "emulateCPUThrottling": true, "emulateFocusedPage": true, "emulateIdleState": true, "emulateLocale": true, "emulateMediaFeatures": true, "emulateMediaType": true, "emulateNetworkConditions": true, "emulateTimezone": true, "emulateVisionDeficiency": true, "evaluate": true, "evaluateHandle": true, "evaluateOnNewDocument": true, "exposeFunction": true, "focus": true, "goBack": true, "goForward": true, "goto": true, "hasDevTools": true, "hover": true, "metrics": true, "openDevTools": true, "pdf": true, "queryObjects": true, "record": true, "reload": true, "removeExposedFunction": true, "removeScriptToEvaluateOnNewDocument": true, "resize": true, "screencast": true, "screenshot": true, "select": true, "setBypassCSP": true, "setBypassServiceWorker": true, "setCacheEnabled": true, "setContent": true, "setCookie": true, "setDragInterception": true, "setExtraHTTPHeaders": true, "setGeolocation": true, "setJavaScriptEnabled": true, "setOfflineMode": true, "setRequestInterception": true, "setUserAgent": true, "setViewport": true, "tabInfo": true, "tap": true, "title": true, "triggerExtensionAction": true, "type": true, "waitForDevicePrompt": true, "waitForFileChooser": true, "waitForFrame": true, "waitForFunction": true, "waitForNavigation": true, "waitForNetworkIdle": true, "waitForRequest": true, "waitForResponse": true, "waitForSelector": true, "windowId": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Page, PageMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Page, PageMethods>, Handles>,
 			returns: { "addScriptTag": "ElementHandle", "addStyleTag": "ElementHandle", "browser": "Browser", "browserContext": "BrowserContext", "createCDPSession": "CDPSession", "locator": "Locator", "mainFrame": "Frame", "off": "Page", "on": "Page", "once": "Page", "openDevTools": "Page", "queryObjects": "JSHandle", "record": "ScreenRecording", "removeAllListeners": "Page", "screencast": "ScreenRecorder", "target": "Target", "waitForDevicePrompt": "DeviceRequestPrompt", "waitForFileChooser": "FileChooser", "waitForFrame": "Frame", "waitForRequest": "HTTPRequest", "waitForResponse": "HTTPResponse" },
+			callback: {} satisfies Record<PageCallbacks, "node" | "done">,
 			properties: { "accessibility": "Accessibility", "bluetooth": "BluetoothEmulation", "coverage": "Coverage", "keyboard": "Keyboard", "mouse": "Mouse", "touchscreen": "Touchscreen", "tracing": "Tracing", "webmcp": "WebMCP" } satisfies Record<PageProperties, string | true>,
 		},
 		release: "close",
@@ -434,6 +485,7 @@ const kinds = {
 			async: { "asPage": true, "close": true, "createCDPSession": true, "page": true, "worker": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Target, TargetMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Target, TargetMethods>, Handles>,
 			returns: { "asPage": "Page", "browser": "Browser", "browserContext": "BrowserContext", "createCDPSession": "CDPSession" },
+			callback: {} satisfies Record<TargetCallbacks, "node" | "done">,
 			properties: {} satisfies Record<TargetProperties, string | true>,
 		},
 		release: "close",
@@ -445,6 +497,7 @@ const kinds = {
 			async: { "accept": true, "cancel": true } satisfies Effectify.AsyncSpec<Pick<Upstream.FileChooser, FileChooserMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.FileChooser, FileChooserMethods>, Handles>,
 			returns: {},
+			callback: {} satisfies Record<FileChooserCallbacks, "node" | "done">,
 			properties: {} satisfies Record<FileChooserProperties, string | true>,
 		},
 	},
@@ -455,6 +508,7 @@ const kinds = {
 			async: { "$": true, "$$": true, "$$eval": true, "$eval": true, "addScriptTag": true, "addStyleTag": true, "click": true, "content": true, "evaluate": true, "evaluateHandle": true, "focus": true, "frameElement": true, "goto": true, "hover": true, "select": true, "setContent": true, "tap": true, "title": true, "type": true, "waitForFunction": true, "waitForNavigation": true, "waitForSelector": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Frame, FrameMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Frame, FrameMethods>, Handles>,
 			returns: { "addScriptTag": "ElementHandle", "addStyleTag": "ElementHandle", "locator": "Locator", "off": "Frame", "on": "Frame", "once": "Frame", "page": "Page", "removeAllListeners": "Frame" },
+			callback: {} satisfies Record<FrameCallbacks, "node" | "done">,
 			properties: { "detached": true } satisfies Record<FrameProperties, string | true>,
 		},
 	},
@@ -465,6 +519,7 @@ const kinds = {
 			async: { "detach": true, "send": true } satisfies Effectify.AsyncSpec<Pick<Upstream.CDPSession, CDPSessionMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.CDPSession, CDPSessionMethods>, Handles>,
 			returns: { "off": "CDPSession", "on": "CDPSession", "once": "CDPSession", "removeAllListeners": "CDPSession" },
+			callback: {} satisfies Record<CDPSessionCallbacks, "node" | "done">,
 			properties: { "detached": true } satisfies Record<CDPSessionProperties, string | true>,
 		},
 	},
@@ -475,6 +530,7 @@ const kinds = {
 			async: { "click": true, "fill": true, "hover": true, "scroll": true, "wait": true, "waitHandle": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Locator<any>, LocatorMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Locator<any>, LocatorMethods>, Handles>,
 			returns: { "clone": "Locator", "filter": "Locator", "map": "Locator", "off": "Locator", "on": "Locator", "once": "Locator", "removeAllListeners": "Locator", "setEnsureElementIsInTheViewport": "Locator", "setTimeout": "Locator", "setVisibility": "Locator", "setWaitForEnabled": "Locator", "setWaitForStableBoundingBox": "Locator" },
+			callback: {} satisfies Record<LocatorCallbacks, "node" | "done">,
 			properties: { "timeout": true } satisfies Record<LocatorProperties, string | true>,
 		},
 	},
@@ -485,6 +541,7 @@ const kinds = {
 			async: { "dispose": true, "evaluate": true, "evaluateHandle": true, "getProperties": true, "getProperty": true, "jsonValue": true } satisfies Effectify.AsyncSpec<Pick<Upstream.JSHandle<any>, JSHandleMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.JSHandle<any>, JSHandleMethods>, Handles>,
 			returns: { "getProperty": "JSHandle", "move": "JSHandle" },
+			callback: {} satisfies Record<JSHandleCallbacks, "node" | "done">,
 			properties: {} satisfies Record<JSHandleProperties, string | true>,
 		},
 		release: "dispose",
@@ -496,6 +553,7 @@ const kinds = {
 			async: { "$": true, "$$": true, "$$eval": true, "$eval": true, "autofill": true, "backendNodeId": true, "boundingBox": true, "boxModel": true, "click": true, "clickablePoint": true, "contentFrame": true, "dispose": true, "drag": true, "dragAndDrop": true, "dragEnter": true, "dragOver": true, "drop": true, "evaluate": true, "evaluateHandle": true, "focus": true, "getProperties": true, "getProperty": true, "hover": true, "isHidden": true, "isIntersectingViewport": true, "isVisible": true, "jsonValue": true, "press": true, "screenshot": true, "scrollIntoView": true, "select": true, "tap": true, "touchEnd": true, "touchMove": true, "touchStart": true, "type": true, "uploadFile": true, "waitForSelector": true } satisfies Effectify.AsyncSpec<Pick<Upstream.ElementHandle<any>, ElementHandleMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.ElementHandle<any>, ElementHandleMethods>, Handles>,
 			returns: { "asLocator": "Locator", "contentFrame": "Frame", "getProperty": "JSHandle", "move": "ElementHandle", "touchStart": "TouchHandle" },
+			callback: {} satisfies Record<ElementHandleCallbacks, "node" | "done">,
 			properties: { "frame": "Frame" } satisfies Record<ElementHandleProperties, string | true>,
 		},
 		release: "dispose",
@@ -507,6 +565,7 @@ const kinds = {
 			async: { "abort": true, "asFetchRequest": true, "content": true, "continue": true, "fetchPostData": true, "finalizeInterceptions": true, "respond": true } satisfies Effectify.AsyncSpec<Pick<Upstream.HTTPRequest, HTTPRequestMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.HTTPRequest, HTTPRequestMethods>, Handles>,
 			returns: {},
+			callback: {} satisfies Record<HTTPRequestCallbacks, "node" | "done">,
 			properties: { "client": "CDPSession" } satisfies Record<HTTPRequestProperties, string | true>,
 		},
 	},
@@ -517,6 +576,7 @@ const kinds = {
 			async: { "asFetchResponse": true, "buffer": true, "content": true, "json": true, "stream": true, "text": true } satisfies Effectify.AsyncSpec<Pick<Upstream.HTTPResponse, HTTPResponseMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.HTTPResponse, HTTPResponseMethods>, Handles>,
 			returns: { "request": "HTTPRequest" },
+			callback: {} satisfies Record<HTTPResponseCallbacks, "node" | "done">,
 			properties: {} satisfies Record<HTTPResponseProperties, string | true>,
 		},
 	},
@@ -527,6 +587,7 @@ const kinds = {
 			async: { "stop": true } satisfies Effectify.AsyncSpec<Pick<Upstream.ScreenRecorder, ScreenRecorderMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.ScreenRecorder, ScreenRecorderMethods>, Handles>,
 			returns: {},
+			callback: {} satisfies Record<ScreenRecorderCallbacks, "node" | "done">,
 			properties: {} satisfies Record<ScreenRecorderProperties, string | true>,
 		},
 		release: "stop",
@@ -538,6 +599,7 @@ const kinds = {
 			async: { "pipe": true, "stop": true } satisfies Effectify.AsyncSpec<Pick<Upstream.ScreenRecording, ScreenRecordingMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.ScreenRecording, ScreenRecordingMethods>, Handles>,
 			returns: {},
+			callback: {} satisfies Record<ScreenRecordingCallbacks, "node" | "done">,
 			properties: {} satisfies Record<ScreenRecordingProperties, string | true>,
 		},
 		release: "stop",
@@ -549,6 +611,7 @@ const kinds = {
 			async: { "cancel": true, "select": true, "waitForDevice": true } satisfies Effectify.AsyncSpec<Pick<Upstream.DeviceRequestPrompt, DeviceRequestPromptMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.DeviceRequestPrompt, DeviceRequestPromptMethods>, Handles>,
 			returns: {},
+			callback: {} satisfies Record<DeviceRequestPromptCallbacks, "node" | "done">,
 			properties: { "devices": true } satisfies Record<DeviceRequestPromptProperties, string | true>,
 		},
 	},
@@ -559,6 +622,7 @@ const kinds = {
 			async: { "down": true, "press": true, "sendCharacter": true, "type": true, "up": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Keyboard, KeyboardMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Keyboard, KeyboardMethods>, Handles>,
 			returns: {},
+			callback: {} satisfies Record<KeyboardCallbacks, "node" | "done">,
 			properties: {} satisfies Record<KeyboardProperties, string | true>,
 		},
 	},
@@ -569,6 +633,7 @@ const kinds = {
 			async: { "tap": true, "touchEnd": true, "touchMove": true, "touchStart": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Touchscreen, TouchscreenMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Touchscreen, TouchscreenMethods>, Handles>,
 			returns: { "touchStart": "TouchHandle" },
+			callback: {} satisfies Record<TouchscreenCallbacks, "node" | "done">,
 			properties: {} satisfies Record<TouchscreenProperties, string | true>,
 		},
 	},
@@ -579,6 +644,7 @@ const kinds = {
 			async: { "startCSSCoverage": true, "startJSCoverage": true, "stopCSSCoverage": true, "stopJSCoverage": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Coverage, CoverageMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Coverage, CoverageMethods>, Handles>,
 			returns: {},
+			callback: {} satisfies Record<CoverageCallbacks, "node" | "done">,
 			properties: {} satisfies Record<CoverageProperties, string | true>,
 		},
 	},
@@ -589,6 +655,7 @@ const kinds = {
 			async: { "start": true, "stop": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Tracing, TracingMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Tracing, TracingMethods>, Handles>,
 			returns: {},
+			callback: {} satisfies Record<TracingCallbacks, "node" | "done">,
 			properties: {} satisfies Record<TracingProperties, string | true>,
 		},
 		release: "stop",
@@ -600,6 +667,7 @@ const kinds = {
 			async: {} satisfies Effectify.AsyncSpec<Pick<Upstream.WebMCP, WebMCPMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.WebMCP, WebMCPMethods>, Handles>,
 			returns: { "off": "WebMCP", "on": "WebMCP", "once": "WebMCP", "removeAllListeners": "WebMCP" },
+			callback: {} satisfies Record<WebMCPCallbacks, "node" | "done">,
 			properties: {} satisfies Record<WebMCPProperties, string | true>,
 		},
 	},
@@ -610,6 +678,7 @@ const kinds = {
 			async: { "snapshot": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Accessibility, AccessibilityMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Accessibility, AccessibilityMethods>, Handles>,
 			returns: {},
+			callback: {} satisfies Record<AccessibilityCallbacks, "node" | "done">,
 			properties: {} satisfies Record<AccessibilityProperties, string | true>,
 		},
 	},
@@ -620,6 +689,7 @@ const kinds = {
 			async: { "click": true, "down": true, "drag": true, "dragAndDrop": true, "dragEnter": true, "dragOver": true, "drop": true, "move": true, "reset": true, "up": true, "wheel": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Mouse, MouseMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Mouse, MouseMethods>, Handles>,
 			returns: {},
+			callback: {} satisfies Record<MouseCallbacks, "node" | "done">,
 			properties: {} satisfies Record<MouseProperties, string | true>,
 		},
 	},
@@ -630,6 +700,7 @@ const kinds = {
 			async: { "disableEmulation": true, "emulateAdapter": true, "simulatePreconnectedPeripheral": true } satisfies Effectify.AsyncSpec<Pick<Upstream.BluetoothEmulation, BluetoothEmulationMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.BluetoothEmulation, BluetoothEmulationMethods>, Handles>,
 			returns: {},
+			callback: {} satisfies Record<BluetoothEmulationCallbacks, "node" | "done">,
 			properties: {} satisfies Record<BluetoothEmulationProperties, string | true>,
 		},
 	},
@@ -640,6 +711,7 @@ const kinds = {
 			async: { "end": true, "move": true } satisfies Effectify.AsyncSpec<Pick<Upstream.TouchHandle, TouchHandleMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.TouchHandle, TouchHandleMethods>, Handles>,
 			returns: {},
+			callback: {} satisfies Record<TouchHandleCallbacks, "node" | "done">,
 			properties: {} satisfies Record<TouchHandleProperties, string | true>,
 		},
 		release: "end",

@@ -24,11 +24,13 @@ type Handles =
 
 /** The methods of `Sharp` the facade wraps: those sharp declares itself. */
 type SharpMethods = "affine" | "autoOrient" | "avif" | "bandbool" | "blur" | "boolean" | "clahe" | "clone" | "composite" | "convolve" | "dilate" | "ensureAlpha" | "erode" | "extend" | "extract" | "extractChannel" | "flatten" | "flip" | "flop" | "gamma" | "gif" | "grayscale" | "greyscale" | "heif" | "joinChannel" | "jp2" | "jpeg" | "jxl" | "keepExif" | "keepIccProfile" | "keepMetadata" | "keepXmp" | "linear" | "median" | "metadata" | "modulate" | "negate" | "normalise" | "normalize" | "pipelineColorspace" | "pipelineColourspace" | "png" | "raw" | "recomb" | "removeAlpha" | "resize" | "rotate" | "sharpen" | "stats" | "threshold" | "tiff" | "tile" | "timeout" | "tint" | "toBuffer" | "toColorspace" | "toColourspace" | "toFile" | "toFormat" | "toUint8Array" | "trim" | "unflatten" | "webp" | "withDensity" | "withExif" | "withExifMerge" | "withIccProfile" | "withMetadata" | "withXmp";
+/** The methods of `Sharp` that report through a trailing callback: Effects of what it reports. */
+type SharpCallbacks = never;
 /** The properties of `Sharp` the facade reads through. */
 type SharpProperties = never;
 
 /** A sharp `Sharp`: its async methods are Effects, its async iterables Streams, the handles it returns facades. */
-export interface Sharp extends Effectify.Effectified<Upstream.Sharp, Failure, Handles, SharpMethods, SharpProperties> {}
+export interface Sharp extends Effectify.Effectified<Upstream.Sharp, Failure, Handles, SharpMethods, SharpProperties, SharpCallbacks> {}
 
 const kinds = {
 	Sharp: {
@@ -38,6 +40,7 @@ const kinds = {
 			async: { "metadata": true, "stats": true, "toBuffer": true, "toFile": true, "toUint8Array": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Sharp, SharpMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Sharp, SharpMethods>, Handles>,
 			returns: { "affine": "Sharp", "autoOrient": "Sharp", "avif": "Sharp", "bandbool": "Sharp", "blur": "Sharp", "boolean": "Sharp", "clahe": "Sharp", "clone": "Sharp", "composite": "Sharp", "convolve": "Sharp", "dilate": "Sharp", "ensureAlpha": "Sharp", "erode": "Sharp", "extend": "Sharp", "extract": "Sharp", "extractChannel": "Sharp", "flatten": "Sharp", "flip": "Sharp", "flop": "Sharp", "gamma": "Sharp", "gif": "Sharp", "grayscale": "Sharp", "greyscale": "Sharp", "heif": "Sharp", "joinChannel": "Sharp", "jp2": "Sharp", "jpeg": "Sharp", "jxl": "Sharp", "keepExif": "Sharp", "keepIccProfile": "Sharp", "keepMetadata": "Sharp", "keepXmp": "Sharp", "linear": "Sharp", "median": "Sharp", "modulate": "Sharp", "negate": "Sharp", "normalise": "Sharp", "normalize": "Sharp", "pipelineColorspace": "Sharp", "pipelineColourspace": "Sharp", "png": "Sharp", "raw": "Sharp", "recomb": "Sharp", "removeAlpha": "Sharp", "resize": "Sharp", "rotate": "Sharp", "sharpen": "Sharp", "threshold": "Sharp", "tiff": "Sharp", "tile": "Sharp", "timeout": "Sharp", "tint": "Sharp", "toColorspace": "Sharp", "toColourspace": "Sharp", "toFormat": "Sharp", "trim": "Sharp", "unflatten": "Sharp", "webp": "Sharp", "withDensity": "Sharp", "withExif": "Sharp", "withExifMerge": "Sharp", "withIccProfile": "Sharp", "withMetadata": "Sharp", "withXmp": "Sharp" },
+			callback: {} satisfies Record<SharpCallbacks, "node" | "done">,
 			properties: {} satisfies Record<SharpProperties, string | true>,
 		},
 	},

@@ -116,11 +116,51 @@ type IsCallbackStyle<A extends ReadonlyArray<unknown>, R> = A extends readonly [
 		: false
 	: false;
 
-/** A method with every overload kept, each in facade form. */
-export type EffectMethod<F, E, H extends HandleEntry> = UnionToIntersection<MethodSignature<Overloads<F>, E, H>>;
+/**
+ * A method with every overload kept, each in facade form. A method whose every overload takes a trailing callback and
+ * returns nothing, and which the generator does not list as reporting through it (`CallbackMethod`), takes the
+ * callback as an argument like any other (a key handler): it stays as upstream types it.
+ */
+export type EffectMethod<F, E, H extends HandleEntry> = [MethodSignature<Overloads<F>, E, H>] extends [never]
+	? F
+	: UnionToIntersection<MethodSignature<Overloads<F>, E, H>>;
 
-/** An exported function with every overload kept, each in facade form. */
-export type EffectFunction<F, E, H extends HandleEntry> = UnionToIntersection<FunctionSignature<Overloads<F>, E, H>>;
+/** What a trailing callback reports: the value after its error (`(error, value)`), or nothing (`done()`). */
+type CallbackValue<L> = L extends (first: never, ...rest: infer Rest) => unknown ? (Rest extends readonly [infer V, ...ReadonlyArray<unknown>] ? V : void) : void;
+
+// The parameters before the last and the last, which may be optional (`write(data, callback?)`).
+type SplitLast<A extends ReadonlyArray<unknown>> = A extends readonly [...infer Init, infer Last]
+	? readonly [Init, Last]
+	: Required<A> extends readonly [...ReadonlyArray<unknown>, infer Last]
+		? A extends readonly [...infer Init, (Last | undefined)?]
+			? readonly [Init, Last]
+			: never
+		: never;
+
+// One overload that reports through its trailing callback, as an Effect of what the callback reports.
+type CallbackSignature<F, E, H extends HandleEntry> = F extends (...args: infer A) => infer R
+	? [R] extends [void]
+		? SplitLast<A> extends readonly [infer Init extends ReadonlyArray<unknown>, infer Last]
+			? NonNullable<Last> extends (...args: never) => unknown
+				? (...args: Init) => Resolved<CallbackValue<NonNullable<Last>>, E, H>
+				: never
+			: never
+		: never
+	: never;
+
+/**
+ * A method that reports through its trailing callback (`node`: error first, then the result; `done`: called when the
+ * work is done), as an `Effect` of what the callback reports: the generator lists such methods in `HandleSpec.callback`.
+ */
+export type CallbackMethod<F, E, H extends HandleEntry> = UnionToIntersection<CallbackSignature<Overloads<F>, E, H>>;
+
+/**
+ * An exported function with every overload kept, each in facade form. A function whose every overload takes a
+ * trailing callback and returns nothing takes it as an argument (a handler): its call is an `Effect` like any other.
+ */
+export type EffectFunction<F, E, H extends HandleEntry> = [FunctionSignature<Overloads<F>, E, H>] extends [never]
+	? UnionToIntersection<Overloads<F> extends (...args: infer A) => infer R ? (...args: A) => Resolved<R, E, H> : never>
+	: UnionToIntersection<FunctionSignature<Overloads<F>, E, H>>;
 
 /** The keys of `T` whose value is a function. */
 export type MethodKeys<T> = { [K in keyof T]-?: T[K] extends (...args: never) => unknown ? K : never }[keyof T] & string;
@@ -129,9 +169,16 @@ export type MethodKeys<T> = { [K in keyof T]-?: T[K] extends (...args: never) =>
  * A handle's facade: each method `K` of `T` in facade form, and the upstream object. `K` is the generator's list of
  * the methods the target declares itself (not those it inherits from Node's streams or emitters).
  */
-export type Effectified<T, E, H extends HandleEntry, K extends MethodKeys<T> = MethodKeys<T>, P extends keyof T = never> = {
-	readonly [M in K]: EffectMethod<T[M], E, H>;
-} & { readonly [Q in P]: Lift<T[Q], H> } & { readonly upstream: T };
+export type Effectified<
+	T,
+	E,
+	H extends HandleEntry,
+	K extends MethodKeys<T> = MethodKeys<T>,
+	P extends keyof T = never,
+	C extends K = never,
+> = {
+	readonly [M in Exclude<K, C>]: EffectMethod<T[M], E, H>;
+} & { readonly [M in C]: CallbackMethod<T[M], E, H> } & { readonly [Q in P]: Lift<T[Q], H> } & { readonly upstream: T };
 
 /** The methods of `T` with an overload that returns a promise (or any thenable). */
 export type AsyncKeys<T> = { [K in MethodKeys<T>]: [Returning<Overloads<T[K]>, PromiseLike<unknown>>] extends [never] ? never : K }[MethodKeys<T>];
@@ -163,6 +210,8 @@ export interface HandleSpec {
 	readonly async: Readonly<Record<string, true>>;
 	/** Methods that return an async iterable (a `Stream`). */
 	readonly stream?: Readonly<Record<string, true>>;
+	/** Methods that report through a trailing callback (an `Effect`): error first (`node`), or a call when done (`done`). */
+	readonly callback?: Readonly<Record<string, "node" | "done">>;
 	/** Methods whose result is another handle, by the name of that handle's spec. */
 	readonly returns?: Readonly<Record<string, string>>;
 	/** Properties the facade reads through from upstream (live): `true`, or the handle a property holds. */
@@ -195,7 +244,26 @@ export function effectify<T extends object, E>(
 		if (method === undefined) continue;
 		const returned = kind.spec.returns?.[key];
 		const into = returned === undefined ? undefined : kinds[returned];
-		if (kind.spec.async[key]) {
+		const reports = kind.spec.callback?.[key];
+		if (reports !== undefined) {
+			facade[key] = (...args: Array<unknown>) =>
+				acquire(
+					Effect.callback<unknown, E>((resume) => {
+						const callback =
+							reports === "node"
+								? (error: unknown, value: unknown) => resume(error === null || error === undefined ? Effect.succeed(value) : Effect.fail(classify(operation, error)))
+								: () => resume(Effect.void);
+						try {
+							method.apply(upstream, [...args, callback]);
+						} catch (cause) {
+							resume(Effect.fail(classify(operation, cause)));
+						}
+					}),
+					into,
+					kinds,
+					classify,
+				);
+		} else if (kind.spec.async[key]) {
 			facade[key] = (...args: Array<unknown>) =>
 				resolve(() => method.apply(upstream, args) as PromiseLike<unknown>, operation, into, kinds, classify);
 		} else if (kind.spec.stream?.[key]) {

@@ -5054,6 +5054,7 @@
 							}
 						],
 						"trailingCallback": true,
+						"callback": "handler",
 						"returns": "void",
 						"traits": [
 							"callback"

@@ -68,6 +68,8 @@ type Handles =
 
 /** The methods of `QueueEvents` the facade wraps: those bullmq declares itself. */
 type QueueEventsMethods = "close" | "disconnect" | "emit" | "getBackend" | "off" | "on" | "once" | "run" | "toKey" | "trace" | "waitUntilReady";
+/** The methods of `QueueEvents` that report through a trailing callback: Effects of what it reports. */
+type QueueEventsCallbacks = never;
 /** The properties of `QueueEvents` the facade reads through. */
 type QueueEventsProperties = "backend" | "closing" | "keys" | "name" | "opts" | "qualifiedName";
 
@@ -81,7 +83,7 @@ const liftedQueueEvents = () => ({
 	trace: Effectify.lifted<Failure, Handles>()(instanceOfQueueEvents.trace), // lifted: QueueEvents.trace
 });
 
-export interface QueueEvents extends Omit<Effectify.Effectified<Upstream.QueueEvents<any, any, any>, Failure, Handles, QueueEventsMethods, QueueEventsProperties>, "off" | "on" | "once" | "trace"> {
+export interface QueueEvents extends Omit<Effectify.Effectified<Upstream.QueueEvents<any, any, any>, Failure, Handles, QueueEventsMethods, QueueEventsProperties, QueueEventsCallbacks>, "off" | "on" | "once" | "trace"> {
 	readonly off: ReturnType<typeof liftedQueueEvents>["off"]; // lifted: QueueEvents.off
 	readonly on: ReturnType<typeof liftedQueueEvents>["on"]; // lifted: QueueEvents.on
 	readonly once: ReturnType<typeof liftedQueueEvents>["once"]; // lifted: QueueEvents.once
@@ -90,6 +92,8 @@ export interface QueueEvents extends Omit<Effectify.Effectified<Upstream.QueueEv
 
 /** The methods of `FlowProducer` the facade wraps: those bullmq declares itself. */
 type FlowProducerMethods = "add" | "addBulk" | "close" | "disconnect" | "emit" | "getBackend" | "getFlow" | "off" | "on" | "once" | "toKey" | "waitUntilReady";
+/** The methods of `FlowProducer` that report through a trailing callback: Effects of what it reports. */
+type FlowProducerCallbacks = never;
 /** The properties of `FlowProducer` the facade reads through. */
 type FlowProducerProperties = "closing" | "keys" | "opts";
 
@@ -102,7 +106,7 @@ const liftedFlowProducer = () => ({
 	once: Effectify.lifted<Failure, Handles>()(instanceOfFlowProducer.once), // lifted: FlowProducer.once
 });
 
-export interface FlowProducer extends Omit<Effectify.Effectified<Upstream.FlowProducer<any, any>, Failure, Handles, FlowProducerMethods, FlowProducerProperties>, "emit" | "off" | "on" | "once"> {
+export interface FlowProducer extends Omit<Effectify.Effectified<Upstream.FlowProducer<any, any>, Failure, Handles, FlowProducerMethods, FlowProducerProperties, FlowProducerCallbacks>, "emit" | "off" | "on" | "once"> {
 	emit<U extends keyof Upstream.FlowProducerListener>(event: U, ...args: Parameters<Upstream.FlowProducerListener[U]>): Effectify.Lift<boolean, Handles>; // explicit: FlowProducer.emit
 	readonly off: ReturnType<typeof liftedFlowProducer>["off"]; // lifted: FlowProducer.off
 	readonly on: ReturnType<typeof liftedFlowProducer>["on"]; // lifted: FlowProducer.on
@@ -111,6 +115,8 @@ export interface FlowProducer extends Omit<Effectify.Effectified<Upstream.FlowPr
 
 /** The methods of `Queue` the facade wraps: those bullmq declares itself. */
 type QueueMethods = "add" | "addBulk" | "addJobLog" | "clean" | "close" | "count" | "disconnect" | "drain" | "emit" | "exportPrometheusMetrics" | "getActive" | "getActiveCount" | "getBackend" | "getCompleted" | "getCompletedCount" | "getCountsPerPriority" | "getDebounceJobId" | "getDeduplicationJobId" | "getDelayed" | "getDelayedCount" | "getDependencies" | "getFailed" | "getFailedCount" | "getGlobalConcurrency" | "getGlobalRateLimit" | "getJob" | "getJobCountByTypes" | "getJobCounts" | "getJobLogs" | "getJobScheduler" | "getJobSchedulers" | "getJobSchedulersCount" | "getJobState" | "getJobs" | "getMeta" | "getMetrics" | "getPrioritized" | "getPrioritizedCount" | "getQueueEvents" | "getRanges" | "getRateLimitTtl" | "getVersion" | "getWaiting" | "getWaitingChildren" | "getWaitingChildrenCount" | "getWaitingCount" | "getWorkers" | "getWorkersCount" | "isMaxed" | "isPaused" | "obliterate" | "off" | "on" | "once" | "pause" | "promoteJobs" | "rateLimit" | "recordJobCountsMetric" | "remove" | "removeDebounceKey" | "removeDeduplicationKey" | "removeDeprecatedPriorityKey" | "removeGlobalConcurrency" | "removeGlobalRateLimit" | "removeJobScheduler" | "removeOrphanedJobs" | "removeRateLimitKey" | "resume" | "retryJobs" | "setGlobalConcurrency" | "setGlobalRateLimit" | "toKey" | "trace" | "trimEvents" | "updateJobProgress" | "upsertJobScheduler" | "waitUntilReady";
+/** The methods of `Queue` that report through a trailing callback: Effects of what it reports. */
+type QueueCallbacks = never;
 /** The properties of `Queue` the facade reads through. */
 type QueueProperties = "backend" | "closing" | "defaultJobOptions" | "jobScheduler" | "jobsOpts" | "keys" | "metaValues" | "name" | "opts" | "qualifiedName" | "token";
 
@@ -125,7 +131,7 @@ const liftedQueue = () => ({
 	trace: Effectify.lifted<Failure, Handles>()(instanceOfQueue.trace), // lifted: Queue.trace
 });
 
-export interface Queue extends Omit<Effectify.Effectified<Upstream.Queue<any, any, any, any, any, any, any, any>, Failure, Handles, QueueMethods, QueueProperties>, "emit" | "off" | "on" | "once" | "trace"> {
+export interface Queue extends Omit<Effectify.Effectified<Upstream.Queue<any, any, any, any, any, any, any, any>, Failure, Handles, QueueMethods, QueueProperties, QueueCallbacks>, "emit" | "off" | "on" | "once" | "trace"> {
 	readonly emit: ReturnType<typeof liftedQueue>["emit"]; // lifted: Queue.emit
 	readonly off: ReturnType<typeof liftedQueue>["off"]; // lifted: Queue.off
 	readonly on: ReturnType<typeof liftedQueue>["on"]; // lifted: Queue.on
@@ -135,6 +141,8 @@ export interface Queue extends Omit<Effectify.Effectified<Upstream.Queue<any, an
 
 /** The methods of `Worker` the facade wraps: those bullmq declares itself. */
 type WorkerMethods = "cancelAllJobs" | "cancelJob" | "close" | "delay" | "disconnect" | "emit" | "extendJobLocks" | "getBackend" | "getNextJob" | "isPaused" | "isRunning" | "off" | "on" | "once" | "pause" | "processJob" | "rateLimit" | "resume" | "run" | "startStalledCheckTimer" | "toKey" | "trace" | "waitUntilReady";
+/** The methods of `Worker` that report through a trailing callback: Effects of what it reports. */
+type WorkerCallbacks = never;
 /** The properties of `Worker` the facade reads through. */
 type WorkerProperties = "backend" | "closing" | "concurrency" | "id" | "jobScheduler" | "keys" | "maximumBlockTimeout" | "minimumBlockTimeout" | "name" | "opts" | "qualifiedName";
 
@@ -149,7 +157,7 @@ const liftedWorker = () => ({
 	trace: Effectify.lifted<Failure, Handles>()(instanceOfWorker.trace), // lifted: Worker.trace
 });
 
-export interface Worker extends Omit<Effectify.Effectified<Upstream.Worker<any, any, any, any, any, any>, Failure, Handles, WorkerMethods, WorkerProperties>, "emit" | "off" | "on" | "once" | "trace"> {
+export interface Worker extends Omit<Effectify.Effectified<Upstream.Worker<any, any, any, any, any, any>, Failure, Handles, WorkerMethods, WorkerProperties, WorkerCallbacks>, "emit" | "off" | "on" | "once" | "trace"> {
 	readonly emit: ReturnType<typeof liftedWorker>["emit"]; // lifted: Worker.emit
 	readonly off: ReturnType<typeof liftedWorker>["off"]; // lifted: Worker.off
 	readonly on: ReturnType<typeof liftedWorker>["on"]; // lifted: Worker.on
@@ -159,6 +167,8 @@ export interface Worker extends Omit<Effectify.Effectified<Upstream.Worker<any, 
 
 /** The methods of `Job` the facade wraps: those bullmq declares itself. */
 type JobMethods = "addJob" | "asJSON" | "asJSONSandbox" | "changeDelay" | "changePriority" | "clearLogs" | "extendLock" | "getChildrenValues" | "getDependencies" | "getDependenciesCount" | "getFailedChildrenValues" | "getIgnoredChildrenFailures" | "getState" | "isActive" | "isCompleted" | "isDelayed" | "isFailed" | "isWaiting" | "isWaitingChildren" | "log" | "moveToCompleted" | "moveToDelayed" | "moveToFailed" | "moveToWait" | "moveToWaitingChildren" | "promote" | "remove" | "removeChildDependency" | "removeDeduplicationKey" | "removeUnprocessedChildren" | "retry" | "toFlowEntry" | "toJSON" | "updateData" | "updateProgress" | "waitUntilFinished";
+/** The methods of `Job` that report through a trailing callback: Effects of what it reports. */
+type JobCallbacks = never;
 /** The properties of `Job` the facade reads through. */
 type JobProperties = "attemptsMade" | "attemptsStarted" | "data" | "deduplicationId" | "deferredFailure" | "delay" | "failedReason" | "finishedOn" | "id" | "name" | "opts" | "parent" | "parentKey" | "prefix" | "priority" | "processedBy" | "processedOn" | "progress" | "queueName" | "queueQualifiedName" | "repeatJobKey" | "returnvalue" | "stacktrace" | "stalledCounter" | "timestamp" | "token";
 
@@ -169,7 +179,7 @@ const liftedJob = () => ({
 	waitUntilFinished: Effectify.lifted<Failure, Handles>()(instanceOfJob.waitUntilFinished), // lifted: Job.waitUntilFinished
 });
 
-export interface Job extends Omit<Effectify.Effectified<Upstream.Job<any, any, any, any>, Failure, Handles, JobMethods, JobProperties>, "getChildrenValues" | "moveToFailed" | "waitUntilFinished"> {
+export interface Job extends Omit<Effectify.Effectified<Upstream.Job<any, any, any, any>, Failure, Handles, JobMethods, JobProperties, JobCallbacks>, "getChildrenValues" | "moveToFailed" | "waitUntilFinished"> {
 	getChildrenValues<CT = any>(): Effectify.Resolved<{ [jobKey: string]: CT; }, Failure, Handles>; // explicit: Job.getChildrenValues
 	moveToFailed<E extends Error>(err: E, token: string, fetchNext?: boolean | undefined): Effectify.Resolved<void | any[], Failure, Handles>; // explicit: Job.moveToFailed
 	readonly waitUntilFinished: ReturnType<typeof liftedJob>["waitUntilFinished"]; // lifted: Job.waitUntilFinished
@@ -183,6 +193,7 @@ const kinds = {
 			async: { "close": true, "disconnect": true, "run": true, "trace": true, "waitUntilReady": true } satisfies Effectify.AsyncSpec<Pick<Upstream.QueueEvents<any, any, any>, QueueEventsMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.QueueEvents<any, any, any>, QueueEventsMethods>, Handles>,
 			returns: { "off": "QueueEvents", "on": "QueueEvents", "once": "QueueEvents" },
+			callback: {} satisfies Record<QueueEventsCallbacks, "node" | "done">,
 			properties: { "backend": true, "closing": true, "keys": true, "name": true, "opts": true, "qualifiedName": true } satisfies Record<QueueEventsProperties, string | true>,
 		},
 		release: "close",
@@ -194,6 +205,7 @@ const kinds = {
 			async: { "add": true, "addBulk": true, "close": true, "disconnect": true, "getFlow": true, "waitUntilReady": true } satisfies Effectify.AsyncSpec<Pick<Upstream.FlowProducer<any, any>, FlowProducerMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.FlowProducer<any, any>, FlowProducerMethods>, Handles>,
 			returns: { "off": "FlowProducer", "on": "FlowProducer", "once": "FlowProducer" },
+			callback: {} satisfies Record<FlowProducerCallbacks, "node" | "done">,
 			properties: { "closing": true, "keys": true, "opts": true } satisfies Record<FlowProducerProperties, string | true>,
 		},
 		release: "close",
@@ -205,6 +217,7 @@ const kinds = {
 			async: { "add": true, "addBulk": true, "addJobLog": true, "clean": true, "close": true, "count": true, "disconnect": true, "drain": true, "exportPrometheusMetrics": true, "getActive": true, "getActiveCount": true, "getCompleted": true, "getCompletedCount": true, "getCountsPerPriority": true, "getDebounceJobId": true, "getDeduplicationJobId": true, "getDelayed": true, "getDelayedCount": true, "getDependencies": true, "getFailed": true, "getFailedCount": true, "getGlobalConcurrency": true, "getGlobalRateLimit": true, "getJob": true, "getJobCountByTypes": true, "getJobCounts": true, "getJobLogs": true, "getJobScheduler": true, "getJobSchedulers": true, "getJobSchedulersCount": true, "getJobState": true, "getJobs": true, "getMeta": true, "getMetrics": true, "getPrioritized": true, "getPrioritizedCount": true, "getQueueEvents": true, "getRanges": true, "getRateLimitTtl": true, "getVersion": true, "getWaiting": true, "getWaitingChildren": true, "getWaitingChildrenCount": true, "getWaitingCount": true, "getWorkers": true, "getWorkersCount": true, "isMaxed": true, "isPaused": true, "obliterate": true, "pause": true, "promoteJobs": true, "rateLimit": true, "recordJobCountsMetric": true, "remove": true, "removeDebounceKey": true, "removeDeduplicationKey": true, "removeDeprecatedPriorityKey": true, "removeGlobalConcurrency": true, "removeGlobalRateLimit": true, "removeJobScheduler": true, "removeOrphanedJobs": true, "removeRateLimitKey": true, "resume": true, "retryJobs": true, "setGlobalConcurrency": true, "setGlobalRateLimit": true, "trace": true, "trimEvents": true, "updateJobProgress": true, "upsertJobScheduler": true, "waitUntilReady": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Queue<any, any, any, any, any, any, any, any>, QueueMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Queue<any, any, any, any, any, any, any, any>, QueueMethods>, Handles>,
 			returns: { "add": "Job", "off": "Queue", "on": "Queue", "once": "Queue", "upsertJobScheduler": "Job" },
+			callback: {} satisfies Record<QueueCallbacks, "node" | "done">,
 			properties: { "backend": true, "closing": true, "defaultJobOptions": true, "jobScheduler": true, "jobsOpts": true, "keys": true, "metaValues": true, "name": true, "opts": true, "qualifiedName": true, "token": true } satisfies Record<QueueProperties, string | true>,
 		},
 		release: "close",
@@ -216,6 +229,7 @@ const kinds = {
 			async: { "close": true, "delay": true, "disconnect": true, "extendJobLocks": true, "getNextJob": true, "pause": true, "processJob": true, "rateLimit": true, "resume": true, "run": true, "startStalledCheckTimer": true, "trace": true, "waitUntilReady": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Worker<any, any, any, any, any, any>, WorkerMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Worker<any, any, any, any, any, any>, WorkerMethods>, Handles>,
 			returns: { "getNextJob": "Job", "off": "Worker", "on": "Worker", "once": "Worker" },
+			callback: {} satisfies Record<WorkerCallbacks, "node" | "done">,
 			properties: { "backend": true, "closing": true, "concurrency": true, "id": true, "jobScheduler": true, "keys": true, "maximumBlockTimeout": true, "minimumBlockTimeout": true, "name": true, "opts": true, "qualifiedName": true } satisfies Record<WorkerProperties, string | true>,
 		},
 		release: "close",
@@ -227,6 +241,7 @@ const kinds = {
 			async: { "addJob": true, "changeDelay": true, "changePriority": true, "clearLogs": true, "extendLock": true, "getChildrenValues": true, "getDependencies": true, "getDependenciesCount": true, "getFailedChildrenValues": true, "getIgnoredChildrenFailures": true, "getState": true, "isActive": true, "isCompleted": true, "isDelayed": true, "isFailed": true, "isWaiting": true, "isWaitingChildren": true, "log": true, "moveToCompleted": true, "moveToDelayed": true, "moveToFailed": true, "moveToWait": true, "moveToWaitingChildren": true, "promote": true, "remove": true, "removeChildDependency": true, "removeDeduplicationKey": true, "removeUnprocessedChildren": true, "retry": true, "updateData": true, "updateProgress": true, "waitUntilFinished": true } satisfies Effectify.AsyncSpec<Pick<Upstream.Job<any, any, any, any>, JobMethods>>,
 			stream: {} satisfies Effectify.StreamSpec<Pick<Upstream.Job<any, any, any, any>, JobMethods>, Handles>,
 			returns: {},
+			callback: {} satisfies Record<JobCallbacks, "node" | "done">,
 			properties: { "attemptsMade": true, "attemptsStarted": true, "data": true, "deduplicationId": true, "deferredFailure": true, "delay": true, "failedReason": true, "finishedOn": true, "id": true, "name": true, "opts": true, "parent": true, "parentKey": true, "prefix": true, "priority": true, "processedBy": true, "processedOn": true, "progress": true, "queueName": true, "queueQualifiedName": true, "repeatJobKey": true, "returnvalue": true, "stacktrace": true, "stalledCounter": true, "timestamp": true, "token": true } satisfies Record<JobProperties, string | true>,
 		},
 	},
