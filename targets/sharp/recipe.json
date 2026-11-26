@@ -64,6 +64,14 @@
 			"answer": "none",
 			"why": "every offered export that acquires a releasable handle",
 			"by": "engine"
+		},
+		{
+			"id": "revision",
+			"question": "Which revision of this upstream version is the facade?",
+			"answer": "2",
+			"why": "the engine of 2026-11-26 types more of it: generic methods through a call, event payloads, callbacks that report results, and the packages its declarations name",
+			"by": "agent"
 		}
-	]
+	],
+	"revision": 2
 }

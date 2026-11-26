@@ -15,7 +15,7 @@ Offered: `createTransport`, `createTestAccount`. Types: bundled with the package
 Released on GitHub, not npm:
 
 ```sh
-npm install --allow-remote=root https://github.com/effectified/engine/releases/download/nodemailer-v10.6.1+2/effectified-nodemailer-10.6.1+2.tgz effect
-pnpm add https://github.com/effectified/engine/releases/download/nodemailer-v10.6.1+2/effectified-nodemailer-10.6.1+2.tgz effect
-bun add https://github.com/effectified/engine/releases/download/nodemailer-v10.6.1+2/effectified-nodemailer-10.6.1+2.tgz effect
+npm install --allow-remote=root https://github.com/effectified/engine/releases/download/nodemailer-v10.6.1+3/effectified-nodemailer-10.6.1+3.tgz effect
+pnpm add https://github.com/effectified/engine/releases/download/nodemailer-v10.6.1+3/effectified-nodemailer-10.6.1+3.tgz effect
+bun add https://github.com/effectified/engine/releases/download/nodemailer-v10.6.1+3/effectified-nodemailer-10.6.1+3.tgz effect
 ```

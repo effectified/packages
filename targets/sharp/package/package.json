@@ -1,6 +1,6 @@
 {
   "name": "@effectified/sharp",
-  "version": "0.35.5",
+  "version": "0.35.5+2",
   "description": "sharp in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged",
   "type": "module",
   "license": "MIT",

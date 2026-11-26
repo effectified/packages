@@ -14,7 +14,7 @@ Offered: `default`. Types: bundled with the package.
 Released on GitHub, not npm:
 
 ```sh
-npm install --allow-remote=root https://github.com/effectified/engine/releases/download/sharp-v0.35.5/effectified-sharp-0.35.5.tgz effect
-pnpm add https://github.com/effectified/engine/releases/download/sharp-v0.35.5/effectified-sharp-0.35.5.tgz effect
-bun add https://github.com/effectified/engine/releases/download/sharp-v0.35.5/effectified-sharp-0.35.5.tgz effect
+npm install --allow-remote=root https://github.com/effectified/engine/releases/download/sharp-v0.35.5+2/effectified-sharp-0.35.5+2.tgz effect
+pnpm add https://github.com/effectified/engine/releases/download/sharp-v0.35.5+2/effectified-sharp-0.35.5+2.tgz effect
+bun add https://github.com/effectified/engine/releases/download/sharp-v0.35.5+2/effectified-sharp-0.35.5+2.tgz effect
 ```
