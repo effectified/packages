@@ -22,7 +22,6 @@ type Events = {
 	readonly "activate-typeahead": Schema.declare<DetailOf<"activate-typeahead">>;
 	readonly "deactivate-items": Schema.declare<DetailOf<"deactivate-items">>;
 	readonly "deactivate-typeahead": Schema.declare<DetailOf<"deactivate-typeahead">>;
-	readonly "request-activation": Schema.declare<DetailOf<"request-activation">>;
 };
 
 /** `<md-sub-menu>`: Menus display a list of choices on a temporary surface. */
@@ -39,6 +38,5 @@ export const SubMenu: Html.CustomElementBinding<"md-sub-menu", Properties, Event
 		"activate-typeahead": typed<DetailOf<"activate-typeahead">>(),
 		"deactivate-items": typed<DetailOf<"deactivate-items">>(),
 		"deactivate-typeahead": typed<DetailOf<"deactivate-typeahead">>(),
-		"request-activation": typed<DetailOf<"request-activation">>(),
 	},
 });

@@ -18,7 +18,13 @@
 		}
 	],
 	"services": [],
-	"methods": {},
+	"methods": {
+		"md-filled-field": "exclude",
+		"md-navigation-drawer": "exclude",
+		"md-navigation-drawer-modal": "exclude",
+		"md-outlined-field": "exclude",
+		"md-sub-menu@request-activation": "exclude"
+	},
 	"derived": [],
 	"testDependencies": {},
 	"ui": {
@@ -30,22 +36,141 @@
 			"id": "exports",
 			"question": "Which exported functions and classes does the facade offer?",
 			"answer": "",
-			"why": "every exported function or class that is async or yields a handle",
-			"by": "engine"
+			"why": "none: a frontend facade offers its elements as Effect UI bindings; the exported classes are those elements' constructors (MdSwitch, Switch, ...), which an app never calls, and the UI generator reads elements, not exports",
+			"by": "agent"
 		},
 		{
 			"id": "errors",
 			"question": "Which upstream failures become which tagged errors?",
 			"answer": "MaterialWebError",
-			"why": "exported error classes, most specific first, then the catch-all MaterialWebError carrying `code` (the source sets no codes)",
-			"by": "engine"
+			"why": "kept: @material/web exports no error classes and the facade wraps no calls that fail; the catch-all is unused by the UI generator",
+			"by": "agent"
 		},
 		{
 			"id": "services",
 			"question": "Which handles are provided as services (Context.Service with a layer)?",
 			"answer": "none",
-			"why": "every offered export that acquires a releasable handle",
-			"by": "engine"
+			"why": "kept: a frontend facade offers no handles",
+			"by": "agent"
+		},
+		{
+			"id": "methods.md-filled-field",
+			"question": "Does the facade offer <md-filled-field>?",
+			"answer": "exclude",
+			"why": "an internal building block: the text fields and selects render it in their shadow roots; it is not documented for apps and owns no input of its own",
+			"by": "agent"
+		},
+		{
+			"id": "methods.md-outlined-field",
+			"question": "Does the facade offer <md-outlined-field>?",
+			"answer": "exclude",
+			"why": "an internal building block: the text fields and selects render it in their shadow roots; it is not documented for apps and owns no input of its own",
+			"by": "agent"
+		},
+		{
+			"id": "methods.md-focus-ring",
+			"question": "Does the facade offer <md-focus-ring>?",
+			"answer": "keep",
+			"why": "documented for custom components (attach it to a control with `for` or `control`); a stable element",
+			"by": "agent"
+		},
+		{
+			"id": "methods.md-ripple",
+			"question": "Does the facade offer <md-ripple>?",
+			"answer": "keep",
+			"why": "documented for custom components (attach it to a control with `for` or `control`); a stable element",
+			"by": "agent"
+		},
+		{
+			"id": "methods.md-elevation",
+			"question": "Does the facade offer <md-elevation>?",
+			"answer": "keep",
+			"why": "documented for custom components (place it in a positioned surface); a stable element",
+			"by": "agent"
+		},
+		{
+			"id": "methods.md-badge",
+			"question": "Does the facade offer <md-badge>?",
+			"answer": "keep",
+			"why": "labs, presentational: renders `value` and has no behaviour or events to go wrong; upstream is in maintenance mode (README), so labs elements will not graduate or change: kept when its source works as a stable element would",
+			"by": "agent"
+		},
+		{
+			"id": "methods.md-elevated-card",
+			"question": "Does the facade offer <md-elevated-card>?",
+			"answer": "keep",
+			"why": "labs, presentational: a styled container with a slot, no properties or events; upstream is in maintenance mode (README), so labs elements will not graduate or change: kept when its source works as a stable element would",
+			"by": "agent"
+		},
+		{
+			"id": "methods.md-filled-card",
+			"question": "Does the facade offer <md-filled-card>?",
+			"answer": "keep",
+			"why": "labs, presentational: a styled container with a slot, no properties or events; upstream is in maintenance mode (README), so labs elements will not graduate or change: kept when its source works as a stable element would",
+			"by": "agent"
+		},
+		{
+			"id": "methods.md-outlined-card",
+			"question": "Does the facade offer <md-outlined-card>?",
+			"answer": "keep",
+			"why": "labs, presentational: a styled container with a slot, no properties or events; upstream is in maintenance mode (README), so labs elements will not graduate or change: kept when its source works as a stable element would",
+			"by": "agent"
+		},
+		{
+			"id": "methods.md-item",
+			"question": "Does the facade offer <md-item>?",
+			"answer": "keep",
+			"why": "labs, a layout block with no behaviour: the stable md-list-item renders it (list/internal/listitem/list-item.js), and its declaration documents it for custom list items; upstream is in maintenance mode (README), so labs elements will not graduate or change: kept when its source works as a stable element would",
+			"by": "agent"
+		},
+		{
+			"id": "methods.md-navigation-bar",
+			"question": "Does the facade offer <md-navigation-bar>?",
+			"answer": "keep",
+			"why": "labs, but it works as tabs do: role=tablist with arrow, Home, End, Enter and Space handling, and `navigation-bar-activated` reports `activeIndex` (it also fires once on first render, for the initial index); upstream is in maintenance mode (README), so labs elements will not graduate or change: kept when its source works as a stable element would",
+			"by": "agent"
+		},
+		{
+			"id": "methods.md-navigation-tab",
+			"question": "Does the facade offer <md-navigation-tab>?",
+			"answer": "keep",
+			"why": "labs, the tab of md-navigation-bar (a role=tab button with `active`, `label` and a badge); the bar finds it through its `navigation-tab-rendered` event; upstream is in maintenance mode (README), so labs elements will not graduate or change: kept when its source works as a stable element would",
+			"by": "agent"
+		},
+		{
+			"id": "methods.md-navigation-drawer",
+			"question": "Does the facade offer <md-navigation-drawer>?",
+			"answer": "exclude",
+			"why": "labs, and wrong for apps: it renders role=dialog for a persistent navigation panel, and `navigation-drawer-changed` fires from an unscoped setTimeout(250) after every change of `opened`, including the first render, not when the transition ends",
+			"by": "agent"
+		},
+		{
+			"id": "methods.md-navigation-drawer-modal",
+			"question": "Does the facade offer <md-navigation-drawer-modal>?",
+			"answer": "exclude",
+			"why": "labs, and not an accessible modal: it renders role=dialog but neither moves focus in on open nor traps it, and Escape closes it only while focus is already inside; md-dialog is the modal surface. Its `navigation-drawer-changed` has md-navigation-drawer's setTimeout(250) problem",
+			"by": "agent"
+		},
+		{
+			"id": "methods.md-outlined-segmented-button",
+			"question": "Does the facade offer <md-outlined-segmented-button>?",
+			"answer": "keep",
+			"why": "labs, but sound: a <button aria-pressed> with `selected`, `disabled` and `label`; its `segmented-button-interaction` is how the set hears a click; upstream is in maintenance mode (README), so labs elements will not graduate or change: kept when its source works as a stable element would",
+			"by": "agent"
+		},
+		{
+			"id": "methods.md-outlined-segmented-button-set",
+			"question": "Does the facade offer <md-outlined-segmented-button-set>?",
+			"answer": "keep",
+			"why": "labs, but sound: role=group, `multiselect`, and `segmented-button-set-selection` reports `index` and `selected` (and the button element, which a view should not keep); upstream is in maintenance mode (README), so labs elements will not graduate or change: kept when its source works as a stable element would",
+			"by": "agent"
+		},
+		{
+			"id": "methods.md-sub-menu@request-activation",
+			"question": "Does the binding offer the event md-sub-menu@request-activation?",
+			"answer": "exclude",
+			"why": "md-sub-menu never fires it: it dispatches it on its slotted item (`this.item.dispatchEvent(createRequestActivationEvent())`, menu/internal/submenu/sub-menu.js), where the menu's list navigation handles it; the manifest attributes it to the sub-menu",
+			"by": "agent"
 		}
 	]
 }
