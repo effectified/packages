@@ -9,7 +9,7 @@
 Released on GitHub, not npm. Effect UI is in public preview (install its snapshot build):
 
 ```sh
-pnpm add https://github.com/effectified/engine/releases/download/chart.js-v4.6.2/effectified-chart.js-4.6.2.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
+pnpm add https://github.com/effectified/packages/releases/download/chart.js-v4.6.2/effectified-chart.js-4.6.2.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
 Types: bundled with the package.

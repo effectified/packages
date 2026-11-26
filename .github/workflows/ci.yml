@@ -1,0 +1,74 @@
+# Every facade: regenerate it with the pinned engine (it must match what is committed), type check it with
+# TypeScript 7, run its tests against the real library and local services, and build its release. A pull request
+# runs the targets it touches, and every target when it changes the engine's version or a workflow.
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  targets:
+    runs-on: ubuntu-latest
+    outputs:
+      targets: ${{ steps.list.outputs.targets }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - id: list
+        env:
+          EVENT: ${{ github.event_name }}
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          all=$(ls targets)
+          selected="$all"
+          if [ "$EVENT" = "pull_request" ]; then
+            changed=$(git diff --name-only "$BASE" HEAD)
+            if ! printf '%s\n' "$changed" | grep -qE '^(package\.json|pnpm-lock\.yaml|pnpm-workspace\.yaml|\.github/)'; then
+              selected=$(printf '%s\n' "$changed" | grep '^targets/' | cut -d/ -f2 | sort -u | grep -Fxf <(printf '%s\n' "$all") || true)
+            fi
+          fi
+          echo "targets=$(printf '%s\n' "$selected" | jq -R . | jq -sc 'map(select(. != ""))')" >> "$GITHUB_OUTPUT"
+
+  facade:
+    needs: targets
+    if: needs.targets.outputs.targets != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ${{ fromJSON(needs.targets.outputs.targets) }}
+    services:
+      redis:
+        image: redis:7-alpine
+        ports: ["6379:6379"]
+    env:
+      REDIS_URL: redis://127.0.0.1:6379
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Chrome for puppeteer-core and the Effect UI facades
+        run: echo "CHROME_BIN=$(command -v google-chrome || command -v chromium)" >> "$GITHUB_ENV"
+      - name: Regenerate and type check with TypeScript 7
+        run: pnpm effectify reconcile ${{ matrix.target }}
+      - name: The committed facade is what the engine generates
+        run: git diff --exit-code -- targets/${{ matrix.target }}
+      - name: Behaviour tests against the real library
+        run: pnpm effectify test ${{ matrix.target }}
+      - name: The release build compiles
+        working-directory: targets/${{ matrix.target }}/package
+        run: node node_modules/typescript/bin/tsc -p tsconfig.build.json

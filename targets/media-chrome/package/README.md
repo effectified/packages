@@ -16,7 +16,7 @@ import { AirplayButton } from "@effectified/media-chrome";
 Released on GitHub, not npm. Effect UI is in public preview (install its snapshot build):
 
 ```sh
-pnpm add https://github.com/effectified/engine/releases/download/media-chrome-v4.19.5/effectified-media-chrome-4.19.5.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
+pnpm add https://github.com/effectified/packages/releases/download/media-chrome-v4.19.5/effectified-media-chrome-4.19.5.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
 Types: bundled with the package.

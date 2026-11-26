@@ -1,0 +1,74 @@
+# Follows upstream: every day, each target whose library released a newer version is studied, its drift written to
+# DRIFT.md, its recipe redrafted (keeping agents' and people's decisions), its facade regenerated, type checked and
+# tested. Each update becomes one pull request with DRIFT.md as its body; a failed step still opens it, marked so.
+name: sync
+
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  # The runtime facades: a frontend facade's bindings and mounts are not redrafted yet.
+  targets:
+    runs-on: ubuntu-latest
+    outputs:
+      targets: ${{ steps.list.outputs.targets }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - id: list
+        run: echo "targets=$(for t in targets/*/; do jq -e 'has("ui")' "$t/recipe.json" >/dev/null || basename "$t"; done | jq -R . | jq -sc .)" >> "$GITHUB_OUTPUT"
+
+  sync:
+    needs: targets
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ${{ fromJSON(needs.targets.outputs.targets) }}
+    services:
+      redis:
+        image: redis:7-alpine
+        ports: ["6379:6379"]
+    env:
+      REDIS_URL: redis://127.0.0.1:6379
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Chrome for puppeteer-core
+        run: echo "CHROME_BIN=$(command -v google-chrome || command -v chromium)" >> "$GITHUB_ENV"
+      - name: Sync with upstream
+        id: sync
+        continue-on-error: true
+        run: pnpm effectify sync ${{ matrix.target }}
+      - name: Open a pull request for a new upstream version
+        run: |
+          if git diff --quiet -- targets/${{ matrix.target }}; then
+            echo "${{ matrix.target }} is current"
+            exit 0
+          fi
+          version=$(node -p 'require("./targets/${{ matrix.target }}/recipe.json").version')
+          branch="sync/${{ matrix.target }}-${version}"
+          if git ls-remote --exit-code --heads origin "$branch" >/dev/null; then
+            echo "$branch exists already"
+            exit 0
+          fi
+          git config user.name "effectified-bot"
+          git config user.email "effectified-bot@users.noreply.github.com"
+          git switch -c "$branch"
+          git add targets/${{ matrix.target }}
+          git commit -m "sync(${{ matrix.target }}): ${version}"
+          git push origin "$branch"
+          title="sync(${{ matrix.target }}): ${version}"
+          if [ "${{ steps.sync.outcome }}" != "success" ]; then title="${title} (needs an agent: the sync failed)"; fi
+          gh pr create --base main --head "$branch" --title "$title" --body-file targets/${{ matrix.target }}/DRIFT.md

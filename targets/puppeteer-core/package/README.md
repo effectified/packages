@@ -15,7 +15,7 @@ Offered: `launch`. Types: bundled with the package.
 Released on GitHub, not npm:
 
 ```sh
-npm install --allow-remote=root https://github.com/effectified/engine/releases/download/puppeteer-core-v25.19.0+3/effectified-puppeteer-core-25.19.0+3.tgz effect
-pnpm add https://github.com/effectified/engine/releases/download/puppeteer-core-v25.19.0+3/effectified-puppeteer-core-25.19.0+3.tgz effect
-bun add https://github.com/effectified/engine/releases/download/puppeteer-core-v25.19.0+3/effectified-puppeteer-core-25.19.0+3.tgz effect
+npm install --allow-remote=root https://github.com/effectified/packages/releases/download/puppeteer-core-v25.19.0+3/effectified-puppeteer-core-25.19.0+3.tgz effect
+pnpm add https://github.com/effectified/packages/releases/download/puppeteer-core-v25.19.0+3/effectified-puppeteer-core-25.19.0+3.tgz effect
+bun add https://github.com/effectified/packages/releases/download/puppeteer-core-v25.19.0+3/effectified-puppeteer-core-25.19.0+3.tgz effect
 ```

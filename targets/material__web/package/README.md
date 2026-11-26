@@ -16,7 +16,7 @@ import { AssistChip } from "@effectified/material-web";
 Released on GitHub, not npm. Effect UI is in public preview (install its snapshot build):
 
 ```sh
-pnpm add https://github.com/effectified/engine/releases/download/material-web-v2.5.0/effectified-material-web-2.5.0.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
+pnpm add https://github.com/effectified/packages/releases/download/material-web-v2.5.0/effectified-material-web-2.5.0.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
 Types: bundled with the package.

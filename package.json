@@ -1,0 +1,17 @@
+{
+  "name": "effectified-packages",
+  "private": true,
+  "description": "Effect-native facades of popular libraries, made by the effectified engine and kept by the community",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "packageManager": "pnpm@12.21.0",
+  "scripts": {
+    "effectify": "effectify"
+  },
+  "devDependencies": {
+    "@effectified/engine": "https://github.com/effectified/engine/releases/download/v0.1.0/effectified-engine-0.1.0.tgz"
+  }
+}

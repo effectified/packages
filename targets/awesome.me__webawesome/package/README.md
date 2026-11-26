@@ -16,7 +16,7 @@ import { Accordion } from "@effectified/webawesome";
 Released on GitHub, not npm. Effect UI is in public preview (install its snapshot build):
 
 ```sh
-pnpm add https://github.com/effectified/engine/releases/download/webawesome-v3.15.0/effectified-webawesome-3.15.0.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
+pnpm add https://github.com/effectified/packages/releases/download/webawesome-v3.15.0/effectified-webawesome-3.15.0.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
 Types: bundled with the package.

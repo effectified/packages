@@ -9,7 +9,7 @@
 Released on GitHub, not npm. Effect UI is in public preview (install its snapshot build):
 
 ```sh
-pnpm add https://github.com/effectified/engine/releases/download/codemirror-view-v6.44.0/effectified-codemirror-view-6.44.0.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
+pnpm add https://github.com/effectified/packages/releases/download/codemirror-view-v6.44.0/effectified-codemirror-view-6.44.0.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
 Types: bundled with the package.

@@ -16,7 +16,7 @@ import { EmojiPicker } from "@effectified/emoji-picker-element";
 Released on GitHub, not npm. Effect UI is in public preview (install its snapshot build):
 
 ```sh
-pnpm add https://github.com/effectified/engine/releases/download/emoji-picker-element-v1.29.1/effectified-emoji-picker-element-1.29.1.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
+pnpm add https://github.com/effectified/packages/releases/download/emoji-picker-element-v1.29.1/effectified-emoji-picker-element-1.29.1.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
 Types: bundled with the package.
