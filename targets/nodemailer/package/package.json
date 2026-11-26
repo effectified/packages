@@ -1,6 +1,6 @@
 {
   "name": "@effectified/nodemailer",
-  "version": "0.1.0",
+  "version": "10.6.1",
   "description": "nodemailer in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged",
   "type": "module",
   "license": "MIT",

@@ -8,3 +8,13 @@
 - `Upstream` re-exports simple-git itself, and every facade keeps its upstream object as `.upstream`.
 
 Offered: `grepQueryBuilder`, `simpleGit`. Types: bundled with the package.
+
+## Install
+
+Released on GitHub, not npm:
+
+```sh
+npm install --allow-remote=root https://github.com/effectified/engine/releases/download/simple-git-v4.1.0/effectified-simple-git-4.1.0.tgz effect
+pnpm add https://github.com/effectified/engine/releases/download/simple-git-v4.1.0/effectified-simple-git-4.1.0.tgz effect
+bun add https://github.com/effectified/engine/releases/download/simple-git-v4.1.0/effectified-simple-git-4.1.0.tgz effect
+```

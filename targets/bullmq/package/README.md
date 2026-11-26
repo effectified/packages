@@ -9,3 +9,13 @@
 - `Upstream` re-exports bullmq itself, and every facade keeps its upstream object as `.upstream`.
 
 Offered: `QueueEvents`, `FlowProducer`, `Queue`, `Worker`. Types: bundled with the package.
+
+## Install
+
+Released on GitHub, not npm:
+
+```sh
+npm install --allow-remote=root https://github.com/effectified/engine/releases/download/bullmq-v6.7.10/effectified-bullmq-6.7.10.tgz effect
+pnpm add https://github.com/effectified/engine/releases/download/bullmq-v6.7.10/effectified-bullmq-6.7.10.tgz effect
+bun add https://github.com/effectified/engine/releases/download/bullmq-v6.7.10/effectified-bullmq-6.7.10.tgz effect
+```

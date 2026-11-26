@@ -9,3 +9,13 @@
 - `Upstream` re-exports nodemailer itself, and every facade keeps its upstream object as `.upstream`.
 
 Offered: `createTransport`, `createTestAccount`. Types: bundled with the package.
+
+## Install
+
+Released on GitHub, not npm:
+
+```sh
+npm install --allow-remote=root https://github.com/effectified/engine/releases/download/nodemailer-v10.6.1/effectified-nodemailer-10.6.1.tgz effect
+pnpm add https://github.com/effectified/engine/releases/download/nodemailer-v10.6.1/effectified-nodemailer-10.6.1.tgz effect
+bun add https://github.com/effectified/engine/releases/download/nodemailer-v10.6.1/effectified-nodemailer-10.6.1.tgz effect
+```
