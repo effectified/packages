@@ -7,12 +7,12 @@ description: Write Effect code that uses sharp through @effectified/sharp. Use w
 
 A builder that is also a Node stream.
 
-sharp in Effect: its async calls as traced Effects, absent values as Options, its iterables as Streams, its resources scoped, its failures tagged. Generated from sharp's own types (this copy: 0.35.5+5, for sharp 0.35.5), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+sharp in Effect: its async calls as traced Effects, absent values as Options, its iterables as Streams, its resources scoped, its failures tagged. Generated from sharp's own types (this copy: 0.35.5, for sharp 0.35.5), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
 ```sh
-pnpm add https://effectified.dev/sharp.tgz effect
+pnpm add @effectified/sharp effect
 ```
 
 ## Rules

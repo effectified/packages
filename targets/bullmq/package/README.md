@@ -7,12 +7,12 @@
 ## Install
 
 ```sh
-pnpm add https://effectified.dev/bullmq.tgz effect
-npm install --allow-remote=all https://effectified.dev/bullmq.tgz effect
-bun add https://effectified.dev/bullmq.tgz effect
+pnpm add @effectified/bullmq effect
+npm install @effectified/bullmq effect
+bun add @effectified/bullmq effect
 ```
 
-`https://effectified.dev/bullmq.tgz` always installs the newest release. This one is 6.7.10+5, for bullmq 6.7.10; to pin it, install https://github.com/effectified/packages/releases/download/bullmq-v6.7.10+5/effectified-bullmq-6.7.10+5.tgz.
+This is 6.7.5, for bullmq 6.7.10, which it depends on exactly. A facade's version is its library's major.minor, then how many releases of the facade came before for that major.minor (as DefinitelyTyped numbers `@types` packages), so a fix to the facade is a new version too.
 
 ## Examples
 

@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "@effectified/sharp",
   "slug": "sharp",
   "kind": "runtime",
@@ -10,14 +10,13 @@
     "version": "0.35.5",
     "npm": "https://www.npmjs.com/package/sharp"
   },
-  "version": "0.35.5+5",
-  "engine": "0.4.0",
+  "version": "0.35.5",
+  "engine": "0.5.0",
   "page": "https://effectified.dev/sharp",
   "source": "https://github.com/effectified/packages/tree/main/targets/sharp",
   "install": {
-    "latest": "https://effectified.dev/sharp.tgz",
-    "release": "https://github.com/effectified/packages/releases/download/sharp-v0.35.5+5/effectified-sharp-0.35.5+5.tgz",
-    "tag": "sharp-v0.35.5+5"
+    "npm": "https://www.npmjs.com/package/@effectified/sharp",
+    "tag": "sharp-v0.35.5"
   },
   "tests": 2,
   "examples": [

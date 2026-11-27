@@ -1,9 +1,14 @@
 {
   "name": "@effectified/material-web",
-  "version": "2.5.0+4",
+  "version": "2.5.4",
   "description": "@material/web for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/effectified/packages.git",
+    "directory": "targets/material__web/package"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

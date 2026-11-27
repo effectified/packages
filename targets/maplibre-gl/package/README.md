@@ -7,12 +7,12 @@
 ## Install
 
 ```sh
-pnpm add https://effectified.dev/maplibre-gl.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
-npm install --allow-remote=all https://effectified.dev/maplibre-gl.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
-bun add https://effectified.dev/maplibre-gl.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
+pnpm add @effectified/maplibre-gl effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
+npm install --allow-remote=root @effectified/maplibre-gl effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
+bun add @effectified/maplibre-gl effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
-`https://effectified.dev/maplibre-gl.tgz` always installs the newest release. This one is 6.19.0+4, for maplibre-gl 6.19.0; to pin it, install https://github.com/effectified/packages/releases/download/maplibre-gl-v6.19.0+4/effectified-maplibre-gl-6.19.0+4.tgz. Effect UI is in public preview: install its snapshot build, as above.
+This is 6.19.4, for maplibre-gl 6.19.0, which it depends on exactly. A facade's version is its library's major.minor, then how many releases of the facade came before for that major.minor (as DefinitelyTyped numbers `@types` packages), so a fix to the facade is a new version too. Effect UI is in public preview: install its snapshot build, as above.
 
 ## Examples
 

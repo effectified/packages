@@ -1,9 +1,14 @@
 {
   "name": "@effectified/motion",
-  "version": "14.14.0+4",
+  "version": "14.14.4",
   "description": "motion for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/effectified/packages.git",
+    "directory": "targets/motion/package"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

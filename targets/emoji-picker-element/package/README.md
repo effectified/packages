@@ -7,12 +7,12 @@
 ## Install
 
 ```sh
-pnpm add https://effectified.dev/emoji-picker-element.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
-npm install --allow-remote=all https://effectified.dev/emoji-picker-element.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
-bun add https://effectified.dev/emoji-picker-element.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
+pnpm add @effectified/emoji-picker-element effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
+npm install --allow-remote=root @effectified/emoji-picker-element effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
+bun add @effectified/emoji-picker-element effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
-`https://effectified.dev/emoji-picker-element.tgz` always installs the newest release. This one is 1.29.1+4, for emoji-picker-element 1.29.1; to pin it, install https://github.com/effectified/packages/releases/download/emoji-picker-element-v1.29.1+4/effectified-emoji-picker-element-1.29.1+4.tgz. Effect UI is in public preview: install its snapshot build, as above.
+This is 1.29.4, for emoji-picker-element 1.29.1, which it depends on exactly. A facade's version is its library's major.minor, then how many releases of the facade came before for that major.minor (as DefinitelyTyped numbers `@types` packages), so a fix to the facade is a new version too. Effect UI is in public preview: install its snapshot build, as above.
 
 ## API
 

@@ -7,12 +7,12 @@ description: Write Effect code that uses bullmq through @effectified/bullmq. Use
 
 Generic constructors, typed event payloads as Streams.
 
-bullmq in Effect: its async calls as traced Effects, absent values as Options, its iterables as Streams, its resources scoped, its failures tagged. Generated from bullmq's own types (this copy: 6.7.10+5, for bullmq 6.7.10), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+bullmq in Effect: its async calls as traced Effects, absent values as Options, its iterables as Streams, its resources scoped, its failures tagged. Generated from bullmq's own types (this copy: 6.7.5, for bullmq 6.7.10), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
 ```sh
-pnpm add https://effectified.dev/bullmq.tgz effect
+pnpm add @effectified/bullmq effect
 ```
 
 ## Rules

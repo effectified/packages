@@ -7,12 +7,12 @@ description: Use motion in Effect UI apps through @effectified/motion. Use when 
 
 Animations that continue from where they are, in-view as messages.
 
-motion for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from motion's own types (this copy: 14.14.0+4, for motion 14.14.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+motion for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from motion's own types (this copy: 14.14.4, for motion 14.14.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
 ```sh
-pnpm add https://effectified.dev/motion.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
+pnpm add @effectified/motion effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
 ## Rules

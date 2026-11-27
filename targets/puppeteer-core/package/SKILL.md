@@ -7,12 +7,12 @@ description: Write Effect code that uses puppeteer-core through @effectified/pup
 
 16 handles, scoped browser and pages, generics kept through a call.
 
-puppeteer-core in Effect: its async calls as traced Effects, absent values as Options, its iterables as Streams, its resources scoped, its failures tagged. Generated from puppeteer-core's own types (this copy: 25.19.0+6, for puppeteer-core 25.19.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+puppeteer-core in Effect: its async calls as traced Effects, absent values as Options, its iterables as Streams, its resources scoped, its failures tagged. Generated from puppeteer-core's own types (this copy: 25.19.6, for puppeteer-core 25.19.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
 ```sh
-pnpm add https://effectified.dev/puppeteer-core.tgz effect
+pnpm add @effectified/puppeteer-core effect
 ```
 
 ## Rules

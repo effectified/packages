@@ -7,12 +7,12 @@
 ## Install
 
 ```sh
-pnpm add https://effectified.dev/simple-git.tgz effect
-npm install --allow-remote=all https://effectified.dev/simple-git.tgz effect
-bun add https://effectified.dev/simple-git.tgz effect
+pnpm add @effectified/simple-git effect
+npm install @effectified/simple-git effect
+bun add @effectified/simple-git effect
 ```
 
-`https://effectified.dev/simple-git.tgz` always installs the newest release. This one is 4.1.0+6, for simple-git 4.1.0; to pin it, install https://github.com/effectified/packages/releases/download/simple-git-v4.1.0+6/effectified-simple-git-4.1.0+6.tgz.
+This is 4.1.6, for simple-git 4.1.0, which it depends on exactly. A facade's version is its library's major.minor, then how many releases of the facade came before for that major.minor (as DefinitelyTyped numbers `@types` packages), so a fix to the facade is a new version too.
 
 ## Examples
 

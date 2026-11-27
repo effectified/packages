@@ -73,7 +73,7 @@
 	],
 	"methods": {},
 	"derived": [],
-	"revision": 6,
+	"revision": 7,
 	"testDependencies": {},
 	"decisions": [
 		{
@@ -155,9 +155,9 @@
 		},
 		{
 			"id": "revision",
-			"question": "Which revision of this upstream version is the facade?",
-			"answer": "6",
-			"why": "engine 0.4.0: every Effect traced as `<Handle>.<method>` (Effect.fn: a span and a stack frame per call), a value upstream may not have as an Option, errors branded with upstream's codes as a `reason` union (Effect.catchReason) and `Failure` as the Schema of all of them, facades Equal by their upstream object, releases traced and a failed one logged, upstream's types re-exported by name and its plain values as they are, and the facade held to @effect/tsgo and the GritQL idioms; SimpleGit provided as a service (SimpleGitService); after its re-check: a facade serialises and prints as its handle's name whatever upstream's own toJSON or toString show (neither wrapped), a handle it did not acquire has no release method, a secret's value is scrubbed from failures, the release is registered before a handle is wrapped, a release that fails as its scope closes is logged, and every entry point of the built facade imports in Node; after its third fix round: upstream's failure is kept only as a `Redacted` cause, never copied, walked or printed (`Redacted.value(error.cause)` reaches it), and an error's message and declared string fields are scrubbed of each secret of four characters or more given to the call, its codes never; the error fields typed as simple-git's own objects (`config`, `task`, `git`) are carried as `Redacted`; after its sixth fix round: every failure of a stream's iteration is classified with the call's secrets (its iterator's making, each step, a step it cannot read), an acquired handle is released once by the scope (one a list holds twice, or one two calls hand back), and the facade checks that what each member gives agrees between its type and the runtime (`CheckedGives`); after its release checks: the scope releases what it acquired when it closes, whatever the user did with it (a user's own call of a release reaches upstream and changes nothing the scope does; the scope's later release that fails is logged as a warning), and an interrupted acquisition aborts upstream's call, waits for it and leaves what it gave to the scope, as Effect's `acquireRelease` does",
+			"question": "Which release of its upstream's major.minor is the facade? (its npm version is `<major>.<minor>.<revision - 1>`)",
+			"answer": "7",
+			"why": "engine 0.5.0: published on npm as 4.1.6 (`npm install @effectified/simple-git effect`), its version simple-git's major.minor and the facade's releases for it (6 before this one, GitHub releases `simple-git-v4.1.0` to `simple-git-v4.1.0+6`); its package.json names effectified/packages as its repository, which npm checks as the release workflow publishes, and its README, skill and docs.json install it from npm by name",
 			"by": "agent"
 		}
 	],

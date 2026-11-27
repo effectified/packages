@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "@effectified/nodemailer",
   "slug": "nodemailer",
   "kind": "runtime",
@@ -10,14 +10,13 @@
     "version": "10.6.1",
     "npm": "https://www.npmjs.com/package/nodemailer"
   },
-  "version": "10.6.1+6",
-  "engine": "0.4.0",
+  "version": "10.6.6",
+  "engine": "0.5.0",
   "page": "https://effectified.dev/nodemailer",
   "source": "https://github.com/effectified/packages/tree/main/targets/nodemailer",
   "install": {
-    "latest": "https://effectified.dev/nodemailer.tgz",
-    "release": "https://github.com/effectified/packages/releases/download/nodemailer-v10.6.1+6/effectified-nodemailer-10.6.1+6.tgz",
-    "tag": "nodemailer-v10.6.1+6"
+    "npm": "https://www.npmjs.com/package/@effectified/nodemailer",
+    "tag": "nodemailer-v10.6.6"
   },
   "tests": 7,
   "examples": [

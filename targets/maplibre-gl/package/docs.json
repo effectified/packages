@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "@effectified/maplibre-gl",
   "slug": "maplibre-gl",
   "kind": "ui",
@@ -10,18 +10,17 @@
     "version": "6.19.0",
     "npm": "https://www.npmjs.com/package/maplibre-gl"
   },
-  "version": "6.19.0+4",
-  "engine": "0.4.0",
+  "version": "6.19.4",
+  "engine": "0.5.0",
   "page": "https://effectified.dev/maplibre-gl",
   "source": "https://github.com/effectified/packages/tree/main/targets/maplibre-gl",
   "install": {
-    "latest": "https://effectified.dev/maplibre-gl.tgz",
-    "release": "https://github.com/effectified/packages/releases/download/maplibre-gl-v6.19.0+4/effectified-maplibre-gl-6.19.0+4.tgz",
-    "tag": "maplibre-gl-v6.19.0+4",
+    "npm": "https://www.npmjs.com/package/@effectified/maplibre-gl",
+    "tag": "maplibre-gl-v6.19.4",
     "effectUi": "https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57"
   },
   "demo": {
-    "url": "https://github.com/effectified/packages/releases/download/maplibre-gl-v6.19.0+4/effectified-maplibre-gl-6.19.0+4-demo.tgz",
+    "url": "https://github.com/effectified/packages/releases/download/maplibre-gl-v6.19.4/effectified-maplibre-gl-6.19.4-demo.tgz",
     "pages": [
       "map"
     ]

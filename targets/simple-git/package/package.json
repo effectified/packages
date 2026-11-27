@@ -1,9 +1,14 @@
 {
   "name": "@effectified/simple-git",
-  "version": "4.1.0+6",
+  "version": "4.1.6",
   "description": "simple-git in Effect: its async calls as traced Effects, absent values as Options, its iterables as Streams, its resources scoped, its failures tagged",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/effectified/packages.git",
+    "directory": "targets/simple-git/package"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -35,7 +40,7 @@
     "vitest": "5.1.1"
   },
   "effectified": {
-    "engine": "0.4.0",
+    "engine": "0.5.0",
     "upstream": "simple-git@4.1.0",
     "types": "simple-git@4.1.0"
   }

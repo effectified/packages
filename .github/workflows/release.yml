@@ -1,5 +1,11 @@
-# Releases every facade whose version is not released yet, from a commit of main that passed CI: a new target, a
-# new upstream version (sync), or a new revision. A release is never replaced, so a released version is skipped.
+# Releases every facade whose version npm does not have yet, from a commit of main that passed CI: a new target, a new
+# upstream version (sync), or a new revision. npm is the record of what is released: a version it has is skipped, and a
+# run that stopped half way is finished by the next (or by running this run again). npm publishes through this
+# workflow's identity (npm's trusted publishing): no token is stored, nobody signs in, and every tarball gets a provenance
+# attestation that names the commit. npm trusts this file by its name, `release.yml`: renaming it needs every facade's
+# trusted publisher set again. A facade npm has never seen is left out with a warning until a person runs
+# `pnpm effectify bootstrap` once; the run stays green. Each GitHub release `<name>-v<version>` holds the facade's notes
+# and, for a frontend facade, its demo, which effectified.dev unpacks.
 name: release
 
 on:
@@ -8,37 +14,88 @@ on:
     types: [completed]
     branches: [main]
 
-permissions:
-  contents: write
+permissions: {}
 
 concurrency:
   group: release
   cancel-in-progress: false
 
 jobs:
-  release:
+  # Builds each facade npm or the GitHub releases lack, imports its build in Node and packs it. That runs upstream's
+  # code (the import check, the demo build), so this job has no identity npm would take.
+  pack:
     if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      packed: ${{ steps.pack.outputs.packed }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.event.workflow_run.head_sha }}
-          # `release` checks that the commit is on origin.
+          # `pack` checks that the commit is on origin.
           fetch-depth: 0
       - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+      # No cache in a release build.
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 24
-          cache: pnpm
+          package-manager-cache: false
       - run: pnpm install --frozen-lockfile --ignore-scripts
-      - name: Release what is not released yet
+      - name: Pack what npm or the GitHub releases lack
+        id: pack
         env:
           GH_TOKEN: ${{ github.token }}
-        run: pnpm effectify release
+        run: |
+          pnpm effectify pack "$RUNNER_TEMP/releases"
+          if [ -n "$(ls -A "$RUNNER_TEMP/releases" 2>/dev/null)" ]; then echo "packed=true" >> "$GITHUB_OUTPUT"; fi
+      - if: steps.pack.outputs.packed == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: releases
+          path: ${{ runner.temp }}/releases
+          if-no-files-found: error
+          retention-days: 7
 
-  # effectified.dev builds a page for every facade from this repository's main: deploy it now instead of polling.
+  # Publishes the packed tarballs on npm and makes their GitHub releases. It installs only the engine and runs no
+  # upstream code: the one job with the identity npm takes instead of a token.
+  publish:
+    needs: pack
+    if: needs.pack.outputs.packed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      # The GitHub releases and their tags.
+      contents: write
+      # The workflow's identity, which npm takes instead of a token.
+      id-token: write
+    steps:
+      # The engine that package.json pins, which publishes.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+      # Node 24 comes with an npm that publishes through the workflow's identity (11.5.1 or newer; `publish` checks).
+      # No cache in a release build, and no registry-url: with it setup-node writes a token line npm would read.
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: releases
+          path: ${{ runner.temp }}/releases
+      - name: Publish on npm and make the GitHub releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: pnpm effectify publish "$RUNNER_TEMP/releases"
+
+  # effectified.dev builds a page for every facade from this repository's main: deploy it now instead of polling, also
+  # when there was nothing to publish.
   site:
-    needs: release
+    needs: [pack, publish]
+    if: ${{ !cancelled() && needs.pack.result == 'success' && (needs.publish.result == 'success' || needs.publish.result == 'skipped') }}
     permissions:
       contents: read
     uses: effectified/effectified.dev/.github/workflows/site.yml@main

@@ -7,12 +7,12 @@
 ## Install
 
 ```sh
-pnpm add https://effectified.dev/nodemailer.tgz effect
-npm install --allow-remote=all https://effectified.dev/nodemailer.tgz effect
-bun add https://effectified.dev/nodemailer.tgz effect
+pnpm add @effectified/nodemailer effect
+npm install @effectified/nodemailer effect
+bun add @effectified/nodemailer effect
 ```
 
-`https://effectified.dev/nodemailer.tgz` always installs the newest release. This one is 10.6.1+6, for nodemailer 10.6.1; to pin it, install https://github.com/effectified/packages/releases/download/nodemailer-v10.6.1+6/effectified-nodemailer-10.6.1+6.tgz.
+This is 10.6.6, for nodemailer 10.6.1, which it depends on exactly. A facade's version is its library's major.minor, then how many releases of the facade came before for that major.minor (as DefinitelyTyped numbers `@types` packages), so a fix to the facade is a new version too.
 
 ## Examples
 
