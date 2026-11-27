@@ -176,8 +176,8 @@ importers:
   .:
     devDependencies:
       '@effectified/engine':
-        specifier: https://github.com/effectified/engine/releases/download/v0.4.0/effectified-engine-0.4.0.tgz
-        version: https://github.com/effectified/engine/releases/download/v0.4.0/effectified-engine-0.4.0.tgz(redis@6.4.0)
+        specifier: https://github.com/effectified/engine/releases/download/v0.5.0/effectified-engine-0.5.0.tgz
+        version: https://github.com/effectified/engine/releases/download/v0.5.0/effectified-engine-0.5.0.tgz(redis@6.4.0)
 
 packages:
 
@@ -295,9 +295,9 @@ packages:
     resolution: {integrity: sha512-geduC9fV5lEU14M7xo1av2wZx7zNbSslyAAxob3UMGUh3wUGJLme5emsjXULSILBbByt3HpMPaI0HaRFVPJBhg==}
     hasBin: true
 
-  '@effectified/engine@https://github.com/effectified/engine/releases/download/v0.4.0/effectified-engine-0.4.0.tgz':
-    resolution: {integrity: sha512-xdNMpEG4yua+OA3Tx66hRfUDIMK9DV45vlpT9j0eU19YQoLd6DMmbsyVFZcUuCAAmj+MdWftSfEJq+8/eSOt5w==, tarball: https://github.com/effectified/engine/releases/download/v0.4.0/effectified-engine-0.4.0.tgz}
-    version: 0.4.0
+  '@effectified/engine@https://github.com/effectified/engine/releases/download/v0.5.0/effectified-engine-0.5.0.tgz':
+    resolution: {integrity: sha512-LjENAecgu8l42ld2/jQAZY1Fy/uA1c8q5Q0WNftCw+5hyIo3iF/olrxeDmm57nWEBQILWAlN3oO6ZRVq9hgNUw==, tarball: https://github.com/effectified/engine/releases/download/v0.5.0/effectified-engine-0.5.0.tgz}
+    version: 0.5.0
     engines: {node: '>=24.0.0'}
     hasBin: true
 
@@ -720,7 +720,7 @@ snapshots:
       '@effect/tsgo-win32-arm64': 0.73.4
       '@effect/tsgo-win32-x64': 0.73.4
 
-  '@effectified/engine@https://github.com/effectified/engine/releases/download/v0.4.0/effectified-engine-0.4.0.tgz(redis@6.4.0)':
+  '@effectified/engine@https://github.com/effectified/engine/releases/download/v0.5.0/effectified-engine-0.5.0.tgz(redis@6.4.0)':
     dependencies:
       '@ast-grep/napi': 0.51.3
       '@effect/platform-node': 4.1.5(effect@4.1.5)(redis@6.4.0)

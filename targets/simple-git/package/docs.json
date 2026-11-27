@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "name": "@effectified/simple-git",
   "slug": "simple-git",
   "kind": "runtime",
@@ -10,14 +10,13 @@
     "version": "4.1.0",
     "npm": "https://www.npmjs.com/package/simple-git"
   },
-  "version": "4.1.0+6",
-  "engine": "0.4.0",
+  "version": "4.1.6",
+  "engine": "0.5.0",
   "page": "https://effectified.dev/simple-git",
   "source": "https://github.com/effectified/packages/tree/main/targets/simple-git",
   "install": {
-    "latest": "https://effectified.dev/simple-git.tgz",
-    "release": "https://github.com/effectified/packages/releases/download/simple-git-v4.1.0+6/effectified-simple-git-4.1.0+6.tgz",
-    "tag": "simple-git-v4.1.0+6"
+    "npm": "https://www.npmjs.com/package/@effectified/simple-git",
+    "tag": "simple-git-v4.1.6"
   },
   "tests": 3,
   "examples": [

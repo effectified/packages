@@ -67,7 +67,7 @@
 			"Terminal"
 		]
 	},
-	"revision": 4,
+	"revision": 5,
 	"decisions": [
 		{
 			"id": "exports",
@@ -211,9 +211,9 @@
 		},
 		{
 			"id": "revision",
-			"question": "Which revision of this upstream version is the facade?",
-			"answer": "4",
-			"why": "engine 0.4.0: the facade is held to @effect/tsgo and the GritQL idioms (its tsconfig.json carries the rules), its changes mounts read an element's state through effect's Record and Array, and its smoke test decodes the page's JSON through Schema",
+			"question": "Which release of its upstream's major.minor is the facade? (its npm version is `<major>.<minor>.<revision - 1>`)",
+			"answer": "5",
+			"why": "engine 0.5.0: published on npm as 6.0.4 (`npm install @effectified/xterm effect`), its version @xterm/xterm's major.minor and the facade's releases for it (4 before this one, GitHub releases `xterm-v6.0.0` to `xterm-v6.0.0+4`); its package.json names effectified/packages as its repository, which npm checks as the release workflow publishes, and its README, skill and docs.json install it from npm by name",
 			"by": "agent"
 		}
 	]

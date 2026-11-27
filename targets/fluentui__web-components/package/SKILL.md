@@ -7,12 +7,12 @@ description: Use @fluentui/web-components in Effect UI apps through @effectified
 
 Elements defined through its exports map, a form and a dialog.
 
-@fluentui/web-components for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from @fluentui/web-components's own types (this copy: 3.2.5+4, for @fluentui/web-components 3.2.5), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+@fluentui/web-components for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from @fluentui/web-components's own types (this copy: 3.2.6, for @fluentui/web-components 3.2.5), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
 ```sh
-pnpm add https://effectified.dev/fluentui-web-components.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
+pnpm add @effectified/fluentui-web-components effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
 ## Rules

@@ -1,9 +1,14 @@
 {
   "name": "@effectified/media-chrome",
-  "version": "4.19.5+4",
+  "version": "4.19.6",
   "description": "media-chrome for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/effectified/packages.git",
+    "directory": "targets/media-chrome/package"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

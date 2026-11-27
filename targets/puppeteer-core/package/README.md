@@ -7,12 +7,12 @@
 ## Install
 
 ```sh
-pnpm add https://effectified.dev/puppeteer-core.tgz effect
-npm install --allow-remote=all https://effectified.dev/puppeteer-core.tgz effect
-bun add https://effectified.dev/puppeteer-core.tgz effect
+pnpm add @effectified/puppeteer-core effect
+npm install @effectified/puppeteer-core effect
+bun add @effectified/puppeteer-core effect
 ```
 
-`https://effectified.dev/puppeteer-core.tgz` always installs the newest release. This one is 25.19.0+6, for puppeteer-core 25.19.0; to pin it, install https://github.com/effectified/packages/releases/download/puppeteer-core-v25.19.0+6/effectified-puppeteer-core-25.19.0+6.tgz.
+This is 25.19.6, for puppeteer-core 25.19.0, which it depends on exactly. A facade's version is its library's major.minor, then how many releases of the facade came before for that major.minor (as DefinitelyTyped numbers `@types` packages), so a fix to the facade is a new version too.
 
 ## Examples
 

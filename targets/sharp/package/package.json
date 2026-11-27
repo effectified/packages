@@ -1,9 +1,14 @@
 {
   "name": "@effectified/sharp",
-  "version": "0.35.5+5",
+  "version": "0.35.5",
   "description": "sharp in Effect: its async calls as traced Effects, absent values as Options, its iterables as Streams, its resources scoped, its failures tagged",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/effectified/packages.git",
+    "directory": "targets/sharp/package"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -34,7 +39,7 @@
     "vitest": "5.1.1"
   },
   "effectified": {
-    "engine": "0.4.0",
+    "engine": "0.5.0",
     "upstream": "sharp@0.35.5",
     "types": "sharp@0.35.5"
   }

@@ -1,9 +1,14 @@
 {
   "name": "@effectified/emoji-picker-element",
-  "version": "1.29.1+4",
+  "version": "1.29.4",
   "description": "emoji-picker-element for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/effectified/packages.git",
+    "directory": "targets/emoji-picker-element/package"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

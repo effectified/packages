@@ -1,9 +1,14 @@
 {
   "name": "@effectified/webawesome",
-  "version": "3.15.0+4",
+  "version": "3.15.4",
   "description": "@awesome.me/webawesome for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/effectified/packages.git",
+    "directory": "targets/awesome.me__webawesome/package"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

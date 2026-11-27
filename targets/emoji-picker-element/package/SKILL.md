@@ -7,12 +7,12 @@ description: Use emoji-picker-element in Effect UI apps through @effectified/emo
 
 A web component bound from its manifest.
 
-emoji-picker-element for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from emoji-picker-element's own types (this copy: 1.29.1+4, for emoji-picker-element 1.29.1), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+emoji-picker-element for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from emoji-picker-element's own types (this copy: 1.29.4, for emoji-picker-element 1.29.1), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
 ```sh
-pnpm add https://effectified.dev/emoji-picker-element.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
+pnpm add @effectified/emoji-picker-element effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
 ## Rules

@@ -7,12 +7,12 @@ description: Write Effect code that uses nodemailer through @effectified/nodemai
 
 A scoped transport, error codes, callbacks as Effects.
 
-nodemailer in Effect: its async calls as traced Effects, absent values as Options, its iterables as Streams, its resources scoped, its failures tagged. Generated from nodemailer's own types (this copy: 10.6.1+6, for nodemailer 10.6.1), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+nodemailer in Effect: its async calls as traced Effects, absent values as Options, its iterables as Streams, its resources scoped, its failures tagged. Generated from nodemailer's own types (this copy: 10.6.6, for nodemailer 10.6.1), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
 ```sh
-pnpm add https://effectified.dev/nodemailer.tgz effect
+pnpm add @effectified/nodemailer effect
 ```
 
 ## Rules

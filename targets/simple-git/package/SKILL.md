@@ -7,12 +7,12 @@ description: Write Effect code that uses simple-git through @effectified/simple-
 
 Chainable thenables, generics kept.
 
-simple-git in Effect: its async calls as traced Effects, absent values as Options, its iterables as Streams, its resources scoped, its failures tagged. Generated from simple-git's own types (this copy: 4.1.0+6, for simple-git 4.1.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+simple-git in Effect: its async calls as traced Effects, absent values as Options, its iterables as Streams, its resources scoped, its failures tagged. Generated from simple-git's own types (this copy: 4.1.6, for simple-git 4.1.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
 ```sh
-pnpm add https://effectified.dev/simple-git.tgz effect
+pnpm add @effectified/simple-git effect
 ```
 
 ## Rules

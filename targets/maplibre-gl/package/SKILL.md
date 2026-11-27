@@ -7,12 +7,12 @@ description: Use maplibre-gl in Effect UI apps through @effectified/maplibre-gl.
 
 A WebGL map whose camera is the Model.
 
-maplibre-gl for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from maplibre-gl's own types (this copy: 6.19.0+4, for maplibre-gl 6.19.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+maplibre-gl for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from maplibre-gl's own types (this copy: 6.19.4, for maplibre-gl 6.19.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
 ```sh
-pnpm add https://effectified.dev/maplibre-gl.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
+pnpm add @effectified/maplibre-gl effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
 ## Rules

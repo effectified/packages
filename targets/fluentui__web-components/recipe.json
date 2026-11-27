@@ -94,7 +94,7 @@
 	"testDependencies": {
 		"@fluentui/tokens": "1.0.0-alpha.25"
 	},
-	"revision": 4,
+	"revision": 7,
 	"decisions": [
 		{
 			"id": "exports",
@@ -287,9 +287,9 @@
 		},
 		{
 			"id": "revision",
-			"question": "Which revision of this upstream version is the facade?",
-			"answer": "4",
-			"why": "engine 0.4.0: the facade is held to @effect/tsgo and the GritQL idioms (its tsconfig.json carries the rules), its changes mounts read an element's state through effect's Record and Array, and its smoke test decodes the page's JSON through Schema",
+			"question": "Which release of its upstream's major.minor is the facade? (its npm version is `<major>.<minor>.<revision - 1>`)",
+			"answer": "7",
+			"why": "engine 0.5.0: published on npm as 3.2.6 (`npm install @effectified/fluentui-web-components effect`), its version @fluentui/web-components's major.minor and the facade's releases for it (4 before this one, GitHub releases `fluentui-web-components-v3.2.5` to `fluentui-web-components-v3.2.5+4`); its package.json names effectified/packages as its repository, which npm checks as the release workflow publishes, and its README, skill and docs.json install it from npm by name; it skips 3.2.4 and 3.2.5: the release after 3.2.4 would be 3.2.5, whose tag `fluentui-web-components-v3.2.5` is the GitHub release of the facade's first revision before 0.5.0, and a release fails at a version whose tag another release holds",
 			"by": "agent"
 		}
 	]

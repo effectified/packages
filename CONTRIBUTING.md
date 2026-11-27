@@ -23,4 +23,5 @@ git status                           # nothing generated left uncommitted
 - No install scripts (`--ignore-scripts`), exact versions, nothing published in the last day.
 - A library that already has an Effect wrapper, or is covered by Effect itself, is not a target.
 - A facade that needs what no recipe field can say is an engine gap: open an issue on [effectified/engine](https://github.com/effectified/engine) with the target that shows it.
-- A fix to a released facade raises `recipe.revision` (a release is never replaced), with a decision saying why.
+- A fix to a released facade raises `recipe.revision` (a release is never replaced, and the revision makes the facade's npm version, `<major>.<minor>.<revision - 1>` of its library), with a decision saying why.
+- A new target is published on npm only once a person signed in to npm has run `pnpm effectify bootstrap` for it; until then the release leaves it out with a warning.

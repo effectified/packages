@@ -7,12 +7,12 @@ description: Use @xterm/xterm in Effect UI apps through @effectified/xterm. Use 
 
 A terminal fed from the Model, keystrokes as messages.
 
-@xterm/xterm for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from @xterm/xterm's own types (this copy: 6.0.0+4, for @xterm/xterm 6.0.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+@xterm/xterm for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from @xterm/xterm's own types (this copy: 6.0.4, for @xterm/xterm 6.0.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
 ```sh
-pnpm add https://effectified.dev/xterm.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
+pnpm add @effectified/xterm effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
 ## Rules

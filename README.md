@@ -26,15 +26,15 @@ Each facade has a page on effectified.dev with its examples (live demos for the 
 
 ## Install
 
-`https://effectified.dev/<name>.tgz` always installs a facade's newest release:
+From npm:
 
 ```sh
-pnpm add https://effectified.dev/sharp.tgz effect
-npm install --allow-remote=all https://effectified.dev/sharp.tgz effect
-bun add https://effectified.dev/sharp.tgz effect
+pnpm add @effectified/sharp effect
+npm install @effectified/sharp effect
+bun add @effectified/sharp effect
 ```
 
-Releases are here on GitHub, not on npm, as `<name>-v<version>` (a facade's version is its library's, with `+<revision>` for a later facade of the same version), and are never replaced: to pin one, install its release's tarball. Each package carries `SKILL.md`, the skill an agent follows to use it.
+A frontend facade also takes Effect UI's snapshot build, which its page and README name (npm 12 installs it with `--allow-remote=root`). A facade's version is its library's major.minor, then how many releases of the facade came before for it (as DefinitelyTyped numbers `@types` packages): `@effectified/sharp@0.35.5` is the sixth release for sharp 0.35, and depends on the exact sharp it was made for. Releases are never replaced; each has a GitHub release `<name>-v<version>` here with its notes (and a frontend facade's demo). Each package carries `SKILL.md`, the skill an agent follows to use it.
 
 ## Add a library
 
@@ -59,7 +59,7 @@ Then follow [`skills/effectify`](skills/effectify/SKILL.md), alone or with T3 Co
 ## How it runs
 
 - **CI** (`ci.yml`): for every target a pull request touches (every target when the engine's version or a workflow changes), the facade is regenerated with the pinned engine and must match what is committed, type checked with TypeScript 7, tested against the real library (Redis, Chrome, git, a temp directory), and built.
-- **Release** (`release.yml`): after CI passes on `main`, every facade whose version is not released yet is released.
+- **Release** (`release.yml`): after CI passes on `main`, every facade whose version npm does not have is published on npm and gets its GitHub release. CI publishes through the workflow's identity (npm's trusted publishing): no token is stored, and each tarball has a provenance attestation that names its commit. The facades are packed in one job (which runs upstream's code) and published by another, the only one npm trusts. A facade npm has never seen is left out with a warning until a person signed in to npm runs `pnpm effectify bootstrap` once.
 - **Sync** (`sync.yml`): every day, each runtime facade whose library released a newer version is studied, redrafted (keeping people's and agents' decisions), regenerated and tested, and one pull request is opened with its `DRIFT.md`.
 - **The engine** is a pinned dev dependency (`@effectified/engine` in `package.json`, a release of effectified/engine). Moving to a newer engine is one pull request that changes the pin and commits the facades it regenerates.
 

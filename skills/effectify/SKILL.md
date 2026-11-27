@@ -61,7 +61,7 @@ git diff --exit-code -- targets/<name>   # after reconcile and commit: what is c
 (cd targets/<name>/package && node node_modules/typescript/bin/tsc -p tsconfig.build.json)   # the release build compiles
 ```
 
-Once merged to `main`, CI releases it: `release.yml` publishes every facade whose version is not released yet as the GitHub release `<name>-v<version>` of effectified/packages (its version is upstream's).
+Once merged to `main`, CI releases it: `release.yml` publishes every facade whose version npm does not have on npm, and makes its GitHub release `<name>-v<version>` of effectified/packages (its version is upstream's major.minor, then its releases for it: `recipe.revision - 1`). A new facade is published only after the owner, signed in to npm, has run `pnpm effectify bootstrap` once; until then the release leaves it out with a warning. Say so in your report.
 
 Then commit `targets/<name>/` (surface, scan, recipe, package without node_modules, DRIFT.md if any) and say what remains: decisions you were unsure of, methods excluded and why, tests skipped for lack of a service.
 

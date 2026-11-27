@@ -7,12 +7,12 @@ description: Use @material/web in Effect UI apps through @effectified/material-w
 
 Inherited properties read from its types, a form and a dialog.
 
-@material/web for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from @material/web's own types (this copy: 2.5.0+4, for @material/web 2.5.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+@material/web for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from @material/web's own types (this copy: 2.5.4, for @material/web 2.5.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
 ```sh
-pnpm add https://effectified.dev/material-web.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
+pnpm add @effectified/material-web effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
 ## Rules
