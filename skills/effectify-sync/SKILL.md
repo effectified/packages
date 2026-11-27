@@ -16,7 +16,8 @@ For each target whose upstream has a newer version, `sync` studies it, writes `t
 
 - **Only additions**: new methods appear in the facade by themselves (their handle's method list is regenerated). Read DRIFT.md for new handles or events worth offering, decide them in the recipe (`effectify-recipe`), and merge.
 - **Removals and changed signatures** (`breaking`): code written against the facade may no longer compile. The facade follows upstream (it has no compatibility layer of its own); the pull request says what users must change, taken from DRIFT.md. A removed export the recipe offered is dropped from `exports`, with a decision saying so.
-- **The sync failed**: DRIFT.md is written before anything can fail. A reconcile that cannot settle, or a test that fails, is work for an agent: the failing step's output is in the workflow log. Treat it like a plan unit: fix the recipe or the tests, or report an engine gap.
+- **New engine decisions**: a redraft proposes `brands` (a new handle's string `id`, new `<handle>Id` parameters) and keeps `secrets` and `untraced` as decided. Review each decision `by: "engine"` as `effectify-recipe` says; a renamed upstream option breaks a secret's path, which `reconcile` names (`// secret:` line).
+- **The sync failed**: DRIFT.md is written before anything can fail. A reconcile that cannot settle, a finding of the standard (`EffectNativeError`), or a test that fails, is work for an agent: the failing step's output is in the workflow log. Treat it like a plan unit: fix the recipe or the tests, or report an engine gap.
 
 ## Rules
 

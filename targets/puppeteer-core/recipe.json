@@ -37,6 +37,7 @@
 			"events": []
 		},
 		"CDPSession": {
+			"release": "detach",
 			"events": []
 		},
 		"Locator": {
@@ -77,7 +78,6 @@
 			"events": []
 		},
 		"Tracing": {
-			"release": "stop",
 			"events": []
 		},
 		"WebMCP": {
@@ -144,9 +144,7 @@
 			"acquire": "launch"
 		}
 	],
-	"methods": {
-		"ElementHandle.toElement": "sync"
-	},
+	"methods": {},
 	"derived": [
 		"CDPSession.send",
 		"ElementHandle.$",
@@ -178,7 +176,48 @@
 		"WebMCP.on",
 		"WebMCP.once"
 	],
-	"revision": 5,
+	"borrowed": [
+		"Browser.defaultBrowserContext",
+		"Browser.off",
+		"Browser.on",
+		"Browser.once",
+		"Browser.pages",
+		"Browser.removeAllListeners",
+		"Browser.target",
+		"Browser.waitForTarget",
+		"BrowserContext.browser",
+		"BrowserContext.off",
+		"BrowserContext.on",
+		"BrowserContext.once",
+		"BrowserContext.pages",
+		"BrowserContext.removeAllListeners",
+		"BrowserContext.waitForTarget",
+		"CDPSession.off",
+		"CDPSession.on",
+		"CDPSession.once",
+		"CDPSession.removeAllListeners",
+		"ElementHandle.asElement",
+		"ElementHandle.move",
+		"ElementHandle.toElement",
+		"Frame.page",
+		"HTTPRequest.page",
+		"JSHandle.asElement",
+		"JSHandle.move",
+		"Page.browser",
+		"Page.browserContext",
+		"Page.off",
+		"Page.on",
+		"Page.once",
+		"Page.openDevTools",
+		"Page.removeAllListeners",
+		"Page.target",
+		"Target.asPage",
+		"Target.browser",
+		"Target.browserContext",
+		"Target.opener",
+		"Target.page"
+	],
+	"revision": 6,
 	"testDependencies": {},
 	"decisions": [
 		{
@@ -275,9 +314,9 @@
 		{
 			"id": "handles.CDPSession.release",
 			"question": "Which method releases a CDPSession, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
-			"answer": "none",
-			"why": "its type has no release method",
-			"by": "engine"
+			"answer": "detach",
+			"why": "`HTTPRequest.client` holds the page's own session, and a property's handle is borrowed: without a release named, its borrowed view kept `detach`, which detaches the session its page runs on. A session `Page.createCDPSession()` or `Target.createCDPSession()` makes is the caller's, detached when the scope closes",
+			"by": "agent"
 		},
 		{
 			"id": "handles.CDPSession.events",
@@ -443,9 +482,9 @@
 		{
 			"id": "handles.Tracing.release",
 			"question": "Which method releases a Tracing, so acquiring one opens a scope? (\"none\" keeps it unscoped)",
-			"answer": "stop",
-			"why": "its release methods are stop",
-			"by": "engine"
+			"answer": "none",
+			"why": "nothing acquires a Tracing: it is reached only as `Page.tracing`, a property, whose handle a facade borrows, and a borrowed facade leaves out its release methods. `stop` ends a trace and returns it; as the release it would be gone from the only Tracing a caller has",
+			"by": "agent"
 		},
 		{
 			"id": "handles.Tracing.events",
@@ -539,10 +578,17 @@
 			"by": "engine"
 		},
 		{
+			"id": "borrowed",
+			"question": "Which methods return a releasable handle the facade does not own (a lookup of one upstream already holds, the receiver itself, a handle the receiver holds), which it wraps without its release methods and never releases? (`<Handle>.<method>`, \"none\" for none)",
+			"answer": "Browser.defaultBrowserContext, Browser.off, Browser.on, Browser.once, Browser.pages, Browser.removeAllListeners, Browser.target, Browser.waitForTarget, BrowserContext.browser, BrowserContext.off, BrowserContext.on, BrowserContext.once, BrowserContext.pages, BrowserContext.removeAllListeners, BrowserContext.waitForTarget, CDPSession.off, CDPSession.on, CDPSession.once, CDPSession.removeAllListeners, ElementHandle.asElement, ElementHandle.move, ElementHandle.toElement, Frame.page, HTTPRequest.page, JSHandle.asElement, JSHandle.move, Page.browser, Page.browserContext, Page.off, Page.on, Page.once, Page.openDevTools, Page.removeAllListeners, Page.target, Target.asPage, Target.browser, Target.browserContext, Target.opener, Target.page",
+			"why": "each returns a handle puppeteer already holds, which the caller's scope must not release. Lookups: `Target.page()` returns the page puppeteer caches for its target, `waitForTarget` a target opened elsewhere (a popup), `asPage` a page over an existing target, whose `close()` closes that target, `Page.openDevTools()` the DevTools page of the page it is called on, opened on the first call and returned again on every later one (puppeteer's `Page.openDevTools` reuses the target `_hasDevToolsTarget` finds), which closes with that page; the synchronous `browser()`, `browserContext()`, `target()` and `Frame.page()` return the owner of the object they are called on, and `Browser.defaultBrowserContext()` the context the browser holds, whose `close()` puppeteer refuses (\"Default BrowserContext cannot be closed!\"). The receiver itself: `on`, `off`, `once` and `removeAllListeners` return `this` (puppeteer's EventEmitter), and `JSHandle.move()` and `ElementHandle.move()` return the handle they are called on, so the chained result is borrowed and the scope that acquired the handle still releases it. `newPage`, `createBrowserContext`, `launchPWA`, `$`, `waitForSelector`, `getProperty`, `touchStart` and the other methods that make a handle stay acquired `CDPSession.on`, `off`, `once` and `removeAllListeners` return the receiver: borrowed, so a borrowed session (`HTTPRequest.client`) hands out no `detach` through them. Lists: `Browser.pages()` and `BrowserContext.pages()` resolve to the pages puppeteer holds, each closed by the scope that made it, so they are borrowed; `$$` (Page, Frame, ElementHandle) makes a new `ElementHandle` per element, as `$` makes one, so each is acquired and disposed with the caller's scope. `ElementHandle.asElement()` and `ElementHandle.toElement()` return the handle they are called on (puppeteer's `return this`), `JSHandle.asElement()` that handle when it is an element (else null), `HTTPRequest.page()` the page of the request and `Target.opener()` the target that opened it: each held by its owner, borrowed. `evaluateHandle`, `waitForFunction` (Page, Frame) and `Locator.waitHandle` make a new `JSHandle` or `ElementHandle` (`HandleFor<T>`, the one the value is), acquired and disposed with the caller's scope. The synchronous lists (`targets`, `browserContexts`, `frames`, `childFrames`, `redirectChain`) are borrowed by the engine whatever this list says, and `Frame` and `HTTPRequest` have no release.",
+			"by": "agent"
+		},
+		{
 			"id": "revision",
 			"question": "Which revision of this upstream version is the facade?",
-			"answer": "5",
-			"why": "engine 0.3.0: interrupting a call aborts upstream's signal, a facade handed back to upstream is unwrapped, optional methods are wrapped, and errors carry their upstream class's fields",
+			"answer": "6",
+			"why": "engine 0.4.0: every Effect traced as `<Handle>.<method>` (Effect.fn: a span and a stack frame per call), a value upstream may not have as an Option, errors branded with upstream's codes as a `reason` union (Effect.catchReason) and `Failure` as the Schema of all of them, facades Equal by their upstream object, releases traced and a failed one logged, upstream's types re-exported by name and its plain values as they are, and the facade held to @effect/tsgo and the GritQL idioms; its surface read again with const enums, which no JavaScript holds, left out of the re-exports; lookups (`Target.page`, `Target.asPage`, `waitForTarget`) wrap the handle they find without releasing it, and an interrupted acquisition aborts puppeteer's call at once waits for it and leaves a handle it still resolves to the scope; after its re-check: `Protocol` (const enums only) and `Session` (absent from puppeteer's JavaScript) no longer re-exported, which made the facade fail to import; `Page.openDevTools` a lookup; a borrowed handle (a lookup's, a synchronous call's such as `Frame.page()`, `Page.tracing`) has no `close`, `disconnect`, `dispose` or `stop`, and Tracing is unscoped; `JSHandle.toString` left to `.upstream`; a facade serialises and prints as its handle's name whatever upstream's own toJSON or toString show (neither wrapped), a handle it did not acquire has no release method, a secret's value is scrubbed from failures, the release is registered before a handle is wrapped, a release that fails as its scope closes is logged, and every entry point of the built facade imports in Node; after its third fix round: upstream's failure is kept only as a `Redacted` cause, never copied, walked or printed (`Redacted.value(error.cause)` reaches it), and an error's message and declared string fields are scrubbed of each secret of four characters or more given to the call, its codes never; the methods returning the receiver (`on`, `off`, `once`, `removeAllListeners`, `move`) and those returning a handle puppeteer holds (`browser`, `browserContext`, `target`, `Frame.page`, `defaultBrowserContext`) are listed as borrowed in the recipe, a synchronous method that made a handle being owned now; the elements `$$` finds are the caller's, each acquired in its scope and disposed when it closes (left to the scope when they arrive after an interruption), while `Browser.pages()` and `BrowserContext.pages()` stay borrowed, listed in the recipe; after its sixth fix round: a handle `evaluateHandle`, `waitForFunction` or `Locator.waitHandle` makes is the facade of the `ElementHandle` or `JSHandle` it is, acquired in the caller's scope and disposed when it closes (the types said so, the run time returned puppeteer's raw handle), `asElement`, `toElement`, `HTTPRequest.page`, `Target.opener` and the other synchronous methods whose handle may be absent (`Frame.parentFrame`, `HTTPRequest.frame`, `HTTPRequest.response`, `HTTPResponse.frame`) give a facade or the absence, borrowed where puppeteer holds the handle, `ElementHandle.contentFrame()` a facade or the absence, `ScreenRecording.pipe` an Effect in each overload, and a handle listed twice by `$$` is disposed once by the scope; after its release checks: the scope releases what it acquired when it closes, whatever the user did with it (a user's own call of a release reaches upstream and changes nothing the scope does; the scope's later release that fails is logged as a warning), and an interrupted acquisition aborts upstream's call, waits for it and leaves what it gave to the scope, as Effect's `acquireRelease` does",
 			"by": "agent"
 		}
 	],

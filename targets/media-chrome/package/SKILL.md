@@ -7,7 +7,7 @@ description: Use media-chrome in Effect UI apps through @effectified/media-chrom
 
 47 player elements, play, mute and seek.
 
-media-chrome for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from media-chrome's own types (this copy: 4.19.5+3, for media-chrome 4.19.5), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+media-chrome for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from media-chrome's own types (this copy: 4.19.5+4, for media-chrome 4.19.5), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
@@ -123,44 +123,44 @@ From `test/fixtures/player.ts`.
 
 ## API
 
-| Error | From |
-|---|---|
-| `MediaChromeError` | any other failure |
+| Error | From | Reasons |
+|---|---|---|
+| `MediaChromeError` | any other failure | – |
 
-| Handle | Effects | Streams | Events | Released by |
-|---|---|---|---|---|
-| `MediaAirplayButton` | – | – | – | – |
-| `MediaCaptionsButton` | – | – | – | – |
-| `MediaCastButton` | – | – | – | – |
-| `MediaChromeButton` | – | – | – | – |
-| `MediaChromeDialog` | – | – | – | – |
-| `MediaChromeRange` | – | – | – | – |
-| `MediaControlBar` | – | – | – | – |
-| `MediaController` | `handleMediaUpdated` | – | – | – |
-| `MediaDurationDisplay` | – | – | – | – |
-| `MediaErrorDialog` | – | – | – | – |
-| `MediaKeyboardShortcutsDialog` | – | – | – | – |
-| `MediaFullscreenButton` | – | – | – | – |
-| `MediaGestureReceiver` | – | – | – | – |
-| `MediaLiveButton` | – | – | – | – |
-| `MediaLoadingIndicator` | – | – | – | – |
-| `MediaMuteButton` | – | – | – | – |
-| `MediaPipButton` | – | – | – | – |
-| `MediaPlaybackRateButton` | – | – | – | – |
-| `MediaLoopButton` | – | – | – | – |
-| `MediaPlayButton` | – | – | – | – |
-| `MediaPosterImage` | – | – | – | – |
-| `MediaPreviewChapterDisplay` | – | – | – | – |
-| `MediaPreviewThumbnail` | – | – | – | – |
-| `MediaPreviewTimeDisplay` | – | – | – | – |
-| `MediaSeekBackwardButton` | – | – | – | – |
-| `MediaSeekForwardButton` | – | – | – | – |
-| `MediaTimeDisplay` | – | – | – | – |
-| `MediaTimeRange` | – | – | – | – |
-| `MediaTooltip` | – | – | – | – |
-| `MediaVolumeRange` | – | – | – | – |
-| `MediaContainer` | `handleMediaUpdated` | – | – | – |
-| `MediaTextDisplay` | – | – | – | – |
+| Handle | Effects | Of an `Option` | Streams | Events | Released by |
+|---|---|---|---|---|---|
+| `MediaAirplayButton` | – | – | – | – | – |
+| `MediaCaptionsButton` | – | – | – | – | – |
+| `MediaCastButton` | – | – | – | – | – |
+| `MediaChromeButton` | – | – | – | – | – |
+| `MediaChromeDialog` | – | – | – | – | – |
+| `MediaChromeRange` | – | – | – | – | – |
+| `MediaControlBar` | – | – | – | – | – |
+| `MediaController` | `handleMediaUpdated` | – | – | – | – |
+| `MediaDurationDisplay` | – | – | – | – | – |
+| `MediaErrorDialog` | – | – | – | – | – |
+| `MediaKeyboardShortcutsDialog` | – | – | – | – | – |
+| `MediaFullscreenButton` | – | – | – | – | – |
+| `MediaGestureReceiver` | – | – | – | – | – |
+| `MediaLiveButton` | – | – | – | – | – |
+| `MediaLoadingIndicator` | – | – | – | – | – |
+| `MediaMuteButton` | – | – | – | – | – |
+| `MediaPipButton` | – | – | – | – | – |
+| `MediaPlaybackRateButton` | – | – | – | – | – |
+| `MediaLoopButton` | – | – | – | – | – |
+| `MediaPlayButton` | – | – | – | – | – |
+| `MediaPosterImage` | – | – | – | – | – |
+| `MediaPreviewChapterDisplay` | – | – | – | – | – |
+| `MediaPreviewThumbnail` | – | – | – | – | – |
+| `MediaPreviewTimeDisplay` | – | – | – | – | – |
+| `MediaSeekBackwardButton` | – | – | – | – | – |
+| `MediaSeekForwardButton` | – | – | – | – | – |
+| `MediaTimeDisplay` | – | – | – | – | – |
+| `MediaTimeRange` | – | – | – | – | – |
+| `MediaTooltip` | – | – | – | – | – |
+| `MediaVolumeRange` | – | – | – | – | – |
+| `MediaContainer` | `handleMediaUpdated` | – | – | – | – |
+| `MediaTextDisplay` | – | – | – | – | – |
 
 | Element | Binding | Properties | Events |
 |---|---|---|---|

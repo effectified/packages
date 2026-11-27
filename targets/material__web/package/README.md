@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/material-web.tgz effect h
 bun add https://effectified.dev/material-web.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
-`https://effectified.dev/material-web.tgz` always installs the newest release. This one is 2.5.0+3, for @material/web 2.5.0; to pin it, install https://github.com/effectified/packages/releases/download/material-web-v2.5.0+3/effectified-material-web-2.5.0+3.tgz. Effect UI is in public preview: install its snapshot build, as above.
+`https://effectified.dev/material-web.tgz` always installs the newest release. This one is 2.5.0+4, for @material/web 2.5.0; to pin it, install https://github.com/effectified/packages/releases/download/material-web-v2.5.0+4/effectified-material-web-2.5.0+4.tgz. Effect UI is in public preview: install its snapshot build, as above.
 
 ## Examples
 
@@ -103,9 +103,9 @@ From `test/fixtures/form.ts`.
 
 ## API
 
-| Error | From |
-|---|---|
-| `MaterialWebError` | any other failure |
+| Error | From | Reasons |
+|---|---|---|
+| `MaterialWebError` | any other failure | – |
 
 | Element | Binding | Properties | Events |
 |---|---|---|---|

@@ -1,6 +1,6 @@
 {
   "name": "@effectified/maplibre-gl",
-  "version": "6.19.0+3",
+  "version": "6.19.0+4",
   "description": "maplibre-gl for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
   "type": "module",
   "license": "MIT",
@@ -8,10 +8,6 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
-    },
-    "./elements/*": {
-      "types": "./dist/elements/*.d.ts",
-      "import": "./dist/elements/*.js"
     }
   },
   "files": [
@@ -20,7 +16,6 @@
     "SKILL.md"
   ],
   "sideEffects": [
-    "./dist/elements/*.js",
     "./dist/index.js"
   ],
   "scripts": {

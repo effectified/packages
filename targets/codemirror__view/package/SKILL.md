@@ -7,7 +7,7 @@ description: Use @codemirror/view in Effect UI apps through @effectified/codemir
 
 An editor whose document is the Model, its cursor kept.
 
-@codemirror/view for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from @codemirror/view's own types (this copy: 6.44.0+3, for @codemirror/view 6.44.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+@codemirror/view for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from @codemirror/view's own types (this copy: 6.44.0+4, for @codemirror/view 6.44.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
@@ -87,13 +87,13 @@ From `test/fixtures/editor.ts`.
 
 Services: `ViewEditorView` (a `EditorView`, from `EditorView`).
 
-| Error | From |
-|---|---|
-| `ViewError` | any other failure |
+| Error | From | Reasons |
+|---|---|---|
+| `ViewError` | any other failure | – |
 
-| Handle | Effects | Streams | Events | Released by |
-|---|---|---|---|---|
-| `EditorView` | – | – | – | `destroy` |
+| Handle | Effects | Of an `Option` | Streams | Events | Released by |
+|---|---|---|---|---|---|
+| `EditorView` | – | – | – | – | `destroy` |
 
 Mounts: `EditorMount`.
 

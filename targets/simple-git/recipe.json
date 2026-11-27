@@ -64,10 +64,16 @@
 			]
 		}
 	],
-	"services": [],
+	"services": [
+		{
+			"name": "SimpleGitService",
+			"handle": "SimpleGit",
+			"acquire": "simpleGit"
+		}
+	],
 	"methods": {},
 	"derived": [],
-	"revision": 5,
+	"revision": 6,
 	"testDependencies": {},
 	"decisions": [
 		{
@@ -143,15 +149,15 @@
 		{
 			"id": "services",
 			"question": "Which handles are provided as services (Context.Service with a layer)?",
-			"answer": "none",
-			"why": "every offered export that acquires a releasable handle",
-			"by": "engine"
+			"answer": "SimpleGitService <- simpleGit",
+			"why": "a SimpleGit is bound to one working directory and kept for a program's lifetime, though it owns nothing to release: a service with a layer, as a releasable client would be",
+			"by": "agent"
 		},
 		{
 			"id": "revision",
 			"question": "Which revision of this upstream version is the facade?",
-			"answer": "5",
-			"why": "engine 0.3.0: interrupting a call aborts upstream's signal, a facade handed back to upstream is unwrapped, optional methods are wrapped, and errors carry their upstream class's fields",
+			"answer": "6",
+			"why": "engine 0.4.0: every Effect traced as `<Handle>.<method>` (Effect.fn: a span and a stack frame per call), a value upstream may not have as an Option, errors branded with upstream's codes as a `reason` union (Effect.catchReason) and `Failure` as the Schema of all of them, facades Equal by their upstream object, releases traced and a failed one logged, upstream's types re-exported by name and its plain values as they are, and the facade held to @effect/tsgo and the GritQL idioms; SimpleGit provided as a service (SimpleGitService); after its re-check: a facade serialises and prints as its handle's name whatever upstream's own toJSON or toString show (neither wrapped), a handle it did not acquire has no release method, a secret's value is scrubbed from failures, the release is registered before a handle is wrapped, a release that fails as its scope closes is logged, and every entry point of the built facade imports in Node; after its third fix round: upstream's failure is kept only as a `Redacted` cause, never copied, walked or printed (`Redacted.value(error.cause)` reaches it), and an error's message and declared string fields are scrubbed of each secret of four characters or more given to the call, its codes never; the error fields typed as simple-git's own objects (`config`, `task`, `git`) are carried as `Redacted`; after its sixth fix round: every failure of a stream's iteration is classified with the call's secrets (its iterator's making, each step, a step it cannot read), an acquired handle is released once by the scope (one a list holds twice, or one two calls hand back), and the facade checks that what each member gives agrees between its type and the runtime (`CheckedGives`); after its release checks: the scope releases what it acquired when it closes, whatever the user did with it (a user's own call of a release reaches upstream and changes nothing the scope does; the scope's later release that fails is logged as a warning), and an interrupted acquisition aborts upstream's call, waits for it and leaves what it gave to the scope, as Effect's `acquireRelease` does",
 			"by": "agent"
 		}
 	],

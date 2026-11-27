@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/puppeteer-core.tgz effect
 bun add https://effectified.dev/puppeteer-core.tgz effect
 ```
 
-`https://effectified.dev/puppeteer-core.tgz` always installs the newest release. This one is 25.19.0+5, for puppeteer-core 25.19.0; to pin it, install https://github.com/effectified/packages/releases/download/puppeteer-core-v25.19.0+5/effectified-puppeteer-core-25.19.0+5.tgz.
+`https://effectified.dev/puppeteer-core.tgz` always installs the newest release. This one is 25.19.0+6, for puppeteer-core 25.19.0; to pin it, install https://github.com/effectified/packages/releases/download/puppeteer-core-v25.19.0+6/effectified-puppeteer-core-25.19.0+6.tgz.
 
 ## Examples
 
@@ -50,47 +50,62 @@ const found = yield* page.waitForSelector("#never", { timeout: 100 }).pipe(
 
 From `test/facade.test.ts`.
 
+### A query that may find nothing is an Option
+
+```ts
+import { Effect, Option } from "effect";
+
+// `page.$` resolves to `ElementHandle | null` upstream: an Option of the element's facade here.
+const missing = yield* page.$("#missing");
+const label = yield* page.$("#go").pipe(
+	Effect.flatMap(Option.match({ onNone: () => Effect.succeed("none"), onSome: (button) => button.evaluate((node) => node.textContent ?? "") })),
+);
+// missing: Option.none(), label: "Go"
+```
+
+From `test/facade.test.ts`.
+
 ## API
 
 Exports: `launch`.
 
 Services: `PuppeteerBrowser` (a `Browser`, from `launch`).
 
-| Error | From |
-|---|---|
-| `ConnectionClosedError` | `ConnectionClosedError` |
-| `ProtocolError` | `ProtocolError` |
-| `TimeoutError` | `TimeoutError` |
-| `TouchError` | `TouchError` |
-| `UnsupportedOperation` | `UnsupportedOperation` |
-| `PuppeteerError` | any other failure, codes `ESCAPED_CHAR`, `EACCES`, `EPERM` |
+| Error | From | Reasons |
+|---|---|---|
+| `ConnectionClosedError` | `ConnectionClosedError` | – |
+| `ProtocolError` | `ProtocolError` | – |
+| `TimeoutError` | `TimeoutError` | – |
+| `TouchError` | `TouchError` | – |
+| `UnsupportedOperation` | `UnsupportedOperation` | – |
+| `PuppeteerError` | any other failure | `ESCAPED_CHAR`, `EACCES`, `EPERM` |
 
-| Handle | Effects | Streams | Events | Released by |
-|---|---|---|---|---|
-| `Browser` | `addScreen`, `close`, `cookies`, `createBrowserContext`, `deleteCookie`, `deleteMatchingCookies`, `disconnect`, `extensions`, `getPWAState`, `getWindowBounds`, `installExtension`, `installPWA`, `launchPWA`, `newPage`, `pages`, `removeScreen`, `restrictNetwork`, `screens`, `setCookie`, `setPermission`, `setWindowBounds`, `uninstallExtension`, `uninstallPWA`, `userAgent`, `version`, `waitForTarget` | – | – | `close` |
-| `BrowserContext` | `clearPermissionOverrides`, `close`, `cookies`, `deleteCookie`, `deleteMatchingCookies`, `newPage`, `overridePermissions`, `pages`, `setCookie`, `setPermission`, `waitForTarget` | – | – | `close` |
-| `Page` | `$`, `$$`, `$$eval`, `$eval`, `addScriptTag`, `addStyleTag`, `authenticate`, `bringToFront`, `captureHeapSnapshot`, `click`, `close`, `content`, `cookies`, `createCDPSession`, `createPDFStream`, `deleteCookie`, `emulate`, `emulateCPUThrottling`, `emulateFocusedPage`, `emulateIdleState`, `emulateLocale`, `emulateMediaFeatures`, `emulateMediaType`, `emulateNetworkConditions`, `emulateTimezone`, `emulateVisionDeficiency`, `evaluate`, `evaluateHandle`, `evaluateOnNewDocument`, `exposeFunction`, `focus`, `goBack`, `goForward`, `goto`, `hasDevTools`, `hover`, `metrics`, `openDevTools`, `pdf`, `queryObjects`, `record`, `reload`, `removeExposedFunction`, `removeScriptToEvaluateOnNewDocument`, `resize`, `screencast`, `screenshot`, `select`, `setBypassCSP`, `setBypassServiceWorker`, `setCacheEnabled`, `setContent`, `setCookie`, `setDragInterception`, `setExtraHTTPHeaders`, `setGeolocation`, `setJavaScriptEnabled`, `setOfflineMode`, `setRequestInterception`, `setUserAgent`, `setViewport`, `tabInfo`, `tap`, `title`, `triggerExtensionAction`, `type`, `waitForDevicePrompt`, `waitForFileChooser`, `waitForFrame`, `waitForFunction`, `waitForNavigation`, `waitForNetworkIdle`, `waitForRequest`, `waitForResponse`, `waitForSelector`, `windowId` | – | – | `close` |
-| `Target` | `asPage`, `close`, `createCDPSession`, `page`, `worker` | – | – | `close` |
-| `FileChooser` | `accept`, `cancel` | – | – | – |
-| `Frame` | `$`, `$$`, `$$eval`, `$eval`, `addScriptTag`, `addStyleTag`, `click`, `content`, `evaluate`, `evaluateHandle`, `focus`, `frameElement`, `goto`, `hover`, `select`, `setContent`, `tap`, `title`, `type`, `waitForFunction`, `waitForNavigation`, `waitForSelector` | – | – | – |
-| `CDPSession` | `detach`, `send` | – | – | – |
-| `Locator` | `click`, `fill`, `hover`, `scroll`, `wait`, `waitHandle` | – | – | – |
-| `JSHandle` | `dispose`, `evaluate`, `evaluateHandle`, `getProperties`, `getProperty`, `jsonValue` | – | – | `dispose` |
-| `ElementHandle` | `$`, `$$`, `$$eval`, `$eval`, `autofill`, `backendNodeId`, `boundingBox`, `boxModel`, `click`, `clickablePoint`, `contentFrame`, `dispose`, `drag`, `dragAndDrop`, `dragEnter`, `dragOver`, `drop`, `evaluate`, `evaluateHandle`, `focus`, `getProperties`, `getProperty`, `hover`, `isHidden`, `isIntersectingViewport`, `isVisible`, `jsonValue`, `press`, `screenshot`, `scrollIntoView`, `select`, `tap`, `touchEnd`, `touchMove`, `touchStart`, `type`, `uploadFile`, `waitForSelector` | – | – | `dispose` |
-| `HTTPRequest` | `abort`, `asFetchRequest`, `content`, `continue`, `fetchPostData`, `finalizeInterceptions`, `respond` | – | – | – |
-| `HTTPResponse` | `asFetchResponse`, `buffer`, `content`, `json`, `stream`, `text` | – | – | – |
-| `ScreenRecorder` | `stop` | – | – | `stop` |
-| `ScreenRecording` | `pipe`, `stop` | – | – | `stop` |
-| `DeviceRequestPrompt` | `cancel`, `select`, `waitForDevice` | – | – | – |
-| `Keyboard` | `down`, `press`, `sendCharacter`, `type`, `up` | – | – | – |
-| `Touchscreen` | `tap`, `touchEnd`, `touchMove`, `touchStart` | – | – | – |
-| `Coverage` | `startCSSCoverage`, `startJSCoverage`, `stopCSSCoverage`, `stopJSCoverage` | – | – | – |
-| `Tracing` | `start`, `stop` | – | – | `stop` |
-| `WebMCP` | – | – | `toolinvoked`, `toolresponded`, `toolsadded`, `toolsremoved` | – |
-| `Accessibility` | `snapshot` | – | – | – |
-| `Mouse` | `click`, `down`, `drag`, `dragAndDrop`, `dragEnter`, `dragOver`, `drop`, `move`, `reset`, `up`, `wheel` | – | – | – |
-| `BluetoothEmulation` | `disableEmulation`, `emulateAdapter`, `simulatePreconnectedPeripheral` | – | – | – |
-| `TouchHandle` | `end`, `move` | – | – | `end` |
+| Handle | Effects | Of an `Option` | Streams | Events | Released by |
+|---|---|---|---|---|---|
+| `Browser` | `addScreen`, `close`, `cookies`, `createBrowserContext`, `deleteCookie`, `deleteMatchingCookies`, `disconnect`, `extensions`, `getPWAState`, `getWindowBounds`, `installExtension`, `installPWA`, `launchPWA`, `newPage`, `pages`, `removeScreen`, `restrictNetwork`, `screens`, `setCookie`, `setPermission`, `setWindowBounds`, `uninstallExtension`, `uninstallPWA`, `userAgent`, `version`, `waitForTarget` | – | – | – | `close` |
+| `BrowserContext` | `clearPermissionOverrides`, `close`, `cookies`, `deleteCookie`, `deleteMatchingCookies`, `newPage`, `overridePermissions`, `pages`, `setCookie`, `setPermission`, `waitForTarget` | – | – | – | `close` |
+| `Page` | `$`, `$$`, `$$eval`, `$eval`, `addScriptTag`, `addStyleTag`, `authenticate`, `bringToFront`, `captureHeapSnapshot`, `click`, `close`, `content`, `cookies`, `createCDPSession`, `createPDFStream`, `deleteCookie`, `emulate`, `emulateCPUThrottling`, `emulateFocusedPage`, `emulateIdleState`, `emulateLocale`, `emulateMediaFeatures`, `emulateMediaType`, `emulateNetworkConditions`, `emulateTimezone`, `emulateVisionDeficiency`, `evaluate`, `evaluateHandle`, `evaluateOnNewDocument`, `exposeFunction`, `focus`, `goBack`, `goForward`, `goto`, `hasDevTools`, `hover`, `metrics`, `openDevTools`, `pdf`, `queryObjects`, `record`, `reload`, `removeExposedFunction`, `removeScriptToEvaluateOnNewDocument`, `resize`, `screencast`, `screenshot`, `select`, `setBypassCSP`, `setBypassServiceWorker`, `setCacheEnabled`, `setContent`, `setCookie`, `setDragInterception`, `setExtraHTTPHeaders`, `setGeolocation`, `setJavaScriptEnabled`, `setOfflineMode`, `setRequestInterception`, `setUserAgent`, `setViewport`, `tabInfo`, `tap`, `title`, `triggerExtensionAction`, `type`, `waitForDevicePrompt`, `waitForFileChooser`, `waitForFrame`, `waitForFunction`, `waitForNavigation`, `waitForNetworkIdle`, `waitForRequest`, `waitForResponse`, `waitForSelector`, `windowId` | `$`, `goBack`, `goForward`, `goto`, `reload`, `tabInfo`, `waitForNavigation`, `waitForSelector` | – | – | `close` |
+| `Target` | `asPage`, `close`, `createCDPSession`, `page`, `worker` | `page`, `worker` | – | – | `close` |
+| `FileChooser` | `accept`, `cancel` | – | – | – | – |
+| `Frame` | `$`, `$$`, `$$eval`, `$eval`, `addScriptTag`, `addStyleTag`, `click`, `content`, `evaluate`, `evaluateHandle`, `focus`, `frameElement`, `goto`, `hover`, `select`, `setContent`, `tap`, `title`, `type`, `waitForFunction`, `waitForNavigation`, `waitForSelector` | `$`, `frameElement`, `goto`, `waitForNavigation`, `waitForSelector` | – | – | – |
+| `CDPSession` | `detach`, `send` | – | – | – | `detach` |
+| `Locator` | `click`, `fill`, `hover`, `scroll`, `wait`, `waitHandle` | – | – | – | – |
+| `JSHandle` | `dispose`, `evaluate`, `evaluateHandle`, `getProperties`, `getProperty`, `jsonValue` | – | – | – | `dispose` |
+| `ElementHandle` | `$`, `$$`, `$$eval`, `$eval`, `autofill`, `backendNodeId`, `boundingBox`, `boxModel`, `click`, `clickablePoint`, `contentFrame`, `dispose`, `drag`, `dragAndDrop`, `dragEnter`, `dragOver`, `drop`, `evaluate`, `evaluateHandle`, `focus`, `getProperties`, `getProperty`, `hover`, `isHidden`, `isIntersectingViewport`, `isVisible`, `jsonValue`, `press`, `screenshot`, `scrollIntoView`, `select`, `tap`, `toElement`, `touchEnd`, `touchMove`, `touchStart`, `type`, `uploadFile`, `waitForSelector` | `$`, `boundingBox`, `boxModel`, `waitForSelector` | – | – | `dispose` |
+| `HTTPRequest` | `abort`, `asFetchRequest`, `content`, `continue`, `fetchPostData`, `finalizeInterceptions`, `respond` | `content`, `fetchPostData` | – | – | – |
+| `HTTPResponse` | `asFetchResponse`, `buffer`, `content`, `json`, `stream`, `text` | – | – | – | – |
+| `ScreenRecorder` | `stop` | – | – | – | `stop` |
+| `ScreenRecording` | `pipe`, `stop` | – | – | – | `stop` |
+| `DeviceRequestPrompt` | `cancel`, `select`, `waitForDevice` | – | – | – | – |
+| `Keyboard` | `down`, `press`, `sendCharacter`, `type`, `up` | – | – | – | – |
+| `Touchscreen` | `tap`, `touchEnd`, `touchMove`, `touchStart` | – | – | – | – |
+| `Coverage` | `startCSSCoverage`, `startJSCoverage`, `stopCSSCoverage`, `stopJSCoverage` | – | – | – | – |
+| `Tracing` | `start`, `stop` | `stop` | – | – | – |
+| `WebMCP` | – | – | – | `toolinvoked`, `toolresponded`, `toolsadded`, `toolsremoved` | – |
+| `Accessibility` | `snapshot` | `snapshot` | – | – | – |
+| `Mouse` | `click`, `down`, `drag`, `dragAndDrop`, `dragEnter`, `dragOver`, `drop`, `move`, `reset`, `up`, `wheel` | – | – | – | – |
+| `BluetoothEmulation` | `disableEmulation`, `emulateAdapter`, `simulatePreconnectedPeripheral` | – | – | – | – |
+| `TouchHandle` | `end`, `move` | – | – | – | `end` |
 
 ## For agents
 

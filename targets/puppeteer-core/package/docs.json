@@ -4,22 +4,22 @@
   "slug": "puppeteer-core",
   "kind": "runtime",
   "tagline": "16 handles, scoped browser and pages, generics kept through a call",
-  "description": "puppeteer-core in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged",
+  "description": "puppeteer-core in Effect: its async calls as traced Effects, absent values as Options, its iterables as Streams, its resources scoped, its failures tagged",
   "upstream": {
     "package": "puppeteer-core",
     "version": "25.19.0",
     "npm": "https://www.npmjs.com/package/puppeteer-core"
   },
-  "version": "25.19.0+5",
-  "engine": "0.3.0",
+  "version": "25.19.0+6",
+  "engine": "0.4.0",
   "page": "https://effectified.dev/puppeteer-core",
   "source": "https://github.com/effectified/packages/tree/main/targets/puppeteer-core",
   "install": {
     "latest": "https://effectified.dev/puppeteer-core.tgz",
-    "release": "https://github.com/effectified/packages/releases/download/puppeteer-core-v25.19.0+5/effectified-puppeteer-core-25.19.0+5.tgz",
-    "tag": "puppeteer-core-v25.19.0+5"
+    "release": "https://github.com/effectified/packages/releases/download/puppeteer-core-v25.19.0+6/effectified-puppeteer-core-25.19.0+6.tgz",
+    "tag": "puppeteer-core-v25.19.0+6"
   },
-  "tests": 3,
+  "tests": 11,
   "examples": [
     {
       "title": "Drive a page in a scoped browser",
@@ -30,6 +30,11 @@
       "title": "A timeout is a TimeoutError",
       "source": "test/facade.test.ts",
       "code": "import { Effect } from \"effect\";\nimport { TimeoutError } from \"@effectified/puppeteer-core\";\n\nconst found = yield* page.waitForSelector(\"#never\", { timeout: 100 }).pipe(\n\tEffect.as(true),\n\tEffect.catchTag(\"TimeoutError\", () => Effect.succeed(false)),\n);\n"
+    },
+    {
+      "title": "A query that may find nothing is an Option",
+      "source": "test/facade.test.ts",
+      "code": "import { Effect, Option } from \"effect\";\n\n// `page.$` resolves to `ElementHandle | null` upstream: an Option of the element's facade here.\nconst missing = yield* page.$(\"#missing\");\nconst label = yield* page.$(\"#go\").pipe(\n\tEffect.flatMap(Option.match({ onNone: () => Effect.succeed(\"none\"), onSome: (button) => button.evaluate((node) => node.textContent ?? \"\") })),\n);\n// missing: Option.none(), label: \"Go\"\n"
     }
   ],
   "api": {
@@ -110,6 +115,10 @@
           "version",
           "waitForTarget"
         ],
+        "borrowed": [
+          "pages",
+          "waitForTarget"
+        ],
         "streams": [],
         "sync": [
           "browserContexts",
@@ -141,6 +150,10 @@
           "pages",
           "setCookie",
           "setPermission",
+          "waitForTarget"
+        ],
+        "borrowed": [
+          "pages",
           "waitForTarget"
         ],
         "streams": [],
@@ -237,6 +250,19 @@
           "waitForSelector",
           "windowId"
         ],
+        "options": [
+          "$",
+          "goBack",
+          "goForward",
+          "goto",
+          "reload",
+          "tabInfo",
+          "waitForNavigation",
+          "waitForSelector"
+        ],
+        "borrowed": [
+          "openDevTools"
+        ],
         "streams": [],
         "sync": [
           "browser",
@@ -275,6 +301,14 @@
           "createCDPSession",
           "page",
           "worker"
+        ],
+        "options": [
+          "page",
+          "worker"
+        ],
+        "borrowed": [
+          "asPage",
+          "page"
         ],
         "streams": [],
         "sync": [
@@ -324,6 +358,13 @@
           "waitForNavigation",
           "waitForSelector"
         ],
+        "options": [
+          "$",
+          "frameElement",
+          "goto",
+          "waitForNavigation",
+          "waitForSelector"
+        ],
         "streams": [],
         "sync": [
           "childFrames",
@@ -345,6 +386,7 @@
       },
       {
         "name": "CDPSession",
+        "release": "detach",
         "effects": [
           "detach",
           "send"
@@ -406,8 +448,7 @@
         "sync": [
           "asElement",
           "move",
-          "remoteObject",
-          "toString"
+          "remoteObject"
         ],
         "events": []
       },
@@ -447,6 +488,7 @@
           "scrollIntoView",
           "select",
           "tap",
+          "toElement",
           "touchEnd",
           "touchMove",
           "touchStart",
@@ -454,14 +496,21 @@
           "uploadFile",
           "waitForSelector"
         ],
+        "options": [
+          "$",
+          "boundingBox",
+          "boxModel",
+          "waitForSelector"
+        ],
+        "borrowed": [
+          "toElement"
+        ],
         "streams": [],
         "sync": [
           "asElement",
           "asLocator",
           "move",
-          "remoteObject",
-          "toElement",
-          "toString"
+          "remoteObject"
         ],
         "events": []
       },
@@ -475,6 +524,10 @@
           "fetchPostData",
           "finalizeInterceptions",
           "respond"
+        ],
+        "options": [
+          "content",
+          "fetchPostData"
         ],
         "streams": [],
         "sync": [
@@ -600,9 +653,11 @@
       },
       {
         "name": "Tracing",
-        "release": "stop",
         "effects": [
           "start",
+          "stop"
+        ],
+        "options": [
           "stop"
         ],
         "streams": [],
@@ -632,6 +687,9 @@
       {
         "name": "Accessibility",
         "effects": [
+          "snapshot"
+        ],
+        "options": [
           "snapshot"
         ],
         "streams": [],

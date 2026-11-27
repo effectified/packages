@@ -7,7 +7,7 @@ description: Write Effect code that uses sharp through @effectified/sharp. Use w
 
 A builder that is also a Node stream.
 
-sharp in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged. Generated from sharp's own types (this copy: 0.35.5+4, for sharp 0.35.5), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+sharp in Effect: its async calls as traced Effects, absent values as Options, its iterables as Streams, its resources scoped, its failures tagged. Generated from sharp's own types (this copy: 0.35.5+5, for sharp 0.35.5), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
@@ -17,9 +17,11 @@ pnpm add https://effectified.dev/sharp.tgz effect
 
 ## Rules
 
-- Import from `@effectified/sharp`, not from `sharp`. sharp's types are `Upstream.<Type>` (`import { Upstream } from "@effectified/sharp"`).
-- An async call returns an `Effect`, run with `yield*` inside `Effect.gen`; an async iterable is a `Stream`; a handle a call returns is a facade too. A synchronous call stays synchronous (a builder chain stays a chain).
-- Failures are tagged: `SharpError`. Handle one with `Effect.catchTag("<Tag>", ...)`; each carries `operation` (`"<Handle>.<method>"`), `message`, upstream's `code` when it has one, and `cause`.
+- Import from `@effectified/sharp`, not from `sharp`. sharp's types are re-exported by their own names (`import type { ... } from "@effectified/sharp"`), and all of it is `Upstream`.
+- An async call returns an `Effect`, traced as `<Handle>.<method>` (a span and a stack frame per call, as `Effect.fn`): run it with `yield*` inside `Effect.gen` or your own `Effect.fn`. An async iterable is a `Stream`; a handle a call returns is a facade too. A synchronous call stays synchronous (a builder chain stays a chain).
+- Failures are branded `Schema.TaggedError`s: `SharpError`. Handle one with `Effect.catchTag("<Tag>", ...)`; each carries `operation` (`"<Handle>.<method>"`), `message`, upstream's `code` when it has one, the fields upstream's error declares, and upstream's failure as `cause`, `Redacted` (`Redacted.value(error.cause)`), printed nowhere. `Failure` is the Schema of every one: `Failure.match(error, { <Tag>: ... })`, `Failure.guards.<Tag>(value)`.
+- `SharpError` carries `reason`, upstream's code as a tagged union (`ERR_DLOPEN_DISABLED`...): pick one with `Effect.catchReason("SharpError", "ERR_DLOPEN_DISABLED", (reason, error) => ...)`.
+- Two facades of one upstream object are `Equal` and hash alike: use them as keys of a `HashMap` or `HashSet`.
 - What the facade does not wrap stays reachable: `.upstream` on every facade, `Upstream` for the package. Use them rather than importing `sharp` again.
 
 ## Examples
@@ -45,12 +47,12 @@ From `test/facade.test.ts`.
 
 Exports: `sharp`.
 
-| Error | From |
-|---|---|
-| `SharpError` | any other failure, codes `ERR_DLOPEN_DISABLED` |
+| Error | From | Reasons |
+|---|---|---|
+| `SharpError` | any other failure | `ERR_DLOPEN_DISABLED` |
 
-| Handle | Effects | Streams | Events | Released by |
-|---|---|---|---|---|
-| `Sharp` | `metadata`, `stats`, `toBuffer`, `toFile`, `toUint8Array` | – | – | – |
+| Handle | Effects | Of an `Option` | Streams | Events | Released by |
+|---|---|---|---|---|---|
+| `Sharp` | `metadata`, `stats`, `toBuffer`, `toFile`, `toUint8Array` | – | – | – | – |
 
 More: https://effectified.dev/sharp

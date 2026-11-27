@@ -94,7 +94,7 @@
 	"testDependencies": {
 		"@fluentui/tokens": "1.0.0-alpha.25"
 	},
-	"revision": 3,
+	"revision": 4,
 	"decisions": [
 		{
 			"id": "exports",
@@ -279,17 +279,17 @@
 			"by": "agent"
 		},
 		{
-			"id": "revision",
-			"question": "Which revision of this upstream version is the facade?",
-			"answer": "3",
-			"why": "engine 0.3.0: regenerated with the engine that makes the runtime facades cancel upstream; no change to this facade's API",
-			"by": "agent"
-		},
-		{
 			"id": "testDependencies",
 			"question": "What do the facade's tests import besides the toolchain?",
 			"answer": "@fluentui/tokens",
 			"why": "the form fixture, also the facade's live demo, sets Fluent's light theme as an app does; without its tokens the elements draw nothing",
+			"by": "agent"
+		},
+		{
+			"id": "revision",
+			"question": "Which revision of this upstream version is the facade?",
+			"answer": "4",
+			"why": "engine 0.4.0: the facade is held to @effect/tsgo and the GritQL idioms (its tsconfig.json carries the rules), its changes mounts read an element's state through effect's Record and Array, and its smoke test decodes the page's JSON through Schema",
 			"by": "agent"
 		}
 	]

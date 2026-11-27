@@ -1,7 +1,7 @@
 // A MapLibre GL map as an Effect UI mount on a <div>: created from its style and camera when the div is committed,
 // updated in place when the view gives another style or camera, its settled camera and its clicks sent as messages,
 // removed with the div. Written for the engine's recipe (ui.mounts), not generated.
-import { Equal } from "effect";
+import { Array as Arr, Equal } from "effect";
 import { type LngLatLike, MapLibreMap, type MapOptions } from "maplibre-gl";
 import { instanceMount, typed } from "../internal/ui.ts";
 
@@ -63,7 +63,7 @@ function cameraOf(map: MapLibreMap): Camera {
 
 // maplibre-gl exports no LngLat class to convert with, and LngLatLike is an untagged union of upstream's shapes.
 function lngLat(center: LngLatLike): readonly [number, number] {
-	if (Array.isArray(center)) return [center[0], center[1]];
+	if (Arr.isArray(center)) return [center[0], center[1]];
 	return "lon" in center ? [center.lon, center.lat] : [center.lng, center.lat];
 }
 

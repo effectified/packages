@@ -4,27 +4,32 @@
   "slug": "bullmq",
   "kind": "runtime",
   "tagline": "generic constructors, typed event payloads as Streams",
-  "description": "bullmq in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged",
+  "description": "bullmq in Effect: its async calls as traced Effects, absent values as Options, its iterables as Streams, its resources scoped, its failures tagged",
   "upstream": {
     "package": "bullmq",
     "version": "6.7.10",
     "npm": "https://www.npmjs.com/package/bullmq"
   },
-  "version": "6.7.10+4",
-  "engine": "0.3.0",
+  "version": "6.7.10+5",
+  "engine": "0.4.0",
   "page": "https://effectified.dev/bullmq",
   "source": "https://github.com/effectified/packages/tree/main/targets/bullmq",
   "install": {
     "latest": "https://effectified.dev/bullmq.tgz",
-    "release": "https://github.com/effectified/packages/releases/download/bullmq-v6.7.10+4/effectified-bullmq-6.7.10+4.tgz",
-    "tag": "bullmq-v6.7.10+4"
+    "release": "https://github.com/effectified/packages/releases/download/bullmq-v6.7.10+5/effectified-bullmq-6.7.10+5.tgz",
+    "tag": "bullmq-v6.7.10+5"
   },
-  "tests": 2,
+  "tests": 3,
   "examples": [
     {
       "title": "A queue, a worker, and its events as a Stream",
       "source": "test/facade.test.ts",
-      "code": "import { Effect, Stream } from \"effect\";\nimport { events, makeQueue, makeWorker } from \"@effectified/bullmq\";\n\n// Queue and worker close with the scope.\nconst queue = yield* makeQueue(name, { connection: yield* redis });\nconst worker = yield* makeWorker(name, async (job) => (job.data as { n: number }).n * 2, { connection: yield* redis });\nconst completed = events.Worker.completed(worker).pipe(Stream.take(1), Stream.runCollect);\nconst [job, emitted] = yield* Effect.all([queue.add(\"double\", { n: 21 }), completed], { concurrency: 2 });\n// Typed by bullmq's own WorkerListener: `completed` is called with the Job and its result.\nconst [finished, result] = emitted[0] ?? [];\n"
+      "code": "import { Effect, Stream } from \"effect\";\nimport { events, makeQueue, makeWorker } from \"@effectified/bullmq\";\n\n// Queue and worker close with the scope.\nconst queue = yield* makeQueue(name, { connection: yield* redis });\nconst worker = yield* makeWorker(name, async (job) => (job.data as { n: number }).n * 2, { connection: yield* redis });\n// An emitter cannot be paused: bound the buffer when a consumer may fall behind (the newest are kept).\nconst completed = events.Worker.completed(worker, { bufferSize: 16 }).pipe(Stream.take(1), Stream.runCollect);\nconst [job, emitted] = yield* Effect.all([queue.add(\"double\", { n: 21 }), completed], { concurrency: 2 });\n// Typed by bullmq's own WorkerListener: `completed` is called with the Job and its result.\nconst [finished, result] = emitted[0] ?? [];\n"
+    },
+    {
+      "title": "Job ids are branded, and a lookup that may find nothing is an Option",
+      "source": "test/facade.test.ts",
+      "code": "import { JobId } from \"@effectified/bullmq\";\n\n// `job.id` is a `JobId`: no other string is taken where a job id is, unless it is made one.\nconst found = yield* queue.getJob(job.id ?? JobId.make(\"unknown\"));\nconst missing = yield* queue.getJob(JobId.make(\"no-such-job\"));\n"
     }
   ],
   "api": {
@@ -241,6 +246,15 @@
           "upsertJobScheduler",
           "waitUntilReady"
         ],
+        "options": [
+          "getDebounceJobId",
+          "getDeduplicationJobId",
+          "getGlobalConcurrency",
+          "getGlobalRateLimit",
+          "getJob",
+          "getJobScheduler",
+          "getVersion"
+        ],
         "streams": [],
         "sync": [
           "emit",
@@ -350,13 +364,27 @@
         "sync": [
           "asJSON",
           "asJSONSandbox",
-          "toFlowEntry",
-          "toJSON"
+          "toFlowEntry"
         ],
         "events": []
       }
     ],
     "elements": [],
-    "mounts": []
+    "mounts": [],
+    "brands": {
+      "JobId": [
+        "Job.id",
+        "Queue.addJobLog(0)",
+        "Queue.getJob(0)",
+        "Queue.getJobLogs(0)",
+        "Queue.getJobState(0)",
+        "Queue.remove(0)",
+        "Queue.updateJobProgress(0)",
+        "Worker.cancelJob(0)"
+      ],
+      "WorkerId": [
+        "Worker.id"
+      ]
+    }
   }
 }

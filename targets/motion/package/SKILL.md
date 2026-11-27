@@ -7,7 +7,7 @@ description: Use motion in Effect UI apps through @effectified/motion. Use when 
 
 Animations that continue from where they are, in-view as messages.
 
-motion for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from motion's own types (this copy: 14.14.0+3, for motion 14.14.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+motion for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from motion's own types (this copy: 14.14.0+4, for motion 14.14.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
@@ -101,13 +101,13 @@ From `test/fixtures/animate.ts`.
 
 Services: `MotionTimeline` (a `Timeline`, from `animate`).
 
-| Error | From |
-|---|---|
-| `MotionError` | any other failure |
+| Error | From | Reasons |
+|---|---|---|
+| `MotionError` | any other failure | – |
 
-| Handle | Effects | Streams | Events | Released by |
-|---|---|---|---|---|
-| `Timeline` | `then` | – | – | `stop` |
+| Handle | Effects | Of an `Option` | Streams | Events | Released by |
+|---|---|---|---|---|---|
+| `Timeline` | `then` | – | – | – | `stop` |
 
 Mounts: `AnimateMount`, `InViewMount`.
 

@@ -7,7 +7,7 @@ description: Use @xterm/xterm in Effect UI apps through @effectified/xterm. Use 
 
 A terminal fed from the Model, keystrokes as messages.
 
-@xterm/xterm for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from @xterm/xterm's own types (this copy: 6.0.0+3, for @xterm/xterm 6.0.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+@xterm/xterm for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from @xterm/xterm's own types (this copy: 6.0.0+4, for @xterm/xterm 6.0.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
@@ -89,20 +89,20 @@ From `test/fixtures/terminal.ts`.
 
 Services: `XtermTerminal` (a `Terminal`, from `Terminal`).
 
-| Error | From |
-|---|---|
-| `XtermError` | any other failure, codes `EPIPE`, `ERROR` |
+| Error | From | Reasons |
+|---|---|---|
+| `XtermError` | any other failure | `EPIPE`, `ERROR` |
 
-| Handle | Effects | Streams | Events | Released by |
-|---|---|---|---|---|
-| `Terminal` | – | – | – | `dispose` |
-| `IDisposable` | – | – | – | `dispose` |
-| `IMarker` | – | – | – | `dispose` |
-| `IBufferNamespace` | – | – | – | – |
-| `IParser` | – | – | – | – |
-| `IUnicodeHandling` | – | – | – | – |
-| `IBuffer` | – | – | – | – |
-| `IBufferCell` | – | – | – | – |
+| Handle | Effects | Of an `Option` | Streams | Events | Released by |
+|---|---|---|---|---|---|
+| `Terminal` | – | – | – | – | `dispose` |
+| `IDisposable` | – | – | – | – | `dispose` |
+| `IMarker` | – | – | – | – | `dispose` |
+| `IBufferNamespace` | – | – | – | – | – |
+| `IParser` | – | – | – | – | – |
+| `IUnicodeHandling` | – | – | – | – | – |
+| `IBuffer` | – | – | – | – | – |
+| `IBufferCell` | – | – | – | – | – |
 
 Mounts: `TerminalMount`.
 

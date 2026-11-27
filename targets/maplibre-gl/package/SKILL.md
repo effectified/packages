@@ -7,7 +7,7 @@ description: Use maplibre-gl in Effect UI apps through @effectified/maplibre-gl.
 
 A WebGL map whose camera is the Model.
 
-maplibre-gl for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from maplibre-gl's own types (this copy: 6.19.0+3, for maplibre-gl 6.19.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+maplibre-gl for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from maplibre-gl's own types (this copy: 6.19.0+4, for maplibre-gl 6.19.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
@@ -123,111 +123,111 @@ From `test/fixtures/map.ts`.
 
 Services: `MaplibreGlMap$1` (a `Map$1`, from `Map`).
 
-| Error | From |
-|---|---|
-| `AJAXError` | `AJAXError` |
-| `GPUInitializationError` | `GPUInitializationError` |
-| `MaplibreGlError` | any other failure |
+| Error | From | Reasons |
+|---|---|---|
+| `AJAXError` | `AJAXError` | – |
+| `GPUInitializationError` | `GPUInitializationError` | – |
+| `MaplibreGlError` | any other failure | – |
 
-| Handle | Effects | Streams | Events | Released by |
-|---|---|---|---|---|
-| `Map$1` | `loadImage`, `once` | – | `boxzoomcancel`, `boxzoomend`, `boxzoomstart`, `click`, `contextmenu`, `cooperativegestureprevented`, `data`, `dataabort`, `dataloading`, `dblclick`, `drag`, `dragend`, `dragstart`, `error`, `idle`, `load`, `mousedown`, `mouseenter`, `mouseleave`, `mousemove`, `mouseout`, `mouseover`, `mouseup`, `move`, `moveend`, `movestart`, `pitch`, `pitchend`, `pitchstart`, `projectiontransition`, `remove`, `render`, `resize`, `roll`, `rollend`, `rollstart`, `rotate`, `rotateend`, `rotatestart`, `sourcedata`, `sourcedataabort`, `sourcedataloading`, `style.load`, `styledata`, `styledataloading`, `styleimagemissing`, `terrain`, `touchcancel`, `touchend`, `touchmove`, `touchstart`, `webglcontextlost`, `webglcontextrestored`, `wheel`, `zoom`, `zoomend`, `zoomstart` | `remove` |
-| `LngLat` | – | – | – | – |
-| `LngLatBounds` | – | – | – | – |
-| `Point` | – | – | – | – |
-| `Subscription` | – | – | – | – |
-| `Terrain` | – | – | – | `destroy` |
-| `Style` | `getDashes`, `getGlyphs`, `getImages`, `loadURL`, `once` | – | `boxzoomcancel`, `boxzoomend`, `boxzoomstart`, `click`, `contextmenu`, `cooperativegestureprevented`, `data`, `dataabort`, `dataloading`, `dblclick`, `drag`, `dragend`, `dragstart`, `error`, `idle`, `load`, `mousedown`, `mousemove`, `mouseout`, `mouseover`, `mouseup`, `move`, `moveend`, `movestart`, `pitch`, `pitchend`, `pitchstart`, `projectiontransition`, `remove`, `render`, `resize`, `roll`, `rollend`, `rollstart`, `rotate`, `rotateend`, `rotatestart`, `sourcedata`, `sourcedataabort`, `sourcedataloading`, `style.load`, `styledata`, `styledataloading`, `styleimagemissing`, `terrain`, `touchcancel`, `touchend`, `touchmove`, `touchstart`, `webglcontextlost`, `webglcontextrestored`, `wheel`, `zoom`, `zoomend`, `zoomstart` | `destroy` |
-| `Painter` | – | – | – | `destroy` |
-| `ScrollZoomHandler` | – | – | – | – |
-| `BoxZoomHandler` | `once` | – | `boxzoomcancel`, `boxzoomend`, `boxzoomstart`, `click`, `contextmenu`, `cooperativegestureprevented`, `data`, `dataabort`, `dataloading`, `dblclick`, `drag`, `dragend`, `dragstart`, `error`, `idle`, `load`, `mousedown`, `mousemove`, `mouseout`, `mouseover`, `mouseup`, `move`, `moveend`, `movestart`, `pitch`, `pitchend`, `pitchstart`, `projectiontransition`, `remove`, `render`, `resize`, `roll`, `rollend`, `rollstart`, `rotate`, `rotateend`, `rotatestart`, `sourcedata`, `sourcedataabort`, `sourcedataloading`, `style.load`, `styledata`, `styledataloading`, `styleimagemissing`, `terrain`, `touchcancel`, `touchend`, `touchmove`, `touchstart`, `webglcontextlost`, `webglcontextrestored`, `wheel`, `zoom`, `zoomend`, `zoomstart` | – |
-| `DragRotateHandler` | – | – | – | – |
-| `DragPanHandler` | – | – | – | – |
-| `KeyboardHandler` | – | – | – | – |
-| `DoubleClickZoomHandler` | – | – | – | – |
-| `TwoFingersTouchZoomRotateHandler` | – | – | – | – |
-| `TwoFingersTouchPitchHandler` | – | – | – | – |
-| `CooperativeGesturesHandler` | `once` | – | `boxzoomcancel`, `boxzoomend`, `boxzoomstart`, `click`, `contextmenu`, `cooperativegestureprevented`, `data`, `dataabort`, `dataloading`, `dblclick`, `drag`, `dragend`, `dragstart`, `error`, `idle`, `load`, `mousedown`, `mousemove`, `mouseout`, `mouseover`, `mouseup`, `move`, `moveend`, `movestart`, `pitch`, `pitchend`, `pitchstart`, `projectiontransition`, `remove`, `render`, `resize`, `roll`, `rollend`, `rollstart`, `rotate`, `rotateend`, `rotatestart`, `sourcedata`, `sourcedataabort`, `sourcedataloading`, `style.load`, `styledata`, `styledataloading`, `styleimagemissing`, `terrain`, `touchcancel`, `touchend`, `touchmove`, `touchstart`, `webglcontextlost`, `webglcontextrestored`, `wheel`, `zoom`, `zoomend`, `zoomstart` | – |
-| `Framebuffer` | – | – | – | `destroy` |
-| `Mesh` | – | – | – | `destroy` |
-| `TerrainTileManager` | `once` | – | – | – |
-| `TerrainCoverage` | – | – | – | – |
-| `Dispatcher` | `broadcast`, `getActor`, `once`, `registerMessageHandler`, `unregisterMessageHandler`, `waitForInitComplete` | – | `error` | – |
-| `ImageManager` | `getImages`, `once` | – | `error`, `styleimagemissing` | `destroy` |
-| `PatternAtlas` | – | – | – | `destroy` |
-| `GlyphManager` | `getGlyphs` | – | – | `destroy` |
-| `LineAtlas` | – | – | – | – |
-| `Light` | `once` | – | – | – |
-| `Sky` | `once` | – | – | – |
-| `ZoomHistory` | – | – | – | – |
-| `CrossTileSymbolIndex` | – | – | – | – |
-| `PauseablePlacement` | – | – | – | – |
-| `Placement` | – | – | – | – |
-| `Texture` | – | – | – | `destroy` |
-| `Context` | – | – | – | `destroy` |
-| `IRenderToTexture` | – | – | – | – |
-| `VertexBuffer` | – | – | – | `destroy` |
-| `SegmentVector` | – | – | – | `destroy` |
-| `IndexBuffer` | – | – | – | `destroy` |
-| `ProgramCache` | – | – | – | `destroy` |
-| `ColorAttachment` | – | – | – | – |
-| `DepthAttachment` | – | – | – | – |
-| `Source` | `loadTile` | – | – | – |
-| `Tile` | – | – | – | – |
-| `TileManager` | `once` | – | `data`, `dataabort`, `dataloading`, `error` | – |
-| `Actor` | `processTask`, `sendAsync` | – | – | – |
-| `WorkerPool` | `acquire`, `once`, `release`, `restart`, `start` | – | `create`, `restart`, `terminate` | `release` |
-| `RequestManager` | – | – | – | – |
-| `FontFaceManager` | `getFontFamily` | – | – | `destroy` |
-| `PossiblyEvaluated` | – | – | – | – |
-| `CrossTileIDs` | – | – | – | – |
-| `CollisionIndex` | – | – | – | – |
-| `CollisionGroups` | – | – | – | – |
-| `ClearColor` | – | – | – | – |
-| `ClearDepth` | – | – | – | – |
-| `ClearStencil` | – | – | – | – |
-| `ColorMask` | – | – | – | – |
-| `DepthMask` | – | – | – | – |
-| `StencilMask` | – | – | – | – |
-| `StencilFunc` | – | – | – | – |
-| `StencilOp` | – | – | – | – |
-| `StencilTest` | – | – | – | – |
-| `DepthRange` | – | – | – | – |
-| `DepthTest` | – | – | – | – |
-| `DepthFunc` | – | – | – | – |
-| `Blend` | – | – | – | – |
-| `BlendFunc` | – | – | – | – |
-| `BlendColor` | – | – | – | – |
-| `BlendEquation` | – | – | – | – |
-| `CullFace` | – | – | – | – |
-| `CullFaceSide` | – | – | – | – |
-| `FrontFace` | – | – | – | – |
-| `ProgramValue` | – | – | – | – |
-| `ActiveTextureUnit` | – | – | – | – |
-| `Viewport` | – | – | – | – |
-| `BindFramebuffer` | – | – | – | – |
-| `BindRenderbuffer` | – | – | – | – |
-| `BindTexture` | – | – | – | – |
-| `BindVertexBuffer` | – | – | – | – |
-| `BindElementBuffer` | – | – | – | – |
-| `BindVertexArray` | – | – | – | – |
-| `PixelStoreUnpack` | – | – | – | – |
-| `PixelStoreUnpackPremultiplyAlpha` | – | – | – | – |
-| `PixelStoreUnpackFlipY` | – | – | – | – |
-| `UniformBuffer` | – | – | – | `destroy` |
-| `Program` | – | – | – | – |
-| `Bucket` | – | – | – | `destroy` |
-| `OverscaledTileID` | – | – | – | – |
-| `ImageAtlas` | – | – | – | – |
-| `AlphaImage` | – | – | – | – |
-| `CollisionBoxArray` | – | – | – | – |
-| `DEMData` | – | – | – | – |
-| `SourceFeatureState` | – | – | – | – |
-| `WorldCoordinateHelper` | – | – | – | – |
-| `ActorTarget` | – | – | – | – |
-| `ThrottledInvoker` | – | – | – | – |
-| `GridIndex` | – | – | – | – |
-| `Color` | – | – | – | – |
+| Handle | Effects | Of an `Option` | Streams | Events | Released by |
+|---|---|---|---|---|---|
+| `Map$1` | `loadImage`, `once` | – | – | `boxzoomcancel`, `boxzoomend`, `boxzoomstart`, `click`, `contextmenu`, `cooperativegestureprevented`, `data`, `dataabort`, `dataloading`, `dblclick`, `drag`, `dragend`, `dragstart`, `error`, `idle`, `load`, `mousedown`, `mouseenter`, `mouseleave`, `mousemove`, `mouseout`, `mouseover`, `mouseup`, `move`, `moveend`, `movestart`, `pitch`, `pitchend`, `pitchstart`, `projectiontransition`, `remove`, `render`, `resize`, `roll`, `rollend`, `rollstart`, `rotate`, `rotateend`, `rotatestart`, `sourcedata`, `sourcedataabort`, `sourcedataloading`, `style.load`, `styledata`, `styledataloading`, `styleimagemissing`, `terrain`, `touchcancel`, `touchend`, `touchmove`, `touchstart`, `webglcontextlost`, `webglcontextrestored`, `wheel`, `zoom`, `zoomend`, `zoomstart` | `remove` |
+| `LngLat` | – | – | – | – | – |
+| `LngLatBounds` | – | – | – | – | – |
+| `Point` | – | – | – | – | – |
+| `Subscription` | – | – | – | – | – |
+| `Terrain` | – | – | – | – | `destroy` |
+| `Style` | `getDashes`, `getGlyphs`, `getImages`, `loadURL`, `once` | – | – | `boxzoomcancel`, `boxzoomend`, `boxzoomstart`, `click`, `contextmenu`, `cooperativegestureprevented`, `data`, `dataabort`, `dataloading`, `dblclick`, `drag`, `dragend`, `dragstart`, `error`, `idle`, `load`, `mousedown`, `mousemove`, `mouseout`, `mouseover`, `mouseup`, `move`, `moveend`, `movestart`, `pitch`, `pitchend`, `pitchstart`, `projectiontransition`, `remove`, `render`, `resize`, `roll`, `rollend`, `rollstart`, `rotate`, `rotateend`, `rotatestart`, `sourcedata`, `sourcedataabort`, `sourcedataloading`, `style.load`, `styledata`, `styledataloading`, `styleimagemissing`, `terrain`, `touchcancel`, `touchend`, `touchmove`, `touchstart`, `webglcontextlost`, `webglcontextrestored`, `wheel`, `zoom`, `zoomend`, `zoomstart` | `destroy` |
+| `Painter` | – | – | – | – | `destroy` |
+| `ScrollZoomHandler` | – | – | – | – | – |
+| `BoxZoomHandler` | `once` | – | – | `boxzoomcancel`, `boxzoomend`, `boxzoomstart`, `click`, `contextmenu`, `cooperativegestureprevented`, `data`, `dataabort`, `dataloading`, `dblclick`, `drag`, `dragend`, `dragstart`, `error`, `idle`, `load`, `mousedown`, `mousemove`, `mouseout`, `mouseover`, `mouseup`, `move`, `moveend`, `movestart`, `pitch`, `pitchend`, `pitchstart`, `projectiontransition`, `remove`, `render`, `resize`, `roll`, `rollend`, `rollstart`, `rotate`, `rotateend`, `rotatestart`, `sourcedata`, `sourcedataabort`, `sourcedataloading`, `style.load`, `styledata`, `styledataloading`, `styleimagemissing`, `terrain`, `touchcancel`, `touchend`, `touchmove`, `touchstart`, `webglcontextlost`, `webglcontextrestored`, `wheel`, `zoom`, `zoomend`, `zoomstart` | – |
+| `DragRotateHandler` | – | – | – | – | – |
+| `DragPanHandler` | – | – | – | – | – |
+| `KeyboardHandler` | – | – | – | – | – |
+| `DoubleClickZoomHandler` | – | – | – | – | – |
+| `TwoFingersTouchZoomRotateHandler` | – | – | – | – | – |
+| `TwoFingersTouchPitchHandler` | – | – | – | – | – |
+| `CooperativeGesturesHandler` | `once` | – | – | `boxzoomcancel`, `boxzoomend`, `boxzoomstart`, `click`, `contextmenu`, `cooperativegestureprevented`, `data`, `dataabort`, `dataloading`, `dblclick`, `drag`, `dragend`, `dragstart`, `error`, `idle`, `load`, `mousedown`, `mousemove`, `mouseout`, `mouseover`, `mouseup`, `move`, `moveend`, `movestart`, `pitch`, `pitchend`, `pitchstart`, `projectiontransition`, `remove`, `render`, `resize`, `roll`, `rollend`, `rollstart`, `rotate`, `rotateend`, `rotatestart`, `sourcedata`, `sourcedataabort`, `sourcedataloading`, `style.load`, `styledata`, `styledataloading`, `styleimagemissing`, `terrain`, `touchcancel`, `touchend`, `touchmove`, `touchstart`, `webglcontextlost`, `webglcontextrestored`, `wheel`, `zoom`, `zoomend`, `zoomstart` | – |
+| `Framebuffer` | – | – | – | – | `destroy` |
+| `Mesh` | – | – | – | – | `destroy` |
+| `TerrainTileManager` | `once` | – | – | – | – |
+| `TerrainCoverage` | – | – | – | – | – |
+| `Dispatcher` | `broadcast`, `getActor`, `once`, `registerMessageHandler`, `unregisterMessageHandler`, `waitForInitComplete` | – | – | `error` | – |
+| `ImageManager` | `getImages`, `once` | – | – | `error`, `styleimagemissing` | `destroy` |
+| `PatternAtlas` | – | – | – | – | `destroy` |
+| `GlyphManager` | `getGlyphs` | – | – | – | `destroy` |
+| `LineAtlas` | – | – | – | – | – |
+| `Light` | `once` | – | – | – | – |
+| `Sky` | `once` | – | – | – | – |
+| `ZoomHistory` | – | – | – | – | – |
+| `CrossTileSymbolIndex` | – | – | – | – | – |
+| `PauseablePlacement` | – | – | – | – | – |
+| `Placement` | – | – | – | – | – |
+| `Texture` | – | – | – | – | `destroy` |
+| `Context` | – | – | – | – | `destroy` |
+| `IRenderToTexture` | – | – | – | – | – |
+| `VertexBuffer` | – | – | – | – | `destroy` |
+| `SegmentVector` | – | – | – | – | `destroy` |
+| `IndexBuffer` | – | – | – | – | `destroy` |
+| `ProgramCache` | – | – | – | – | `destroy` |
+| `ColorAttachment` | – | – | – | – | – |
+| `DepthAttachment` | – | – | – | – | – |
+| `Source` | `loadTile` | – | – | – | – |
+| `Tile` | – | – | – | – | – |
+| `TileManager` | `once` | – | – | `data`, `dataabort`, `dataloading`, `error` | – |
+| `Actor` | `processTask`, `sendAsync` | – | – | – | – |
+| `WorkerPool` | `acquire`, `once`, `release`, `restart`, `start` | – | – | `create`, `restart`, `terminate` | `release` |
+| `RequestManager` | – | – | – | – | – |
+| `FontFaceManager` | `getFontFamily` | `getFontFamily` | – | – | `destroy` |
+| `PossiblyEvaluated` | – | – | – | – | – |
+| `CrossTileIDs` | – | – | – | – | – |
+| `CollisionIndex` | – | – | – | – | – |
+| `CollisionGroups` | – | – | – | – | – |
+| `ClearColor` | – | – | – | – | – |
+| `ClearDepth` | – | – | – | – | – |
+| `ClearStencil` | – | – | – | – | – |
+| `ColorMask` | – | – | – | – | – |
+| `DepthMask` | – | – | – | – | – |
+| `StencilMask` | – | – | – | – | – |
+| `StencilFunc` | – | – | – | – | – |
+| `StencilOp` | – | – | – | – | – |
+| `StencilTest` | – | – | – | – | – |
+| `DepthRange` | – | – | – | – | – |
+| `DepthTest` | – | – | – | – | – |
+| `DepthFunc` | – | – | – | – | – |
+| `Blend` | – | – | – | – | – |
+| `BlendFunc` | – | – | – | – | – |
+| `BlendColor` | – | – | – | – | – |
+| `BlendEquation` | – | – | – | – | – |
+| `CullFace` | – | – | – | – | – |
+| `CullFaceSide` | – | – | – | – | – |
+| `FrontFace` | – | – | – | – | – |
+| `ProgramValue` | – | – | – | – | – |
+| `ActiveTextureUnit` | – | – | – | – | – |
+| `Viewport` | – | – | – | – | – |
+| `BindFramebuffer` | – | – | – | – | – |
+| `BindRenderbuffer` | – | – | – | – | – |
+| `BindTexture` | – | – | – | – | – |
+| `BindVertexBuffer` | – | – | – | – | – |
+| `BindElementBuffer` | – | – | – | – | – |
+| `BindVertexArray` | – | – | – | – | – |
+| `PixelStoreUnpack` | – | – | – | – | – |
+| `PixelStoreUnpackPremultiplyAlpha` | – | – | – | – | – |
+| `PixelStoreUnpackFlipY` | – | – | – | – | – |
+| `UniformBuffer` | – | – | – | – | `destroy` |
+| `Program` | – | – | – | – | – |
+| `Bucket` | – | – | – | – | `destroy` |
+| `OverscaledTileID` | – | – | – | – | – |
+| `ImageAtlas` | – | – | – | – | – |
+| `AlphaImage` | – | – | – | – | – |
+| `CollisionBoxArray` | – | – | – | – | – |
+| `DEMData` | – | – | – | – | – |
+| `SourceFeatureState` | – | – | – | – | – |
+| `WorldCoordinateHelper` | – | – | – | – | – |
+| `ActorTarget` | – | – | – | – | – |
+| `ThrottledInvoker` | – | – | – | – | – |
+| `GridIndex` | – | – | – | – | – |
+| `Color` | – | – | – | – | – |
 
 Mounts: `MapMount`.
 

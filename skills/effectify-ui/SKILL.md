@@ -46,6 +46,7 @@ export const ChartMount = instanceMount(
 - A mount may import its library's stylesheet (`import "@xterm/xterm/css/xterm.css"`) when the library lays itself out with it; say so in a comment. A library that loads a worker from beside its own module (MapLibre) needs the app to set the worker's URL under a bundler: the fixture does it and the README says so.
 - Register it: add the mount's name to `recipe.ui.mounts`, with a decision (`by: "agent"`) saying what the instance is bound to and how it updates. `reconcile` adds it to the index.
 - Register upstream's plug-ins in the mount's module when a config can name any of them (`Chart.register(...registerables)`), and say so in a comment: it costs bundle size, and an app that wants less writes its own mount.
+- A mount is source code of the facade, held to the standard's rules for sources (`reconcile` reports a finding as `tsgo|idioms src/mounts/<Name>.ts:<line>:<column>`): `Array`, `Record` and `String` of `effect` over the natives (`Arr.isArray`, `Record.fromEntries`), no `switch` over a tagged union's `_tag` (`Match`, or a union's `.match`; the `match` idiom flags a `switch` whose discriminant reads `_tag`, as `x._tag`, `x?._tag`, `x["_tag"]`, `x!._tag` or `x._tag as T`, and leaves alone one on any other field (`.type`, `.kind`, a numeric `.status`), a number or a string), no `JSON.parse`/`JSON.stringify` (Schema), a named function that returns an Effect is `Effect.fn("<Name>.<what>")`, and a choice over upstream's untagged union says why where it narrows.
 
 ## Bindings (web components)
 
@@ -65,7 +66,7 @@ Each test opens a fixture: `test/fixtures/<name>.html` plus `<name>.ts`, an Effe
 - Drive the page as a user: `page.click`, `page.keyboard.type`, `page.keyboard.press`, `page.mouse.click` at coordinates read from the library itself (a bar's position from the chart, not a guess).
 - Wait for state with `page.waitForFunction`, never a sleep: `it.effect` runs on the TestClock, where `Effect.sleep` never ends.
 - Assert, in this order: the Model after each interaction; that an update kept the same instance (a mount with `update`); that removing the element released the instance (upstream's registry is empty, its listeners gone); and `expect(errors).toStrictEqual([])`.
-- Page results cross the browser boundary as data: return JSON strings or numbers from `page.evaluate` and parse them in the test.
+- Page results cross the browser boundary as data: return JSON strings or numbers from `page.evaluate`, and decode them in the test with a Schema (`Schema.decodeUnknownEffect(Schema.fromJsonString(...))`), as the generated `elements.generated.test.ts` does.
 
 ## When the binding is wrong
 

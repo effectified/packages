@@ -235,7 +235,7 @@
 		"mounts": []
 	},
 	"testDependencies": {},
-	"revision": 3,
+	"revision": 4,
 	"decisions": [
 		{
 			"id": "exports",
@@ -730,8 +730,8 @@
 		{
 			"id": "revision",
 			"question": "Which revision of this upstream version is the facade?",
-			"answer": "3",
-			"why": "engine 0.3.0: regenerated with the engine that makes the runtime facades cancel upstream; no change to this facade's API",
+			"answer": "4",
+			"why": "engine 0.4.0: the facade is held to @effect/tsgo and the GritQL idioms (its tsconfig.json carries the rules), its changes mounts read an element's state through effect's Record and Array, and its smoke test decodes the page's JSON through Schema",
 			"by": "agent"
 		}
 	]

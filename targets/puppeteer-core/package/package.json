@@ -1,7 +1,7 @@
 {
   "name": "@effectified/puppeteer-core",
-  "version": "25.19.0+5",
-  "description": "puppeteer-core in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged",
+  "version": "25.19.0+6",
+  "description": "puppeteer-core in Effect: its async calls as traced Effects, absent values as Options, its iterables as Streams, its resources scoped, its failures tagged",
   "type": "module",
   "license": "MIT",
   "exports": {
@@ -36,7 +36,7 @@
     "vitest": "5.1.1"
   },
   "effectified": {
-    "engine": "0.3.0",
+    "engine": "0.4.0",
     "upstream": "puppeteer-core@25.19.0",
     "types": "puppeteer-core@25.19.0"
   }
