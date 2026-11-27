@@ -4,27 +4,32 @@
   "slug": "simple-git",
   "kind": "runtime",
   "tagline": "chainable thenables, generics kept",
-  "description": "simple-git in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged",
+  "description": "simple-git in Effect: its async calls as traced Effects, absent values as Options, its iterables as Streams, its resources scoped, its failures tagged",
   "upstream": {
     "package": "simple-git",
     "version": "4.1.0",
     "npm": "https://www.npmjs.com/package/simple-git"
   },
-  "version": "4.1.0+5",
-  "engine": "0.3.0",
+  "version": "4.1.0+6",
+  "engine": "0.4.0",
   "page": "https://effectified.dev/simple-git",
   "source": "https://github.com/effectified/packages/tree/main/targets/simple-git",
   "install": {
     "latest": "https://effectified.dev/simple-git.tgz",
-    "release": "https://github.com/effectified/packages/releases/download/simple-git-v4.1.0+5/effectified-simple-git-4.1.0+5.tgz",
-    "tag": "simple-git-v4.1.0+5"
+    "release": "https://github.com/effectified/packages/releases/download/simple-git-v4.1.0+6/effectified-simple-git-4.1.0+6.tgz",
+    "tag": "simple-git-v4.1.0+6"
   },
-  "tests": 2,
+  "tests": 3,
   "examples": [
     {
       "title": "Commit and read the log",
       "source": "test/facade.test.ts",
       "code": "import { simpleGit } from \"@effectified/simple-git\";\n\nconst git = yield* simpleGit(directory);\nyield* git.init();\nyield* git.addConfig(\"user.email\", \"test@example.com\");\nyield* git.addConfig(\"user.name\", \"Test\");\nyield* git.add(\"README.md\");\nconst commit = yield* git.commit(\"first commit\");\n// log keeps its type parameter: log<T = DefaultLogFields>().\nconst log = yield* git.log();\n"
+    },
+    {
+      "title": "The client as a service",
+      "source": "test/facade.test.ts",
+      "code": "import { Effect } from \"effect\";\nimport { SimpleGitService, simpleGit } from \"@effectified/simple-git\";\n\nconst initialized = Effect.gen(function* () {\n\tconst git = yield* SimpleGitService;\n\tyield* git.init();\n\treturn yield* git.checkIsRepo();\n});\n// One client bound to the working directory, provided at the program's edge.\nconst program = initialized.pipe(Effect.provide(SimpleGitService.layer(simpleGit(directory))));\n"
     },
     {
       "title": "Handle a failing command by its tag",
@@ -39,7 +44,13 @@
       "grepQueryBuilder",
       "simpleGit"
     ],
-    "services": [],
+    "services": [
+      {
+        "name": "SimpleGitService",
+        "handle": "SimpleGit",
+        "acquire": "simpleGit"
+      }
+    ],
     "errors": [
       {
         "tag": "GitConstructError",

@@ -7,7 +7,7 @@ description: Use chart.js in Effect UI apps through @effectified/chart.js. Use w
 
 A chart updated in place, clicks as messages.
 
-chart.js for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from chart.js's own types (this copy: 4.6.2+3, for chart.js 4.6.2), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+chart.js for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from chart.js's own types (this copy: 4.6.2+4, for chart.js 4.6.2), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
@@ -80,28 +80,28 @@ From `test/fixtures/chart.ts`.
 
 Services: `ChartJsAnimator` (a `Animator`, from `Animator`), `ChartJsChart` (a `Chart`, from `Chart`).
 
-| Error | From |
-|---|---|
-| `ChartJsError` | any other failure |
+| Error | From | Reasons |
+|---|---|---|
+| `ChartJsError` | any other failure | – |
 
-| Handle | Effects | Streams | Events | Released by |
-|---|---|---|---|---|
-| `Animator` | – | – | – | `stop` |
-| `default` | – | – | – | – |
-| `DatasetController` | – | – | – | – |
-| `DoughnutController` | – | – | – | – |
-| `PolarAreaController` | – | – | – | – |
-| `Animation` | – | – | – | – |
-| `Animations` | – | – | – | – |
-| `Chart` | – | – | – | `destroy` |
-| `Scale` | – | – | – | – |
-| `BarElement` | – | – | – | – |
-| `LineElement` | – | – | – | – |
-| `BasePlatform` | – | – | – | – |
-| `BasicPlatform` | – | – | – | – |
-| `DomPlatform` | – | – | – | – |
-| `RadialLinearScale` | – | – | – | – |
-| `TimeScale` | – | – | – | – |
+| Handle | Effects | Of an `Option` | Streams | Events | Released by |
+|---|---|---|---|---|---|
+| `Animator` | – | – | – | – | `stop` |
+| `default` | – | – | – | – | – |
+| `DatasetController` | – | – | – | – | – |
+| `DoughnutController` | – | – | – | – | – |
+| `PolarAreaController` | – | – | – | – | – |
+| `Animation` | – | – | – | – | – |
+| `Animations` | – | – | – | – | – |
+| `Chart` | – | – | – | – | `destroy` |
+| `Scale` | – | – | – | – | – |
+| `BarElement` | – | – | – | – | – |
+| `LineElement` | – | – | – | – | – |
+| `BasePlatform` | – | – | – | – | – |
+| `BasicPlatform` | – | – | – | – | – |
+| `DomPlatform` | – | – | – | – | – |
+| `RadialLinearScale` | – | – | – | – | – |
+| `TimeScale` | – | – | – | – | – |
 
 Mounts: `ChartMount`.
 

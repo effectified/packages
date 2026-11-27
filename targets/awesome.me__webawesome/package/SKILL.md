@@ -7,7 +7,7 @@ description: Use @awesome.me/webawesome in Effect UI apps through @effectified/w
 
 78 elements, form controls and a dialog.
 
-@awesome.me/webawesome for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from @awesome.me/webawesome's own types (this copy: 3.15.0+3, for @awesome.me/webawesome 3.15.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+@awesome.me/webawesome for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements. Generated from @awesome.me/webawesome's own types (this copy: 3.15.0+4, for @awesome.me/webawesome 3.15.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
@@ -79,9 +79,9 @@ From `test/fixtures/form.ts`.
 
 ## API
 
-| Error | From |
-|---|---|
-| `WebawesomeError` | any other failure, codes `EMBED`, `END_TAG`, `END_TAG_OPEN`, `EQUALS`, `EQUALS_SIGN`, `EXCLAMATION_MARK`, `ENCODING` |
+| Error | From | Reasons |
+|---|---|---|
+| `WebawesomeError` | any other failure | `EMBED`, `END_TAG`, `END_TAG_OPEN`, `EQUALS`, `EQUALS_SIGN`, `EXCLAMATION_MARK`, `ENCODING` |
 
 | Element | Binding | Properties | Events |
 |---|---|---|---|

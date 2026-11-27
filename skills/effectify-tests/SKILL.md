@@ -34,9 +34,21 @@ The reference tests are `targets/*/package/test/facade.test.ts`: nodemailer (JSO
 ## What each method gets
 
 - **success**: the value through the facade (`yield*`), checked against what the library documents;
-- **each failure it can produce**: `Effect.flip`, then the tag (`toBeInstanceOf`), `operation` (`"<Handle>.<method>"`) and `code` when upstream has one. Provoke failures for real: a closed port, a missing branch, a selector that never appears;
+- **each failure it can produce**: `Effect.flip`, then the tag (`toBeInstanceOf`, `Failure.guards.<Tag>`), `operation` (`"<Handle>.<method>"`) and `code` when upstream has one; an error with codes also its `reason._tag`. Provoke failures for real: a closed port, a missing branch, a selector that never appears;
+- **values that may be absent** (`<Handle>Optional` in the generated source): both cases, `Option.none()` and `Option.some` of the facade (`page.$("#missing")`, `page.$("#go")`);
 - **scopes**: what a scoped acquisition opened is closed when the scope closes (read `.upstream` afterwards: `connected === false`, a released file, a closed connection);
 - **streams**: take a few elements (`Stream.take`) with a timeout, never an unbounded run.
+
+## What the facade shows once
+
+Each facade's tests show its Effect-native parts once, in an example region where a user should see them (the references: nodemailer, bullmq, puppeteer-core):
+
+- a failure picked by its reason: `Effect.catchReason("<Tag>", "<code>", (reason, error) => ...)`, for an error with codes;
+- a secret the recipe names given as `Redacted`, read with `Config.Redacted("NAME")` from `ConfigProvider.layer(ConfigProvider.fromEnvRecord({ ... }))`, and what upstream received (the revealed value) next to `String(secret)` hiding it;
+- a brand the recipe names: a call's result carries it (`job.id` is a `JobId`), and one is made with `JobId.make(value)`;
+- the spans: a tracer that records span names (`Tracer.make` over `Tracer.nativeTracer`, `Effect.withTracer`) sees `<export>` and `<Handle>.<method>` in order;
+- a service, provided with `<Service>.layer(<acquiring Effect>)`, for every service of the recipe;
+- for a handle a program keeps as a key, `Equal.equals` of two facades of one upstream object.
 
 ## Environment
 
@@ -44,6 +56,7 @@ The reference tests are `targets/*/package/test/facade.test.ts`: nodemailer (JSO
 - Services run locally: Docker (`docker run -d --rm -p 6390:6379 redis:7-alpine`), a temp directory, a local binary (Chrome through `CHROME_BIN`). A test that needs one reads its address from an environment variable and is skipped without it (`describe.skipIf(url === undefined)`), and its file's header says which variable and how to start the service.
 - Never call a paid or remote API.
 - Anything the tests import besides the toolchain goes in the recipe's `testDependencies` (exact version), never into `package.json` by hand.
+- Tests keep the standard's rules for tests (`@effect/tsgo` presets correctness and antipattern; `reconcile` reports a finding as `tsgo test/<file>:<line>:<column> <rule>`): no floating Effect, no `catch` returning `unknown`, a `try`/`tryPromise` always with its `catch`. A test is an entry point, so it may `Effect.provide` a layer. Never wait on the real clock with a sleep: `it.effect` runs on the TestClock, `it.live` for real time.
 
 ## When the facade is wrong
 
@@ -55,4 +68,4 @@ Mark what a reader should see in the tests (and, for a frontend facade, its fixt
 
 ## Done
 
-`pnpm effectify reconcile <name>` (which type checks the tests too) and `pnpm effectify test <name>` pass with the services up, and your report lists each test skipped without a service.
+`pnpm effectify reconcile <name>` (which type checks the tests and holds them to the standard) and `pnpm effectify test <name>` pass with the services up, and your report lists each test skipped without a service.

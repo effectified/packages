@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/webawesome.tgz effect htt
 bun add https://effectified.dev/webawesome.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
-`https://effectified.dev/webawesome.tgz` always installs the newest release. This one is 3.15.0+3, for @awesome.me/webawesome 3.15.0; to pin it, install https://github.com/effectified/packages/releases/download/webawesome-v3.15.0+3/effectified-webawesome-3.15.0+3.tgz. Effect UI is in public preview: install its snapshot build, as above.
+`https://effectified.dev/webawesome.tgz` always installs the newest release. This one is 3.15.0+4, for @awesome.me/webawesome 3.15.0; to pin it, install https://github.com/effectified/packages/releases/download/webawesome-v3.15.0+4/effectified-webawesome-3.15.0+4.tgz. Effect UI is in public preview: install its snapshot build, as above.
 
 ## Examples
 
@@ -70,9 +70,9 @@ From `test/fixtures/form.ts`.
 
 ## API
 
-| Error | From |
-|---|---|
-| `WebawesomeError` | any other failure, codes `EMBED`, `END_TAG`, `END_TAG_OPEN`, `EQUALS`, `EQUALS_SIGN`, `EXCLAMATION_MARK`, `ENCODING` |
+| Error | From | Reasons |
+|---|---|---|
+| `WebawesomeError` | any other failure | `EMBED`, `END_TAG`, `END_TAG_OPEN`, `EQUALS`, `EQUALS_SIGN`, `EXCLAMATION_MARK`, `ENCODING` |
 
 | Element | Binding | Properties | Events |
 |---|---|---|---|

@@ -1,7 +1,7 @@
 {
   "name": "@effectified/nodemailer",
-  "version": "10.6.1+5",
-  "description": "nodemailer in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged",
+  "version": "10.6.1+6",
+  "description": "nodemailer in Effect: its async calls as traced Effects, absent values as Options, its iterables as Streams, its resources scoped, its failures tagged",
   "type": "module",
   "license": "MIT",
   "exports": {
@@ -34,7 +34,7 @@
     "vitest": "5.1.1"
   },
   "effectified": {
-    "engine": "0.3.0",
+    "engine": "0.4.0",
     "upstream": "nodemailer@10.6.1",
     "types": "nodemailer@10.6.1"
   }

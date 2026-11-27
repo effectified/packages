@@ -7,11 +7,12 @@ description: Make a library Effect-native with the effectified engine. Use when 
 
 You are given a library: a GitHub URL (`https://github.com/taskforcesh/bullmq`, `…/tree/main/packages/<name>` for a monorepo) or an npm name (`bullmq`, `bullmq@6.7.10`). The result is a facade package, `@effectified/<name>`, in which:
 
-- every async call is an `Effect`, every async iterable a `Stream`, every releasable resource scoped;
-- every failure is a tagged error (`Schema.TaggedError`) carrying the operation, message, upstream code and cause;
+- every async call is an `Effect`, traced as `<Handle>.<method>` (a span and a stack frame per call, as `Effect.fn`); every async iterable and event a `Stream`; every releasable resource scoped;
+- a value upstream may not have (`T | null`) is an `Option`; ids and keys the recipe names are branded (`JobId`); secrets it names are taken as `Redacted`;
+- every failure is a branded `Schema.TaggedError` carrying the operation, message, upstream code and cause, upstream's codes as a `reason` union (`Effect.catchReason`), and `Failure` is the Schema of all of them (`.match`, `.guards`);
 - its types are derived from upstream's, so an upstream change that breaks the facade fails its build and names what moved.
 
-The engine does the mechanical part. You do the part that needs judgment, and you do not edit generated code: you change `recipe.json` (or the engine) and regenerate.
+The standard behind this is the engine's ("The standard" in `skills/effectify-engine/SKILL.md` of effectified/engine): the Effect team's `@effect/tsgo` rules and effectified's idioms (an oxlint plugin), which `reconcile` runs on every facade. The engine does the mechanical part. You do the part that needs judgment, and you do not edit generated code: you change `recipe.json` (or the engine) and regenerate.
 
 ## 1. Run the engine
 
@@ -25,12 +26,12 @@ pnpm effectify make <github url or npm name>
 
 | Step | Command | Writes |
 |---|---|---|
-| study | `study <target>` | `surface.json` (what upstream's types expose, read with TypeScript 7's checker), `scan.json` (what its JavaScript throws and emits, read with ast-grep) |
+| study | `study <target>` | `surface.json` (what upstream's types expose, read with TypeScript 7's checker; which exports Node can import, read by importing the package, which runs the target library's own code: study only a library you would install, since its deadline and permissions are hygiene, not a sandbox), `scan.json` (what its JavaScript throws and emits, read with ast-grep) |
 | draft | `draft <target>` | `recipe.json`: every decision the types cannot make, each with its answer, its reason and who made it |
-| generate + reconcile | `reconcile <name>` | `package/`: the facade, regenerated until TypeScript 7 accepts it; what the compiler insists on is recorded in the recipe |
-| verify | `verify <name>` | nothing: installs and type checks the package |
+| generate + reconcile | `reconcile <name>` | `package/`: the facade, regenerated until TypeScript 7 accepts it; what the compiler insists on is recorded in the recipe; then the standard's checks |
+| verify | `verify <name>` | nothing: installs, type checks and runs the standard's checks |
 
-If `make` fails, read the error's `reason`: it is the tool's own output. A study that fails on the target usually means a monorepo root (name the package directory) or a package without types (the engine then looks for `@types/<name>`). A reconcile that fails names the generated line: that is an engine gap, see `effectify-engine` (in effectified/engine).
+If `make` fails, read the error's `reason`: it is the tool's own output. A study that fails on the target usually means a monorepo root (name the package directory) or a package without types (the engine then looks for `@types/<name>`). A reconcile that fails names the generated line: a line marked `// secret:` or `// brand:` is a recipe place upstream's types do not have (fix the recipe); any other is an engine gap, see `effectify-engine` (in effectified/engine). An `EffectNativeError` lists each finding of the standard as `effect|idioms <file>:<line>:<column>`: in a test or a mount, fix your code; in generated code, it is an engine gap. A test turns an Effect rule off only for one line, with its reason: `@effect-diagnostics-next-line <rule>:off <reason>`; any other directive is a finding (`suppression`).
 
 ## 2. Plan the judgment work
 
@@ -54,7 +55,7 @@ The plan has units: review the recipe, test each handle (large handles in parts)
 ## 4. Done means
 
 ```sh
-pnpm effectify reconcile <name>   # generates and type checks with TypeScript 7
+pnpm effectify reconcile <name>   # generates, type checks with TypeScript 7, holds sources and tests to the standard
 pnpm effectify test <name>        # every facade test passes (services up: see effectify-tests)
 git diff --exit-code -- targets/<name>   # after reconcile and commit: what is committed is what the engine generates
 (cd targets/<name>/package && node node_modules/typescript/bin/tsc -p tsconfig.build.json)   # the release build compiles
@@ -66,6 +67,7 @@ Then commit `targets/<name>/` (surface, scan, recipe, package without node_modul
 
 ## Rules
 
-- Never edit `targets/<name>/package/src/` or `package.json`: they are generated. The tests in `package/test/` are yours and survive regeneration.
+- Never edit `targets/<name>/package/src/` or `package.json`: they are generated. The tests in `package/test/` are yours and survive regeneration; they keep the standard's rules for tests (the presets correctness and antipattern), mounts the rules for sources.
+- Never silence a rule of the standard to pass: a site that must break an idiom says why in the comment lines right above it (`// idiom-allow <rule>: <why>`, `<rule>` as the finding names it: `match`, `effect-fn`, ...), a tsgo rule that must stay off for every facade is an engine decision.
 - Never run install scripts (`--ignore-scripts` everywhere); never use a version newer than the machine's release-age policy allows.
 - A library that already has an Effect wrapper on npm, or is covered by Effect itself or by alchemy-run/distilled, is not a target: say so and stop.

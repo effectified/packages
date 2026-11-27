@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/xterm.tgz effect https://
 bun add https://effectified.dev/xterm.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
-`https://effectified.dev/xterm.tgz` always installs the newest release. This one is 6.0.0+3, for @xterm/xterm 6.0.0; to pin it, install https://github.com/effectified/packages/releases/download/xterm-v6.0.0+3/effectified-xterm-6.0.0+3.tgz. Effect UI is in public preview: install its snapshot build, as above.
+`https://effectified.dev/xterm.tgz` always installs the newest release. This one is 6.0.0+4, for @xterm/xterm 6.0.0; to pin it, install https://github.com/effectified/packages/releases/download/xterm-v6.0.0+4/effectified-xterm-6.0.0+4.tgz. Effect UI is in public preview: install its snapshot build, as above.
 
 ## Examples
 
@@ -82,20 +82,20 @@ From `test/fixtures/terminal.ts`.
 
 Services: `XtermTerminal` (a `Terminal`, from `Terminal`).
 
-| Error | From |
-|---|---|
-| `XtermError` | any other failure, codes `EPIPE`, `ERROR` |
+| Error | From | Reasons |
+|---|---|---|
+| `XtermError` | any other failure | `EPIPE`, `ERROR` |
 
-| Handle | Effects | Streams | Events | Released by |
-|---|---|---|---|---|
-| `Terminal` | – | – | – | `dispose` |
-| `IDisposable` | – | – | – | `dispose` |
-| `IMarker` | – | – | – | `dispose` |
-| `IBufferNamespace` | – | – | – | – |
-| `IParser` | – | – | – | – |
-| `IUnicodeHandling` | – | – | – | – |
-| `IBuffer` | – | – | – | – |
-| `IBufferCell` | – | – | – | – |
+| Handle | Effects | Of an `Option` | Streams | Events | Released by |
+|---|---|---|---|---|---|
+| `Terminal` | – | – | – | – | `dispose` |
+| `IDisposable` | – | – | – | – | `dispose` |
+| `IMarker` | – | – | – | – | `dispose` |
+| `IBufferNamespace` | – | – | – | – | – |
+| `IParser` | – | – | – | – | – |
+| `IUnicodeHandling` | – | – | – | – | – |
+| `IBuffer` | – | – | – | – | – |
+| `IBufferCell` | – | – | – | – | – |
 
 Mounts: `TerminalMount`.
 

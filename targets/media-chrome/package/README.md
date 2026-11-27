@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/media-chrome.tgz effect h
 bun add https://effectified.dev/media-chrome.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
-`https://effectified.dev/media-chrome.tgz` always installs the newest release. This one is 4.19.5+3, for media-chrome 4.19.5; to pin it, install https://github.com/effectified/packages/releases/download/media-chrome-v4.19.5+3/effectified-media-chrome-4.19.5+3.tgz. Effect UI is in public preview: install its snapshot build, as above.
+`https://effectified.dev/media-chrome.tgz` always installs the newest release. This one is 4.19.5+4, for media-chrome 4.19.5; to pin it, install https://github.com/effectified/packages/releases/download/media-chrome-v4.19.5+4/effectified-media-chrome-4.19.5+4.tgz. Effect UI is in public preview: install its snapshot build, as above.
 
 ## Examples
 
@@ -114,44 +114,44 @@ From `test/fixtures/player.ts`.
 
 ## API
 
-| Error | From |
-|---|---|
-| `MediaChromeError` | any other failure |
+| Error | From | Reasons |
+|---|---|---|
+| `MediaChromeError` | any other failure | – |
 
-| Handle | Effects | Streams | Events | Released by |
-|---|---|---|---|---|
-| `MediaAirplayButton` | – | – | – | – |
-| `MediaCaptionsButton` | – | – | – | – |
-| `MediaCastButton` | – | – | – | – |
-| `MediaChromeButton` | – | – | – | – |
-| `MediaChromeDialog` | – | – | – | – |
-| `MediaChromeRange` | – | – | – | – |
-| `MediaControlBar` | – | – | – | – |
-| `MediaController` | `handleMediaUpdated` | – | – | – |
-| `MediaDurationDisplay` | – | – | – | – |
-| `MediaErrorDialog` | – | – | – | – |
-| `MediaKeyboardShortcutsDialog` | – | – | – | – |
-| `MediaFullscreenButton` | – | – | – | – |
-| `MediaGestureReceiver` | – | – | – | – |
-| `MediaLiveButton` | – | – | – | – |
-| `MediaLoadingIndicator` | – | – | – | – |
-| `MediaMuteButton` | – | – | – | – |
-| `MediaPipButton` | – | – | – | – |
-| `MediaPlaybackRateButton` | – | – | – | – |
-| `MediaLoopButton` | – | – | – | – |
-| `MediaPlayButton` | – | – | – | – |
-| `MediaPosterImage` | – | – | – | – |
-| `MediaPreviewChapterDisplay` | – | – | – | – |
-| `MediaPreviewThumbnail` | – | – | – | – |
-| `MediaPreviewTimeDisplay` | – | – | – | – |
-| `MediaSeekBackwardButton` | – | – | – | – |
-| `MediaSeekForwardButton` | – | – | – | – |
-| `MediaTimeDisplay` | – | – | – | – |
-| `MediaTimeRange` | – | – | – | – |
-| `MediaTooltip` | – | – | – | – |
-| `MediaVolumeRange` | – | – | – | – |
-| `MediaContainer` | `handleMediaUpdated` | – | – | – |
-| `MediaTextDisplay` | – | – | – | – |
+| Handle | Effects | Of an `Option` | Streams | Events | Released by |
+|---|---|---|---|---|---|
+| `MediaAirplayButton` | – | – | – | – | – |
+| `MediaCaptionsButton` | – | – | – | – | – |
+| `MediaCastButton` | – | – | – | – | – |
+| `MediaChromeButton` | – | – | – | – | – |
+| `MediaChromeDialog` | – | – | – | – | – |
+| `MediaChromeRange` | – | – | – | – | – |
+| `MediaControlBar` | – | – | – | – | – |
+| `MediaController` | `handleMediaUpdated` | – | – | – | – |
+| `MediaDurationDisplay` | – | – | – | – | – |
+| `MediaErrorDialog` | – | – | – | – | – |
+| `MediaKeyboardShortcutsDialog` | – | – | – | – | – |
+| `MediaFullscreenButton` | – | – | – | – | – |
+| `MediaGestureReceiver` | – | – | – | – | – |
+| `MediaLiveButton` | – | – | – | – | – |
+| `MediaLoadingIndicator` | – | – | – | – | – |
+| `MediaMuteButton` | – | – | – | – | – |
+| `MediaPipButton` | – | – | – | – | – |
+| `MediaPlaybackRateButton` | – | – | – | – | – |
+| `MediaLoopButton` | – | – | – | – | – |
+| `MediaPlayButton` | – | – | – | – | – |
+| `MediaPosterImage` | – | – | – | – | – |
+| `MediaPreviewChapterDisplay` | – | – | – | – | – |
+| `MediaPreviewThumbnail` | – | – | – | – | – |
+| `MediaPreviewTimeDisplay` | – | – | – | – | – |
+| `MediaSeekBackwardButton` | – | – | – | – | – |
+| `MediaSeekForwardButton` | – | – | – | – | – |
+| `MediaTimeDisplay` | – | – | – | – | – |
+| `MediaTimeRange` | – | – | – | – | – |
+| `MediaTooltip` | – | – | – | – | – |
+| `MediaVolumeRange` | – | – | – | – | – |
+| `MediaContainer` | `handleMediaUpdated` | – | – | – | – |
+| `MediaTextDisplay` | – | – | – | – | – |
 
 | Element | Binding | Properties | Events |
 |---|---|---|---|

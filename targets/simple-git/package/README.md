@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/simple-git.tgz effect
 bun add https://effectified.dev/simple-git.tgz effect
 ```
 
-`https://effectified.dev/simple-git.tgz` always installs the newest release. This one is 4.1.0+5, for simple-git 4.1.0; to pin it, install https://github.com/effectified/packages/releases/download/simple-git-v4.1.0+5/effectified-simple-git-4.1.0+5.tgz.
+`https://effectified.dev/simple-git.tgz` always installs the newest release. This one is 4.1.0+6, for simple-git 4.1.0; to pin it, install https://github.com/effectified/packages/releases/download/simple-git-v4.1.0+6/effectified-simple-git-4.1.0+6.tgz.
 
 ## Examples
 
@@ -35,6 +35,23 @@ const log = yield* git.log();
 
 From `test/facade.test.ts`.
 
+### The client as a service
+
+```ts
+import { Effect } from "effect";
+import { SimpleGitService, simpleGit } from "@effectified/simple-git";
+
+const initialized = Effect.gen(function* () {
+	const git = yield* SimpleGitService;
+	yield* git.init();
+	return yield* git.checkIsRepo();
+});
+// One client bound to the working directory, provided at the program's edge.
+const program = initialized.pipe(Effect.provide(SimpleGitService.layer(simpleGit(directory))));
+```
+
+From `test/facade.test.ts`.
+
 ### Handle a failing command by its tag
 
 ```ts
@@ -53,21 +70,23 @@ From `test/facade.test.ts`.
 
 Exports: `refName`, `remoteUrl`, `grepQueryBuilder`, `simpleGit`.
 
-| Error | From |
-|---|---|
-| `GitConstructError` | `GitConstructError` |
-| `GitPluginError` | `GitPluginError` |
-| `GitResponseError` | `GitResponseError` |
-| `TaskConfigurationError` | `TaskConfigurationError` |
-| `GitError` | `GitError` |
-| `SimpleGitError` | any other failure, codes `EPIPE`, `ERROR` |
+Services: `SimpleGitService` (a `SimpleGit`, from `simpleGit`).
 
-| Handle | Effects | Streams | Events | Released by |
-|---|---|---|---|---|
-| `TemplateValue` | – | – | – | – |
-| `GitGrepQuery` | – | – | – | – |
-| `SimpleGit` | `add`, `addAnnotatedTag`, `addConfig`, `addRemote`, `addTag`, `applyPatch`, `binaryCatFile`, `branch`, `branchLocal`, `catFile`, `checkIgnore`, `checkIsRepo`, `checkout`, `checkoutBranch`, `checkoutLatestTag`, `checkoutLocalBranch`, `clean`, `clone`, `cmd`, `commit`, `countObjects`, `cwd`, `deleteLocalBranch`, `deleteLocalBranches`, `diff`, `diffSummary`, `exec`, `fetch`, `firstCommit`, `getConfig`, `getRemotes`, `grep`, `hashObject`, `init`, `interpretTrailers`, `listConfig`, `listRemote`, `log`, `merge`, `mergeFromTo`, `mirror`, `mv`, `pull`, `push`, `pushTags`, `raw`, `rebase`, `remote`, `removeRemote`, `reset`, `revert`, `revparse`, `rm`, `rmKeepLocal`, `show`, `showBuffer`, `stash`, `stashList`, `status`, `subModule`, `submoduleAdd`, `submoduleInit`, `submoduleUpdate`, `tag`, `tags`, `updateServerInfo`, `version` | – | – | – |
-| `StatusResult` | – | – | – | – |
+| Error | From | Reasons |
+|---|---|---|
+| `GitConstructError` | `GitConstructError` | – |
+| `GitPluginError` | `GitPluginError` | – |
+| `GitResponseError` | `GitResponseError` | – |
+| `TaskConfigurationError` | `TaskConfigurationError` | – |
+| `GitError` | `GitError` | – |
+| `SimpleGitError` | any other failure | `EPIPE`, `ERROR` |
+
+| Handle | Effects | Of an `Option` | Streams | Events | Released by |
+|---|---|---|---|---|---|
+| `TemplateValue` | – | – | – | – | – |
+| `GitGrepQuery` | – | – | – | – | – |
+| `SimpleGit` | `add`, `addAnnotatedTag`, `addConfig`, `addRemote`, `addTag`, `applyPatch`, `binaryCatFile`, `branch`, `branchLocal`, `catFile`, `checkIgnore`, `checkIsRepo`, `checkout`, `checkoutBranch`, `checkoutLatestTag`, `checkoutLocalBranch`, `clean`, `clone`, `cmd`, `commit`, `countObjects`, `cwd`, `deleteLocalBranch`, `deleteLocalBranches`, `diff`, `diffSummary`, `exec`, `fetch`, `firstCommit`, `getConfig`, `getRemotes`, `grep`, `hashObject`, `init`, `interpretTrailers`, `listConfig`, `listRemote`, `log`, `merge`, `mergeFromTo`, `mirror`, `mv`, `pull`, `push`, `pushTags`, `raw`, `rebase`, `remote`, `removeRemote`, `reset`, `revert`, `revparse`, `rm`, `rmKeepLocal`, `show`, `showBuffer`, `stash`, `stashList`, `status`, `subModule`, `submoduleAdd`, `submoduleInit`, `submoduleUpdate`, `tag`, `tags`, `updateServerInfo`, `version` | – | – | – | – |
+| `StatusResult` | – | – | – | – | – |
 
 ## For agents
 

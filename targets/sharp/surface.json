@@ -11,22 +11,26 @@
 		{
 			"kind": "value",
 			"name": "format",
-			"type": "FormatEnum"
+			"type": "FormatEnum",
+			"erased": "runtime"
 		},
 		{
 			"kind": "value",
 			"name": "versions",
-			"type": "{ aom?: string | undefined; archive?: string | undefined; cairo?: string | undefined; cgif?: string | undefined; exif?: string | undefined; expat?: string | undefined; ffi?: string | undefined; fontco"
+			"type": "{ aom?: string | undefined; archive?: string | undefined; cairo?: string | undefined; cgif?: string | undefined; exif?: string | undefined; expat?: string | undefined; ffi?: string | undefined; fontco",
+			"erased": "runtime"
 		},
 		{
 			"kind": "value",
 			"name": "interpolators",
-			"type": "Interpolators"
+			"type": "Interpolators",
+			"erased": "runtime"
 		},
 		{
 			"kind": "value",
 			"name": "queue",
-			"type": "EventEmitter<any>"
+			"type": "EventEmitter<any>",
+			"erased": "runtime"
 		},
 		{
 			"kind": "function",
@@ -47,7 +51,8 @@
 						"sync"
 					]
 				}
-			]
+			],
+			"erased": "runtime"
 		},
 		{
 			"kind": "function",
@@ -68,7 +73,8 @@
 						"sync"
 					]
 				}
-			]
+			],
+			"erased": "runtime"
 		},
 		{
 			"kind": "function",
@@ -82,7 +88,8 @@
 						"sync"
 					]
 				}
-			]
+			],
+			"erased": "runtime"
 		},
 		{
 			"kind": "function",
@@ -103,7 +110,8 @@
 						"sync"
 					]
 				}
-			]
+			],
+			"erased": "runtime"
 		},
 		{
 			"kind": "function",
@@ -124,7 +132,8 @@
 						"sync"
 					]
 				}
-			]
+			],
+			"erased": "runtime"
 		},
 		{
 			"kind": "function",
@@ -145,32 +154,38 @@
 						"sync"
 					]
 				}
-			]
+			],
+			"erased": "runtime"
 		},
 		{
 			"kind": "value",
 			"name": "gravity",
-			"type": "GravityEnum"
+			"type": "GravityEnum",
+			"erased": "runtime"
 		},
 		{
 			"kind": "value",
 			"name": "strategy",
-			"type": "StrategyEnum"
+			"type": "StrategyEnum",
+			"erased": "runtime"
 		},
 		{
 			"kind": "value",
 			"name": "kernel",
-			"type": "KernelEnum"
+			"type": "KernelEnum",
+			"erased": "runtime"
 		},
 		{
 			"kind": "value",
 			"name": "fit",
-			"type": "FitEnum"
+			"type": "FitEnum",
+			"erased": "runtime"
 		},
 		{
 			"kind": "value",
 			"name": "bool",
-			"type": "BoolEnum"
+			"type": "BoolEnum",
+			"erased": "runtime"
 		},
 		{
 			"kind": "function",
@@ -1660,5 +1675,6 @@
 		"Matrix4x4",
 		"SharpConstructor",
 		"default"
-	]
+	],
+	"runtime": "imported"
 }

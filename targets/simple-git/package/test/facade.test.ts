@@ -1,11 +1,11 @@
 // What the facade does with the real simple-git and git: a repository built step by step in a temporary directory,
-// and a failing git command as the tagged GitError.
+// the client as a service for a program's lifetime, and a failing git command as the tagged GitError.
 import { mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "@effect/vitest";
 import { Effect } from "effect";
-import { GitError, simpleGit } from "../src/index.ts";
+import { GitError, SimpleGitService, simpleGit } from "../src/index.ts";
 
 const repository = () => {
 	const directory = mkdtempSync(join(tmpdir(), "effectified-simple-git-"));
@@ -33,6 +33,20 @@ describe("@effectified/simple-git", () => {
 			expect(status.isClean()).toBe(true);
 		}),
 	);
+
+	it.effect("provides one client as a service for the program", () => {
+		const directory = repository();
+		// #region example: The client as a service
+		const initialized = Effect.gen(function* () {
+			const git = yield* SimpleGitService;
+			yield* git.init();
+			return yield* git.checkIsRepo();
+		});
+		// One client bound to the working directory, provided at the program's edge.
+		const program = initialized.pipe(Effect.provide(SimpleGitService.layer(simpleGit(directory))));
+		// #endregion
+		return program.pipe(Effect.map((isRepository) => expect(isRepository).toBe(true)));
+	});
 
 	it.effect("fails with GitError for a git command that fails", () =>
 		Effect.gen(function* () {

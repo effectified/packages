@@ -1,6 +1,6 @@
 {
   "name": "@effectified/material-web",
-  "version": "2.5.0+3",
+  "version": "2.5.0+4",
   "description": "@material/web for Effect UI: typed bindings and mounts, its events as messages, its instances scoped to their elements",
   "type": "module",
   "license": "MIT",

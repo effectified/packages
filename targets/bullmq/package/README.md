@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/bullmq.tgz effect
 bun add https://effectified.dev/bullmq.tgz effect
 ```
 
-`https://effectified.dev/bullmq.tgz` always installs the newest release. This one is 6.7.10+4, for bullmq 6.7.10; to pin it, install https://github.com/effectified/packages/releases/download/bullmq-v6.7.10+4/effectified-bullmq-6.7.10+4.tgz.
+`https://effectified.dev/bullmq.tgz` always installs the newest release. This one is 6.7.10+5, for bullmq 6.7.10; to pin it, install https://github.com/effectified/packages/releases/download/bullmq-v6.7.10+5/effectified-bullmq-6.7.10+5.tgz.
 
 ## Examples
 
@@ -27,10 +27,23 @@ import { events, makeQueue, makeWorker } from "@effectified/bullmq";
 // Queue and worker close with the scope.
 const queue = yield* makeQueue(name, { connection: yield* redis });
 const worker = yield* makeWorker(name, async (job) => (job.data as { n: number }).n * 2, { connection: yield* redis });
-const completed = events.Worker.completed(worker).pipe(Stream.take(1), Stream.runCollect);
+// An emitter cannot be paused: bound the buffer when a consumer may fall behind (the newest are kept).
+const completed = events.Worker.completed(worker, { bufferSize: 16 }).pipe(Stream.take(1), Stream.runCollect);
 const [job, emitted] = yield* Effect.all([queue.add("double", { n: 21 }), completed], { concurrency: 2 });
 // Typed by bullmq's own WorkerListener: `completed` is called with the Job and its result.
 const [finished, result] = emitted[0] ?? [];
+```
+
+From `test/facade.test.ts`.
+
+### Job ids are branded, and a lookup that may find nothing is an Option
+
+```ts
+import { JobId } from "@effectified/bullmq";
+
+// `job.id` is a `JobId`: no other string is taken where a job id is, unless it is made one.
+const found = yield* queue.getJob(job.id ?? JobId.make("unknown"));
+const missing = yield* queue.getJob(JobId.make("no-such-job"));
 ```
 
 From `test/facade.test.ts`.
@@ -41,27 +54,29 @@ Exports: `QueueEvents`, `FlowProducer`, `Queue`, `Worker`.
 
 Services: `BullmqQueueEvents` (a `QueueEvents`, from `QueueEvents`), `BullmqFlowProducer` (a `FlowProducer`, from `FlowProducer`), `BullmqQueue` (a `Queue`, from `Queue`), `BullmqWorker` (a `Worker`, from `Worker`).
 
-| Error | From |
-|---|---|
-| `ConnectionClosedError` | `ConnectionClosedError` |
-| `DelayedError` | `DelayedError` |
-| `RateLimitError` | `RateLimitError` |
-| `RelayError` | `RelayError` |
-| `SchemaMigrationRequiredError` | `SchemaMigrationRequiredError` |
-| `SchemaVersionMismatchError` | `SchemaVersionMismatchError` |
-| `UnrecoverableError` | `UnrecoverableError` |
-| `UnsupportedPostgresVersionError` | `UnsupportedPostgresVersionError` |
-| `WaitingChildrenError` | `WaitingChildrenError` |
-| `WaitingError` | `WaitingError` |
-| `BullmqError` | any other failure, codes `EVALSHA`, `ECONNREFUSED`, `EVAL`, `EXEC`, `EXISTS` |
+Brands: `JobId` (`Job.id`, `Queue.addJobLog(0)`, `Queue.getJob(0)`, `Queue.getJobLogs(0)`, `Queue.getJobState(0)`, `Queue.remove(0)`, `Queue.updateJobProgress(0)`, `Worker.cancelJob(0)`); `WorkerId` (`Worker.id`).
 
-| Handle | Effects | Streams | Events | Released by |
-|---|---|---|---|---|
-| `QueueEvents` | `close`, `disconnect`, `run`, `trace`, `waitUntilReady` | – | – | `close` |
-| `FlowProducer` | `add`, `addBulk`, `close`, `disconnect`, `getFlow`, `waitUntilReady` | – | `error`, `ioredis:close` | `close` |
-| `Queue` | `add`, `addBulk`, `addJobLog`, `clean`, `close`, `count`, `disconnect`, `drain`, `exportPrometheusMetrics`, `getActive`, `getActiveCount`, `getCompleted`, `getCompletedCount`, `getCountsPerPriority`, `getDebounceJobId`, `getDeduplicationJobId`, `getDelayed`, `getDelayedCount`, `getDependencies`, `getFailed`, `getFailedCount`, `getGlobalConcurrency`, `getGlobalRateLimit`, `getJob`, `getJobCountByTypes`, `getJobCounts`, `getJobLogs`, `getJobScheduler`, `getJobSchedulers`, `getJobSchedulersCount`, `getJobState`, `getJobs`, `getMeta`, `getMetrics`, `getPrioritized`, `getPrioritizedCount`, `getQueueEvents`, `getRanges`, `getRateLimitTtl`, `getVersion`, `getWaiting`, `getWaitingChildren`, `getWaitingChildrenCount`, `getWaitingCount`, `getWorkers`, `getWorkersCount`, `isMaxed`, `isPaused`, `obliterate`, `pause`, `promoteJobs`, `rateLimit`, `recordJobCountsMetric`, `remove`, `removeDebounceKey`, `removeDeduplicationKey`, `removeDeprecatedPriorityKey`, `removeGlobalConcurrency`, `removeGlobalRateLimit`, `removeJobScheduler`, `removeOrphanedJobs`, `removeRateLimitKey`, `resume`, `retryJobs`, `setGlobalConcurrency`, `setGlobalRateLimit`, `trace`, `trimEvents`, `updateJobProgress`, `upsertJobScheduler`, `waitUntilReady` | – | `cleaned`, `error`, `ioredis:close`, `paused`, `progress`, `removed`, `resumed`, `waiting` | `close` |
-| `Worker` | `close`, `delay`, `disconnect`, `extendJobLocks`, `getNextJob`, `pause`, `processJob`, `rateLimit`, `resume`, `run`, `startStalledCheckTimer`, `trace`, `waitUntilReady` | – | `active`, `closed`, `closing`, `completed`, `drained`, `error`, `failed`, `ioredis:close`, `lockRenewalFailed`, `locksRenewed`, `paused`, `progress`, `ready`, `resumed`, `stalled` | `close` |
-| `Job` | `addJob`, `changeDelay`, `changePriority`, `clearLogs`, `extendLock`, `getChildrenValues`, `getDependencies`, `getDependenciesCount`, `getFailedChildrenValues`, `getIgnoredChildrenFailures`, `getState`, `isActive`, `isCompleted`, `isDelayed`, `isFailed`, `isWaiting`, `isWaitingChildren`, `log`, `moveToCompleted`, `moveToDelayed`, `moveToFailed`, `moveToWait`, `moveToWaitingChildren`, `promote`, `remove`, `removeChildDependency`, `removeDeduplicationKey`, `removeUnprocessedChildren`, `retry`, `updateData`, `updateProgress`, `waitUntilFinished` | – | – | – |
+| Error | From | Reasons |
+|---|---|---|
+| `ConnectionClosedError` | `ConnectionClosedError` | – |
+| `DelayedError` | `DelayedError` | – |
+| `RateLimitError` | `RateLimitError` | – |
+| `RelayError` | `RelayError` | – |
+| `SchemaMigrationRequiredError` | `SchemaMigrationRequiredError` | – |
+| `SchemaVersionMismatchError` | `SchemaVersionMismatchError` | – |
+| `UnrecoverableError` | `UnrecoverableError` | – |
+| `UnsupportedPostgresVersionError` | `UnsupportedPostgresVersionError` | – |
+| `WaitingChildrenError` | `WaitingChildrenError` | – |
+| `WaitingError` | `WaitingError` | – |
+| `BullmqError` | any other failure | `EVALSHA`, `ECONNREFUSED`, `EVAL`, `EXEC`, `EXISTS` |
+
+| Handle | Effects | Of an `Option` | Streams | Events | Released by |
+|---|---|---|---|---|---|
+| `QueueEvents` | `close`, `disconnect`, `run`, `trace`, `waitUntilReady` | – | – | – | `close` |
+| `FlowProducer` | `add`, `addBulk`, `close`, `disconnect`, `getFlow`, `waitUntilReady` | – | – | `error`, `ioredis:close` | `close` |
+| `Queue` | `add`, `addBulk`, `addJobLog`, `clean`, `close`, `count`, `disconnect`, `drain`, `exportPrometheusMetrics`, `getActive`, `getActiveCount`, `getCompleted`, `getCompletedCount`, `getCountsPerPriority`, `getDebounceJobId`, `getDeduplicationJobId`, `getDelayed`, `getDelayedCount`, `getDependencies`, `getFailed`, `getFailedCount`, `getGlobalConcurrency`, `getGlobalRateLimit`, `getJob`, `getJobCountByTypes`, `getJobCounts`, `getJobLogs`, `getJobScheduler`, `getJobSchedulers`, `getJobSchedulersCount`, `getJobState`, `getJobs`, `getMeta`, `getMetrics`, `getPrioritized`, `getPrioritizedCount`, `getQueueEvents`, `getRanges`, `getRateLimitTtl`, `getVersion`, `getWaiting`, `getWaitingChildren`, `getWaitingChildrenCount`, `getWaitingCount`, `getWorkers`, `getWorkersCount`, `isMaxed`, `isPaused`, `obliterate`, `pause`, `promoteJobs`, `rateLimit`, `recordJobCountsMetric`, `remove`, `removeDebounceKey`, `removeDeduplicationKey`, `removeDeprecatedPriorityKey`, `removeGlobalConcurrency`, `removeGlobalRateLimit`, `removeJobScheduler`, `removeOrphanedJobs`, `removeRateLimitKey`, `resume`, `retryJobs`, `setGlobalConcurrency`, `setGlobalRateLimit`, `trace`, `trimEvents`, `updateJobProgress`, `upsertJobScheduler`, `waitUntilReady` | `getDebounceJobId`, `getDeduplicationJobId`, `getGlobalConcurrency`, `getGlobalRateLimit`, `getJob`, `getJobScheduler`, `getVersion` | – | `cleaned`, `error`, `ioredis:close`, `paused`, `progress`, `removed`, `resumed`, `waiting` | `close` |
+| `Worker` | `close`, `delay`, `disconnect`, `extendJobLocks`, `getNextJob`, `pause`, `processJob`, `rateLimit`, `resume`, `run`, `startStalledCheckTimer`, `trace`, `waitUntilReady` | – | – | `active`, `closed`, `closing`, `completed`, `drained`, `error`, `failed`, `ioredis:close`, `lockRenewalFailed`, `locksRenewed`, `paused`, `progress`, `ready`, `resumed`, `stalled` | `close` |
+| `Job` | `addJob`, `changeDelay`, `changePriority`, `clearLogs`, `extendLock`, `getChildrenValues`, `getDependencies`, `getDependenciesCount`, `getFailedChildrenValues`, `getIgnoredChildrenFailures`, `getState`, `isActive`, `isCompleted`, `isDelayed`, `isFailed`, `isWaiting`, `isWaitingChildren`, `log`, `moveToCompleted`, `moveToDelayed`, `moveToFailed`, `moveToWait`, `moveToWaitingChildren`, `promote`, `remove`, `removeChildDependency`, `removeDeduplicationKey`, `removeUnprocessedChildren`, `retry`, `updateData`, `updateProgress`, `waitUntilFinished` | – | – | – | – |
 
 ## For agents
 

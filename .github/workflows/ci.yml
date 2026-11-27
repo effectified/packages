@@ -72,6 +72,12 @@ jobs:
       - name: The release build compiles
         working-directory: targets/${{ matrix.target }}/package
         run: node node_modules/typescript/bin/tsc -p tsconfig.build.json
+      # A runtime facade can build and pass its tests and still not import (an erased upstream name re-exported, a
+      # CommonJS package's named exports): verify builds dist/ and imports every entry point in Node, as release does.
+      # For a frontend facade that import is a report: it ships as its bundler resolves it, which the demo build and its
+      # browser tests check.
+      - name: The build's entry points import in Node (a report for frontend facades)
+        run: pnpm effectify verify ${{ matrix.target }}
       - name: The demo builds (frontend facades)
         working-directory: targets/${{ matrix.target }}/package
         run: if [ -f test/support/demo.ts ]; then node test/support/demo.ts "$RUNNER_TEMP/demo"; fi

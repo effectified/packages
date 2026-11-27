@@ -34,7 +34,7 @@ The skill each delegate needs is named in its brief (`effectify-recipe`, `effect
 When a delegate finishes, read its report before merging:
 
 - **accept**: its acceptance commands passed in its worktree and it touched only its `touches`. Merge its branch into `effectify/<name>`.
-- **send back**: it changed generated files (`package/src`, `package/package.json`), mocked the library, or its commands failed. Start a new `delegate_task` with the original brief, the report, and what to fix. Never fix a unit's work yourself beyond a merge conflict in `recipe.json`.
+- **send back**: it changed generated files (`package/src`, `package/package.json`), mocked the library, silenced a rule of the standard without a reason at the site, or its commands failed (a `reconcile` that ends in `EffectNativeError` failed). Start a new `delegate_task` with the original brief, the report, and what to fix. Never fix a unit's work yourself beyond a merge conflict in `recipe.json`.
 - **recipe conflicts**: two units may both add to `recipe.json` (`methods`, `decisions`). Merge both sides' entries; each decision's `id` is unique.
 
 After each merge, rerun `pnpm effectify reconcile <name>` in your checkout: a recipe change regenerates the package, and later units start from it.
@@ -47,7 +47,7 @@ pnpm effectify test <name>      # with the services the tests need (see effectif
 (cd targets/<name>/package && node node_modules/typescript/bin/tsc -p tsconfig.build.json)   # the release build compiles
 ```
 
-Open one pull request for `effectify/<name>` with: the facade's handles, services and error tags (from `recipe.json`), each unit's result, the decisions agents changed and why, and every skipped test with the service it needs. Do not merge it: a person reviews the recipe.
+`reconcile` ends with the standard's checks (`@effect/tsgo` and the idioms), so a green reconcile is an Effect-native facade. Open one pull request for `effectify/<name>` with: the facade's handles, services, error tags and reasons, brands and secrets (from `recipe.json`), each unit's result, the decisions agents changed and why, and every skipped test with the service it needs. Do not merge it: a person reviews the recipe.
 
 ## Engine gaps
 

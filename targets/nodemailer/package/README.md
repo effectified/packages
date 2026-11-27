@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/nodemailer.tgz effect
 bun add https://effectified.dev/nodemailer.tgz effect
 ```
 
-`https://effectified.dev/nodemailer.tgz` always installs the newest release. This one is 10.6.1+5, for nodemailer 10.6.1; to pin it, install https://github.com/effectified/packages/releases/download/nodemailer-v10.6.1+5/effectified-nodemailer-10.6.1+5.tgz.
+`https://effectified.dev/nodemailer.tgz` always installs the newest release. This one is 10.6.1+6, for nodemailer 10.6.1; to pin it, install https://github.com/effectified/packages/releases/download/nodemailer-v10.6.1+6/effectified-nodemailer-10.6.1+6.tgz.
 
 ## Examples
 
@@ -52,16 +52,32 @@ const program = send.pipe(Effect.provide(MailLive));
 
 From `test/facade.test.ts`.
 
-### A failure is a tagged error with upstream's code
+### Credentials from the environment, never logged
+
+```ts
+import { Config } from "effect";
+import { createTransport } from "@effectified/nodemailer";
+
+// `Config.Redacted` keeps the password out of logs and traces; the facade unwraps it for nodemailer alone.
+const pass = yield* Config.Redacted("SMTP_PASS");
+const mail = yield* createTransport({ host: "smtp.example.com", port: 587, auth: { user: "me@example.com", pass } });
+```
+
+From `test/facade.test.ts`.
+
+### A failure is a tagged error with upstream's code as its reason
 
 ```ts
 import { Effect } from "effect";
-import { createTransport } from "@effectified/nodemailer";
+import { createTransport, NodemailerError } from "@effectified/nodemailer";
 
 // Port 1 on the loopback refuses connections at once.
 const mail = yield* createTransport({ host: "127.0.0.1", port: 1, connectionTimeout: 1000 });
-const error = yield* Effect.flip(mail.verify());
-// error: NodemailerError { operation: "Mail.verify", code: "ECONNECTION", ... }
+const verified = yield* mail.verify().pipe(
+	Effect.catchReason("NodemailerError", "ECONNECTION", (reason, error) => Effect.succeed(`${error.operation}: ${reason._tag}`)),
+	Effect.catchReason("NodemailerError", "ESOCKET", (reason, error) => Effect.succeed(`${error.operation}: ${reason._tag}`)),
+);
+// verified: "Mail.verify: ECONNECTION"
 ```
 
 From `test/facade.test.ts`.
@@ -72,15 +88,17 @@ Exports: `createTransport`, `createTestAccount`.
 
 Services: `NodemailerMail` (a `Mail`, from `createTransport`).
 
-| Error | From |
-|---|---|
-| `NodemailerError` | any other failure, codes `ECONNECTION`, `EAUTH`, `EENVELOPE`, `EPROTOCOL`, `ETLS`, `EMESSAGE`, `EREQUIRETLS`, `ESOCKET`, `ETIMEDOUT`, `EDNS`, `EHLO`, `ESTREAM`, `EABORT`, `EAI_AGAIN`, `ECONFIG`, `EFETCH`, `EFILEACCESS`, `EMAXLIMIT`, `EMAXRECIPIENTS`, `ENOAUTH` |
+Secrets, also as `Redacted`: `createTransport` `0.auth.pass`, `0.auth.clientSecret`, `0.auth.refreshToken`, `0.auth.accessToken`, `0.auth.privateKey`, `0.dkim.privateKey`.
 
-| Handle | Effects | Streams | Events | Released by |
-|---|---|---|---|---|
-| `Mail` | `sendMail`, `verify` | – | – | `close` |
-| `Transport` | `send` | – | – | – |
-| `Logger` | – | – | – | – |
+| Error | From | Reasons |
+|---|---|---|
+| `NodemailerError` | any other failure | `ECONNECTION`, `EAUTH`, `EENVELOPE`, `EPROTOCOL`, `ETLS`, `EMESSAGE`, `EREQUIRETLS`, `ESOCKET`, `ETIMEDOUT`, `EDNS`, `EHLO`, `ESTREAM`, `EABORT`, `EAI_AGAIN`, `ECONFIG`, `EFETCH`, `EFILEACCESS`, `EMAXLIMIT`, `EMAXRECIPIENTS`, `ENOAUTH` |
+
+| Handle | Effects | Of an `Option` | Streams | Events | Released by |
+|---|---|---|---|---|---|
+| `Mail` | `sendMail`, `verify` | – | – | – | `close` |
+| `Transport` | `send` | – | – | – | `close` |
+| `Logger` | – | – | – | – | – |
 
 ## For agents
 

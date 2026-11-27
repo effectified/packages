@@ -12,7 +12,7 @@ npm install --allow-remote=all https://effectified.dev/motion.tgz effect https:/
 bun add https://effectified.dev/motion.tgz effect https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57
 ```
 
-`https://effectified.dev/motion.tgz` always installs the newest release. This one is 14.14.0+3, for motion 14.14.0; to pin it, install https://github.com/effectified/packages/releases/download/motion-v14.14.0+3/effectified-motion-14.14.0+3.tgz. Effect UI is in public preview: install its snapshot build, as above.
+`https://effectified.dev/motion.tgz` always installs the newest release. This one is 14.14.0+4, for motion 14.14.0; to pin it, install https://github.com/effectified/packages/releases/download/motion-v14.14.0+4/effectified-motion-14.14.0+4.tgz. Effect UI is in public preview: install its snapshot build, as above.
 
 ## Examples
 
@@ -94,13 +94,13 @@ From `test/fixtures/animate.ts`.
 
 Services: `MotionTimeline` (a `Timeline`, from `animate`).
 
-| Error | From |
-|---|---|
-| `MotionError` | any other failure |
+| Error | From | Reasons |
+|---|---|---|
+| `MotionError` | any other failure | – |
 
-| Handle | Effects | Streams | Events | Released by |
-|---|---|---|---|---|
-| `Timeline` | `then` | – | – | `stop` |
+| Handle | Effects | Of an `Option` | Streams | Events | Released by |
+|---|---|---|---|---|---|
+| `Timeline` | `then` | – | – | – | `stop` |
 
 Mounts: `AnimateMount`, `InViewMount`.
 

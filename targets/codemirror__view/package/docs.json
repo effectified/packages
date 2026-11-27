@@ -10,18 +10,18 @@
     "version": "6.44.0",
     "npm": "https://www.npmjs.com/package/@codemirror/view"
   },
-  "version": "6.44.0+3",
-  "engine": "0.3.0",
+  "version": "6.44.0+4",
+  "engine": "0.4.0",
   "page": "https://effectified.dev/codemirror-view",
   "source": "https://github.com/effectified/packages/tree/main/targets/codemirror__view",
   "install": {
     "latest": "https://effectified.dev/codemirror-view.tgz",
-    "release": "https://github.com/effectified/packages/releases/download/codemirror-view-v6.44.0+3/effectified-codemirror-view-6.44.0+3.tgz",
-    "tag": "codemirror-view-v6.44.0+3",
+    "release": "https://github.com/effectified/packages/releases/download/codemirror-view-v6.44.0+4/effectified-codemirror-view-6.44.0+4.tgz",
+    "tag": "codemirror-view-v6.44.0+4",
     "effectUi": "https://pkg.pr.new/Effect-TS/ui/@effect/ui@2fd1a57"
   },
   "demo": {
-    "url": "https://github.com/effectified/packages/releases/download/codemirror-view-v6.44.0+3/effectified-codemirror-view-6.44.0+3-demo.tgz",
+    "url": "https://github.com/effectified/packages/releases/download/codemirror-view-v6.44.0+4/effectified-codemirror-view-6.44.0+4-demo.tgz",
     "pages": [
       "editor"
     ]

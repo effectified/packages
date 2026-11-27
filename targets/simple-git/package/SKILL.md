@@ -7,7 +7,7 @@ description: Write Effect code that uses simple-git through @effectified/simple-
 
 Chainable thenables, generics kept.
 
-simple-git in Effect: its async calls as Effects, its iterables as Streams, its resources scoped, its failures tagged. Generated from simple-git's own types (this copy: 4.1.0+5, for simple-git 4.1.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
+simple-git in Effect: its async calls as traced Effects, absent values as Options, its iterables as Streams, its resources scoped, its failures tagged. Generated from simple-git's own types (this copy: 4.1.0+6, for simple-git 4.1.0), so its types are upstream's and a call the facade does not change behaves as upstream documents.
 
 ## Install
 
@@ -17,9 +17,12 @@ pnpm add https://effectified.dev/simple-git.tgz effect
 
 ## Rules
 
-- Import from `@effectified/simple-git`, not from `simple-git`. simple-git's types are `Upstream.<Type>` (`import { Upstream } from "@effectified/simple-git"`).
-- An async call returns an `Effect`, run with `yield*` inside `Effect.gen`; an async iterable is a `Stream`; a handle a call returns is a facade too. A synchronous call stays synchronous (a builder chain stays a chain).
-- Failures are tagged: `GitConstructError`, `GitPluginError`, `GitResponseError`, `TaskConfigurationError`, `GitError`, and `SimpleGitError` for any other failure. Handle one with `Effect.catchTag("<Tag>", ...)`; each carries `operation` (`"<Handle>.<method>"`), `message`, upstream's `code` when it has one, and `cause`.
+- Import from `@effectified/simple-git`, not from `simple-git`. simple-git's types are re-exported by their own names (`import type { ... } from "@effectified/simple-git"`), and all of it is `Upstream`.
+- An async call returns an `Effect`, traced as `<Handle>.<method>` (a span and a stack frame per call, as `Effect.fn`): run it with `yield*` inside `Effect.gen` or your own `Effect.fn`. An async iterable is a `Stream`; a handle a call returns is a facade too. A synchronous call stays synchronous (a builder chain stays a chain).
+- Services: `SimpleGitService` (a `SimpleGit`). Provide one at the program's edge with `<Service>.layer(<acquiring Effect>)` and read it with `yield* <Service>`.
+- Failures are branded `Schema.TaggedError`s: `GitConstructError`, `GitPluginError`, `GitResponseError`, `TaskConfigurationError`, `GitError`, and `SimpleGitError` for any other failure. Handle one with `Effect.catchTag("<Tag>", ...)`; each carries `operation` (`"<Handle>.<method>"`), `message`, upstream's `code` when it has one, the fields upstream's error declares, and upstream's failure as `cause`, `Redacted` (`Redacted.value(error.cause)`), printed nowhere. `Failure` is the Schema of every one: `Failure.match(error, { <Tag>: ... })`, `Failure.guards.<Tag>(value)`.
+- `SimpleGitError` carries `reason`, upstream's code as a tagged union (`EPIPE`, `ERROR`...): pick one with `Effect.catchReason("SimpleGitError", "EPIPE", (reason, error) => ...)`.
+- Two facades of one upstream object are `Equal` and hash alike: use them as keys of a `HashMap` or `HashSet`.
 - What the facade does not wrap stays reachable: `.upstream` on every facade, `Upstream` for the package. Use them rather than importing `simple-git` again.
 
 ## Examples
@@ -43,6 +46,23 @@ const log = yield* git.log();
 
 From `test/facade.test.ts`.
 
+### The client as a service
+
+```ts
+import { Effect } from "effect";
+import { SimpleGitService, simpleGit } from "@effectified/simple-git";
+
+const initialized = Effect.gen(function* () {
+	const git = yield* SimpleGitService;
+	yield* git.init();
+	return yield* git.checkIsRepo();
+});
+// One client bound to the working directory, provided at the program's edge.
+const program = initialized.pipe(Effect.provide(SimpleGitService.layer(simpleGit(directory))));
+```
+
+From `test/facade.test.ts`.
+
 ### Handle a failing command by its tag
 
 ```ts
@@ -61,20 +81,22 @@ From `test/facade.test.ts`.
 
 Exports: `refName`, `remoteUrl`, `grepQueryBuilder`, `simpleGit`.
 
-| Error | From |
-|---|---|
-| `GitConstructError` | `GitConstructError` |
-| `GitPluginError` | `GitPluginError` |
-| `GitResponseError` | `GitResponseError` |
-| `TaskConfigurationError` | `TaskConfigurationError` |
-| `GitError` | `GitError` |
-| `SimpleGitError` | any other failure, codes `EPIPE`, `ERROR` |
+Services: `SimpleGitService` (a `SimpleGit`, from `simpleGit`).
 
-| Handle | Effects | Streams | Events | Released by |
-|---|---|---|---|---|
-| `TemplateValue` | – | – | – | – |
-| `GitGrepQuery` | – | – | – | – |
-| `SimpleGit` | `add`, `addAnnotatedTag`, `addConfig`, `addRemote`, `addTag`, `applyPatch`, `binaryCatFile`, `branch`, `branchLocal`, `catFile`, `checkIgnore`, `checkIsRepo`, `checkout`, `checkoutBranch`, `checkoutLatestTag`, `checkoutLocalBranch`, `clean`, `clone`, `cmd`, `commit`, `countObjects`, `cwd`, `deleteLocalBranch`, `deleteLocalBranches`, `diff`, `diffSummary`, `exec`, `fetch`, `firstCommit`, `getConfig`, `getRemotes`, `grep`, `hashObject`, `init`, `interpretTrailers`, `listConfig`, `listRemote`, `log`, `merge`, `mergeFromTo`, `mirror`, `mv`, `pull`, `push`, `pushTags`, `raw`, `rebase`, `remote`, `removeRemote`, `reset`, `revert`, `revparse`, `rm`, `rmKeepLocal`, `show`, `showBuffer`, `stash`, `stashList`, `status`, `subModule`, `submoduleAdd`, `submoduleInit`, `submoduleUpdate`, `tag`, `tags`, `updateServerInfo`, `version` | – | – | – |
-| `StatusResult` | – | – | – | – |
+| Error | From | Reasons |
+|---|---|---|
+| `GitConstructError` | `GitConstructError` | – |
+| `GitPluginError` | `GitPluginError` | – |
+| `GitResponseError` | `GitResponseError` | – |
+| `TaskConfigurationError` | `TaskConfigurationError` | – |
+| `GitError` | `GitError` | – |
+| `SimpleGitError` | any other failure | `EPIPE`, `ERROR` |
+
+| Handle | Effects | Of an `Option` | Streams | Events | Released by |
+|---|---|---|---|---|---|
+| `TemplateValue` | – | – | – | – | – |
+| `GitGrepQuery` | – | – | – | – | – |
+| `SimpleGit` | `add`, `addAnnotatedTag`, `addConfig`, `addRemote`, `addTag`, `applyPatch`, `binaryCatFile`, `branch`, `branchLocal`, `catFile`, `checkIgnore`, `checkIsRepo`, `checkout`, `checkoutBranch`, `checkoutLatestTag`, `checkoutLocalBranch`, `clean`, `clone`, `cmd`, `commit`, `countObjects`, `cwd`, `deleteLocalBranch`, `deleteLocalBranches`, `diff`, `diffSummary`, `exec`, `fetch`, `firstCommit`, `getConfig`, `getRemotes`, `grep`, `hashObject`, `init`, `interpretTrailers`, `listConfig`, `listRemote`, `log`, `merge`, `mergeFromTo`, `mirror`, `mv`, `pull`, `push`, `pushTags`, `raw`, `rebase`, `remote`, `removeRemote`, `reset`, `revert`, `revparse`, `rm`, `rmKeepLocal`, `show`, `showBuffer`, `stash`, `stashList`, `status`, `subModule`, `submoduleAdd`, `submoduleInit`, `submoduleUpdate`, `tag`, `tags`, `updateServerInfo`, `version` | – | – | – | – |
+| `StatusResult` | – | – | – | – | – |
 
 More: https://effectified.dev/simple-git

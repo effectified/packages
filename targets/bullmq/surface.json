@@ -10035,6 +10035,9 @@
 						"trailingCallback": false,
 						"returns": "Promise<JobBase<DataTypeOrJob, ResultType, NameType>[]>",
 						"resolves": "JobBase<DataTypeOrJob, ResultType, NameType>[]",
+						"handles": [
+							"Job"
+						],
 						"traits": [
 							"async"
 						]
@@ -10059,6 +10062,9 @@
 						"trailingCallback": false,
 						"returns": "Promise<JobBase<DataTypeOrJob, ResultType, NameType>[]>",
 						"resolves": "JobBase<DataTypeOrJob, ResultType, NameType>[]",
+						"handles": [
+							"Job"
+						],
 						"traits": [
 							"async"
 						]
@@ -10083,6 +10089,9 @@
 						"trailingCallback": false,
 						"returns": "Promise<JobBase<DataTypeOrJob, ResultType, NameType>[]>",
 						"resolves": "JobBase<DataTypeOrJob, ResultType, NameType>[]",
+						"handles": [
+							"Job"
+						],
 						"traits": [
 							"async"
 						]
@@ -10107,6 +10116,9 @@
 						"trailingCallback": false,
 						"returns": "Promise<JobBase<DataTypeOrJob, ResultType, NameType>[]>",
 						"resolves": "JobBase<DataTypeOrJob, ResultType, NameType>[]",
+						"handles": [
+							"Job"
+						],
 						"traits": [
 							"async"
 						]
@@ -10131,6 +10143,9 @@
 						"trailingCallback": false,
 						"returns": "Promise<JobBase<DataTypeOrJob, ResultType, NameType>[]>",
 						"resolves": "JobBase<DataTypeOrJob, ResultType, NameType>[]",
+						"handles": [
+							"Job"
+						],
 						"traits": [
 							"async"
 						]
@@ -10155,6 +10170,9 @@
 						"trailingCallback": false,
 						"returns": "Promise<JobBase<DataTypeOrJob, ResultType, NameType>[]>",
 						"resolves": "JobBase<DataTypeOrJob, ResultType, NameType>[]",
+						"handles": [
+							"Job"
+						],
 						"traits": [
 							"async"
 						]
@@ -10179,6 +10197,9 @@
 						"trailingCallback": false,
 						"returns": "Promise<JobBase<DataTypeOrJob, ResultType, NameType>[]>",
 						"resolves": "JobBase<DataTypeOrJob, ResultType, NameType>[]",
+						"handles": [
+							"Job"
+						],
 						"traits": [
 							"async"
 						]
@@ -10287,6 +10308,9 @@
 						"trailingCallback": false,
 						"returns": "Promise<JobBase<DataTypeOrJob, ResultType, NameType>[]>",
 						"resolves": "JobBase<DataTypeOrJob, ResultType, NameType>[]",
+						"handles": [
+							"Job"
+						],
 						"traits": [
 							"async"
 						]
@@ -11144,6 +11168,9 @@
 						"trailingCallback": false,
 						"returns": "Promise<JobBase<DataTypeOrJob, ResultType, NameType> | undefined>",
 						"resolves": "JobBase<DataTypeOrJob, ResultType, NameType> | undefined",
+						"handles": [
+							"Job"
+						],
 						"traits": [
 							"async"
 						]
@@ -17817,5 +17844,6 @@
 		"PgQueryResult",
 		"PgNotification",
 		"isPgPool"
-	]
+	],
+	"runtime": "imported"
 }
